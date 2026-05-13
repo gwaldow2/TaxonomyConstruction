@@ -44,6 +44,8 @@ def method_lexical(nodes):
             if u_primary != v_primary and len(u_primary) > 3:
                 if u_primary in v_primary:
                     G.add_edge(u, v)
+                    
+    print(f"    [Lexical] SUCCESS | Built {G.number_of_edges()} raw edges via string containment.")
     return cluster_synonyms_and_enforce_dag(G)
 
 def method_vector(nodes, encoder_model):
@@ -57,4 +59,6 @@ def method_vector(nodes, encoder_model):
                 u, v = nodes[i], nodes[j]
                 if len(u) < len(v):
                     G.add_edge(u, v)
+                    
+    print(f"    [Vector] SUCCESS | Built {G.number_of_edges()} raw edges via cosine similarity > 0.65.")
     return cluster_synonyms_and_enforce_dag(G)
