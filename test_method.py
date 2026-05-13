@@ -5,11 +5,10 @@ import traceback
 import networkx as nx
 from datetime import datetime
 from pydantic import BaseModel, Field
-from typing import List, Tuple
 from data_manager import get_primary_term
 
 class TaxonomyOutput(BaseModel):
-    edges: List[Tuple[str, str]] = Field(
+    edges: list[tuple[str, str]] = Field(
         description="A list of parent-child relationship pairs."
     )
 
@@ -111,18 +110,20 @@ Output MUST be valid JSON matching this schema: {json_schema}
         c_tokens = getattr(usage, 'completion_tokens', -1)
         
         write_log("STAGE 2 TELEMETRY", f"Time: {time.time()-t0:.2f}s\nPrompt Tokens: {p_tokens}\nCompletion Tokens: {c_tokens}\nFinish Reason: {finish_reason}")
-        write_log("STAGE 2 RAW OUTPUT (Exact string from server)", repr(content)) # repr() shows hidden characters/newlines
+        write_log("STAGE 2 RAW OUTPUT (Exact string from server)", repr(content))
 
-        # --- DUMB PARSING (Just to see if it even can parse) ---
+        # --- DUMB PARSING WITH ZERO LITERAL BACKTICKS ---
         content_stripped = content.strip()
-        if content_stripped.startswith("```"):
-            content_stripped = content_stripped.lstrip("`")
+        md_fence = chr(96) * 3
+        
+        if content_stripped.startswith(md_fence):
+            content_stripped = content_stripped.lstrip(chr(96))
             if content_stripped.lower().startswith("json"):
                 content_stripped = content_stripped[4:]
             content_stripped = content_stripped.strip()
-        if content_stripped.endswith("
-```"):
-            content_stripped = content_stripped.rstrip("`").strip()
+            
+        if content_stripped.endswith(md_fence):
+            content_stripped = content_stripped.rstrip(chr(96)).strip()
 
         write_log("STAGE 2 SANITIZED STRING", content_stripped)
 
