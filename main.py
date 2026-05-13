@@ -1,6 +1,7 @@
 import os
 import argparse
 import gc
+import time
 import torch
 import pandas as pd
 import networkx as nx
@@ -18,9 +19,12 @@ from SBU_NLP_method import method_sbu_batch, method_sbu_ensemble
 
 def display_summary_table(domain, eval_results):
     data = []
-    for method, metrics in eval_results.items():
+    for method, info in eval_results.items():
+        metrics = info["metrics"]
+        runtime = info["runtime"]
         row = {
             "Method": method,
+            "Runtime (s)": f"{runtime:.1f}",
             "Cond_Red (F1)": f"{metrics['Cond_Red']['F1']:.4f}",
             "Cond_Clos (F1)": f"{metrics['Cond_Clos']['F1']:.4f}",
             "Exp_Raw (F1)": f"{metrics['Exp_Raw']['F1']:.4f}",
@@ -29,11 +33,11 @@ def display_summary_table(domain, eval_results):
         data.append(row)
         
     df = pd.DataFrame(data).set_index("Method")
-    print(f"\n{'='*70}")
+    print(f"\n{'='*80}")
     print(f"=== SUMMARY: {domain} ===")
-    print(f"{'='*70}")
+    print(f"{'='*80}")
     print(df.to_string())
-    print(f"{'='*70}\n")
+    print(f"{'='*80}\n")
 
 def main(args):
     os.makedirs("./results", exist_ok=True)
@@ -119,58 +123,95 @@ def main(args):
         
         if "lexical" in selected_methods:
             print("  -> Running Lexical...")
+            t0 = time.time()
             G_lex = method_lexical(input_nodes)
             if "virtual_root" in G_lex: G_lex.remove_node("virtual_root")
-            eval_results["Lexical"] = evaluate_all_modes(G_lex, G_gt, f"./results/{dataset_name_eval}_Lexical")
+            t_run = time.time() - t0
+            eval_results["Lexical"] = {
+                "metrics": evaluate_all_modes(G_lex, G_gt, f"./results/{dataset_name_eval}_Lexical"), 
+                "runtime": t_run
+            }
             
         if "vector" in selected_methods:
             print("  -> Running Vector...")
+            t0 = time.time()
             G_vec = method_vector(input_nodes, vector_encoder)
             if "virtual_root" in G_vec: G_vec.remove_node("virtual_root")
-            eval_results["Vector"] = evaluate_all_modes(G_vec, G_gt, f"./results/{dataset_name_eval}_Vector")
+            t_run = time.time() - t0
+            eval_results["Vector"] = {
+                "metrics": evaluate_all_modes(G_vec, G_gt, f"./results/{dataset_name_eval}_Vector"), 
+                "runtime": t_run
+            }
             
         if "llm_zero" in selected_methods:
             print("  -> Running Zero-Shot LLM...")
+            t0 = time.time()
             G_llm_zero = method_llm_single_shot(input_nodes, client, MODEL_NAME)
             if "virtual_root" in G_llm_zero: G_llm_zero.remove_node("virtual_root")
-            eval_results["LLM Zero-Shot"] = evaluate_all_modes(G_llm_zero, G_gt, f"./results/{dataset_name_eval}_LLMZero")
+            t_run = time.time() - t0
+            eval_results["LLM Zero-Shot"] = {
+                "metrics": evaluate_all_modes(G_llm_zero, G_gt, f"./results/{dataset_name_eval}_LLMZero"), 
+                "runtime": t_run
+            }
 
         if "our_method" in selected_methods:
             print("  -> Running Our Method...")
+            t0 = time.time()
             G_our = method_our_approach(input_nodes, client, MODEL_NAME)
             if "virtual_root" in G_our: G_our.remove_node("virtual_root")
-            eval_results["Our Method O(N)"] = evaluate_all_modes(G_our, G_gt, f"./results/{dataset_name_eval}_OurMethod")
+            t_run = time.time() - t0
+            eval_results["Our Method O(N)"] = {
+                "metrics": evaluate_all_modes(G_our, G_gt, f"./results/{dataset_name_eval}_OurMethod"), 
+                "runtime": t_run
+            }
 
         if "taxollama" in selected_methods:
             print("  -> Precomputing TaxoLLaMA Scores...")
+            t0 = time.time()
             ppl_cache = precompute_taxollama_ppl(input_nodes, taxo_model, taxo_tokenizer, device)
             thresh = 15.0
             G_taxo = build_taxollama_graph(input_nodes, ppl_cache, threshold=thresh, max_parents=1)
             if "virtual_root" in G_taxo: G_taxo.remove_node("virtual_root")
+            t_run = time.time() - t0
             method_name = f"TaxoLLaMA (PPL<{thresh})"
-            eval_results[method_name] = evaluate_all_modes(G_taxo, G_gt, f"./results/{dataset_name_eval}_TaxoLLaMA_PPL{thresh}")
+            eval_results[method_name] = {
+                "metrics": evaluate_all_modes(G_taxo, G_gt, f"./results/{dataset_name_eval}_TaxoLLaMA_PPL{thresh}"), 
+                "runtime": t_run
+            }
 
         if "sbu_batch" in selected_methods:
             print("  -> Running SBU LLM Batch Prompting...")
+            t0 = time.time()
             G_sbu_batch = method_sbu_batch(input_nodes, client, MODEL_NAME, train_pairs=train_pairs)
             if "virtual_root" in G_sbu_batch: G_sbu_batch.remove_node("virtual_root")
-            eval_results["SBU LLM Batch"] = evaluate_all_modes(G_sbu_batch, G_gt, f"./results/{dataset_name_eval}_SBU_Batch")
+            t_run = time.time() - t0
+            eval_results["SBU LLM Batch"] = {
+                "metrics": evaluate_all_modes(G_sbu_batch, G_gt, f"./results/{dataset_name_eval}_SBU_Batch"), 
+                "runtime": t_run
+            }
 
         if "sbu_ensemble" in selected_methods:
             print("  -> Running SBU Ensemble (Overlap + Embedding)...")
+            t0 = time.time()
             G_sbu_ens = method_sbu_ensemble(input_nodes, vector_encoder)
             if "virtual_root" in G_sbu_ens: G_sbu_ens.remove_node("virtual_root")
-            eval_results["SBU Ensemble"] = evaluate_all_modes(G_sbu_ens, G_gt, f"./results/{dataset_name_eval}_SBU_Ensemble")
+            t_run = time.time() - t0
+            eval_results["SBU Ensemble"] = {
+                "metrics": evaluate_all_modes(G_sbu_ens, G_gt, f"./results/{dataset_name_eval}_SBU_Ensemble"), 
+                "runtime": t_run
+            }
 
         if eval_results:
             display_summary_table(dataset_name_eval, eval_results)
             print(f"Saving benchmark results to JSON...")
-            for method_name, metrics in eval_results.items():
+            for method_name, info in eval_results.items():
+                metrics = info["metrics"]
                 flat_metrics = {
                     "Cond_Red_F1": metrics["Cond_Red"]["F1"],
                     "Cond_Clos_F1": metrics["Cond_Clos"]["F1"],
                     "Exp_Raw_F1": metrics["Exp_Raw"]["F1"],
-                    "Exp_Clos_F1": metrics["Exp_Clos"]["F1"]
+                    "Exp_Clos_F1": metrics["Exp_Clos"]["F1"],
+                    "Runtime_sec": info["runtime"]
                 }
                 # Tagged by scale naturally via dataset_name_eval
                 update_benchmark_results(
