@@ -2,147 +2,140 @@ import os
 import json
 import time
 import traceback
-import networkx as nx
-from datetime import datetime
-from pydantic import BaseModel, Field
-from data_manager import get_primary_term
+# Ensure you run this in your project root so it can find your data_manager
+try:
+    from data_manager import get_primary_term
+except ImportError:
+    print("Warning: data_manager.py not found. Using identity function for terms.")
+    def get_primary_term(x): return x
 
-class TaxonomyOutput(BaseModel):
-    edges: list[tuple[str, str]] = Field(
-        description="A list of parent-child relationship pairs."
-    )
+from openai import OpenAI
 
-def debug_llm_single_shot(nodes, client, model_name, reasoning_level='medium', domain_name="UNKNOWN"):
-    """
-    Extensively instrumented diagnostic method.
-    Dumps all raw inputs, outputs, usage stats, and errors to disk.
-    """
-    # 1. Setup Debug Directory
-    debug_dir = "./llm_debug_dumps"
-    os.makedirs(debug_dir, exist_ok=True)
-    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    debug_file = os.path.join(debug_dir, f"debug_{domain_name}_{timestamp}.txt")
-    
-    G = nx.DiGraph()
-    primary_to_full_map = {get_primary_term(n): n for n in nodes}
-    primary_nodes = list(primary_to_full_map.keys())
-    vocab_string = ", ".join(primary_nodes)
-    num_terms = len(primary_nodes)
-    
-    rtpt_map = {'none': 0, 'low': 10, 'medium': 20, 'high': 40}
-    rtpt = rtpt_map.get(reasoning_level.lower(), 20)
-    reasoning_budget = num_terms * rtpt
-    
-    json_schema = json.dumps(TaxonomyOutput.model_json_schema())
-    
-    base_instructions = f"""You are an expert ontologist.
-Vocabulary: [{vocab_string}]
-Identify parent-child relationships. ONLY use terms from the list.
-Output MUST be valid JSON matching this schema: {json_schema}
-"""
+# --- CONFIGURATION ---
+MODEL_NAME = "openai/gpt-oss-120b"
+BASE_URL = "http://localhost:8000/v1"
+API_KEY = "woohoo"
+DEBUG_LOG = "./standalone_debug_report.txt"
+RAW_JSON_DUMP = "./raw_llm_output.json"
 
-    def write_log(section_title, content):
-        with open(debug_file, 'a', encoding='utf-8') as f:
-            f.write(f"\n{'='*60}\n=== {section_title} ===\n{'='*60}\n")
+# A representative sample of 20 nodes to test the "Low" reasoning budget behavior
+SAMPLE_NODES = [
+    "beverage", "alcohol", "ale", "beer", "pale ale", "spruce beer", 
+    "food", "produce", "vegetable", "legume", "pea", "field pea", 
+    "meat", "pork", "beef", "poultry", "chicken", "dairy", "cheese", "milk"
+]
+
+def run_standalone_diagnostic():
+    client = OpenAI(base_url=BASE_URL, api_key=API_KEY)
+    
+    # 1. Initialize Log
+    with open(DEBUG_LOG, "w", encoding="utf-8") as f:
+        f.write(f"LLM STANDALONE DIAGNOSTIC - {time.ctime()}\n")
+        f.write(f"Model: {MODEL_NAME} | URL: {BASE_URL}\n")
+        f.write("="*60 + "\n")
+
+    def log(section, content):
+        with open(DEBUG_LOG, "a", encoding="utf-8") as f:
+            f.write(f"\n[{section}]\n")
             f.write(str(content) + "\n")
 
-    write_log("METADATA", f"Model: {model_name}\nNodes: {num_terms}\nReasoning Budget: {reasoning_budget}")
+    print(f"Starting diagnostic... Logging to {DEBUG_LOG}")
 
-    # --- STAGE 1: Reasoning ---
-    reasoning_context = ""
-    if reasoning_budget > 0:
-        stage1_prompt = base_instructions + "\nThink step-by-step."
-        write_log("STAGE 1 PROMPT (Reasoning)", stage1_prompt)
+    # --- SETUP BUDGET ---
+    num_terms = len(SAMPLE_NODES)
+    # Testing 'low' reasoning level (10 tokens per term)
+    reasoning_budget = num_terms * 10 
+    # Requested budget for extraction
+    extraction_budget = (num_terms * 40) + 600
+    
+    vocab_str = ", ".join(SAMPLE_NODES)
+    
+    # --- STAGE 1: REASONING ---
+    print("Executing Stage 1 (Reasoning)...")
+    s1_prompt = f"Vocabulary: [{vocab_str}]\nThink step-by-step about the hierarchy."
+    
+    try:
+        t0 = time.time()
+        res_s1 = client.chat.completions.create(
+            model=MODEL_NAME,
+            messages=[{"role": "user", "content": s1_prompt}],
+            temperature=0.6,
+            max_tokens=reasoning_budget
+        )
+        duration_s1 = time.time() - t0
+        thought = res_s1.choices[0].message.content or ""
         
-        try:
-            t0 = time.time()
-            res_reasoning = client.chat.completions.create(
-                model=model_name,
-                messages=[{"role": "user", "content": stage1_prompt}],
-                temperature=0.6,
-                max_tokens=reasoning_budget
-            )
-            raw_thought = res_reasoning.choices[0].message.content or ""
-            reasoning_context = f"\nPreliminary Analysis:\n{raw_thought}\n"
-            
-            p_tok = getattr(res_reasoning.usage, 'prompt_tokens', -1)
-            c_tok = getattr(res_reasoning.usage, 'completion_tokens', -1)
-            finish = res_reasoning.choices[0].finish_reason
-            
-            write_log("STAGE 1 TELEMETRY", f"Time: {time.time()-t0:.2f}s\nPrompt Tokens: {p_tok}\nCompletion Tokens: {c_tok}\nFinish Reason: {finish}")
-            write_log("STAGE 1 RAW OUTPUT", raw_thought)
-            
-        except Exception as e:
-            write_log("STAGE 1 EXCEPTION", traceback.format_exc())
-            print(f"    [DEBUG] Stage 1 crashed. See log: {debug_file}")
+        telemetry_s1 = (
+            f"Latency: {duration_s1:.2f}s\n"
+            f"Prompt Tokens: {res_s1.usage.prompt_tokens}\n"
+            f"Completion Tokens: {res_s1.usage.completion_tokens}\n"
+            f"Finish Reason: {res_s1.choices[0].finish_reason}"
+        )
+        log("STAGE 1 TELEMETRY", telemetry_s1)
+        log("STAGE 1 RAW THOUGHT", thought)
 
-    # --- STAGE 2: Extraction ---
-    current_json_budget = (num_terms * 40) + 600
+    except Exception:
+        log("STAGE 1 CRASH", traceback.format_exc())
+        print("Stage 1 Failed. Check logs.")
+        return
+
+    # --- STAGE 2: EXTRACTION ---
+    print("Executing Stage 2 (Extraction)...")
+    # We use chr(96) to avoid markdown literal issues in the diagnostic log
+    md_fence = chr(96) * 3
     
-    extraction_prompt = (
-        base_instructions + 
-        reasoning_context + 
-        "\nCRITICAL: Return ONLY raw JSON. Do NOT use markdown code blocks. "
-        "Begin your response immediately with the '{' character."
+    s2_prompt = (
+        f"Vocabulary: [{vocab_str}]\n"
+        f"Preliminary Analysis: {thought}\n"
+        f"Output a JSON object with key 'edges' containing [parent, child] pairs. "
+        f"Start immediately with '{' and do not use {md_fence}."
     )
-    
-    write_log("STAGE 2 PROMPT (Extraction)", extraction_prompt)
-    write_log("STAGE 2 SETTINGS", f"Max Tokens Requested: {current_json_budget}\nResponse Format: JSON_OBJECT")
 
     try:
         t0 = time.time()
-        res_extract = client.chat.completions.create(
-            model=model_name,
+        res_s2 = client.chat.completions.create(
+            model=MODEL_NAME,
             messages=[
-                {"role": "system", "content": "You are a strict JSON data extraction pipeline. Output raw JSON without markdown."},
-                {"role": "user", "content": extraction_prompt}
+                {"role": "system", "content": "You are a strict JSON extraction engine."},
+                {"role": "user", "content": s2_prompt}
             ],
             temperature=0.0,
-            max_tokens=current_json_budget,
+            max_tokens=extraction_budget,
             response_format={"type": "json_object"}
         )
-
-        content = res_extract.choices[0].message.content or ""
-        usage = res_extract.usage
-        finish_reason = res_extract.choices[0].finish_reason
-
-        p_tokens = getattr(usage, 'prompt_tokens', -1)
-        c_tokens = getattr(usage, 'completion_tokens', -1)
+        duration_s2 = time.time() - t0
+        content = res_s2.choices[0].message.content or ""
         
-        write_log("STAGE 2 TELEMETRY", f"Time: {time.time()-t0:.2f}s\nPrompt Tokens: {p_tokens}\nCompletion Tokens: {c_tokens}\nFinish Reason: {finish_reason}")
-        write_log("STAGE 2 RAW OUTPUT (Exact string from server)", repr(content))
-
-        # --- DUMB PARSING WITH ZERO LITERAL BACKTICKS ---
-        content_stripped = content.strip()
-        md_fence = chr(96) * 3
+        telemetry_s2 = (
+            f"Latency: {duration_s2:.2f}s\n"
+            f"Prompt Tokens: {res_s2.usage.prompt_tokens}\n"
+            f"Completion Tokens: {res_s2.usage.completion_tokens}\n"
+            f"Finish Reason: {res_s2.choices[0].finish_reason}\n"
+            f"Raw Content Length: {len(content)} chars"
+        )
+        log("STAGE 2 TELEMETRY", telemetry_s2)
         
-        if content_stripped.startswith(md_fence):
-            content_stripped = content_stripped.lstrip(chr(96))
-            if content_stripped.lower().startswith("json"):
-                content_stripped = content_stripped[4:]
-            content_stripped = content_stripped.strip()
-            
-        if content_stripped.endswith(md_fence):
-            content_stripped = content_stripped.rstrip(chr(96)).strip()
-
-        write_log("STAGE 2 SANITIZED STRING", content_stripped)
-
-        parsed_data = json.loads(content_stripped)
-        edges_list = parsed_data.get("edges", [])
+        # We use repr() to see if there are hidden null bytes or escape chars
+        log("STAGE 2 RAW OUTPUT (REPR)", repr(content))
         
-        edges_added = 0
-        for pair in edges_list:
-            if len(pair) == 2:
-                p, c = str(pair[0]).strip().lower(), str(pair[1]).strip().lower()
-                if p in primary_to_full_map and c in primary_to_full_map and p != c:
-                    G.add_edge(primary_to_full_map[p], primary_to_full_map[c])
-                    edges_added += 1
-        
-        write_log("STAGE 2 PARSE RESULT", f"SUCCESS. Edges extracted: {edges_added}")
-        print(f"    [DEBUG] Log written to {debug_file} | Edges: {edges_added}")
+        with open(RAW_JSON_DUMP, "w") as jf:
+            jf.write(content)
 
-    except Exception as e:
-        write_log("STAGE 2 EXCEPTION / CRASH", traceback.format_exc())
-        print(f"    [DEBUG] Extraction failed. Inspect log: {debug_file}")
+        # Parsing Test
+        try:
+            parsed = json.loads(content)
+            edges = parsed.get("edges", [])
+            log("PARSE STATUS", f"SUCCESS. Found {len(edges)} edges.")
+            print(f"Success! Found {len(edges)} edges. See {DEBUG_LOG}")
+        except json.JSONDecodeError as je:
+            log("PARSE STATUS", f"FAILED: {str(je)}")
+            # Log the last 100 chars to see if it was a truncation issue
+            log("TRUNCATION CHECK (Last 100 chars)", content[-100:])
+            print("Parse Failed. Check logs for truncation data.")
 
-    return G
+    except Exception:
+        log("STAGE 2 CRASH", traceback.format_exc())
+        print("Stage 2 Failed. Check logs.")
+
+if __name__ == "__main__":
+    run_standalone_diagnostic()
