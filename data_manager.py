@@ -1,5 +1,6 @@
 import os
 import re
+import json
 import random
 import requests
 import networkx as nx
@@ -260,3 +261,43 @@ def get_csv_graph(file_path, use_synsets=False):
     except Exception as e:
         print(f"CRITICAL ERROR loading CSV {file_path}: {e}")
     return G
+
+def get_llms4ol_task_c_data(domain_folder_path, use_synsets=False):
+    """
+    Parses the LLMs4OL 2025 Task C dataset structure.
+    Returns: (G_gt, test_nodes, train_pairs)
+    """
+    G_gt = nx.DiGraph()
+    test_nodes = []
+    train_pairs = []
+    
+    # Extract prefix (e.g., 'OBI', 'SWEET') from folder path
+    domain_name = os.path.basename(os.path.normpath(domain_folder_path))
+    
+    train_pairs_file = os.path.join(domain_folder_path, f"{domain_name}_train_pairs.json")
+    test_types_file = os.path.join(domain_folder_path, f"{domain_name}_test_types.txt")
+    
+    if os.path.exists(train_pairs_file):
+        with open(train_pairs_file, 'r', encoding='utf-8') as f:
+            try:
+                train_pairs = json.load(f)
+                for pair in train_pairs:
+                    p = clean_term(pair.get("parent", ""))
+                    c = clean_term(pair.get("child", ""))
+                    if p and c:
+                        G_gt.add_edge(p, c)
+            except json.JSONDecodeError:
+                print(f"  [Error] Invalid JSON format in {train_pairs_file}")
+    else:
+        print(f"  [Warning] Missing train_pairs file: {train_pairs_file}")
+                    
+    if os.path.exists(test_types_file):
+        with open(test_types_file, 'r', encoding='utf-8') as f:
+            for line in f:
+                term = line.strip()
+                if term:
+                    test_nodes.append(clean_term(term))
+    else:
+        print(f"  [Warning] Missing test_types file: {test_types_file}")
+                    
+    return G_gt, test_nodes, train_pairs
