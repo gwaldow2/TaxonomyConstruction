@@ -43,7 +43,6 @@ def method_llm_single_shot(nodes, client, model_name):
    
     vocab_string = ", ".join(primary_nodes)
     
-    # Restructured prompt to force JSON format which naturally triggers EOS tokens
     prompt = f"""You are an expert ontologist building a hierarchical taxonomy.
 You are given a vocabulary of {len(primary_nodes)} terms.
 Your task is to identify ALL direct parent-child relationships between these terms.
@@ -70,22 +69,24 @@ Format Example:
                 {"role": "user", "content": prompt}
             ],
             temperature=0.0,
-            max_tokens=4096, # Reduced from 16k. 4k tokens is ~200-300 edges, preventing stall loops
-            timeout=180.0    # Explicitly extend the client timeout to 3 minutes just in case
+            max_tokens=4096,
+            timeout=180.0
         )
        
         if not response.choices[0].message.content:
+            print("    [LLM Zero-Shot] API returned empty content.")
             return cluster_synonyms_and_enforce_dag(G)
            
         ans = response.choices[0].message.content.strip()
+        safe_snippet = ans[:80].replace('\n', ' ')
         
-        # Robust JSON extraction
         start_idx = ans.find('[')
         end_idx = ans.rfind(']')
         if start_idx != -1 and end_idx != -1:
             json_str = ans[start_idx:end_idx+1]
             try:
                 pairs = json.loads(json_str)
+                edges_added = 0
                 for pair in pairs:
                     if isinstance(pair, list) and len(pair) == 2:
                         parent_raw = str(pair[0]).strip().lower()
@@ -95,11 +96,15 @@ Format Example:
                             actual_parent_node = primary_to_full_map[parent_raw]
                             actual_child_node = primary_to_full_map[child_raw]
                             G.add_edge(actual_parent_node, actual_child_node)
+                            edges_added += 1
+                            
+                print(f"    [LLM Zero-Shot] SUCCESS | Parsed {edges_added} valid edges | Snippet: {safe_snippet}...")
             except json.JSONDecodeError as e:
-                print(f"  [Single-Shot LLM] JSON Parsing Error: {e}")
+                print(f"    [LLM Zero-Shot] PARSE ERROR | {e} | Snippet: {safe_snippet}...")
+        else:
+            print(f"    [LLM Zero-Shot] FORMAT ERROR (No Array) | Snippet: {safe_snippet}...")
                 
     except Exception as e:
-        # Added explicit print to help debug if a new server issue arises
-        print(f"  [Single-Shot LLM] API Error: {e}")
+        print(f"    [LLM Zero-Shot] API ERROR | {e}")
        
     return cluster_synonyms_and_enforce_dag(G)
