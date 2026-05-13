@@ -100,4 +100,5 @@ def build_taxollama_graph(nodes, scores_cache, threshold=15.0, max_parents=1):
             G.add_edge(parent, u, weight=ppl) 
             
     resolve_graph_cycles(G)
+    print(f"    [TaxoLLaMA] SUCCESS | Built {G.number_of_edges()} raw edges strictly below PPL threshold {threshold}.")
     return cluster_synonyms_and_enforce_dag(G)
