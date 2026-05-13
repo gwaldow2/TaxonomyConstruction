@@ -264,18 +264,20 @@ def get_csv_graph(file_path, use_synsets=False):
 
 def get_llms4ol_task_c_data(domain_folder_path, use_synsets=False):
     """
-    Parses the LLMs4OL 2025 Task C dataset structure.
-    Returns: (G_gt, test_nodes, train_pairs)
+    Parses the LLMs4OL 2025 Task C dataset structure based on nested folders:
+    [domain]/train/[domain]_train_pairs.json
+    [domain]/test/[domain]_test/types.txt
     """
     G_gt = nx.DiGraph()
     test_nodes = []
     train_pairs = []
     
-    # Extract prefix (e.g., 'OBI', 'SWEET') from folder path
-    domain_name = os.path.basename(os.path.normpath(domain_folder_path))
+    # Normalize domain name to lower case for consistency with file naming
+    domain_name = os.path.basename(os.path.normpath(domain_folder_path)).lower()
     
-    train_pairs_file = os.path.join(domain_folder_path, f"{domain_name}_train_pairs.json")
-    test_types_file = os.path.join(domain_folder_path, f"{domain_name}_test_types.txt")
+    # Nested folder construction
+    train_pairs_file = os.path.join(domain_folder_path, "train", f"{domain_name}_train_pairs.json")
+    test_types_file = os.path.join(domain_folder_path, "test", f"{domain_name}_test", "types.txt")
     
     if os.path.exists(train_pairs_file):
         with open(train_pairs_file, 'r', encoding='utf-8') as f:
