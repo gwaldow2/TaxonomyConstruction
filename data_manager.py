@@ -262,14 +262,14 @@ def get_csv_graph(file_path, use_synsets=False):
         print(f"CRITICAL ERROR loading CSV {file_path}: {e}")
     return G
 
-def get_llms4ol_task_c_data(domain_folder_path, use_synsets=False):
+def get_llms4ol_task_c_data(domain_folder_path, use_synsets=False, evaluate_on_train=True):
     """
-    Parses the LLMs4OL 2025 Task C dataset structure based on nested folders:
-    [domain]/train/[domain]_train_pairs.json
-    [domain]/test/[domain]_test/types.txt
+    Parses the LLMs4OL 2025 Task C dataset structure based on nested folders.
+    If evaluate_on_train is True, it loads the train_types as the target evaluation nodes
+    so that predictions can be accurately scored against the train_pairs GT.
     """
     G_gt = nx.DiGraph()
-    test_nodes = []
+    eval_nodes = []
     train_pairs = []
     
     # Normalize domain name to lower case for consistency with file naming
@@ -277,8 +277,10 @@ def get_llms4ol_task_c_data(domain_folder_path, use_synsets=False):
     
     # Nested folder construction
     train_pairs_file = os.path.join(domain_folder_path, "train", f"{domain_name}_train_pairs.json")
+    train_types_file = os.path.join(domain_folder_path, "train", f"{domain_name}_train_types.txt")
     test_types_file = os.path.join(domain_folder_path, "test", f"{domain_name}_test_types.txt")
     
+    # 1. Load the Ground Truth Graph
     if os.path.exists(train_pairs_file):
         with open(train_pairs_file, 'r', encoding='utf-8') as f:
             try:
@@ -293,13 +295,20 @@ def get_llms4ol_task_c_data(domain_folder_path, use_synsets=False):
     else:
         print(f"  [Warning] Missing train_pairs file: {train_pairs_file}")
                     
-    if os.path.exists(test_types_file):
-        with open(test_types_file, 'r', encoding='utf-8') as f:
+    # 2. Load the target nodes for the LLMs to evaluate
+    target_file = train_types_file if evaluate_on_train else test_types_file
+    
+    if os.path.exists(target_file):
+        with open(target_file, 'r', encoding='utf-8') as f:
             for line in f:
                 term = line.strip()
                 if term:
-                    test_nodes.append(clean_term(term))
+                    eval_nodes.append(clean_term(term))
     else:
-        print(f"  [Warning] Missing test_types file: {test_types_file}")
+        print(f"  [Warning] Missing target types file: {target_file}")
+        # Fallback: if the types file is missing but we have GT pairs, extract unique nodes from the GT
+        if evaluate_on_train and G_gt.number_of_nodes() > 0:
+            print("  -> Falling back to extracting unique nodes directly from train_pairs.json")
+            eval_nodes = list(G_gt.nodes())
                     
-    return G_gt, test_nodes, train_pairs
+    return G_gt, eval_nodes, train_pairs
