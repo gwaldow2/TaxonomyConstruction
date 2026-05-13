@@ -27,7 +27,7 @@ def clean_term(term):
 
 def get_primary_term(node_str):
     node_str = str(node_str).strip().lower()
-    match = re.search(r'^([^()]+)\s*\((.*)\)$', node_str)
+    match = re.search(r'^([^(]+)\s*\((.*)\)$', node_str)
     if match:
         primary_text = match.group(1).strip()
         syns = [s.strip() for s in match.group(2).split(',') if s.strip()]
@@ -54,7 +54,7 @@ def to_lemma_format(terms):
 
 def parse_lemma_format(node_str):
     node_str = str(node_str).strip().lower()
-    match = re.search(r'^([^()]+)\s*\((.*)\)$', node_str)
+    match = re.search(r'^([^(]+)\s*\((.*)\)$', node_str)
     if match:
         primary_text = match.group(1).strip()
         inner_content = match.group(2)
@@ -95,13 +95,13 @@ def enforce_dag(G):
                 
     return G_dag
 
-def save_benchmark_graph(G, name):
-    path = os.path.join(BENCHMARK_DIR, f"{name}.graphml")
+def save_benchmark_graph(G, name, scale="SUB"):
+    path = os.path.join(BENCHMARK_DIR, f"{name}_{scale}.graphml")
     nx.write_graphml(G, path)
-    print(f"  [Storage] Saved benchmark GT to {path}")
+    print(f"  [Storage] Saved {scale} benchmark GT to {path}")
 
-def load_benchmark_graph(name):
-    path = os.path.join(BENCHMARK_DIR, f"{name}.graphml")
+def load_benchmark_graph(name, scale="SUB"):
+    path = os.path.join(BENCHMARK_DIR, f"{name}_{scale}.graphml")
     if not os.path.exists(path):
         return None
     return nx.read_graphml(path)
@@ -294,18 +294,20 @@ def get_csv_graph(file_path, use_synsets=False):
         print(f"CRITICAL ERROR loading CSV {file_path}: {e}")
     return G
 
-def get_llms4ol_task_c_data(domain_folder_path, use_synsets=False):
+def get_llms4ol_task_c_data(domain_folder_path, use_synsets=False, evaluate_on_train=True):
     """
     STRICTLY extracts Ground Truth from train data.
-    Returns: (G_gt, train_nodes)
+    Returns: (G_gt, eval_nodes, train_pairs)
     """
     G_gt = nx.DiGraph()
-    train_nodes = []
+    eval_nodes = []
+    train_pairs = []
     
     domain_name = os.path.basename(os.path.normpath(domain_folder_path)).lower()
     
     train_pairs_file = os.path.join(domain_folder_path, "train", f"{domain_name}_train_pairs.json")
     train_types_file = os.path.join(domain_folder_path, "train", f"{domain_name}_train_types.txt")
+    test_types_file = os.path.join(domain_folder_path, "test", f"{domain_name}_test_types.txt")
     
     if os.path.exists(train_pairs_file):
         with open(train_pairs_file, 'r', encoding='utf-8') as f:
@@ -321,15 +323,16 @@ def get_llms4ol_task_c_data(domain_folder_path, use_synsets=False):
     else:
         print(f"  [Warning] Missing train_pairs file: {train_pairs_file}")
                     
-    if os.path.exists(train_types_file):
-        with open(train_types_file, 'r', encoding='utf-8') as f:
+    target_file = train_types_file if evaluate_on_train else test_types_file
+    
+    if os.path.exists(target_file):
+        with open(target_file, 'r', encoding='utf-8') as f:
             for line in f:
                 term = line.strip()
                 if term:
-                    train_nodes.append(clean_term(term))
+                    eval_nodes.append(clean_term(term))
     else:
-        # Fallback to nodes found in edges
-        if G_gt.number_of_nodes() > 0:
-            train_nodes = list(G_gt.nodes())
+        if evaluate_on_train and G_gt.number_of_nodes() > 0:
+            eval_nodes = list(G_gt.nodes())
                     
-    return G_gt, train_nodes
+    return G_gt, eval_nodes, train_pairs
