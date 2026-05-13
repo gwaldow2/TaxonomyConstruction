@@ -67,7 +67,8 @@ def method_our_approach(nodes, client, model_name, chunk_size=1000, max_retries=
                         model=model_name,
                         messages=[{"role": "user", "content": prompt}],
                         temperature=0,
-                        max_tokens=16328
+                        max_tokens=4096, # Safely lowered from 16k to prevent HTTP 400 rejections
+                        timeout=180.0
                     )
                     
                     # Intercept generation truncations before attempting to parse
@@ -75,6 +76,8 @@ def method_our_approach(nodes, client, model_name, chunk_size=1000, max_retries=
                         raise Exception("Response truncated due to max_tokens limit being reached.")
                         
                     response_text = response.choices[0].message.content.strip().lower()
+                    safe_snippet = response_text[:80].replace('\n', ' ')
+                    edges_added = 0
 
                     for line in response_text.split('\n'):
                         if '<=' in line:
@@ -87,15 +90,21 @@ def method_our_approach(nodes, client, model_name, chunk_size=1000, max_retries=
                                     actual_sub = primary_to_full_map[sub_raw]
                                     actual_sup = primary_to_full_map[sup_raw]
                                     dag.add_edge(actual_sup, actual_sub)
+                                    edges_added += 1
                                     
+                    # Only spam the console if it actually found edges, otherwise just break and move on.
+                    # If you want to see 'none' responses too, remove the `if edges_added > 0:`
+                    if edges_added > 0:
+                        tqdm.write(f"    [Our Method] SUCCESS | Target '{target_raw}' | Parsed {edges_added} edges | Snippet: {safe_snippet}...")
+                    
                     # Break the retry loop if parsing succeeds without errors
                     break 
                     
                 except Exception as e:
                     if attempt < max_retries - 1:
-                        print(f"\n  [!] Error processing '{target_raw}' (Attempt {attempt + 1}/{max_retries}): {e}. Retrying in 2s...")
+                        tqdm.write(f"\n  [Our Method] API ERROR | Target '{target_raw}' (Attempt {attempt + 1}/{max_retries}): {e}. Retrying in 2s...")
                         time.sleep(2)
                     else:
-                        print(f"\n  [!] Failed to process '{target_raw}' against candidate chunk {i//chunk_size + 1} after {max_retries} attempts. Skipping chunk.")
+                        tqdm.write(f"\n  [Our Method] FAILED | Target '{target_raw}' against candidate chunk {i//chunk_size + 1} after {max_retries} attempts. Skipping chunk.")
             
     return cluster_synonyms_and_enforce_dag(dag)
