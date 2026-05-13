@@ -95,16 +95,31 @@ def enforce_dag(G):
                 
     return G_dag
 
-def save_benchmark_graph(G, name, scale="SUB"):
+def save_benchmark_graph(G, name, scale="SUB", train_pairs=None):
     path = os.path.join(BENCHMARK_DIR, f"{name}_{scale}.graphml")
     nx.write_graphml(G, path)
+    
+    if train_pairs is not None:
+        pairs_path = os.path.join(BENCHMARK_DIR, f"{name}_{scale}_train_pairs.json")
+        with open(pairs_path, 'w') as f:
+            json.dump(train_pairs, f)
+            
     print(f"  [Storage] Saved {scale} benchmark GT to {path}")
 
 def load_benchmark_graph(name, scale="SUB"):
     path = os.path.join(BENCHMARK_DIR, f"{name}_{scale}.graphml")
     if not os.path.exists(path):
-        return None
-    return nx.read_graphml(path)
+        return None, None
+        
+    G = nx.read_graphml(path)
+    
+    train_pairs = None
+    pairs_path = os.path.join(BENCHMARK_DIR, f"{name}_{scale}_train_pairs.json")
+    if os.path.exists(pairs_path):
+        with open(pairs_path, 'r') as f:
+            train_pairs = json.load(f)
+            
+    return G, train_pairs
 
 def get_closed_subgraph(G, target_nodes=100):
     nodes = list(G.nodes())
@@ -121,6 +136,47 @@ def get_closed_subgraph(G, target_nodes=100):
         
     return G.subgraph(subgraph_nodes).copy()
 
+def get_rigorous_80_20_split(G_full):
+    """
+    Partitions the graph by root-level subtrees to prevent stranded children.
+    20% of branches become training seeds, 80% become the test graph.
+    """
+    if G_full.number_of_nodes() == 0:
+        return G_full, []
+
+    roots = [n for n, d in G_full.in_degree() if d == 0]
+    
+    # If there are no clear roots (e.g., massive cycles), fallback to nodes
+    if not roots:
+        roots = list(G_full.nodes())
+
+    branches = []
+    for r in roots:
+        for branch_starter in G_full.successors(r):
+            nodes_in_branch = nx.descendants(G_full, branch_starter) | {branch_starter, r}
+            branches.append(nodes_in_branch)
+            
+    # If the graph is entirely flat (no successors), fallback to individual nodes as branches
+    if not branches:
+        branches = [{n} for n in G_full.nodes()]
+    
+    random.seed(42)
+    random.shuffle(branches)
+    
+    split_idx = max(1, int(len(branches) * 0.2))
+    train_nodes = set().union(*branches[:split_idx])
+    test_nodes = set().union(*branches[split_idx:]) if split_idx < len(branches) else set()
+    
+    # Strict Disjointness: Overlapping common ancestors belong exclusively to Test
+    train_nodes = train_nodes - test_nodes
+    
+    G_test = G_full.subgraph(test_nodes).copy()
+    
+    G_train = G_full.subgraph(train_nodes)
+    train_pairs = [{"parent": u, "child": v} for u, v in G_train.edges()]
+    
+    return G_test, train_pairs
+
 # ==========================================
 # DATASET LOADERS
 # ==========================================
@@ -135,7 +191,7 @@ def get_semeval_graph(domain, use_synsets=False):
     G = nx.DiGraph()
     if not os.path.exists(file_path):
         print(f"  [Warning] {file_path} not found in {DATA_DIR}.")
-        return G
+        return G, []
     try:
         df = pd.read_csv(file_path, sep='\t', header=None, names=["rel_id", "Hyponym", "Hypernym"], on_bad_lines='skip')
         for _, row in df.iterrows():
@@ -143,10 +199,9 @@ def get_semeval_graph(domain, use_synsets=False):
                 hypo_clean = clean_term(row["Hyponym"])
                 hyper_clean = clean_term(row["Hypernym"])
                 G.add_edge(hyper_clean, hypo_clean)
-        print(f"  -> Successfully loaded {domain}: {G.number_of_nodes()} nodes, {G.number_of_edges()} edges.")
-    except Exception as e:
-        print(f"Error loading {file_path}: {e}")
-    return G
+    except Exception:
+        pass
+    return get_rigorous_80_20_split(G)
 
 def get_wordnet_food_graph(use_synsets=False):
     nltk.download('wordnet', quiet=True)
@@ -170,84 +225,7 @@ def get_wordnet_food_graph(use_synsets=False):
             if hypo not in visited:
                 visited.add(hypo)
                 queue.append(hypo)
-    return G
-
-def get_google_products_graph(use_synsets=False):
-    file_path = os.path.join(DATA_DIR, "google_products.txt")
-    url = "https://www.google.com/basepages/producttype/taxonomy-with-ids.en-US.txt"
-    if not os.path.exists(file_path):
-        response = requests.get(url)
-        with open(file_path, 'w', encoding='utf-8') as f:
-            f.write(response.text)
-            
-    G = nx.DiGraph()
-    with open(file_path, 'r', encoding='utf-8') as f:
-        lines = f.readlines()
-    for line in lines:
-        if line.startswith("#") or not line.strip():
-            continue
-        parts = line.split('-', 1)
-        if len(parts) > 1:
-            path = parts[1].strip().split(' > ')
-            for i in range(len(path) - 1):
-                G.add_edge(clean_term(path[i]), clean_term(path[i+1]))
-    return G
-
-def get_geonames_graph(use_synsets=False):
-    gc = geonamescache.GeonamesCache()
-    G = nx.DiGraph()
-    root = "earth"
-    countries = gc.get_countries()
-    states = gc.get_us_states()
-    cities = gc.get_cities()
-    
-    for c_code, c_data in countries.items():
-        G.add_edge(clean_term(root), clean_term(c_data['name']))
-    us_name = clean_term(countries['US']['name'])
-    for s_code, s_data in states.items():
-        G.add_edge(us_name, clean_term(s_data['name']))
-    for city_id, city_data in cities.items():
-        if city_data['countrycode'] == 'US':
-            state_code = city_data['admin1code']
-            if state_code in states:
-                state_name = clean_term(states[state_code]['name'])
-                G.add_edge(state_name, clean_term(city_data['name']))
-    return G
-
-def parse_obo_graph(file_path, use_synsets):
-    obo_graph = obonet.read_obo(file_path)
-    G = nx.DiGraph()
-    
-    node_mapping = {}
-    for u, data in obo_graph.nodes(data=True):
-        name = data.get('name', u)
-        if use_synsets:
-            terms = [clean_term(name)]
-            for syn in data.get('synonym', []):
-                if '"' in syn:
-                    s = clean_term(syn.split('"')[1])
-                    if s not in terms: 
-                        terms.append(s)
-            node_mapping[u] = to_lemma_format(terms)
-        else:
-            node_mapping[u] = clean_term(name)
-            
-    for u, v, key in obo_graph.edges(keys=True):
-        if key == 'is_a':
-            parent_name = node_mapping.get(v)
-            child_name = node_mapping.get(u)
-            if parent_name and child_name:
-                G.add_edge(parent_name, child_name)
-    return G
-
-def get_gene_ontology_graph(use_synsets=False):
-    file_path = os.path.join(DATA_DIR, "go-basic.obo")
-    url = "http://purl.obolibrary.org/obo/go/go-basic.obo"
-    if not os.path.exists(file_path):
-        response = requests.get(url)
-        with open(file_path, 'w', encoding='utf-8') as f:
-            f.write(response.text)
-    return parse_obo_graph(file_path, use_synsets)
+    return get_rigorous_80_20_split(G)
 
 def get_cell_ontology_graph(use_synsets=False):
     file_path = os.path.join(DATA_DIR, "cl-basic.obo")
@@ -256,17 +234,35 @@ def get_cell_ontology_graph(use_synsets=False):
         response = requests.get(url)
         with open(file_path, 'w', encoding='utf-8') as f:
             f.write(response.text)
-    return parse_obo_graph(file_path, use_synsets)
+            
+    obo_graph = obonet.read_obo(file_path)
+    G = nx.DiGraph()
+    node_mapping = {}
+    for u, data in obo_graph.nodes(data=True):
+        name = data.get('name', u)
+        if use_synsets:
+            terms = [clean_term(name)]
+            for syn in data.get('synonym', []):
+                if '"' in syn:
+                    s = clean_term(syn.split('"')[1])
+                    if s not in terms: terms.append(s)
+            node_mapping[u] = to_lemma_format(terms)
+        else:
+            node_mapping[u] = clean_term(name)
+            
+    for u, v, key in obo_graph.edges(keys=True):
+        if key == 'is_a':
+            parent_name = node_mapping.get(v)
+            child_name = node_mapping.get(u)
+            if parent_name and child_name: G.add_edge(parent_name, child_name)
+            
+    return get_rigorous_80_20_split(G)
 
 def get_csv_graph(file_path, use_synsets=False):
     print(f"Loading custom CSV edge list dataset from {file_path}...")
     G = nx.DiGraph()
     try:
         df = pd.read_csv(file_path)
-        if "Source" not in df.columns or "Target" not in df.columns:
-            print("  [Error] Expected 'Source' and 'Target' columns. Ensure the input is an edge list.")
-            return G
-
         for _, row in df.iterrows():
             weight = row.get("Weight", 1)
             try:
@@ -275,9 +271,7 @@ def get_csv_graph(file_path, use_synsets=False):
                 is_edge = False
                 
             if is_edge:
-                u_str = str(row["Source"]).strip()
-                v_str = str(row["Target"]).strip()
-                
+                u_str, v_str = str(row["Source"]).strip(), str(row["Target"]).strip()
                 if not use_synsets:
                     u_str = re.sub(r'\s*\(.*?\)', '', u_str).strip()
                     v_str = re.sub(r'\s*\(.*?\)', '', v_str).strip()
@@ -286,53 +280,25 @@ def get_csv_graph(file_path, use_synsets=False):
 
                 u_terms = [clean_term(t) for t in u_str.split('|')] if '|' in u_str else [clean_term(u_str)]
                 v_terms = [clean_term(t) for t in v_str.split('|')] if '|' in v_str else [clean_term(v_str)]
-                
                 G.add_edge(to_lemma_format(u_terms), to_lemma_format(v_terms))
-
-        print(f"  -> Successfully loaded graph with {G.number_of_nodes()} nodes and {G.number_of_edges()} edges.")
     except Exception as e:
         print(f"CRITICAL ERROR loading CSV {file_path}: {e}")
-    return G
+    return get_rigorous_80_20_split(G)
 
-def get_llms4ol_task_c_data(domain_folder_path, use_synsets=False, evaluate_on_train=True):
-    """
-    STRICTLY extracts Ground Truth from train data.
-    Returns: (G_gt, eval_nodes, train_pairs)
-    """
-    G_gt = nx.DiGraph()
-    eval_nodes = []
-    train_pairs = []
-    
+def get_llms4ol_task_c_data(domain_folder_path):
     domain_name = os.path.basename(os.path.normpath(domain_folder_path)).lower()
-    
     train_pairs_file = os.path.join(domain_folder_path, "train", f"{domain_name}_train_pairs.json")
-    train_types_file = os.path.join(domain_folder_path, "train", f"{domain_name}_train_types.txt")
-    test_types_file = os.path.join(domain_folder_path, "test", f"{domain_name}_test_types.txt")
+    G_full = nx.DiGraph()
     
     if os.path.exists(train_pairs_file):
         with open(train_pairs_file, 'r', encoding='utf-8') as f:
             try:
-                train_pairs = json.load(f)
-                for pair in train_pairs:
+                pairs = json.load(f)
+                for pair in pairs:
                     p = clean_term(pair.get("parent", ""))
                     c = clean_term(pair.get("child", ""))
-                    if p and c:
-                        G_gt.add_edge(p, c)
+                    if p and c: G_full.add_edge(p, c)
             except json.JSONDecodeError:
                 print(f"  [Error] Invalid JSON format in {train_pairs_file}")
-    else:
-        print(f"  [Warning] Missing train_pairs file: {train_pairs_file}")
-                    
-    target_file = train_types_file if evaluate_on_train else test_types_file
-    
-    if os.path.exists(target_file):
-        with open(target_file, 'r', encoding='utf-8') as f:
-            for line in f:
-                term = line.strip()
-                if term:
-                    eval_nodes.append(clean_term(term))
-    else:
-        if evaluate_on_train and G_gt.number_of_nodes() > 0:
-            eval_nodes = list(G_gt.nodes())
-                    
-    return G_gt, eval_nodes, train_pairs
+                
+    return get_rigorous_80_20_split(G_full)
