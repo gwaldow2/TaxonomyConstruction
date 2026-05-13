@@ -7,13 +7,8 @@ import networkx as nx
 from openai import OpenAI
 from sentence_transformers import SentenceTransformer
 
-# Added DATA_DIR to the import list below
-from data_manager import (
-    get_semeval_graph, get_wordnet_food_graph, get_google_products_graph,
-    get_geonames_graph, get_gene_ontology_graph, get_cell_ontology_graph,
-    get_csv_graph, get_closed_subgraph, enforce_dag, get_llms4ol_task_c_data,
-    DATA_DIR
-)
+from data_manager import load_benchmark_graph
+
 from evaluator import evaluate_all_modes, update_benchmark_results
 from lexical_method import method_lexical, method_vector
 from basic_llm_method import method_llm_single_shot
@@ -47,7 +42,7 @@ def main(args):
     vector_encoder = None
     taxo_model = None
     taxo_tokenizer = None
-    MODEL_NAME = "openai/gpt-oss-120b" # Defined as a default
+    MODEL_NAME = "openai/gpt-oss-120b"
     device = "cuda" if torch.cuda.is_available() else "cpu"
 
     selected_methods = args.method
@@ -56,10 +51,7 @@ def main(args):
 
     if any(m in selected_methods for m in ["llm_zero", "our_method", "sbu_batch"]):
         print("Initializing LLM Client...")
-        client = OpenAI(
-            base_url="http://localhost:8000/v1", 
-            api_key="woohoo"
-        )
+        client = OpenAI(base_url="http://localhost:8000/v1", api_key="woohoo")
         
     if any(m in selected_methods for m in ["vector", "sbu_embedding", "sbu_ensemble"]):
         print("Initializing Vector Encoder...")
@@ -72,162 +64,101 @@ def main(args):
         
         base_model_id = "meta-llama/Llama-2-7b-hf"
         adapter_id = "VityaVitalich/TaxoLLaMA"
-
         quantization_config = BitsAndBytesConfig(
-            load_in_4bit=True,
-            bnb_4bit_compute_dtype=torch.float16,
-            bnb_4bit_quant_type="nf4",
-            bnb_4bit_use_double_quant=True
+            load_in_4bit=True, bnb_4bit_compute_dtype=torch.float16,
+            bnb_4bit_quant_type="nf4", bnb_4bit_use_double_quant=True
         )
-
         taxo_tokenizer = AutoTokenizer.from_pretrained(base_model_id, token=True)
         if taxo_tokenizer.pad_token is None:
             taxo_tokenizer.pad_token = taxo_tokenizer.eos_token
 
         base_model = AutoModelForCausalLM.from_pretrained(
-            base_model_id,
-            quantization_config=quantization_config,
-            device_map="auto",
-            token=True
+            base_model_id, quantization_config=quantization_config, device_map="auto", token=True
         )
-
         print(f"Applying adapter weights from {adapter_id}...")
         taxo_model = PeftModel.from_pretrained(base_model, adapter_id)
         taxo_model.eval()
 
     selected_ds = args.datasets
     if "all" in selected_ds:
-        # Added the extra datasets visible in your IDE screenshot (DOID, FoodOn, PROCO)
-        selected_ds = ["WordNetFood", "GoogleProducts", "GeoNames", "GeneOntology", "CellOntology", "csv", 
-                       "SemEvalFood", "SemEvalScience", "SemEvalEnvironment", 
-                       "LLMs4OL_OBI", "LLMs4OL_MatOnto", "LLMs4OL_SWEET", "LLMs4OL_SchemaOrg", 
-                       "LLMs4OL_PO", "LLMs4OL_DOID", "LLMs4OL_FoodOn", "LLMs4OL_PROCO"]
+        # Reduced Dataset Load
+        selected_ds = ["WordNetFood", "CellOntology", "SemEvalFood", "SemEvalScience", "SemEvalEnvironment", 
+                       "LLMs4OL_OBI", "LLMs4OL_MatOnto", "LLMs4OL_SchemaOrg", "LLMs4OL_PO"]
 
-    datasets = {}
-    
-    # Standard Loaders
-    if "WordNetFood" in selected_ds: 
-        datasets["WordNetFood"] = {"loader": lambda: get_wordnet_food_graph(use_synsets=args.use_synsets), "is_llms4ol": False}
-    if "GoogleProducts" in selected_ds: 
-        datasets["GoogleProducts"] = {"loader": lambda: get_google_products_graph(use_synsets=args.use_synsets), "is_llms4ol": False}
-    if "GeoNames" in selected_ds: 
-        datasets["GeoNames"] = {"loader": lambda: get_geonames_graph(use_synsets=args.use_synsets), "is_llms4ol": False}
-    if "GeneOntology" in selected_ds: 
-        datasets["GeneOntology"] = {"loader": lambda: get_gene_ontology_graph(use_synsets=args.use_synsets), "is_llms4ol": False}
-    if "CellOntology" in selected_ds: 
-        datasets["CellOntology"] = {"loader": lambda: get_cell_ontology_graph(use_synsets=args.use_synsets), "is_llms4ol": False}
-    if "csv" in selected_ds and args.csv_dataset:
-        datasets["CustomCSV"] = {"loader": lambda: get_csv_graph(args.csv_dataset), "is_llms4ol": False}
-    if "SemEvalFood" in selected_ds:
-        datasets["SemEvalFood"] = {"loader": lambda: get_semeval_graph("SemEvalFood", use_synsets=args.use_synsets), "is_llms4ol": False}
-    if "SemEvalScience" in selected_ds:
-        datasets["SemEvalScience"] = {"loader": lambda: get_semeval_graph("SemEvalScience", use_synsets=args.use_synsets), "is_llms4ol": False}
-    if "SemEvalEnvironment" in selected_ds:
-        datasets["SemEvalEnvironment"] = {"loader": lambda: get_semeval_graph("SemEvalEnvironment", use_synsets=args.use_synsets), "is_llms4ol": False}
+    for domain in selected_ds:
+        G_gt = load_benchmark_graph(domain)
+        if G_gt is None:
+            print(f"\n [!] Error: No GT graph found for {domain}. Run taxonomy_metrics.py first.")
+            continue
+            
+        print(f"\nEvaluating Domain: {domain} (Benchmark Nodes: {G_gt.number_of_nodes()})")
         
-    # LLMs4OL Challenge Loaders
-    llms4ol_base_path = os.path.join(DATA_DIR, "TaskC-TaxonomyDiscovery")
-    for ont in ["OBI", "MatOnto", "SWEET", "SchemaOrg", "PO", "DOID", "FoodOn", "PROCO"]:
-        if f"LLMs4OL_{ont}" in selected_ds:
-            datasets[f"LLMs4OL_{ont}"] = {
-                "loader": lambda o=ont: get_llms4ol_task_c_data(os.path.join(llms4ol_base_path, o), use_synsets=args.use_synsets),
-                "is_llms4ol": True
-            }
+        # 1. Provide Domain Nodes without Virtual Scaffold
+        input_nodes = [n for n in G_gt.nodes() if n != "virtual_root"]
         
-    for domain, config in datasets.items():
-        is_llms4ol = config.get("is_llms4ol", False)
-        loader_func = config["loader"]
-        
-        if is_llms4ol:
-            G_full, test_nodes, train_pairs = loader_func()
-            if G_full.number_of_nodes() == 0 and not test_nodes:
-                continue
-            
-            actual_domain_name = domain
-            print(f"\nEvaluating Domain: {actual_domain_name} (Train Pairs: {len(train_pairs)}, Test Nodes: {len(test_nodes)})")
-            
-            G_gt = enforce_dag(G_full)
-            input_nodes = test_nodes
-            
-        else:
-            G_full = loader_func()
-            if G_full.number_of_nodes() == 0:
-                continue
-                
-            if domain == "CustomCSV" and args.csv_dataset:
-                base = os.path.basename(args.csv_dataset)
-                actual_domain_name = os.path.splitext(base)[0]
-            else:
-                actual_domain_name = domain
-
-            print(f"\nEvaluating Domain: {actual_domain_name} (Full Size: {G_full.number_of_nodes()})")
-            
-            target_size = G_full.number_of_nodes() if domain == "CustomCSV" else 100
-            G_gt = get_closed_subgraph(G_full, target_nodes=target_size)
-            G_gt = enforce_dag(G_gt)
-            input_nodes = list(G_gt.nodes())
-            train_pairs = None
+        # 2. Reconstruct Train Pairs for Few-Shot Baselines (Excluding Virtual Root)
+        train_pairs = [{"parent": u, "child": v} for u, v in G_gt.edges() if u != "virtual_root" and v != "virtual_root"]
         
         if args.explode_nodes:
             print("  -> Exploding cluster nodes for individual term analysis...")
             from evaluator import explode_graph
-            G_eval_input = explode_graph(G_gt)
-            if not is_llms4ol:
-                input_nodes = list(G_eval_input.nodes())
-            print(f"Extracted Subgraph: {G_eval_input.number_of_nodes()} exploded nodes, {G_eval_input.number_of_edges()} eval edges.")
-            print(f"  (Ground Truth Condensed Graph has {G_gt.number_of_nodes()} nodes, {G_gt.number_of_edges()} edges)")
-        else:
-            G_eval_input = G_gt
-            if not is_llms4ol:
-                input_nodes = list(G_eval_input.nodes())
-            print(f"Extracted Closed Subgraph: {G_eval_input.number_of_nodes()} nodes, {G_gt.number_of_edges()} GT edges.")
+            G_gt = explode_graph(G_gt)
+            input_nodes = [n for n in G_gt.nodes() if n != "virtual_root"]
+
+        # Strip virtual root from GT permanently for strict edge evaluation
+        if "virtual_root" in G_gt:
+            G_gt.remove_node("virtual_root")
             
-        nx.write_graphml(G_gt, f"./results/GT_{actual_domain_name}.graphml")
+        nx.write_graphml(G_gt, f"./results/GT_{domain}_eval.graphml")
         eval_results = {}
         
         if "lexical" in selected_methods:
             print("  -> Running Lexical...")
             G_lex = method_lexical(input_nodes)
-            eval_results["Lexical"] = evaluate_all_modes(G_lex, G_gt, f"./results/{actual_domain_name}_Lexical")
+            if "virtual_root" in G_lex: G_lex.remove_node("virtual_root")
+            eval_results["Lexical"] = evaluate_all_modes(G_lex, G_gt, f"./results/{domain}_Lexical")
             
         if "vector" in selected_methods:
             print("  -> Running Vector...")
             G_vec = method_vector(input_nodes, vector_encoder)
-            eval_results["Vector"] = evaluate_all_modes(G_vec, G_gt, f"./results/{actual_domain_name}_Vector")
+            if "virtual_root" in G_vec: G_vec.remove_node("virtual_root")
+            eval_results["Vector"] = evaluate_all_modes(G_vec, G_gt, f"./results/{domain}_Vector")
             
         if "llm_zero" in selected_methods:
             print("  -> Running Zero-Shot LLM...")
             G_llm_zero = method_llm_single_shot(input_nodes, client, MODEL_NAME)
-            eval_results["LLM Zero-Shot"] = evaluate_all_modes(G_llm_zero, G_gt, f"./results/{actual_domain_name}_LLMZero")
+            if "virtual_root" in G_llm_zero: G_llm_zero.remove_node("virtual_root")
+            eval_results["LLM Zero-Shot"] = evaluate_all_modes(G_llm_zero, G_gt, f"./results/{domain}_LLMZero")
 
         if "our_method" in selected_methods:
             print("  -> Running Our Method...")
             G_our = method_our_approach(input_nodes, client, MODEL_NAME)
-            eval_results["Our Method O(N)"] = evaluate_all_modes(G_our, G_gt, f"./results/{actual_domain_name}_OurMethod")
+            if "virtual_root" in G_our: G_our.remove_node("virtual_root")
+            eval_results["Our Method O(N)"] = evaluate_all_modes(G_our, G_gt, f"./results/{domain}_OurMethod")
 
         if "taxollama" in selected_methods:
             print("  -> Precomputing TaxoLLaMA Scores...")
             ppl_cache = precompute_taxollama_ppl(input_nodes, taxo_model, taxo_tokenizer, device)
-            
             thresh = 15.0
             G_taxo = build_taxollama_graph(input_nodes, ppl_cache, threshold=thresh, max_parents=1)
+            if "virtual_root" in G_taxo: G_taxo.remove_node("virtual_root")
             method_name = f"TaxoLLaMA (PPL<{thresh})"
-            safe_file_name = f"./results/{actual_domain_name}_TaxoLLaMA_PPL{thresh}"
-            eval_results[method_name] = evaluate_all_modes(G_taxo, G_gt, safe_file_name)
+            eval_results[method_name] = evaluate_all_modes(G_taxo, G_gt, f"./results/{domain}_TaxoLLaMA_PPL{thresh}")
 
         if "sbu_batch" in selected_methods:
             print("  -> Running SBU LLM Batch Prompting...")
             G_sbu_batch = method_sbu_batch(input_nodes, client, MODEL_NAME, train_pairs=train_pairs)
-            eval_results["SBU LLM Batch"] = evaluate_all_modes(G_sbu_batch, G_gt, f"./results/{actual_domain_name}_SBU_Batch")
+            if "virtual_root" in G_sbu_batch: G_sbu_batch.remove_node("virtual_root")
+            eval_results["SBU LLM Batch"] = evaluate_all_modes(G_sbu_batch, G_gt, f"./results/{domain}_SBU_Batch")
 
         if "sbu_ensemble" in selected_methods:
             print("  -> Running SBU Ensemble (Overlap + Embedding)...")
             G_sbu_ens = method_sbu_ensemble(input_nodes, vector_encoder)
-            eval_results["SBU Ensemble"] = evaluate_all_modes(G_sbu_ens, G_gt, f"./results/{actual_domain_name}_SBU_Ensemble")
+            if "virtual_root" in G_sbu_ens: G_sbu_ens.remove_node("virtual_root")
+            eval_results["SBU Ensemble"] = evaluate_all_modes(G_sbu_ens, G_gt, f"./results/{domain}_SBU_Ensemble")
 
         if eval_results:
-            display_summary_table(actual_domain_name, eval_results)
-            
+            display_summary_table(domain, eval_results)
             print(f"Saving benchmark results to JSON...")
             for method_name, metrics in eval_results.items():
                 flat_metrics = {
@@ -237,11 +168,8 @@ def main(args):
                     "Exp_Clos_F1": metrics["Exp_Clos"]["F1"]
                 }
                 update_benchmark_results(
-                    dataset_name=actual_domain_name,
-                    method_name=method_name, 
-                    metrics_dict=flat_metrics, 
-                    use_synsets=args.use_synsets, 
-                    explode_nodes=args.explode_nodes
+                    dataset_name=domain, method_name=method_name, 
+                    metrics_dict=flat_metrics, use_synsets=args.use_synsets, explode_nodes=args.explode_nodes
                 )
             print("Save complete.")
             
@@ -251,11 +179,9 @@ def main(args):
             
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Taxonomy Extraction Benchmark")
-    parser.add_argument("--method", nargs="+", default=["all"], choices=["all", "lexical", "vector", "llm_zero", "our_method", "taxollama", "sbu_batch", "sbu_ensemble"], help="List of methods to run (space separated)")
-    parser.add_argument("--datasets", nargs="+", default=["all"], choices=["all", "csv", "WordNetFood", "GoogleProducts", "GeoNames", "GeneOntology", "CellOntology", "SemEvalFood", "SemEvalScience", "SemEvalEnvironment", "LLMs4OL_OBI", "LLMs4OL_MatOnto", "LLMs4OL_SWEET", "LLMs4OL_SchemaOrg", "LLMs4OL_PO", "LLMs4OL_DOID", "LLMs4OL_FoodOn", "LLMs4OL_PROCO"], help="List of datasets to run (space separated)")
-    parser.add_argument("--use_synsets", action="store_true", help="Include synonyms for nodes when available")
-    parser.add_argument("--csv_dataset", type=str, default=None, help="Path to Gephi Adjacency CSV to use as dataset")
-    parser.add_argument("--explode_nodes", action="store_true", help="Explode clustered nodes into individual evaluation nodes")
+    parser.add_argument("--method", nargs="+", default=["all"], choices=["all", "lexical", "vector", "llm_zero", "our_method", "taxollama", "sbu_batch", "sbu_ensemble"])
+    parser.add_argument("--datasets", nargs="+", default=["all"])
+    parser.add_argument("--use_synsets", action="store_true")
+    parser.add_argument("--explode_nodes", action="store_true")
     args = parser.parse_args()
-    
     main(args)
