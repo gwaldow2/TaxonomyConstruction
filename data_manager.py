@@ -11,7 +11,9 @@ import obonet
 import geonamescache
 
 DATA_DIR = "./taxonomy_data"
+BENCHMARK_DIR = "./benchmark_sets"
 os.makedirs(DATA_DIR, exist_ok=True)
+os.makedirs(BENCHMARK_DIR, exist_ok=True)
 
 # ==========================================
 # TEXT NORMALIZATION & UTILS
@@ -25,7 +27,7 @@ def clean_term(term):
 
 def get_primary_term(node_str):
     node_str = str(node_str).strip().lower()
-    match = re.search(r'^([^(]+)\s*\((.*)\)$', node_str)
+    match = re.search(r'^([^()]+)\s*\((.*)\)$', node_str)
     if match:
         primary_text = match.group(1).strip()
         syns = [s.strip() for s in match.group(2).split(',') if s.strip()]
@@ -52,7 +54,7 @@ def to_lemma_format(terms):
 
 def parse_lemma_format(node_str):
     node_str = str(node_str).strip().lower()
-    match = re.search(r'^([^(]+)\s*\((.*)\)$', node_str)
+    match = re.search(r'^([^()]+)\s*\((.*)\)$', node_str)
     if match:
         primary_text = match.group(1).strip()
         inner_content = match.group(2)
@@ -63,16 +65,46 @@ def parse_lemma_format(node_str):
         return [s.strip() for s in node_str.split('|') if s.strip()]
     return [node_str]
 
+# ==========================================
+# GRAPH TOPOLOGY & BENCHMARK UTILS
+# ==========================================
+
 def enforce_dag(G):
-    """Retained for preparing the Ground Truth Graph."""
+    """
+    1. Resolves cycles.
+    2. Unifies forest into a single-rooted DAG using a Virtual Root.
+    """
     G_dag = G.copy()
+    
+    # 1. Cycle Breaking
     try:
         while not nx.is_directed_acyclic_graph(G_dag):
             cycle = next(nx.simple_cycles(G_dag))
             G_dag.remove_edge(cycle[-1], cycle[0])
     except StopIteration:
         pass
+
+    # 2. Virtual Root Unification
+    roots = [n for n, d in G_dag.in_degree() if d == 0]
+    if len(roots) > 1:
+        virtual_root = "virtual_root"
+        G_dag.add_node(virtual_root, is_virtual=True)
+        for r in roots:
+            if r != virtual_root:
+                G_dag.add_edge(virtual_root, r)
+                
     return G_dag
+
+def save_benchmark_graph(G, name):
+    path = os.path.join(BENCHMARK_DIR, f"{name}.graphml")
+    nx.write_graphml(G, path)
+    print(f"  [Storage] Saved benchmark GT to {path}")
+
+def load_benchmark_graph(name):
+    path = os.path.join(BENCHMARK_DIR, f"{name}.graphml")
+    if not os.path.exists(path):
+        return None
+    return nx.read_graphml(path)
 
 def get_closed_subgraph(G, target_nodes=100):
     nodes = list(G.nodes())
@@ -262,25 +294,19 @@ def get_csv_graph(file_path, use_synsets=False):
         print(f"CRITICAL ERROR loading CSV {file_path}: {e}")
     return G
 
-def get_llms4ol_task_c_data(domain_folder_path, use_synsets=False, evaluate_on_train=True):
+def get_llms4ol_task_c_data(domain_folder_path, use_synsets=False):
     """
-    Parses the LLMs4OL 2025 Task C dataset structure based on nested folders.
-    If evaluate_on_train is True, it loads the train_types as the target evaluation nodes
-    so that predictions can be accurately scored against the train_pairs GT.
+    STRICTLY extracts Ground Truth from train data.
+    Returns: (G_gt, train_nodes)
     """
     G_gt = nx.DiGraph()
-    eval_nodes = []
-    train_pairs = []
+    train_nodes = []
     
-    # Normalize domain name to lower case for consistency with file naming
     domain_name = os.path.basename(os.path.normpath(domain_folder_path)).lower()
     
-    # Nested folder construction
     train_pairs_file = os.path.join(domain_folder_path, "train", f"{domain_name}_train_pairs.json")
     train_types_file = os.path.join(domain_folder_path, "train", f"{domain_name}_train_types.txt")
-    test_types_file = os.path.join(domain_folder_path, "test", f"{domain_name}_test_types.txt")
     
-    # 1. Load the Ground Truth Graph
     if os.path.exists(train_pairs_file):
         with open(train_pairs_file, 'r', encoding='utf-8') as f:
             try:
@@ -295,20 +321,15 @@ def get_llms4ol_task_c_data(domain_folder_path, use_synsets=False, evaluate_on_t
     else:
         print(f"  [Warning] Missing train_pairs file: {train_pairs_file}")
                     
-    # 2. Load the target nodes for the LLMs to evaluate
-    target_file = train_types_file if evaluate_on_train else test_types_file
-    
-    if os.path.exists(target_file):
-        with open(target_file, 'r', encoding='utf-8') as f:
+    if os.path.exists(train_types_file):
+        with open(train_types_file, 'r', encoding='utf-8') as f:
             for line in f:
                 term = line.strip()
                 if term:
-                    eval_nodes.append(clean_term(term))
+                    train_nodes.append(clean_term(term))
     else:
-        print(f"  [Warning] Missing target types file: {target_file}")
-        # Fallback: if the types file is missing but we have GT pairs, extract unique nodes from the GT
-        if evaluate_on_train and G_gt.number_of_nodes() > 0:
-            print("  -> Falling back to extracting unique nodes directly from train_pairs.json")
-            eval_nodes = list(G_gt.nodes())
+        # Fallback to nodes found in edges
+        if G_gt.number_of_nodes() > 0:
+            train_nodes = list(G_gt.nodes())
                     
-    return G_gt, eval_nodes, train_pairs
+    return G_gt, train_nodes
