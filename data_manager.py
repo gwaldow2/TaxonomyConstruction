@@ -277,7 +277,7 @@ def get_llms4ol_task_c_data(domain_folder_path, use_synsets=False):
     
     # Nested folder construction
     train_pairs_file = os.path.join(domain_folder_path, "train", f"{domain_name}_train_pairs.json")
-    test_types_file = os.path.join(domain_folder_path, "test", f"{domain_name}_test", "types.txt")
+    test_types_file = os.path.join(domain_folder_path, "test", f"{domain_name}_test_types.txt")
     
     if os.path.exists(train_pairs_file):
         with open(train_pairs_file, 'r', encoding='utf-8') as f:
