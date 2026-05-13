@@ -2,7 +2,7 @@ import json
 import networkx as nx
 from pydantic import BaseModel, Field
 from typing import List, Tuple
-from data_manager import get_primary_term, to_lemma_format
+from data_manager import get_primary_term
 
 class TaxonomyOutput(BaseModel):
     edges: List[Tuple[str, str]] = Field(
@@ -42,13 +42,15 @@ Output MUST be valid JSON matching this schema: {json_schema}
             )
             raw_thought = res_reasoning.choices[0].message.content or ""
             reasoning_context = f"\nPreliminary Analysis:\n{raw_thought}\n"
-            print(f"    [LLM] Reasoning Complete. Used {res_reasoning.usage.total_tokens} tokens.")
+            
+            used_tokens = getattr(res_reasoning.usage, 'total_tokens', 'Unknown')
+            print(f"    [LLM] Reasoning Complete. Used {used_tokens} tokens.")
         except Exception as e:
             print(f"    [LLM] Reasoning failed, proceeding to extraction: {e}")
 
     # --- STAGE 2: Extraction with Retry Logic ---
     attempts = 2
-    current_json_budget = (num_terms * 40) + 600 # Base budget
+    current_json_budget = (num_terms * 40) + 600
     
     for attempt in range(attempts):
         try:
@@ -62,7 +64,7 @@ Output MUST be valid JSON matching this schema: {json_schema}
             res_extract = client.chat.completions.create(
                 model=model_name,
                 messages=[
-                    {"role": "system", "content": "You are a JSON formatter. No prose, no markdown."},
+                    {"role": "system", "content": "You are a strict JSON data extraction pipeline. Output raw JSON without markdown."},
                     {"role": "user", "content": extraction_prompt}
                 ],
                 temperature=0.0,
@@ -74,24 +76,24 @@ Output MUST be valid JSON matching this schema: {json_schema}
             usage = res_extract.usage
             finish_reason = res_extract.choices[0].finish_reason
 
-            print(f"    [Attempt {attempt+1}] Tokens: Prompt={usage.prompt_tokens}, Completion={usage.completion_tokens}")
+            p_tokens = getattr(usage, 'prompt_tokens', 0)
+            c_tokens = getattr(usage, 'completion_tokens', 0)
+            print(f"    [Attempt {attempt+1}] Tokens: Prompt={p_tokens}, Completion={c_tokens}")
             
             if finish_reason == "length":
                 print(f"    [WARNING] Output was TRUNCATED (hit max_tokens).")
             
-            # --- FIXED SANITIZATION BLOCK ---
+            # --- BULLETPROOF SANITIZATION ---
             content = content.strip()
+            md_fence = chr(96) * 3  # Creates triple backticks safely without breaking UI renders
             
-            # Safely remove opening markdown backticks
-            if content.startswith("```"):
-                content = content.lstrip("`") # Removes the leading backticks safely
+            if content.startswith(md_fence):
+                content = content[3:].strip()
                 if content.lower().startswith("json"):
-                    content = content[4:] # Removes the 'json' keyword
-                content = content.strip()
+                    content = content[4:].strip()
             
-            # Safely remove closing markdown backticks
-            if content.endswith("```"):
-                content = content.rstrip("`").strip()
+            if content.endswith(md_fence):
+                content = content[:-3].strip()
             # --------------------------------
 
             if not content:
@@ -109,7 +111,7 @@ Output MUST be valid JSON matching this schema: {json_schema}
                         edges_added += 1
             
             print(f"    [LLM Success] Extracted {edges_added} edges.")
-            break # Success, exit retry loop
+            return G  
 
         except (json.JSONDecodeError, ValueError, Exception) as e:
             print(f"    [Attempt {attempt+1} Failed] Error: {e}")
@@ -119,4 +121,4 @@ Output MUST be valid JSON matching this schema: {json_schema}
             else:
                 print(f"    [Fatal] All attempts failed.")
 
-    return cluster_synonyms_and_enforce_dag(G)
+    return G
