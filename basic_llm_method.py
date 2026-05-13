@@ -1,157 +1,108 @@
-import networkx as nx
 import re
-import time
-import os
-import json
-from datetime import datetime
-from data_manager import get_primary_term
+import networkx as nx
+from data_manager import get_primary_term, to_lemma_format
 
-def method_llm_single_shot(nodes, client, model_name, reasoning_level='medium'):
+def enforce_dag(G):
+    G_dag = G.copy()
+    try:
+        while not nx.is_directed_acyclic_graph(G_dag):
+            cycle = next(nx.simple_cycles(G_dag))
+            G_dag.remove_edge(cycle[-1], cycle[0])
+    except StopIteration:
+        pass
+    return G_dag
+
+def cluster_synonyms_and_enforce_dag(G):
+    bidirectional_edges = [(u, v) for u, v in G.edges() if G.has_edge(v, u)]
+    G_sym = nx.Graph()
+    G_sym.add_nodes_from(G.nodes())
+    G_sym.add_edges_from(bidirectional_edges)
+    clusters = list(nx.connected_components(G_sym))
+   
+    condensed_dag = nx.DiGraph()
+    node_mapping = {}
+    for cluster in clusters:
+        new_node_name = to_lemma_format(sorted(list(cluster)))
+        condensed_dag.add_node(new_node_name)
+        for node in cluster:
+            node_mapping[node] = new_node_name
+
+    for u, v in G.edges():
+        new_u = node_mapping[u]
+        new_v = node_mapping[v]
+        if new_u != new_v:
+            condensed_dag.add_edge(new_u, new_v)
+
+    return enforce_dag(condensed_dag)
+
+def method_llm_single_shot(nodes, client, model_name):
     G = nx.DiGraph()
     primary_to_full_map = {get_primary_term(n): n for n in nodes}
     primary_nodes = list(primary_to_full_map.keys())
+   
     vocab_string = ", ".join(primary_nodes)
-    num_terms = len(primary_nodes)
     
-    rtpt_map = {'none': 0, 'low': 10, 'medium': 20, 'high': 40}
-    rtpt = rtpt_map.get(reasoning_level.lower(), 20)
-    reasoning_budget = num_terms * rtpt
-    
-    # --- AGGRESSIVE DEBUG DUMP SETUP ---
-    debug_dir = "./benchmark_fails_dump"
-    os.makedirs(debug_dir, exist_ok=True)
-    timestamp = datetime.now().strftime("%H%M%S")
-    safe_name = "".join(x for x in primary_nodes[0] if x.isalnum()) if primary_nodes else "empty"
-    debug_file = os.path.join(debug_dir, f"dump_{safe_name}_{timestamp}.txt")
-    
-    def force_log(title, data):
-        with open(debug_file, "a", encoding="utf-8") as f:
-            f.write(f"\n{'='*40}\n[{title}]\n{'='*40}\n")
-            f.write(str(data) + "\n")
-    
-    force_log("METADATA", f"Nodes: {num_terms} | Reasoning Budget: {reasoning_budget}")
-    
-    base_instructions = f"""You are an expert ontologist.
+    prompt = f"""You are an expert ontologist building a hierarchical taxonomy.
+You are given a vocabulary of {len(primary_nodes)} terms.
+Identify ALL direct parent-child relationships between these terms.
+A parent is a broader concept, a child is a more specific concept.
+ONLY use terms EXACTLY as they appear in the vocabulary list.
+
 Vocabulary: [{vocab_string}]
-Identify ALL parent-child relationships. ONLY use terms EXACTLY as they appear in the list.
+
+Format Example:
+[
+  ["parent_term_1", "child_term_1"],
+  ["parent_term_2", "child_term_2"]
+]
+
+Output your answer strictly as a JSON list of arrays. Do not add any conversational text.
 """
 
-    # --- STAGE 1: Reasoning ---
-    reasoning_context = ""
-    if reasoning_budget > 0:
-        try:
-            res_reasoning = client.chat.completions.create(
-                model=model_name,
-                messages=[{"role": "user", "content": base_instructions + "\nThink step-by-step about the hierarchical relationships."}],
-                temperature=0.6,
-                max_tokens=reasoning_budget
-            )
-            raw_thought = res_reasoning.choices[0].message.content or ""
-            
-            # CRITICAL FIX: Aggressive visual delimiters to prevent Attention Bleed
-            reasoning_context = f"\n--- START PRELIMINARY ANALYSIS ---\n{raw_thought}\n--- END PRELIMINARY ANALYSIS ---\n"
-            
-            used_tokens = getattr(res_reasoning.usage, 'total_tokens', 'Unknown')
-            print(f"    [LLM Zero-Shot] Reasoning Complete. Used {used_tokens} tokens.")
-            force_log("STAGE 1 RAW REASONING", raw_thought)
-        except Exception as e:
-            print(f"    [LLM Zero-Shot] Reasoning failed: {e}")
-            force_log("STAGE 1 ERROR", e)
-
-    # --- STAGE 2: Extraction ---
-    # Explicitly telling it to output JSON. This creates a natural stop-condition for the model.
-    extraction_prompt = (
-        base_instructions + 
-        reasoning_context + 
-        "\nCRITICAL INSTRUCTION: Your analysis is complete. Now, output the final relationships as a valid JSON object. "
-        "Do NOT write any prose. Do NOT continue reasoning. "
-        "Format exactly like this:\n"
-        "{\n"
-        '  "edges": [\n'
-        '    ["parent_term", "child_term"],\n'
-        '    ["another_parent", "another_child"]\n'
-        "  ]\n"
-        "}\n"
-    )
-
-    # Added sensible cap to prevent runaways when num_terms is massive
-    current_budget = min((num_terms * 40) + 600, 4000) 
-    force_log("STAGE 2 EXTRACTION PROMPT", extraction_prompt)
-
     try:
-        t0 = time.time()
-        # By passing response_format={"type": "json_object"}, most vLLM/OpenAI compatible servers 
-        # will strict-enforce syntax, eliminating garbage output.
-        res_extract = client.chat.completions.create(
+        response = client.chat.completions.create(
             model=model_name,
             messages=[
-                {"role": "system", "content": "You are a precise data extraction pipeline. You output strictly valid JSON and nothing else."},
-                {"role": "user", "content": extraction_prompt}
+                {"role": "system", "content": "You are a helpful assistant."},
+                {"role": "user", "content": prompt}
             ],
             temperature=0.0,
-            max_tokens=current_budget,
-            response_format={"type": "json_object"} 
+            max_tokens=16328
         )
+       
+        message = response.choices[0].message
+        # Safely grab content even if the API returns None or puts it in a weird field
+        content = getattr(message, 'content', '') or ""
+        reasoning = getattr(message, 'reasoning', '') or getattr(message, 'reasoning_content', '') or ""
         
-        content = res_extract.choices[0].message.content or ""
-        usage = res_extract.usage
-        finish = res_extract.choices[0].finish_reason
+        full_text = (str(reasoning) + "\n" + str(content)).strip()
         
-        p_tokens = getattr(usage, 'prompt_tokens', 0)
-        c_tokens = getattr(usage, 'completion_tokens', 0)
-        print(f"    [LLM Zero-Shot] Extraction: Prompt={p_tokens}, Completion={c_tokens}, Finish={finish}")
+        if not full_text:
+            print(f"    [LLM Zero-Shot] FATAL: API returned completely empty content. Finish Reason: {response.choices[0].finish_reason}")
+            return cluster_synonyms_and_enforce_dag(G)
+           
+        # Brute-force Regex Extraction
+        pattern = r'\[\s*"([^"]+)"\s*,\s*"([^"]+)"\s*\]'
+        matches = re.findall(pattern, full_text, re.IGNORECASE)
         
-        force_log("STAGE 2 TELEMETRY", f"Prompt: {p_tokens} | Completion: {c_tokens} | Finish: {finish}")
-        force_log("STAGE 2 RAW OUTPUT FROM MODEL", repr(content)) 
-
-        if finish == "length":
-            print(f"    [WARNING] Output hit token limit. Dumping to {debug_file}")
-
-        # Robust JSON extraction: Strip markdown formatting commonly generated by OSS models
-        clean_content = content.strip()
-        if clean_content.startswith("```"):
-            first_newline = clean_content.find("\n")
-            if first_newline != -1:
-                clean_content = clean_content[first_newline:].strip()
-            if clean_content.endswith("```"):
-                clean_content = clean_content[:-3].strip()
-
         edges_added = 0
-        try:
-            # Primary parsing attempt via JSON
-            data = json.loads(clean_content)
-            edges = data.get("edges", [])
+        for p, c in matches:
+            parent_raw = p.strip().lower()
+            child_raw = c.strip().lower()
             
-            for edge in edges:
-                if isinstance(edge, list) and len(edge) >= 2:
-                    p, c = str(edge[0]).strip().lower(), str(edge[1]).strip().lower()
-                    if p in primary_to_full_map and c in primary_to_full_map and p != c:
-                        G.add_edge(primary_to_full_map[p], primary_to_full_map[c])
-                        edges_added += 1
-                        
-            force_log("JSON MATCHES FOUND", edges)
-            
-        except json.JSONDecodeError as json_err:
-            force_log("JSON PARSE ERROR", json_err)
-            print(f"    [WARNING] JSON parse failed, falling back to Regex. See dump.")
-            
-            # Fallback to Regex only if JSON parsing fails but the model was close
-            matches = re.findall(r'\[\s*["\']([^"\']+)["\']\s*,\s*["\']([^"\']+)["\']\s*\]', content)
-            force_log("REGEX FALLBACK MATCHES", matches)
-            for p, c in matches:
-                p, c = p.strip().lower(), c.strip().lower()
-                if p in primary_to_full_map and c in primary_to_full_map and p != c:
-                    G.add_edge(primary_to_full_map[p], primary_to_full_map[c])
-                    edges_added += 1
-
-        print(f"    [LLM Zero-Shot] SUCCESS | Extracted {edges_added} valid edges.")
-        
-        if edges_added == 0 and c_tokens > 100:
-             print(f"    [FATAL] Extracted 0 edges but used {c_tokens} tokens. See {debug_file}")
-
+            if parent_raw in primary_to_full_map and child_raw in primary_to_full_map and parent_raw != child_raw:
+                actual_parent_node = primary_to_full_map[parent_raw]
+                actual_child_node = primary_to_full_map[child_raw]
+                G.add_edge(actual_parent_node, actual_child_node)
+                edges_added += 1
+                
+        safe_snippet = full_text[:100].replace('\n', ' ')
+        if edges_added > 0:
+            print(f"    [LLM Zero-Shot] SUCCESS | Parsed {edges_added} valid edges | Snippet: {safe_snippet}...")
+        else:
+            print(f"    [LLM Zero-Shot] ZERO EDGES FOUND | Snippet: {safe_snippet}...")
+                
     except Exception as e:
-        print(f"    [LLM Zero-Shot] FATAL ERROR | {e}")
-        force_log("STAGE 2 FATAL ERROR", e)
-
-    return G
-```</EOS>
+        print(f"    [LLM Zero-Shot] EXCEPTION | {e}")
+       
+    return cluster_synonyms_and_enforce_dag(G)
