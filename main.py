@@ -14,8 +14,6 @@ from lexical_method import method_lexical, method_vector
 from basic_llm_method import method_llm_single_shot
 from our_method import method_our_approach
 from taxollama_method import precompute_taxollama_ppl, build_taxollama_graph
-
-# Import the corrected SBU methods
 from SBU_NLP_method import method_sbu_batch, method_sbu_embedding
 
 def display_summary_table(domain, eval_results):
@@ -90,7 +88,6 @@ def main(args):
 
     target_scale = args.scale.upper()
     print(f"\n--- Running Benchmark across {target_scale} datasets ---")
-    print(f"--- Reasoning Level: {args.reasoning_level.upper()} ---")
 
     for domain in selected_ds:
         # Load the graph and the isolated 20% training pairs
@@ -104,9 +101,8 @@ def main(args):
         
         input_nodes = [n for n in G_gt.nodes() if n != "virtual_root"]
         
-        # Calculate strict reasoning budget for SBU Batch Method
-        rtpt_map = {'none': 0, 'low': 10, 'medium': 20, 'high': 40}
-        sbu_budget = len(input_nodes) * rtpt_map.get(args.reasoning_level.lower(), 20)
+        # Static baseline reasoning budget for SBU Batch Method (20 tokens per node)
+        sbu_budget = len(input_nodes) * 20
         
         if args.explode_nodes:
             print("  -> Exploding cluster nodes for individual term analysis...")
@@ -144,7 +140,7 @@ def main(args):
         if "llm_zero" in selected_methods:
             print("  -> Running Zero-Shot LLM...")
             t0 = time.time()
-            G_llm_zero = method_llm_single_shot(input_nodes, client, MODEL_NAME, reasoning_level=args.reasoning_level)
+            G_llm_zero = method_llm_single_shot(input_nodes, client, MODEL_NAME)
             if "virtual_root" in G_llm_zero: G_llm_zero.remove_node("virtual_root")
             eval_results["LLM Zero-Shot"] = {
                 "metrics": evaluate_all_modes(G_llm_zero, G_gt, f"./results/{dataset_name_eval}_LLMZero"), 
@@ -154,7 +150,7 @@ def main(args):
         if "our_method" in selected_methods:
             print("  -> Running Our Method...")
             t0 = time.time()
-            G_our = method_our_approach(input_nodes, client, MODEL_NAME, reasoning_level=args.reasoning_level)
+            G_our = method_our_approach(input_nodes, client, MODEL_NAME)
             if "virtual_root" in G_our: G_our.remove_node("virtual_root")
             eval_results["Our Method O(N)"] = {
                 "metrics": evaluate_all_modes(G_our, G_gt, f"./results/{dataset_name_eval}_OurMethod"), 
@@ -229,7 +225,6 @@ if __name__ == "__main__":
     parser.add_argument("--method", nargs="+", default=["all"], choices=["all", "lexical", "vector", "llm_zero", "our_method", "taxollama", "sbu_batch", "sbu_embedding"])
     parser.add_argument("--datasets", nargs="+", default=["all"])
     parser.add_argument("--scale", type=str, default="sub", choices=["sub", "full"], help="Benchmark on 'sub' (100-node) or 'full' ontology")
-    parser.add_argument("--reasoning_level", type=str, default="medium", choices=["none", "low", "medium", "high"], help="Reasoning tokens per term budget")
     parser.add_argument("--use_synsets", action="store_true")
     parser.add_argument("--explode_nodes", action="store_true")
     args = parser.parse_args()
