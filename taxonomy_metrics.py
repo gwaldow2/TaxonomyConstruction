@@ -94,7 +94,7 @@ def compute_metrics(G, name, client, model_name):
     }
 
 # ==========================================
-# 2. MAIN PIPELINE (Stage 0 Graph Generation)
+# 2. MAIN PIPELINE (Stage 0 Dual Generation)
 # ==========================================
 
 def main(args):
@@ -127,31 +127,29 @@ def main(args):
     results = []
     
     for name, config in datasets.items():
-        is_llms4ol = config.get("is_llms4ol", False)
         loader_func = config["loader"]
-        
         G_raw = loader_func()
         if isinstance(G_raw, tuple): G_raw = G_raw[0]
         
         if G_raw.number_of_nodes() == 0:
             continue
             
-        if is_llms4ol:
-            # LLMs4OL evaluated on its full train hierarchy
-            G_eval = G_raw.copy()
-        else:
-            target_size = G_raw.number_of_nodes() if name == getattr(args, "csv_dataset", "") else 100
-            G_eval = get_closed_subgraph(G_raw, target_nodes=target_size)
-            
-        # Unify & Break Cycles
-        G_eval_dag = enforce_dag(G_eval)
+        print(f"\n--- Generating Artifacts for {name} ---")
         
-        # Save as Ground Truth Artifact for main.py
-        save_benchmark_graph(G_eval_dag, name)
+        # 1. Generate & Score FULL Graph
+        G_full_dag = enforce_dag(G_raw.copy())
+        save_benchmark_graph(G_full_dag, name, scale="FULL")
+        metrics_full = compute_metrics(G_full_dag, f"{name}_FULL", client, MODEL_NAME)
+        results.append(metrics_full)
+        print(f" -> Saved FULL: Nodes={metrics_full['Nodes']}, Edges={metrics_full['Edges']}")
         
-        metrics = compute_metrics(G_eval_dag, name, client, MODEL_NAME)
-        results.append(metrics)
-        print(f" -> Finished {name}: Nodes={metrics['Nodes']}, Edges={metrics['Edges']}, PPL={metrics['Avg Hearst PPL']}")
+        # 2. Generate & Score SUB Graph (100 nodes)
+        G_sub = get_closed_subgraph(G_raw, target_nodes=100)
+        G_sub_dag = enforce_dag(G_sub)
+        save_benchmark_graph(G_sub_dag, name, scale="SUB")
+        metrics_sub = compute_metrics(G_sub_dag, f"{name}_SUB", client, MODEL_NAME)
+        results.append(metrics_sub)
+        print(f" -> Saved SUB: Nodes={metrics_sub['Nodes']}, Edges={metrics_sub['Edges']}")
         
     if results:
         df = pd.DataFrame(results)
