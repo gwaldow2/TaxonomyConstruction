@@ -56,7 +56,7 @@ Format Example:
   ["parent_term_2", "child_term_2"]
 ]
 
-Output your answer strictly as a JSON list of arrays. Do not add any conversational text.
+Output your answer strictly as a list of arrays. Do not add conversational text.
 """
 
     try:
@@ -71,14 +71,13 @@ Output your answer strictly as a JSON list of arrays. Do not add any conversatio
         )
        
         message = response.choices[0].message
-        # Safely grab content even if the API returns None or puts it in a weird field
         content = getattr(message, 'content', '') or ""
         reasoning = getattr(message, 'reasoning', '') or getattr(message, 'reasoning_content', '') or ""
         
         full_text = (str(reasoning) + "\n" + str(content)).strip()
         
         if not full_text:
-            print(f"    [LLM Zero-Shot] FATAL: API returned completely empty content. Finish Reason: {response.choices[0].finish_reason}")
+            print(f"    [LLM Zero-Shot] FATAL: API returned completely empty content.")
             return cluster_synonyms_and_enforce_dag(G)
            
         # Brute-force Regex Extraction
@@ -98,7 +97,7 @@ Output your answer strictly as a JSON list of arrays. Do not add any conversatio
                 
         safe_snippet = full_text[:100].replace('\n', ' ')
         if edges_added > 0:
-            print(f"    [LLM Zero-Shot] SUCCESS | Parsed {edges_added} valid edges | Snippet: {safe_snippet}...")
+            print(f"    [LLM Zero-Shot] SUCCESS | Parsed {edges_added} valid edges via Regex | Snippet: {safe_snippet}...")
         else:
             print(f"    [LLM Zero-Shot] ZERO EDGES FOUND | Snippet: {safe_snippet}...")
                 
