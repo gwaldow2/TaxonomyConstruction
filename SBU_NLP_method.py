@@ -1,5 +1,6 @@
 import re
 import json
+import random
 import networkx as nx
 from tqdm import tqdm
 from sentence_transformers import util
@@ -94,7 +95,7 @@ def method_sbu_ensemble(nodes, encoder_model):
                     
     return cluster_synonyms_and_enforce_dag(G)
 
-def method_sbu_batch(nodes, client, model_name, num_chunks=2):
+def method_sbu_batch(nodes, client, model_name, num_chunks=2, train_pairs=None):
     G = nx.DiGraph()
     primary_to_full_map = {get_primary_term(n): n for n in nodes}
     primary_nodes = list(primary_to_full_map.keys())
@@ -114,18 +115,26 @@ def method_sbu_batch(nodes, client, model_name, num_chunks=2):
         chunks.append(primary_nodes[start_idx:end_idx])
         start_idx = end_idx
 
-    sys_prompt = """From this file, extract all parent and child relations for all pairs like examples in JSON file.
+    # Dynamically inject Ground Truth examples if they were provided
+    examples_str = ""
+    if train_pairs:
+        sample_size = min(5, len(train_pairs))
+        random.seed(42)  # Maintain deterministic execution for benchmarking
+        sampled_pairs = random.sample(train_pairs, sample_size)
+        examples_str = "\nExamples from training data:\n[\n" + ",\n".join([json.dumps(p) for p in sampled_pairs]) + "\n]"
+
+    sys_prompt = f"""From this file, extract all parent and child relations for all pairs like examples in JSON file.
     The relationship is defined as follows:
-    If every entity labeled with 'child1' could logically also be labeled with 'parent1', you would output { "parent": "parent1", "child": "child1" }"
+    If every entity labeled with 'child1' could logically also be labeled with 'parent1', you would output {{ "parent": "parent1", "child": "child1" }}
 Output file must be in this format:
 [
-{ "parent": "parent1", "child": "child1" },
-{ "parent": "parent2", "child": "child2" }
+{{ "parent": "parent1", "child": "child1" }},
+{{ "parent": "parent2", "child": "child2" }}
 ]
 You must find all parent-child pairs from the input file.
 Each pair should be extracted and formatted as shown above.
 You should find pairs in [PAIR] tag terms.
-Example: { "parent": "cell", "child": "anucleate" }, but the inverse is not necessarily true"""
+Example: {{ "parent": "cell", "child": "anucleate" }}, but the inverse is not necessarily true{examples_str}"""
 
     for chunk in tqdm(chunks, desc="  -> [SBU Batch] Chunking Execution", leave=False):
         user_content = "[PAIR]\n" + "\n".join(chunk) + "\n[/PAIR]"
