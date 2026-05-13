@@ -7,10 +7,12 @@ import networkx as nx
 from openai import OpenAI
 from sentence_transformers import SentenceTransformer
 
+# Added DATA_DIR to the import list below
 from data_manager import (
     get_semeval_graph, get_wordnet_food_graph, get_google_products_graph,
     get_geonames_graph, get_gene_ontology_graph, get_cell_ontology_graph,
-    get_csv_graph, get_closed_subgraph, enforce_dag, get_llms4ol_task_c_data
+    get_csv_graph, get_closed_subgraph, enforce_dag, get_llms4ol_task_c_data,
+    DATA_DIR
 )
 from evaluator import evaluate_all_modes, update_benchmark_results
 from lexical_method import method_lexical, method_vector
@@ -45,6 +47,7 @@ def main(args):
     vector_encoder = None
     taxo_model = None
     taxo_tokenizer = None
+    MODEL_NAME = "openai/gpt-oss-120b" # Defined as a default
     device = "cuda" if torch.cuda.is_available() else "cpu"
 
     selected_methods = args.method
@@ -53,7 +56,6 @@ def main(args):
 
     if any(m in selected_methods for m in ["llm_zero", "our_method", "sbu_batch"]):
         print("Initializing LLM Client...")
-        MODEL_NAME = "openai/gpt-oss-120b"
         client = OpenAI(
             base_url="http://localhost:8000/v1", 
             api_key="woohoo"
@@ -95,9 +97,11 @@ def main(args):
 
     selected_ds = args.datasets
     if "all" in selected_ds:
+        # Added the extra datasets visible in your IDE screenshot (DOID, FoodOn, PROCO)
         selected_ds = ["WordNetFood", "GoogleProducts", "GeoNames", "GeneOntology", "CellOntology", "csv", 
                        "SemEvalFood", "SemEvalScience", "SemEvalEnvironment", 
-                       "LLMs4OL_OBI", "LLMs4OL_MatOnto", "LLMs4OL_SWEET", "LLMs4OL_SchemaOrg", "LLMs4OL_PO"]
+                       "LLMs4OL_OBI", "LLMs4OL_MatOnto", "LLMs4OL_SWEET", "LLMs4OL_SchemaOrg", 
+                       "LLMs4OL_PO", "LLMs4OL_DOID", "LLMs4OL_FoodOn", "LLMs4OL_PROCO"]
 
     datasets = {}
     
@@ -123,9 +127,8 @@ def main(args):
         
     # LLMs4OL Challenge Loaders
     llms4ol_base_path = os.path.join(DATA_DIR, "TaskC-TaxonomyDiscovery")
-    for ont in ["OBI", "MatOnto", "SWEET", "SchemaOrg", "PO"]:
+    for ont in ["OBI", "MatOnto", "SWEET", "SchemaOrg", "PO", "DOID", "FoodOn", "PROCO"]:
         if f"LLMs4OL_{ont}" in selected_ds:
-            # We capture the value of ont in default arg to prevent late binding issues in lambda
             datasets[f"LLMs4OL_{ont}"] = {
                 "loader": lambda o=ont: get_llms4ol_task_c_data(os.path.join(llms4ol_base_path, o), use_synsets=args.use_synsets),
                 "is_llms4ol": True
@@ -214,7 +217,6 @@ def main(args):
 
         if "sbu_batch" in selected_methods:
             print("  -> Running SBU LLM Batch Prompting...")
-            # Route the parsed train_pairs strictly to the SBU batch method to test their setup
             G_sbu_batch = method_sbu_batch(input_nodes, client, MODEL_NAME, train_pairs=train_pairs)
             eval_results["SBU LLM Batch"] = evaluate_all_modes(G_sbu_batch, G_gt, f"./results/{actual_domain_name}_SBU_Batch")
 
@@ -250,7 +252,7 @@ def main(args):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Taxonomy Extraction Benchmark")
     parser.add_argument("--method", nargs="+", default=["all"], choices=["all", "lexical", "vector", "llm_zero", "our_method", "taxollama", "sbu_batch", "sbu_ensemble"], help="List of methods to run (space separated)")
-    parser.add_argument("--datasets", nargs="+", default=["all"], choices=["all", "csv", "WordNetFood", "GoogleProducts", "GeoNames", "GeneOntology", "CellOntology", "SemEvalFood", "SemEvalScience", "SemEvalEnvironment", "LLMs4OL_OBI", "LLMs4OL_MatOnto", "LLMs4OL_SWEET", "LLMs4OL_SchemaOrg", "LLMs4OL_PO"], help="List of datasets to run (space separated)")
+    parser.add_argument("--datasets", nargs="+", default=["all"], choices=["all", "csv", "WordNetFood", "GoogleProducts", "GeoNames", "GeneOntology", "CellOntology", "SemEvalFood", "SemEvalScience", "SemEvalEnvironment", "LLMs4OL_OBI", "LLMs4OL_MatOnto", "LLMs4OL_SWEET", "LLMs4OL_SchemaOrg", "LLMs4OL_PO", "LLMs4OL_DOID", "LLMs4OL_FoodOn", "LLMs4OL_PROCO"], help="List of datasets to run (space separated)")
     parser.add_argument("--use_synsets", action="store_true", help="Include synonyms for nodes when available")
     parser.add_argument("--csv_dataset", type=str, default=None, help="Path to Gephi Adjacency CSV to use as dataset")
     parser.add_argument("--explode_nodes", action="store_true", help="Explode clustered nodes into individual evaluation nodes")
