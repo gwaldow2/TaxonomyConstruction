@@ -43,6 +43,7 @@ def method_llm_single_shot(nodes, client, model_name):
    
     vocab_string = ", ".join(primary_nodes)
     
+    # Prompt explicitly ends with a cue to force generation, preventing instant EOS
     prompt = f"""You are an expert ontologist building a hierarchical taxonomy.
 You are given a vocabulary of {len(primary_nodes)} terms.
 Your task is to identify ALL direct parent-child relationships between these terms.
@@ -51,15 +52,17 @@ Vocabulary: [{vocab_string}]
 
 Rules:
 1. ONLY use terms EXACTLY as they appear in the vocabulary list.
-2. A parent is a broader concept, a child is a more specific concept (e.g., mammal -> dog).
-3. Output your answer strictly as a JSON list of arrays.
-4. Do not add any conversational text, explanations, or markdown outside the JSON.
+2. A parent is a broader concept, a child is a more specific concept.
+3. Output strictly as a JSON list of arrays. Do NOT add conversational text.
 
 Format Example:
 [
   ["parent_term_1", "child_term_1"],
   ["parent_term_2", "child_term_2"]
-]"""
+]
+
+JSON Output:
+"""
 
     try:
         response = client.chat.completions.create(
@@ -69,42 +72,46 @@ Format Example:
                 {"role": "user", "content": prompt}
             ],
             temperature=0.0,
-            max_tokens=4096,
-            timeout=180.0
+            max_tokens=16328
         )
        
-        if not response.choices[0].message.content:
-            print("    [LLM Zero-Shot] API returned empty content.")
+        message = response.choices[0].message
+        content = getattr(message, 'content', '') or ""
+        reasoning = getattr(message, 'reasoning_content', '') or ""
+        finish_reason = response.choices[0].finish_reason
+        
+        # Total Transparency Logging
+        if not content.strip():
+            print(f"    [LLM Zero-Shot] FATAL: Content is empty! Finish Reason: {finish_reason}")
+            if reasoning:
+                print(f"    [LLM Zero-Shot] Found {len(reasoning)} chars of reasoning_content instead. Dumping raw message:")
+            print(f"    Raw API Message: {message.model_dump()}")
             return cluster_synonyms_and_enforce_dag(G)
            
-        ans = response.choices[0].message.content.strip()
-        safe_snippet = ans[:80].replace('\n', ' ')
+        ans = content.strip()
+        safe_snippet = ans[:150].replace('\n', ' ')
         
-        start_idx = ans.find('[')
-        end_idx = ans.rfind(']')
-        if start_idx != -1 and end_idx != -1:
-            json_str = ans[start_idx:end_idx+1]
-            try:
-                pairs = json.loads(json_str)
-                edges_added = 0
-                for pair in pairs:
-                    if isinstance(pair, list) and len(pair) == 2:
-                        parent_raw = str(pair[0]).strip().lower()
-                        child_raw = str(pair[1]).strip().lower()
-                       
-                        if parent_raw in primary_to_full_map and child_raw in primary_to_full_map and parent_raw != child_raw:
-                            actual_parent_node = primary_to_full_map[parent_raw]
-                            actual_child_node = primary_to_full_map[child_raw]
-                            G.add_edge(actual_parent_node, actual_child_node)
-                            edges_added += 1
-                            
-                print(f"    [LLM Zero-Shot] SUCCESS | Parsed {edges_added} valid edges | Snippet: {safe_snippet}...")
-            except json.JSONDecodeError as e:
-                print(f"    [LLM Zero-Shot] PARSE ERROR | {e} | Snippet: {safe_snippet}...")
+        # Regex to salvage ["parent", "child"] edges from markdown blocks or trailing text
+        pattern = r'\[\s*"([^"]+)"\s*,\s*"([^"]+)"\s*\]'
+        matches = re.findall(pattern, ans)
+        
+        edges_added = 0
+        for p, c in matches:
+            parent_raw = p.strip().lower()
+            child_raw = c.strip().lower()
+            
+            if parent_raw in primary_to_full_map and child_raw in primary_to_full_map and parent_raw != child_raw:
+                actual_parent_node = primary_to_full_map[parent_raw]
+                actual_child_node = primary_to_full_map[child_raw]
+                G.add_edge(actual_parent_node, actual_child_node)
+                edges_added += 1
+                
+        if edges_added > 0:
+            print(f"    [LLM Zero-Shot] SUCCESS | Parsed {edges_added} valid edges | Snippet: {safe_snippet}...")
         else:
-            print(f"    [LLM Zero-Shot] FORMAT ERROR (No Array) | Snippet: {safe_snippet}...")
+            print(f"    [LLM Zero-Shot] ZERO EDGES FOUND | Finish Reason: {finish_reason} | Snippet: {safe_snippet}...")
                 
     except Exception as e:
-        print(f"    [LLM Zero-Shot] API ERROR | {e}")
+        print(f"    [LLM Zero-Shot] EXCEPTION | {e}")
        
     return cluster_synonyms_and_enforce_dag(G)
