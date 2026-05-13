@@ -26,7 +26,6 @@ def load_and_merge_data(json_path="benchmark_results.json", csv_path="dataset_me
         explode_nodes = ds_block.get("explode_nodes", False)
         
         for res in ds_block.get("results", []):
-            # Dynamically select the best metric depending on if nodes were exploded
             primary_f1 = res["Exp_Clos_F1"] if explode_nodes else res["Cond_Clos_F1"]
             
             records.append({
@@ -38,7 +37,8 @@ def load_and_merge_data(json_path="benchmark_results.json", csv_path="dataset_me
                 "Cond_Clos_F1": res.get("Cond_Clos_F1", 0),
                 "Exp_Raw_F1": res.get("Exp_Raw_F1", 0),
                 "Exp_Clos_F1": res.get("Exp_Clos_F1", 0),
-                "Primary_F1": primary_f1 
+                "Primary_F1": primary_f1,
+                "Runtime_sec": res.get("Runtime_sec", 0.0) # Gracefully handle old runs
             })
     df_perf = pd.DataFrame(records)
     
@@ -52,13 +52,11 @@ def load_and_merge_data(json_path="benchmark_results.json", csv_path="dataset_me
     # 4. Merge
     df_merged = pd.merge(df_perf, df_metrics, left_on="Dataset_JSON", right_on="Dataset", how="inner")
     
-    # --- DEBUGGING: Catch dropped datasets ---
     json_datasets = set(df_perf["Dataset_JSON"])
     csv_datasets = set(df_metrics["Dataset"])
     missing_in_csv = json_datasets - csv_datasets
     if missing_in_csv:
         print(f" [!] WARNING: These datasets are in your JSON but missing from dataset_metrics.csv: {missing_in_csv}")
-    # ---------------------------------------
     
     # 5. Create Scenario Names (e.g., "WordNetFood_SUB (Syn+Exp)")
     def make_scenario_name(row):
@@ -76,11 +74,8 @@ def load_and_merge_data(json_path="benchmark_results.json", csv_path="dataset_me
 def plot_method_vs_dataset_heatmap(df):
     """Creates a heatmap of F1 scores for each Method across all Datasets & Scenarios."""
     print(" -> Generating Method vs Dataset Heatmap...")
-    
-    # Pivot the data for the heatmap using the Scenario string
     pivot_df = df.pivot(index="Method", columns="Dataset_Scenario", values="Primary_F1")
     
-    # Dynamically scale width based on the number of datasets to prevent squished labels
     num_scenarios = len(pivot_df.columns)
     fig_width = max(14, num_scenarios * 1.2)
     
@@ -97,7 +92,6 @@ def plot_method_vs_dataset_heatmap(df):
 def plot_method_variance(df):
     """Creates a violin/box plot showing how much each method's F1 varies across different datasets."""
     print(" -> Generating Method Variance Plot...")
-    
     plt.figure(figsize=(12, 6))
     
     order = df.groupby("Method")["Primary_F1"].median().sort_values(ascending=False).index
@@ -131,7 +125,6 @@ def plot_metric_vs_f1_scatter_grid(df):
         df_plot = df_non_taxo
 
     metrics_to_plot = ["Avg Hearst PPL", "Lexical Overlap", "Tree-likeness", "Max Depth", "Avg Branching", "Edge/Node Ratio", "Nodes"]
-    
     methods = df_plot['Method'].unique()
     palette = sns.color_palette("husl", n_colors=len(methods))
     color_dict = dict(zip(methods, palette))
@@ -158,15 +151,12 @@ def plot_metric_vs_f1_scatter_grid(df):
         
         axes[i].set_title(f"F1 Score vs {metric}", fontweight='bold')
         axes[i].set_ylim(-0.05, 1.05)
-        
-        if metric == "Nodes":
-            axes[i].set_xscale("log") 
+        if metric == "Nodes": axes[i].set_xscale("log") 
             
         if i == 0:
             axes[i].legend(bbox_to_anchor=(1.05, 1), loc='upper left', prop={'size': 8})
         else:
-            if axes[i].get_legend() is not None:
-                axes[i].get_legend().remove()
+            if axes[i].get_legend() is not None: axes[i].get_legend().remove()
 
     if len(metrics_to_plot) < len(axes):
         for j in range(len(metrics_to_plot), len(axes)):
@@ -206,6 +196,43 @@ def plot_f1_metric_correlation_heatmap(df):
     plt.xticks(rotation=45, ha='right')
     plt.tight_layout()
     plt.savefig(os.path.join(VIS_DIR, "4_topology_f1_correlation_heatmap.png"), dpi=300)
+    plt.close()
+
+def plot_runtime_complexity(df):
+    """Plots Runtime vs Nodes on a log-log scale to reveal algorithmic complexity bounds."""
+    print(" -> Generating Runtime Scaling Chart...")
+    
+    # Filter out runs with 0 runtime (from older JSONs before we added tracking)
+    df_runtime = df[df["Runtime_sec"] > 0].copy()
+    if df_runtime.empty:
+        print("    [!] No runtime data found to plot. Skipping chart.")
+        return
+        
+    plt.figure(figsize=(10, 6))
+    
+    palette = sns.color_palette("husl", n_colors=len(df_runtime['Method'].unique()))
+    color_dict = dict(zip(df_runtime['Method'].unique(), palette))
+
+    sns.scatterplot(
+        data=df_runtime, x="Nodes", y="Runtime_sec", hue="Method", 
+        palette=color_dict, s=120, alpha=0.8, edgecolor='black'
+    )
+    
+    # Draw complexity trendlines
+    for method in df_runtime['Method'].unique():
+        subset = df_runtime[df_runtime['Method'] == method].sort_values(by="Nodes")
+        if len(subset) > 1:
+            plt.plot(subset["Nodes"], subset["Runtime_sec"], color=color_dict[method], alpha=0.4, linewidth=2, linestyle='--')
+            
+    plt.title("Computational Scaling: Runtime vs Graph Size", pad=20, fontsize=14, fontweight='bold')
+    plt.xlabel("Total Nodes in Ground Truth (Log Scale)", fontweight='bold')
+    plt.ylabel("Execution Time in Seconds (Log Scale)", fontweight='bold')
+    plt.xscale("log")
+    plt.yscale("log")
+    
+    plt.legend(bbox_to_anchor=(1.05, 1), loc='upper left', prop={'size': 9})
+    plt.tight_layout()
+    plt.savefig(os.path.join(VIS_DIR, "9_runtime_scaling.png"), dpi=300)
     plt.close()
 
 def plot_f1_metric_comparison(df):
@@ -272,17 +299,17 @@ def generate_summary_table(df):
     print(" -> Generating Summary Table...")
     
     idx = df.groupby('Dataset_Scenario')['Primary_F1'].idxmax()
-    best_df = df.loc[idx, ['Dataset_Scenario', 'Method', 'Primary_F1', 'Nodes', 'Lexical Overlap', 'Avg Hearst PPL']]
+    best_df = df.loc[idx, ['Dataset_Scenario', 'Method', 'Primary_F1', 'Runtime_sec', 'Nodes', 'Lexical Overlap', 'Avg Hearst PPL']]
     
     best_df = best_df.sort_values(by="Dataset_Scenario").reset_index(drop=True)
-    best_df.columns = ["Dataset Scenario", "Best Method", "Best F1 Score", "Total Nodes", "Lexical Overlap", "Avg Hearst PPL"]
+    best_df.columns = ["Dataset Scenario", "Best Method", "Best F1 Score", "Runtime (s)", "Total Nodes", "Lexical Overlap", "Avg Hearst PPL"]
     
     best_df.to_csv(os.path.join(VIS_DIR, "5_best_methods_summary.csv"), index=False)
-    print("\n" + "="*95)
+    print("\n" + "="*110)
     print("🏆 BEST PERFORMING METHODS PER DATASET SCENARIO 🏆")
-    print("="*95)
+    print("="*110)
     print(best_df.to_string(index=False))
-    print("="*95)
+    print("="*110)
 
 def main():
     if not os.path.exists("benchmark_results.json") or not os.path.exists("dataset_metrics.csv"):
@@ -295,6 +322,7 @@ def main():
     plot_method_vs_dataset_heatmap(df)
     plot_method_variance(df)
     plot_metric_vs_f1_scatter_grid(df)
+    plot_runtime_complexity(df)
     plot_f1_metric_correlation_heatmap(df)
     plot_f1_metric_comparison(df) 
     report_method_variance(df)
