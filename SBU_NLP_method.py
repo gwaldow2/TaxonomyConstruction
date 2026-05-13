@@ -1,3 +1,4 @@
+import re
 import json
 import networkx as nx
 from tqdm import tqdm
@@ -8,8 +9,10 @@ def method_sbu_embedding(test_nodes, encoder_model, train_nodes=None):
     if not test_nodes: return G
     
     candidate_parents = train_nodes if train_nodes else test_nodes
+        
     child_embeddings = encoder_model.encode(test_nodes, convert_to_tensor=True)
     parent_embeddings = encoder_model.encode(candidate_parents, convert_to_tensor=True)
+    
     cosine_scores = util.cos_sim(child_embeddings, parent_embeddings)
     
     for i, child in enumerate(test_nodes):
@@ -37,9 +40,7 @@ pairs like examples in JSON file.
 Output file must be in this format:
 [
 { "parent": "parent1", "child": "child1" },
-{ "parent": "parent2", "child": "child2" },
-{ "parent": "parent3", "child": "child3" },
-{ "parent": "parent4", "child": "child4" }
+{ "parent": "parent2", "child": "child2" }
 ]
 You must find all parent-child pairs from the input file.
 Each pair should be extracted and formatted as shown above."""
@@ -48,10 +49,10 @@ Each pair should be extracted and formatted as shown above."""
     pbar = tqdm(total=total_prompts, desc="  -> [SBU Batch] N x M Chunking", leave=False)
 
     for t_chunk in train_chunks:
-        train_json_str = json.dumps(t_chunk) if t_chunk else "[]"
+        train_json_str = json.dumps(t_chunk, indent=2) if t_chunk else "[]"
         
         for s_chunk in test_chunks:
-            user_content = f"JSON file examples:\n{train_json_str}\n\nInput file terms:\n" + "\n".join(s_chunk)
+            user_content = f"Examples:\n{train_json_str}\n\nInput terms:\n" + "\n".join(s_chunk)
             
             try:
                 response = client.chat.completions.create(
@@ -61,43 +62,41 @@ Each pair should be extracted and formatted as shown above."""
                         {"role": "user", "content": user_content}
                     ],
                     temperature=0.0,
-                    max_tokens=4096,
-                    timeout=180.0
+                    max_tokens=16328
                 )
                 
-                if not response.choices[0].message.content:
-                    print(f"\n    [SBU Batch] API returned empty content.")
+                message = response.choices[0].message
+                content = getattr(message, 'content', '') or ""
+                reasoning = getattr(message, 'reasoning', '') or getattr(message, 'reasoning_content', '') or ""
+                
+                full_text = (str(reasoning) + "\n" + str(content)).strip()
+                
+                if not full_text:
+                    tqdm.write("    [SBU Batch] FATAL: Empty content returned.")
                     pbar.update(1)
                     continue
-                    
-                response_text = response.choices[0].message.content.strip()
-                safe_snippet = response_text[:80].replace('\n', ' ')
 
-                start_idx = response_text.find('[')
-                end_idx = response_text.rfind(']')
+                # Brute-force Regex Extraction
+                pattern = r'"parent"\s*:\s*"([^"]+)"\s*,\s*"child"\s*:\s*"([^"]+)"'
+                matches = re.findall(pattern, full_text, re.IGNORECASE)
                 
-                if start_idx != -1 and end_idx != -1:
-                    json_str = response_text[start_idx:end_idx+1]
-                    try:
-                        pairs = json.loads(json_str)
-                        edges_added = 0
-                        for item in pairs:
-                            if isinstance(item, dict):
-                                p = str(item.get("parent", "")).strip().lower()
-                                c = str(item.get("child", "")).strip().lower()
-                                if p and c and p != c:
-                                    G.add_edge(p, c)
-                                    edges_added += 1
-                                    
-                        tqdm.write(f"    [SBU Batch] SUCCESS | Parsed {edges_added} edges | Snippet: {safe_snippet}...")
-                    except json.JSONDecodeError as e:
-                        tqdm.write(f"    [SBU Batch] PARSE ERROR | {e} | Snippet: {safe_snippet}...")
+                edges_added = 0
+                for p, c in matches:
+                    p = p.strip().lower()
+                    c = c.strip().lower()
+                    if p and c and p != c:
+                        G.add_edge(p, c)
+                        edges_added += 1
+                        
+                safe_snippet = full_text[:100].replace('\n', ' ')
+                if edges_added > 0:
+                    tqdm.write(f"    [SBU Batch] SUCCESS | Parsed {edges_added} edges via Regex | Snippet: {safe_snippet}...")
                 else:
-                    tqdm.write(f"    [SBU Batch] FORMAT ERROR (No Array) | Snippet: {safe_snippet}...")
-                            
+                    tqdm.write(f"    [SBU Batch] ZERO EDGES | Snippet: {safe_snippet}...")
+                        
             except Exception as e:
-                tqdm.write(f"    [SBU Batch] API ERROR | {e}")
-                
+                tqdm.write(f"    [SBU Batch] EXCEPTION | {e}")
+            
             pbar.update(1)
             
     pbar.close()
