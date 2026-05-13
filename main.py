@@ -10,7 +10,7 @@ from sentence_transformers import SentenceTransformer
 from data_manager import (
     get_semeval_graph, get_wordnet_food_graph, get_google_products_graph,
     get_geonames_graph, get_gene_ontology_graph, get_cell_ontology_graph,
-    get_csv_graph, get_closed_subgraph, enforce_dag
+    get_csv_graph, get_closed_subgraph, enforce_dag, get_llms4ol_task_c_data
 )
 from evaluator import evaluate_all_modes, update_benchmark_results
 from lexical_method import method_lexical, method_vector
@@ -95,56 +95,88 @@ def main(args):
 
     selected_ds = args.datasets
     if "all" in selected_ds:
-        selected_ds = ["WordNetFood", "GoogleProducts", "GeoNames", "GeneOntology", "CellOntology", "csv", "SemEvalFood", "SemEvalScience", "SemEvalEnvironment"]
+        selected_ds = ["WordNetFood", "GoogleProducts", "GeoNames", "GeneOntology", "CellOntology", "csv", 
+                       "SemEvalFood", "SemEvalScience", "SemEvalEnvironment", 
+                       "LLMs4OL_OBI", "LLMs4OL_MatOnto", "LLMs4OL_SWEET", "LLMs4OL_SchemaOrg", "LLMs4OL_PO"]
 
     datasets = {}
+    
+    # Standard Loaders
     if "WordNetFood" in selected_ds: 
-        datasets["WordNetFood"] = lambda: get_wordnet_food_graph(use_synsets=args.use_synsets)
+        datasets["WordNetFood"] = {"loader": lambda: get_wordnet_food_graph(use_synsets=args.use_synsets), "is_llms4ol": False}
     if "GoogleProducts" in selected_ds: 
-        datasets["GoogleProducts"] = lambda: get_google_products_graph(use_synsets=args.use_synsets)
+        datasets["GoogleProducts"] = {"loader": lambda: get_google_products_graph(use_synsets=args.use_synsets), "is_llms4ol": False}
     if "GeoNames" in selected_ds: 
-        datasets["GeoNames"] = lambda: get_geonames_graph(use_synsets=args.use_synsets)
+        datasets["GeoNames"] = {"loader": lambda: get_geonames_graph(use_synsets=args.use_synsets), "is_llms4ol": False}
     if "GeneOntology" in selected_ds: 
-        datasets["GeneOntology"] = lambda: get_gene_ontology_graph(use_synsets=args.use_synsets)
+        datasets["GeneOntology"] = {"loader": lambda: get_gene_ontology_graph(use_synsets=args.use_synsets), "is_llms4ol": False}
     if "CellOntology" in selected_ds: 
-        datasets["CellOntology"] = lambda: get_cell_ontology_graph(use_synsets=args.use_synsets)
+        datasets["CellOntology"] = {"loader": lambda: get_cell_ontology_graph(use_synsets=args.use_synsets), "is_llms4ol": False}
     if "csv" in selected_ds and args.csv_dataset:
-        datasets["CustomCSV"] = lambda: get_csv_graph(args.csv_dataset)
-        
+        datasets["CustomCSV"] = {"loader": lambda: get_csv_graph(args.csv_dataset), "is_llms4ol": False}
     if "SemEvalFood" in selected_ds:
-        datasets["SemEvalFood"] = lambda: get_semeval_graph("SemEvalFood", use_synsets=args.use_synsets)
+        datasets["SemEvalFood"] = {"loader": lambda: get_semeval_graph("SemEvalFood", use_synsets=args.use_synsets), "is_llms4ol": False}
     if "SemEvalScience" in selected_ds:
-        datasets["SemEvalScience"] = lambda: get_semeval_graph("SemEvalScience", use_synsets=args.use_synsets)
+        datasets["SemEvalScience"] = {"loader": lambda: get_semeval_graph("SemEvalScience", use_synsets=args.use_synsets), "is_llms4ol": False}
     if "SemEvalEnvironment" in selected_ds:
-        datasets["SemEvalEnvironment"] = lambda: get_semeval_graph("SemEvalEnvironment", use_synsets=args.use_synsets)
+        datasets["SemEvalEnvironment"] = {"loader": lambda: get_semeval_graph("SemEvalEnvironment", use_synsets=args.use_synsets), "is_llms4ol": False}
         
-    for domain, loader_func in datasets.items():
-        G_full = loader_func()
-        if G_full.number_of_nodes() == 0:
-            continue
+    # LLMs4OL Challenge Loaders
+    llms4ol_base_path = os.path.join(DATA_DIR, "TaskC-TaxonomyDiscovery")
+    for ont in ["OBI", "MatOnto", "SWEET", "SchemaOrg", "PO"]:
+        if f"LLMs4OL_{ont}" in selected_ds:
+            # We capture the value of ont in default arg to prevent late binding issues in lambda
+            datasets[f"LLMs4OL_{ont}"] = {
+                "loader": lambda o=ont: get_llms4ol_task_c_data(os.path.join(llms4ol_base_path, o), use_synsets=args.use_synsets),
+                "is_llms4ol": True
+            }
+        
+    for domain, config in datasets.items():
+        is_llms4ol = config.get("is_llms4ol", False)
+        loader_func = config["loader"]
+        
+        if is_llms4ol:
+            G_full, test_nodes, train_pairs = loader_func()
+            if G_full.number_of_nodes() == 0 and not test_nodes:
+                continue
             
-        if domain == "CustomCSV" and args.csv_dataset:
-            base = os.path.basename(args.csv_dataset)
-            actual_domain_name = os.path.splitext(base)[0]
-        else:
             actual_domain_name = domain
+            print(f"\nEvaluating Domain: {actual_domain_name} (Train Pairs: {len(train_pairs)}, Test Nodes: {len(test_nodes)})")
+            
+            G_gt = enforce_dag(G_full)
+            input_nodes = test_nodes
+            
+        else:
+            G_full = loader_func()
+            if G_full.number_of_nodes() == 0:
+                continue
+                
+            if domain == "CustomCSV" and args.csv_dataset:
+                base = os.path.basename(args.csv_dataset)
+                actual_domain_name = os.path.splitext(base)[0]
+            else:
+                actual_domain_name = domain
 
-        print(f"\nEvaluating Domain: {actual_domain_name} (Full Size: {G_full.number_of_nodes()})")
-        
-        target_size = G_full.number_of_nodes() if domain == "CustomCSV" else 100
-        G_gt = get_closed_subgraph(G_full, target_nodes=target_size)
-        G_gt = enforce_dag(G_gt)
+            print(f"\nEvaluating Domain: {actual_domain_name} (Full Size: {G_full.number_of_nodes()})")
+            
+            target_size = G_full.number_of_nodes() if domain == "CustomCSV" else 100
+            G_gt = get_closed_subgraph(G_full, target_nodes=target_size)
+            G_gt = enforce_dag(G_gt)
+            input_nodes = list(G_gt.nodes())
+            train_pairs = None
         
         if args.explode_nodes:
             print("  -> Exploding cluster nodes for individual term analysis...")
             from evaluator import explode_graph
             G_eval_input = explode_graph(G_gt)
-            input_nodes = list(G_eval_input.nodes())
+            if not is_llms4ol:
+                input_nodes = list(G_eval_input.nodes())
             print(f"Extracted Subgraph: {G_eval_input.number_of_nodes()} exploded nodes, {G_eval_input.number_of_edges()} eval edges.")
             print(f"  (Ground Truth Condensed Graph has {G_gt.number_of_nodes()} nodes, {G_gt.number_of_edges()} edges)")
         else:
             G_eval_input = G_gt
-            input_nodes = list(G_eval_input.nodes())
+            if not is_llms4ol:
+                input_nodes = list(G_eval_input.nodes())
             print(f"Extracted Closed Subgraph: {G_eval_input.number_of_nodes()} nodes, {G_gt.number_of_edges()} GT edges.")
             
         nx.write_graphml(G_gt, f"./results/GT_{actual_domain_name}.graphml")
@@ -182,7 +214,8 @@ def main(args):
 
         if "sbu_batch" in selected_methods:
             print("  -> Running SBU LLM Batch Prompting...")
-            G_sbu_batch = method_sbu_batch(input_nodes, client, MODEL_NAME)
+            # Route the parsed train_pairs strictly to the SBU batch method to test their setup
+            G_sbu_batch = method_sbu_batch(input_nodes, client, MODEL_NAME, train_pairs=train_pairs)
             eval_results["SBU LLM Batch"] = evaluate_all_modes(G_sbu_batch, G_gt, f"./results/{actual_domain_name}_SBU_Batch")
 
         if "sbu_ensemble" in selected_methods:
@@ -217,7 +250,7 @@ def main(args):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Taxonomy Extraction Benchmark")
     parser.add_argument("--method", nargs="+", default=["all"], choices=["all", "lexical", "vector", "llm_zero", "our_method", "taxollama", "sbu_batch", "sbu_ensemble"], help="List of methods to run (space separated)")
-    parser.add_argument("--datasets", nargs="+", default=["all"], choices=["all", "csv", "WordNetFood", "GoogleProducts", "GeoNames", "GeneOntology", "CellOntology", "SemEvalFood", "SemEvalScience", "SemEvalEnvironment"], help="List of datasets to run (space separated)")
+    parser.add_argument("--datasets", nargs="+", default=["all"], choices=["all", "csv", "WordNetFood", "GoogleProducts", "GeoNames", "GeneOntology", "CellOntology", "SemEvalFood", "SemEvalScience", "SemEvalEnvironment", "LLMs4OL_OBI", "LLMs4OL_MatOnto", "LLMs4OL_SWEET", "LLMs4OL_SchemaOrg", "LLMs4OL_PO"], help="List of datasets to run (space separated)")
     parser.add_argument("--use_synsets", action="store_true", help="Include synonyms for nodes when available")
     parser.add_argument("--csv_dataset", type=str, default=None, help="Path to Gephi Adjacency CSV to use as dataset")
     parser.add_argument("--explode_nodes", action="store_true", help="Explode clustered nodes into individual evaluation nodes")
