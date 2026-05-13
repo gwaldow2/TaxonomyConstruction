@@ -8,8 +8,7 @@ from tqdm import tqdm
 from openai import OpenAI
 
 from data_manager import (
-    enforce_dag, get_wordnet_food_graph, get_google_products_graph,
-    get_geonames_graph, get_gene_ontology_graph, get_cell_ontology_graph,
+    enforce_dag, get_wordnet_food_graph, get_cell_ontology_graph,
     get_semeval_graph, get_csv_graph, get_llms4ol_task_c_data, 
     get_closed_subgraph, save_benchmark_graph, DATA_DIR
 )
@@ -103,33 +102,28 @@ def main(args):
     client = OpenAI(base_url="http://localhost:8000/v1", api_key="woohoo")
 
     datasets = {
-        "WordNetFood": {"loader": get_wordnet_food_graph, "is_llms4ol": False},
-        "GoogleProducts": {"loader": get_google_products_graph, "is_llms4ol": False},
-        "GeoNames": {"loader": get_geonames_graph, "is_llms4ol": False},
-        "GeneOntology": {"loader": get_gene_ontology_graph, "is_llms4ol": False},
-        "CellOntology": {"loader": get_cell_ontology_graph, "is_llms4ol": False},
-        "SemEvalFood": {"loader": lambda: get_semeval_graph("SemEvalFood"), "is_llms4ol": False},
-        "SemEvalScience": {"loader": lambda: get_semeval_graph("SemEvalScience"), "is_llms4ol": False},
-        "SemEvalEnvironment": {"loader": lambda: get_semeval_graph("SemEvalEnvironment"), "is_llms4ol": False}
+        "WordNetFood": {"loader": get_wordnet_food_graph},
+        "CellOntology": {"loader": get_cell_ontology_graph},
+        "SemEvalFood": {"loader": lambda: get_semeval_graph("SemEvalFood")},
+        "SemEvalScience": {"loader": lambda: get_semeval_graph("SemEvalScience")},
+        "SemEvalEnvironment": {"loader": lambda: get_semeval_graph("SemEvalEnvironment")}
     }
     
     llms4ol_base_path = os.path.join(DATA_DIR, "TaskC-TaxonomyDiscovery")
     for ont in ["OBI", "MatOnto", "SWEET", "SchemaOrg", "PO", "DOID", "FoodOn", "PROCO"]:
         ont_path = os.path.join(llms4ol_base_path, ont)
         if os.path.exists(ont_path):
-            datasets[f"LLMs4OL_{ont}"] = {"loader": lambda p=ont_path: get_llms4ol_task_c_data(p)[0], "is_llms4ol": True}
+            datasets[f"LLMs4OL_{ont}"] = {"loader": lambda p=ont_path: get_llms4ol_task_c_data(p)}
     
     if args.csv_dataset:
         base = os.path.basename(args.csv_dataset)
         actual_name = os.path.splitext(base)[0]
-        datasets[actual_name] = {"loader": lambda: get_csv_graph(args.csv_dataset), "is_llms4ol": False}
+        datasets[actual_name] = {"loader": lambda: get_csv_graph(args.csv_dataset)}
     
     results = []
     
     for name, config in datasets.items():
-        loader_func = config["loader"]
-        G_raw = loader_func()
-        if isinstance(G_raw, tuple): G_raw = G_raw[0]
+        G_raw, train_seeds = config["loader"]()
         
         if G_raw.number_of_nodes() == 0:
             continue
@@ -138,15 +132,19 @@ def main(args):
         
         # 1. Generate & Score FULL Graph
         G_full_dag = enforce_dag(G_raw.copy())
-        save_benchmark_graph(G_full_dag, name, scale="FULL")
+        save_benchmark_graph(G_full_dag, name, scale="FULL", train_pairs=train_seeds)
         metrics_full = compute_metrics(G_full_dag, f"{name}_FULL", client, MODEL_NAME)
         results.append(metrics_full)
         print(f" -> Saved FULL: Nodes={metrics_full['Nodes']}, Edges={metrics_full['Edges']}")
         
-        # 2. Generate & Score SUB Graph (100 nodes)
-        G_sub = get_closed_subgraph(G_raw, target_nodes=100)
+        # 2. Generate & Score SUB Graph (100 nodes of the test set)
+        target_size = G_raw.number_of_nodes() if name == getattr(args, "csv_dataset", "") else 100
+        G_sub = get_closed_subgraph(G_raw, target_nodes=target_size)
         G_sub_dag = enforce_dag(G_sub)
-        save_benchmark_graph(G_sub_dag, name, scale="SUB")
+        
+        # Subgraph uses a slice of the seeds proportional to its size (to prevent overwhelming few-shot limits)
+        sub_seeds = train_seeds[:50] if train_seeds else []
+        save_benchmark_graph(G_sub_dag, name, scale="SUB", train_pairs=sub_seeds)
         metrics_sub = compute_metrics(G_sub_dag, f"{name}_SUB", client, MODEL_NAME)
         results.append(metrics_sub)
         print(f" -> Saved SUB: Nodes={metrics_sub['Nodes']}, Edges={metrics_sub['Edges']}")
@@ -169,5 +167,4 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Taxonomy Metrics Evaluation")
     parser.add_argument("--csv_dataset", type=str, default=None, help="Path to your custom edge list CSV file.")
     args = parser.parse_args()
-    
     main(args)
