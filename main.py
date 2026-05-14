@@ -84,7 +84,7 @@ def main(args):
     selected_ds = args.datasets
     if "all" in selected_ds:
         selected_ds = ["WordNetFood", "CellOntology", "SemEvalFood", "SemEvalScience", "SemEvalEnvironment", 
-                       "LLMs4OL_OBI", "LLMs4OL_MatOnto", "LLMs4OL_SchemaOrg", "LLMs4OL_PO"]
+                       "LLMs4OL_OBI", "LLMs4OL_MatOnto", "LLMs4OL_SchemaOrg", "LLMs4OL_PO", "medium_components"]
 
     target_scale = args.scale.upper()
     print(f"\n--- Running Benchmark across {target_scale} datasets ---")
@@ -100,9 +100,6 @@ def main(args):
         print(f"\nEvaluating Domain: {dataset_name_eval} (Benchmark Nodes: {G_gt.number_of_nodes()})")
         
         input_nodes = [n for n in G_gt.nodes() if n != "virtual_root"]
-        
-        # Static baseline reasoning budget for SBU Batch Method (20 tokens per node)
-        sbu_budget = len(input_nodes) * 20
         
         if args.explode_nodes:
             print("  -> Exploding cluster nodes for individual term analysis...")
@@ -173,7 +170,7 @@ def main(args):
         if "sbu_batch" in selected_methods:
             print("  -> Running SBU LLM Batch Prompting...")
             t0 = time.time()
-            G_sbu_batch = method_sbu_batch(input_nodes, client, MODEL_NAME, train_pairs=train_pairs, reasoning_budget=sbu_budget)
+            G_sbu_batch = method_sbu_batch(input_nodes, client, MODEL_NAME, train_pairs=train_pairs)
             if "virtual_root" in G_sbu_batch: G_sbu_batch.remove_node("virtual_root")
             eval_results["SBU LLM Batch"] = {
                 "metrics": evaluate_all_modes(G_sbu_batch, G_gt, f"./results/{dataset_name_eval}_SBU_Batch"), 
