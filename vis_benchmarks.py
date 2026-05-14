@@ -75,6 +75,9 @@ def load_and_merge_data(json_path="benchmark_results.json", csv_path="dataset_me
 def plot_method_vs_dataset_heatmap(df):
     """Creates a heatmap of F1 scores for each Method across all Datasets & Scenarios."""
     
+    # Filter out (Syn+Exp) runs from the main competitive heatmap
+    df_main = df[~((df['Use_Synsets'] == True) & (df['Explode_Nodes'] == True))].copy()
+    
     # Define the two metrics to plot
     metrics_to_plot = {
         "Exp_Raw_F1": "Raw Exact Match F1",
@@ -82,8 +85,8 @@ def plot_method_vs_dataset_heatmap(df):
     }
     
     for metric_key, metric_title in metrics_to_plot.items():
-        print(f" -> Generating Method vs Dataset Heatmap for {metric_title}...")
-        pivot_df = df.pivot(index="Method", columns="Dataset_Scenario", values=metric_key)
+        print(f" -> Generating Main Method vs Dataset Heatmap for {metric_title}...")
+        pivot_df = df_main.pivot(index="Method", columns="Dataset_Scenario", values=metric_key)
         
         # Sort rows top-to-bottom by their average score across datasets
         pivot_df["Row_Mean"] = pivot_df.mean(axis=1)
@@ -95,7 +98,7 @@ def plot_method_vs_dataset_heatmap(df):
         
         plt.figure(figsize=(fig_width, 8))
         ax = sns.heatmap(pivot_df, annot=True, cmap="YlGnBu", fmt=".3f", linewidths=.5, vmin=0, vmax=1)
-        plt.title(f"Method Performance ({metric_title}) Across Datasets", pad=20, fontsize=14, fontweight='bold')
+        plt.title(f"Method Performance ({metric_title}) Across Base Datasets", pad=20, fontsize=14, fontweight='bold')
         plt.ylabel("Extraction Method", fontweight='bold')
         plt.xlabel("Dataset Scenario", fontweight='bold')
         plt.xticks(rotation=45, ha='right')
@@ -107,7 +110,64 @@ def plot_method_vs_dataset_heatmap(df):
                 label.set_fontweight("bold")
                 
         plt.tight_layout()
-        filename = f"1_method_vs_dataset_heatmap_{metric_key}.png"
+        filename = f"1a_method_vs_dataset_heatmap_{metric_key}.png"
+        plt.savefig(os.path.join(VIS_DIR, filename), dpi=300)
+        plt.close()
+
+def plot_syn_exp_comparison_heatmap(df):
+    """Creates a side-by-side comparison heatmap pairing Base runs with their (Syn+Exp) counterparts."""
+    
+    # Identify datasets that have (Syn+Exp) runs
+    syn_exp_datasets = df[(df['Use_Synsets'] == True) & (df['Explode_Nodes'] == True)]['Dataset_JSON'].unique()
+    
+    if len(syn_exp_datasets) == 0:
+        print(" -> [!] No (Syn+Exp) runs found. Skipping synonym comparison heatmap.")
+        return
+
+    # Filter to only these datasets, isolating strictly the Base (False/False) and Syn+Exp (True/True) runs
+    mask = (df['Dataset_JSON'].isin(syn_exp_datasets)) & (
+        ((df['Use_Synsets'] == False) & (df['Explode_Nodes'] == False)) |
+        ((df['Use_Synsets'] == True) & (df['Explode_Nodes'] == True))
+    )
+    comp_df = df[mask].copy()
+    
+    metrics_to_plot = {
+        "Cond_Red_F1": "Condensed Reduction F1 (Synonym Recovery Focus)",
+        "Cond_Clos_F1": "Condensed Closure F1",
+        "Exp_Raw_F1": "Raw Exact Match F1"
+    }
+
+    for metric_key, metric_title in metrics_to_plot.items():
+        print(f" -> Generating Synonym Recovery Comparison Heatmap for {metric_title}...")
+        pivot_df = comp_df.pivot(index="Method", columns="Dataset_Scenario", values=metric_key)
+        
+        # Sort columns to group the base and (Syn+Exp) runs of the same dataset together
+        sorted_cols = sorted(pivot_df.columns, key=lambda x: (x.replace(' (Syn+Exp)', ''), x))
+        pivot_df = pivot_df[sorted_cols]
+        
+        # Sort rows top-to-bottom by their average score
+        pivot_df["Row_Mean"] = pivot_df.mean(axis=1)
+        pivot_df = pivot_df.sort_values(by="Row_Mean", ascending=False)
+        pivot_df = pivot_df.drop(columns=["Row_Mean"])
+        
+        num_scenarios = len(pivot_df.columns)
+        fig_width = max(14, num_scenarios * 1.5)
+        
+        plt.figure(figsize=(fig_width, 8))
+        ax = sns.heatmap(pivot_df, annot=True, cmap="YlGnBu", fmt=".3f", linewidths=.5, vmin=0, vmax=1)
+        plt.title(f"Synonym Discovery and Recovery: {metric_title}", pad=20, fontsize=14, fontweight='bold')
+        plt.ylabel("Extraction Method", fontweight='bold')
+        plt.xlabel("Paired Dataset Scenarios (Base vs Syn+Exp)", fontweight='bold')
+        plt.xticks(rotation=45, ha='right')
+        
+        # Highlight "Our Method"
+        for label in ax.get_yticklabels():
+            if "Our Method" in label.get_text():
+                label.set_color("darkred")
+                label.set_fontweight("bold")
+                
+        plt.tight_layout()
+        filename = f"1b_syn_exp_comparison_heatmap_{metric_key}.png"
         plt.savefig(os.path.join(VIS_DIR, filename), dpi=300)
         plt.close()
 
@@ -221,7 +281,7 @@ def plot_f1_metric_correlation_heatmap(df):
     plt.close()
 
 def plot_runtime_complexity(df):
-    """Plots Runtime vs Nodes on a log-log scale to reveal algorithmic complexity bounds."""
+    """Plots Runtime vs Nodes on a log-log scale with power-law curves to reveal complexity bounds."""
     print(" -> Generating Runtime Scaling Chart...")
     
     df_runtime = df[df["Runtime_sec"] > 0].copy()
@@ -242,10 +302,21 @@ def plot_runtime_complexity(df):
     for method in df_runtime['Method'].unique():
         subset = df_runtime[df_runtime['Method'] == method].sort_values(by="Nodes")
         if len(subset) > 1:
-            plt.plot(subset["Nodes"], subset["Runtime_sec"], color=color_dict[method], alpha=0.4, linewidth=2, linestyle='--')
+            x_vals = subset["Nodes"].values
+            y_vals = subset["Runtime_sec"].values
+            
+            # Fit a linear regression on log-log data to create a power-law fit: log(y) = m*log(x) + c
+            coeffs = np.polyfit(np.log10(x_vals), np.log10(y_vals), 1)
+            m, c = coeffs
+            
+            # Generate a dense array of x values across the specific range for a smooth curve
+            x_fit = np.logspace(np.log10(x_vals.min()), np.log10(x_vals.max()), 100)
+            y_fit = (10 ** c) * (x_fit ** m)
+            
+            plt.plot(x_fit, y_fit, color=color_dict[method], alpha=0.5, linewidth=2.5, linestyle='--')
             
     plt.title("Computational Scaling: Runtime vs Graph Size", pad=20, fontsize=14, fontweight='bold')
-    plt.xlabel("Total Nodes in Ground Truth (Log Scale)", fontweight='bold')
+    plt.xlabel("Total Nodes in Dataset", fontweight='bold')
     plt.ylabel("Execution Time in Seconds (Log Scale)", fontweight='bold')
     plt.xscale("log")
     plt.yscale("log")
@@ -340,6 +411,7 @@ def main():
     df = load_and_merge_data()
     
     plot_method_vs_dataset_heatmap(df)
+    plot_syn_exp_comparison_heatmap(df)
     plot_method_variance(df)
     plot_metric_vs_f1_scatter_grid(df)
     plot_runtime_complexity(df)
