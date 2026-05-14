@@ -1,9 +1,13 @@
 import os
+import re
 import json
+import glob
+import argparse
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy as np
+import networkx as nx
 
 # Create visualization directory
 VIS_DIR = "vis"
@@ -15,7 +19,6 @@ sns.set_theme(style="whitegrid", context="paper", font_scale=1.1)
 def load_and_merge_data(json_path="benchmark_results.json", csv_path="dataset_metrics.csv"):
     """Loads the results and metrics, normalizes dataset names, and merges them."""
     
-    # 1. Load JSON (Method Performances)
     with open(json_path, 'r', encoding='utf-8') as f:
         json_data = json.load(f)
         
@@ -26,8 +29,8 @@ def load_and_merge_data(json_path="benchmark_results.json", csv_path="dataset_me
         explode_nodes = ds_block.get("explode_nodes", False)
         
         for res in ds_block.get("results", []):
-            # SHIFT TO RAW F1 AS THE PRIMARY COMPETITIVE METRIC
-            primary_f1 = res.get("Exp_Raw_F1", 0)
+            # SHIFT PRIMARY METRIC TO CONDENSED CLOSURE FOR MOST VISUALIZATIONS
+            primary_f1 = res.get("Cond_Clos_F1", 0)
             
             records.append({
                 "Dataset_JSON": dataset_name,
@@ -43,14 +46,11 @@ def load_and_merge_data(json_path="benchmark_results.json", csv_path="dataset_me
             })
     df_perf = pd.DataFrame(records)
     
-    # 2. Load CSV (Dataset Metrics)
     df_metrics = pd.read_csv(csv_path)
     
-    # 3. Clean string artifacts ensuring a direct merge
     df_perf["Dataset_JSON"] = df_perf["Dataset_JSON"].str.replace('.csv', '', regex=False)
     df_metrics["Dataset"] = df_metrics["Dataset"].str.replace('.csv', '', regex=False)
 
-    # 4. Merge
     df_merged = pd.merge(df_perf, df_metrics, left_on="Dataset_JSON", right_on="Dataset", how="inner")
     
     json_datasets = set(df_perf["Dataset_JSON"])
@@ -59,7 +59,6 @@ def load_and_merge_data(json_path="benchmark_results.json", csv_path="dataset_me
     if missing_in_csv:
         print(f" [!] WARNING: These datasets are in your JSON but missing from dataset_metrics.csv: {missing_in_csv}")
     
-    # 5. Create Scenario Names (e.g., "WordNetFood_SUB (Syn+Exp)")
     def make_scenario_name(row):
         flags = []
         if row['Use_Synsets']: flags.append('Syn')
@@ -78,7 +77,7 @@ def plot_method_vs_dataset_heatmap(df):
     # Filter out (Syn+Exp) runs from the main competitive heatmap
     df_main = df[~((df['Use_Synsets'] == True) & (df['Explode_Nodes'] == True))].copy()
     
-    # Define the two metrics to plot
+    # As requested, keep BOTH Raw and Closure for this specific heatmap
     metrics_to_plot = {
         "Exp_Raw_F1": "Raw Exact Match F1",
         "Cond_Clos_F1": "Condensed Closure F1"
@@ -88,7 +87,6 @@ def plot_method_vs_dataset_heatmap(df):
         print(f" -> Generating Main Method vs Dataset Heatmap for {metric_title}...")
         pivot_df = df_main.pivot(index="Method", columns="Dataset_Scenario", values=metric_key)
         
-        # Sort rows top-to-bottom by their average score across datasets
         pivot_df["Row_Mean"] = pivot_df.mean(axis=1)
         pivot_df = pivot_df.sort_values(by="Row_Mean", ascending=False)
         pivot_df = pivot_df.drop(columns=["Row_Mean"])
@@ -103,7 +101,6 @@ def plot_method_vs_dataset_heatmap(df):
         plt.xlabel("Dataset Scenario", fontweight='bold')
         plt.xticks(rotation=45, ha='right')
         
-        # Highlight "Our Method"
         for label in ax.get_yticklabels():
             if "Our Method" in label.get_text():
                 label.set_color("darkred")
@@ -115,21 +112,25 @@ def plot_method_vs_dataset_heatmap(df):
         plt.close()
 
 def plot_syn_exp_comparison_heatmap(df):
-    """Creates a side-by-side comparison heatmap pairing Base runs with their (Syn+Exp) counterparts."""
+    """Creates a side-by-side comparison heatmap specifically for Our Method."""
     
-    # Identify datasets that have (Syn+Exp) runs
     syn_exp_datasets = df[(df['Use_Synsets'] == True) & (df['Explode_Nodes'] == True)]['Dataset_JSON'].unique()
     
     if len(syn_exp_datasets) == 0:
         print(" -> [!] No (Syn+Exp) runs found. Skipping synonym comparison heatmap.")
         return
 
-    # Filter to only these datasets, isolating strictly the Base (False/False) and Syn+Exp (True/True) runs
     mask = (df['Dataset_JSON'].isin(syn_exp_datasets)) & (
         ((df['Use_Synsets'] == False) & (df['Explode_Nodes'] == False)) |
         ((df['Use_Synsets'] == True) & (df['Explode_Nodes'] == True))
     )
     comp_df = df[mask].copy()
+    
+    # ONLY INCLUDE OUR METHOD FOR SYNONYM RECOVERY AS REQUESTED
+    comp_df = comp_df[comp_df["Method"].str.contains("Our Method", case=False, na=False)]
+    if comp_df.empty:
+        print(" -> [!] No 'Our Method' data found for Synonym comparison. Skipping.")
+        return
     
     metrics_to_plot = {
         "Cond_Red_F1": "Condensed Reduction F1 (Synonym Recovery Focus)",
@@ -141,30 +142,22 @@ def plot_syn_exp_comparison_heatmap(df):
         print(f" -> Generating Synonym Recovery Comparison Heatmap for {metric_title}...")
         pivot_df = comp_df.pivot(index="Method", columns="Dataset_Scenario", values=metric_key)
         
-        # Sort columns to group the base and (Syn+Exp) runs of the same dataset together
         sorted_cols = sorted(pivot_df.columns, key=lambda x: (x.replace(' (Syn+Exp)', ''), x))
         pivot_df = pivot_df[sorted_cols]
         
-        # Sort rows top-to-bottom by their average score
-        pivot_df["Row_Mean"] = pivot_df.mean(axis=1)
-        pivot_df = pivot_df.sort_values(by="Row_Mean", ascending=False)
-        pivot_df = pivot_df.drop(columns=["Row_Mean"])
-        
         num_scenarios = len(pivot_df.columns)
-        fig_width = max(14, num_scenarios * 1.5)
+        fig_width = max(10, num_scenarios * 1.5)
         
-        plt.figure(figsize=(fig_width, 8))
+        plt.figure(figsize=(fig_width, 4))
         ax = sns.heatmap(pivot_df, annot=True, cmap="YlGnBu", fmt=".3f", linewidths=.5, vmin=0, vmax=1)
         plt.title(f"Synonym Discovery and Recovery: {metric_title}", pad=20, fontsize=14, fontweight='bold')
         plt.ylabel("Extraction Method", fontweight='bold')
         plt.xlabel("Paired Dataset Scenarios (Base vs Syn+Exp)", fontweight='bold')
         plt.xticks(rotation=45, ha='right')
         
-        # Highlight "Our Method"
         for label in ax.get_yticklabels():
-            if "Our Method" in label.get_text():
-                label.set_color("darkred")
-                label.set_fontweight("bold")
+            label.set_color("darkred")
+            label.set_fontweight("bold")
                 
         plt.tight_layout()
         filename = f"1b_syn_exp_comparison_heatmap_{metric_key}.png"
@@ -182,8 +175,8 @@ def plot_method_variance(df):
                 meanprops={"marker":"o","markerfacecolor":"white", "markeredgecolor":"black"})
     sns.stripplot(data=df, x="Method", y="Primary_F1", order=order, color=".25", size=5, alpha=0.6, jitter=True)
     
-    plt.title("Raw F1 Score Variance per Method Across All Scenarios", pad=20, fontsize=14, fontweight='bold')
-    plt.ylabel("Primary F1 Score (Raw Exact Match)", fontweight='bold')
+    plt.title("Condensed Closure F1 Variance per Method Across All Scenarios", pad=20, fontsize=14, fontweight='bold')
+    plt.ylabel("Primary F1 Score (Cond Closure)", fontweight='bold')
     plt.xlabel("Extraction Method", fontweight='bold')
     plt.xticks(rotation=45, ha='right')
     plt.tight_layout()
@@ -231,7 +224,7 @@ def plot_metric_vs_f1_scatter_grid(df):
                     line_kws={'linewidth': 2}, ci=None
                 )
         
-        axes[i].set_title(f"Raw F1 Score vs {metric}", fontweight='bold')
+        axes[i].set_title(f"Cond Closure F1 vs {metric}", fontweight='bold')
         axes[i].set_ylim(-0.05, 1.05)
         if metric == "Nodes": axes[i].set_xscale("log") 
             
@@ -271,8 +264,8 @@ def plot_f1_metric_correlation_heatmap(df):
     
     plt.figure(figsize=(12, 8))
     sns.heatmap(corr_df, annot=True, cmap="vlag", fmt=".2f", center=0, vmin=-1, vmax=1,
-                cbar_kws={'label': 'Spearman Rank Correlation (Metric vs Raw F1)'})
-    plt.title("Correlation: How Dataset Topology Affects Method Raw F1 Scores", pad=20, fontsize=14, fontweight='bold')
+                cbar_kws={'label': 'Spearman Rank Correlation (Metric vs Cond Closure F1)'})
+    plt.title("Correlation: How Dataset Topology Affects Method Cond Closure F1 Scores", pad=20, fontsize=14, fontweight='bold')
     plt.xlabel("Extraction Method", fontweight='bold')
     plt.ylabel("Dataset Topography Metric", fontweight='bold')
     plt.xticks(rotation=45, ha='right')
@@ -305,11 +298,9 @@ def plot_runtime_complexity(df):
             x_vals = subset["Nodes"].values
             y_vals = subset["Runtime_sec"].values
             
-            # Fit a linear regression on log-log data to create a power-law fit: log(y) = m*log(x) + c
             coeffs = np.polyfit(np.log10(x_vals), np.log10(y_vals), 1)
             m, c = coeffs
             
-            # Generate a dense array of x values across the specific range for a smooth curve
             x_fit = np.logspace(np.log10(x_vals.min()), np.log10(x_vals.max()), 100)
             y_fit = (10 ** c) * (x_fit ** m)
             
@@ -377,7 +368,7 @@ def report_method_variance(df):
     var_df.to_csv(output_csv, index=False)
     
     print("\n" + "="*85)
-    print("   METHOD VARIANCE REPORT (Raw Exact Match F1)   ")
+    print("   METHOD VARIANCE REPORT (Condensed Closure F1)   ")
     print("="*85)
     print(var_df.to_string(formatters={
         'Mean': '{:,.4f}'.format, 'Variance': '{:,.4f}'.format,
@@ -393,16 +384,98 @@ def generate_summary_table(df):
     best_df = df.loc[idx, ['Dataset_Scenario', 'Method', 'Primary_F1', 'Runtime_sec', 'Nodes', 'Lexical Overlap', 'Avg Hearst PPL']]
     
     best_df = best_df.sort_values(by="Dataset_Scenario").reset_index(drop=True)
-    best_df.columns = ["Dataset Scenario", "Best Method", "Best Raw F1", "Runtime (s)", "Total Nodes", "Lexical Overlap", "Avg Hearst PPL"]
+    best_df.columns = ["Dataset Scenario", "Best Method", "Best Cond. Closure F1", "Runtime (s)", "Total Nodes", "Lexical Overlap", "Avg Hearst PPL"]
     
     best_df.to_csv(os.path.join(VIS_DIR, "5_best_methods_summary.csv"), index=False)
     print("\n" + "="*110)
-    print("   BEST PERFORMING METHODS PER DATASET SCENARIO (By Raw F1)   ")
+    print("   BEST PERFORMING METHODS PER DATASET SCENARIO (By Cond Closure F1)   ")
     print("="*110)
     print(best_df.to_string(index=False))
     print("="*110)
 
+def plot_graph_overlays(dataset_name):
+    """Draws the Ground Truth graph, overlaying TP and FP edges for each method evaluated on it."""
+    gt_path = f"./results/GT_{dataset_name}_eval.graphml"
+    if not os.path.exists(gt_path):
+        print(f" [!] GT graph not found at {gt_path}. Cannot generate graph overlay.")
+        return
+        
+    G_gt = nx.read_graphml(gt_path)
+    print(f" -> Generating Hierarchical Graph Overlays for {dataset_name}...")
+    
+    # Calculate a hierarchical DAG layout
+    try:
+        # Pydot's 'dot' layout is optimal for strict top-down DAG hierarchies
+        pos = nx.nx_pydot.graphviz_layout(G_gt, prog='dot')
+    except Exception:
+        # Fallback to topological layered layout if graphviz is not installed
+        for n in G_gt.nodes():
+            G_gt.nodes[n]['layer'] = len(nx.ancestors(G_gt, n))
+        pos = nx.multipartite_layout(G_gt, subset_key='layer', align='horizontal')
+        # Invert Y to put root at the top
+        for k in pos: pos[k][1] = -pos[k][1]
+        
+    txt_files = glob.glob(f"./results/{dataset_name}_*_condensed_closure.txt")
+    if not txt_files:
+        print(f" [!] No condensed closure text files found in ./results/ for {dataset_name}.")
+        return
+        
+    tp_pattern = re.compile(r"matches GT:\s*\((.*?)\s*->\s*(.*?)\)")
+    fp_pattern = re.compile(r"\[FP\]\s+(.*?)\s*->\s*(.*)$")
+    
+    for txt_file in txt_files:
+        method_suffix = txt_file.split(f"{dataset_name}_")[-1].replace("_condensed_closure.txt", "")
+        
+        tp_edges = []
+        fp_edges = []
+        
+        with open(txt_file, 'r', encoding='utf-8') as f:
+            for line in f:
+                line = line.strip()
+                tp_match = tp_pattern.search(line)
+                if tp_match:
+                    tp_edges.append((tp_match.group(1), tp_match.group(2)))
+                    continue
+                fp_match = fp_pattern.search(line)
+                if fp_match:
+                    fp_edges.append((fp_match.group(1), fp_match.group(2)))
+        
+        plt.figure(figsize=(16, 12))
+        
+        # Base GT Edges (Transparent Gray)
+        nx.draw_networkx_edges(G_gt, pos, edge_color='gray', alpha=0.2, arrows=True, arrowsize=15)
+        
+        # Nodes (Light Blue)
+        nx.draw_networkx_nodes(G_gt, pos, node_size=60, node_color='lightblue', alpha=0.8, edgecolors='black')
+        
+        # TP Edges (Vibrant Green)
+        valid_tp = [e for e in tp_edges if e[0] in pos and e[1] in pos]
+        if valid_tp:
+            nx.draw_networkx_edges(G_gt, pos, edgelist=valid_tp, edge_color='green', alpha=0.9, width=2.0, arrows=True, arrowsize=15)
+            
+        # FP Edges (Transparent Red)
+        valid_fp = [e for e in fp_edges if e[0] in pos and e[1] in pos]
+        if valid_fp:
+            # We use a blank graph just to safely draw the red edges using the same pre-calculated pos
+            G_fp = nx.DiGraph()
+            G_fp.add_nodes_from(G_gt.nodes())
+            G_fp.add_edges_from(valid_fp)
+            nx.draw_networkx_edges(G_fp, pos, edgelist=valid_fp, edge_color='red', alpha=0.4, width=1.5, arrows=True, arrowsize=15)
+            
+        plt.title(f"Hierarchy Overlay: {dataset_name} | Method: {method_suffix}\nGreen=Recovered GT (TP) | Red=Hallucinated (FP)", fontsize=16, fontweight='bold')
+        plt.axis('off')
+        plt.tight_layout()
+        
+        out_name = f"10_{dataset_name}_{method_suffix}_graph_vis.png"
+        plt.savefig(os.path.join(VIS_DIR, out_name), dpi=300)
+        plt.close()
+        print(f"    -> Saved graph overlay for {method_suffix}")
+
 def main():
+    parser = argparse.ArgumentParser(description="Taxonomy Extraction Visualizer")
+    parser.add_argument("--vis_graph", type=str, default=None, help="Dataset name to visualize GT and Method overlays (e.g., WordNetFood_SUB)")
+    args = parser.parse_args()
+
     if not os.path.exists("benchmark_results.json") or not os.path.exists("dataset_metrics.csv"):
         print("Error: Required files 'benchmark_results.json' or 'dataset_metrics.csv' not found.")
         print("Please ensure you have run both benchmark pipelines in this directory.")
@@ -419,6 +492,9 @@ def main():
     plot_f1_metric_comparison(df) 
     report_method_variance(df)
     generate_summary_table(df)
+    
+    if args.vis_graph:
+        plot_graph_overlays(args.vis_graph)
     
     print(f"\n[*] All visualizations successfully saved to the '{VIS_DIR}/' directory.")
 
