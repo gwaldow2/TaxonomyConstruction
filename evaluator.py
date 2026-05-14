@@ -77,7 +77,7 @@ def compute_and_save_metrics(G_pred, G_gt, output_file, mode_name, match_type="e
                 if (pu_set & gu_set) and (pv_set & gv_set):
                     tp_pred.add((p_u, p_v))
                     tp_gt.add((g_u, g_v))
-                    tp_log.append(f"  [TP] PRED: ({p_u} -> {p_v})\n       matches GT: ({g_u} -> {g_v})")
+                    tp_log.append(f"  [TP] PRED: ({p_u} -> {p_v})\n        matches GT: ({g_u} -> {g_v})")
 
     fp_edges = edges_pred - tp_pred
     fn_edges = edges_gt - tp_gt
@@ -144,16 +144,34 @@ def evaluate_all_modes(G_pred_condensed, G_gt_condensed, out_prefix):
 
     results = {}
 
-    G_pred_cond_red = nx.transitive_reduction(G_pred_condensed)
-    G_gt_cond_red = nx.transitive_reduction(G_gt_condensed)
-    results["Cond_Red"] = compute_and_save_metrics(G_pred_cond_red, G_gt_cond_red, f"{out_prefix}_condensed_reduction.txt", "Condensed Transitive Reduction", match_type="set_overlap")
+    # 1. EVALUATE CONDENSED REDUCTION (REQUIRES DAG)
+    if not nx.is_directed_acyclic_graph(G_pred_condensed):
+        print(f"    [!] Warning: Predicted graph contains cycles (Non-DAG). Cond_Red F1 = 0.0")
+        results["Cond_Red"] = {"Precision": 0.0, "Recall": 0.0, "F1": 0.0}
+        try:
+            with open(f"{out_prefix}_condensed_reduction.txt", 'w', encoding='utf-8') as f:
+                f.write("="*50 + "\n")
+                f.write("=== Detailed Node Pair Analysis (Condensed Transitive Reduction) ===\n")
+                f.write("="*50 + "\n")
+                f.write("FAILED: Method generated a cyclic graph (Non-DAG).\n")
+                f.write("Transitive reduction cannot be computed on cyclic graphs.\n")
+                f.write("Precision: 0.0000 | Recall: 0.0000 | F1: 0.0000\n")
+        except IOError:
+            pass
+    else:
+        G_pred_cond_red = nx.transitive_reduction(G_pred_condensed)
+        G_gt_cond_red = nx.transitive_reduction(G_gt_condensed)
+        results["Cond_Red"] = compute_and_save_metrics(G_pred_cond_red, G_gt_cond_red, f"{out_prefix}_condensed_reduction.txt", "Condensed Transitive Reduction", match_type="set_overlap")
 
+    # 2. EVALUATE CONDENSED CLOSURE
     G_pred_cond_clos = nx.transitive_closure(G_pred_condensed)
     G_gt_cond_clos = nx.transitive_closure(G_gt_condensed)
     results["Cond_Clos"] = compute_and_save_metrics(G_pred_cond_clos, G_gt_cond_clos, f"{out_prefix}_condensed_closure.txt", "Condensed Transitive Closure", match_type="set_overlap")
 
+    # 3. EVALUATE EXPLODED RAW
     results["Exp_Raw"] = compute_and_save_metrics(G_pred_exploded, G_gt_exploded, f"{out_prefix}_exploded_raw.txt", "Exploded Raw Edges", match_type="exact")
 
+    # 4. EVALUATE EXPLODED CLOSURE
     G_pred_exp_clos = nx.transitive_closure(G_pred_exploded)
     G_gt_exp_clos = nx.transitive_closure(G_gt_exploded)
     results["Exp_Clos"] = compute_and_save_metrics(G_pred_exp_clos, G_gt_exp_clos, f"{out_prefix}_exploded_closure.txt", "Exploded Transitive Closure", match_type="exact")
