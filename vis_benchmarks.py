@@ -477,6 +477,46 @@ def plot_graph_overlays(dataset_name):
         plt.close()
         print(f"    -> Saved strict layered graph overlay for {method_suffix}")
 
+def plot_reasoning_effort_comparison(df):
+    """Compares Accuracy (F1) vs Compute Cost (Runtime) across reasoning efforts."""
+    print(" -> Generating Reasoning Effort Comparison...")
+    
+    reasoning_methods = ['Our Method O(N) [low]', 'Our Method O(N) [medium]', 'Our Method O(N) [high]']
+    df_res = df[df['Method'].isin(reasoning_methods)].copy()
+    
+    if df_res.empty:
+        print("    [!] No reasoning effort runs found (low, medium, high). Skipping.")
+        return
+
+    # Ensure correct ordinal plotting
+    df_res['Method'] = pd.Categorical(df_res['Method'], categories=reasoning_methods, ordered=True)
+
+    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(16, 6))
+    
+    # Plot 1: Accuracy (F1) Comparison
+    sns.boxplot(data=df_res, x="Method", y="Primary_F1", palette="Blues", ax=ax1,
+                showmeans=True, meanprops={"marker":"o","markerfacecolor":"white", "markeredgecolor":"black"})
+    sns.stripplot(data=df_res, x="Method", y="Primary_F1", color=".25", size=5, alpha=0.6, jitter=True, ax=ax1)
+    
+    ax1.set_title("Accuracy: Condensed Closure F1 by Reasoning Effort", pad=15, fontsize=14, fontweight='bold')
+    ax1.set_ylabel("Cond Closure F1", fontweight='bold')
+    ax1.set_xlabel("Reasoning Effort Level", fontweight='bold')
+    ax1.set_xticklabels(['Low', 'Medium', 'High'])
+    
+    # Plot 2: Compute Cost (Runtime) Comparison
+    sns.boxplot(data=df_res, x="Method", y="Runtime_sec", palette="Oranges", ax=ax2,
+                showmeans=True, meanprops={"marker":"o","markerfacecolor":"white", "markeredgecolor":"black"})
+    sns.stripplot(data=df_res, x="Method", y="Runtime_sec", color=".25", size=5, alpha=0.6, jitter=True, ax=ax2)
+    
+    ax2.set_title("Compute Cost: Runtime by Reasoning Effort", pad=15, fontsize=14, fontweight='bold')
+    ax2.set_ylabel("Execution Time (Seconds)", fontweight='bold')
+    ax2.set_xlabel("Reasoning Effort Level", fontweight='bold')
+    ax2.set_xticklabels(['Low', 'Medium', 'High'])
+    
+    plt.tight_layout()
+    plt.savefig(os.path.join(VIS_DIR, "11_reasoning_effort_comparison.png"), dpi=300)
+    plt.close()
+
 def main():
     parser = argparse.ArgumentParser(description="Taxonomy Extraction Visualizer")
     parser.add_argument("--vis_graph", type=str, default=None, help="Dataset name to visualize GT and Method overlays (e.g., WordNetFood_SUB)")
@@ -496,6 +536,7 @@ def main():
     plot_runtime_complexity(df)
     plot_f1_metric_correlation_heatmap(df)
     plot_f1_metric_comparison(df) 
+    plot_reasoning_effort_comparison(df)
     report_method_variance(df)
     generate_summary_table(df)
     
