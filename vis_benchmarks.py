@@ -74,21 +74,42 @@ def load_and_merge_data(json_path="benchmark_results.json", csv_path="dataset_me
 
 def plot_method_vs_dataset_heatmap(df):
     """Creates a heatmap of F1 scores for each Method across all Datasets & Scenarios."""
-    print(" -> Generating Method vs Dataset Heatmap...")
-    pivot_df = df.pivot(index="Method", columns="Dataset_Scenario", values="Primary_F1")
     
-    num_scenarios = len(pivot_df.columns)
-    fig_width = max(14, num_scenarios * 1.2)
+    # Define the two metrics to plot
+    metrics_to_plot = {
+        "Exp_Raw_F1": "Raw Exact Match F1",
+        "Cond_Clos_F1": "Condensed Closure F1"
+    }
     
-    plt.figure(figsize=(fig_width, 8))
-    ax = sns.heatmap(pivot_df, annot=True, cmap="YlGnBu", fmt=".3f", linewidths=.5, vmin=0, vmax=1)
-    plt.title("Method Performance (Raw Exact Match F1) Across Datasets", pad=20, fontsize=14, fontweight='bold')
-    plt.ylabel("Extraction Method", fontweight='bold')
-    plt.xlabel("Dataset Scenario", fontweight='bold')
-    plt.xticks(rotation=45, ha='right')
-    plt.tight_layout()
-    plt.savefig(os.path.join(VIS_DIR, "1_method_vs_dataset_heatmap.png"), dpi=300)
-    plt.close()
+    for metric_key, metric_title in metrics_to_plot.items():
+        print(f" -> Generating Method vs Dataset Heatmap for {metric_title}...")
+        pivot_df = df.pivot(index="Method", columns="Dataset_Scenario", values=metric_key)
+        
+        # Sort rows top-to-bottom by their average score across datasets
+        pivot_df["Row_Mean"] = pivot_df.mean(axis=1)
+        pivot_df = pivot_df.sort_values(by="Row_Mean", ascending=False)
+        pivot_df = pivot_df.drop(columns=["Row_Mean"])
+        
+        num_scenarios = len(pivot_df.columns)
+        fig_width = max(14, num_scenarios * 1.2)
+        
+        plt.figure(figsize=(fig_width, 8))
+        ax = sns.heatmap(pivot_df, annot=True, cmap="YlGnBu", fmt=".3f", linewidths=.5, vmin=0, vmax=1)
+        plt.title(f"Method Performance ({metric_title}) Across Datasets", pad=20, fontsize=14, fontweight='bold')
+        plt.ylabel("Extraction Method", fontweight='bold')
+        plt.xlabel("Dataset Scenario", fontweight='bold')
+        plt.xticks(rotation=45, ha='right')
+        
+        # Highlight "Our Method"
+        for label in ax.get_yticklabels():
+            if "Our Method" in label.get_text():
+                label.set_color("darkred")
+                label.set_fontweight("bold")
+                
+        plt.tight_layout()
+        filename = f"1_method_vs_dataset_heatmap_{metric_key}.png"
+        plt.savefig(os.path.join(VIS_DIR, filename), dpi=300)
+        plt.close()
 
 def plot_method_variance(df):
     """Creates a violin/box plot showing how much each method's F1 varies across different datasets."""
