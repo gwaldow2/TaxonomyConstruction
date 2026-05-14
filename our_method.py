@@ -36,7 +36,7 @@ def cluster_synonyms_and_enforce_dag(G):
 
     return enforce_dag(condensed_dag)
 
-def method_our_approach(nodes, client, model_name, chunk_size=1000, max_retries=3):
+def method_our_approach(nodes, client, model_name, chunk_size=1000, max_retries=3, reasoning_effort=None):
     dag = nx.DiGraph()
     primary_to_full_map = {get_primary_term(n): n for n in nodes}
     primary_nodes = list(primary_to_full_map.keys())
@@ -62,12 +62,19 @@ def method_our_approach(nodes, client, model_name, chunk_size=1000, max_retries=
             
             for attempt in range(max_retries):
                 try:
-                    response = client.chat.completions.create(
-                        model=model_name,
-                        messages=[{"role": "user", "content": prompt}],
-                        temperature=0.0,
-                        max_tokens=16328
-                    )
+                    # Package the parameters safely
+                    kwargs = {
+                        "model": model_name,
+                        "messages": [{"role": "user", "content": prompt}],
+                        "temperature": 0.0,
+                        "max_tokens": 16328
+                    }
+                    
+                    # Inject the reasoning instructions into the vLLM harmony parser payload
+                    if reasoning_effort:
+                        kwargs["extra_body"] = {"reasoning": {"effort": reasoning_effort}}
+
+                    response = client.chat.completions.create(**kwargs)
                     
                     message = response.choices[0].message
                     content = getattr(message, 'content', '') or ""
