@@ -16,12 +16,19 @@ def method_sbu_embedding(test_nodes, encoder_model, train_nodes=None):
     cosine_scores = util.cos_sim(child_embeddings, parent_embeddings)
     
     for i, child in enumerate(test_nodes):
+        # CRITICAL FIX: Mask the self-similarity so the model doesn't pick itself
+        for j, parent in enumerate(candidate_parents):
+            if child == parent:
+                cosine_scores[i][j] = -1.0
+                
         best_parent_idx = cosine_scores[i].argmax().item()
         best_parent = candidate_parents[best_parent_idx]
+        
         if child != best_parent:
             G.add_edge(best_parent, child)
             
     print(f"    [SBU Embedding] SUCCESS | Embedded {len(test_nodes)} children against {len(candidate_parents)} parents.")
+    return G
     return G
 
 def method_sbu_batch(test_nodes, client, model_name, train_pairs=None, chunk_size=100):
