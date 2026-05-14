@@ -26,7 +26,8 @@ def load_and_merge_data(json_path="benchmark_results.json", csv_path="dataset_me
         explode_nodes = ds_block.get("explode_nodes", False)
         
         for res in ds_block.get("results", []):
-            primary_f1 = res["Exp_Clos_F1"] if explode_nodes else res["Cond_Clos_F1"]
+            # SHIFT TO RAW F1 AS THE PRIMARY COMPETITIVE METRIC
+            primary_f1 = res.get("Exp_Raw_F1", 0)
             
             records.append({
                 "Dataset_JSON": dataset_name,
@@ -38,7 +39,7 @@ def load_and_merge_data(json_path="benchmark_results.json", csv_path="dataset_me
                 "Exp_Raw_F1": res.get("Exp_Raw_F1", 0),
                 "Exp_Clos_F1": res.get("Exp_Clos_F1", 0),
                 "Primary_F1": primary_f1,
-                "Runtime_sec": res.get("Runtime_sec", 0.0) # Gracefully handle old runs
+                "Runtime_sec": res.get("Runtime_sec", 0.0) 
             })
     df_perf = pd.DataFrame(records)
     
@@ -81,7 +82,7 @@ def plot_method_vs_dataset_heatmap(df):
     
     plt.figure(figsize=(fig_width, 8))
     ax = sns.heatmap(pivot_df, annot=True, cmap="YlGnBu", fmt=".3f", linewidths=.5, vmin=0, vmax=1)
-    plt.title("Method Performance (Primary F1) Across Datasets (Sub & Full Scales)", pad=20, fontsize=14, fontweight='bold')
+    plt.title("Method Performance (Raw Exact Match F1) Across Datasets", pad=20, fontsize=14, fontweight='bold')
     plt.ylabel("Extraction Method", fontweight='bold')
     plt.xlabel("Dataset Scenario", fontweight='bold')
     plt.xticks(rotation=45, ha='right')
@@ -100,8 +101,8 @@ def plot_method_variance(df):
                 meanprops={"marker":"o","markerfacecolor":"white", "markeredgecolor":"black"})
     sns.stripplot(data=df, x="Method", y="Primary_F1", order=order, color=".25", size=5, alpha=0.6, jitter=True)
     
-    plt.title("F1 Score Variance per Method Across All Scenarios", pad=20, fontsize=14, fontweight='bold')
-    plt.ylabel("Primary F1 Score (Cond/Exp Closure)", fontweight='bold')
+    plt.title("Raw F1 Score Variance per Method Across All Scenarios", pad=20, fontsize=14, fontweight='bold')
+    plt.ylabel("Primary F1 Score (Raw Exact Match)", fontweight='bold')
     plt.xlabel("Extraction Method", fontweight='bold')
     plt.xticks(rotation=45, ha='right')
     plt.tight_layout()
@@ -149,7 +150,7 @@ def plot_metric_vs_f1_scatter_grid(df):
                     line_kws={'linewidth': 2}, ci=None
                 )
         
-        axes[i].set_title(f"F1 Score vs {metric}", fontweight='bold')
+        axes[i].set_title(f"Raw F1 Score vs {metric}", fontweight='bold')
         axes[i].set_ylim(-0.05, 1.05)
         if metric == "Nodes": axes[i].set_xscale("log") 
             
@@ -189,8 +190,8 @@ def plot_f1_metric_correlation_heatmap(df):
     
     plt.figure(figsize=(12, 8))
     sns.heatmap(corr_df, annot=True, cmap="vlag", fmt=".2f", center=0, vmin=-1, vmax=1,
-                cbar_kws={'label': 'Spearman Rank Correlation (Metric vs F1)'})
-    plt.title("Correlation: How Dataset Topology Affects Method F1 Scores", pad=20, fontsize=14, fontweight='bold')
+                cbar_kws={'label': 'Spearman Rank Correlation (Metric vs Raw F1)'})
+    plt.title("Correlation: How Dataset Topology Affects Method Raw F1 Scores", pad=20, fontsize=14, fontweight='bold')
     plt.xlabel("Extraction Method", fontweight='bold')
     plt.ylabel("Dataset Topography Metric", fontweight='bold')
     plt.xticks(rotation=45, ha='right')
@@ -202,7 +203,6 @@ def plot_runtime_complexity(df):
     """Plots Runtime vs Nodes on a log-log scale to reveal algorithmic complexity bounds."""
     print(" -> Generating Runtime Scaling Chart...")
     
-    # Filter out runs with 0 runtime (from older JSONs before we added tracking)
     df_runtime = df[df["Runtime_sec"] > 0].copy()
     if df_runtime.empty:
         print("    [!] No runtime data found to plot. Skipping chart.")
@@ -218,7 +218,6 @@ def plot_runtime_complexity(df):
         palette=color_dict, s=120, alpha=0.8, edgecolor='black'
     )
     
-    # Draw complexity trendlines
     for method in df_runtime['Method'].unique():
         subset = df_runtime[df_runtime['Method'] == method].sort_values(by="Nodes")
         if len(subset) > 1:
@@ -286,7 +285,7 @@ def report_method_variance(df):
     var_df.to_csv(output_csv, index=False)
     
     print("\n" + "="*85)
-    print("📊 METHOD VARIANCE REPORT (Primary F1) 📊")
+    print("   METHOD VARIANCE REPORT (Raw Exact Match F1)   ")
     print("="*85)
     print(var_df.to_string(formatters={
         'Mean': '{:,.4f}'.format, 'Variance': '{:,.4f}'.format,
@@ -302,11 +301,11 @@ def generate_summary_table(df):
     best_df = df.loc[idx, ['Dataset_Scenario', 'Method', 'Primary_F1', 'Runtime_sec', 'Nodes', 'Lexical Overlap', 'Avg Hearst PPL']]
     
     best_df = best_df.sort_values(by="Dataset_Scenario").reset_index(drop=True)
-    best_df.columns = ["Dataset Scenario", "Best Method", "Best F1 Score", "Runtime (s)", "Total Nodes", "Lexical Overlap", "Avg Hearst PPL"]
+    best_df.columns = ["Dataset Scenario", "Best Method", "Best Raw F1", "Runtime (s)", "Total Nodes", "Lexical Overlap", "Avg Hearst PPL"]
     
     best_df.to_csv(os.path.join(VIS_DIR, "5_best_methods_summary.csv"), index=False)
     print("\n" + "="*110)
-    print("🏆 BEST PERFORMING METHODS PER DATASET SCENARIO 🏆")
+    print("   BEST PERFORMING METHODS PER DATASET SCENARIO (By Raw F1)   ")
     print("="*110)
     print(best_df.to_string(index=False))
     print("="*110)
