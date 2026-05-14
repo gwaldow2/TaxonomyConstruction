@@ -29,7 +29,6 @@ def load_and_merge_data(json_path="benchmark_results.json", csv_path="dataset_me
         explode_nodes = ds_block.get("explode_nodes", False)
         
         for res in ds_block.get("results", []):
-            # SHIFT PRIMARY METRIC TO CONDENSED CLOSURE FOR MOST VISUALIZATIONS
             primary_f1 = res.get("Cond_Clos_F1", 0)
             
             records.append({
@@ -74,10 +73,8 @@ def load_and_merge_data(json_path="benchmark_results.json", csv_path="dataset_me
 def plot_method_vs_dataset_heatmap(df):
     """Creates a heatmap of F1 scores for each Method across all Datasets & Scenarios."""
     
-    # Filter out (Syn+Exp) runs from the main competitive heatmap
     df_main = df[~((df['Use_Synsets'] == True) & (df['Explode_Nodes'] == True))].copy()
     
-    # As requested, keep BOTH Raw and Closure for this specific heatmap
     metrics_to_plot = {
         "Exp_Raw_F1": "Raw Exact Match F1",
         "Cond_Clos_F1": "Condensed Closure F1"
@@ -126,7 +123,6 @@ def plot_syn_exp_comparison_heatmap(df):
     )
     comp_df = df[mask].copy()
     
-    # ONLY INCLUDE OUR METHOD FOR SYNONYM RECOVERY AS REQUESTED
     comp_df = comp_df[comp_df["Method"].str.contains("Our Method", case=False, na=False)]
     if comp_df.empty:
         print(" -> [!] No 'Our Method' data found for Synonym comparison. Skipping.")
@@ -165,7 +161,6 @@ def plot_syn_exp_comparison_heatmap(df):
         plt.close()
 
 def plot_method_variance(df):
-    """Creates a violin/box plot showing how much each method's F1 varies across different datasets."""
     print(" -> Generating Method Variance Plot...")
     plt.figure(figsize=(12, 6))
     
@@ -184,7 +179,6 @@ def plot_method_variance(df):
     plt.close()
 
 def plot_metric_vs_f1_scatter_grid(df):
-    """Creates a 2D grid of scatter plots comparing specific dataset metrics against F1 scores, with trendlines."""
     print(" -> Generating Metrics vs F1 Scatter Grid (with Trendlines)...")
     
     taxo_mask = df['Method'].str.startswith('TaxoLLaMA')
@@ -242,7 +236,6 @@ def plot_metric_vs_f1_scatter_grid(df):
     plt.close()
 
 def plot_f1_metric_correlation_heatmap(df):
-    """Creates a heatmap showing the Spearman correlation between dataset characteristics and model success."""
     print(" -> Generating F1-Metric Correlation Heatmap (Spearman)...")
     
     metrics = ["Avg Hearst PPL", "Nodes", "Edges", "Roots", "Leaves", "Components", "Edge/Node Ratio", 
@@ -274,7 +267,6 @@ def plot_f1_metric_correlation_heatmap(df):
     plt.close()
 
 def plot_runtime_complexity(df):
-    """Plots Runtime vs Nodes on a log-log scale with power-law curves to reveal complexity bounds."""
     print(" -> Generating Runtime Scaling Chart...")
     
     df_runtime = df[df["Runtime_sec"] > 0].copy()
@@ -318,7 +310,6 @@ def plot_runtime_complexity(df):
     plt.close()
 
 def plot_f1_metric_comparison(df):
-    """Analyzes how the evaluation metric itself (Raw vs Clos, Cond vs Exp) changes the scores."""
     print(" -> Generating F1 Metric Version Comparison...")
     
     f1_cols = ["Cond_Red_F1", "Cond_Clos_F1", "Exp_Raw_F1", "Exp_Clos_F1"]
@@ -356,7 +347,6 @@ def plot_f1_metric_comparison(df):
     plt.close()
 
 def report_method_variance(df):
-    """Generates a statistical report of the variance, std dev, and mean of F1 scores per method."""
     print(" -> Generating Method Variance Report...")
     
     var_df = df.groupby("Method")["Primary_F1"].agg(
@@ -377,7 +367,6 @@ def report_method_variance(df):
     print("="*85)
 
 def generate_summary_table(df):
-    """Outputs a clean summary CSV of the best methods per dataset scenario."""
     print(" -> Generating Summary Table...")
     
     idx = df.groupby('Dataset_Scenario')['Primary_F1'].idxmax()
@@ -394,26 +383,39 @@ def generate_summary_table(df):
     print("="*110)
 
 def plot_graph_overlays(dataset_name):
-    """Draws the Ground Truth graph, overlaying TP and FP edges for each method evaluated on it."""
+    """Draws a strict hierarchical visualization mapping nodes to exact Y-levels based on depth."""
     gt_path = f"./results/GT_{dataset_name}_eval.graphml"
     if not os.path.exists(gt_path):
         print(f" [!] GT graph not found at {gt_path}. Cannot generate graph overlay.")
         return
         
     G_gt = nx.read_graphml(gt_path)
-    print(f" -> Generating Hierarchical Graph Overlays for {dataset_name}...")
+    print(f" -> Generating Strict Hierarchical Graph Overlays for {dataset_name}...")
     
-    # Calculate a hierarchical DAG layout
+    # 1. Enforce strict mathematical node depths (longest path from any root)
+    roots = [n for n, d in G_gt.in_degree() if d == 0]
+    if not roots: 
+        roots = [list(G_gt.nodes())[0]] # Fallback if no true roots exist
+        
+    layers = {}
     try:
-        # Pydot's 'dot' layout is optimal for strict top-down DAG hierarchies
-        pos = nx.nx_pydot.graphviz_layout(G_gt, prog='dot')
-    except Exception:
-        # Fallback to topological layered layout if graphviz is not installed
+        # topological_sort guarantees we evaluate parents before children
+        for node in nx.topological_sort(G_gt):
+            if node in roots:
+                layers[node] = 0
+            else:
+                layers[node] = max([layers[p] for p in G_gt.predecessors(node)]) + 1
+    except nx.NetworkXUnfeasible:
+        # Fallback if a cycle somehow exists in the GT
         for n in G_gt.nodes():
-            G_gt.nodes[n]['layer'] = len(nx.ancestors(G_gt, n))
-        pos = nx.multipartite_layout(G_gt, subset_key='layer', align='horizontal')
-        # Invert Y to put root at the top
-        for k in pos: pos[k][1] = -pos[k][1]
+            layers[n] = len(nx.ancestors(G_gt, n))
+            
+    nx.set_node_attributes(G_gt, layers, 'layer')
+    
+    # 2. Map layers precisely to Y-coordinates
+    pos = nx.multipartite_layout(G_gt, subset_key='layer', align='horizontal')
+    for k in pos: 
+        pos[k][1] = -pos[k][1]  # Invert Y to put the root (Layer 0) at the top
         
     txt_files = glob.glob(f"./results/{dataset_name}_*_condensed_closure.txt")
     if not txt_files:
@@ -440,27 +442,31 @@ def plot_graph_overlays(dataset_name):
                 if fp_match:
                     fp_edges.append((fp_match.group(1), fp_match.group(2)))
         
-        plt.figure(figsize=(16, 12))
+        plt.figure(figsize=(20, 14))
         
+        # 3. Use rad=0.15 to curve edges around nodes, preventing straight-line overlaps
         # Base GT Edges (Transparent Gray)
-        nx.draw_networkx_edges(G_gt, pos, edge_color='gray', alpha=0.2, arrows=True, arrowsize=15)
+        nx.draw_networkx_edges(G_gt, pos, edge_color='gray', alpha=0.15, arrows=True, arrowsize=10, connectionstyle='arc3,rad=0.15')
         
-        # Nodes (Light Blue)
-        nx.draw_networkx_nodes(G_gt, pos, node_size=60, node_color='lightblue', alpha=0.8, edgecolors='black')
+        # Nodes
+        nx.draw_networkx_nodes(G_gt, pos, node_size=60, node_color='lightblue', edgecolors='black')
+        
+        # Bounding box labels so the text is legible over the dense mesh
+        bbox_props = dict(boxstyle="round,pad=0.2", fc="white", ec="none", alpha=0.8)
+        nx.draw_networkx_labels(G_gt, pos, font_size=7, bbox=bbox_props)
         
         # TP Edges (Vibrant Green)
         valid_tp = [e for e in tp_edges if e[0] in pos and e[1] in pos]
         if valid_tp:
-            nx.draw_networkx_edges(G_gt, pos, edgelist=valid_tp, edge_color='green', alpha=0.9, width=2.0, arrows=True, arrowsize=15)
+            nx.draw_networkx_edges(G_gt, pos, edgelist=valid_tp, edge_color='green', alpha=0.8, width=2.5, arrows=True, arrowsize=15, connectionstyle='arc3,rad=0.15')
             
         # FP Edges (Transparent Red)
         valid_fp = [e for e in fp_edges if e[0] in pos and e[1] in pos]
         if valid_fp:
-            # We use a blank graph just to safely draw the red edges using the same pre-calculated pos
             G_fp = nx.DiGraph()
             G_fp.add_nodes_from(G_gt.nodes())
             G_fp.add_edges_from(valid_fp)
-            nx.draw_networkx_edges(G_fp, pos, edgelist=valid_fp, edge_color='red', alpha=0.4, width=1.5, arrows=True, arrowsize=15)
+            nx.draw_networkx_edges(G_fp, pos, edgelist=valid_fp, edge_color='red', alpha=0.3, width=1.5, arrows=True, arrowsize=12, connectionstyle='arc3,rad=0.15')
             
         plt.title(f"Hierarchy Overlay: {dataset_name} | Method: {method_suffix}\nGreen=Recovered GT (TP) | Red=Hallucinated (FP)", fontsize=16, fontweight='bold')
         plt.axis('off')
@@ -469,7 +475,7 @@ def plot_graph_overlays(dataset_name):
         out_name = f"10_{dataset_name}_{method_suffix}_graph_vis.png"
         plt.savefig(os.path.join(VIS_DIR, out_name), dpi=300)
         plt.close()
-        print(f"    -> Saved graph overlay for {method_suffix}")
+        print(f"    -> Saved strict layered graph overlay for {method_suffix}")
 
 def main():
     parser = argparse.ArgumentParser(description="Taxonomy Extraction Visualizer")
