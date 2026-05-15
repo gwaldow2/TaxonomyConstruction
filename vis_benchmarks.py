@@ -669,15 +669,19 @@ def plot_hearst_ppl_spearman(df):
     plt.close()
 
 def plot_batch_size_k_comparison(df):
-    """Plots all F1 scores of 'Our Method' based on the batch size k specified."""
+    """Plots all F1 scores of 'Our Method' based on the batch size k specified for targeted datasets."""
     print(" -> Generating Batch Size (k) vs All F1 Scores Comparison...")
     
+    # Target specific datasets
+    target_datasets = ["LLMs4OL_OBI_SUB", "LLMs4OL_PO_FULL"]
+    df_target = df[df['Dataset_JSON'].isin(target_datasets)].copy()
+    
     # Filter for rows that have a specified 'k=' in the Method string
-    k_mask = df['Method'].str.contains(r'k=\d+', na=False)
-    df_k = df[k_mask].copy()
+    k_mask = df_target['Method'].str.contains(r'k=\d+', na=False)
+    df_k = df_target[k_mask].copy()
     
     if df_k.empty:
-        print("    [!] No data found with a specified batch size 'k'. Skipping.")
+        print("    [!] No data found with a specified batch size 'k' for targeted datasets. Skipping.")
         return
         
     # Extract 'k' as an integer
@@ -721,10 +725,17 @@ def plot_batch_size_k_comparison(df):
             markersize=8,
             height=4, 
             aspect=1.2,
-            palette="Set2"
+            palette="Set2",
+            facet_kws={'sharex': False} # Forces X-axis to render on every individual subplot
         )
         g.fig.suptitle("Effect of Batch Size (k) on F1 Scores", y=1.05, fontsize=16, fontweight='bold')
         g.set_axis_labels("Batch Size (k)", "F1 Score", fontweight='bold')
+        
+        # Ensure every axis explicitly displays its x-labels
+        for ax in g.axes.flatten():
+            ax.tick_params(labelbottom=True)
+            ax.set_xlabel("Batch Size (k)", fontweight='bold')
+            
         # Update the legend title natively inside relplot
         if g._legend:
             g._legend.set_title("Evaluation Metric")
@@ -763,18 +774,25 @@ def main():
 
     df = load_and_merge_data()
     
-    # Filter out experimental reasoning runs, FULL datasets, AND any alternate parameters (k=, alt. Prompt) for standard visualizations (Figs 1-9, tables)
+    # Filter masks 
     mask_method_reasoning = ~df['Method'].str.contains(r'\[low\]|\[medium\]|\[high\]', regex=True, na=False)
     mask_method_alt = ~df['Method'].str.contains(r'alt\. Prompt|k=', regex=True, case=False, na=False)
     mask_dataset = ~df['Dataset_JSON'].str.contains('_FULL', na=False)
     
+    # df_filtered is used for most general visualizations (avoids FULL datasets skewing averages)
     df_filtered = df[mask_method_reasoning & mask_method_alt & mask_dataset].copy()
+    
+    # df_standard_methods keeps the FULL datasets intact for computational scaling analysis
+    df_standard_methods = df[mask_method_reasoning & mask_method_alt].copy()
     
     plot_method_vs_dataset_heatmap(df_filtered)
     plot_syn_exp_comparison_heatmap(df_filtered)
     plot_method_variance(df_filtered)
     plot_metric_vs_f1_scatter_grid(df_filtered)
-    plot_runtime_complexity(df_filtered)
+    
+    # Passing the standard_methods dataframe here so scaling includes massive _FULL graphs
+    plot_runtime_complexity(df_standard_methods)
+    
     plot_f1_metric_correlation_heatmap(df_filtered)
     plot_f1_metric_comparison(df_filtered) 
     report_method_variance(df_filtered)
