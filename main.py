@@ -90,7 +90,6 @@ def main(args):
     print(f"\n--- Running Benchmark across {target_scale} datasets ---")
 
     for domain in selected_ds:
-        # Load the graph and the isolated 20% training pairs
         G_gt, train_pairs = load_benchmark_graph(domain, scale=target_scale)
         if G_gt is None:
             print(f"\n [!] Error: No GT graph found for {domain} at scale {target_scale}. Run taxonomy_metrics.py first.")
@@ -107,7 +106,6 @@ def main(args):
             G_gt = explode_graph(G_gt)
             input_nodes = [n for n in G_gt.nodes() if n != "virtual_root"]
 
-        # Strip virtual root from GT permanently for strict edge evaluation
         if "virtual_root" in G_gt:
             G_gt.remove_node("virtual_root")
             
@@ -145,14 +143,14 @@ def main(args):
             }
 
         if "our_method" in selected_methods:
-            # Append the reasoning effort to the method name to keep JSON records distinct
-            method_label = f"Our Method O(N) [{args.reasoning_effort}]" if args.reasoning_effort else "Our Method O(N)"
+            # Dynamic label to differentiate chunk sizes in results
+            method_label = f"Our Method (k={args.chunk_size})"
             print(f"  -> Running {method_label}...")
             t0 = time.time()
-            G_our = method_our_approach(input_nodes, client, MODEL_NAME, reasoning_effort=args.reasoning_effort)
+            G_our = method_our_approach(input_nodes, client, MODEL_NAME, chunk_size=args.chunk_size)
             if "virtual_root" in G_our: G_our.remove_node("virtual_root")
             eval_results[method_label] = {
-                "metrics": evaluate_all_modes(G_our, G_gt, f"./results/{dataset_name_eval}_OurMethod"), 
+                "metrics": evaluate_all_modes(G_our, G_gt, f"./results/{dataset_name_eval}_OurMethod_k{args.chunk_size}"), 
                 "runtime": time.time() - t0
             }
 
@@ -182,16 +180,13 @@ def main(args):
         if "sbu_embedding" in selected_methods:
             print("  -> Running SBU Embedding Strategy...")
             t0 = time.time()
-            
             train_nodes = []
             if train_pairs:
                 for pair in train_pairs:
                     train_nodes.extend([pair["parent"], pair["child"]])
                 train_nodes = list(set(train_nodes))
-                
             G_sbu_emb = method_sbu_embedding(input_nodes, vector_encoder, train_nodes=train_nodes)
             if "virtual_root" in G_sbu_emb: G_sbu_emb.remove_node("virtual_root")
-            
             eval_results["SBU Embedding"] = {
                 "metrics": evaluate_all_modes(G_sbu_emb, G_gt, f"./results/{dataset_name_eval}_SBU_Embedding"), 
                 "runtime": time.time() - t0
@@ -226,6 +221,6 @@ if __name__ == "__main__":
     parser.add_argument("--scale", type=str, default="sub", choices=["sub", "full"], help="Benchmark on 'sub' (100-node) or 'full' ontology")
     parser.add_argument("--use_synsets", action="store_true")
     parser.add_argument("--explode_nodes", action="store_true")
-    parser.add_argument("--reasoning_effort", type=str, default=None, choices=["low", "medium", "high"], help="Set the reasoning effort for supported models.")
+    parser.add_argument("--chunk_size", type=int, default=1000, help="Chunk size for Our Method.")
     args = parser.parse_args()
     main(args)
