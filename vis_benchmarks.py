@@ -238,7 +238,7 @@ def plot_metric_vs_f1_scatter_grid(df):
 def plot_f1_metric_correlation_heatmap(df):
     print(" -> Generating F1-Metric Correlation Heatmap (Spearman)...")
     
-    metrics = ["Avg Hearst PPL", "Nodes", "Edges", "Roots", "Leaves", "Components", "Edge/Node Ratio", 
+    metrics = ["Avg Hearst PPL", "Nodes", "Edges", "Leaves", "Edge/Node Ratio", 
                "Max Depth", "Avg Branching", "Tree-likeness", "Lexical Overlap", "Redundancy Ratio"]
     metrics = [m for m in metrics if m in df.columns]
     
@@ -275,14 +275,20 @@ def plot_runtime_complexity(df):
         return
         
     plt.figure(figsize=(10, 6))
+    ax = plt.gca()
     
     palette = sns.color_palette("husl", n_colors=len(df_runtime['Method'].unique()))
     color_dict = dict(zip(df_runtime['Method'].unique(), palette))
 
     sns.scatterplot(
         data=df_runtime, x="Nodes", y="Runtime_sec", hue="Method", 
-        palette=color_dict, s=120, alpha=0.8, edgecolor='black'
+        palette=color_dict, s=120, alpha=0.8, edgecolor='black', ax=ax
     )
+    
+    ax.set_xscale("log")
+    ax.set_yscale("log")
+    
+    x_limits = ax.get_xlim()
     
     for method in df_runtime['Method'].unique():
         subset = df_runtime[df_runtime['Method'] == method].sort_values(by="Nodes")
@@ -293,16 +299,16 @@ def plot_runtime_complexity(df):
             coeffs = np.polyfit(np.log10(x_vals), np.log10(y_vals), 1)
             m, c = coeffs
             
-            x_fit = np.logspace(np.log10(x_vals.min()), np.log10(x_vals.max()), 100)
+            x_fit = np.logspace(np.log10(x_limits[0]), np.log10(x_limits[1]), 100)
             y_fit = (10 ** c) * (x_fit ** m)
             
-            plt.plot(x_fit, y_fit, color=color_dict[method], alpha=0.5, linewidth=2.5, linestyle='--')
+            ax.plot(x_fit, y_fit, color=color_dict[method], alpha=0.5, linewidth=2.5, linestyle='--')
+            
+    ax.set_xlim(x_limits)
             
     plt.title("Computational Scaling: Runtime vs Graph Size", pad=20, fontsize=14, fontweight='bold')
     plt.xlabel("Total Nodes in Dataset", fontweight='bold')
     plt.ylabel("Execution Time in Seconds (Log Scale)", fontweight='bold')
-    plt.xscale("log")
-    plt.yscale("log")
     
     plt.legend(bbox_to_anchor=(1.05, 1), loc='upper left', prop={'size': 9})
     plt.tight_layout()
@@ -392,30 +398,26 @@ def plot_graph_overlays(dataset_name):
     G_gt = nx.read_graphml(gt_path)
     print(f" -> Generating Strict Hierarchical Graph Overlays for {dataset_name}...")
     
-    # 1. Enforce strict mathematical node depths (longest path from any root)
     roots = [n for n, d in G_gt.in_degree() if d == 0]
     if not roots: 
-        roots = [list(G_gt.nodes())[0]] # Fallback if no true roots exist
+        roots = [list(G_gt.nodes())[0]]
         
     layers = {}
     try:
-        # topological_sort guarantees we evaluate parents before children
         for node in nx.topological_sort(G_gt):
             if node in roots:
                 layers[node] = 0
             else:
                 layers[node] = max([layers[p] for p in G_gt.predecessors(node)]) + 1
     except nx.NetworkXUnfeasible:
-        # Fallback if a cycle somehow exists in the GT
         for n in G_gt.nodes():
             layers[n] = len(nx.ancestors(G_gt, n))
             
     nx.set_node_attributes(G_gt, layers, 'layer')
     
-    # 2. Map layers precisely to Y-coordinates
     pos = nx.multipartite_layout(G_gt, subset_key='layer', align='horizontal')
     for k in pos: 
-        pos[k][1] = -pos[k][1]  # Invert Y to put the root (Layer 0) at the top
+        pos[k][1] = -pos[k][1]
         
     txt_files = glob.glob(f"./results/{dataset_name}_*_condensed_closure.txt")
     if not txt_files:
@@ -444,23 +446,16 @@ def plot_graph_overlays(dataset_name):
         
         plt.figure(figsize=(20, 14))
         
-        # 3. Use rad=0.15 to curve edges around nodes, preventing straight-line overlaps
-        # Base GT Edges (Transparent Gray)
         nx.draw_networkx_edges(G_gt, pos, edge_color='gray', alpha=0.15, arrows=True, arrowsize=10, connectionstyle='arc3,rad=0.15')
-        
-        # Nodes
         nx.draw_networkx_nodes(G_gt, pos, node_size=60, node_color='lightblue', edgecolors='black')
         
-        # Bounding box labels so the text is legible over the dense mesh
         bbox_props = dict(boxstyle="round,pad=0.2", fc="white", ec="none", alpha=0.8)
         nx.draw_networkx_labels(G_gt, pos, font_size=7, bbox=bbox_props)
         
-        # TP Edges (Vibrant Green)
         valid_tp = [e for e in tp_edges if e[0] in pos and e[1] in pos]
         if valid_tp:
             nx.draw_networkx_edges(G_gt, pos, edgelist=valid_tp, edge_color='green', alpha=0.8, width=2.5, arrows=True, arrowsize=15, connectionstyle='arc3,rad=0.15')
             
-        # FP Edges (Transparent Red)
         valid_fp = [e for e in fp_edges if e[0] in pos and e[1] in pos]
         if valid_fp:
             G_fp = nx.DiGraph()
@@ -468,7 +463,15 @@ def plot_graph_overlays(dataset_name):
             G_fp.add_edges_from(valid_fp)
             nx.draw_networkx_edges(G_fp, pos, edgelist=valid_fp, edge_color='red', alpha=0.3, width=1.5, arrows=True, arrowsize=12, connectionstyle='arc3,rad=0.15')
             
-        plt.title(f"Hierarchy Overlay: {dataset_name} | Method: {method_suffix}\nGreen=Recovered GT (TP) | Red=Hallucinated (FP)", fontsize=16, fontweight='bold')
+        # Calculate Precision & Recall
+        tp_count = len(valid_tp)
+        fp_count = len(valid_fp)
+        gt_count = G_gt.number_of_edges()
+        
+        precision = tp_count / (tp_count + fp_count) if (tp_count + fp_count) > 0 else 0.0
+        recall = tp_count / gt_count if gt_count > 0 else 0.0
+            
+        plt.title(f"Hierarchy Overlay: {dataset_name} | Method: {method_suffix}\nGreen=Recovered GT (TP) | Red=Hallucinated (FP)\nPrecision: {precision:.3f} | Recall: {recall:.3f}", fontsize=16, fontweight='bold')
         plt.axis('off')
         plt.tight_layout()
         
@@ -476,6 +479,98 @@ def plot_graph_overlays(dataset_name):
         plt.savefig(os.path.join(VIS_DIR, out_name), dpi=300)
         plt.close()
         print(f"    -> Saved strict layered graph overlay for {method_suffix}")
+
+def plot_synonym_condensation_example(dataset_name, target_node):
+    """Finds and visualizes a target concept's local hierarchy in both exploded and condensed states."""
+    print(f" -> Generating Synonym Condensation Example for '{target_node}'...")
+    
+    # Locate text files for both exploded and condensed results
+    exp_files = glob.glob(f"./results/{dataset_name}_*exp*.txt") + glob.glob(f"./results/{dataset_name}_*raw*.txt")
+    cond_files = glob.glob(f"./results/{dataset_name}_*condensed*.txt")
+    
+    if not cond_files:
+        print(f"    [!] No condensed text files found for {dataset_name} to generate synonym view.")
+        return
+        
+    cond_file = cond_files[0]
+    exp_file = exp_files[0] if exp_files else cond_file # Fallback if specific exploded file isn't named clearly
+    
+    tp_pattern = re.compile(r"matches GT:\s*\((.*?)\s*->\s*(.*?)\)")
+    fp_pattern = re.compile(r"\[FP\]\s+(.*?)\s*->\s*(.*)$")
+    
+    def get_local_graph(filepath, target):
+        G_local = nx.DiGraph()
+        with open(filepath, 'r', encoding='utf-8') as f:
+            for line in f:
+                line = line.strip()
+                tp_match = tp_pattern.search(line)
+                fp_match = fp_pattern.search(line)
+                
+                u, v = None, None
+                edge_type = None
+                
+                if tp_match:
+                    u, v = tp_match.group(1), tp_match.group(2)
+                    edge_type = 'TP'
+                elif fp_match:
+                    u, v = fp_match.group(1), fp_match.group(2)
+                    edge_type = 'FP'
+                    
+                if u and v:
+                    if target.lower() in u.lower() or target.lower() in v.lower():
+                        G_local.add_edge(u, v, type=edge_type)
+        return G_local
+
+    G_exp = get_local_graph(exp_file, target_node)
+    G_cond = get_local_graph(cond_file, target_node)
+    
+    fig, axes = plt.subplots(1, 2, figsize=(24, 12))
+    
+    for ax, G_sub, title in zip(axes, [G_exp, G_cond], ["Exploded Graph (Pre-Condensation)", "Condensed Graph (Post-Condensation)"]):
+        if len(G_sub.edges()) == 0:
+            ax.set_title(f"{title}\nNo edges found containing '{target_node}'", fontsize=14)
+            ax.axis('off')
+            continue
+        
+        # Apply strict mathematically-derived depth layers
+        roots = [n for n, d in G_sub.in_degree() if d == 0]
+        if not roots: roots = [list(G_sub.nodes())[0]]
+        layers = {}
+        try:
+            for node in nx.topological_sort(G_sub):
+                if node in roots: layers[node] = 0
+                else: layers[node] = max([layers[p] for p in G_sub.predecessors(node)]) + 1
+        except nx.NetworkXUnfeasible:
+            for n in G_sub.nodes(): layers[n] = len(nx.ancestors(G_sub, n))
+                
+        nx.set_node_attributes(G_sub, layers, 'layer')
+        pos = nx.multipartite_layout(G_sub, subset_key='layer', align='horizontal')
+        for k in pos: pos[k][1] = -pos[k][1] # Invert Y axis
+        
+        tp_edges = [(u, v) for u, v, d in G_sub.edges(data=True) if d['type'] == 'TP']
+        fp_edges = [(u, v) for u, v, d in G_sub.edges(data=True) if d['type'] == 'FP']
+        
+        if tp_edges:
+            nx.draw_networkx_edges(G_sub, pos, edgelist=tp_edges, edge_color='green', alpha=0.8, width=2.5, arrows=True, arrowsize=15, connectionstyle='arc3,rad=0.15', ax=ax)
+        if fp_edges:
+            nx.draw_networkx_edges(G_sub, pos, edgelist=fp_edges, edge_color='red', alpha=0.3, width=1.5, arrows=True, arrowsize=12, connectionstyle='arc3,rad=0.15', ax=ax)
+            
+        nx.draw_networkx_nodes(G_sub, pos, node_size=60, node_color='lightblue', edgecolors='black', ax=ax)
+        
+        bbox_props = dict(boxstyle="round,pad=0.2", fc="white", ec="none", alpha=0.9)
+        nx.draw_networkx_labels(G_sub, pos, font_size=9, bbox=bbox_props, ax=ax)
+        
+        ax.set_title(title, fontsize=16, fontweight='bold')
+        ax.axis('off')
+        
+    plt.suptitle(f"Synonym Condensation Subgraph: Concept '{target_node}'\nGreen=Recovered (TP) | Red=Hallucinated (FP)", fontsize=20, fontweight='bold')
+    plt.tight_layout(rect=[0, 0.03, 1, 0.95])
+    
+    safe_target = "".join([c if c.isalnum() else "_" for c in target_node])
+    out_name = f"12_{dataset_name}_synonym_view_{safe_target}.png"
+    plt.savefig(os.path.join(VIS_DIR, out_name), dpi=300)
+    plt.close()
+    print(f"    -> Saved synonym subgraph comparison to {out_name}")
 
 def plot_reasoning_effort_comparison(df):
     """Compares Accuracy (F1) vs Compute Cost (Runtime) across reasoning efforts."""
@@ -520,6 +615,7 @@ def plot_reasoning_effort_comparison(df):
 def main():
     parser = argparse.ArgumentParser(description="Taxonomy Extraction Visualizer")
     parser.add_argument("--vis_graph", type=str, default=None, help="Dataset name to visualize GT and Method overlays (e.g., WordNetFood_SUB)")
+    parser.add_argument("--vis_synonym", type=str, default=None, help="Target node concept to visualize its condensed vs exploded state")
     args = parser.parse_args()
 
     if not os.path.exists("benchmark_results.json") or not os.path.exists("dataset_metrics.csv"):
@@ -549,6 +645,11 @@ def main():
     
     if args.vis_graph:
         plot_graph_overlays(args.vis_graph)
+        
+    if args.vis_synonym and args.vis_graph:
+        plot_synonym_condensation_example(args.vis_graph, args.vis_synonym)
+    elif args.vis_synonym and not args.vis_graph:
+        print(" [!] You must provide --vis_graph with the dataset name in order to use --vis_synonym.")
     
     print(f"\n[*] All visualizations successfully saved to the '{VIS_DIR}/' directory.")
 
