@@ -82,7 +82,7 @@ def precompute_taxollama_ppl(nodes, model, tokenizer, device):
             
     return scores_cache
 
-def build_taxollama_graph(nodes, scores_cache, threshold=15.0, max_parents=1):
+def build_taxollama_graph(nodes, scores_cache, threshold=15.0, max_parents=3):
     G = nx.DiGraph()
     G.add_nodes_from(nodes)
     
@@ -90,15 +90,28 @@ def build_taxollama_graph(nodes, scores_cache, threshold=15.0, max_parents=1):
         valid_parents = []
         for v in nodes:
             if u == v: continue
-            ppl = scores_cache[u][v]
-            if ppl < threshold:
-                valid_parents.append((v, ppl))
+            
+            # 1. Fetch raw perplexities for both directions
+            ppl_forward = scores_cache[u][v] # PPL(u -> v)
+            ppl_reverse = scores_cache[v][u] # PPL(v -> u)
+            
+            # 2. Calculate the Confidence Ratio as defined in the paper
+            # Avoid division by zero just in case
+            if ppl_reverse == 0: 
+                continue 
+            confidence_ratio = ppl_forward / ppl_reverse
+            
+            # 3. Filter using the Confidence Ratio against the threshold
+            if confidence_ratio < threshold:
+                valid_parents.append((v, ppl_forward))
                 
+        # 4. Sort by RAW perplexity to keep the lowest scores, as dictated by the paper
         valid_parents.sort(key=lambda x: x[1])
         
+        # 5. Retain a maximum of 3 hypernyms
         for parent, ppl in valid_parents[:max_parents]:
             G.add_edge(parent, u, weight=ppl) 
             
     resolve_graph_cycles(G)
-    print(f"    [TaxoLLaMA] SUCCESS | Built {G.number_of_edges()} raw edges strictly below PPL threshold {threshold}.")
+    print(f"    [TaxoLLaMA] SUCCESS | Built {G.number_of_edges()} raw edges strictly below Confidence Ratio threshold {threshold}.")
     return cluster_synonyms_and_enforce_dag(G)
