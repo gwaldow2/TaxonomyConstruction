@@ -493,7 +493,7 @@ def plot_synonym_condensation_example(dataset_name, target_node):
         return
         
     cond_file = cond_files[0]
-    exp_file = exp_files[0] if exp_files else cond_file # Fallback if specific exploded file isn't named clearly
+    exp_file = exp_files[0] if exp_files else cond_file 
     
     tp_pattern = re.compile(r"matches GT:\s*\((.*?)\s*->\s*(.*?)\)")
     fp_pattern = re.compile(r"\[FP\]\s+(.*?)\s*->\s*(.*)$")
@@ -576,7 +576,7 @@ def plot_reasoning_effort_comparison(df):
     """Compares Accuracy (F1) vs Compute Cost (Runtime) across reasoning efforts."""
     print(" -> Generating Reasoning Effort Comparison...")
     
-    reasoning_methods = ['Our Method O(N) [low]', 'Our Method O(N) [medium]', 'Our Method O(N) [high]']
+    reasoning_methods = ['Our Method [low]', 'Our Method [medium]', 'Our Method [high]']
     df_res = df[df['Method'].isin(reasoning_methods)].copy()
     
     if df_res.empty:
@@ -612,6 +612,59 @@ def plot_reasoning_effort_comparison(df):
     plt.savefig(os.path.join(VIS_DIR, "11_reasoning_effort_comparison.png"), dpi=300)
     plt.close()
 
+def plot_alt_prompt_comparison(df):
+    """Compares the standard runs against their 'alt. Prompt' counterparts."""
+    print(" -> Generating Alternate Prompt Comparison...")
+    
+    df_our = df[df['Method'].str.contains('Our Method', na=False)].copy()
+    if df_our.empty:
+        return
+
+    df_our['Prompt_Type'] = df_our['Method'].apply(lambda x: 'Alternate Prompt' if 'alt. Prompt' in x else 'Standard Prompt')
+    
+    plt.figure(figsize=(10, 6))
+    sns.boxplot(data=df_our, x="Prompt_Type", y="Primary_F1", palette="Set2", 
+                showmeans=True, meanprops={"marker":"o","markerfacecolor":"white", "markeredgecolor":"black"})
+    sns.stripplot(data=df_our, x="Prompt_Type", y="Primary_F1", color=".25", size=6, alpha=0.6, jitter=True)
+    
+    plt.title("Effect of Prompting Style: Standard vs Alternate Prompting", pad=20, fontsize=14, fontweight='bold')
+    plt.ylabel("Cond Closure F1", fontweight='bold')
+    plt.xlabel("Prompt Type", fontweight='bold')
+    
+    plt.tight_layout()
+    plt.savefig(os.path.join(VIS_DIR, "13_alt_prompt_comparison.png"), dpi=300)
+    plt.close()
+
+def plot_hearst_ppl_spearman(df):
+    """Plots a scatter grid of Avg Hearst PPL vs F1 including the Spearman correlation."""
+    print(" -> Generating Hearst PPL vs F1 Scatter with Spearman...")
+    
+    metric = "Avg Hearst PPL"
+    if metric not in df.columns:
+        print("    [!] 'Avg Hearst PPL' not found in dataframe. Skipping.")
+        return
+        
+    df_plot = df.dropna(subset=[metric, "Primary_F1"])
+    if df_plot.empty:
+        return
+
+    g = sns.lmplot(
+        data=df_plot, x=metric, y="Primary_F1", col="Method", col_wrap=3,
+        scatter_kws={'alpha':0.6, 's': 50}, line_kws={'color': 'red', 'linewidth': 2}, height=4, aspect=1.2
+    )
+    
+    for ax, method in zip(g.axes.flatten(), g.col_names):
+        method_df = df_plot[df_plot['Method'] == method]
+        if len(method_df) > 2:
+            corr = method_df["Primary_F1"].corr(method_df[metric], method='spearman')
+            ax.set_title(f"{method}\nSpearman: {corr:.3f}", fontweight='bold', fontsize=11)
+            
+    g.fig.suptitle("Avg Hearst PPL vs Cond Closure F1 (with Spearman Correlation)", y=1.05, fontsize=16, fontweight='bold')
+    g.set_axis_labels("Avg Hearst PPL", "Cond Closure F1", fontweight='bold')
+    
+    plt.savefig(os.path.join(VIS_DIR, "14_hearst_ppl_spearman_scatter.png"), dpi=300, bbox_inches='tight')
+    plt.close()
+
 def main():
     parser = argparse.ArgumentParser(description="Taxonomy Extraction Visualizer")
     parser.add_argument("--vis_graph", type=str, default=None, help="Dataset name to visualize GT and Method overlays (e.g., WordNetFood_SUB)")
@@ -625,10 +678,12 @@ def main():
 
     df = load_and_merge_data()
     
-    # Filter out experimental reasoning runs and FULL datasets for standard visualizations (Figs 1-9, tables)
-    mask_method = ~df['Method'].str.contains(r'\[low\]|\[medium\]|\[high\]', regex=True, na=False)
+    # Filter out experimental reasoning runs, FULL datasets, AND any alternate parameters (k=, alt. Prompt) for standard visualizations (Figs 1-9, tables)
+    mask_method_reasoning = ~df['Method'].str.contains(r'\[low\]|\[medium\]|\[high\]', regex=True, na=False)
+    mask_method_alt = ~df['Method'].str.contains(r'alt\. Prompt|k=', regex=True, case=False, na=False)
     mask_dataset = ~df['Dataset_JSON'].str.contains('_FULL', na=False)
-    df_filtered = df[mask_method & mask_dataset].copy()
+    
+    df_filtered = df[mask_method_reasoning & mask_method_alt & mask_dataset].copy()
     
     plot_method_vs_dataset_heatmap(df_filtered)
     plot_syn_exp_comparison_heatmap(df_filtered)
@@ -640,8 +695,10 @@ def main():
     report_method_variance(df_filtered)
     generate_summary_table(df_filtered)
     
-    # The reasoning effort comparison requires the original unfiltered dataframe
+    # Run the new specific analyses using subsets from the unfiltered dataframe
     plot_reasoning_effort_comparison(df)
+    plot_alt_prompt_comparison(df)
+    plot_hearst_ppl_spearman(df_filtered) # We run the specific correlation scatter using the clean (filtered) dataframe
     
     if args.vis_graph:
         plot_graph_overlays(args.vis_graph)
