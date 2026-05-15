@@ -36,12 +36,12 @@ def cluster_synonyms_and_enforce_dag(G):
 
     return enforce_dag(condensed_dag)
 
-def method_our_approach(nodes, client, model_name, chunk_size=1000, max_retries=3, reasoning_effort=None):
+def method_our_approach(nodes, client, model_name, chunk_size=1000, max_retries=3):
     dag = nx.DiGraph()
     primary_to_full_map = {get_primary_term(n): n for n in nodes}
     primary_nodes = list(primary_to_full_map.keys())
     
-    for target_raw in tqdm(primary_nodes, desc="  -> [Our Method] O(N) Pairwise", leave=False):
+    for target_raw in tqdm(primary_nodes, desc=f"  -> [Our Method] ChunkSize={chunk_size}", leave=False):
         all_candidates = [t for t in primary_nodes if t != target_raw]
         
         for i in range(0, len(all_candidates), chunk_size):
@@ -62,17 +62,12 @@ def method_our_approach(nodes, client, model_name, chunk_size=1000, max_retries=
             
             for attempt in range(max_retries):
                 try:
-                    # Package the parameters safely
                     kwargs = {
                         "model": model_name,
                         "messages": [{"role": "user", "content": prompt}],
                         "temperature": 0.0,
                         "max_tokens": 16328
                     }
-                    
-                    # Inject the reasoning instructions into the vLLM harmony parser payload
-                    if reasoning_effort:
-                        kwargs["extra_body"] = {"reasoning": {"effort": reasoning_effort}}
 
                     response = client.chat.completions.create(**kwargs)
                     
@@ -86,11 +81,9 @@ def method_our_approach(nodes, client, model_name, chunk_size=1000, max_retries=
                         if attempt < max_retries - 1:
                             time.sleep(2)
                             continue
-                        tqdm.write(f"    [Our Method] FATAL: Empty content for '{target_raw}'.")
                         break
                         
                     edges_added = 0
-
                     for line in full_text.split('\n'):
                         if '<=' in line:
                             parts = line.split('<=')
@@ -104,12 +97,6 @@ def method_our_approach(nodes, client, model_name, chunk_size=1000, max_retries=
                                     dag.add_edge(actual_sup, actual_sub)
                                     edges_added += 1
                                     
-                    safe_snippet = full_text[:100].replace('\n', ' ')
-                    if edges_added > 0:
-                        tqdm.write(f"    [Our Method] SUCCESS | Target '{target_raw}' | Parsed {edges_added} edges | Snippet: {safe_snippet}...")
-                    else:
-                        tqdm.write(f"    [Our Method] ZERO EDGES | Target '{target_raw}' | Snippet: {safe_snippet}...")
-                    
                     break 
                     
                 except Exception as e:
