@@ -1,3 +1,5 @@
+#vis_benchmarks.py
+
 import os
 import re
 import json
@@ -666,6 +668,88 @@ def plot_hearst_ppl_spearman(df):
     plt.savefig(os.path.join(VIS_DIR, "14_hearst_ppl_spearman_scatter.png"), dpi=300, bbox_inches='tight')
     plt.close()
 
+def plot_batch_size_k_comparison(df):
+    """Plots all F1 scores of 'Our Method' based on the batch size k specified."""
+    print(" -> Generating Batch Size (k) vs All F1 Scores Comparison...")
+    
+    # Filter for rows that have a specified 'k=' in the Method string
+    k_mask = df['Method'].str.contains(r'k=\d+', na=False)
+    df_k = df[k_mask].copy()
+    
+    if df_k.empty:
+        print("    [!] No data found with a specified batch size 'k'. Skipping.")
+        return
+        
+    # Extract 'k' as an integer
+    df_k['k'] = df_k['Method'].str.extract(r'k=(\d+)').astype(int)
+    
+    # Melt dataframe to get all F1 scores into a single column for hue plotting
+    f1_cols = ["Cond_Red_F1", "Cond_Clos_F1", "Exp_Raw_F1", "Exp_Clos_F1"]
+    melted_k = df_k.melt(
+        id_vars=["Dataset_Scenario", "k"], 
+        value_vars=f1_cols, 
+        var_name="Metric", 
+        value_name="F1_Score"
+    )
+    
+    # Map metric names to human-readable labels
+    nice_labels = {
+        "Cond_Red_F1": "Cond. Reduction", 
+        "Cond_Clos_F1": "Cond. Closure", 
+        "Exp_Raw_F1": "Exploded Raw", 
+        "Exp_Clos_F1": "Exploded Closure"
+    }
+    melted_k["Metric"] = melted_k["Metric"].map(nice_labels)
+    
+    # Sort to ensure lines connect logically from smallest to largest k
+    melted_k = melted_k.sort_values(by=['Dataset_Scenario', 'k'])
+    
+    num_datasets = melted_k['Dataset_Scenario'].nunique()
+    
+    if num_datasets > 1:
+        # Facet grid if there are multiple datasets
+        g = sns.relplot(
+            data=melted_k, 
+            x='k', 
+            y='F1_Score', 
+            hue='Metric', 
+            col='Dataset_Scenario', 
+            col_wrap=min(3, num_datasets),
+            kind='line', 
+            marker='o', 
+            linewidth=2,
+            markersize=8,
+            height=4, 
+            aspect=1.2,
+            palette="Set2"
+        )
+        g.fig.suptitle("Effect of Batch Size (k) on F1 Scores", y=1.05, fontsize=16, fontweight='bold')
+        g.set_axis_labels("Batch Size (k)", "F1 Score", fontweight='bold')
+        # Update the legend title natively inside relplot
+        if g._legend:
+            g._legend.set_title("Evaluation Metric")
+    else:
+        # Single plot if only one dataset is present
+        plt.figure(figsize=(10, 6))
+        sns.lineplot(
+            data=melted_k, 
+            x='k', 
+            y='F1_Score', 
+            hue='Metric', 
+            marker='o', 
+            linewidth=2,
+            markersize=8,
+            palette="Set2"
+        )
+        plt.title("Effect of Batch Size (k) on F1 Scores", pad=20, fontsize=14, fontweight='bold')
+        plt.ylabel("F1 Score", fontweight='bold')
+        plt.xlabel("Batch Size (k)", fontweight='bold')
+        plt.legend(title="Evaluation Metric", bbox_to_anchor=(1.05, 1), loc='upper left')
+    
+    plt.tight_layout()
+    plt.savefig(os.path.join(VIS_DIR, "15_batch_size_k_comparison.png"), dpi=300)
+    plt.close()
+
 def main():
     parser = argparse.ArgumentParser(description="Taxonomy Extraction Visualizer")
     parser.add_argument("--vis_graph", type=str, default=None, help="Dataset name to visualize GT and Method overlays (e.g., WordNetFood_SUB)")
@@ -700,6 +784,7 @@ def main():
     plot_reasoning_effort_comparison(df)
     plot_alt_prompt_comparison(df)
     plot_hearst_ppl_spearman(df_filtered) # We run the specific correlation scatter using the clean (filtered) dataframe
+    plot_batch_size_k_comparison(df)
     
     if args.vis_graph:
         plot_graph_overlays(args.vis_graph)
