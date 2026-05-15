@@ -143,14 +143,22 @@ def main(args):
             }
 
         if "our_method" in selected_methods:
-            # Dynamic label to differentiate chunk sizes in results
-            method_label = f"Our Method (k={args.chunk_size})"
+            base_label = "Our Method (alt. Prompt)" if args.alt_prompt else "Our Method"
+            method_label = f"{base_label} (k={args.chunk_size})"
             print(f"  -> Running {method_label}...")
             t0 = time.time()
-            G_our = method_our_approach(input_nodes, client, MODEL_NAME, chunk_size=args.chunk_size)
+            G_our = method_our_approach(
+                input_nodes, 
+                client, 
+                MODEL_NAME, 
+                chunk_size=args.chunk_size, 
+                alt_prompt=args.alt_prompt
+            )
             if "virtual_root" in G_our: G_our.remove_node("virtual_root")
+            
+            safe_label = method_label.replace(" ", "_").replace("(", "").replace(")", "").replace(".", "")
             eval_results[method_label] = {
-                "metrics": evaluate_all_modes(G_our, G_gt, f"./results/{dataset_name_eval}_OurMethod_k{args.chunk_size}"), 
+                "metrics": evaluate_all_modes(G_our, G_gt, f"./results/{dataset_name_eval}_{safe_label}"), 
                 "runtime": time.time() - t0
             }
 
@@ -222,5 +230,6 @@ if __name__ == "__main__":
     parser.add_argument("--use_synsets", action="store_true")
     parser.add_argument("--explode_nodes", action="store_true")
     parser.add_argument("--chunk_size", type=int, default=1000, help="Chunk size for Our Method.")
+    parser.add_argument("--alt_prompt", action="store_true", help="Use alternate parent-child hierarchy prompt for Our Method.")
     args = parser.parse_args()
     main(args)
