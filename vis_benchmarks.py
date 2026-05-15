@@ -761,7 +761,7 @@ def plot_batch_size_k_comparison(df):
 
 def plot_llm_zero_node_scaling(df):
     """Plots the performance of LLM Zero-Shot on FULL datasets vs SUB datasets to assess scale impact."""
-    print(" -> Generating LLM Zero-Shot Node Scaling Plot...")
+    print(" -> Generating LLM Zero-Shot Node Scaling Plots...")
     
     llm_df = df[df['Method'].str.contains('LLM Zero-Shot', case=False, na=False)].copy()
     if llm_df.empty:
@@ -791,12 +791,14 @@ def plot_llm_zero_node_scaling(df):
     # Using replace(0, np.nan) prevents div by zero errors
     merged['Normalized_F1'] = merged['Primary_F1_FULL'] / merged['Primary_F1_SUB'].replace(0, np.nan)
 
+    # ---------------------------------------------------------
+    # PLOT 1: The Original Two-Panel Plot (Raw Full + Ratio)
+    # ---------------------------------------------------------
     fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(16, 6))
 
     # Subplot 1: Raw FULL F1 vs Nodes
     sns.scatterplot(data=merged, x='Nodes', y='Primary_F1_FULL', s=100, color='blue', ax=ax1)
     sns.regplot(data=merged, x='Nodes', y='Primary_F1_FULL', scatter=False, color='blue', ax=ax1, logx=True)
-
     ax1.set_xscale('log')
     ax1.set_title("Absolute Performance: Cond Closure F1 vs Total Nodes", fontweight='bold')
     ax1.set_ylabel("Cond Closure F1 (FULL Dataset)", fontweight='bold')
@@ -805,7 +807,6 @@ def plot_llm_zero_node_scaling(df):
     # Subplot 2: Normalized F1 (Performance Retention) vs Nodes
     sns.scatterplot(data=merged, x='Nodes', y='Normalized_F1', s=100, color='red', ax=ax2)
     sns.regplot(data=merged, x='Nodes', y='Normalized_F1', scatter=False, color='red', ax=ax2, logx=True)
-
     ax2.set_xscale('log')
     ax2.set_title("Normalized Performance: (FULL F1 / SUB F1) vs Total Nodes", fontweight='bold')
     ax2.set_ylabel("Performance Retention Ratio (1.0 = No Drop)", fontweight='bold')
@@ -819,7 +820,62 @@ def plot_llm_zero_node_scaling(df):
 
     plt.suptitle("Impact of Graph Scale on LLM Zero-Shot Performance", fontsize=16, fontweight='bold', y=1.05)
     plt.tight_layout()
-    plt.savefig(os.path.join(VIS_DIR, "16_llm_zero_node_scaling.png"), dpi=300, bbox_inches='tight')
+    plt.savefig(os.path.join(VIS_DIR, "16a_llm_zero_node_scaling_panels.png"), dpi=300, bbox_inches='tight')
+    plt.close()
+
+    # ---------------------------------------------------------
+    # PLOT 2: The New Raw Scores Comparison Plot (SUB vs FULL)
+    # ---------------------------------------------------------
+    print(" -> Generating LLM Zero-Shot Raw Scores Comparison Plot...")
+    
+    # Melt the merged dataframe to plot both FULL and SUB F1 on the same axes
+    melted_raw = merged.melt(
+        id_vars=['Base_Dataset', 'Nodes'], 
+        value_vars=['Primary_F1_FULL', 'Primary_F1_SUB'],
+        var_name='Scale', 
+        value_name='Raw_F1'
+    )
+    
+    # Clean up labels for the legend
+    melted_raw['Scale'] = melted_raw['Scale'].map({
+        'Primary_F1_FULL': 'FULL Dataset', 
+        'Primary_F1_SUB': 'SUB Dataset (100 nodes)'
+    })
+
+    plt.figure(figsize=(10, 6))
+    sns.scatterplot(
+        data=melted_raw, x='Nodes', y='Raw_F1', hue='Scale', style='Scale',
+        s=120, palette={'FULL Dataset': 'blue', 'SUB Dataset (100 nodes)': 'orange'}
+    )
+    
+    # Add trendlines for both
+    for scale, color in zip(['FULL Dataset', 'SUB Dataset (100 nodes)'], ['blue', 'orange']):
+        subset = melted_raw[melted_raw['Scale'] == scale]
+        if len(subset) > 1:
+            sns.regplot(
+                data=subset, x='Nodes', y='Raw_F1', scatter=False, 
+                color=color, logx=True, line_kws={'linestyle': '--', 'alpha': 0.6}
+            )
+            
+    # Draw vertical lines connecting the SUB and FULL points for the same base dataset
+    for i, row in merged.iterrows():
+        plt.plot(
+            [row['Nodes'], row['Nodes']], 
+            [row['Primary_F1_FULL'], row['Primary_F1_SUB']], 
+            color='gray', linestyle=':', alpha=0.5
+        )
+        # Annotate with dataset name slightly above the highest point
+        y_text_pos = max(row['Primary_F1_FULL'], row['Primary_F1_SUB']) + 0.02
+        plt.text(row['Nodes'], y_text_pos, row['Base_Dataset'], fontsize=9, alpha=0.8)
+
+    plt.xscale('log')
+    plt.title("LLM Zero-Shot Raw F1 Scores: SUB vs FULL Scale", pad=20, fontsize=14, fontweight='bold')
+    plt.ylabel("Cond Closure F1 (Raw Score)", fontweight='bold')
+    plt.xlabel("Total Nodes in FULL Dataset (Log Scale)", fontweight='bold')
+    plt.legend(title="Graph Scale", bbox_to_anchor=(1.05, 1), loc='upper left')
+    
+    plt.tight_layout()
+    plt.savefig(os.path.join(VIS_DIR, "16b_llm_zero_raw_scores_comparison.png"), dpi=300, bbox_inches='tight')
     plt.close()
 
 def main():
