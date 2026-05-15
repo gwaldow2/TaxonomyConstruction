@@ -529,16 +529,23 @@ def main():
 
     df = load_and_merge_data()
     
-    plot_method_vs_dataset_heatmap(df)
-    plot_syn_exp_comparison_heatmap(df)
-    plot_method_variance(df)
-    plot_metric_vs_f1_scatter_grid(df)
-    plot_runtime_complexity(df)
-    plot_f1_metric_correlation_heatmap(df)
-    plot_f1_metric_comparison(df) 
+    # Filter out experimental reasoning runs and FULL datasets for standard visualizations (Figs 1-9, tables)
+    mask_method = ~df['Method'].str.contains(r'\[low\]|\[medium\]|\[high\]', regex=True, na=False)
+    mask_dataset = ~df['Dataset_JSON'].str.contains('_FULL', na=False)
+    df_filtered = df[mask_method & mask_dataset].copy()
+    
+    plot_method_vs_dataset_heatmap(df_filtered)
+    plot_syn_exp_comparison_heatmap(df_filtered)
+    plot_method_variance(df_filtered)
+    plot_metric_vs_f1_scatter_grid(df_filtered)
+    plot_runtime_complexity(df_filtered)
+    plot_f1_metric_correlation_heatmap(df_filtered)
+    plot_f1_metric_comparison(df_filtered) 
+    report_method_variance(df_filtered)
+    generate_summary_table(df_filtered)
+    
+    # The reasoning effort comparison requires the original unfiltered dataframe
     plot_reasoning_effort_comparison(df)
-    report_method_variance(df)
-    generate_summary_table(df)
     
     if args.vis_graph:
         plot_graph_overlays(args.vis_graph)
