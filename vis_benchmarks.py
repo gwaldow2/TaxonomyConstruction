@@ -1,5 +1,3 @@
-#vis_benchmarks.py
-
 import os
 import re
 import json
@@ -761,6 +759,69 @@ def plot_batch_size_k_comparison(df):
     plt.savefig(os.path.join(VIS_DIR, "15_batch_size_k_comparison.png"), dpi=300)
     plt.close()
 
+def plot_llm_zero_node_scaling(df):
+    """Plots the performance of LLM Zero-Shot on FULL datasets vs SUB datasets to assess scale impact."""
+    print(" -> Generating LLM Zero-Shot Node Scaling Plot...")
+    
+    llm_df = df[df['Method'].str.contains('LLM Zero-Shot', case=False, na=False)].copy()
+    if llm_df.empty:
+        print("    [!] No LLM Zero-Shot data found. Skipping.")
+        return
+
+    # Extract base dataset names to align the SUB and FULL counterparts
+    llm_df['Base_Dataset'] = llm_df['Dataset_JSON'].str.replace(r'_(FULL|SUB)$', '', regex=True)
+    llm_df['Scale'] = llm_df['Dataset_JSON'].str.extract(r'_(FULL|SUB)$')
+
+    df_full = llm_df[llm_df['Scale'] == 'FULL'].copy()
+    df_sub = llm_df[llm_df['Scale'] == 'SUB'].copy()
+
+    # Merge to get FULL and SUB stats on the same row per base dataset
+    merged = pd.merge(
+        df_full[['Base_Dataset', 'Primary_F1', 'Nodes', 'Dataset_JSON']],
+        df_sub[['Base_Dataset', 'Primary_F1']],
+        on='Base_Dataset',
+        suffixes=('_FULL', '_SUB')
+    )
+
+    if merged.empty:
+        print("    [!] Could not align FULL and SUB datasets for LLM Zero-Shot. Skipping.")
+        return
+
+    # Calculate normalized score (Ratio of FULL F1 / SUB F1)
+    # Using replace(0, np.nan) prevents div by zero errors
+    merged['Normalized_F1'] = merged['Primary_F1_FULL'] / merged['Primary_F1_SUB'].replace(0, np.nan)
+
+    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(16, 6))
+
+    # Subplot 1: Raw FULL F1 vs Nodes
+    sns.scatterplot(data=merged, x='Nodes', y='Primary_F1_FULL', s=100, color='blue', ax=ax1)
+    sns.regplot(data=merged, x='Nodes', y='Primary_F1_FULL', scatter=False, color='blue', ax=ax1, logx=True)
+
+    ax1.set_xscale('log')
+    ax1.set_title("Absolute Performance: Cond Closure F1 vs Total Nodes", fontweight='bold')
+    ax1.set_ylabel("Cond Closure F1 (FULL Dataset)", fontweight='bold')
+    ax1.set_xlabel("Total Nodes in FULL Dataset (Log Scale)", fontweight='bold')
+
+    # Subplot 2: Normalized F1 (Performance Retention) vs Nodes
+    sns.scatterplot(data=merged, x='Nodes', y='Normalized_F1', s=100, color='red', ax=ax2)
+    sns.regplot(data=merged, x='Nodes', y='Normalized_F1', scatter=False, color='red', ax=ax2, logx=True)
+
+    ax2.set_xscale('log')
+    ax2.set_title("Normalized Performance: (FULL F1 / SUB F1) vs Total Nodes", fontweight='bold')
+    ax2.set_ylabel("Performance Retention Ratio (1.0 = No Drop)", fontweight='bold')
+    ax2.set_xlabel("Total Nodes in FULL Dataset (Log Scale)", fontweight='bold')
+
+    # Annotate points with dataset names
+    for i, row in merged.iterrows():
+        ax1.text(row['Nodes'], row['Primary_F1_FULL'] + 0.02, row['Base_Dataset'], fontsize=9, alpha=0.8)
+        if not pd.isna(row['Normalized_F1']):
+            ax2.text(row['Nodes'], row['Normalized_F1'] + 0.02, row['Base_Dataset'], fontsize=9, alpha=0.8)
+
+    plt.suptitle("Impact of Graph Scale on LLM Zero-Shot Performance", fontsize=16, fontweight='bold', y=1.05)
+    plt.tight_layout()
+    plt.savefig(os.path.join(VIS_DIR, "16_llm_zero_node_scaling.png"), dpi=300, bbox_inches='tight')
+    plt.close()
+
 def main():
     parser = argparse.ArgumentParser(description="Taxonomy Extraction Visualizer")
     parser.add_argument("--vis_graph", type=str, default=None, help="Dataset name to visualize GT and Method overlays (e.g., WordNetFood_SUB)")
@@ -782,7 +843,7 @@ def main():
     # df_filtered is used for most general visualizations (avoids FULL datasets skewing averages)
     df_filtered = df[mask_method_reasoning & mask_method_alt & mask_dataset].copy()
     
-    # df_standard_methods keeps the FULL datasets intact for computational scaling analysis
+    # df_standard_methods keeps the FULL datasets intact for computational scaling and sizing analysis
     df_standard_methods = df[mask_method_reasoning & mask_method_alt].copy()
     
     plot_method_vs_dataset_heatmap(df_filtered)
@@ -792,6 +853,7 @@ def main():
     
     # Passing the standard_methods dataframe here so scaling includes massive _FULL graphs
     plot_runtime_complexity(df_standard_methods)
+    plot_llm_zero_node_scaling(df_standard_methods)
     
     plot_f1_metric_correlation_heatmap(df_filtered)
     plot_f1_metric_comparison(df_filtered) 
