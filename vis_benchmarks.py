@@ -77,7 +77,8 @@ def plot_method_vs_dataset_heatmap(df):
     
     metrics_to_plot = {
         "Exp_Raw_F1": "Raw Exact Match F1",
-        "Cond_Clos_F1": "Condensed Closure F1"
+        "Cond_Clos_F1": "Closure F1",
+        "Cond_Red_F1": "Reduction F1"
     }
     
     for metric_key, metric_title in metrics_to_plot.items():
