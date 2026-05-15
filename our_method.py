@@ -55,21 +55,21 @@ def method_our_approach(nodes, client, model_name, chunk_size=1000, max_retries=
                 vocab = [target_raw] + candidates_chunk
                 vocab_string = ", ".join([f'"{v}"' for v in vocab])
                 prompt = f"""You are an expert ontologist building a hierarchical taxonomy.
-You are given a vocabulary of {len(vocab)} terms.
-Identify ALL direct parent-child relationships between these terms.
-A parent is a broader concept, a child is a more specific concept.
-ONLY use terms EXACTLY as they appear in the vocabulary list.
+                You are given a vocabulary of {len(vocab)} terms.
 
-Vocabulary: [{vocab_string}]
+                A parent is a broader concept, a child is a more specific concept.
+                ONLY use terms EXACTLY as they appear in the vocabulary list.
 
-Format Example:
-[
-  ["parent_term_1", "child_term_1"],
-  ["parent_term_2", "child_term_2"]
-]
+                Candidates: [{candidates_chunk}]
+                ONLY output relationships involving '{target_raw}'. Do NOT output relationships between the candidates themselves. 
+                Format Example:
+                [
+                ["parent_term_1", "child_term_1"],
+                ["parent_term_2", "child_term_2"]
+                ]
 
-Output your answer strictly as a list of arrays. Do not add conversational text.
-"""
+                Output your answer strictly as a list of arrays. Do not add conversational text.
+                """
             else:
                 instructions = (
                     f"You are identifying hierarchical relationships for the target entity: '{target_raw}'.\n"
