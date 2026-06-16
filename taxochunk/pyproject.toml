@@ -1,0 +1,31 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "taxochunk"
+version = "0.1.0"
+description = "Chunked LLM taxonomy construction: build an is-a taxonomy (DAG) from a flat list of terms."
+readme = "README.md"
+requires-python = ">=3.8"
+license = { text = "MIT" }
+authors = [{ name = "gwaldow2" }]
+keywords = ["taxonomy", "ontology", "llm", "hypernym", "is-a", "knowledge-graph"]
+dependencies = [
+    "networkx>=2.6",
+]
+
+[project.optional-dependencies]
+openai = ["openai>=1.0"]      # for the built-in OpenAI-compatible client helper / CLI
+progress = ["tqdm"]           # optional progress bars
+dev = ["pytest"]
+
+[project.scripts]
+taxochunk = "taxochunk.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/gwaldow2/TaxonomyConstruction"
+Source = "https://github.com/gwaldow2/TaxonomyConstruction"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/taxochunk"]
