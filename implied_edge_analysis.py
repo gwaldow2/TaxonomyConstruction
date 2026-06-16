@@ -28,14 +28,16 @@ What it reads (all already on disk after a normal `python main.py` run):
 What it writes (to --out_dir, default ./implied_analysis):
     implied_edge_summary.csv         one row per (dataset, method): bucketed recall + counts
     implied_recall_by_hop.csv        recall stratified by GT hop-distance
-    synonym_recall_by_count.csv      recall vs #synonyms merged into a node (per dataset/method)
-    synonym_recall_summary.csv       per-method: recall of 1-surface vs multi-synonym nodes + lift
+    synonym_recall_by_count.csv      precision/recall/F1 vs #synonyms merged into a node (per dataset/method)
+    synonym_pr_pooled.csv            precision/recall/F1 vs #synonyms, pooled over taxonomies WITH synsets
+    synonym_pr_optimum.csv           per-method F1-optimal synonym count (balances precision & recall)
+    synonym_recall_summary.csv       per-method: recall & precision of 1-surface vs multi-synonym nodes + lift
     precision_clawback_candidates.csv (only with --leverage) high-impact FP edges to prune
-    *.png                            (only with --plot)
+    *.png                            (only with --plot; incl. synonym_pr_curves.png)
 
 Usage:
     python implied_edge_analysis.py                 # summary + per-hop + synonym CSVs
-    python implied_edge_analysis.py --plot          # + figures (support-weighted hop curve, synonym curve)
+    python implied_edge_analysis.py --plot          # + figures (support-weighted hop curve, synonym P/R/F1 panels)
     python implied_edge_analysis.py --leverage      # + precision-clawback candidate edges
     python implied_edge_analysis.py --selftest      # validate logic on a synthetic example
 """
@@ -58,8 +60,15 @@ RE_HEADER     = re.compile(r"Precision:\s*([\d.]+)\s*\|\s*Recall:\s*([\d.]+)\s*\
 
 
 def parse_closure_report(path):
-    """Return (recovered_gt_edges, predicted_fp_edges, header_metrics) from a *_condensed_closure.txt."""
+    """Parse a *_condensed_closure.txt report.
+
+    Returns (recovered_gt_edges, pred_tp_edges, pred_fp_edges, header_metrics):
+      - recovered_gt_edges : GT closure edges that were matched   (the "matches GT:" side of a TP)
+      - pred_tp_edges      : PREDICTED edges credited as correct  (the "[TP] PRED:" side of a TP)
+      - pred_fp_edges      : PREDICTED edges that matched nothing  ([FP])
+    pred_tp ∪ pred_fp = all predicted closure edges (the precision denominator)."""
     recovered_gt = set()
+    pred_tp = set()
     pred_fp = set()
     header = None
     with open(path, "r", encoding="utf-8") as f:
@@ -75,10 +84,14 @@ def parse_closure_report(path):
             if m:
                 recovered_gt.add((m.group(1).strip(), m.group(2).strip()))
                 continue
+            m = RE_TP_PRED.search(line)
+            if m:
+                pred_tp.add((m.group(1).strip(), m.group(2).strip()))
+                continue
             m = RE_FP.search(line)
             if m:
                 pred_fp.add((m.group(1).strip(), m.group(2).strip()))
-    return recovered_gt, pred_fp, header
+    return recovered_gt, pred_tp, pred_fp, header
 
 
 def parse_reduction_report(path):
@@ -185,37 +198,53 @@ def parse_synonyms(node_str):
     return [s]
 
 
-def synonym_recall_rows(clos_edges, recovered):
-    """One row per GT node: synonym count vs recall of its incident closure edges.
+def synonym_node_rows(clos_edges, recovered, pred_tp, pred_fp):
+    """One row per node: synonym count vs the RECALL and PRECISION of edges touching it.
 
-    Each closure edge (a, c) is attributed to BOTH endpoints, so node_recall is
-    the fraction of a node's incident ancestor/descendant relations that were
-    recovered. node_depth (number of ancestors) is reported too, so a later pass
-    can check whether any synonym effect is just a depth/generality confound."""
+    Every edge is attributed to BOTH endpoints, so for a node n:
+      recall    = recovered GT closure edges touching n / GT closure edges touching n
+      precision = correct predicted edges touching n  / predicted edges touching n
+    where predicted edges = pred_tp (credited) + pred_fp (wrong). node_depth (number
+    of GT ancestors) is reported so a later pass can check whether any synonym effect
+    is just a depth/generality confound."""
     from collections import defaultdict
-    inc_total = defaultdict(int)
-    inc_recovered = defaultdict(int)
+    gt_total = defaultdict(int)        # GT closure edges incident to node  (recall denom)
+    gt_recovered = defaultdict(int)
+    pred_total = defaultdict(int)      # predicted closure edges incident    (precision denom)
+    pred_correct = defaultdict(int)
     anc_count = defaultdict(int)
     nodes = set()
+
     for e in clos_edges:
         a, c = e
         nodes.add(a); nodes.add(c)
-        inc_total[a] += 1; inc_total[c] += 1
+        gt_total[a] += 1; gt_total[c] += 1
         anc_count[c] += 1                       # a is an ancestor of c
         if e in recovered:
-            inc_recovered[a] += 1; inc_recovered[c] += 1
+            gt_recovered[a] += 1; gt_recovered[c] += 1
+    for e in pred_tp:
+        a, c = e
+        nodes.add(a); nodes.add(c)
+        pred_total[a] += 1; pred_total[c] += 1
+        pred_correct[a] += 1; pred_correct[c] += 1
+    for e in pred_fp:
+        a, c = e
+        nodes.add(a); nodes.add(c)
+        pred_total[a] += 1; pred_total[c] += 1
+
     rows = []
     for n in nodes:
-        tot = inc_total[n]
-        if tot == 0:
-            continue
+        gt_t, pred_t = gt_total[n], pred_total[n]
         rows.append({
             "node": n,
             "syn_count": len(parse_synonyms(n)),
-            "incident": tot,
-            "recovered": inc_recovered[n],
-            "node_recall": inc_recovered[n] / tot,
             "node_depth": anc_count[n],
+            "gt_incident": gt_t,
+            "gt_recovered": gt_recovered[n],
+            "node_recall": (gt_recovered[n] / gt_t) if gt_t else float("nan"),
+            "pred_incident": pred_t,
+            "pred_correct": pred_correct[n],
+            "node_precision": (pred_correct[n] / pred_t) if pred_t else float("nan"),
         })
     return rows
 
@@ -271,7 +300,7 @@ def discover(results_dir):
             yield dataset, method, clos_txt, red_txt, gt_path
 
 
-def run(results_dir, out_dir, do_leverage=False):
+def run(results_dir, out_dir, do_leverage=False, min_support=20):
     os.makedirs(out_dir, exist_ok=True)
     gt_cache = {}
     summary_rows = []
@@ -287,7 +316,7 @@ def run(results_dir, out_dir, do_leverage=False):
         views = gt_cache[gt_path]
         clos_edges_gt = views[1]
 
-        recovered_gt, pred_fp, header = parse_closure_report(clos_txt)
+        recovered_gt, pred_tp, pred_fp, header = parse_closure_report(clos_txt)
         row, by_hop = analyze_dataset_method(views, recovered_gt)
         row = {"Dataset": dataset, "Method": method, **row}
         if header:
@@ -297,7 +326,7 @@ def run(results_dir, out_dir, do_leverage=False):
         for d, info in by_hop.items():
             hop_rows.append({"Dataset": dataset, "Method": method, "hop_distance": d, **info})
 
-        for r in synonym_recall_rows(clos_edges_gt, recovered_gt):
+        for r in synonym_node_rows(clos_edges_gt, recovered_gt, pred_tp, pred_fp):
             syn_rows.append({"Dataset": dataset, "Method": method, **r})
 
         if do_leverage:
@@ -326,42 +355,97 @@ def run(results_dir, out_dir, do_leverage=False):
         pd.DataFrame(clawback_rows).to_csv(claw_path, index=False)
         print(f" -> wrote {claw_path}  ({len(clawback_rows)} candidate edges)")
 
-    # Synonym-richness: recall vs number of merged surface forms per node.
+    # Synonym richness: recall AND precision vs number of merged surface forms.
     syn_df = pd.DataFrame(syn_rows)
     syn_by_count = None
+    syn_summary = None
+    syn_optimum = None
     if not syn_df.empty:
-        syn_by_count = (syn_df.groupby(["Dataset", "Method", "syn_count"])
-                        .agg(n_nodes=("node", "size"),
-                             incident=("incident", "sum"),
-                             recovered=("recovered", "sum"))
-                        .reset_index())
-        syn_by_count["recall"] = syn_by_count["recovered"] / syn_by_count["incident"]
+        def _pr_f1(g):
+            g = g.copy()
+            g["recall"] = (g["gt_recovered"] / g["gt_incident"]).where(g["gt_incident"] > 0)
+            g["precision"] = (g["pred_correct"] / g["pred_incident"]).where(g["pred_incident"] > 0)
+            p, r = g["precision"], g["recall"]
+            g["f1"] = (2 * p * r / (p + r)).where((p + r) > 0)
+            return g
+
+        # Per (dataset, method, syn_count): edge-weighted precision/recall/F1.
+        syn_by_count = _pr_f1(
+            syn_df.groupby(["Dataset", "Method", "syn_count"])
+                  .agg(n_nodes=("node", "size"),
+                       gt_incident=("gt_incident", "sum"),
+                       gt_recovered=("gt_recovered", "sum"),
+                       pred_incident=("pred_incident", "sum"),
+                       pred_correct=("pred_correct", "sum"))
+                  .reset_index())
         syn_count_path = os.path.join(out_dir, "synonym_recall_by_count.csv")
         syn_by_count.to_csv(syn_count_path, index=False)
         print(f" -> wrote {syn_count_path}  ({len(syn_by_count)} rows)")
 
-        # Per-method headline: single-surface vs multi-synonym nodes, pooled.
+        # The hypothesis is only testable on taxonomies WITH synsets -> restrict.
+        synset_ds = sorted(syn_df.loc[syn_df["syn_count"] >= 2, "Dataset"].unique())
+        sub = syn_df[syn_df["Dataset"].isin(synset_ds)]
+
+        if synset_ds:
+            # Pooled over synset datasets, per (method, syn_count): the P/R/F1 curve.
+            pooled = _pr_f1(
+                sub.groupby(["Method", "syn_count"])
+                   .agg(n_nodes=("node", "size"),
+                        gt_incident=("gt_incident", "sum"),
+                        gt_recovered=("gt_recovered", "sum"),
+                        pred_incident=("pred_incident", "sum"),
+                        pred_correct=("pred_correct", "sum"))
+                   .reset_index())
+            pooled_path = os.path.join(out_dir, "synonym_pr_pooled.csv")
+            pooled.to_csv(pooled_path, index=False)
+            print(f" -> wrote {pooled_path}  (synset datasets: {', '.join(synset_ds)})")
+
+            # Optimal synonym count per method = argmax F1 over well-supported buckets.
+            opt_rows = []
+            for method, d in pooled.groupby("Method"):
+                ok = d[(d["gt_incident"] >= min_support) & (d["pred_incident"] >= min_support)].dropna(subset=["f1"])
+                if ok.empty:
+                    continue
+                best = ok.loc[ok["f1"].idxmax()]
+                opt_rows.append({
+                    "Method": method,
+                    "best_syn_count": int(best["syn_count"]),
+                    "precision": best["precision"], "recall": best["recall"], "f1": best["f1"],
+                    "max_syn_count_seen": int(d["syn_count"].max()),
+                })
+            if opt_rows:
+                syn_optimum = pd.DataFrame(opt_rows).sort_values("f1", ascending=False)
+                opt_path = os.path.join(out_dir, "synonym_pr_optimum.csv")
+                syn_optimum.to_csv(opt_path, index=False)
+                print(f" -> wrote {opt_path}")
+
+        # Headline: single-surface vs multi-synonym nodes (over synset datasets).
         sum_rows = []
-        for method, d in syn_df.groupby("Method"):
+        for method, d in sub.groupby("Method"):
             single, multi = d[d["syn_count"] == 1], d[d["syn_count"] >= 2]
-            r1 = single["recovered"].sum() / single["incident"].sum() if single["incident"].sum() else float("nan")
-            r2 = multi["recovered"].sum() / multi["incident"].sum() if multi["incident"].sum() else float("nan")
-            # Node-weighted Spearman = Pearson on the ranks (avoids a scipy dependency).
-            spearman = (d["syn_count"].rank().corr(d["node_recall"].rank())
-                        if d["syn_count"].nunique() > 1 else float("nan"))
+            def _ew(x, num, den):
+                return x[num].sum() / x[den].sum() if x[den].sum() else float("nan")
             sum_rows.append({
                 "Method": method,
                 "n_nodes": len(d),
                 "n_multi_syn_nodes": int((d["syn_count"] >= 2).sum()),
-                "recall_syn1": r1,
-                "recall_syn2plus": r2,
-                "lift": r2 - r1,
-                "spearman_r": spearman,
+                "recall_syn1": _ew(single, "gt_recovered", "gt_incident"),
+                "recall_syn2plus": _ew(multi, "gt_recovered", "gt_incident"),
+                "recall_lift": _ew(multi, "gt_recovered", "gt_incident") - _ew(single, "gt_recovered", "gt_incident"),
+                "precision_syn1": _ew(single, "pred_correct", "pred_incident"),
+                "precision_syn2plus": _ew(multi, "pred_correct", "pred_incident"),
+                "precision_lift": _ew(multi, "pred_correct", "pred_incident") - _ew(single, "pred_correct", "pred_incident"),
+                "spearman_recall": (d["syn_count"].rank().corr(d["node_recall"].rank())
+                                    if d["syn_count"].nunique() > 1 and d["node_recall"].nunique() > 1
+                                    else float("nan")),
             })
-        syn_summary = pd.DataFrame(sum_rows).sort_values("lift", ascending=False, na_position="last")
-        syn_sum_path = os.path.join(out_dir, "synonym_recall_summary.csv")
-        syn_summary.to_csv(syn_sum_path, index=False)
-        print(f" -> wrote {syn_sum_path}")
+        if sum_rows:
+            syn_summary = pd.DataFrame(sum_rows).sort_values("recall_lift", ascending=False, na_position="last")
+            syn_sum_path = os.path.join(out_dir, "synonym_recall_summary.csv")
+            syn_summary.to_csv(syn_sum_path, index=False)
+            print(f" -> wrote {syn_sum_path}")
+        if not synset_ds:
+            print(" [i] No datasets with synonyms (synsets) found; synonym P/R analysis is N/A.")
     else:
         print(" [i] No nodes available for synonym analysis.")
 
@@ -375,14 +459,21 @@ def run(results_dir, out_dir, do_leverage=False):
     print(agg.to_string(float_format=lambda x: f"{x:.4f}"))
     print("=" * 78)
 
-    if syn_by_count is not None:
-        print("\n" + "=" * 78)
-        print("  SYNONYM RICHNESS vs RECALL, PER METHOD (pooled across datasets)")
-        print("  recall_syn1 = nodes w/ 1 surface form | recall_syn2plus = >=2 merged synonyms")
-        print("  (n_multi_syn_nodes low => weak evidence; effect may be a depth confound)")
-        print("=" * 78)
+    if syn_summary is not None:
+        print("\n" + "=" * 90)
+        print("  SYNONYM RICHNESS vs RECALL & PRECISION (pooled over taxonomies WITH synsets)")
+        print("  *_syn1 = nodes w/ 1 surface form | *_syn2plus = >=2 merged synonyms")
+        print("  (low n_multi_syn_nodes => weak evidence; effect may be a depth confound)")
+        print("=" * 90)
         print(syn_summary.to_string(index=False, float_format=lambda x: f"{x:.4f}"))
-        print("=" * 78)
+        print("=" * 90)
+
+    if syn_optimum is not None:
+        print("\n" + "=" * 90)
+        print(f"  OPTIMAL #SYNONYMS PER METHOD (argmax F1 over buckets with >= {min_support} edges)")
+        print("=" * 90)
+        print(syn_optimum.to_string(index=False, float_format=lambda x: f"{x:.4f}"))
+        print("=" * 90)
 
     return summary, hop_df, syn_by_count
 
@@ -460,31 +551,59 @@ def make_plots(summary, hop_df, syn_by_count, out_dir, min_support=20):
     plt.savefig(p2, dpi=150); plt.close()
     written.append(p2)
 
-    # 3) Synonym richness vs recall (only if there is synonym-count variation).
+    # 3) Synonym richness vs PRECISION / RECALL / F1, one panel per method.
+    #    Restricted to taxonomies that actually have synsets (>=2 surface forms),
+    #    so the question "do synonyms help/hurt, and what's the optimum" is read
+    #    straight off the GT. Dashed line marks the F1-optimal synonym count.
     if syn_by_count is not None and not syn_by_count.empty:
-        pooled_syn = (syn_by_count.groupby(["Method", "syn_count"])
-                      .agg(incident=("incident", "sum"), recovered=("recovered", "sum"))
-                      .reset_index())
-        pooled_syn["recall"] = pooled_syn["recovered"] / pooled_syn["incident"]
-        if pooled_syn["syn_count"].nunique() > 1:
-            fig, ax = plt.subplots(figsize=(9, 6))
-            for method, sub in pooled_syn.groupby("Method"):
-                sub = sub.sort_values("syn_count")
-                big = sub[sub["incident"] >= min_support]
-                if big.empty:
-                    continue
-                line, = ax.plot(big["syn_count"], big["recall"], "-o", label=method)
-                ax.scatter(sub["syn_count"], sub["recall"],
-                           s=12 + 6 * np.sqrt(sub["incident"].to_numpy()),
-                           color=line.get_color(), alpha=0.8)
-            ax.set_xlabel("Synonyms merged into the node (surface forms)")
-            ax.set_ylabel("Incident-edge recall (edge-weighted, pooled)")
-            ax.set_ylim(0, 1.02)
-            ax.set_title("Does synonym richness raise recall?\nmarker area ∝ #incident edges; "
-                         f"methods below {min_support} edges at every count are omitted")
-            ax.legend(fontsize=7, ncol=2)
-            plt.tight_layout()
-            p3 = os.path.join(out_dir, "synonym_recall.png")
+        synset_ds = syn_by_count.loc[syn_by_count["syn_count"] >= 2, "Dataset"].unique()
+        sub_sy = syn_by_count[syn_by_count["Dataset"].isin(synset_ds)]
+        if len(synset_ds) and sub_sy["syn_count"].nunique() > 1:
+            ps = (sub_sy.groupby(["Method", "syn_count"])
+                  .agg(gt_incident=("gt_incident", "sum"), gt_recovered=("gt_recovered", "sum"),
+                       pred_incident=("pred_incident", "sum"), pred_correct=("pred_correct", "sum"))
+                  .reset_index())
+            ps["recall"] = (ps["gt_recovered"] / ps["gt_incident"]).where(ps["gt_incident"] > 0)
+            ps["precision"] = (ps["pred_correct"] / ps["pred_incident"]).where(ps["pred_incident"] > 0)
+            P, R = ps["precision"], ps["recall"]
+            ps["f1"] = (2 * P * R / (P + R)).where((P + R) > 0)
+
+            methods = sorted(ps["Method"].unique())
+            ncols = min(3, len(methods))
+            nrows = (len(methods) + ncols - 1) // ncols
+            fig, axes = plt.subplots(nrows, ncols, figsize=(5.2 * ncols, 3.8 * nrows),
+                                     squeeze=False, sharex=True, sharey=True)
+            series = [("precision", "tab:red", "pred_incident", "Precision"),
+                      ("recall", "tab:blue", "gt_incident", "Recall"),
+                      ("f1", "tab:green", "pred_incident", "F1")]
+            for i, method in enumerate(methods):
+                ax = axes[i // ncols][i % ncols]
+                d = ps[ps["Method"] == method].sort_values("syn_count")
+                for col, color, supcol, lbl in series:
+                    ax.plot(d["syn_count"], d[col], "-", color=color, alpha=0.45)
+                    ax.scatter(d["syn_count"], d[col],
+                               s=10 + 5 * np.sqrt(d[supcol].clip(lower=1).to_numpy()),
+                               color=color, alpha=0.85, label=lbl)
+                ok = d[(d["gt_incident"] >= min_support) & (d["pred_incident"] >= min_support)].dropna(subset=["f1"])
+                if not ok.empty:
+                    best = ok.loc[ok["f1"].idxmax()]
+                    ax.axvline(best["syn_count"], color="tab:green", ls="--", alpha=0.6)
+                    ax.annotate(f"F1* @ {int(best['syn_count'])}", (best["syn_count"], 0.04),
+                                fontsize=7, color="tab:green", ha="center")
+                ax.set_title(method, fontsize=9)
+                ax.set_ylim(0, 1.02)
+                ax.grid(alpha=0.2)
+            for j in range(len(methods), nrows * ncols):
+                axes[j // ncols][j % ncols].axis("off")
+            axes[0][0].legend(fontsize=7, loc="lower right")
+            fig.suptitle("Synonym richness vs Precision / Recall / F1 (taxonomies with synsets)\n"
+                         f"marker area ∝ #edges; dashed = F1-optimal synonym count over >= {min_support}-edge buckets",
+                         fontsize=11)
+            fig.text(0.5, 0.01, "Synonyms merged into the node (surface forms)", ha="center")
+            fig.text(0.005, 0.5, "Score (edge-weighted, pooled over synset datasets)",
+                     va="center", rotation="vertical")
+            plt.tight_layout(rect=[0.03, 0.03, 1, 0.95])
+            p3 = os.path.join(out_dir, "synonym_pr_curves.png")
             plt.savefig(p3, dpi=150); plt.close()
             written.append(p3)
 
@@ -522,8 +641,9 @@ def selftest():
             f.write("  [TP] PRED: (a -> c)\n        matches GT: (a -> c)\n")
             f.write("  [TP] PRED: (a -> b)\n        matches GT: (a -> b)\n")
             f.write("  [FP] x -> y\n")
-        rec, fp, hdr = parse_closure_report(clos_txt)
+        rec, ptp, fp, hdr = parse_closure_report(clos_txt)
         assert rec == {("a", "c"), ("a", "b")}, rec
+        assert ptp == {("a", "c"), ("a", "b")}, ptp     # predicted side of the TPs
         assert fp == {("x", "y")}, fp
         assert hdr["F1"] == 0.6154, hdr
     print("  parse_closure_report  OK")
@@ -534,18 +654,24 @@ def selftest():
     assert cand and cand[0]["leverage"] >= cand[-1]["leverage"]
     print("  leverage_candidates  OK")
 
-    # Synonym richness: parsing + incident-edge attribution.
+    # Synonym richness: parsing + incident-edge attribution (recall AND precision).
     assert parse_synonyms("b (b, b2)") == ["b", "b2"]
     assert parse_synonyms("x|y|z") == ["x", "y", "z"]
     assert parse_synonyms("plain") == ["plain"]
     clos2 = {("a", "b|b2"), ("b|b2", "c"), ("a", "c")}     # GT closure of a->b|b2->c
     recovered2 = {("a", "b|b2"), ("b|b2", "c")}            # missed the implied a->c
-    srows = {r["node"]: r for r in synonym_recall_rows(clos2, recovered2)}
+    pred_tp2 = {("a", "b|b2"), ("b|b2", "c")}              # those two were the predicted TPs
+    pred_fp2 = {("a", "z")}                                # one wrong edge touching node a
+    srows = {r["node"]: r for r in synonym_node_rows(clos2, recovered2, pred_tp2, pred_fp2)}
     assert srows["b|b2"]["syn_count"] == 2
-    assert abs(srows["b|b2"]["node_recall"] - 1.0) < 1e-9   # both incident edges recovered
+    assert abs(srows["b|b2"]["node_recall"] - 1.0) < 1e-9   # both incident GT edges recovered
     assert abs(srows["a"]["node_recall"] - 0.5) < 1e-9      # a->b|b2 yes, a->c no
     assert srows["c"]["node_depth"] == 2                    # ancestors: a and b|b2
-    print("  parse_synonyms / synonym_recall_rows  OK")
+    # precision on node a: incident predicted = {a->b|b2 (TP), a->z (FP)} -> 1/2
+    assert abs(srows["a"]["node_precision"] - 0.5) < 1e-9, srows["a"]
+    assert abs(srows["b|b2"]["node_precision"] - 1.0) < 1e-9  # only its TP edges
+    assert "z" in srows and srows["z"]["node_precision"] == 0.0  # node only in an FP edge
+    print("  parse_synonyms / synonym_node_rows  OK")
     print("ALL SELF-TESTS PASSED.")
 
 
@@ -556,7 +682,8 @@ def main():
     ap.add_argument("--plot", action="store_true", help="Also render figures")
     ap.add_argument("--leverage", action="store_true", help="Also emit precision-clawback candidate edges")
     ap.add_argument("--min_support", type=int, default=20,
-                    help="In plots, hop/synonym buckets with fewer pooled edges are drawn faint/omitted")
+                    help="Buckets with fewer pooled edges are drawn faint/omitted in plots and "
+                         "excluded when picking the F1-optimal synonym count")
     ap.add_argument("--selftest", action="store_true", help="Validate logic on a synthetic example and exit")
     args = ap.parse_args()
 
@@ -564,7 +691,7 @@ def main():
         selftest()
         return
 
-    out = run(args.results_dir, args.out_dir, do_leverage=args.leverage)
+    out = run(args.results_dir, args.out_dir, do_leverage=args.leverage, min_support=args.min_support)
     if out and args.plot:
         summary, hop_df, syn_by_count = out
         make_plots(summary, hop_df, syn_by_count, args.out_dir, min_support=args.min_support)
