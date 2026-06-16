@@ -481,7 +481,22 @@ def run(results_dir, out_dir, do_leverage=False, min_support=20):
 # ----------------------------------------------------------------------------
 # Optional plots
 # ----------------------------------------------------------------------------
-def make_plots(summary, hop_df, syn_by_count, out_dir, min_support=20):
+def select_methods(methods, pattern):
+    """Pick which methods to show in the synonym plot.
+
+    pattern None / "all" / "*" -> keep everything. Otherwise keep methods whose
+    name contains the (case-insensitive) substring; if none match, fall back to
+    all so the panel is never empty. Default "our" selects the Our Method family
+    (OurMethod, Our_Method_k=10, ...)."""
+    methods = list(methods)
+    if pattern is None or str(pattern).strip().lower() in ("all", "*", ""):
+        return methods
+    pl = str(pattern).strip().lower()
+    hits = [m for m in methods if pl in m.lower()]
+    return hits or methods
+
+
+def make_plots(summary, hop_df, syn_by_count, out_dir, min_support=20, synonym_method="our"):
     import numpy as np
     import matplotlib
     matplotlib.use("Agg")
@@ -568,7 +583,7 @@ def make_plots(summary, hop_df, syn_by_count, out_dir, min_support=20):
             P, R = ps["precision"], ps["recall"]
             ps["f1"] = (2 * P * R / (P + R)).where((P + R) > 0)
 
-            methods = sorted(ps["Method"].unique())
+            methods = select_methods(sorted(ps["Method"].unique()), synonym_method)
             ncols = min(3, len(methods))
             nrows = (len(methods) + ncols - 1) // ncols
             fig, axes = plt.subplots(nrows, ncols, figsize=(5.2 * ncols, 3.8 * nrows),
@@ -596,7 +611,9 @@ def make_plots(summary, hop_df, syn_by_count, out_dir, min_support=20):
             for j in range(len(methods), nrows * ncols):
                 axes[j // ncols][j % ncols].axis("off")
             axes[0][0].legend(fontsize=7, loc="lower right")
-            fig.suptitle("Synonym richness vs Precision / Recall / F1 (taxonomies with synsets)\n"
+            _all_sel = synonym_method is None or str(synonym_method).strip().lower() in ("all", "*", "")
+            _sel = "all methods" if _all_sel else f"method: '{synonym_method}'"
+            fig.suptitle(f"Synonym richness vs Precision / Recall / F1 — {_sel} (taxonomies with synsets)\n"
                          f"marker area ∝ #edges; dashed = F1-optimal synonym count over >= {min_support}-edge buckets",
                          fontsize=11)
             fig.text(0.5, 0.01, "Synonyms merged into the node (surface forms)", ha="center")
@@ -672,6 +689,14 @@ def selftest():
     assert abs(srows["b|b2"]["node_precision"] - 1.0) < 1e-9  # only its TP edges
     assert "z" in srows and srows["z"]["node_precision"] == 0.0  # node only in an FP edge
     print("  parse_synonyms / synonym_node_rows  OK")
+
+    # Synonym-plot method selector.
+    ms = ["OurMethod", "Our_Method_k=10", "Lexical", "TaxoLLaMA_PPL15.0"]
+    assert select_methods(ms, "our") == ["OurMethod", "Our_Method_k=10"]
+    assert select_methods(ms, "all") == ms and select_methods(ms, None) == ms
+    assert select_methods(ms, "lexical") == ["Lexical"]
+    assert select_methods(ms, "nomatch") == ms          # fall back to all, never empty
+    print("  select_methods  OK")
     print("ALL SELF-TESTS PASSED.")
 
 
@@ -684,6 +709,9 @@ def main():
     ap.add_argument("--min_support", type=int, default=20,
                     help="Buckets with fewer pooled edges are drawn faint/omitted in plots and "
                          "excluded when picking the F1-optimal synonym count")
+    ap.add_argument("--synonym_method", default="our",
+                    help="Which method(s) the synonym P/R/F1 plot shows: case-insensitive name "
+                         "substring (default 'our' = the Our Method family); use 'all' for every method")
     ap.add_argument("--selftest", action="store_true", help="Validate logic on a synthetic example and exit")
     args = ap.parse_args()
 
@@ -694,7 +722,8 @@ def main():
     out = run(args.results_dir, args.out_dir, do_leverage=args.leverage, min_support=args.min_support)
     if out and args.plot:
         summary, hop_df, syn_by_count = out
-        make_plots(summary, hop_df, syn_by_count, args.out_dir, min_support=args.min_support)
+        make_plots(summary, hop_df, syn_by_count, args.out_dir,
+                   min_support=args.min_support, synonym_method=args.synonym_method)
 
 
 if __name__ == "__main__":
