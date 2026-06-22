@@ -29,7 +29,8 @@ def main(argv=None):
     ap.add_argument("--api-key", default="EMPTY", help="API key (any non-empty string for local servers)")
     ap.add_argument("--model", required=True, help="Model id, e.g. openai/gpt-oss-120b")
     ap.add_argument("--chunk-size", type=int, default=1000)
-    ap.add_argument("--alt-prompt", action="store_true", help="Use the JSON parent/child prompt")
+    ap.add_argument("--alt-prompt", action="store_true",
+                    help="Ablation: ask for direct parent/child connections instead of all-ancestor subsumption")
     ap.add_argument("--max-retries", type=int, default=3)
     ap.add_argument("--no-isolated", action="store_true", help="Drop terms that get no relations (benchmark parity)")
     ap.add_argument("--out", help="Output file (default: print edge list to stdout). "

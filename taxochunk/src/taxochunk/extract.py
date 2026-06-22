@@ -71,7 +71,10 @@ def build_taxonomy(
     chunk_size : int
         Number of candidate terms per prompt (lower = more focused, more calls).
     alt_prompt : bool
-        Use the JSON ``[["parent","child"], ...]`` prompt instead of ``child <= parent`` lines.
+        Linguistic ablation. False (default) asks for ALL ancestors via subsumption
+        ("every entity labeled X could logically also be labeled C"); True asks only
+        for DIRECT parent/child connections ("C is a parent/child concept of X").
+        Both prompts emit the same ``child <= parent`` lines.
     max_retries, retry_delay :
         Per-chunk retry budget and back-off (seconds) on empty/malformed/error responses.
     keep_isolated : bool
@@ -123,14 +126,7 @@ def build_taxonomy(
                             time.sleep(retry_delay)
                             continue
                         break
-                    try:
-                        pairs = parse_response(text, vocab_set, alt_prompt=alt_prompt)
-                    except ValueError:   # json.JSONDecodeError is a subclass of ValueError
-                        if attempt < max_retries - 1:
-                            time.sleep(retry_delay)
-                            continue
-                        break
-                    for parent, child in pairs:
+                    for parent, child in parse_response(text, vocab_set):
                         dag.add_edge(primary_to_full[parent], primary_to_full[child])
                     break
                 except Exception as e:               # network / API hiccups

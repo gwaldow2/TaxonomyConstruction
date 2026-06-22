@@ -33,7 +33,7 @@ builder = TaxonomyBuilder.from_endpoint(
     api_key="EMPTY",
     model="openai/gpt-oss-120b",
     chunk_size=1000,        # candidates per prompt
-    alt_prompt=False,       # True -> JSON [["parent","child"], ...] prompt
+    alt_prompt=False,       # True -> ablation: direct parent/child phrasing (vs. all-ancestor)
 )
 G = builder.build(["food", "fruit", "apple", "granny smith"])   # networkx.DiGraph
 builder.build_and_save(["food", "fruit", "apple"], "taxonomy.graphml")
@@ -97,7 +97,7 @@ cat terms.txt | taxochunk --model openai/gpt-oss-120b
 | arg | meaning |
 |-----|---------|
 | `chunk_size` | candidate terms per prompt (lower = more focused, more calls) |
-| `alt_prompt` | JSON pair prompt instead of `child <= parent` lines |
+| `alt_prompt` | ablation: direct parent/child phrasing instead of all-ancestor subsumption (same output format) |
 | `max_retries` / `retry_delay` | per-chunk retry budget on empty/malformed/API errors |
 | `keep_isolated` | keep terms that get no relations (default True; set False for benchmark parity) |
 | `show_progress` | tqdm bar over targets (needs `tqdm`) |

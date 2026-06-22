@@ -39,10 +39,15 @@ class ParseResponse(unittest.TestCase):
         pairs = parse_response("fruit <= food\napple <= fruit\nxyz <= food", vocab)
         self.assertEqual(set(pairs), {("food", "fruit"), ("fruit", "apple")})  # xyz dropped
 
-    def test_alt_json(self):
-        vocab = {"food", "fruit", "apple"}
-        pairs = parse_response('garbage [["food","fruit"],["fruit","apple"]] trailing', vocab, alt_prompt=True)
-        self.assertEqual(set(pairs), {("food", "fruit"), ("fruit", "apple")})
+    def test_prompts_differ_only_in_relationship_block(self):
+        from taxochunk import build_prompt
+        a = build_prompt("cell", ["x", "y"], alt_prompt=False).splitlines()
+        b = build_prompt("cell", ["x", "y"], alt_prompt=True).splitlines()
+        self.assertEqual(len(a), len(b))
+        diffs = [(x, y) for x, y in zip(a, b) if x != y]
+        self.assertEqual(len(diffs), 2)                         # exactly the two relationship bullets
+        self.assertTrue(all("could logically" in x for x, _ in diffs))   # default: subsumption
+        self.assertTrue(all("concept of" in y for _, y in diffs))        # alt: direct parent/child
 
 
 class BuildTaxonomy(unittest.TestCase):
@@ -56,9 +61,10 @@ class BuildTaxonomy(unittest.TestCase):
         self.assertEqual(set(G.edges()), {("food", "fruit"), ("fruit", "apple"), ("apple", "granny smith")})
 
     def test_alt_prompt(self):
+        # alt_prompt changes only the prompt wording; output format/parsing are shared.
         G = build_taxonomy(
             ["food", "fruit", "apple"],
-            respond=const('[["food","fruit"],["fruit","apple"]]'),
+            respond=const("fruit <= food\napple <= fruit"),
             alt_prompt=True, keep_isolated=False,
         )
         self.assertEqual(set(G.edges()), {("food", "fruit"), ("fruit", "apple")})
