@@ -3,11 +3,16 @@
 All LLM calls are stubbed with a fixed `respond` callable, so no endpoint is needed.
 """
 
+import os
+import csv
+import json
+import tempfile
 import unittest
 import networkx as nx
 
 from taxochunk import (
     build_taxonomy, to_lemma_format, get_primary_term, parse_lemma_format, parse_response,
+    TaxonomyBuilder, save_taxonomy, SUPPORTED_FORMATS,
 )
 
 
@@ -90,6 +95,69 @@ class BuildTaxonomy(unittest.TestCase):
     def test_requires_client_or_respond(self):
         with self.assertRaises(ValueError):
             build_taxonomy(["a", "b"])  # neither respond nor client/model
+
+
+class Builder(unittest.TestCase):
+    def test_build_with_respond(self):
+        b = TaxonomyBuilder(respond=const("fruit <= food\napple <= fruit"))
+        G = b.build(["food", "fruit", "apple"], keep_isolated=False)
+        self.assertEqual(set(G.edges()), {("food", "fruit"), ("fruit", "apple")})
+
+    def test_override_options(self):
+        b = TaxonomyBuilder(respond=const("fruit <= food"), keep_isolated=True)
+        self.assertIn("x", b.build(["food", "fruit", "x"]).nodes())   # default keeps isolated
+        self.assertNotIn("x", b.build(["food", "fruit", "x"], keep_isolated=False).nodes())  # per-call override
+
+    def test_requires_client_or_respond(self):
+        with self.assertRaises(ValueError):
+            TaxonomyBuilder()                      # nothing supplied
+        with self.assertRaises(ValueError):
+            TaxonomyBuilder(client=object())       # client but no model
+
+    def test_build_and_save(self):
+        b = TaxonomyBuilder(respond=const("fruit <= food"))
+        with tempfile.TemporaryDirectory() as td:
+            path = os.path.join(td, "t.graphml")
+            G = b.build_and_save(["food", "fruit"], path, keep_isolated=False)
+            self.assertTrue(os.path.exists(path))
+            self.assertEqual(set(nx.read_graphml(path).edges()), set(G.edges()))
+
+
+class Export(unittest.TestCase):
+    def setUp(self):
+        self.G = nx.DiGraph([("food", "fruit"), ("fruit", "apple")])
+
+    def test_all_formats_write(self):
+        with tempfile.TemporaryDirectory() as td:
+            for fmt in SUPPORTED_FORMATS:
+                p = os.path.join(td, f"t.{fmt}")
+                save_taxonomy(self.G, p, fmt=fmt)
+                self.assertTrue(os.path.getsize(p) > 0, fmt)
+
+    def test_format_inferred_from_extension(self):
+        with tempfile.TemporaryDirectory() as td:
+            p = os.path.join(td, "t.graphml")
+            save_taxonomy(self.G, p)  # no fmt -> infer graphml
+            self.assertEqual(set(nx.read_graphml(p).edges()), set(self.G.edges()))
+
+    def test_roundtrip_tsv_and_json(self):
+        with tempfile.TemporaryDirectory() as td:
+            tsv = os.path.join(td, "t.tsv")
+            save_taxonomy(self.G, tsv, fmt="tsv")
+            with open(tsv, encoding="utf-8") as f:
+                rows = list(csv.reader(f, delimiter="\t"))
+            self.assertEqual(rows[0], ["parent", "child"])
+            self.assertEqual({tuple(r) for r in rows[1:]}, set(self.G.edges()))
+
+            js = os.path.join(td, "t.json")
+            save_taxonomy(self.G, js, fmt="json")
+            with open(js, encoding="utf-8") as f:
+                data = json.load(f)
+            self.assertEqual(len(data["nodes"]), 3)
+
+    def test_bad_format_raises(self):
+        with self.assertRaises(ValueError):
+            save_taxonomy(self.G, "x.bogus", fmt="bogus")
 
 
 if __name__ == "__main__":

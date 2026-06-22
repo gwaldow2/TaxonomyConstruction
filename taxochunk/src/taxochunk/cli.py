@@ -1,17 +1,16 @@
 """Command-line interface: ``taxochunk terms.txt --base-url ... --model ...``.
 
 Reads one term per line (lemma format allowed), builds the taxonomy against an
-OpenAI-compatible endpoint, and writes the result as a GraphML file or as a
-parent<TAB>child edge list on stdout.
+OpenAI-compatible endpoint, and writes the result to a file (GraphML by default)
+or as a parent<TAB>child edge list on stdout.
 """
 
 import sys
 import argparse
 
-import networkx as nx
-
 from . import __version__
-from .extract import build_taxonomy
+from .builder import TaxonomyBuilder
+from .export import save_taxonomy, SUPPORTED_FORMATS
 
 
 def _read_terms(path):
@@ -33,35 +32,31 @@ def main(argv=None):
     ap.add_argument("--alt-prompt", action="store_true", help="Use the JSON parent/child prompt")
     ap.add_argument("--max-retries", type=int, default=3)
     ap.add_argument("--no-isolated", action="store_true", help="Drop terms that get no relations (benchmark parity)")
-    ap.add_argument("--out", help="Write GraphML here (default: print edge list to stdout)")
+    ap.add_argument("--out", help="Output file (default: print edge list to stdout). "
+                                  "Format inferred from extension, e.g. .graphml/.gexf/.json/.dot/.tsv/.csv")
+    ap.add_argument("--format", choices=SUPPORTED_FORMATS, help="Override output format (default: from --out extension)")
     ap.add_argument("--progress", action="store_true", help="Show a progress bar (needs tqdm)")
     ap.add_argument("--version", action="version", version=f"taxochunk {__version__}")
     args = ap.parse_args(argv)
-
-    try:
-        from openai import OpenAI
-    except ImportError:
-        ap.error("the CLI needs the 'openai' package: pip install 'taxochunk[openai]'")
 
     terms = _read_terms(args.terms)
     if not terms:
         ap.error("no terms provided")
 
-    client = OpenAI(base_url=args.base_url, api_key=args.api_key)
-    G = build_taxonomy(
-        terms,
-        client=client,
-        model=args.model,
-        chunk_size=args.chunk_size,
-        alt_prompt=args.alt_prompt,
-        max_retries=args.max_retries,
-        keep_isolated=not args.no_isolated,
-        show_progress=args.progress,
-        verbose=True,
-    )
+    try:
+        builder = TaxonomyBuilder.from_endpoint(
+            base_url=args.base_url, api_key=args.api_key, model=args.model,
+            chunk_size=args.chunk_size, alt_prompt=args.alt_prompt,
+            max_retries=args.max_retries, keep_isolated=not args.no_isolated,
+            show_progress=args.progress, verbose=True,
+        )
+    except ImportError as e:
+        ap.error(str(e))
+
+    G = builder.build(terms)
 
     if args.out:
-        nx.write_graphml(G, args.out)
+        save_taxonomy(G, args.out, fmt=args.format)
         print(f"Wrote {G.number_of_nodes()} nodes / {G.number_of_edges()} edges to {args.out}", file=sys.stderr)
     else:
         for u, v in G.edges():
