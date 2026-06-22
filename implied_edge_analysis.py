@@ -27,12 +27,13 @@ What it reads (all already on disk after a normal `python main.py` run):
 
 What it writes (to --out_dir, default ./implied_analysis):
     implied_edge_summary.csv         one row per (dataset, method): bucketed recall + counts
-    implied_recall_by_hop.csv        recall stratified by GT hop-distance
+    implied_recall_by_hop.csv        recall by GT hop-distance (hop 1 = direct, >=2 = indirect) + Scale (SUB/FULL)
     synonym_recall_by_count.csv      precision/recall/F1 vs #synonyms merged into a node (per dataset/method)
     synonym_pr_pooled.csv            precision/recall/F1 vs #synonyms, pooled over taxonomies WITH synsets
     synonym_pr_optimum.csv           per-method F1-optimal synonym count (balances precision & recall)
     synonym_recall_summary.csv       per-method: recall & precision of 1-surface vs multi-synonym nodes + lift
     precision_clawback_candidates.csv (only with --leverage) high-impact FP edges to prune
+    recall_by_hop_<SUB|FULL>.png     (only with --plot) hop-recall split by dataset size
     *.png                            (only with --plot; incl. synonym_pr_curves.png)
 
 Usage:
@@ -136,9 +137,12 @@ def build_gt_views(G_gt):
     clos_edges = set(clos.edges())
     implied_edges = clos_edges - red_edges          # disjoint from red_edges by construction
 
-    # Hop distance measured on the REDUCTION (true hierarchical depth between a and c).
+    # Hop distance measured on the REDUCTION graph (true hierarchical depth).
+    # Computed for ALL closure edges: a direct/reduction edge has hop == 1, an
+    # implied/indirect edge has hop >= 2. Including hop 1 lets the per-hop curve
+    # compare direct-edge recall against the indirect (hop>=2) recall.
     dist = dict(nx.all_pairs_shortest_path_length(red))
-    hop = {e: dist.get(e[0], {}).get(e[1]) for e in implied_edges}
+    hop = {e: dist.get(e[0], {}).get(e[1]) for e in clos_edges}
     return red_edges, clos_edges, implied_edges, hop
 
 
@@ -157,10 +161,11 @@ def analyze_dataset_method(G_gt_views, recovered):
         "recall_implied": _safe_recall(implied_edges, recovered),
         "recall_closure": _safe_recall(clos_edges, recovered),
     }
-    # Per-hop implied recall.
+    # Per-hop recall over ALL closure edges: hop 1 = direct (reduction) edges,
+    # hop >= 2 = indirect (implied) edges.
     by_hop = {}
     buckets = {}
-    for e in implied_edges:
+    for e in clos_edges:
         d = hop.get(e)
         if d is None:
             continue
@@ -170,6 +175,7 @@ def analyze_dataset_method(G_gt_views, recovered):
             "support": len(edges),
             "recovered": len(edges & recovered),
             "recall": _safe_recall(edges, recovered),
+            "kind": "direct" if d == 1 else "indirect",
         }
     return row, by_hop
 
@@ -288,6 +294,17 @@ def leverage_candidates(pred_direct_edges, gt_closure_edges, top_n=15):
 # ----------------------------------------------------------------------------
 # Discovery + driver
 # ----------------------------------------------------------------------------
+def dataset_scale(dataset):
+    """Group a dataset by the size of the graph it was run on.
+
+    Runs are usually on a ~100-node closed SUBset of the full ontology, so
+    pooling SUB and FULL together mixes very different graph sizes. The trailing
+    _SUB / _FULL tag in the dataset name is the size bucket; anything else -> NA.
+    """
+    tag = dataset.rsplit("_", 1)[-1].upper() if "_" in dataset else ""
+    return tag if tag in ("SUB", "FULL") else "NA"
+
+
 def discover(results_dir):
     """Yield (dataset, method_suffix, closure_txt, reduction_txt, gt_graphml)."""
     for gt_path in sorted(glob.glob(os.path.join(results_dir, "GT_*_eval.graphml"))):
@@ -323,8 +340,9 @@ def run(results_dir, out_dir, do_leverage=False, min_support=20):
             row["closure_F1_reported"] = header["F1"]
         summary_rows.append(row)
 
+        scale = dataset_scale(dataset)
         for d, info in by_hop.items():
-            hop_rows.append({"Dataset": dataset, "Method": method, "hop_distance": d, **info})
+            hop_rows.append({"Dataset": dataset, "Scale": scale, "Method": method, "hop_distance": d, **info})
 
         for r in synonym_node_rows(clos_edges_gt, recovered_gt, pred_tp, pred_fp):
             syn_rows.append({"Dataset": dataset, "Method": method, **r})
@@ -516,55 +534,65 @@ def make_plots(summary, hop_df, syn_by_count, out_dir, min_support=20, synonym_m
     plt.savefig(p1, dpi=150); plt.close()
     written.append(p1)
 
-    # 2) SUPPORT-WEIGHTED implied recall vs hop-distance.
-    #    - line value = edge-weighted pooled recall (sum recovered / sum support),
-    #      NOT a mean of per-dataset ratios, so big datasets count proportionally;
+    # 2) SUPPORT-WEIGHTED edge recall vs hop-distance, BROKEN OUT BY DATASET SIZE.
+    #    hop 1 = direct (reduction) edges, hop >= 2 = indirect (implied) edges, so
+    #    direct vs indirect recall sit on one axis. Runs are usually on ~100-node
+    #    SUBsets, so SUB and FULL are plotted separately to keep pooling consistent
+    #    (otherwise a few large FULL graphs dominate the edge-weighted curve).
+    #    - line value = edge-weighted pooled recall (sum recovered / sum support);
     #    - marker AREA proportional to that point's pooled support;
     #    - points below --min_support drawn faint+dotted (the unreliable thin tail);
-    #    - grey bars (right axis) show the GT support distribution per hop.
-    pooled = (hop_df.groupby(["Method", "hop_distance"])
-              .agg(recovered=("recovered", "sum"), support=("support", "sum"))
-              .reset_index())
-    pooled["recall"] = pooled["recovered"] / pooled["support"]
+    #    - grey bars (right axis) show the GT support distribution per hop;
+    #    - shaded band marks hop 1 (direct edges).
+    def _draw_hop(ax1, sub_hop, title):
+        pooled = (sub_hop.groupby(["Method", "hop_distance"])
+                  .agg(recovered=("recovered", "sum"), support=("support", "sum"))
+                  .reset_index())
+        pooled["recall"] = pooled["recovered"] / pooled["support"]
+        per_ds = sub_hop.drop_duplicates(["Dataset", "hop_distance"])
+        support_by_hop = per_ds.groupby("hop_distance")["support"].sum()
 
-    # GT support per hop counted ONCE per dataset (support is method-independent).
-    per_ds = hop_df.drop_duplicates(["Dataset", "hop_distance"])
-    support_by_hop = per_ds.groupby("hop_distance")["support"].sum()
+        ax2 = ax1.twinx()
+        ax2.bar(support_by_hop.index, support_by_hop.values, color="gray", alpha=0.12,
+                width=0.85, zorder=0)
+        ax2.set_ylabel("GT edges at this hop (support)", color="gray")
+        ax2.tick_params(axis="y", labelcolor="gray")
 
-    fig, ax1 = plt.subplots(figsize=(10, 6.5))
-    ax2 = ax1.twinx()
-    ax2.bar(support_by_hop.index, support_by_hop.values, color="gray", alpha=0.12,
-            width=0.85, zorder=0)
-    ax2.set_ylabel("GT implied edges at this hop (support)", color="gray")
-    ax2.tick_params(axis="y", labelcolor="gray")
+        ax1.axvspan(0.5, 1.5, color="black", alpha=0.05, zorder=0)  # hop-1 (direct) band
+        for method, s in pooled.groupby("Method"):
+            s = s.sort_values("hop_distance")
+            solid = s[s["support"] >= min_support]
+            faint = s[s["support"] < min_support]
+            color = None
+            if not solid.empty:
+                line, = ax1.plot(solid["hop_distance"], solid["recall"], "-", label=method, zorder=3)
+                color = line.get_color()
+            ax1.scatter(s["hop_distance"], s["recall"],
+                        s=12 + 6 * np.sqrt(s["support"].to_numpy()),
+                        color=color, alpha=0.85, zorder=4, label=(None if color else method))
+            if not faint.empty:
+                ax1.plot(faint["hop_distance"], faint["recall"], ":", color=color, alpha=0.35, zorder=2)
 
-    for method, sub in pooled.groupby("Method"):
-        sub = sub.sort_values("hop_distance")
-        solid = sub[sub["support"] >= min_support]
-        faint = sub[sub["support"] < min_support]
-        color = None
-        if not solid.empty:
-            line, = ax1.plot(solid["hop_distance"], solid["recall"], "-", label=method, zorder=3)
-            color = line.get_color()
-        ax1.scatter(sub["hop_distance"], sub["recall"],
-                    s=12 + 6 * np.sqrt(sub["support"].to_numpy()),
-                    color=color, alpha=0.85, zorder=4,
-                    label=(None if color else method))
-        if not faint.empty:
-            ax1.plot(faint["hop_distance"], faint["recall"], ":", color=color, alpha=0.35, zorder=2)
+        ax1.set_xlabel("GT hop-distance  (1 = direct parent->child;  >=2 = indirect ancestor)")
+        ax1.set_ylabel("Edge recall (edge-weighted, pooled)")
+        ax1.set_ylim(0, 1.02)
+        ax1.set_zorder(ax2.get_zorder() + 1)   # draw recall lines above the support bars
+        ax1.patch.set_visible(False)
+        ax1.set_title(title)
+        ax1.legend(fontsize=7, ncol=2, loc="lower right")
 
-    ax1.set_xlabel("GT hop-distance (ancestor depth between a and c)")
-    ax1.set_ylabel("Implied-edge recall (edge-weighted, pooled)")
-    ax1.set_ylim(0, 1.02)
-    ax1.set_zorder(ax2.get_zorder() + 1)   # draw recall lines above the support bars
-    ax1.patch.set_visible(False)
-    ax1.set_title("Support-weighted indirect-edge recall vs hop-distance\n"
-                  f"marker area ∝ #edges; dotted = below {min_support}-edge support; grey bars = support")
-    ax1.legend(fontsize=7, ncol=2, loc="lower right")
-    plt.tight_layout()
-    p2 = os.path.join(out_dir, "implied_recall_by_hop.png")
-    plt.savefig(p2, dpi=150); plt.close()
-    written.append(p2)
+    hop_scaled = hop_df if "Scale" in hop_df.columns else hop_df.assign(Scale="ALL")
+    scales = [s for s in ["SUB", "FULL", "NA", "ALL"] if s in set(hop_scaled["Scale"])]
+    for scale in scales:
+        sub_hop = hop_scaled[hop_scaled["Scale"] == scale]
+        fig, ax1 = plt.subplots(figsize=(10, 6.5))
+        _draw_hop(ax1, sub_hop, f"Recall vs hop-distance — {scale} datasets\n"
+                                f"hop 1 = direct, ≥ 2 = indirect; marker area ∝ #edges; "
+                                f"dotted = below {min_support}-edge support")
+        plt.tight_layout()
+        p2 = os.path.join(out_dir, f"recall_by_hop_{scale}.png")
+        plt.savefig(p2, dpi=150); plt.close()
+        written.append(p2)
 
     # 3) Synonym richness vs PRECISION / RECALL / F1, one panel per method.
     #    Restricted to taxonomies that actually have synsets (>=2 surface forms),
@@ -639,6 +667,8 @@ def selftest():
     # reduction = {a-b, b-c, c-d, a-e};  implied = {a-c, a-d, b-d, (a-e none)}
     assert red == {("a", "b"), ("b", "c"), ("c", "d"), ("a", "e")}, red
     assert implied == {("a", "c"), ("a", "d"), ("b", "d")}, implied
+    # hop is now over ALL closure edges: direct edges == 1, implied >= 2.
+    assert hop[("a", "b")] == 1 and hop[("a", "e")] == 1, hop
     assert hop[("a", "c")] == 2 and hop[("a", "d")] == 3 and hop[("b", "d")] == 2, hop
 
     # A "single-parent-ish" method that recovered direct links + the 2-hop ones
@@ -647,8 +677,13 @@ def selftest():
     row, by_hop = analyze_dataset_method((red, clos, implied, hop), recovered)
     assert abs(row["recall_reduction"] - 1.0) < 1e-9, row
     assert abs(row["recall_implied"] - 2/3) < 1e-9, row     # got a-c, b-d; missed a-d
+    # by_hop now includes hop 1 (direct edges): all 4 recovered -> recall 1.0.
+    assert by_hop[1]["support"] == 4 and by_hop[1]["recall"] == 1.0, by_hop
+    assert by_hop[1]["kind"] == "direct" and by_hop[2]["kind"] == "indirect", by_hop
     assert by_hop[2]["recall"] == 1.0 and by_hop[3]["recall"] == 0.0, by_hop
-    print("  build_gt_views / analyze_dataset_method  OK")
+    assert dataset_scale("CellOntology_SUB") == "SUB" and dataset_scale("LLMs4OL_PO_FULL") == "FULL"
+    assert dataset_scale("medium_components") == "NA"
+    print("  build_gt_views / analyze_dataset_method / dataset_scale  OK")
 
     # Report parsing round-trip.
     with tempfile.TemporaryDirectory() as td:
