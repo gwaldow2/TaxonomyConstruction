@@ -27,13 +27,13 @@ What it reads (all already on disk after a normal `python main.py` run):
 
 What it writes (to --out_dir, default ./implied_analysis):
     implied_edge_summary.csv         one row per (dataset, method): bucketed recall + counts
-    implied_recall_by_hop.csv        recall by GT hop-distance (hop 1 = direct, >=2 = indirect) + Scale (SUB/FULL)
+    implied_recall_by_hop.csv        recall by GT hop-distance (hop 1 = direct, >=2 = indirect) + size_bucket (by node count)
     synonym_recall_by_count.csv      precision/recall/F1 vs #synonyms merged into a node (per dataset/method)
     synonym_pr_pooled.csv            precision/recall/F1 vs #synonyms, pooled over taxonomies WITH synsets
     synonym_pr_optimum.csv           per-method F1-optimal synonym count (balances precision & recall)
     synonym_recall_summary.csv       per-method: recall & precision of 1-surface vs multi-synonym nodes + lift
     precision_clawback_candidates.csv (only with --leverage) high-impact FP edges to prune
-    recall_by_hop_<SUB|FULL>.png     (only with --plot) hop-recall split by dataset size
+    recall_by_hop_<size-bucket>.png  (only with --plot) hop-recall split by GT node count
     *.png                            (only with --plot; incl. synonym_pr_curves.png)
 
 Usage:
@@ -294,15 +294,19 @@ def leverage_candidates(pred_direct_edges, gt_closure_edges, top_n=15):
 # ----------------------------------------------------------------------------
 # Discovery + driver
 # ----------------------------------------------------------------------------
-def dataset_scale(dataset):
-    """Group a dataset by the size of the graph it was run on.
+# Node-count size buckets (filesystem-safe labels). Bucketing by the GT's ACTUAL
+# node count -- not the _SUB/_FULL name tag -- keeps pooling consistent: SUB and
+# FULL runs land wherever their real size puts them, so a 100-node graph is never
+# pooled with a 26k-node one.
+SIZE_BINS = [(150, "0-150"), (1000, "151-1000"), (10000, "1001-10000"), (float("inf"), "10001+")]
 
-    Runs are usually on a ~100-node closed SUBset of the full ontology, so
-    pooling SUB and FULL together mixes very different graph sizes. The trailing
-    _SUB / _FULL tag in the dataset name is the size bucket; anything else -> NA.
-    """
-    tag = dataset.rsplit("_", 1)[-1].upper() if "_" in dataset else ""
-    return tag if tag in ("SUB", "FULL") else "NA"
+
+def node_count_bucket(n_nodes):
+    """Map a GT node count to its size-bucket label (see SIZE_BINS)."""
+    for hi, label in SIZE_BINS:
+        if n_nodes <= hi:
+            return label
+    return SIZE_BINS[-1][1]
 
 
 def discover(results_dir):
@@ -320,6 +324,7 @@ def discover(results_dir):
 def run(results_dir, out_dir, do_leverage=False, min_support=20):
     os.makedirs(out_dir, exist_ok=True)
     gt_cache = {}
+    gt_bucket = {}
     summary_rows = []
     hop_rows = []
     syn_rows = []
@@ -329,7 +334,10 @@ def run(results_dir, out_dir, do_leverage=False, min_support=20):
     for dataset, method, clos_txt, red_txt, gt_path in discover(results_dir):
         found = True
         if gt_path not in gt_cache:
-            gt_cache[gt_path] = build_gt_views(nx.read_graphml(gt_path))
+            G_raw = nx.read_graphml(gt_path)
+            gt_cache[gt_path] = build_gt_views(G_raw)
+            n_nodes = G_raw.number_of_nodes() - (1 if "virtual_root" in G_raw else 0)
+            gt_bucket[gt_path] = node_count_bucket(n_nodes)
         views = gt_cache[gt_path]
         clos_edges_gt = views[1]
 
@@ -340,9 +348,10 @@ def run(results_dir, out_dir, do_leverage=False, min_support=20):
             row["closure_F1_reported"] = header["F1"]
         summary_rows.append(row)
 
-        scale = dataset_scale(dataset)
+        size_bucket = gt_bucket[gt_path]
         for d, info in by_hop.items():
-            hop_rows.append({"Dataset": dataset, "Scale": scale, "Method": method, "hop_distance": d, **info})
+            hop_rows.append({"Dataset": dataset, "size_bucket": size_bucket,
+                             "Method": method, "hop_distance": d, **info})
 
         for r in synonym_node_rows(clos_edges_gt, recovered_gt, pred_tp, pred_fp):
             syn_rows.append({"Dataset": dataset, "Method": method, **r})
@@ -581,16 +590,19 @@ def make_plots(summary, hop_df, syn_by_count, out_dir, min_support=20, synonym_m
         ax1.set_title(title)
         ax1.legend(fontsize=7, ncol=2, loc="lower right")
 
-    hop_scaled = hop_df if "Scale" in hop_df.columns else hop_df.assign(Scale="ALL")
-    scales = [s for s in ["SUB", "FULL", "NA", "ALL"] if s in set(hop_scaled["Scale"])]
-    for scale in scales:
-        sub_hop = hop_scaled[hop_scaled["Scale"] == scale]
+    col = "size_bucket"
+    hop_scaled = hop_df if col in hop_df.columns else hop_df.assign(**{col: "ALL"})
+    order = [lbl for _, lbl in SIZE_BINS]
+    present = list(dict.fromkeys(hop_scaled[col]))
+    buckets = [b for b in order if b in present] + [b for b in present if b not in order]
+    for bucket in buckets:
+        sub_hop = hop_scaled[hop_scaled[col] == bucket]
         fig, ax1 = plt.subplots(figsize=(10, 6.5))
-        _draw_hop(ax1, sub_hop, f"Recall vs hop-distance — {scale} datasets\n"
+        _draw_hop(ax1, sub_hop, f"Recall vs hop-distance — {bucket} nodes\n"
                                 f"hop 1 = direct, ≥ 2 = indirect; marker area ∝ #edges; "
                                 f"dotted = below {min_support}-edge support")
         plt.tight_layout()
-        p2 = os.path.join(out_dir, f"recall_by_hop_{scale}.png")
+        p2 = os.path.join(out_dir, f"recall_by_hop_{bucket}.png")
         plt.savefig(p2, dpi=150); plt.close()
         written.append(p2)
 
@@ -681,9 +693,10 @@ def selftest():
     assert by_hop[1]["support"] == 4 and by_hop[1]["recall"] == 1.0, by_hop
     assert by_hop[1]["kind"] == "direct" and by_hop[2]["kind"] == "indirect", by_hop
     assert by_hop[2]["recall"] == 1.0 and by_hop[3]["recall"] == 0.0, by_hop
-    assert dataset_scale("CellOntology_SUB") == "SUB" and dataset_scale("LLMs4OL_PO_FULL") == "FULL"
-    assert dataset_scale("medium_components") == "NA"
-    print("  build_gt_views / analyze_dataset_method / dataset_scale  OK")
+    assert node_count_bucket(100) == "0-150" and node_count_bucket(500) == "151-1000"
+    assert node_count_bucket(5000) == "1001-10000" and node_count_bucket(30000) == "10001+"
+    assert node_count_bucket(150) == "0-150" and node_count_bucket(151) == "151-1000"  # boundary
+    print("  build_gt_views / analyze_dataset_method / node_count_bucket  OK")
 
     # Report parsing round-trip.
     with tempfile.TemporaryDirectory() as td:
