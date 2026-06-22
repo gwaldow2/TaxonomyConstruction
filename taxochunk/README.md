@@ -22,22 +22,54 @@ pip install 'taxochunk[openai]'  # + OpenAI-compatible client and CLI
 
 ## Library
 
-```python
-from taxochunk import build_taxonomy
-from openai import OpenAI
+The easiest path — instantiate a builder (it spins up the OpenAI client for you),
+then build and save:
 
-client = OpenAI(base_url="http://localhost:8000/v1", api_key="EMPTY")  # local vLLM, etc.
-G = build_taxonomy(
-    ["food", "fruit", "apple", "granny smith"],
-    client=client, model="openai/gpt-oss-120b",
+```python
+from taxochunk import TaxonomyBuilder
+
+builder = TaxonomyBuilder.from_endpoint(
+    base_url="http://localhost:8000/v1",   # local vLLM / hosted OpenAI
+    api_key="EMPTY",
+    model="openai/gpt-oss-120b",
     chunk_size=1000,        # candidates per prompt
     alt_prompt=False,       # True -> JSON [["parent","child"], ...] prompt
 )
-print(list(G.edges()))      # networkx.DiGraph of parent -> child
+G = builder.build(["food", "fruit", "apple", "granny smith"])   # networkx.DiGraph
+builder.build_and_save(["food", "fruit", "apple"], "taxonomy.graphml")
+```
+
+Already have an `openai` client? Pass it in, or use the `openai_client` helper:
+
+```python
+from taxochunk import TaxonomyBuilder, openai_client, build_taxonomy
+
+client = openai_client("http://localhost:8000/v1", "EMPTY")
+builder = TaxonomyBuilder(client=client, model="openai/gpt-oss-120b")
+# ...or the plain function:
+G = build_taxonomy(["food", "fruit", "apple"], client=client, model="openai/gpt-oss-120b")
 ```
 
 Terms may carry synonyms in lemma format, e.g. `"apple (apple, malus pumila)"`; mutually
 is-a terms discovered by the model are merged into one cluster node.
+
+## Output formats
+
+`build_and_save(...)` / `save_taxonomy(G, path, fmt=None)` write the taxonomy in
+broadly-interoperable formats. The default is **GraphML** — read directly by Gephi,
+Cytoscape, yEd, igraph, networkx and most graph tooling, and it preserves attributes.
+
+```python
+from taxochunk import save_taxonomy
+save_taxonomy(G, "tax.graphml")     # default; great for Gephi / Cytoscape
+save_taxonomy(G, "tax.json")        # node-link JSON for web / d3
+save_taxonomy(G, "tax.gexf")        # Gephi native
+save_taxonomy(G, "tax.dot")         # Graphviz
+save_taxonomy(G, "tax.tsv")         # parent<TAB>child edge list
+```
+
+Format is inferred from the extension (or pass `fmt=...`). Supported: `graphml`,
+`gexf`, `json`, `dot`, `tsv`, `csv`.
 
 ### Bring your own LLM (and test without one)
 
@@ -55,7 +87,8 @@ G = build_taxonomy(["food", "fruit", "apple"], respond=respond)
 
 ```bash
 taxochunk terms.txt --model openai/gpt-oss-120b --base-url http://localhost:8000/v1 --out tax.graphml
-# or stream an edge list:
+taxochunk terms.txt --model openai/gpt-oss-120b --out tax.json --format json
+# or stream a parent<TAB>child edge list:
 cat terms.txt | taxochunk --model openai/gpt-oss-120b
 ```
 
