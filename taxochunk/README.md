@@ -20,6 +20,25 @@ pip install taxochunk            # core (networkx only)
 pip install 'taxochunk[openai]'  # + OpenAI-compatible client and CLI
 ```
 
+Or, for local development from a checkout:
+
+```bash
+pip install -e .          # from the folder containing pyproject.toml
+```
+
+## Examples
+
+Runnable scripts live in [`examples/`](examples):
+
+```bash
+python examples/quickstart.py     # DUMMY LLM -> no server/API key needed; runs anywhere
+python examples/with_openai.py    # real OpenAI-compatible endpoint (needs [openai] + a server)
+```
+
+`quickstart.py` is the fastest way to see the library work: it injects a fake
+`respond(prompt) -> text` in place of a model, builds a small food taxonomy, and writes
+`dummy_taxonomy.graphml` / `.json`.
+
 ## Library
 
 The easiest path — instantiate a builder (it spins up the OpenAI client for you),
