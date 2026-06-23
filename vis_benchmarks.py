@@ -759,6 +759,52 @@ def plot_batch_size_k_comparison(df):
     plt.savefig(os.path.join(VIS_DIR, "15_batch_size_k_comparison.png"), dpi=300)
     plt.close()
 
+def plot_clawback_comparison(df):
+    """Cond. Closure F1 of Our Method vs the precision-clawback hyperparameter.
+
+    Each value of `suspicion_candidates` is how many top-suspicious edges the LLM
+    scrutinises (and optionally severs). K=0 is the no-clawback baseline, drawn as a
+    dashed reference line, so each panel shows whether scrutinising more edges raises
+    or lowers Cond. Closure F1 relative to running our method without clawback.
+    """
+    print(" -> Generating Precision Clawback vs Cond. Closure F1...")
+    mask = df['Method'].str.contains(r'clawback=\d+', na=False)
+    d = df[mask].copy()
+    if d.empty:
+        print("    [!] No 'clawback=' runs found. Skipping. "
+              "(Produce them with: python main.py --method our_method --suspicion_candidates 0 5 10 25)")
+        return
+
+    d['suspicion_candidates'] = d['Method'].str.extract(r'clawback=(\d+)').astype(int)
+    d = d.sort_values(['Dataset_Scenario', 'suspicion_candidates'])
+
+    datasets = sorted(d['Dataset_Scenario'].unique())
+    ncols = min(3, len(datasets))
+    nrows = (len(datasets) + ncols - 1) // ncols
+    fig, axes = plt.subplots(nrows, ncols, figsize=(5.5 * ncols, 4 * nrows), squeeze=False, sharey=True)
+
+    for i, ds in enumerate(datasets):
+        ax = axes[i // ncols][i % ncols]
+        sub = d[d['Dataset_Scenario'] == ds].sort_values('suspicion_candidates')
+        ax.plot(sub['suspicion_candidates'], sub['Cond_Clos_F1'], '-o',
+                color='tab:green', linewidth=2, markersize=7, label='With clawback')
+        base = sub[sub['suspicion_candidates'] == 0]['Cond_Clos_F1']
+        if not base.empty:
+            ax.axhline(base.iloc[0], ls='--', color='gray', alpha=0.8, label='No clawback (K=0)')
+        ax.set_title(ds, fontsize=10, fontweight='bold')
+        ax.set_xlabel('suspicion_candidates (edges scrutinised)')
+        ax.grid(alpha=0.25)
+
+    for j in range(len(datasets), nrows * ncols):
+        axes[j // ncols][j % ncols].axis('off')
+    axes[0][0].set_ylabel('Cond. Closure F1', fontweight='bold')
+    axes[0][0].legend(fontsize=8, loc='best')
+    fig.suptitle('Precision Clawback: Cond. Closure F1 vs # edges scrutinised by the LLM',
+                 fontsize=14, fontweight='bold')
+    plt.tight_layout(rect=[0, 0, 1, 0.96])
+    plt.savefig(os.path.join(VIS_DIR, "16_precision_clawback_comparison.png"), dpi=300)
+    plt.close()
+
 def plot_llm_zero_node_scaling(df):
     """Plots the performance of LLM Zero-Shot on FULL datasets vs SUB datasets to assess scale impact."""
     print(" -> Generating LLM Zero-Shot Node Scaling Plots...")
@@ -921,7 +967,8 @@ def main():
     plot_alt_prompt_comparison(df)
     plot_hearst_ppl_spearman(df_filtered) # We run the specific correlation scatter using the clean (filtered) dataframe
     plot_batch_size_k_comparison(df)
-    
+    plot_clawback_comparison(df)
+
     if args.vis_graph:
         plot_graph_overlays(args.vis_graph)
         
