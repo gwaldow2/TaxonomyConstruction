@@ -278,7 +278,17 @@ def plot_runtime_complexity(df):
     if df_runtime.empty:
         print("    [!] No runtime data found to plot. Skipping chart.")
         return
-        
+
+    # Collapse per-config variants -- e.g. "Our Method (k=1000, clawback=0)",
+    # "TaxoLLaMA (PPL<15.0)" -- into one series per base method, and keep a single
+    # representative point per dataset (median runtime) so several configs of the
+    # same method on one dataset don't pile up. This is what lets the FULL "Our
+    # Method" runs appear (their labels carry "k=", which the caller would otherwise
+    # exclude).
+    df_runtime["Method"] = df_runtime["Method"].str.replace(r"\s*\(.*\)\s*", "", regex=True).str.strip()
+    df_runtime = (df_runtime.groupby(["Method", "Dataset_JSON", "Nodes"], as_index=False)["Runtime_sec"]
+                  .median())
+
     plt.figure(figsize=(10, 6))
     ax = plt.gca()
     
@@ -1005,14 +1015,20 @@ def main():
     
     # df_standard_methods keeps the FULL datasets intact for computational scaling and sizing analysis
     df_standard_methods = df[mask_method_reasoning & mask_method_alt].copy()
-    
+
+    # df_runtime keeps the k= / clawback / alt Our Method variants (which mask_method_alt
+    # drops) so the runtime-scaling chart includes Our Method's FULL runs; the plot itself
+    # collapses the variants into one series per method.
+    df_runtime = df[mask_method_reasoning].copy()
+
     plot_method_vs_dataset_heatmap(df_filtered)
     plot_syn_exp_comparison_heatmap(df_filtered)
     plot_method_variance(df_filtered)
     plot_metric_vs_f1_scatter_grid(df_filtered)
     
-    # Passing the standard_methods dataframe here so scaling includes massive _FULL graphs
-    plot_runtime_complexity(df_standard_methods)
+    # Passing df_runtime so the scaling chart includes massive _FULL graphs AND the
+    # Our Method (k=/clawback) variants that mask_method_alt excludes.
+    plot_runtime_complexity(df_runtime)
     plot_llm_zero_node_scaling(df_standard_methods)
     
     plot_f1_metric_correlation_heatmap(df_filtered)
