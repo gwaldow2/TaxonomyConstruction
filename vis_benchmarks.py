@@ -38,10 +38,14 @@ def load_and_merge_data(json_path="benchmark_results.json", csv_path="dataset_me
                 "Method": res["method"],
                 "Cond_Red_F1": res.get("Cond_Red_F1", 0),
                 "Cond_Clos_F1": res.get("Cond_Clos_F1", 0),
+                "Cond_Clos_Precision": res.get("Cond_Clos_Precision", np.nan),
+                "Cond_Clos_Recall": res.get("Cond_Clos_Recall", np.nan),
+                "Cond_Red_Precision": res.get("Cond_Red_Precision", np.nan),
+                "Cond_Red_Recall": res.get("Cond_Red_Recall", np.nan),
                 "Exp_Raw_F1": res.get("Exp_Raw_F1", 0),
                 "Exp_Clos_F1": res.get("Exp_Clos_F1", 0),
                 "Primary_F1": primary_f1,
-                "Runtime_sec": res.get("Runtime_sec", 0.0) 
+                "Runtime_sec": res.get("Runtime_sec", 0.0)
             })
     df_perf = pd.DataFrame(records)
     
@@ -805,6 +809,60 @@ def plot_clawback_comparison(df):
     plt.savefig(os.path.join(VIS_DIR, "16_precision_clawback_comparison.png"), dpi=300)
     plt.close()
 
+def plot_clawback_pr_tradeoff(df):
+    """Closure Precision / Recall / F1 vs the clawback hyperparameter, with the F1 peak.
+
+    As `suspicion_candidates` rises, clawback removes more edges: recall can only
+    fall, precision tends to rise, so F1 traces a curve with an optimum. The dashed
+    line marks the suspicion_candidates value that maximises Cond. Closure F1.
+    """
+    print(" -> Generating Precision/Recall/F1 vs clawback (peak finder)...")
+    mask = df['Method'].str.contains(r'clawback=\d+', na=False)
+    d = df[mask].copy()
+    if d.empty:
+        print("    [!] No 'clawback=' runs found. Skipping. "
+              "(python main.py --method our_method --suspicion_candidates 0 5 10 25 50)")
+        return
+    if 'Cond_Clos_Precision' not in d.columns or d['Cond_Clos_Precision'].isna().all():
+        print("    [!] Results have no closure precision/recall (older runs). Re-run main.py to record them. Skipping.")
+        return
+
+    d['suspicion_candidates'] = d['Method'].str.extract(r'clawback=(\d+)').astype(int)
+    d = d.sort_values(['Dataset_Scenario', 'suspicion_candidates'])
+
+    datasets = sorted(d['Dataset_Scenario'].unique())
+    ncols = min(3, len(datasets))
+    nrows = (len(datasets) + ncols - 1) // ncols
+    fig, axes = plt.subplots(nrows, ncols, figsize=(5.5 * ncols, 4 * nrows), squeeze=False, sharey=True)
+
+    for i, ds in enumerate(datasets):
+        ax = axes[i // ncols][i % ncols]
+        sub = d[d['Dataset_Scenario'] == ds].sort_values('suspicion_candidates')
+        x = sub['suspicion_candidates']
+        ax.plot(x, sub['Cond_Clos_Precision'], '-o', color='tab:red', markersize=5, label='Precision')
+        ax.plot(x, sub['Cond_Clos_Recall'], '-o', color='tab:blue', markersize=5, label='Recall')
+        ax.plot(x, sub['Cond_Clos_F1'], '-o', color='tab:green', markersize=5, linewidth=2.2, label='F1')
+        if sub['Cond_Clos_F1'].notna().any():
+            peak = sub.loc[sub['Cond_Clos_F1'].idxmax()]
+            ax.axvline(peak['suspicion_candidates'], ls='--', color='tab:green', alpha=0.6)
+            ax.annotate(f"peak F1={peak['Cond_Clos_F1']:.3f} @ K={int(peak['suspicion_candidates'])}",
+                        (peak['suspicion_candidates'], peak['Cond_Clos_F1']),
+                        textcoords="offset points", xytext=(4, -12), fontsize=7, color='tab:green')
+        ax.set_title(ds, fontsize=10, fontweight='bold')
+        ax.set_xlabel('suspicion_candidates (edges scrutinised)')
+        ax.set_ylim(0, 1.02)
+        ax.grid(alpha=0.25)
+
+    for j in range(len(datasets), nrows * ncols):
+        axes[j // ncols][j % ncols].axis('off')
+    axes[0][0].set_ylabel('Cond. Closure score', fontweight='bold')
+    axes[0][0].legend(fontsize=8, loc='best')
+    fig.suptitle('Precision / Recall / F1 vs precision-clawback candidates (closure)',
+                 fontsize=14, fontweight='bold')
+    plt.tight_layout(rect=[0, 0, 1, 0.96])
+    plt.savefig(os.path.join(VIS_DIR, "17_precision_clawback_pr_tradeoff.png"), dpi=300)
+    plt.close()
+
 def plot_llm_zero_node_scaling(df):
     """Plots the performance of LLM Zero-Shot on FULL datasets vs SUB datasets to assess scale impact."""
     print(" -> Generating LLM Zero-Shot Node Scaling Plots...")
@@ -968,6 +1026,7 @@ def main():
     plot_hearst_ppl_spearman(df_filtered) # We run the specific correlation scatter using the clean (filtered) dataframe
     plot_batch_size_k_comparison(df)
     plot_clawback_comparison(df)
+    plot_clawback_pr_tradeoff(df)
 
     if args.vis_graph:
         plot_graph_overlays(args.vis_graph)
