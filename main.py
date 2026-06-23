@@ -211,7 +211,11 @@ def main(args):
                 metrics = info["metrics"]
                 flat_metrics = {
                     "Cond_Red_F1": metrics["Cond_Red"]["F1"],
+                    "Cond_Red_Precision": metrics["Cond_Red"]["Precision"],
+                    "Cond_Red_Recall": metrics["Cond_Red"]["Recall"],
                     "Cond_Clos_F1": metrics["Cond_Clos"]["F1"],
+                    "Cond_Clos_Precision": metrics["Cond_Clos"]["Precision"],
+                    "Cond_Clos_Recall": metrics["Cond_Clos"]["Recall"],
                     "Exp_Raw_F1": metrics["Exp_Raw"]["F1"],
                     "Exp_Clos_F1": metrics["Exp_Clos"]["F1"],
                     "Runtime_sec": info["runtime"]
