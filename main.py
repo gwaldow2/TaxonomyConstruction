@@ -1,4 +1,5 @@
 import os
+import csv
 import argparse
 import gc
 import time
@@ -147,7 +148,7 @@ def main(args):
             print(f"  -> Running {base_label} (k={args.chunk_size}) | clawback sweep: {args.suspicion_candidates}...")
             t0 = time.time()
             # Extract ONCE, then apply precision clawback at each suspicion_candidates value.
-            graphs_by_k = method_our_approach_sweep(
+            graphs_by_k, edge_components = method_our_approach_sweep(
                 input_nodes,
                 client,
                 MODEL_NAME,
@@ -165,6 +166,24 @@ def main(args):
                     "metrics": evaluate_all_modes(G_our, G_gt, f"./results/{dataset_name_eval}_{safe_label}"),
                     "runtime": sweep_runtime
                 }
+
+            # Heuristic-informativeness diagnostics: per predicted (pre-clawback) edge,
+            # the three suspicion components + whether the edge is a false positive vs GT.
+            try:
+                from evaluator import gt_closure_term_pairs, edge_is_correct
+                gt_pairs = gt_closure_term_pairs(G_gt)
+                base_safe = base_label.replace(" ", "_").replace("(", "").replace(")", "").replace(".", "")
+                diag_path = f"./results/{dataset_name_eval}_{base_safe}_edge_diagnostics.csv"
+                with open(diag_path, "w", newline="", encoding="utf-8") as f:
+                    w = csv.writer(f)
+                    w.writerow(["dataset", "parent", "child", "leverage", "depth_skip", "votes", "is_fp"])
+                    for r in edge_components:
+                        is_fp = 0 if edge_is_correct(r["parent"], r["child"], gt_pairs) else 1
+                        w.writerow([dataset_name_eval, r["parent"], r["child"],
+                                    r["leverage"], r["depth_skip"], r["votes"], is_fp])
+                print(f"  -> wrote edge diagnostics: {diag_path} ({len(edge_components)} edges)")
+            except Exception as e:
+                print(f"  [!] edge diagnostics failed: {e}")
 
         if "taxollama" in selected_methods:
             print("  -> Precomputing TaxoLLaMA Scores...")

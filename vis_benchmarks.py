@@ -873,6 +873,69 @@ def plot_clawback_pr_tradeoff(df):
     plt.savefig(os.path.join(VIS_DIR, "17_precision_clawback_pr_tradeoff.png"), dpi=300)
     plt.close()
 
+def plot_heuristic_informativeness(results_dir="results"):
+    """Are the clawback heuristic components informative of errors?
+
+    Reads the per-edge diagnostics written by main.py (results/*_edge_diagnostics.csv:
+    leverage, depth_skip, votes, is_fp) and shows the false-positive RATE as a
+    function of each component's value. If a component is informative, the FP rate
+    departs from the overall baseline as the component changes (rises with leverage
+    / depth-skip; higher for single-vote edges). A point-biserial correlation
+    between each component and is_fp is shown as a single informativeness score.
+    """
+    print(" -> Generating Heuristic Informativeness (FP rate vs component value)...")
+    files = glob.glob(os.path.join(results_dir, "*_edge_diagnostics.csv"))
+    if not files:
+        print("    [!] No *_edge_diagnostics.csv found. Re-run main.py --method our_method to "
+              "generate them. Skipping.")
+        return
+    d = pd.concat([pd.read_csv(f) for f in files], ignore_index=True)
+    if d.empty or "is_fp" not in d.columns:
+        print("    [!] Empty / malformed diagnostics. Skipping.")
+        return
+
+    baseline = d["is_fp"].mean()
+    components = [("leverage", "Leverage", True),
+                 ("depth_skip", "Depth-skip", False),
+                 ("votes", "Self-agreement (votes)", False)]
+    fig, axes = plt.subplots(1, 3, figsize=(16, 5))
+
+    for ax, (col, title, is_continuous) in zip(axes, components):
+        sub = d[[col, "is_fp"]].dropna()
+        corr = sub[col].corr(sub["is_fp"]) if sub[col].nunique() > 1 else float("nan")
+
+        if is_continuous and sub[col].nunique() > 10:
+            q = min(10, sub[col].nunique())
+            sub = sub.copy()
+            sub["bucket"] = pd.qcut(sub[col], q=q, duplicates="drop")
+            grp = sub.groupby("bucket", observed=True)["is_fp"].agg(["mean", "size"]).reset_index()
+            xs = range(len(grp))
+            labels = [f"{int(b.left)}-{int(b.right)}" for b in grp["bucket"]]
+            ax.bar(xs, grp["mean"], color="tab:purple", alpha=0.8)
+            ax.set_xticks(list(xs))
+            ax.set_xticklabels(labels, rotation=45, ha="right", fontsize=7)
+        else:
+            grp = sub.groupby(col)["is_fp"].agg(["mean", "size"]).reset_index()
+            ax.bar(grp[col].astype(int).astype(str), grp["mean"], color="tab:purple", alpha=0.8)
+
+        # annotate per-bin support
+        for i, n in enumerate(grp["size"]):
+            ax.text(i, min(1.0, grp["mean"].iloc[i] + 0.02), f"n={int(n)}",
+                    ha="center", va="bottom", fontsize=6, color="dimgray")
+
+        ax.axhline(baseline, ls="--", color="gray", alpha=0.8, label=f"overall FP rate = {baseline:.2f}")
+        ax.set_ylim(0, 1.0)
+        ax.set_ylabel("False-positive rate")
+        ax.set_xlabel(col)
+        ax.set_title(f"{title}\npoint-biserial r = {corr:.3f}", fontsize=10, fontweight="bold")
+        ax.legend(fontsize=8)
+
+    fig.suptitle("Are the clawback heuristic components informative of errors?  "
+                 "(FP rate vs component value)", fontsize=13, fontweight="bold")
+    plt.tight_layout(rect=[0, 0, 1, 0.93])
+    plt.savefig(os.path.join(VIS_DIR, "18_heuristic_informativeness.png"), dpi=300)
+    plt.close()
+
 def plot_llm_zero_node_scaling(df):
     """Plots the performance of LLM Zero-Shot on FULL datasets vs SUB datasets to assess scale impact."""
     print(" -> Generating LLM Zero-Shot Node Scaling Plots...")
@@ -1043,6 +1106,7 @@ def main():
     plot_batch_size_k_comparison(df)
     plot_clawback_comparison(df)
     plot_clawback_pr_tradeoff(df)
+    plot_heuristic_informativeness()
 
     if args.vis_graph:
         plot_graph_overlays(args.vis_graph)

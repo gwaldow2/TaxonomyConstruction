@@ -182,6 +182,28 @@ def _pct_rank(values):
         ranks[i] = r / (n - 1)
     return ranks
 
+def edge_component_records(G, edge_votes):
+    """Per-edge values of the three suspicion-heuristic components (no ground truth).
+
+    Returns one dict per edge with the raw component values used by
+    rank_suspicious_edges -- leverage, depth_skip, votes -- so they can be paired
+    with an FP/TP label downstream to check whether each component is informative
+    of errors.
+    """
+    if G.number_of_edges() == 0:
+        return []
+    depth = _node_depths(G)
+    rows = []
+    for (a, c) in G.edges():
+        rows.append({
+            "parent": a,
+            "child": c,
+            "leverage": (len(nx.ancestors(G, a)) + 1) * (len(nx.descendants(G, c)) + 1),
+            "depth_skip": depth[c] - depth[a],
+            "votes": edge_votes.get((a, c), 1),
+        })
+    return rows
+
 def rank_suspicious_edges(G, edge_votes, w_leverage=1.0, w_depth_skip=1.0, w_agreement=1.0):
     """Order the edges of G from most to least suspicious for removal.
 
@@ -257,12 +279,17 @@ def method_our_approach(nodes, client, model_name, chunk_size=1000, max_retries=
 
 def method_our_approach_sweep(nodes, client, model_name, suspicion_candidates_list,
                               chunk_size=1000, max_retries=3, alt_prompt=False):
-    """Extract ONCE, then return {K: graph} for each K in suspicion_candidates_list.
+    """Extract ONCE, then return ({K: graph}, edge_components).
 
-    The suspicion ranking is fixed, so the top-K suspects are nested; each edge's
-    LLM verdict is computed at most once (for the largest K) and reused across all
-    sweep points. This makes a full F1-vs-K sweep cost one extraction plus
-    max(K) clawback calls -- not a re-extraction per K.
+    {K: graph} is one taxonomy per K in suspicion_candidates_list. The suspicion
+    ranking is fixed, so the top-K suspects are nested; each edge's LLM verdict is
+    computed at most once (for the largest K) and reused across all sweep points.
+    This makes a full F1-vs-K sweep cost one extraction plus max(K) clawback calls
+    -- not a re-extraction per K.
+
+    edge_components is the per-edge heuristic-component table for the BASE
+    (pre-clawback) graph (see edge_component_records); pair it with an FP/TP label
+    downstream to test whether the components are informative of errors.
     """
     final_dag, edge_votes = _extract_condensed_with_votes(
         nodes, client, model_name, chunk_size=chunk_size, max_retries=max_retries, alt_prompt=alt_prompt)
@@ -281,4 +308,4 @@ def method_our_approach_sweep(nodes, client, model_name, suspicion_candidates_li
             if verdicts.get(edge) == "SEVER" and G.has_edge(*edge):
                 G.remove_edge(*edge)
         out[K] = G
-    return out
+    return out, edge_component_records(final_dag, edge_votes)

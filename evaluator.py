@@ -3,6 +3,33 @@ import json
 import networkx as nx
 from data_manager import parse_lemma_format
 
+
+def gt_closure_term_pairs(G_gt):
+    """Set of (ancestor_term, descendant_term) over the GT transitive closure,
+    exploded across synonyms. Used to label a predicted edge correct vs. FP with
+    the same set-overlap semantics the condensed metrics use."""
+    G = G_gt
+    if "virtual_root" in G:
+        G = G.copy()
+        G.remove_node("virtual_root")
+    closure = nx.transitive_closure(G)
+    pairs = set()
+    for u, v in closure.edges():
+        for tu in parse_lemma_format(u):
+            for tv in parse_lemma_format(v):
+                pairs.add((tu, tv))
+    return pairs
+
+
+def edge_is_correct(parent, child, gt_pairs):
+    """True iff predicted edge parent->child matches some GT ancestor relation
+    (set-overlap on synonyms). Its negation is the edge's false-positive label."""
+    for tu in parse_lemma_format(parent):
+        for tv in parse_lemma_format(child):
+            if (tu, tv) in gt_pairs:
+                return True
+    return False
+
 def update_benchmark_results(dataset_name, method_name, metrics_dict, use_synsets, explode_nodes, filepath="benchmark_results.json"):
     if os.path.exists(filepath):
         with open(filepath, 'r', encoding='utf-8') as f:
