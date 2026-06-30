@@ -1068,15 +1068,28 @@ def main():
     parser = argparse.ArgumentParser(description="Taxonomy Extraction Visualizer")
     parser.add_argument("--vis_graph", type=str, default=None, help="Dataset name to visualize GT and Method overlays (e.g., WordNetFood_SUB)")
     parser.add_argument("--vis_synonym", type=str, default=None, help="Target node concept to visualize its condensed vs exploded state")
+    parser.add_argument("--results", type=str, default="benchmark_results.json",
+                        help="Results JSON to visualize. Point at a file holding only your NEW runs "
+                             "(e.g. benchmark_results_new.json) to exclude old ones.")
+    parser.add_argument("--method_filter", type=str, default=None,
+                        help="Keep only methods whose label matches this regex (e.g. 'clawback=' to use "
+                             "only clawback-era runs). Applied before every plot.")
     args = parser.parse_args()
 
-    if not os.path.exists("benchmark_results.json") or not os.path.exists("dataset_metrics.csv"):
-        print("Error: Required files 'benchmark_results.json' or 'dataset_metrics.csv' not found.")
+    if not os.path.exists(args.results) or not os.path.exists("dataset_metrics.csv"):
+        print(f"Error: Required files '{args.results}' or 'dataset_metrics.csv' not found.")
         print("Please ensure you have run both benchmark pipelines in this directory.")
         return
 
-    df = load_and_merge_data()
-    
+    df = load_and_merge_data(json_path=args.results)
+    if args.method_filter:
+        before = len(df)
+        df = df[df['Method'].str.contains(args.method_filter, regex=True, na=False)].copy()
+        print(f"[*] --method_filter '{args.method_filter}': kept {len(df)}/{before} result rows.")
+        if df.empty:
+            print("    [!] No rows matched --method_filter. Nothing to plot.")
+            return
+
     # Filter masks 
     mask_method_reasoning = ~df['Method'].str.contains(r'\[low\]|\[medium\]|\[high\]', regex=True, na=False)
     mask_method_alt = ~df['Method'].str.contains(r'alt\. Prompt|k=', regex=True, case=False, na=False)

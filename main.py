@@ -240,10 +240,11 @@ def main(args):
                     "Runtime_sec": info["runtime"]
                 }
                 update_benchmark_results(
-                    dataset_name=dataset_name_eval, method_name=method_name, 
-                    metrics_dict=flat_metrics, use_synsets=args.use_synsets, explode_nodes=args.explode_nodes
+                    dataset_name=dataset_name_eval, method_name=method_name,
+                    metrics_dict=flat_metrics, use_synsets=args.use_synsets, explode_nodes=args.explode_nodes,
+                    filepath=args.results_file
                 )
-            print("Save complete.")
+            print(f"Save complete -> {args.results_file}")
             
         gc.collect()
         if torch.cuda.is_available():
@@ -261,5 +262,8 @@ if __name__ == "__main__":
     parser.add_argument("--suspicion_candidates", nargs="+", type=int, default=[0],
                         help="Precision-clawback sweep for Our Method: number(s) of top-suspicious edges the "
                              "LLM scrutinizes for removal (0 = clawback off). Pass several to sweep, e.g. 0 5 10 25.")
+    parser.add_argument("--results_file", type=str, default="benchmark_results.json",
+                        help="Where to append results. Point new runs at a fresh file (e.g. "
+                             "benchmark_results_new.json) to keep them separate from older runs.")
     args = parser.parse_args()
     main(args)
