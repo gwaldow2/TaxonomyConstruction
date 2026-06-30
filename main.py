@@ -13,7 +13,7 @@ from data_manager import load_benchmark_graph
 from evaluator import evaluate_all_modes, update_benchmark_results
 from lexical_method import method_lexical, method_vector
 from basic_llm_method import method_llm_single_shot
-from our_method import method_our_approach, method_our_approach_sweep
+from our_method import method_our_approach, method_our_approach_sweep, PROMPT_VARIANTS
 from taxollama_method import precompute_taxollama_ppl, build_taxollama_graph
 from SBU_NLP_method import method_sbu_batch, method_sbu_embedding
 
@@ -144,46 +144,52 @@ def main(args):
             }
 
         if "our_method" in selected_methods:
-            base_label = "Our Method (alt. Prompt)" if args.alt_prompt else "Our Method"
-            print(f"  -> Running {base_label} (k={args.chunk_size}) | clawback sweep: {args.suspicion_candidates}...")
-            t0 = time.time()
-            # Extract ONCE, then apply precision clawback at each suspicion_candidates value.
-            graphs_by_k, edge_components = method_our_approach_sweep(
-                input_nodes,
-                client,
-                MODEL_NAME,
-                args.suspicion_candidates,
-                chunk_size=args.chunk_size,
-                alt_prompt=args.alt_prompt,
-            )
-            sweep_runtime = time.time() - t0
-            for K, G_our in graphs_by_k.items():
-                if "virtual_root" in G_our: G_our.remove_node("virtual_root")
-                method_label = f"{base_label} (k={args.chunk_size}, clawback={K})"
-                safe_label = (method_label.replace(" ", "_").replace("(", "").replace(")", "")
-                              .replace(".", "").replace(",", "").replace("=", ""))
-                eval_results[method_label] = {
-                    "metrics": evaluate_all_modes(G_our, G_gt, f"./results/{dataset_name_eval}_{safe_label}"),
-                    "runtime": sweep_runtime
-                }
+            # One or more prompt variants to run. Default keeps the old behaviour
+            # and labels; --prompt_variant runs the ablation set and labels "[variant]".
+            if args.prompt_variant:
+                prompt_runs = [(v, f"Our Method [{v}]") for v in args.prompt_variant]
+            else:
+                prompt_runs = [("direct" if args.alt_prompt else "full",
+                                "Our Method (alt. Prompt)" if args.alt_prompt else "Our Method")]
 
-            # Heuristic-informativeness diagnostics: per predicted (pre-clawback) edge,
-            # the three suspicion components + whether the edge is a false positive vs GT.
-            try:
-                from evaluator import gt_closure_term_pairs, edge_is_correct
-                gt_pairs = gt_closure_term_pairs(G_gt)
-                base_safe = base_label.replace(" ", "_").replace("(", "").replace(")", "").replace(".", "")
-                diag_path = f"./results/{dataset_name_eval}_{base_safe}_edge_diagnostics.csv"
-                with open(diag_path, "w", newline="", encoding="utf-8") as f:
-                    w = csv.writer(f)
-                    w.writerow(["dataset", "parent", "child", "leverage", "neighborhood_agreement", "votes", "is_fp"])
-                    for r in edge_components:
-                        is_fp = 0 if edge_is_correct(r["parent"], r["child"], gt_pairs) else 1
-                        w.writerow([dataset_name_eval, r["parent"], r["child"],
-                                    r["leverage"], r["neighborhood_agreement"], r["votes"], is_fp])
-                print(f"  -> wrote edge diagnostics: {diag_path} ({len(edge_components)} edges)")
-            except Exception as e:
-                print(f"  [!] edge diagnostics failed: {e}")
+            for variant, base_label in prompt_runs:
+                print(f"  -> Running {base_label} (k={args.chunk_size}) | clawback sweep: {args.suspicion_candidates}...")
+                t0 = time.time()
+                # Extract ONCE, then apply precision clawback at each suspicion_candidates value.
+                graphs_by_k, edge_components = method_our_approach_sweep(
+                    input_nodes, client, MODEL_NAME, args.suspicion_candidates,
+                    chunk_size=args.chunk_size, variant=variant,
+                )
+                sweep_runtime = time.time() - t0
+                for K, G_our in graphs_by_k.items():
+                    if "virtual_root" in G_our: G_our.remove_node("virtual_root")
+                    method_label = f"{base_label} (k={args.chunk_size}, clawback={K})"
+                    safe_label = (method_label.replace(" ", "_").replace("(", "").replace(")", "")
+                                  .replace(".", "").replace(",", "").replace("=", "")
+                                  .replace("[", "").replace("]", ""))
+                    eval_results[method_label] = {
+                        "metrics": evaluate_all_modes(G_our, G_gt, f"./results/{dataset_name_eval}_{safe_label}"),
+                        "runtime": sweep_runtime
+                    }
+
+                # Heuristic-informativeness diagnostics: per predicted (pre-clawback) edge,
+                # the three suspicion components + whether the edge is a false positive vs GT.
+                try:
+                    from evaluator import gt_closure_term_pairs, edge_is_correct
+                    gt_pairs = gt_closure_term_pairs(G_gt)
+                    base_safe = (base_label.replace(" ", "_").replace("(", "").replace(")", "")
+                                 .replace(".", "").replace("[", "").replace("]", ""))
+                    diag_path = f"./results/{dataset_name_eval}_{base_safe}_edge_diagnostics.csv"
+                    with open(diag_path, "w", newline="", encoding="utf-8") as f:
+                        w = csv.writer(f)
+                        w.writerow(["dataset", "parent", "child", "leverage", "neighborhood_agreement", "votes", "is_fp"])
+                        for r in edge_components:
+                            is_fp = 0 if edge_is_correct(r["parent"], r["child"], gt_pairs) else 1
+                            w.writerow([dataset_name_eval, r["parent"], r["child"],
+                                        r["leverage"], r["neighborhood_agreement"], r["votes"], is_fp])
+                    print(f"  -> wrote edge diagnostics: {diag_path} ({len(edge_components)} edges)")
+                except Exception as e:
+                    print(f"  [!] edge diagnostics failed: {e}")
 
         if "taxollama" in selected_methods:
             print("  -> Precomputing TaxoLLaMA Scores...")
@@ -258,7 +264,11 @@ if __name__ == "__main__":
     parser.add_argument("--use_synsets", action="store_true")
     parser.add_argument("--explode_nodes", action="store_true")
     parser.add_argument("--chunk_size", type=int, default=1000, help="Chunk size for Our Method.")
-    parser.add_argument("--alt_prompt", action="store_true", help="Use alternate parent-child hierarchy prompt for Our Method.")
+    parser.add_argument("--alt_prompt", action="store_true", help="Use alternate parent-child hierarchy prompt for Our Method (= --prompt_variant direct).")
+    parser.add_argument("--prompt_variant", nargs="+", default=None, choices=list(PROMPT_VARIANTS),
+                        help="Run Our Method with one or more prompt-ablation variants (overrides --alt_prompt). "
+                             "Each ablates one element of the original 'full' prompt; runs are labeled "
+                             "'Our Method [variant]'. e.g. --prompt_variant full isa no_quantifier oneway no_example no_restriction")
     parser.add_argument("--suspicion_candidates", nargs="+", type=int, default=[0],
                         help="Precision-clawback sweep for Our Method: number(s) of top-suspicious edges the "
                              "LLM scrutinizes for removal (0 = clawback off). Pass several to sweep, e.g. 0 5 10 25.")
