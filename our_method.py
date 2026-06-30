@@ -1,6 +1,6 @@
 import re
 import time
-from collections import Counter
+from collections import Counter, defaultdict
 
 import networkx as nx
 from tqdm import tqdm
@@ -50,43 +50,64 @@ def cluster_synonyms_and_enforce_dag(G):
     condensed_dag, _ = condense_synonyms(G)
     return enforce_dag(condensed_dag)
 
-def build_prompt(target_raw, candidates_chunk, alt_prompt=False):
-    """Build the per-target chunk prompt.
+# ---- Relationship-rule blocks: the line(s) that tell the model what to output ----
+def _rules_full(t):  # original "our approach": extensional subsumption, both directions
+    return (f"- If every entity labeled with '{t}' could logically also be labeled with a candidate 'C', output '{t} <= C'\n"
+            f"- If every entity labeled with a candidate 'C' could logically also be labeled with '{t}', output 'C <= {t}'\n")
 
-    The default and alternate prompts are IDENTICAL except for the single
-    relationship-request block flagged below. This is the linguistic ABLATION:
+def _rules_direct(t):  # minimal-edit alternate: direct parent/child concept (SBU-style)
+    return (f"- If a candidate 'C' is a parent concept of '{t}', output '{t} <= C'\n"
+            f"- If a candidate 'C' is a child concept of '{t}', output 'C <= {t}'\n")
 
-      * default (our approach): asks for ALL ANCESTORS via logical subsumption --
-        "every entity labeled with X could logically also be labeled with C".
-      * alternate: asks only for DIRECT parent/child connections, the way the SBU
-        batch method does -- "C is a parent / child concept of X".
+def _rules_isa(t):  # plain "is a kind of" -- relational but not extensional/instance-based
+    return (f"- If '{t}' is a kind of a candidate 'C', output '{t} <= C'\n"
+            f"- If a candidate 'C' is a kind of '{t}', output 'C <= {t}'\n")
 
-    Both prompts elicit the same 'subordinate <= superordinate' output format, so
-    everything else (instructions, example, candidate list, parsing) is shared and
-    the only variable is the linguistic framing of the relationship.
+def _rules_no_quantifier(t):  # full subsumption WITHOUT the "every entity labeled with" universal
+    return (f"- If '{t}' could logically also be labeled with a candidate 'C', output '{t} <= C'\n"
+            f"- If a candidate 'C' could logically also be labeled with '{t}', output 'C <= {t}'\n")
+
+def _rules_oneway(t):  # full subsumption but only the superclass direction
+    return (f"- If every entity labeled with '{t}' could logically also be labeled with a candidate 'C', output '{t} <= C'\n")
+
+# Each variant ablates exactly ONE element of the original ('full') prompt, so a run
+# of all of them isolates which element drives Our Method's gain.
+PROMPT_VARIANTS = {
+    "full":           {"rules": _rules_full,          "restriction": True,  "example": True},   # original (control)
+    "direct":         {"rules": _rules_direct,        "restriction": True,  "example": True},   # subsumption -> direct parent/child concept
+    "isa":            {"rules": _rules_isa,           "restriction": True,  "example": True},   # subsumption -> plain "is a kind of"
+    "no_quantifier":  {"rules": _rules_no_quantifier, "restriction": True,  "example": True},   # drop the "every entity labeled with" universal
+    "oneway":         {"rules": _rules_oneway,        "restriction": True,  "example": True},   # ask only the superclass direction
+    "no_example":     {"rules": _rules_full,          "restriction": True,  "example": False},  # remove the worked example
+    "no_restriction": {"rules": _rules_full,          "restriction": False, "example": True},   # remove the ONLY/Do-NOT scoping
+}
+
+def build_prompt(target_raw, candidates_chunk, alt_prompt=False, variant=None):
+    """Build the per-target chunk prompt for a given prompt VARIANT.
+
+    Variants are ablations of the original ('full') prompt -- each changes one
+    element so a sweep over them identifies which element matters (see
+    PROMPT_VARIANTS). `variant` overrides `alt_prompt`; `alt_prompt=True` is exactly
+    `variant='direct'`. 'full' and 'direct' reproduce the previous default and
+    alternate prompts byte-for-byte. Every variant emits the same
+    'subordinate <= superordinate' format, so parsing is shared.
     """
-    # ===== ABLATION: the ONLY text that differs between the two prompts =====
-    if alt_prompt:
-        relationship_rules = (
-            f"- If a candidate 'C' is a parent concept of '{target_raw}', output '{target_raw} <= C'\n"
-            f"- If a candidate 'C' is a child concept of '{target_raw}', output 'C <= {target_raw}'\n"
-        )
-    else:
-        relationship_rules = (
-            f"- If every entity labeled with '{target_raw}' could logically also be labeled with a candidate 'C', output '{target_raw} <= C'\n"
-            f"- If every entity labeled with a candidate 'C' could logically also be labeled with '{target_raw}', output 'C <= {target_raw}'\n"
-        )
-    # =======================================================================
+    if variant is None:
+        variant = "direct" if alt_prompt else "full"
+    spec = PROMPT_VARIANTS[variant]
     instructions = (
         f"You are identifying hierarchical relationships for the target entity: '{target_raw}'.\n"
         f"Below is a list of candidate entities. Identify any subclass or superclass relationships "
         f"between the target and the candidates.\n"
-        + relationship_rules +
-        f"ONLY output relationships involving '{target_raw}'. Do NOT output relationships between the candidates themselves. "
-        f"Output each relationship on a new line. If there are no relationships, output 'none'.\n\n"
-        f"Example: 'anucleate cell' <= 'cell'\n"
-        f"Candidates:\n"
+        + spec["rules"](target_raw)
     )
+    if spec["restriction"]:
+        instructions += (f"ONLY output relationships involving '{target_raw}'. "
+                         f"Do NOT output relationships between the candidates themselves. ")
+    instructions += "Output each relationship on a new line. If there are no relationships, output 'none'.\n\n"
+    if spec["example"]:
+        instructions += "Example: 'anucleate cell' <= 'cell'\n"
+    instructions += "Candidates:\n"
     return instructions + "\n".join([f"- {c}" for c in candidates_chunk]) + "\n\nRelationships:\n"
 
 def _llm_text(client, model_name, prompt, max_tokens, max_retries):
@@ -112,26 +133,28 @@ def _llm_text(client, model_name, prompt, max_tokens, max_retries):
             time.sleep(2)
     return ""
 
-def _extract_condensed_with_votes(nodes, client, model_name, chunk_size=1000, max_retries=3, alt_prompt=False):
+def _extract_condensed_with_votes(nodes, client, model_name, chunk_size=1000, max_retries=3,
+                                  alt_prompt=False, variant=None):
     """Run the chunked extraction and return (condensed_dag, edge_votes).
 
-    edge_votes[(parent, child)] counts how many of the (up to 2) independent
-    prompts -- one with each endpoint as the target -- asserted that edge. This
-    is the generation self-agreement signal used by the precision-clawback step.
+    edge_votes[(parent, child)] is the GENERATION SELF-AGREEMENT signal: of the
+    edge's TWO endpoints, how many -- when used as the prompt target -- asserted the
+    edge (0, 1, or 2). It is NOT a raw emission count: a relation restated within one
+    response, or several synonym members, never push it past 2.
     """
     raw_dag = nx.DiGraph()
-    raw_votes = Counter()
+    edge_targets = defaultdict(set)   # raw edge -> set of target terms that asserted it (deduped)
     primary_to_full_map = {get_primary_term(n): n for n in nodes}
     primary_nodes = list(primary_to_full_map.keys())
 
-    desc_label = "Our Method (alt. Prompt)" if alt_prompt else "Our Method"
+    desc_label = f"Our Method [{variant}]" if variant else ("Our Method (alt. Prompt)" if alt_prompt else "Our Method")
 
     for target_raw in tqdm(primary_nodes, desc=f"  -> [{desc_label}] ChunkSize={chunk_size}", leave=False):
         all_candidates = [t for t in primary_nodes if t != target_raw]
 
         for i in range(0, len(all_candidates), chunk_size):
             candidates_chunk = all_candidates[i:i + chunk_size]
-            prompt = build_prompt(target_raw, candidates_chunk, alt_prompt=alt_prompt)
+            prompt = build_prompt(target_raw, candidates_chunk, alt_prompt=alt_prompt, variant=variant)
             full_text = _llm_text(client, model_name, prompt, max_tokens=16328, max_retries=max_retries)
             if not full_text:
                 continue
@@ -146,16 +169,25 @@ def _extract_condensed_with_votes(nodes, client, model_name, chunk_size=1000, ma
                             actual_sub = primary_to_full_map[sub_raw]
                             actual_sup = primary_to_full_map[sup_raw]
                             raw_dag.add_edge(actual_sup, actual_sub)
-                            raw_votes[(actual_sup, actual_sub)] += 1
+                            edge_targets[(actual_sup, actual_sub)].add(target_raw)
 
     condensed, node_mapping = condense_synonyms(raw_dag)
     final = enforce_dag(condensed)
 
-    edge_votes = Counter()
-    for (a, c), v in raw_votes.items():
+    # Self-agreement votes (0/1/2): for each condensed edge U->W, did a target in
+    # cluster U assert it (parent side) and/or a target in cluster W (child side)?
+    edge_sides = defaultdict(set)
+    for (a, c), targets in edge_targets.items():
         u, w = node_mapping.get(a), node_mapping.get(c)
-        if u is not None and w is not None and u != w and final.has_edge(u, w):
-            edge_votes[(u, w)] += v
+        if u is None or w is None or u == w or not final.has_edge(u, w):
+            continue
+        for t in targets:
+            t_cluster = node_mapping.get(primary_to_full_map.get(t))
+            if t_cluster == u:
+                edge_sides[(u, w)].add("parent")
+            elif t_cluster == w:
+                edge_sides[(u, w)].add("child")
+    edge_votes = Counter({e: len(edge_sides.get(e, ())) for e in final.edges()})
     return final, edge_votes
 
 # ----------------------------------------------------------------------------
@@ -327,14 +359,15 @@ def precision_clawback(G, edge_votes, client, model_name, suspicion_candidates=0
     return G_out
 
 def method_our_approach(nodes, client, model_name, chunk_size=1000, max_retries=3,
-                        alt_prompt=False, suspicion_candidates=0):
+                        alt_prompt=False, suspicion_candidates=0, variant=None):
     final_dag, edge_votes = _extract_condensed_with_votes(
-        nodes, client, model_name, chunk_size=chunk_size, max_retries=max_retries, alt_prompt=alt_prompt)
+        nodes, client, model_name, chunk_size=chunk_size, max_retries=max_retries,
+        alt_prompt=alt_prompt, variant=variant)
     return precision_clawback(final_dag, edge_votes, client, model_name,
                               suspicion_candidates=suspicion_candidates, max_retries=max_retries)
 
 def method_our_approach_sweep(nodes, client, model_name, suspicion_candidates_list,
-                              chunk_size=1000, max_retries=3, alt_prompt=False):
+                              chunk_size=1000, max_retries=3, alt_prompt=False, variant=None):
     """Extract ONCE, then return ({K: graph}, edge_components).
 
     {K: graph} is one taxonomy per K in suspicion_candidates_list. The suspicion
@@ -348,7 +381,8 @@ def method_our_approach_sweep(nodes, client, model_name, suspicion_candidates_li
     downstream to test whether the components are informative of errors.
     """
     final_dag, edge_votes = _extract_condensed_with_votes(
-        nodes, client, model_name, chunk_size=chunk_size, max_retries=max_retries, alt_prompt=alt_prompt)
+        nodes, client, model_name, chunk_size=chunk_size, max_retries=max_retries,
+        alt_prompt=alt_prompt, variant=variant)
     ks = sorted({int(k) for k in suspicion_candidates_list})
     ranked = rank_suspicious_edges(final_dag, edge_votes)
 

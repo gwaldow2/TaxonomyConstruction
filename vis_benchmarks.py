@@ -627,27 +627,144 @@ def plot_reasoning_effort_comparison(df):
     plt.savefig(os.path.join(VIS_DIR, "11_reasoning_effort_comparison.png"), dpi=300)
     plt.close()
 
+import math as _math
+
+
+def _betacf(a, b, x):
+    MAXIT, EPS, FPMIN = 200, 3.0e-7, 1.0e-30
+    qab, qap, qam = a + b, a + 1.0, a - 1.0
+    c = 1.0
+    d = 1.0 - qab * x / qap
+    if abs(d) < FPMIN: d = FPMIN
+    d = 1.0 / d
+    h = d
+    for m in range(1, MAXIT + 1):
+        m2 = 2 * m
+        aa = m * (b - m) * x / ((qam + m2) * (a + m2))
+        d = 1.0 + aa * d
+        if abs(d) < FPMIN: d = FPMIN
+        c = 1.0 + aa / c
+        if abs(c) < FPMIN: c = FPMIN
+        d = 1.0 / d
+        h *= d * c
+        aa = -(a + m) * (qab + m) * x / ((a + m2) * (qap + m2))
+        d = 1.0 + aa * d
+        if abs(d) < FPMIN: d = FPMIN
+        c = 1.0 + aa / c
+        if abs(c) < FPMIN: c = FPMIN
+        d = 1.0 / d
+        de = d * c
+        h *= de
+        if abs(de - 1.0) < EPS:
+            break
+    return h
+
+
+def _betai(a, b, x):
+    """Regularized incomplete beta I_x(a,b) -- gives the Student-t CDF, no scipy needed."""
+    if x <= 0.0: return 0.0
+    if x >= 1.0: return 1.0
+    bt = _math.exp(_math.lgamma(a + b) - _math.lgamma(a) - _math.lgamma(b)
+                   + a * _math.log(x) + b * _math.log(1.0 - x))
+    if x < (a + 1.0) / (a + b + 2.0):
+        return bt * _betacf(a, b, x) / a
+    return 1.0 - bt * _betacf(b, a, 1.0 - x) / b
+
+
+def paired_ttest(diffs):
+    """Two-sided paired t-test from a list of paired differences. Returns (t, df, p)."""
+    diffs = [d for d in diffs if d == d]   # drop NaN
+    n = len(diffs)
+    if n < 2:
+        return (float("nan"), 0, float("nan"))
+    mean = sum(diffs) / n
+    var = sum((d - mean) ** 2 for d in diffs) / (n - 1)
+    if var == 0:
+        return ((float("inf") if mean != 0 else 0.0), n - 1, (0.0 if mean != 0 else 1.0))
+    t = mean / _math.sqrt(var / n)
+    df = n - 1
+    p = _betai(df / 2.0, 0.5, df / (df + t * t))
+    return (t, df, p)
+
+
+def _p_stars(p):
+    if p != p: return ""
+    return "***" if p < 0.001 else "**" if p < 0.01 else "*" if p < 0.05 else "ns"
+
+
 def plot_alt_prompt_comparison(df):
-    """Compares the standard runs against their 'alt. Prompt' counterparts."""
+    """Standard vs 'alt. Prompt' runs, with a paired t-test (by dataset) of the gap."""
     print(" -> Generating Alternate Prompt Comparison...")
-    
-    df_our = df[df['Method'].str.contains('Our Method', na=False)].copy()
+
+    # only the non-ablation Our Method runs (exclude the 'Our Method [variant]' runs)
+    df_our = df[df['Method'].str.contains('Our Method', na=False)
+                & ~df['Method'].str.contains(r'\[', regex=True, na=False)].copy()
     if df_our.empty:
         return
 
     df_our['Prompt_Type'] = df_our['Method'].apply(lambda x: 'Alternate Prompt' if 'alt. Prompt' in x else 'Standard Prompt')
-    
+
+    # paired t-test on Cond. Closure F1, matched by dataset scenario
+    piv = df_our.pivot_table(index="Dataset_Scenario", columns="Prompt_Type", values="Primary_F1", aggfunc="mean")
+    annotation = "paired t-test: need both prompt types on shared datasets"
+    if {"Standard Prompt", "Alternate Prompt"} <= set(piv.columns):
+        paired = piv[["Standard Prompt", "Alternate Prompt"]].dropna()
+        diffs = (paired["Standard Prompt"] - paired["Alternate Prompt"]).tolist()
+        t, dfree, p = paired_ttest(diffs)
+        annotation = (f"paired t-test (n={len(diffs)}): t={t:.2f}, p={p:.3g} {_p_stars(p)}   "
+                      f"mean diff (std-alt) = {(sum(diffs)/len(diffs) if diffs else float('nan')):+.4f}")
+
     plt.figure(figsize=(10, 6))
-    sns.boxplot(data=df_our, x="Prompt_Type", y="Primary_F1", palette="Set2", 
+    sns.boxplot(data=df_our, x="Prompt_Type", y="Primary_F1", palette="Set2",
                 showmeans=True, meanprops={"marker":"o","markerfacecolor":"white", "markeredgecolor":"black"})
     sns.stripplot(data=df_our, x="Prompt_Type", y="Primary_F1", color=".25", size=6, alpha=0.6, jitter=True)
-    
-    plt.title("Effect of Prompting Style: Standard vs Alternate Prompting", pad=20, fontsize=14, fontweight='bold')
+
+    plt.title(f"Effect of Prompting Style: Standard vs Alternate Prompting\n{annotation}",
+              pad=20, fontsize=13, fontweight='bold')
     plt.ylabel("Cond Closure F1", fontweight='bold')
     plt.xlabel("Prompt Type", fontweight='bold')
-    
+
     plt.tight_layout()
     plt.savefig(os.path.join(VIS_DIR, "13_alt_prompt_comparison.png"), dpi=300)
+    plt.close()
+
+
+def plot_prompt_ablation(df):
+    """Cond. Closure F1 per prompt-ablation variant ('Our Method [variant]'), with a
+    paired t-test of each variant vs 'full' to identify which prompt element matters."""
+    print(" -> Generating Prompt Ablation Comparison...")
+    dfv = df[df['Method'].str.contains(r'Our Method \[', regex=True, na=False)].copy()
+    if dfv.empty:
+        print("    [!] No 'Our Method [variant]' runs found. Produce them with "
+              "main.py --method our_method --prompt_variant full isa no_quantifier oneway no_example no_restriction")
+        return
+    dfv['Variant'] = dfv['Method'].str.extract(r'\[([^\]]+)\]')
+    order = (['full'] if 'full' in set(dfv['Variant']) else []) + sorted(v for v in dfv['Variant'].unique() if v != 'full')
+    piv = dfv.pivot_table(index="Dataset_Scenario", columns="Variant", values="Primary_F1", aggfunc="mean")
+
+    plt.figure(figsize=(max(8, len(order) * 1.7), 6))
+    sns.boxplot(data=dfv, x="Variant", y="Primary_F1", order=order, palette="Set3",
+                showmeans=True, meanprops={"marker":"o","markerfacecolor":"white", "markeredgecolor":"black"})
+    sns.stripplot(data=dfv, x="Variant", y="Primary_F1", order=order, color=".25", size=5, alpha=0.6, jitter=True)
+
+    if 'full' in piv.columns:
+        ymax = float(dfv["Primary_F1"].max())
+        for i, v in enumerate(order):
+            if v == 'full' or v not in piv.columns:
+                continue
+            paired = piv[['full', v]].dropna()
+            diffs = (paired['full'] - paired[v]).tolist()
+            t, dfree, p = paired_ttest(diffs)
+            plt.text(i, min(1.0, ymax + 0.02), f"vs full\np={p:.2g}\n{_p_stars(p)}",
+                     ha='center', va='bottom', fontsize=7, color='dimgray')
+
+    plt.title("Prompt Ablation: Cond. Closure F1 by variant (each removes one element of 'full')\n"
+              "paired t-test vs 'full' annotated above each box", pad=24, fontsize=13, fontweight='bold')
+    plt.ylabel("Cond Closure F1", fontweight='bold')
+    plt.xlabel("Prompt variant (ablation)", fontweight='bold')
+    plt.ylim(0, 1.12)
+    plt.tight_layout()
+    plt.savefig(os.path.join(VIS_DIR, "19_prompt_ablation.png"), dpi=300)
     plt.close()
 
 def plot_hearst_ppl_spearman(df):
@@ -1124,6 +1241,7 @@ def main():
     # Run the new specific analyses using subsets from the unfiltered dataframe
     plot_reasoning_effort_comparison(df)
     plot_alt_prompt_comparison(df)
+    plot_prompt_ablation(df)
     plot_hearst_ppl_spearman(df_filtered) # We run the specific correlation scatter using the clean (filtered) dataframe
     plot_batch_size_k_comparison(df)
     plot_clawback_comparison(df)
