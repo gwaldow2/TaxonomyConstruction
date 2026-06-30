@@ -994,13 +994,15 @@ def plot_heuristic_informativeness(results_dir="results"):
     """Are the clawback heuristic components informative of errors?
 
     Reads the per-edge diagnostics written by main.py (results/*_edge_diagnostics.csv:
-    leverage, neighborhood_agreement, votes, is_fp) and shows the false-positive RATE
-    as a function of each component's value. If a component is informative, the FP
-    rate departs from the overall baseline as the component changes -- it should RISE
-    with leverage, and FALL with neighborhood_agreement and with the vote count
-    (well-corroborated edges are less often wrong). The point-biserial correlation
-    between each component and is_fp is shown as a single informativeness score
-    (positive for leverage; negative for neighborhood_agreement / votes).
+    leverage, neighborhood_agreement, votes, salience, is_fp) and shows the
+    false-positive RATE as a function of each component's value. If a component is
+    informative, the FP rate departs from the overall baseline as the component
+    changes -- it should RISE with leverage, and FALL with neighborhood_agreement,
+    the vote count, and salience (well-corroborated / often-asserted edges are less
+    often wrong). The point-biserial correlation between each component and is_fp is
+    shown as a single informativeness score (positive for leverage; negative for
+    neighborhood_agreement / votes / salience). Salience (the unbounded
+    assertion-frequency signal) is shown only if the diagnostics include it.
     """
     print(" -> Generating Heuristic Informativeness (FP rate vs component value)...")
     files = glob.glob(os.path.join(results_dir, "*_edge_diagnostics.csv"))
@@ -1017,8 +1019,12 @@ def plot_heuristic_informativeness(results_dir="results"):
     # (column, title, binning mode)
     components = [("leverage", "Leverage", "qcut"),
                  ("neighborhood_agreement", "Neighborhood agreement", "ratio"),
-                 ("votes", "Self-agreement (votes)", "discrete")]
-    fig, axes = plt.subplots(1, 3, figsize=(16, 5))
+                 ("votes", "Self-agreement (votes)", "discrete"),
+                 ("salience", "Salience (# assertions)", "qcut")]
+    components = [c for c in components if c[0] in d.columns]   # salience only if present
+    ncol = len(components)
+    fig, axes = plt.subplots(1, ncol, figsize=(5.3 * ncol, 5), squeeze=False)
+    axes = axes[0]
 
     for ax, (col, title, mode) in zip(axes, components):
         if col not in d.columns or d[col].dropna().empty:

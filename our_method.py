@@ -110,9 +110,13 @@ def build_prompt(target_raw, candidates_chunk, alt_prompt=False, variant=None):
     instructions += "Candidates:\n"
     return instructions + "\n".join([f"- {c}" for c in candidates_chunk]) + "\n\nRelationships:\n"
 
-def _llm_text(client, model_name, prompt, max_tokens, max_retries):
-    """Single chat completion -> concatenated (reasoning + content), with retries.
-    Returns "" if it never produced text."""
+def _llm_call(client, model_name, prompt, max_tokens, max_retries):
+    """One chat completion -> (content, reasoning), with retries.
+
+    Keeps the committed final answer (``content``) and the model's scratchpad
+    (``reasoning``) SEPARATE so callers can prefer the answer. Returns ("","") if it
+    never produced text.
+    """
     for attempt in range(max_retries):
         try:
             response = client.chat.completions.create(
@@ -122,28 +126,54 @@ def _llm_text(client, model_name, prompt, max_tokens, max_retries):
                 max_tokens=max_tokens,
             )
             message = response.choices[0].message
-            content = getattr(message, 'content', '') or ""
-            reasoning = getattr(message, 'reasoning', '') or getattr(message, 'reasoning_content', '') or ""
-            text = (str(reasoning) + "\n" + str(content)).strip()
-            if text:
-                return text
+            content = str(getattr(message, 'content', '') or "")
+            reasoning = str(getattr(message, 'reasoning', '') or getattr(message, 'reasoning_content', '') or "")
+            if content.strip() or reasoning.strip():
+                return content, reasoning
         except Exception:
             pass
         if attempt < max_retries - 1:
             time.sleep(2)
-    return ""
+    return "", ""
+
+def _llm_text(client, model_name, prompt, max_tokens, max_retries):
+    """Concatenated (reasoning + content) text -- used by edge scrutiny."""
+    content, reasoning = _llm_call(client, model_name, prompt, max_tokens, max_retries)
+    return (reasoning + "\n" + content).strip()
+
+def _parse_relations(text, primary_to_full_map):
+    """Parse 'sub <= sup' lines into a list of (parent, child) edges (with repeats)."""
+    out = []
+    for line in text.lower().split('\n'):
+        if '<=' in line:
+            parts = line.split('<=')
+            if len(parts) == 2:
+                sub_raw = parts[0].strip().strip("-'\" ")
+                sup_raw = parts[1].strip().strip("-'\" ")
+                if sub_raw in primary_to_full_map and sup_raw in primary_to_full_map:
+                    out.append((primary_to_full_map[sup_raw], primary_to_full_map[sub_raw]))
+    return out
 
 def _extract_condensed_with_votes(nodes, client, model_name, chunk_size=1000, max_retries=3,
                                   alt_prompt=False, variant=None):
-    """Run the chunked extraction and return (condensed_dag, edge_votes).
+    """Run the chunked extraction and return (condensed_dag, edge_votes, edge_salience).
+
+    The GRAPH is built from the model's COMMITTED final answer (``content``); the
+    reasoning scratchpad is used only as a fallback when the answer parsed no edges,
+    so edges the model merely considered and discarded don't enter the taxonomy.
 
     edge_votes[(parent, child)] is the GENERATION SELF-AGREEMENT signal: of the
     edge's TWO endpoints, how many -- when used as the prompt target -- asserted the
-    edge (0, 1, or 2). It is NOT a raw emission count: a relation restated within one
-    response, or several synonym members, never push it past 2.
+    edge (0, 1, or 2). It is NOT an emission count: repeats or synonym members never
+    push it past 2.
+
+    edge_salience[(parent, child)] is a separate, richer signal: how many times the
+    edge was asserted ANYWHERE in the responses (committed answer + reasoning). This
+    is unbounded; it is reported as a diagnostic feature, not used by the heuristic.
     """
     raw_dag = nx.DiGraph()
     edge_targets = defaultdict(set)   # raw edge -> set of target terms that asserted it (deduped)
+    raw_salience = Counter()          # raw edge -> total assertions across answer + reasoning
     primary_to_full_map = {get_primary_term(n): n for n in nodes}
     primary_nodes = list(primary_to_full_map.keys())
 
@@ -155,21 +185,21 @@ def _extract_condensed_with_votes(nodes, client, model_name, chunk_size=1000, ma
         for i in range(0, len(all_candidates), chunk_size):
             candidates_chunk = all_candidates[i:i + chunk_size]
             prompt = build_prompt(target_raw, candidates_chunk, alt_prompt=alt_prompt, variant=variant)
-            full_text = _llm_text(client, model_name, prompt, max_tokens=16328, max_retries=max_retries)
-            if not full_text:
+            content, reasoning = _llm_call(client, model_name, prompt, max_tokens=16328, max_retries=max_retries)
+            if not (content or reasoning):
                 continue
 
-            for line in full_text.lower().split('\n'):
-                if '<=' in line:
-                    parts = line.split('<=')
-                    if len(parts) == 2:
-                        sub_raw = parts[0].strip().strip("-'\" ")
-                        sup_raw = parts[1].strip().strip("-'\" ")
-                        if sub_raw in primary_to_full_map and sup_raw in primary_to_full_map:
-                            actual_sub = primary_to_full_map[sub_raw]
-                            actual_sup = primary_to_full_map[sup_raw]
-                            raw_dag.add_edge(actual_sup, actual_sub)
-                            edge_targets[(actual_sup, actual_sub)].add(target_raw)
+            committed = _parse_relations(content, primary_to_full_map)
+            deliberated = _parse_relations(reasoning, primary_to_full_map)
+            # Graph + votes from the COMMITTED answer; fall back to the scratchpad only
+            # if the answer itself parsed no edges.
+            graph_edges = committed if committed else deliberated
+            for (sup, sub) in graph_edges:
+                raw_dag.add_edge(sup, sub)
+                edge_targets[(sup, sub)].add(target_raw)
+            # Salience counts every assertion anywhere in the response.
+            for (sup, sub) in committed + deliberated:
+                raw_salience[(sup, sub)] += 1
 
     condensed, node_mapping = condense_synonyms(raw_dag)
     final = enforce_dag(condensed)
@@ -188,7 +218,13 @@ def _extract_condensed_with_votes(nodes, client, model_name, chunk_size=1000, ma
             elif t_cluster == w:
                 edge_sides[(u, w)].add("child")
     edge_votes = Counter({e: len(edge_sides.get(e, ())) for e in final.edges()})
-    return final, edge_votes
+
+    edge_salience = Counter()
+    for (a, c), cnt in raw_salience.items():
+        u, w = node_mapping.get(a), node_mapping.get(c)
+        if u is not None and w is not None and u != w and final.has_edge(u, w):
+            edge_salience[(u, w)] += cnt
+    return final, edge_votes, edge_salience
 
 # ----------------------------------------------------------------------------
 # Precision clawback
@@ -206,13 +242,13 @@ def _pct_rank(values):
         ranks[i] = r / (n - 1)
     return ranks
 
-def edge_component_records(G, edge_votes):
-    """Per-edge values of the three suspicion-heuristic components (no ground truth).
+def edge_component_records(G, edge_votes, edge_salience=None):
+    """Per-edge values of the suspicion-heuristic components (no ground truth).
 
     Returns one dict per edge with the raw component values used by
-    rank_suspicious_edges -- leverage, neighborhood_agreement, votes -- so they can
-    be paired with an FP/TP label downstream to check whether each component is
-    informative of errors.
+    rank_suspicious_edges -- leverage, neighborhood_agreement, votes -- plus
+    salience (a diagnostic-only feature), so they can be paired with an FP/TP label
+    downstream to check whether each is informative of errors.
 
       * leverage               -- (|ancestors(a)|+1)*(|descendants(c)|+1): closure
                                   pairs that route through the edge.
@@ -226,7 +262,9 @@ def edge_component_records(G, edge_votes):
                                   => suspicious. Leaf children (no descendants)
                                   score 1.0 (nothing to corroborate).
       * votes                  -- how many of the two endpoint prompts asserted the
-                                  edge (generation self-agreement).
+                                  edge (generation self-agreement; 0/1/2).
+      * salience               -- total assertions of the edge across answer +
+                                  reasoning (unbounded; diagnostic only).
     """
     if G.number_of_edges() == 0:
         return []
@@ -247,6 +285,7 @@ def edge_component_records(G, edge_votes):
             "leverage": leverage,
             "neighborhood_agreement": neighborhood,
             "votes": edge_votes.get((a, c), 1),
+            "salience": (edge_salience.get((a, c), 0) if edge_salience is not None else 0),
         })
     return rows
 
@@ -360,7 +399,7 @@ def precision_clawback(G, edge_votes, client, model_name, suspicion_candidates=0
 
 def method_our_approach(nodes, client, model_name, chunk_size=1000, max_retries=3,
                         alt_prompt=False, suspicion_candidates=0, variant=None):
-    final_dag, edge_votes = _extract_condensed_with_votes(
+    final_dag, edge_votes, _ = _extract_condensed_with_votes(
         nodes, client, model_name, chunk_size=chunk_size, max_retries=max_retries,
         alt_prompt=alt_prompt, variant=variant)
     return precision_clawback(final_dag, edge_votes, client, model_name,
@@ -380,7 +419,7 @@ def method_our_approach_sweep(nodes, client, model_name, suspicion_candidates_li
     (pre-clawback) graph (see edge_component_records); pair it with an FP/TP label
     downstream to test whether the components are informative of errors.
     """
-    final_dag, edge_votes = _extract_condensed_with_votes(
+    final_dag, edge_votes, edge_salience = _extract_condensed_with_votes(
         nodes, client, model_name, chunk_size=chunk_size, max_retries=max_retries,
         alt_prompt=alt_prompt, variant=variant)
     ks = sorted({int(k) for k in suspicion_candidates_list})
@@ -398,4 +437,4 @@ def method_our_approach_sweep(nodes, client, model_name, suspicion_candidates_li
             if verdicts.get(edge) == "SEVER" and G.has_edge(*edge):
                 G.remove_edge(*edge)
         out[K] = G
-    return out, edge_component_records(final_dag, edge_votes)
+    return out, edge_component_records(final_dag, edge_votes, edge_salience)

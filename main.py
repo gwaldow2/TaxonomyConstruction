@@ -182,11 +182,11 @@ def main(args):
                     diag_path = f"./results/{dataset_name_eval}_{base_safe}_edge_diagnostics.csv"
                     with open(diag_path, "w", newline="", encoding="utf-8") as f:
                         w = csv.writer(f)
-                        w.writerow(["dataset", "parent", "child", "leverage", "neighborhood_agreement", "votes", "is_fp"])
+                        w.writerow(["dataset", "parent", "child", "leverage", "neighborhood_agreement", "votes", "salience", "is_fp"])
                         for r in edge_components:
                             is_fp = 0 if edge_is_correct(r["parent"], r["child"], gt_pairs) else 1
                             w.writerow([dataset_name_eval, r["parent"], r["child"],
-                                        r["leverage"], r["neighborhood_agreement"], r["votes"], is_fp])
+                                        r["leverage"], r["neighborhood_agreement"], r["votes"], r.get("salience", 0), is_fp])
                     print(f"  -> wrote edge diagnostics: {diag_path} ({len(edge_components)} edges)")
                 except Exception as e:
                     print(f"  [!] edge diagnostics failed: {e}")
