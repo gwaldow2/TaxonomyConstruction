@@ -582,6 +582,13 @@ def make_plots(summary, hop_df, syn_by_count, out_dir, min_support=20, synonym_m
             if not faint.empty:
                 ax1.plot(faint["hop_distance"], faint["recall"], ":", color=color, alpha=0.35, zorder=2)
 
+        # Force an integer x-axis starting at hop 1 so the direct-edge bucket is
+        # always an explicit, labelled tick (never clipped or auto-hidden).
+        hops_present = [int(h) for h in pooled["hop_distance"].unique()]
+        if hops_present:
+            hi = max(hops_present)
+            ax1.set_xlim(0.5, hi + 0.5)
+            ax1.set_xticks(range(1, hi + 1))
         ax1.set_xlabel("GT hop-distance  (1 = direct parent->child;  >=2 = indirect ancestor)")
         ax1.set_ylabel("Edge recall (edge-weighted, pooled)")
         ax1.set_ylim(0, 1.02)

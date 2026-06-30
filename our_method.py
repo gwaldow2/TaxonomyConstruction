@@ -252,14 +252,60 @@ def _decide_sever(text):
     tokens = re.findall(r'\b(keep|sever)\b', text.lower())
     return bool(tokens) and tokens[-1] == 'sever'
 
-def scrutinize_edge(client, model_name, parent, child, max_retries=3, max_tokens=4096):
-    """Ask the LLM to briefly reason about a single is-a edge and return 'KEEP'/'SEVER'."""
-    p_disp = get_primary_term(parent)
-    c_disp = get_primary_term(child)
+def _scrutiny_context(G, parent, child, max_items=6):
+    """Neighbor-context lines + explicit 'neighborhood disagreement' statements for
+    the edge parent -> child, to ground the LLM's audit in local structure."""
+    P, C = get_primary_term(parent), get_primary_term(child)
+
+    def _join(nodes):
+        names = [get_primary_term(n) for n in nodes]
+        shown = ", ".join(f"'{n}'" for n in names[:max_items])
+        return shown + (f", ... (+{len(names) - max_items} more)" if len(names) > max_items else "")
+
+    parent_parents = list(G.predecessors(parent))
+    parent_children = [n for n in G.successors(parent) if n != child]
+    child_parents = [n for n in G.predecessors(child) if n != parent]
+    child_children = list(G.successors(child))
+
+    lines = []
+    if parent_parents:  lines.append(f"- '{P}' is a kind of: {_join(parent_parents)}.")
+    if parent_children: lines.append(f"- '{P}' is also a parent of: {_join(parent_children)}.")
+    if child_parents:   lines.append(f"- '{C}' is also a kind of: {_join(child_parents)}.")
+    if child_children:  lines.append(f"- '{C}' is a parent of: {_join(child_children)}.")
+
+    # Neighborhood disagreements: direct children d of child that do NOT independently
+    # link back to parent (no raw edge parent -> d), stated as the heuristic sees them.
+    inconsistencies = []
+    for d in G.successors(child):
+        if not G.has_edge(parent, d):
+            inconsistencies.append(
+                f"- You said '{P}' -> '{C}' and '{C}' -> '{get_primary_term(d)}', "
+                f"but you did not say '{P}' -> '{get_primary_term(d)}'.")
+        if len(inconsistencies) >= max_items:
+            break
+    return lines, inconsistencies
+
+def scrutinize_edge(client, model_name, parent, child, G=None, max_retries=3, max_tokens=4096):
+    """Ask the LLM to briefly reason about a single is-a edge and return 'KEEP'/'SEVER'.
+
+    If the predicted graph G is given, the prompt includes local neighbor context
+    around both endpoints and any 'neighborhood disagreements' -- descendants of the
+    child that do not independently link back to the parent -- stated explicitly.
+    """
+    P, C = get_primary_term(parent), get_primary_term(child)
+    context_block = ""
+    if G is not None and G.has_node(parent) and G.has_node(child):
+        lines, inconsistencies = _scrutiny_context(G, parent, child)
+        if lines:
+            context_block += "\nNeighborhood:\n" + "\n".join(lines) + "\n"
+        context_block += ("\nInconsistencies:\n"
+                          + ("\n".join(inconsistencies) if inconsistencies else "- none") + "\n")
     prompt = (
         f"You are auditing one is-a edge in a taxonomy.\n"
-        f"Proposed relationship: '{c_disp}' is a kind of '{p_disp}'.\n"
-        f"Briefly reason (1-2 sentences) about whether every '{c_disp}' is necessarily a type of '{p_disp}'.\n"
+        f"Proposed relationship: '{C}' is a kind of '{P}'.\n"
+        f"{context_block}"
+        f"\nTaking the neighborhood and any inconsistencies above into account, briefly reason "
+        f"(1-2 sentences) about whether every '{C}' is necessarily a type of '{P}'.\n"
         f"Then, on a new FINAL line, output exactly one word: "
         f"KEEP if the relationship is valid, or SEVER if it is incorrect and should be removed."
     )
@@ -276,7 +322,7 @@ def precision_clawback(G, edge_votes, client, model_name, suspicion_candidates=0
     ranked = rank_suspicious_edges(G, edge_votes)
     G_out = G.copy()
     for (a, c) in ranked[:suspicion_candidates]:
-        if scrutinize_edge(client, model_name, a, c, max_retries=max_retries) == "SEVER" and G_out.has_edge(a, c):
+        if scrutinize_edge(client, model_name, a, c, G, max_retries=max_retries) == "SEVER" and G_out.has_edge(a, c):
             G_out.remove_edge(a, c)
     return G_out
 
@@ -309,7 +355,7 @@ def method_our_approach_sweep(nodes, client, model_name, suspicion_candidates_li
     kmax = max(ks) if ks else 0
     verdicts = {}
     for (a, c) in ranked[:kmax]:
-        verdicts[(a, c)] = scrutinize_edge(client, model_name, a, c, max_retries=max_retries)
+        verdicts[(a, c)] = scrutinize_edge(client, model_name, a, c, final_dag, max_retries=max_retries)
 
     out = {}
     for K in ks:
