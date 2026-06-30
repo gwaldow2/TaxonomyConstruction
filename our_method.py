@@ -161,14 +161,6 @@ def _extract_condensed_with_votes(nodes, client, model_name, chunk_size=1000, ma
 # ----------------------------------------------------------------------------
 # Precision clawback
 # ----------------------------------------------------------------------------
-def _node_depths(G):
-    """Longest-path depth of each node from a root (0 for roots)."""
-    depth = {}
-    for n in nx.topological_sort(G):
-        preds = list(G.predecessors(n))
-        depth[n] = 0 if not preds else 1 + max(depth[p] for p in preds)
-    return depth
-
 def _pct_rank(values):
     """Map values to percentile ranks in [0, 1] (largest value -> 1.0)."""
     n = len(values)
@@ -186,54 +178,72 @@ def edge_component_records(G, edge_votes):
     """Per-edge values of the three suspicion-heuristic components (no ground truth).
 
     Returns one dict per edge with the raw component values used by
-    rank_suspicious_edges -- leverage, depth_skip, votes -- so they can be paired
-    with an FP/TP label downstream to check whether each component is informative
-    of errors.
+    rank_suspicious_edges -- leverage, neighborhood_agreement, votes -- so they can
+    be paired with an FP/TP label downstream to check whether each component is
+    informative of errors.
+
+      * leverage               -- (|ancestors(a)|+1)*(|descendants(c)|+1): closure
+                                  pairs that route through the edge.
+      * neighborhood_agreement -- of c's descendants, the fraction that ALSO have a
+                                  raw edge directly from a. If a->c is a real
+                                  ancestor relation then every descendant of c is
+                                  also a descendant of a, and (since the method
+                                  emits ancestor edges directly) a well-supported
+                                  edge has many of them link straight back to a.
+                                  Few/none agreeing => structurally uncorroborated
+                                  => suspicious. Leaf children (no descendants)
+                                  score 1.0 (nothing to corroborate).
+      * votes                  -- how many of the two endpoint prompts asserted the
+                                  edge (generation self-agreement).
     """
     if G.number_of_edges() == 0:
         return []
-    depth = _node_depths(G)
+    closure = nx.transitive_closure(G)
     rows = []
     for (a, c) in G.edges():
+        n_anc = len(list(closure.predecessors(a)))
+        descendants_c = list(closure.successors(c))
+        leverage = (n_anc + 1) * (len(descendants_c) + 1)
+        if descendants_c:
+            agree = sum(1 for d in descendants_c if G.has_edge(a, d))
+            neighborhood = agree / len(descendants_c)
+        else:
+            neighborhood = 1.0   # leaf child: no neighborhood to corroborate
         rows.append({
             "parent": a,
             "child": c,
-            "leverage": (len(nx.ancestors(G, a)) + 1) * (len(nx.descendants(G, c)) + 1),
-            "depth_skip": depth[c] - depth[a],
+            "leverage": leverage,
+            "neighborhood_agreement": neighborhood,
             "votes": edge_votes.get((a, c), 1),
         })
     return rows
 
-def rank_suspicious_edges(G, edge_votes, w_leverage=1.0, w_depth_skip=1.0, w_agreement=1.0):
+def rank_suspicious_edges(G, edge_votes, w_leverage=1.0, w_neighborhood=1.0, w_agreement=1.0):
     """Order the edges of G from most to least suspicious for removal.
 
     Combines three GT-free heuristics (each a positive 'suspicion' contribution):
-      * leverage   -- (|ancestors(a)|+1)*(|descendants(c)|+1): closure pairs that
-                      route through the edge. A wrong high-leverage edge is what
-                      damages closure precision the most.
-      * depth_skip -- depth(c) - depth(a): how many hierarchy levels the edge spans
-                      (over-generalisation candidates skip many levels).
-      * agreement  -- edges asserted by only ONE of the two endpoint prompts (a
-                      single generation vote) are weakly corroborated -> suspicious.
+      * leverage     -- (|ancestors(a)|+1)*(|descendants(c)|+1): closure pairs that
+                        route through the edge. A wrong high-leverage edge is what
+                        damages closure precision the most.
+      * neighborhood -- 1 - neighborhood_agreement: an edge a->c whose descendants
+                        do NOT independently link back to a is structurally
+                        uncorroborated, hence suspicious.
+      * agreement    -- edges asserted by only ONE of the two endpoint prompts (a
+                        single generation vote) are weakly corroborated -> suspicious.
 
-    leverage and depth_skip are percentile-normalised so they are comparable; the
-    agreement term is 1.0 for single-vote edges, else 0.0.
+    leverage is percentile-normalised; neighborhood disagreement (1 - agreement)
+    and the single-vote bonus are already in [0, 1].
     """
-    edges = list(G.edges())
-    if not edges:
+    records = edge_component_records(G, edge_votes)
+    if not records:
         return []
-    depth = _node_depths(G)
-    leverage = [(len(nx.ancestors(G, a)) + 1) * (len(nx.descendants(G, c)) + 1) for a, c in edges]
-    depth_skip = [depth[c] - depth[a] for a, c in edges]
-    lev_p = _pct_rank(leverage)
-    skip_p = _pct_rank(depth_skip)
-
+    lev_p = _pct_rank([r["leverage"] for r in records])
     scored = []
-    for idx, (a, c) in enumerate(edges):
-        votes = edge_votes.get((a, c), 1)
-        low_agreement = 1.0 if votes <= 1 else 0.0
-        score = w_leverage * lev_p[idx] + w_depth_skip * skip_p[idx] + w_agreement * low_agreement
-        scored.append((score, (a, c)))
+    for idx, r in enumerate(records):
+        low_agreement = 1.0 if r["votes"] <= 1 else 0.0
+        disagreement = 1.0 - r["neighborhood_agreement"]
+        score = w_leverage * lev_p[idx] + w_neighborhood * disagreement + w_agreement * low_agreement
+        scored.append((score, (r["parent"], r["child"])))
     scored.sort(key=lambda x: x[0], reverse=True)
     return [edge for _, edge in scored]
 
