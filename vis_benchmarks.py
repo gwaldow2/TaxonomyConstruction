@@ -877,11 +877,13 @@ def plot_heuristic_informativeness(results_dir="results"):
     """Are the clawback heuristic components informative of errors?
 
     Reads the per-edge diagnostics written by main.py (results/*_edge_diagnostics.csv:
-    leverage, depth_skip, votes, is_fp) and shows the false-positive RATE as a
-    function of each component's value. If a component is informative, the FP rate
-    departs from the overall baseline as the component changes (rises with leverage
-    / depth-skip; higher for single-vote edges). A point-biserial correlation
-    between each component and is_fp is shown as a single informativeness score.
+    leverage, neighborhood_agreement, votes, is_fp) and shows the false-positive RATE
+    as a function of each component's value. If a component is informative, the FP
+    rate departs from the overall baseline as the component changes -- it should RISE
+    with leverage, and FALL with neighborhood_agreement and with the vote count
+    (well-corroborated edges are less often wrong). The point-biserial correlation
+    between each component and is_fp is shown as a single informativeness score
+    (positive for leverage; negative for neighborhood_agreement / votes).
     """
     print(" -> Generating Heuristic Informativeness (FP rate vs component value)...")
     files = glob.glob(os.path.join(results_dir, "*_edge_diagnostics.csv"))
@@ -895,33 +897,40 @@ def plot_heuristic_informativeness(results_dir="results"):
         return
 
     baseline = d["is_fp"].mean()
-    components = [("leverage", "Leverage", True),
-                 ("depth_skip", "Depth-skip", False),
-                 ("votes", "Self-agreement (votes)", False)]
+    # (column, title, binning mode)
+    components = [("leverage", "Leverage", "qcut"),
+                 ("neighborhood_agreement", "Neighborhood agreement", "ratio"),
+                 ("votes", "Self-agreement (votes)", "discrete")]
     fig, axes = plt.subplots(1, 3, figsize=(16, 5))
 
-    for ax, (col, title, is_continuous) in zip(axes, components):
-        sub = d[[col, "is_fp"]].dropna()
+    for ax, (col, title, mode) in zip(axes, components):
+        if col not in d.columns or d[col].dropna().empty:
+            ax.set_title(f"{title}\n(no data)", fontsize=10, fontweight="bold")
+            ax.axis("off")
+            continue
+        sub = d[[col, "is_fp"]].dropna().copy()
         corr = sub[col].corr(sub["is_fp"]) if sub[col].nunique() > 1 else float("nan")
 
-        if is_continuous and sub[col].nunique() > 10:
+        if mode == "qcut" and sub[col].nunique() > 1:
             q = min(10, sub[col].nunique())
-            sub = sub.copy()
             sub["bucket"] = pd.qcut(sub[col], q=q, duplicates="drop")
             grp = sub.groupby("bucket", observed=True)["is_fp"].agg(["mean", "size"]).reset_index()
-            xs = range(len(grp))
             labels = [f"{int(b.left)}-{int(b.right)}" for b in grp["bucket"]]
-            ax.bar(xs, grp["mean"], color="tab:purple", alpha=0.8)
-            ax.set_xticks(list(xs))
-            ax.set_xticklabels(labels, rotation=45, ha="right", fontsize=7)
-        else:
+        elif mode == "ratio":
+            sub["bucket"] = pd.cut(sub[col], bins=[0, 0.2, 0.4, 0.6, 0.8, 1.0], include_lowest=True)
+            grp = sub.groupby("bucket", observed=False)["is_fp"].agg(["mean", "size"]).reset_index()
+            grp = grp[grp["size"] > 0].reset_index(drop=True)
+            labels = [f"{max(0.0, b.left):.1f}-{b.right:.1f}" for b in grp["bucket"]]
+        else:  # discrete
             grp = sub.groupby(col)["is_fp"].agg(["mean", "size"]).reset_index()
-            ax.bar(grp[col].astype(int).astype(str), grp["mean"], color="tab:purple", alpha=0.8)
+            labels = [str(int(v)) for v in grp[col]]
 
-        # annotate per-bin support
-        for i, n in enumerate(grp["size"]):
-            ax.text(i, min(1.0, grp["mean"].iloc[i] + 0.02), f"n={int(n)}",
-                    ha="center", va="bottom", fontsize=6, color="dimgray")
+        xs = list(range(len(grp)))
+        ax.bar(xs, grp["mean"].values, color="tab:purple", alpha=0.8)
+        ax.set_xticks(xs)
+        ax.set_xticklabels(labels, rotation=45, ha="right", fontsize=7)
+        for i, (m, n) in enumerate(zip(grp["mean"].values, grp["size"].values)):
+            ax.text(i, min(1.0, m + 0.02), f"n={int(n)}", ha="center", va="bottom", fontsize=6, color="dimgray")
 
         ax.axhline(baseline, ls="--", color="gray", alpha=0.8, label=f"overall FP rate = {baseline:.2f}")
         ax.set_ylim(0, 1.0)

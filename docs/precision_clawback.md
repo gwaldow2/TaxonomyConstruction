@@ -27,22 +27,29 @@ For each edge `a → c` in the predicted DAG, compute three signals:
 - **Leverage** (impact) — `leverage = (|ancestors(a)| + 1) · (|descendants(c)| + 1)`:
   the number of closure (ancestor→descendant) pairs that route through the edge.
   A wrong high-leverage edge damages closure precision the most.
-- **Depth-skip** (over-generalization) — `depth_skip = depth(c) − depth(a)`, where
-  `depth` is the longest-path distance from a root. Edges that span many hierarchy
-  levels are over-generalization candidates.
+- **Neighborhood agreement** (structural corroboration) —
+  `neighborhood_agreement(a → c) = |{d ∈ descendants(c) : raw edge a → d exists}| / |descendants(c)|`.
+  If `a → c` is a real ancestor relation, then every descendant of `c` is also a
+  descendant of `a`; and because the method emits ancestor edges directly, a
+  well-supported edge has many of those descendants link **straight back to `a`**.
+  If few/none do, the edge is structurally uncorroborated, hence suspicious.
+  *Example:* an edge from a node to its parent whose single child does not have a
+  raw edge to the grandparent scores `0/1 = 0`. Leaf children (no descendants)
+  score `1.0` (nothing to corroborate). **Low** agreement ⇒ suspicious, so the
+  score uses `1 − neighborhood_agreement`.
 - **Self-agreement** (uncertainty) — edges asserted by only **one** of the two
   endpoint prompts (`votes ≤ 1`) are weakly corroborated, hence suspicious.
 
-Leverage and depth-skip are percentile-normalized across edges so they are
-comparable; the agreement term is a fixed bonus for single-vote edges:
+Leverage is percentile-normalized across edges; the neighborhood-disagreement and
+single-vote terms are already in `[0, 1]`:
 
 ```
-suspicion(a → c) = w_leverage  · pct_rank(leverage)
-                 + w_depth_skip · pct_rank(depth_skip)
-                 + w_agreement  · (1 if votes ≤ 1 else 0)
+suspicion(a → c) = w_leverage     · pct_rank(leverage)
+                 + w_neighborhood · (1 − neighborhood_agreement)
+                 + w_agreement    · (1 if votes ≤ 1 else 0)
 ```
 
-with default weights `w_leverage = w_depth_skip = w_agreement = 1.0`. Edges are
+with default weights `w_leverage = w_neighborhood = w_agreement = 1.0`. Edges are
 ranked by descending suspicion.
 
 ### Step 2 — LLM scrutiny of the top-K
@@ -108,7 +115,7 @@ fate, defaulting to KEEP when neither is found.
 | name | default | meaning |
 |------|---------|---------|
 | `suspicion_candidates` | `0` | number of top-suspicious edges the LLM scrutinizes (`0` = clawback off). In the benchmark, `--suspicion_candidates 0 5 10 25 …` sweeps several values. |
-| `w_leverage`, `w_depth_skip`, `w_agreement` | `1.0` | weights on the three suspicion signals in `rank_suspicious_edges`. |
+| `w_leverage`, `w_neighborhood`, `w_agreement` | `1.0` | weights on the three suspicion signals in `rank_suspicious_edges`. |
 
 ## Notes / limitations
 
