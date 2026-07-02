@@ -397,16 +397,82 @@ def precision_clawback(G, edge_votes, client, model_name, suspicion_candidates=0
             G_out.remove_edge(a, c)
     return G_out
 
+# ----------------------------------------------------------------------------
+# Whole-graph restructuring pass
+# ----------------------------------------------------------------------------
+def _restructure_prompt(G):
+    """Prompt that shows the ENTIRE taxonomy at once and asks for an optional rewrite.
+
+    Edges are presented as 'child <= parent' (matching the extraction output format so
+    parsing is shared) and the allowed vocabulary is stated explicitly so the model
+    re-parents rather than inventing concepts.
+    """
+    prim = sorted({get_primary_term(n) for n in G.nodes()})
+    edges = sorted((get_primary_term(c), get_primary_term(p)) for (p, c) in G.edges())
+    edge_lines = "\n".join(f"{c} <= {p}" for (c, p) in edges) or "(no relationships yet)"
+    return (
+        "You are an expert ontologist reviewing a complete is-a taxonomy that was drafted "
+        "automatically. It is written as 'child <= parent', meaning every child is a kind of "
+        "the parent.\n\n"
+        "Review the taxonomy AS A WHOLE and, where needed, restructure it to follow sound "
+        "taxonomy design:\n"
+        "- Keep only correct is-a (subclass) relationships; drop any edge that is not one, and "
+        "fix the direction if it is reversed.\n"
+        "- Re-parent mis-placed concepts under their most specific correct parent.\n"
+        "- Remove redundant shortcuts: if 'A <= B' is already implied by a chain A <= ... <= B, "
+        "drop the direct edge.\n"
+        "- Avoid cycles; prefer a single connected hierarchy.\n"
+        "- Use ONLY the concepts listed below -- do not invent, rename, split, or merge concepts.\n\n"
+        f"Concepts ({len(prim)}): {', '.join(prim)}\n\n"
+        f"Current relationships:\n{edge_lines}\n\n"
+        "Output the FINAL restructured taxonomy as 'child <= parent' lines, one per line, using "
+        "the concept names exactly as given above. Output only those lines and nothing else.\n\n"
+        "Restructured taxonomy:\n"
+    )
+
+def restructure_taxonomy(G, client, model_name, max_retries=3, max_tokens=16328):
+    """Whole-graph restructuring variant: show the LLM the ENTIRE extracted taxonomy at
+    once and let it optionally rewrite the is-a edges to better follow taxonomy
+    best-practices (re-parent mis-placed concepts, drop illogical/redundant links, fix
+    reversed edges), then rebuild the DAG from its answer.
+
+    The output is constrained to G's existing vocabulary: edges over unknown terms are
+    dropped. If the model's answer parses to no edges, G is returned unchanged
+    (conservative no-op), so a non-answer never wipes the taxonomy. Cycles in the
+    rewrite are broken via enforce_dag. The concept set is preserved; only the edges
+    (structure) change.
+    """
+    if G.number_of_edges() == 0:
+        return G
+    primary_to_full_map = {get_primary_term(n): n for n in G.nodes()}
+    content, reasoning = _llm_call(client, model_name, _restructure_prompt(G),
+                                   max_tokens=max_tokens, max_retries=max_retries)
+    if not (content or reasoning):
+        return G
+    # Prefer the committed answer; fall back to the scratchpad only if it parsed nothing.
+    edges = _parse_relations(content, primary_to_full_map) or _parse_relations(reasoning, primary_to_full_map)
+    if not edges:
+        return G
+    G_new = nx.DiGraph()
+    G_new.add_nodes_from(G.nodes())      # preserve the concept set; only structure changes
+    for (parent, child) in edges:
+        if parent != child:
+            G_new.add_edge(parent, child)
+    return enforce_dag(G_new)
+
 def method_our_approach(nodes, client, model_name, chunk_size=1000, max_retries=3,
-                        alt_prompt=False, suspicion_candidates=0, variant=None):
+                        alt_prompt=False, suspicion_candidates=0, variant=None, restructure=False):
     final_dag, edge_votes, _ = _extract_condensed_with_votes(
         nodes, client, model_name, chunk_size=chunk_size, max_retries=max_retries,
         alt_prompt=alt_prompt, variant=variant)
+    if restructure:
+        final_dag = restructure_taxonomy(final_dag, client, model_name, max_retries=max_retries)
     return precision_clawback(final_dag, edge_votes, client, model_name,
                               suspicion_candidates=suspicion_candidates, max_retries=max_retries)
 
 def method_our_approach_sweep(nodes, client, model_name, suspicion_candidates_list,
-                              chunk_size=1000, max_retries=3, alt_prompt=False, variant=None):
+                              chunk_size=1000, max_retries=3, alt_prompt=False, variant=None,
+                              restructure=False):
     """Extract ONCE, then return ({K: graph}, edge_components).
 
     {K: graph} is one taxonomy per K in suspicion_candidates_list. The suspicion
@@ -422,6 +488,11 @@ def method_our_approach_sweep(nodes, client, model_name, suspicion_candidates_li
     final_dag, edge_votes, edge_salience = _extract_condensed_with_votes(
         nodes, client, model_name, chunk_size=chunk_size, max_retries=max_retries,
         alt_prompt=alt_prompt, variant=variant)
+    if restructure:
+        # Whole-graph rewrite REPLACES the extracted DAG before ranking/clawback. Votes
+        # and salience (a clawback signal) are kept as-is and are simply not meaningful
+        # for any edge the rewrite introduces; restructure is normally run clawback-off.
+        final_dag = restructure_taxonomy(final_dag, client, model_name, max_retries=max_retries)
     ks = sorted({int(k) for k in suspicion_candidates_list})
     ranked = rank_suspicious_edges(final_dag, edge_votes)
 

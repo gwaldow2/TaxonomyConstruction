@@ -767,6 +767,56 @@ def plot_prompt_ablation(df):
     plt.savefig(os.path.join(VIS_DIR, "19_prompt_ablation.png"), dpi=300)
     plt.close()
 
+def plot_restructure_comparison(df):
+    """No-restructure vs whole-graph restructure pass, for the DEFAULT prompt with
+    clawback OFF. Compares Cond. Closure F1 / Precision / Recall side by side, each
+    with a paired t-test (by dataset) of the restructure effect."""
+    print(" -> Generating Restructure Comparison...")
+
+    # Our Method, default prompt (no '[variant]' ablation, no alt. Prompt), clawback off.
+    dfr = df[df['Method'].str.contains('Our Method', na=False)
+             & ~df['Method'].str.contains(r'\[', regex=True, na=False)
+             & ~df['Method'].str.contains('alt. Prompt', na=False)
+             & df['Method'].str.contains('clawback=0', na=False)].copy()
+    if dfr.empty:
+        print("    [!] No default-prompt, clawback=0 Our Method runs found. Produce them with "
+              "'main.py --method our_method' and 'main.py --method our_method --restructure'.")
+        return
+    dfr['Mode'] = dfr['Method'].apply(lambda m: 'Restructure' if '+restructure' in m else 'No Restructure')
+    if dfr['Mode'].nunique() < 2:
+        print("    [!] Need BOTH restructure and no-restructure runs to compare; have only: "
+              + ", ".join(sorted(dfr['Mode'].unique())))
+        return
+
+    metrics = [("Primary_F1", "Cond Closure F1"),
+               ("Cond_Clos_Precision", "Cond Closure Precision"),
+               ("Cond_Clos_Recall", "Cond Closure Recall")]
+    order = ['No Restructure', 'Restructure']
+    fig, axes = plt.subplots(1, 3, figsize=(18, 6))
+    for ax, (col, title) in zip(axes, metrics):
+        sns.boxplot(data=dfr, x="Mode", y=col, order=order, palette="Set2", ax=ax,
+                    showmeans=True, meanprops={"marker":"o","markerfacecolor":"white","markeredgecolor":"black"})
+        sns.stripplot(data=dfr, x="Mode", y=col, order=order, color=".25", size=6, alpha=0.6, jitter=True, ax=ax)
+        # paired t-test by dataset scenario (positive diff = restructure helps)
+        piv = dfr.pivot_table(index="Dataset_Scenario", columns="Mode", values=col, aggfunc="mean")
+        ann = "paired t-test: need both modes on shared datasets"
+        if {"No Restructure", "Restructure"} <= set(piv.columns):
+            paired = piv[["No Restructure", "Restructure"]].dropna()
+            diffs = (paired["Restructure"] - paired["No Restructure"]).tolist()
+            t, dfree, p = paired_ttest(diffs)
+            md = (sum(diffs) / len(diffs)) if diffs else float('nan')
+            ann = (f"paired t (n={len(diffs)}): t={t:.2f}, p={p:.3g} {_p_stars(p)}\n"
+                   f"mean Δ (restr - none) = {md:+.4f}")
+        ax.set_title(f"{title}\n{ann}", fontsize=11, fontweight='bold')
+        ax.set_xlabel("")
+        ax.set_ylabel(title, fontweight='bold')
+        ax.set_ylim(0, 1.05)
+    fig.suptitle("Effect of Whole-Graph Restructuring Pass (default prompt, clawback off)",
+                 y=1.02, fontsize=14, fontweight='bold')
+    plt.tight_layout()
+    plt.savefig(os.path.join(VIS_DIR, "20_restructure_comparison.png"), dpi=300, bbox_inches='tight')
+    plt.close()
+
 def plot_hearst_ppl_spearman(df):
     """Plots a scatter grid of Avg Hearst PPL vs F1 including the Spearman correlation."""
     print(" -> Generating Hearst PPL vs F1 Scatter with Spearman...")
@@ -1248,6 +1298,7 @@ def main():
     plot_reasoning_effort_comparison(df)
     plot_alt_prompt_comparison(df)
     plot_prompt_ablation(df)
+    plot_restructure_comparison(df)
     plot_hearst_ppl_spearman(df_filtered) # We run the specific correlation scatter using the clean (filtered) dataframe
     plot_batch_size_k_comparison(df)
     plot_clawback_comparison(df)

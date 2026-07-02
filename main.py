@@ -153,12 +153,16 @@ def main(args):
                                 "Our Method (alt. Prompt)" if args.alt_prompt else "Our Method")]
 
             for variant, base_label in prompt_runs:
+                # --restructure adds a whole-graph LLM rewrite after extraction; tag the
+                # label ("+restructure") so vis can compare it against the plain run.
+                if args.restructure:
+                    base_label = f"{base_label} +restructure"
                 print(f"  -> Running {base_label} (k={args.chunk_size}) | clawback sweep: {args.suspicion_candidates}...")
                 t0 = time.time()
                 # Extract ONCE, then apply precision clawback at each suspicion_candidates value.
                 graphs_by_k, edge_components = method_our_approach_sweep(
                     input_nodes, client, MODEL_NAME, args.suspicion_candidates,
-                    chunk_size=args.chunk_size, variant=variant,
+                    chunk_size=args.chunk_size, variant=variant, restructure=args.restructure,
                 )
                 sweep_runtime = time.time() - t0
                 for K, G_our in graphs_by_k.items():
@@ -272,6 +276,10 @@ if __name__ == "__main__":
     parser.add_argument("--suspicion_candidates", nargs="+", type=int, default=[0],
                         help="Precision-clawback sweep for Our Method: number(s) of top-suspicious edges the "
                              "LLM scrutinizes for removal (0 = clawback off). Pass several to sweep, e.g. 0 5 10 25.")
+    parser.add_argument("--restructure", action="store_true",
+                        help="Our Method variant: after extraction, show the LLM the ENTIRE taxonomy at once "
+                             "and let it optionally rewrite the edges to better follow taxonomy standards. "
+                             "Runs are labeled 'Our Method +restructure'; compare against the plain run in vis.")
     parser.add_argument("--results_file", type=str, default="benchmark_results.json",
                         help="Where to append results. Point new runs at a fresh file (e.g. "
                              "benchmark_results_new.json) to keep them separate from older runs.")
