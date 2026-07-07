@@ -790,10 +790,17 @@ def plot_restructure_comparison(df):
         return 'No Restructure'
     dfr['Mode'] = dfr['Method'].apply(_mode)
     present = [x for x in ['No Restructure', 'Restructure', 'Restructure (ranked)'] if x in set(dfr['Mode'])]
-    if 'No Restructure' not in present or len(present) < 2:
-        print("    [!] Need a No-Restructure run plus >=1 restructure mode to compare; have: "
-              + ", ".join(present))
+    if len(present) < 2:
+        print("    [!] Need >=2 of {No Restructure, Restructure, Restructure (ranked)} to compare; have: "
+              + ", ".join(present) + ". Point --results at the file with these runs (e.g. restr.json).")
         return
+    # Compare each mode to a reference (the no-restructure baseline if present, else the
+    # first restructure mode) AND always compare ranked-vs-plain directly when both exist.
+    ref = 'No Restructure' if 'No Restructure' in present else present[0]
+    _SHORT = {'No Restructure': 'none', 'Restructure': 'plain', 'Restructure (ranked)': 'ranked'}
+    pairs = [(m, ref) for m in present if m != ref]
+    if {'Restructure', 'Restructure (ranked)'} <= set(present) and ('Restructure (ranked)', 'Restructure') not in pairs:
+        pairs.append(('Restructure (ranked)', 'Restructure'))
 
     metrics = [("Primary_F1", "Cond Closure F1"),
                ("Cond_Clos_Precision", "Cond Closure Precision"),
@@ -803,20 +810,19 @@ def plot_restructure_comparison(df):
         sns.boxplot(data=dfr, x="Mode", y=col, order=present, palette="Set2", ax=ax,
                     showmeans=True, meanprops={"marker":"o","markerfacecolor":"white","markeredgecolor":"black"})
         sns.stripplot(data=dfr, x="Mode", y=col, order=present, color=".25", size=6, alpha=0.6, jitter=True, ax=ax)
-        # paired t-test of each restructure mode vs No Restructure (positive Δ = mode helps)
+        # paired t-tests by dataset (Δ = first - second; positive = the first mode scores higher)
         piv = dfr.pivot_table(index="Dataset_Scenario", columns="Mode", values=col, aggfunc="mean")
         ann_lines = []
-        for mode in present:
-            if mode == 'No Restructure' or mode not in piv.columns or 'No Restructure' not in piv.columns:
+        for a, b in pairs:
+            if a not in piv.columns or b not in piv.columns:
                 continue
-            paired = piv[['No Restructure', mode]].dropna()
-            diffs = (paired[mode] - paired['No Restructure']).tolist()
+            paired = piv[[b, a]].dropna()
+            diffs = (paired[a] - paired[b]).tolist()
             t, dfree, p = paired_ttest(diffs)
             md = (sum(diffs) / len(diffs)) if diffs else float('nan')
-            short = 'ranked-none' if 'ranked' in mode else 'restr-none'
-            ann_lines.append(f"{short}: Δ={md:+.3f} p={p:.2g}{_p_stars(p)} (n={len(diffs)})")
+            ann_lines.append(f"{_SHORT[a]}-{_SHORT[b]}: Δ={md:+.3f} p={p:.2g}{_p_stars(p)} (n={len(diffs)})")
         ax.set_title(f"{title}\n" + ("\n".join(ann_lines) if ann_lines else "paired t: need shared datasets"),
-                     fontsize=10, fontweight='bold')
+                     fontsize=9, fontweight='bold')
         ax.set_xlabel("")
         ax.set_ylabel(title, fontweight='bold')
         ax.set_ylim(0, 1.05)
