@@ -457,10 +457,11 @@ def edge_component_records(G, edge_votes, edge_salience=None):
         })
     return rows
 
-def rank_suspicious_edges(G, edge_votes, w_leverage=1.0, w_neighborhood=1.0, w_agreement=1.0):
+def rank_suspicious_edges(G, edge_votes, edge_salience=None,
+                          w_leverage=1.0, w_neighborhood=1.0, w_agreement=1.0, w_salience=1.0):
     """Order the edges of G from most to least suspicious for removal.
 
-    Combines three GT-free heuristics (each a positive 'suspicion' contribution):
+    Combines GT-free heuristics (each a positive 'suspicion' contribution):
       * leverage     -- (|ancestors(a)|+1)*(|descendants(c)|+1): closure pairs that
                         route through the edge. A wrong high-leverage edge is what
                         damages closure precision the most.
@@ -469,19 +470,26 @@ def rank_suspicious_edges(G, edge_votes, w_leverage=1.0, w_neighborhood=1.0, w_a
                         uncorroborated, hence suspicious.
       * agreement    -- edges asserted by only ONE of the two endpoint prompts (a
                         single generation vote) are weakly corroborated -> suspicious.
+      * salience     -- LOW total-assertion count correlates with false positives, so a
+                        low salience percentile raises suspicion. Only applied when
+                        ``edge_salience`` is provided (otherwise this term is 0).
 
-    leverage is percentile-normalised; neighborhood disagreement (1 - agreement)
-    and the single-vote bonus are already in [0, 1].
+    leverage and salience are percentile-normalised; neighborhood disagreement, the
+    single-vote bonus, and the low-salience term are all in [0, 1].
     """
-    records = edge_component_records(G, edge_votes)
+    records = edge_component_records(G, edge_votes, edge_salience)
     if not records:
         return []
     lev_p = _pct_rank([r["leverage"] for r in records])
+    use_sal = edge_salience is not None
+    sal_p = _pct_rank([r["salience"] for r in records]) if use_sal else [0.0] * len(records)
     scored = []
     for idx, r in enumerate(records):
         low_agreement = 1.0 if r["votes"] <= 1 else 0.0
         disagreement = 1.0 - r["neighborhood_agreement"]
-        score = w_leverage * lev_p[idx] + w_neighborhood * disagreement + w_agreement * low_agreement
+        low_salience = (1.0 - sal_p[idx]) if use_sal else 0.0
+        score = (w_leverage * lev_p[idx] + w_neighborhood * disagreement
+                 + w_agreement * low_agreement + w_salience * low_salience)
         scored.append((score, (r["parent"], r["child"])))
     scored.sort(key=lambda x: x[0], reverse=True)
     return [edge for _, edge in scored]
@@ -551,14 +559,15 @@ def scrutinize_edge(client, model_name, parent, child, G=None, max_retries=3, ma
     text = _llm_text(client, model_name, prompt, max_tokens=max_tokens, max_retries=max_retries)
     return "SEVER" if _decide_sever(text) else "KEEP"   # conservative default: KEEP
 
-def precision_clawback(G, edge_votes, client, model_name, suspicion_candidates=0, max_retries=3):
+def precision_clawback(G, edge_votes, client, model_name, suspicion_candidates=0, max_retries=3,
+                       edge_salience=None):
     """Sever the LLM-confirmed-wrong edges among the top `suspicion_candidates` suspects.
 
     suspicion_candidates == 0 -> no clawback (returns G unchanged).
     """
     if not suspicion_candidates or suspicion_candidates <= 0:
         return G
-    ranked = rank_suspicious_edges(G, edge_votes)
+    ranked = rank_suspicious_edges(G, edge_votes, edge_salience)
     G_out = G.copy()
     for (a, c) in ranked[:suspicion_candidates]:
         if scrutinize_edge(client, model_name, a, c, G, max_retries=max_retries) == "SEVER" and G_out.has_edge(a, c):
@@ -660,7 +669,8 @@ def _ranked_restructure_prompt(G, records, ranked, topk):
         "  - agree    = neighborhood agreement in [0,1]; LOW means the child's descendants do "
         "not independently trace back to the parent -> the edge is likely WRONG.\n"
         "  - votes    = generation self-agreement (0/1/2); LOW means only weakly corroborated -> suspect.\n"
-        "  - salience = how many times the edge was asserted across the model's outputs.\n"
+        "  - salience = how many times the edge was asserted across the model's outputs; "
+        "LOW means weakly asserted -> suspect.\n"
         "  - leverage = how many ancestor-descendant pairs route through the edge (blast radius if wrong).\n"
         "Edges are ordered from MOST to LEAST suspicious.\n\n"
         "Correct the taxonomy: remove or re-parent edges that are NOT valid is-a relationships. "
@@ -687,7 +697,7 @@ def restructure_taxonomy_ranked(G, edge_votes, client, model_name, edge_salience
     if G.number_of_edges() == 0:
         return G
     records = edge_component_records(G, edge_votes, edge_salience)
-    ranked = rank_suspicious_edges(G, edge_votes)
+    ranked = rank_suspicious_edges(G, edge_votes, edge_salience)
     primary_to_full_map = {get_primary_term(n): n for n in G.nodes()}
     content, reasoning = _llm_call(client, model_name, _ranked_restructure_prompt(G, records, ranked, topk),
                                    max_tokens=max_tokens, max_retries=max_retries)
@@ -717,7 +727,8 @@ def method_our_approach(nodes, client, model_name, chunk_size=1000, max_retries=
     elif restructure:
         final_dag = restructure_taxonomy(final_dag, client, model_name, max_retries=max_retries)
     return precision_clawback(final_dag, edge_votes, client, model_name,
-                              suspicion_candidates=suspicion_candidates, max_retries=max_retries)
+                              suspicion_candidates=suspicion_candidates, max_retries=max_retries,
+                              edge_salience=edge_salience)
 
 def method_our_approach_sweep(nodes, client, model_name, suspicion_candidates_list,
                               chunk_size=1000, max_retries=3, alt_prompt=False, variant=None,
@@ -751,7 +762,7 @@ def method_our_approach_sweep(nodes, client, model_name, suspicion_candidates_li
         # for any edge the rewrite introduces; restructure is normally run clawback-off.
         final_dag = restructure_taxonomy(final_dag, client, model_name, max_retries=max_retries)
     ks = sorted({int(k) for k in suspicion_candidates_list})
-    ranked = rank_suspicious_edges(final_dag, edge_votes)
+    ranked = rank_suspicious_edges(final_dag, edge_votes, edge_salience)
 
     kmax = max(ks) if ks else 0
     verdicts = {}
