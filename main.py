@@ -13,7 +13,7 @@ from data_manager import load_benchmark_graph
 from evaluator import evaluate_all_modes, update_benchmark_results
 from lexical_method import method_lexical, method_vector
 from basic_llm_method import method_llm_single_shot
-from our_method import method_our_approach, method_our_approach_sweep, PROMPT_VARIANTS
+from our_method import method_our_approach, method_our_approach_sweep, PROMPT_VARIANTS, ALL_PROMPT_VARIANTS
 from taxollama_method import precompute_taxollama_ppl, build_taxollama_graph
 from SBU_NLP_method import method_sbu_batch, method_sbu_embedding
 
@@ -157,12 +157,17 @@ def main(args):
                 # label ("+restructure") so vis can compare it against the plain run.
                 if args.restructure:
                     base_label = f"{base_label} +restructure"
+                base_safe = (base_label.replace(" ", "_").replace("(", "").replace(")", "")
+                             .replace(".", "").replace("[", "").replace("]", ""))
+                debug_path = (f"./results/{dataset_name_eval}_{base_safe}_parse_debug.jsonl"
+                              if args.debug_parse else None)
                 print(f"  -> Running {base_label} (k={args.chunk_size}) | clawback sweep: {args.suspicion_candidates}...")
                 t0 = time.time()
                 # Extract ONCE, then apply precision clawback at each suspicion_candidates value.
                 graphs_by_k, edge_components = method_our_approach_sweep(
                     input_nodes, client, MODEL_NAME, args.suspicion_candidates,
                     chunk_size=args.chunk_size, variant=variant, restructure=args.restructure,
+                    debug_parse=args.debug_parse, debug_path=debug_path,
                 )
                 sweep_runtime = time.time() - t0
                 for K, G_our in graphs_by_k.items():
@@ -181,8 +186,6 @@ def main(args):
                 try:
                     from evaluator import gt_closure_term_pairs, edge_is_correct
                     gt_pairs = gt_closure_term_pairs(G_gt)
-                    base_safe = (base_label.replace(" ", "_").replace("(", "").replace(")", "")
-                                 .replace(".", "").replace("[", "").replace("]", ""))
                     diag_path = f"./results/{dataset_name_eval}_{base_safe}_edge_diagnostics.csv"
                     with open(diag_path, "w", newline="", encoding="utf-8") as f:
                         w = csv.writer(f)
@@ -269,10 +272,16 @@ if __name__ == "__main__":
     parser.add_argument("--explode_nodes", action="store_true")
     parser.add_argument("--chunk_size", type=int, default=1000, help="Chunk size for Our Method.")
     parser.add_argument("--alt_prompt", action="store_true", help="Use alternate parent-child hierarchy prompt for Our Method (= --prompt_variant direct).")
-    parser.add_argument("--prompt_variant", nargs="+", default=None, choices=list(PROMPT_VARIANTS),
+    parser.add_argument("--prompt_variant", nargs="+", default=None, choices=ALL_PROMPT_VARIANTS,
                         help="Run Our Method with one or more prompt-ablation variants (overrides --alt_prompt). "
                              "Each ablates one element of the original 'full' prompt; runs are labeled "
-                             "'Our Method [variant]'. e.g. --prompt_variant full isa no_quantifier oneway no_example no_restriction")
+                             "'Our Method [variant]'. e.g. --prompt_variant full isa no_quantifier oneway no_example no_restriction. "
+                             "'legacy_json' replays the original pre-ablation alt prompt (JSON answer + JSON parser).")
+    parser.add_argument("--debug_parse", action="store_true",
+                        help="For Our Method, print per-run parse diagnostics (strict vs case-insensitive vs "
+                             "lenient vs '<=' edge counts) and dump raw responses to "
+                             "results/<dataset>_<variant>_parse_debug.jsonl -- to tell a parsing artifact from a "
+                             "genuine model/prompt effect (esp. for legacy_json).")
     parser.add_argument("--suspicion_candidates", nargs="+", type=int, default=[0],
                         help="Precision-clawback sweep for Our Method: number(s) of top-suspicious edges the "
                              "LLM scrutinizes for removal (0 = clawback off). Pass several to sweep, e.g. 0 5 10 25.")
