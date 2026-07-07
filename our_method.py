@@ -1,4 +1,5 @@
 import re
+import json
 import time
 from collections import Counter, defaultdict
 
@@ -82,6 +83,40 @@ PROMPT_VARIANTS = {
     "no_restriction": {"rules": _rules_full,          "restriction": False, "example": True},   # remove the ONLY/Do-NOT scoping
 }
 
+# 'legacy_json' is NOT a one-line ablation of 'full' -- it is the ORIGINAL alternate
+# prompt from before the ablation was formalized: a different template ("expert
+# ontologist") that asks for a JSON [["parent","child"], ...] answer parsed by
+# _parse_relations_json. It lives outside PROMPT_VARIANTS (different template + parser)
+# but is a valid --prompt_variant choice so the old default-vs-alt gap can be replicated.
+ALL_PROMPT_VARIANTS = list(PROMPT_VARIANTS) + ["legacy_json"]
+
+def _build_legacy_json_prompt(target_raw, candidates_chunk):
+    """Faithful reproduction of the ORIGINAL alt prompt (pre-formalization).
+
+    Reproduced quirks-and-all so the original score is replicable: the 16-space
+    indentation on every line and the candidate list rendered as a Python list repr
+    (``Candidates: [[...]]``) are exactly as they were. The reply is JSON, parsed
+    CASE-SENSITIVELY by _parse_relations_json -- unlike the '<=' variants, whose
+    parser lowercases first.
+    """
+    vocab = [target_raw] + candidates_chunk
+    return f"""You are an expert ontologist building a hierarchical taxonomy.
+                You are given a vocabulary of {len(vocab)} terms.
+
+                A parent is a broader concept, a child is a more specific concept.
+                ONLY use terms EXACTLY as they appear in the vocabulary list.
+
+                Candidates: [{candidates_chunk}]
+                ONLY output relationships involving '{target_raw}'. Do NOT output relationships between the candidates themselves. 
+                Format Example:
+                [
+                ["parent_term_1", "child_term_1"],
+                ["parent_term_2", "child_term_2"]
+                ]
+
+                Output your answer strictly as a list of arrays. Do not add conversational text.
+                """
+
 def build_prompt(target_raw, candidates_chunk, alt_prompt=False, variant=None):
     """Build the per-target chunk prompt for a given prompt VARIANT.
 
@@ -94,6 +129,8 @@ def build_prompt(target_raw, candidates_chunk, alt_prompt=False, variant=None):
     """
     if variant is None:
         variant = "direct" if alt_prompt else "full"
+    if variant == "legacy_json":
+        return _build_legacy_json_prompt(target_raw, candidates_chunk)
     spec = PROMPT_VARIANTS[variant]
     instructions = (
         f"You are identifying hierarchical relationships for the target entity: '{target_raw}'.\n"
@@ -154,8 +191,119 @@ def _parse_relations(text, primary_to_full_map):
                     out.append((primary_to_full_map[sup_raw], primary_to_full_map[sub_raw]))
     return out
 
+_JSON_BLOCK_RE = re.compile(r'\[\s*\[.*\]\s*\]', re.DOTALL)
+# A single ["a", "b"] pair (either quote style); used by the lenient diagnostic to
+# recover pairs even when the outer array is malformed / won't json.loads.
+_JSON_PAIR_RE = re.compile(r'\[\s*["\']([^"\']+)["\']\s*,\s*["\']([^"\']+)["\']\s*\]')
+
+def _parse_relations_json(text, primary_to_full_map):
+    """Parse the legacy [["parent","child"], ...] JSON answer into (parent, child) edges.
+
+    Faithful to the original alt path: it locates the outermost [[...]] block, json.loads
+    it, and matches each pair's terms CASE-SENSITIVELY against the vocabulary (the '<='
+    parser, by contrast, lowercases the whole text first). That asymmetry is a real
+    edge-loss source whenever the model capitalises a term, which the parse diagnostics
+    below quantify.
+    """
+    match = _JSON_BLOCK_RE.search(text)
+    if not match:
+        return []
+    try:
+        relationships = json.loads(match.group(0))
+    except (json.JSONDecodeError, ValueError):
+        return []
+    out = []
+    if isinstance(relationships, list):
+        for pair in relationships:
+            if isinstance(pair, (list, tuple)) and len(pair) == 2:
+                sup_raw = str(pair[0]).strip()
+                sub_raw = str(pair[1]).strip()
+                if sub_raw in primary_to_full_map and sup_raw in primary_to_full_map:
+                    out.append((primary_to_full_map[sup_raw], primary_to_full_map[sub_raw]))
+    return out
+
+def _parse_diagnostics(text, primary_to_full_map):
+    """Cross-parse one response several ways to localise where edges are lost.
+
+    Returns counts for the same text under: the faithful strict JSON parser (what feeds
+    the graph), json.loads with CASE-INSENSITIVE vocab matching, a lenient pair-regex
+    (ignores json.loads entirely), and the '<=' line parser. Comparing them separates a
+    parsing artifact (edges recoverable by a laxer parser) from a genuine model/prompt
+    effect (few well-formed in-vocab pairs to begin with).
+    """
+    vocab = primary_to_full_map                       # keys are already lowercased
+    n_strict = len(_parse_relations_json(text, vocab))
+
+    match = _JSON_BLOCK_RE.search(text)
+    regex_match = match is not None
+    json_ok, n_json_ci = False, 0
+    if match:
+        try:
+            rel = json.loads(match.group(0))
+            json_ok = True
+            if isinstance(rel, list):
+                for pair in rel:
+                    if isinstance(pair, (list, tuple)) and len(pair) == 2:
+                        a, b = str(pair[0]).strip().lower(), str(pair[1]).strip().lower()
+                        if a in vocab and b in vocab:
+                            n_json_ci += 1
+        except (json.JSONDecodeError, ValueError):
+            json_ok = False
+
+    n_regex_ci, n_pairs_wellformed = 0, 0
+    for a, b in _JSON_PAIR_RE.findall(text):
+        n_pairs_wellformed += 1
+        if a.strip().lower() in vocab and b.strip().lower() in vocab:
+            n_regex_ci += 1
+
+    return {
+        "regex_match": regex_match,
+        "json_ok": json_ok,
+        "n_strict": n_strict,              # feeds the graph (case-sensitive)
+        "n_json_ci": n_json_ci,            # json.loads + case-insensitive match
+        "n_regex_ci": n_regex_ci,          # pair-regex + case-insensitive (json.loads-free)
+        "n_line": len(_parse_relations(text, vocab)),   # '<=' cross-check
+        "n_pairs_wellformed": n_pairs_wellformed,       # ["a","b"] pairs seen (vocab-agnostic)
+    }
+
+def _emit_parse_debug(records, n_chunks, n_empty, label, debug_path):
+    """Print an aggregate parse-diagnostics summary and, if given a path, dump the
+    per-response records (raw output + parse counts) as JSONL for manual inspection."""
+    n = len(records)
+    s = lambda k: sum(r["diag"][k] for r in records)
+    strict, json_ci, regex_ci, line, wf = (s("n_strict"), s("n_json_ci"),
+                                            s("n_regex_ci"), s("n_line"), s("n_pairs_wellformed"))
+    case_loss = json_ci - strict            # edges strict dropped purely on case
+    jsonfail_recovery = regex_ci - json_ci  # edges only recoverable if json.loads is bypassed
+    unknown = wf - regex_ci                 # well-formed pairs whose terms aren't in vocab
+    print(f"  [parse-diag {label}] chunks={n_chunks} empty={n_empty} nonempty={n}")
+    print(f"      JSON regex-match: {sum(r['diag']['regex_match'] for r in records)}/{n}   "
+          f"json.loads ok: {sum(r['diag']['json_ok'] for r in records)}/{n}")
+    print(f"      edges STRICT (case-sensitive, feeds graph): {strict}")
+    print(f"      edges json.loads + case-INSENSITIVE:        {json_ci}   (+{case_loss} recoverable by lowercasing)")
+    print(f"      edges lenient pair-regex (json.loads-free):  {regex_ci}   (+{jsonfail_recovery} recoverable if json.loads bypassed)")
+    print(f"      edges '<=' line parser (format cross-check): {line}")
+    print(f"      well-formed [\"a\",\"b\"] pairs seen: {wf}   out-of-vocab (model reworded): {unknown}")
+    if wf == 0 and line == 0:
+        hint = "model produced ~no parseable relations -> prompt/model issue, NOT the parser."
+    elif line > regex_ci and line > strict:
+        hint = "model emitted '<=' lines, not JSON -> FORMAT mismatch (JSON parser can't read it)."
+    elif (case_loss + jsonfail_recovery) > max(1, strict) * 0.15:
+        hint = "many edges recoverable by a laxer parser -> PARSING is suppressing the score."
+    else:
+        hint = "few edges recoverable beyond strict -> low score is NOT a parsing artifact."
+    print(f"      VERDICT hint: {hint}")
+    if debug_path:
+        try:
+            with open(debug_path, "w", encoding="utf-8") as f:
+                for r in records:
+                    f.write(json.dumps(r, ensure_ascii=False) + "\n")
+            print(f"      wrote raw parse debug -> {debug_path} ({n} responses)")
+        except Exception as e:
+            print(f"      [!] could not write parse debug: {e}")
+
 def _extract_condensed_with_votes(nodes, client, model_name, chunk_size=1000, max_retries=3,
-                                  alt_prompt=False, variant=None):
+                                  alt_prompt=False, variant=None, debug_parse=False, debug_path=None):
     """Run the chunked extraction and return (condensed_dag, edge_votes, edge_salience).
 
     The GRAPH is built from the model's COMMITTED final answer (``content``); the
@@ -177,6 +325,11 @@ def _extract_condensed_with_votes(nodes, client, model_name, chunk_size=1000, ma
     primary_to_full_map = {get_primary_term(n): n for n in nodes}
     primary_nodes = list(primary_to_full_map.keys())
 
+    # legacy_json returns a JSON [["parent","child"], ...] answer -> different parser.
+    parse_fn = _parse_relations_json if variant == "legacy_json" else _parse_relations
+    dbg_records = [] if debug_parse else None
+    dbg_chunks = dbg_empty = 0
+
     desc_label = f"Our Method [{variant}]" if variant else ("Our Method (alt. Prompt)" if alt_prompt else "Our Method")
 
     for target_raw in tqdm(primary_nodes, desc=f"  -> [{desc_label}] ChunkSize={chunk_size}", leave=False):
@@ -186,11 +339,13 @@ def _extract_condensed_with_votes(nodes, client, model_name, chunk_size=1000, ma
             candidates_chunk = all_candidates[i:i + chunk_size]
             prompt = build_prompt(target_raw, candidates_chunk, alt_prompt=alt_prompt, variant=variant)
             content, reasoning = _llm_call(client, model_name, prompt, max_tokens=16328, max_retries=max_retries)
+            dbg_chunks += 1
             if not (content or reasoning):
+                dbg_empty += 1
                 continue
 
-            committed = _parse_relations(content, primary_to_full_map)
-            deliberated = _parse_relations(reasoning, primary_to_full_map)
+            committed = parse_fn(content, primary_to_full_map)
+            deliberated = parse_fn(reasoning, primary_to_full_map)
             # Graph + votes from the COMMITTED answer; fall back to the scratchpad only
             # if the answer itself parsed no edges.
             graph_edges = committed if committed else deliberated
@@ -200,6 +355,19 @@ def _extract_condensed_with_votes(nodes, client, model_name, chunk_size=1000, ma
             # Salience counts every assertion anywhere in the response.
             for (sup, sub) in committed + deliberated:
                 raw_salience[(sup, sub)] += 1
+
+            if debug_parse:
+                diag_text = content if content.strip() else reasoning
+                dbg_records.append({
+                    "target": target_raw,
+                    "chunk": i // chunk_size,
+                    "content": content[:4000],
+                    "reasoning_chars": len(reasoning),
+                    "diag": _parse_diagnostics(diag_text, primary_to_full_map),
+                })
+
+    if debug_parse:
+        _emit_parse_debug(dbg_records, dbg_chunks, dbg_empty, desc_label, debug_path)
 
     condensed, node_mapping = condense_synonyms(raw_dag)
     final = enforce_dag(condensed)
@@ -461,10 +629,11 @@ def restructure_taxonomy(G, client, model_name, max_retries=3, max_tokens=16328)
     return enforce_dag(G_new)
 
 def method_our_approach(nodes, client, model_name, chunk_size=1000, max_retries=3,
-                        alt_prompt=False, suspicion_candidates=0, variant=None, restructure=False):
+                        alt_prompt=False, suspicion_candidates=0, variant=None, restructure=False,
+                        debug_parse=False, debug_path=None):
     final_dag, edge_votes, _ = _extract_condensed_with_votes(
         nodes, client, model_name, chunk_size=chunk_size, max_retries=max_retries,
-        alt_prompt=alt_prompt, variant=variant)
+        alt_prompt=alt_prompt, variant=variant, debug_parse=debug_parse, debug_path=debug_path)
     if restructure:
         final_dag = restructure_taxonomy(final_dag, client, model_name, max_retries=max_retries)
     return precision_clawback(final_dag, edge_votes, client, model_name,
@@ -472,7 +641,7 @@ def method_our_approach(nodes, client, model_name, chunk_size=1000, max_retries=
 
 def method_our_approach_sweep(nodes, client, model_name, suspicion_candidates_list,
                               chunk_size=1000, max_retries=3, alt_prompt=False, variant=None,
-                              restructure=False):
+                              restructure=False, debug_parse=False, debug_path=None):
     """Extract ONCE, then return ({K: graph}, edge_components).
 
     {K: graph} is one taxonomy per K in suspicion_candidates_list. The suspicion
@@ -487,7 +656,7 @@ def method_our_approach_sweep(nodes, client, model_name, suspicion_candidates_li
     """
     final_dag, edge_votes, edge_salience = _extract_condensed_with_votes(
         nodes, client, model_name, chunk_size=chunk_size, max_retries=max_retries,
-        alt_prompt=alt_prompt, variant=variant)
+        alt_prompt=alt_prompt, variant=variant, debug_parse=debug_parse, debug_path=debug_path)
     if restructure:
         # Whole-graph rewrite REPLACES the extracted DAG before ranking/clawback. Votes
         # and salience (a clawback signal) are kept as-is and are simply not meaningful
