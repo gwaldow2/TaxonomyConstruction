@@ -43,7 +43,11 @@ def load_debug_records(debug_glob):
                 if not line:
                     continue
                 r = json.loads(line)
-                edges = int(r.get("diag", {}).get("n_strict", 0) or 0)
+                # Edges this response contributed. JSON variants populate n_strict, the
+                # '<=' variants populate n_line, and the other parser returns 0 -- so max()
+                # gives the real count regardless of the variant's output format.
+                diag = r.get("diag", {})
+                edges = max(int(diag.get("n_strict", 0) or 0), int(diag.get("n_line", 0) or 0))
                 rows.append({
                     "dataset": dataset,
                     "variant": variant,
