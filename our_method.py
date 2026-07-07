@@ -88,7 +88,7 @@ PROMPT_VARIANTS = {
 # ontologist") that asks for a JSON [["parent","child"], ...] answer parsed by
 # _parse_relations_json. It lives outside PROMPT_VARIANTS (different template + parser)
 # but is a valid --prompt_variant choice so the old default-vs-alt gap can be replicated.
-ALL_PROMPT_VARIANTS = list(PROMPT_VARIANTS) + ["legacy_json"]
+ALL_PROMPT_VARIANTS = list(PROMPT_VARIANTS) + ["legacy_json", "full_json"]
 
 def _build_legacy_json_prompt(target_raw, candidates_chunk):
     """Faithful reproduction of the ORIGINAL alt prompt (pre-formalization).
@@ -117,6 +117,29 @@ def _build_legacy_json_prompt(target_raw, candidates_chunk):
                 Output your answer strictly as a list of arrays. Do not add conversational text.
                 """
 
+def _build_full_json_prompt(target_raw, candidates_chunk):
+    """The contemporary 'full' prompt -- identical framing, per-candidate subsumption
+    wording, restriction, and CLEAN candidate list -- but requesting the legacy JSON
+    [[parent, child], ...] OUTPUT (parsed by _parse_relations_json) instead of '<=' lines.
+
+    It differs from 'full' ONLY in output format (+ parser), so full_json-vs-full isolates
+    the effect of the JSON format, while full_json-vs-legacy_json isolates the effect of the
+    'expert ontologist' wording and garbled candidate rendering.
+    """
+    t = target_raw
+    instructions = (
+        f"You are identifying hierarchical relationships for the target entity: '{t}'.\n"
+        f"Below is a list of candidate entities. Identify any subclass or superclass relationships "
+        f"between the target and the candidates.\n"
+        f"- If every entity labeled with '{t}' could logically also be labeled with a candidate 'C', output the pair [\"C\", \"{t}\"]\n"
+        f"- If every entity labeled with a candidate 'C' could logically also be labeled with '{t}', output the pair [\"{t}\", \"C\"]\n"
+        f"ONLY output relationships involving '{t}'. Do NOT output relationships between the candidates themselves. "
+        f"Output your answer strictly as a JSON list of [parent, child] arrays. If there are no relationships, output [].\n\n"
+        f"Example: [[\"cell\", \"anucleate cell\"]]\n"
+        f"Candidates:\n"
+    )
+    return instructions + "\n".join([f"- {c}" for c in candidates_chunk]) + "\n\nRelationships:\n"
+
 def build_prompt(target_raw, candidates_chunk, alt_prompt=False, variant=None):
     """Build the per-target chunk prompt for a given prompt VARIANT.
 
@@ -131,6 +154,8 @@ def build_prompt(target_raw, candidates_chunk, alt_prompt=False, variant=None):
         variant = "direct" if alt_prompt else "full"
     if variant == "legacy_json":
         return _build_legacy_json_prompt(target_raw, candidates_chunk)
+    if variant == "full_json":
+        return _build_full_json_prompt(target_raw, candidates_chunk)
     spec = PROMPT_VARIANTS[variant]
     instructions = (
         f"You are identifying hierarchical relationships for the target entity: '{target_raw}'.\n"
@@ -325,8 +350,8 @@ def _extract_condensed_with_votes(nodes, client, model_name, chunk_size=1000, ma
     primary_to_full_map = {get_primary_term(n): n for n in nodes}
     primary_nodes = list(primary_to_full_map.keys())
 
-    # legacy_json returns a JSON [["parent","child"], ...] answer -> different parser.
-    parse_fn = _parse_relations_json if variant == "legacy_json" else _parse_relations
+    # legacy_json and full_json return a JSON [["parent","child"], ...] answer -> JSON parser.
+    parse_fn = _parse_relations_json if variant in ("legacy_json", "full_json") else _parse_relations
     dbg_records = [] if debug_parse else None
     dbg_chunks = dbg_empty = 0
 
