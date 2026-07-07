@@ -153,9 +153,13 @@ def main(args):
                                 "Our Method (alt. Prompt)" if args.alt_prompt else "Our Method")]
 
             for variant, base_label in prompt_runs:
-                # --restructure adds a whole-graph LLM rewrite after extraction; tag the
-                # label ("+restructure") so vis can compare it against the plain run.
-                if args.restructure:
+                # A whole-graph LLM rewrite after extraction; tag the label so vis can
+                # compare it against the plain run. --restructure_ranked ranks the edges by
+                # the suspicion heuristics; plain --restructure does not.
+                if args.restructure_ranked:
+                    tag = "restructure_ranked" + (f"_top{args.restructure_topk}" if args.restructure_topk else "")
+                    base_label = f"{base_label} +{tag}"
+                elif args.restructure:
                     base_label = f"{base_label} +restructure"
                 base_safe = (base_label.replace(" ", "_").replace("(", "").replace(")", "")
                              .replace(".", "").replace("[", "").replace("]", ""))
@@ -167,6 +171,7 @@ def main(args):
                 graphs_by_k, edge_components = method_our_approach_sweep(
                     input_nodes, client, MODEL_NAME, args.suspicion_candidates,
                     chunk_size=args.chunk_size, variant=variant, restructure=args.restructure,
+                    restructure_ranked=args.restructure_ranked, restructure_topk=args.restructure_topk,
                     debug_parse=args.debug_parse, debug_path=debug_path,
                 )
                 sweep_runtime = time.time() - t0
@@ -289,6 +294,14 @@ if __name__ == "__main__":
                         help="Our Method variant: after extraction, show the LLM the ENTIRE taxonomy at once "
                              "and let it optionally rewrite the edges to better follow taxonomy standards. "
                              "Runs are labeled 'Our Method +restructure'; compare against the plain run in vis.")
+    parser.add_argument("--restructure_ranked", action="store_true",
+                        help="Our Method variant: whole-graph restructuring, but the edges are ORDERED by the "
+                             "clawback suspicion score and annotated with their heuristics (neighborhood "
+                             "agreement, self-agreement votes, salience, leverage) so the model focuses edits on "
+                             "likely false positives. Labeled 'Our Method +restructure_ranked'.")
+    parser.add_argument("--restructure_topk", type=int, default=0,
+                        help="With --restructure_ranked, mark only the top-K most-suspicious edges as removable "
+                             "([SUSPECT]) and pin the rest as [keep] to protect recall (0 = rank/annotate all edges).")
     parser.add_argument("--results_file", type=str, default="benchmark_results.json",
                         help="Where to append results. Point new runs at a fresh file (e.g. "
                              "benchmark_results_new.json) to keep them separate from older runs.")

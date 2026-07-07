@@ -768,9 +768,10 @@ def plot_prompt_ablation(df):
     plt.close()
 
 def plot_restructure_comparison(df):
-    """No-restructure vs whole-graph restructure pass, for the DEFAULT prompt with
-    clawback OFF. Compares Cond. Closure F1 / Precision / Recall side by side, each
-    with a paired t-test (by dataset) of the restructure effect."""
+    """No-restructure vs whole-graph restructure vs heuristic-RANKED restructure, for the
+    DEFAULT prompt with clawback OFF. Compares Cond. Closure F1 / Precision / Recall, each
+    with a paired t-test (by dataset) of every restructure mode against no-restructure --
+    so the precision/recall trade-off of plain vs ranked restructuring is visible."""
     print(" -> Generating Restructure Comparison...")
 
     # Our Method, default prompt (no '[variant]' ablation, no alt. Prompt), clawback off.
@@ -780,38 +781,47 @@ def plot_restructure_comparison(df):
              & df['Method'].str.contains('clawback=0', na=False)].copy()
     if dfr.empty:
         print("    [!] No default-prompt, clawback=0 Our Method runs found. Produce them with "
-              "'main.py --method our_method' and 'main.py --method our_method --restructure'.")
+              "'main.py --method our_method', '... --restructure', '... --restructure_ranked'.")
         return
-    dfr['Mode'] = dfr['Method'].apply(lambda m: 'Restructure' if '+restructure' in m else 'No Restructure')
-    if dfr['Mode'].nunique() < 2:
-        print("    [!] Need BOTH restructure and no-restructure runs to compare; have only: "
-              + ", ".join(sorted(dfr['Mode'].unique())))
+
+    def _mode(m):
+        if '+restructure_ranked' in m: return 'Restructure (ranked)'
+        if '+restructure' in m:        return 'Restructure'
+        return 'No Restructure'
+    dfr['Mode'] = dfr['Method'].apply(_mode)
+    present = [x for x in ['No Restructure', 'Restructure', 'Restructure (ranked)'] if x in set(dfr['Mode'])]
+    if 'No Restructure' not in present or len(present) < 2:
+        print("    [!] Need a No-Restructure run plus >=1 restructure mode to compare; have: "
+              + ", ".join(present))
         return
 
     metrics = [("Primary_F1", "Cond Closure F1"),
                ("Cond_Clos_Precision", "Cond Closure Precision"),
                ("Cond_Clos_Recall", "Cond Closure Recall")]
-    order = ['No Restructure', 'Restructure']
-    fig, axes = plt.subplots(1, 3, figsize=(18, 6))
+    fig, axes = plt.subplots(1, len(metrics), figsize=(6 * len(metrics), 6))
     for ax, (col, title) in zip(axes, metrics):
-        sns.boxplot(data=dfr, x="Mode", y=col, order=order, palette="Set2", ax=ax,
+        sns.boxplot(data=dfr, x="Mode", y=col, order=present, palette="Set2", ax=ax,
                     showmeans=True, meanprops={"marker":"o","markerfacecolor":"white","markeredgecolor":"black"})
-        sns.stripplot(data=dfr, x="Mode", y=col, order=order, color=".25", size=6, alpha=0.6, jitter=True, ax=ax)
-        # paired t-test by dataset scenario (positive diff = restructure helps)
+        sns.stripplot(data=dfr, x="Mode", y=col, order=present, color=".25", size=6, alpha=0.6, jitter=True, ax=ax)
+        # paired t-test of each restructure mode vs No Restructure (positive Δ = mode helps)
         piv = dfr.pivot_table(index="Dataset_Scenario", columns="Mode", values=col, aggfunc="mean")
-        ann = "paired t-test: need both modes on shared datasets"
-        if {"No Restructure", "Restructure"} <= set(piv.columns):
-            paired = piv[["No Restructure", "Restructure"]].dropna()
-            diffs = (paired["Restructure"] - paired["No Restructure"]).tolist()
+        ann_lines = []
+        for mode in present:
+            if mode == 'No Restructure' or mode not in piv.columns or 'No Restructure' not in piv.columns:
+                continue
+            paired = piv[['No Restructure', mode]].dropna()
+            diffs = (paired[mode] - paired['No Restructure']).tolist()
             t, dfree, p = paired_ttest(diffs)
             md = (sum(diffs) / len(diffs)) if diffs else float('nan')
-            ann = (f"paired t (n={len(diffs)}): t={t:.2f}, p={p:.3g} {_p_stars(p)}\n"
-                   f"mean Δ (restr - none) = {md:+.4f}")
-        ax.set_title(f"{title}\n{ann}", fontsize=11, fontweight='bold')
+            short = 'ranked-none' if 'ranked' in mode else 'restr-none'
+            ann_lines.append(f"{short}: Δ={md:+.3f} p={p:.2g}{_p_stars(p)} (n={len(diffs)})")
+        ax.set_title(f"{title}\n" + ("\n".join(ann_lines) if ann_lines else "paired t: need shared datasets"),
+                     fontsize=10, fontweight='bold')
         ax.set_xlabel("")
         ax.set_ylabel(title, fontweight='bold')
         ax.set_ylim(0, 1.05)
-    fig.suptitle("Effect of Whole-Graph Restructuring Pass (default prompt, clawback off)",
+        ax.tick_params(axis='x', labelrotation=12)
+    fig.suptitle("Whole-Graph Restructuring: plain vs heuristic-ranked (default prompt, clawback off)",
                  y=1.02, fontsize=14, fontweight='bold')
     plt.tight_layout()
     plt.savefig(os.path.join(VIS_DIR, "20_restructure_comparison.png"), dpi=300, bbox_inches='tight')

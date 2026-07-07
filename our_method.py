@@ -628,20 +628,101 @@ def restructure_taxonomy(G, client, model_name, max_retries=3, max_tokens=16328)
             G_new.add_edge(parent, child)
     return enforce_dag(G_new)
 
+def _ranked_restructure_prompt(G, records, ranked, topk):
+    """Whole-graph restructure prompt whose edges are ORDERED by clawback suspicion and
+    annotated with the per-edge heuristics, so the model concentrates on likely false
+    positives rather than restructuring blindly. topk>0 marks only the top-K edges as
+    removable ([SUSPECT]) and the rest as [keep] to protect recall."""
+    rec_by_edge = {(r["parent"], r["child"]): r for r in records}
+    lines = []
+    for rank_i, (p, c) in enumerate(ranked):
+        r = rec_by_edge.get((p, c))
+        if r is None:
+            continue
+        P, C = get_primary_term(p), get_primary_term(c)
+        ann = (f"agree={r['neighborhood_agreement']:.2f} votes={r['votes']} "
+               f"salience={r['salience']} leverage={r['leverage']}")
+        if topk and rank_i < topk:
+            lines.append(f"[SUSPECT] {C} <= {P}    ({ann})")
+        elif topk:
+            lines.append(f"[keep]    {C} <= {P}")
+        else:
+            lines.append(f"{C} <= {P}    ({ann})")
+    edge_block = "\n".join(lines) or "(no relationships)"
+
+    focus = ("Only the edges marked [SUSPECT] may be removed or re-parented; reproduce every "
+             "[keep] edge unchanged.\n" if topk else
+             "Concentrate on the most suspicious edges (listed first).\n")
+    return (
+        "You are an expert ontologist auditing an is-a taxonomy that was drafted "
+        "automatically. Each line is an edge 'child <= parent' (every child is a kind of the "
+        "parent), annotated with automatic suspicion signals estimated WITHOUT ground truth:\n"
+        "  - agree    = neighborhood agreement in [0,1]; LOW means the child's descendants do "
+        "not independently trace back to the parent -> the edge is likely WRONG.\n"
+        "  - votes    = generation self-agreement (0/1/2); LOW means only weakly corroborated -> suspect.\n"
+        "  - salience = how many times the edge was asserted across the model's outputs.\n"
+        "  - leverage = how many ancestor-descendant pairs route through the edge (blast radius if wrong).\n"
+        "Edges are ordered from MOST to LEAST suspicious.\n\n"
+        "Correct the taxonomy: remove or re-parent edges that are NOT valid is-a relationships. "
+        + focus +
+        "Do NOT delete well-supported edges just to simplify -- change only edges that are "
+        "genuinely wrong, so correct relations are preserved (protecting recall). Use ONLY the "
+        "concept names shown; do not invent, rename, split, or merge concepts.\n\n"
+        f"Edges:\n{edge_block}\n\n"
+        "Output the FINAL corrected taxonomy as 'child <= parent' lines, one per line, using the "
+        "concept names exactly as given above. Output only those lines and nothing else.\n\n"
+        "Corrected taxonomy:\n"
+    )
+
+def restructure_taxonomy_ranked(G, edge_votes, client, model_name, edge_salience=None,
+                                topk=0, max_retries=3, max_tokens=16328):
+    """Heuristic-guided whole-graph restructuring: show the LLM every edge, but ranked by
+    the clawback suspicion score (leverage + low neighborhood-agreement + low self-agreement)
+    and annotated with each edge's heuristics (incl. salience), so it focuses its edits on
+    likely false positives instead of restructuring indiscriminately.
+
+    Same safety as restructure_taxonomy: vocabulary-bound, a conservative no-op if the answer
+    parses no edges, cycles broken. topk>0 restricts the removable set to the top-K suspects.
+    """
+    if G.number_of_edges() == 0:
+        return G
+    records = edge_component_records(G, edge_votes, edge_salience)
+    ranked = rank_suspicious_edges(G, edge_votes)
+    primary_to_full_map = {get_primary_term(n): n for n in G.nodes()}
+    content, reasoning = _llm_call(client, model_name, _ranked_restructure_prompt(G, records, ranked, topk),
+                                   max_tokens=max_tokens, max_retries=max_retries)
+    if not (content or reasoning):
+        return G
+    edges = _parse_relations(content, primary_to_full_map) or _parse_relations(reasoning, primary_to_full_map)
+    if not edges:
+        return G
+    G_new = nx.DiGraph()
+    G_new.add_nodes_from(G.nodes())
+    for (parent, child) in edges:
+        if parent != child:
+            G_new.add_edge(parent, child)
+    return enforce_dag(G_new)
+
 def method_our_approach(nodes, client, model_name, chunk_size=1000, max_retries=3,
                         alt_prompt=False, suspicion_candidates=0, variant=None, restructure=False,
+                        restructure_ranked=False, restructure_topk=0,
                         debug_parse=False, debug_path=None):
-    final_dag, edge_votes, _ = _extract_condensed_with_votes(
+    final_dag, edge_votes, edge_salience = _extract_condensed_with_votes(
         nodes, client, model_name, chunk_size=chunk_size, max_retries=max_retries,
         alt_prompt=alt_prompt, variant=variant, debug_parse=debug_parse, debug_path=debug_path)
-    if restructure:
+    if restructure_ranked:
+        final_dag = restructure_taxonomy_ranked(final_dag, edge_votes, client, model_name,
+                                                edge_salience=edge_salience, topk=restructure_topk,
+                                                max_retries=max_retries)
+    elif restructure:
         final_dag = restructure_taxonomy(final_dag, client, model_name, max_retries=max_retries)
     return precision_clawback(final_dag, edge_votes, client, model_name,
                               suspicion_candidates=suspicion_candidates, max_retries=max_retries)
 
 def method_our_approach_sweep(nodes, client, model_name, suspicion_candidates_list,
                               chunk_size=1000, max_retries=3, alt_prompt=False, variant=None,
-                              restructure=False, debug_parse=False, debug_path=None):
+                              restructure=False, restructure_ranked=False, restructure_topk=0,
+                              debug_parse=False, debug_path=None):
     """Extract ONCE, then return ({K: graph}, edge_components).
 
     {K: graph} is one taxonomy per K in suspicion_candidates_list. The suspicion
@@ -657,7 +738,14 @@ def method_our_approach_sweep(nodes, client, model_name, suspicion_candidates_li
     final_dag, edge_votes, edge_salience = _extract_condensed_with_votes(
         nodes, client, model_name, chunk_size=chunk_size, max_retries=max_retries,
         alt_prompt=alt_prompt, variant=variant, debug_parse=debug_parse, debug_path=debug_path)
-    if restructure:
+    if restructure_ranked:
+        # Same whole-graph rewrite, but the edges are ranked/annotated by the suspicion
+        # heuristics (leverage, neighborhood agreement, self-agreement, salience) so the
+        # model focuses on likely false positives. Uses the PRE-rewrite votes/salience.
+        final_dag = restructure_taxonomy_ranked(final_dag, edge_votes, client, model_name,
+                                                edge_salience=edge_salience, topk=restructure_topk,
+                                                max_retries=max_retries)
+    elif restructure:
         # Whole-graph rewrite REPLACES the extracted DAG before ranking/clawback. Votes
         # and salience (a clawback signal) are kept as-is and are simply not meaningful
         # for any edge the rewrite introduces; restructure is normally run clawback-off.
