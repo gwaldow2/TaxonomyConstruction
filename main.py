@@ -46,7 +46,7 @@ def main(args):
     vector_encoder = None
     taxo_model = None
     taxo_tokenizer = None
-    MODEL_NAME = "openai/gpt-oss-120b"
+    MODEL_NAME = args.model
     device = "cuda" if torch.cuda.is_available() else "cpu"
 
     selected_methods = args.method
@@ -305,5 +305,9 @@ if __name__ == "__main__":
     parser.add_argument("--results_file", type=str, default="benchmark_results.json",
                         help="Where to append results. Point new runs at a fresh file (e.g. "
                              "benchmark_results_new.json) to keep them separate from older runs.")
+    parser.add_argument("--model", type=str, default="openai/gpt-oss-120b",
+                        help="Model id sent to the vLLM/OpenAI server (must match the model loaded in "
+                             "vLLM). Swap this when comparing models, e.g. --model google/gemma-... "
+                             "and write each model's run to its own --results_file.")
     args = parser.parse_args()
     main(args)
