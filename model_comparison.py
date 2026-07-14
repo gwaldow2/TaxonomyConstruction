@@ -1,9 +1,10 @@
-"""Compare Our Method's STANDARD run between two models (e.g. gpt-oss-120b vs gemma).
+"""Compare a method's run between two models (e.g. gpt-oss-120b vs gemma).
 
-Run the standard method once per model -- swapping the model loaded in vLLM and pointing
-each run at its own --results_file -- then this reads both files, extracts the standard
-'Our Method (... clawback=0)' entry per dataset, and plots Cond. Closure F1 / Precision /
-Recall / Runtime side by side, with a paired t-test (by dataset) of the model difference.
+Run once per model -- swapping the model loaded in vLLM and pointing each run at its own
+--results_file -- then this reads both files, takes the run in each dataset block (no
+method-name filtering; feed files that contain only the runs you want to compare), and
+plots Cond. Closure F1 / Precision / Recall / Runtime side by side, with a paired t-test
+(by dataset) of the model difference.
 
     python model_comparison.py \
         --a results_gptoss.json --name_a gpt-oss-120b \
@@ -25,27 +26,29 @@ METRICS = [("Cond_Clos_F1", "Cond Closure F1"),
            ("Runtime_sec", "Runtime (s)")]
 
 
-def _is_standard(method):
-    """The plain Our Method run: default prompt, no ablation/alt/restructure, clawback off."""
-    return ("Our Method" in method and "clawback=0" in method
-            and "[" not in method and "alt. Prompt" not in method and "+restructure" not in method)
-
-
 def load_standard(path, label=None):
-    """-> {dataset: result_dict} for the standard Our Method run in a results JSON.
+    """-> {dataset: result_dict}, one run per dataset block.
 
-    If ``label`` is given, match any method whose label CONTAINS it instead of the
-    default standard-run filter (use when your runs are labeled differently).
+    No method-name filtering: feed a results file that contains ONLY the runs you want to
+    compare (one per dataset). If a block happens to hold more than one run, the last is
+    used; pass ``label`` to restrict to methods whose label contains that substring.
     """
-    match = (lambda m: label in m) if label else _is_standard
-    out = {}
+    out, multi = {}, []
     with open(path, encoding="utf-8") as f:
         data = json.load(f)
     for block in data:
         ds = str(block.get("dataset", "")).replace(".csv", "")
-        for res in block.get("results", []):
-            if match(res.get("method", "")):
-                out[ds] = res
+        results = block.get("results", [])
+        if label is not None:
+            results = [r for r in results if label in r.get("method", "")]
+        if not results:
+            continue
+        if len(results) > 1:
+            multi.append(ds)
+        out[ds] = results[-1]
+    if multi:
+        print(f"    [i] {os.path.basename(path)}: multiple runs in {multi}; used the last "
+              f"(pass --label to pick a specific one).")
     return out
 
 
@@ -168,22 +171,19 @@ def main():
     ap.add_argument("--name_a", default="model A")
     ap.add_argument("--name_b", default="model B")
     ap.add_argument("--label", default=None,
-                    help="Match method labels CONTAINING this substring instead of the default "
-                         "standard-run filter. Use if your runs are labeled differently, e.g. "
-                         "--label 'Our Method [full]' or --label 'clawback=5'.")
+                    help="Optional: restrict to methods whose label CONTAINS this substring "
+                         "(only needed if a dataset block holds more than one run).")
     ap.add_argument("--out", default=os.path.join(VIS_DIR, "model_comparison.png"))
     args = ap.parse_args()
 
     a, b = load_standard(args.a, args.label), load_standard(args.b, args.label)
-    # If a file matched nothing, show what IS in it so the label mismatch is obvious.
+    # If a file yielded nothing, show what IS in it (empty file, or --label filtered all out).
     for name, path, found in [(args.name_a, args.a, a), (args.name_b, args.b, b)]:
         if not found:
-            print(f"[!] No matching runs in {path} for {name}. Method labels actually present:")
+            print(f"[!] No runs found in {path} for {name}. Method labels present:")
             for lab in all_method_labels(path):
                 print(f"      {lab!r}")
-            print("    -> the default filter wants the plain 'Our Method (... clawback=0)' with no "
-                  "'[variant]', 'alt. Prompt', or '+restructure'. If your label differs, re-run with "
-                  "--label '<substring above>'.")
+            print("    -> is the file empty / has empty result blocks, or did --label filter it all out?")
     both = sorted(set(a) & set(b))
     only_a, only_b = sorted(set(a) - set(b)), sorted(set(b) - set(a))
     print(f"[*] {args.name_a}: {len(a)} datasets | {args.name_b}: {len(b)} datasets | shared: {len(both)}")
