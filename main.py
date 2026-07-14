@@ -13,7 +13,7 @@ from data_manager import load_benchmark_graph
 from evaluator import evaluate_all_modes, update_benchmark_results
 from lexical_method import method_lexical, method_vector
 from basic_llm_method import method_llm_single_shot
-from our_method import method_our_approach, method_our_approach_sweep, PROMPT_VARIANTS, ALL_PROMPT_VARIANTS
+from our_method import method_our_approach, method_our_approach_sweep, PROMPT_VARIANTS, ALL_PROMPT_VARIANTS, RANK_BY_CHOICES
 from taxollama_method import precompute_taxollama_ppl, build_taxollama_graph
 from SBU_NLP_method import method_sbu_batch, method_sbu_embedding
 
@@ -153,14 +153,21 @@ def main(args):
                                 "Our Method (alt. Prompt)" if args.alt_prompt else "Our Method")]
 
             for variant, base_label in prompt_runs:
-                # A whole-graph LLM rewrite after extraction; tag the label so vis can
-                # compare it against the plain run. --restructure_ranked ranks the edges by
-                # the suspicion heuristics; plain --restructure does not.
-                if args.restructure_ranked:
-                    tag = "restructure_ranked" + (f"_top{args.restructure_topk}" if args.restructure_topk else "")
-                    base_label = f"{base_label} +{tag}"
+                # Tag the label with the restructuring mode (so vis can compare it) and the
+                # non-default suspicion heuristic. prune_only = delete-only; ranked = remove
+                # or re-parent; plain restructure isn't heuristic-ranked.
+                tags = []
+                topk_sfx = f"_top{args.restructure_topk}" if args.restructure_topk else ""
+                if args.restructure_prune_only:
+                    tags.append("restructure_prune_only" + topk_sfx)
+                elif args.restructure_ranked:
+                    tags.append("restructure_ranked" + topk_sfx)
                 elif args.restructure:
-                    base_label = f"{base_label} +restructure"
+                    tags.append("restructure")
+                if args.rank_by != "combined":
+                    tags.append(f"rank_{args.rank_by}")
+                for t in tags:
+                    base_label = f"{base_label} +{t}"
                 base_safe = (base_label.replace(" ", "_").replace("(", "").replace(")", "")
                              .replace(".", "").replace("[", "").replace("]", ""))
                 debug_path = (f"./results/{dataset_name_eval}_{base_safe}_parse_debug.jsonl"
@@ -171,7 +178,9 @@ def main(args):
                 graphs_by_k, edge_components = method_our_approach_sweep(
                     input_nodes, client, MODEL_NAME, args.suspicion_candidates,
                     chunk_size=args.chunk_size, variant=variant, restructure=args.restructure,
-                    restructure_ranked=args.restructure_ranked, restructure_topk=args.restructure_topk,
+                    restructure_ranked=args.restructure_ranked,
+                    restructure_prune_only=args.restructure_prune_only,
+                    restructure_topk=args.restructure_topk, rank_by=args.rank_by,
                     debug_parse=args.debug_parse, debug_path=debug_path,
                 )
                 sweep_runtime = time.time() - t0
@@ -299,9 +308,19 @@ if __name__ == "__main__":
                              "clawback suspicion score and annotated with their heuristics (neighborhood "
                              "agreement, self-agreement votes, salience, leverage) so the model focuses edits on "
                              "likely false positives. Labeled 'Our Method +restructure_ranked'.")
+    parser.add_argument("--restructure_prune_only", action="store_true",
+                        help="Our Method variant: like --restructure_ranked but DELETE-ONLY -- the model is shown "
+                             "the whole ranked/annotated graph and may only REMOVE edges (never re-parent/add). "
+                             "Deletes are confined to the eligible set (top-K if --restructure_topk, else any edge). "
+                             "Labeled 'Our Method +restructure_prune_only'.")
     parser.add_argument("--restructure_topk", type=int, default=0,
-                        help="With --restructure_ranked, mark only the top-K most-suspicious edges as removable "
-                             "([SUSPECT]) and pin the rest as [keep] to protect recall (0 = rank/annotate all edges).")
+                        help="With --restructure_ranked / --restructure_prune_only, restrict the editable/removable "
+                             "set to the top-K most-suspicious edges ([SUSPECT]); the rest are pinned [keep] to "
+                             "protect recall (0 = all edges eligible, still ranked/annotated).")
+    parser.add_argument("--rank_by", type=str, default="combined", choices=list(RANK_BY_CHOICES),
+                        help="Suspicion signal used to rank edges for clawback / ranked-restructure / prune: "
+                             "'combined' (all heuristics) or a single component alone "
+                             "(leverage | neighborhood | self_agreement | salience).")
     parser.add_argument("--results_file", type=str, default="benchmark_results.json",
                         help="Where to append results. Point new runs at a fresh file (e.g. "
                              "benchmark_results_new.json) to keep them separate from older runs.")

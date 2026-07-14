@@ -785,22 +785,29 @@ def plot_restructure_comparison(df):
         return
 
     def _mode(m):
-        if '+restructure_ranked' in m: return 'Restructure (ranked)'
-        if '+restructure' in m:        return 'Restructure'
+        if '+restructure_prune_only' in m: return 'Restructure (prune-only)'
+        if '+restructure_ranked' in m:     return 'Restructure (ranked)'
+        if '+restructure' in m:            return 'Restructure'
         return 'No Restructure'
     dfr['Mode'] = dfr['Method'].apply(_mode)
-    present = [x for x in ['No Restructure', 'Restructure', 'Restructure (ranked)'] if x in set(dfr['Mode'])]
+    CANON = ['No Restructure', 'Restructure', 'Restructure (ranked)', 'Restructure (prune-only)']
+    present = [x for x in CANON if x in set(dfr['Mode'])]
     if len(present) < 2:
-        print("    [!] Need >=2 of {No Restructure, Restructure, Restructure (ranked)} to compare; have: "
-              + ", ".join(present) + ". Point --results at the file with these runs (e.g. restr.json).")
+        print("    [!] Need >=2 of {No Restructure, Restructure, Restructure (ranked), "
+              "Restructure (prune-only)} to compare; have: " + ", ".join(present)
+              + ". Point --results at the file with these runs (e.g. restr.json).")
         return
     # Compare each mode to a reference (the no-restructure baseline if present, else the
-    # first restructure mode) AND always compare ranked-vs-plain directly when both exist.
+    # first restructure mode) AND directly compare adjacent restructure modes
+    # (ranked-vs-plain, prune-vs-ranked) so the trade-offs between them are visible.
     ref = 'No Restructure' if 'No Restructure' in present else present[0]
-    _SHORT = {'No Restructure': 'none', 'Restructure': 'plain', 'Restructure (ranked)': 'ranked'}
+    _SHORT = {'No Restructure': 'none', 'Restructure': 'plain',
+              'Restructure (ranked)': 'ranked', 'Restructure (prune-only)': 'prune'}
     pairs = [(m, ref) for m in present if m != ref]
-    if {'Restructure', 'Restructure (ranked)'} <= set(present) and ('Restructure (ranked)', 'Restructure') not in pairs:
-        pairs.append(('Restructure (ranked)', 'Restructure'))
+    restr_present = [m for m in CANON if m != 'No Restructure' and m in present]
+    for earlier, later in zip(restr_present, restr_present[1:]):   # (plain,ranked),(ranked,prune)
+        if (later, earlier) not in pairs:
+            pairs.append((later, earlier))
 
     metrics = [("Primary_F1", "Cond Closure F1"),
                ("Cond_Clos_Precision", "Cond Closure Precision"),
