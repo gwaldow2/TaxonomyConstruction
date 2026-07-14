@@ -487,19 +487,18 @@ def edge_component_records(G, edge_votes, edge_salience=None):
 # prune). 'self_agreement' is the generation-votes term.
 RANK_BY_CHOICES = ("combined", "leverage", "neighborhood", "self_agreement", "salience")
 
-def rank_suspicious_edges(G, edge_votes, edge_salience=None, rank_by="combined",
+def edge_suspicion_scores(G, edge_votes, edge_salience=None, rank_by="combined",
                           w_leverage=1.0, w_neighborhood=1.0, w_agreement=1.0, w_salience=1.0):
-    """Order the edges of G from most to least suspicious for removal.
+    """Per-edge suspicion score under ``rank_by`` (higher = more suspicious). Returns
+    ``{edge: score}`` (record order).
 
-    ``rank_by`` selects the signal (see RANK_BY_CHOICES): 'combined' uses all four
-    weighted terms; a single-component value ranks by that term ALONE (its suspicion
-    direction). The GT-free components:
-      * leverage     -- (|ancestors(a)|+1)*(|descendants(c)|+1): closure pairs that
-                        route through the edge (percentile-normalised; higher = suspect).
+    ``rank_by`` selects the signal (see RANK_BY_CHOICES): 'combined' sums all four weighted
+    terms; a single-component value uses that term ALONE (its suspicion direction). Components:
+      * leverage     -- (|ancestors(a)|+1)*(|descendants(c)|+1): closure pairs that route
+                        through the edge (percentile-normalised; higher = suspect).
       * neighborhood -- 1 - neighborhood_agreement: descendants of the child that do NOT
                         independently link back to the parent (higher = suspect).
-      * self_agreement -- edges asserted by only ONE endpoint prompt (a single generation
-                        vote) are weakly corroborated (single-vote = suspect).
+      * self_agreement -- edges asserted by only ONE endpoint prompt (single-vote = suspect).
       * salience     -- LOW total-assertion percentile raises suspicion (needs
                         ``edge_salience``; the term is 0 without it).
     """
@@ -516,19 +515,25 @@ def rank_suspicious_edges(G, edge_votes, edge_salience=None, rank_by="combined",
 
     records = edge_component_records(G, edge_votes, edge_salience)
     if not records:
-        return []
+        return {}
     lev_p = _pct_rank([r["leverage"] for r in records])
     use_sal = edge_salience is not None
     sal_p = _pct_rank([r["salience"] for r in records]) if use_sal else [0.0] * len(records)
-    scored = []
+    scores = {}
     for idx, r in enumerate(records):
         low_agreement = 1.0 if r["votes"] <= 1 else 0.0
         disagreement = 1.0 - r["neighborhood_agreement"]
         low_salience = (1.0 - sal_p[idx]) if use_sal else 0.0
-        score = (wl * lev_p[idx] + wn * disagreement + wa * low_agreement + ws * low_salience)
-        scored.append((score, (r["parent"], r["child"])))
-    scored.sort(key=lambda x: x[0], reverse=True)
-    return [edge for _, edge in scored]
+        scores[(r["parent"], r["child"])] = (wl * lev_p[idx] + wn * disagreement
+                                             + wa * low_agreement + ws * low_salience)
+    return scores
+
+def rank_suspicious_edges(G, edge_votes, edge_salience=None, rank_by="combined",
+                          w_leverage=1.0, w_neighborhood=1.0, w_agreement=1.0, w_salience=1.0):
+    """Edges most->least suspicious under ``rank_by`` (see edge_suspicion_scores)."""
+    scores = edge_suspicion_scores(G, edge_votes, edge_salience, rank_by,
+                                   w_leverage, w_neighborhood, w_agreement, w_salience)
+    return [e for e, _ in sorted(scores.items(), key=lambda x: x[1], reverse=True)]
 
 def _decide_sever(text):
     """Return True iff the LLM's verdict text ends on SEVER (default: keep)."""
@@ -673,26 +678,20 @@ def restructure_taxonomy(G, client, model_name, max_retries=3, max_tokens=16328)
             G_new.add_edge(parent, child)
     return enforce_dag(G_new)
 
-def _ranked_restructure_prompt(G, records, ranked, topk):
-    """Whole-graph restructure prompt whose edges are ORDERED by clawback suspicion and
-    annotated with the per-edge heuristics, so the model concentrates on likely false
-    positives rather than restructuring blindly. topk>0 marks only the top-K edges as
-    removable ([SUSPECT]) and the rest as [keep] to protect recall."""
-    rec_by_edge = {(r["parent"], r["child"]): r for r in records}
+def _ranked_restructure_prompt(G, scores, ranked, topk):
+    """Whole-graph restructure prompt whose edges are ORDERED by suspicion. The top-K
+    suspects ([SUSPECT]) show ONLY a single suspicion score (from --rank_by) -- no component
+    metrics -- and the rest are [keep]; topk==0 scores every edge."""
     lines = []
     for rank_i, (p, c) in enumerate(ranked):
-        r = rec_by_edge.get((p, c))
-        if r is None:
-            continue
         P, C = get_primary_term(p), get_primary_term(c)
-        ann = (f"agree={r['neighborhood_agreement']:.2f} votes={r['votes']} "
-               f"salience={r['salience']} leverage={r['leverage']}")
+        s = scores.get((p, c), 0.0)
         if topk and rank_i < topk:
-            lines.append(f"[SUSPECT] {C} <= {P}    ({ann})")
+            lines.append(f"[SUSPECT] {C} <= {P}    (suspicion={s:.3f})")
         elif topk:
             lines.append(f"[keep]    {C} <= {P}")
         else:
-            lines.append(f"{C} <= {P}    ({ann})")
+            lines.append(f"{C} <= {P}    (suspicion={s:.3f})")
     edge_block = "\n".join(lines) or "(no relationships)"
 
     focus = ("Only the edges marked [SUSPECT] may be removed or re-parented; reproduce every "
@@ -701,14 +700,9 @@ def _ranked_restructure_prompt(G, records, ranked, topk):
     return (
         "You are an expert ontologist auditing an is-a taxonomy that was drafted "
         "automatically. Each line is an edge 'child <= parent' (every child is a kind of the "
-        "parent), annotated with automatic suspicion signals estimated WITHOUT ground truth:\n"
-        "  - agree    = neighborhood agreement in [0,1]; LOW means the child's descendants do "
-        "not independently trace back to the parent -> the edge is likely WRONG.\n"
-        "  - votes    = generation self-agreement (0/1/2); LOW means only weakly corroborated -> suspect.\n"
-        "  - salience = how many times the edge was asserted across the model's outputs; "
-        "LOW means weakly asserted -> suspect.\n"
-        "  - leverage = how many ancestor-descendant pairs route through the edge (blast radius if wrong).\n"
-        "Edges are ordered from MOST to LEAST suspicious.\n\n"
+        "parent) with a single 'suspicion' score estimated WITHOUT ground truth -- HIGHER means "
+        "the edge is more likely to be WRONG (a false is-a). Edges are ordered from MOST to LEAST "
+        "suspicious.\n\n"
         "Correct the taxonomy: remove or re-parent edges that are NOT valid is-a relationships. "
         + focus +
         "Do NOT delete well-supported edges just to simplify -- change only edges that are "
@@ -732,10 +726,10 @@ def restructure_taxonomy_ranked(G, edge_votes, client, model_name, edge_salience
     """
     if G.number_of_edges() == 0:
         return G
-    records = edge_component_records(G, edge_votes, edge_salience)
-    ranked = rank_suspicious_edges(G, edge_votes, edge_salience, rank_by=rank_by)
+    scores = edge_suspicion_scores(G, edge_votes, edge_salience, rank_by=rank_by)
+    ranked = [e for e, _ in sorted(scores.items(), key=lambda x: x[1], reverse=True)]
     primary_to_full_map = {get_primary_term(n): n for n in G.nodes()}
-    content, reasoning = _llm_call(client, model_name, _ranked_restructure_prompt(G, records, ranked, topk),
+    content, reasoning = _llm_call(client, model_name, _ranked_restructure_prompt(G, scores, ranked, topk),
                                    max_tokens=max_tokens, max_retries=max_retries)
     if not (content or reasoning):
         return G
@@ -749,40 +743,29 @@ def restructure_taxonomy_ranked(G, edge_votes, client, model_name, edge_salience
             G_new.add_edge(parent, child)
     return enforce_dag(G_new)
 
-def _prune_prompt(G, records, ranked, topk):
-    """Ranked/annotated whole-graph view that asks ONLY which suspicious edges to REMOVE
-    (delete-only -- nothing is re-parented, renamed, or added). topk>0 restricts the
-    removable set to the top-K suspects ([SUSPECT]) and pins the rest ([keep]); topk==0
-    lets any edge be proposed for removal."""
-    rec_by_edge = {(r["parent"], r["child"]): r for r in records}
+def _prune_prompt(G, scores, ranked, topk):
+    """Ranked whole-graph view that asks ONLY which suspicious edges to REMOVE (delete-only).
+    The top-K suspects ([SUSPECT]) show ONLY a single suspicion score (from --rank_by) -- no
+    component metrics -- and the rest are [keep]; topk==0 scores every edge."""
     lines = []
     for rank_i, (p, c) in enumerate(ranked):
-        r = rec_by_edge.get((p, c))
-        if r is None:
-            continue
         P, C = get_primary_term(p), get_primary_term(c)
-        ann = (f"agree={r['neighborhood_agreement']:.2f} votes={r['votes']} "
-               f"salience={r['salience']} leverage={r['leverage']}")
+        s = scores.get((p, c), 0.0)
         if topk and rank_i < topk:
-            lines.append(f"[SUSPECT] {C} <= {P}    ({ann})")
+            lines.append(f"[SUSPECT] {C} <= {P}    (suspicion={s:.3f})")
         elif topk:
             lines.append(f"[keep]    {C} <= {P}")
         else:
-            lines.append(f"{C} <= {P}    ({ann})")
+            lines.append(f"{C} <= {P}    (suspicion={s:.3f})")
     edge_block = "\n".join(lines) or "(no relationships)"
 
     scope = ("Only edges marked [SUSPECT] may be removed; the [keep] edges are fixed.\n" if topk
              else "Any edge above may be proposed for removal.\n")
     return (
         "You are auditing an is-a taxonomy that was drafted automatically. Each line is an edge "
-        "'child <= parent' (every child is a kind of the parent), annotated with automatic "
-        "suspicion signals estimated WITHOUT ground truth:\n"
-        "  - agree    = neighborhood agreement in [0,1]; LOW means the child's descendants do not "
-        "independently trace back to the parent -> the edge is likely WRONG.\n"
-        "  - votes    = generation self-agreement (0/1/2); LOW means only weakly corroborated -> suspect.\n"
-        "  - salience = how many times the edge was asserted; LOW means weakly asserted -> suspect.\n"
-        "  - leverage = ancestor-descendant pairs routed through the edge (blast radius if wrong).\n"
-        "Edges are ordered from MOST to LEAST suspicious.\n\n"
+        "'child <= parent' (every child is a kind of the parent) with a single 'suspicion' score "
+        "estimated WITHOUT ground truth -- HIGHER means the edge is more likely to be WRONG (a "
+        "false is-a). Edges are ordered from MOST to LEAST suspicious.\n\n"
         "Your ONLY job is to DELETE edges that are not valid is-a relationships. Do not re-parent, "
         "rename, add, or otherwise change anything -- deletion only. Keep every edge you are not "
         "confident is wrong, so correct relations are preserved (protecting recall).\n"
@@ -802,11 +785,11 @@ def prune_taxonomy_ranked(G, edge_votes, client, model_name, edge_salience=None,
     can only be hurt by the (bounded) edges it deletes; nothing is reorganized."""
     if G.number_of_edges() == 0:
         return G
-    records = edge_component_records(G, edge_votes, edge_salience)
-    ranked = rank_suspicious_edges(G, edge_votes, edge_salience, rank_by=rank_by)
+    scores = edge_suspicion_scores(G, edge_votes, edge_salience, rank_by=rank_by)
+    ranked = [e for e, _ in sorted(scores.items(), key=lambda x: x[1], reverse=True)]
     eligible = set(ranked[:topk]) if topk else set(G.edges())
     primary_to_full_map = {get_primary_term(n): n for n in G.nodes()}
-    content, reasoning = _llm_call(client, model_name, _prune_prompt(G, records, ranked, topk),
+    content, reasoning = _llm_call(client, model_name, _prune_prompt(G, scores, ranked, topk),
                                    max_tokens=max_tokens, max_retries=max_retries)
     if not (content or reasoning):
         return G
