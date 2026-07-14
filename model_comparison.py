@@ -31,17 +31,33 @@ def _is_standard(method):
             and "[" not in method and "alt. Prompt" not in method and "+restructure" not in method)
 
 
-def load_standard(path):
-    """-> {dataset: result_dict} for the standard Our Method run in a results JSON."""
+def load_standard(path, label=None):
+    """-> {dataset: result_dict} for the standard Our Method run in a results JSON.
+
+    If ``label`` is given, match any method whose label CONTAINS it instead of the
+    default standard-run filter (use when your runs are labeled differently).
+    """
+    match = (lambda m: label in m) if label else _is_standard
     out = {}
     with open(path, encoding="utf-8") as f:
         data = json.load(f)
     for block in data:
         ds = str(block.get("dataset", "")).replace(".csv", "")
         for res in block.get("results", []):
-            if _is_standard(res.get("method", "")):
+            if match(res.get("method", "")):
                 out[ds] = res
     return out
+
+
+def all_method_labels(path):
+    """All distinct method labels present in a results JSON (for diagnosing a no-match)."""
+    labels = set()
+    with open(path, encoding="utf-8") as f:
+        data = json.load(f)
+    for block in data:
+        for res in block.get("results", []):
+            labels.add(res.get("method", ""))
+    return sorted(labels)
 
 
 # ---- scipy-free paired t-test (same routine as vis_benchmarks.py) ----
@@ -151,10 +167,23 @@ def main():
     ap.add_argument("--b", required=True, help="Results JSON for model B")
     ap.add_argument("--name_a", default="model A")
     ap.add_argument("--name_b", default="model B")
+    ap.add_argument("--label", default=None,
+                    help="Match method labels CONTAINING this substring instead of the default "
+                         "standard-run filter. Use if your runs are labeled differently, e.g. "
+                         "--label 'Our Method [full]' or --label 'clawback=5'.")
     ap.add_argument("--out", default=os.path.join(VIS_DIR, "model_comparison.png"))
     args = ap.parse_args()
 
-    a, b = load_standard(args.a), load_standard(args.b)
+    a, b = load_standard(args.a, args.label), load_standard(args.b, args.label)
+    # If a file matched nothing, show what IS in it so the label mismatch is obvious.
+    for name, path, found in [(args.name_a, args.a, a), (args.name_b, args.b, b)]:
+        if not found:
+            print(f"[!] No matching runs in {path} for {name}. Method labels actually present:")
+            for lab in all_method_labels(path):
+                print(f"      {lab!r}")
+            print("    -> the default filter wants the plain 'Our Method (... clawback=0)' with no "
+                  "'[variant]', 'alt. Prompt', or '+restructure'. If your label differs, re-run with "
+                  "--label '<substring above>'.")
     both = sorted(set(a) & set(b))
     only_a, only_b = sorted(set(a) - set(b)), sorted(set(b) - set(a))
     print(f"[*] {args.name_a}: {len(a)} datasets | {args.name_b}: {len(b)} datasets | shared: {len(both)}")
