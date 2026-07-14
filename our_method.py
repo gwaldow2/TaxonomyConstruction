@@ -482,26 +482,38 @@ def edge_component_records(G, edge_votes, edge_salience=None):
         })
     return rows
 
-def rank_suspicious_edges(G, edge_votes, edge_salience=None,
+# Which suspicion signal drives the ranking: the combined score, or a single component
+# alone. Used by --rank_by and threaded into every ranking site (clawback, restructure,
+# prune). 'self_agreement' is the generation-votes term.
+RANK_BY_CHOICES = ("combined", "leverage", "neighborhood", "self_agreement", "salience")
+
+def rank_suspicious_edges(G, edge_votes, edge_salience=None, rank_by="combined",
                           w_leverage=1.0, w_neighborhood=1.0, w_agreement=1.0, w_salience=1.0):
     """Order the edges of G from most to least suspicious for removal.
 
-    Combines GT-free heuristics (each a positive 'suspicion' contribution):
+    ``rank_by`` selects the signal (see RANK_BY_CHOICES): 'combined' uses all four
+    weighted terms; a single-component value ranks by that term ALONE (its suspicion
+    direction). The GT-free components:
       * leverage     -- (|ancestors(a)|+1)*(|descendants(c)|+1): closure pairs that
-                        route through the edge. A wrong high-leverage edge is what
-                        damages closure precision the most.
-      * neighborhood -- 1 - neighborhood_agreement: an edge a->c whose descendants
-                        do NOT independently link back to a is structurally
-                        uncorroborated, hence suspicious.
-      * agreement    -- edges asserted by only ONE of the two endpoint prompts (a
-                        single generation vote) are weakly corroborated -> suspicious.
-      * salience     -- LOW total-assertion count correlates with false positives, so a
-                        low salience percentile raises suspicion. Only applied when
-                        ``edge_salience`` is provided (otherwise this term is 0).
-
-    leverage and salience are percentile-normalised; neighborhood disagreement, the
-    single-vote bonus, and the low-salience term are all in [0, 1].
+                        route through the edge (percentile-normalised; higher = suspect).
+      * neighborhood -- 1 - neighborhood_agreement: descendants of the child that do NOT
+                        independently link back to the parent (higher = suspect).
+      * self_agreement -- edges asserted by only ONE endpoint prompt (a single generation
+                        vote) are weakly corroborated (single-vote = suspect).
+      * salience     -- LOW total-assertion percentile raises suspicion (needs
+                        ``edge_salience``; the term is 0 without it).
     """
+    presets = {
+        "combined":       (w_leverage, w_neighborhood, w_agreement, w_salience),
+        "leverage":       (1.0, 0.0, 0.0, 0.0),
+        "neighborhood":   (0.0, 1.0, 0.0, 0.0),
+        "self_agreement": (0.0, 0.0, 1.0, 0.0),
+        "salience":       (0.0, 0.0, 0.0, 1.0),
+    }
+    if rank_by not in presets:
+        raise ValueError(f"rank_by must be one of {sorted(presets)}; got {rank_by!r}")
+    wl, wn, wa, ws = presets[rank_by]
+
     records = edge_component_records(G, edge_votes, edge_salience)
     if not records:
         return []
@@ -513,8 +525,7 @@ def rank_suspicious_edges(G, edge_votes, edge_salience=None,
         low_agreement = 1.0 if r["votes"] <= 1 else 0.0
         disagreement = 1.0 - r["neighborhood_agreement"]
         low_salience = (1.0 - sal_p[idx]) if use_sal else 0.0
-        score = (w_leverage * lev_p[idx] + w_neighborhood * disagreement
-                 + w_agreement * low_agreement + w_salience * low_salience)
+        score = (wl * lev_p[idx] + wn * disagreement + wa * low_agreement + ws * low_salience)
         scored.append((score, (r["parent"], r["child"])))
     scored.sort(key=lambda x: x[0], reverse=True)
     return [edge for _, edge in scored]
@@ -585,14 +596,14 @@ def scrutinize_edge(client, model_name, parent, child, G=None, max_retries=3, ma
     return "SEVER" if _decide_sever(text) else "KEEP"   # conservative default: KEEP
 
 def precision_clawback(G, edge_votes, client, model_name, suspicion_candidates=0, max_retries=3,
-                       edge_salience=None):
+                       edge_salience=None, rank_by="combined"):
     """Sever the LLM-confirmed-wrong edges among the top `suspicion_candidates` suspects.
 
     suspicion_candidates == 0 -> no clawback (returns G unchanged).
     """
     if not suspicion_candidates or suspicion_candidates <= 0:
         return G
-    ranked = rank_suspicious_edges(G, edge_votes, edge_salience)
+    ranked = rank_suspicious_edges(G, edge_votes, edge_salience, rank_by=rank_by)
     G_out = G.copy()
     for (a, c) in ranked[:suspicion_candidates]:
         if scrutinize_edge(client, model_name, a, c, G, max_retries=max_retries) == "SEVER" and G_out.has_edge(a, c):
@@ -710,19 +721,19 @@ def _ranked_restructure_prompt(G, records, ranked, topk):
     )
 
 def restructure_taxonomy_ranked(G, edge_votes, client, model_name, edge_salience=None,
-                                topk=0, max_retries=3, max_tokens=16328):
+                                topk=0, rank_by="combined", max_retries=3, max_tokens=16328):
     """Heuristic-guided whole-graph restructuring: show the LLM every edge, but ranked by
-    the clawback suspicion score (leverage + low neighborhood-agreement + low self-agreement)
-    and annotated with each edge's heuristics (incl. salience), so it focuses its edits on
-    likely false positives instead of restructuring indiscriminately.
+    the suspicion score (``rank_by``: combined or a single component) and annotated with
+    each edge's heuristics, so it focuses its edits (remove OR re-parent) on likely false
+    positives instead of restructuring indiscriminately.
 
     Same safety as restructure_taxonomy: vocabulary-bound, a conservative no-op if the answer
-    parses no edges, cycles broken. topk>0 restricts the removable set to the top-K suspects.
+    parses no edges, cycles broken. topk>0 restricts the editable set to the top-K suspects.
     """
     if G.number_of_edges() == 0:
         return G
     records = edge_component_records(G, edge_votes, edge_salience)
-    ranked = rank_suspicious_edges(G, edge_votes, edge_salience)
+    ranked = rank_suspicious_edges(G, edge_votes, edge_salience, rank_by=rank_by)
     primary_to_full_map = {get_primary_term(n): n for n in G.nodes()}
     content, reasoning = _llm_call(client, model_name, _ranked_restructure_prompt(G, records, ranked, topk),
                                    max_tokens=max_tokens, max_retries=max_retries)
@@ -738,26 +749,97 @@ def restructure_taxonomy_ranked(G, edge_votes, client, model_name, edge_salience
             G_new.add_edge(parent, child)
     return enforce_dag(G_new)
 
+def _prune_prompt(G, records, ranked, topk):
+    """Ranked/annotated whole-graph view that asks ONLY which suspicious edges to REMOVE
+    (delete-only -- nothing is re-parented, renamed, or added). topk>0 restricts the
+    removable set to the top-K suspects ([SUSPECT]) and pins the rest ([keep]); topk==0
+    lets any edge be proposed for removal."""
+    rec_by_edge = {(r["parent"], r["child"]): r for r in records}
+    lines = []
+    for rank_i, (p, c) in enumerate(ranked):
+        r = rec_by_edge.get((p, c))
+        if r is None:
+            continue
+        P, C = get_primary_term(p), get_primary_term(c)
+        ann = (f"agree={r['neighborhood_agreement']:.2f} votes={r['votes']} "
+               f"salience={r['salience']} leverage={r['leverage']}")
+        if topk and rank_i < topk:
+            lines.append(f"[SUSPECT] {C} <= {P}    ({ann})")
+        elif topk:
+            lines.append(f"[keep]    {C} <= {P}")
+        else:
+            lines.append(f"{C} <= {P}    ({ann})")
+    edge_block = "\n".join(lines) or "(no relationships)"
+
+    scope = ("Only edges marked [SUSPECT] may be removed; the [keep] edges are fixed.\n" if topk
+             else "Any edge above may be proposed for removal.\n")
+    return (
+        "You are auditing an is-a taxonomy that was drafted automatically. Each line is an edge "
+        "'child <= parent' (every child is a kind of the parent), annotated with automatic "
+        "suspicion signals estimated WITHOUT ground truth:\n"
+        "  - agree    = neighborhood agreement in [0,1]; LOW means the child's descendants do not "
+        "independently trace back to the parent -> the edge is likely WRONG.\n"
+        "  - votes    = generation self-agreement (0/1/2); LOW means only weakly corroborated -> suspect.\n"
+        "  - salience = how many times the edge was asserted; LOW means weakly asserted -> suspect.\n"
+        "  - leverage = ancestor-descendant pairs routed through the edge (blast radius if wrong).\n"
+        "Edges are ordered from MOST to LEAST suspicious.\n\n"
+        "Your ONLY job is to DELETE edges that are not valid is-a relationships. Do not re-parent, "
+        "rename, add, or otherwise change anything -- deletion only. Keep every edge you are not "
+        "confident is wrong, so correct relations are preserved (protecting recall).\n"
+        + scope +
+        f"\nEdges:\n{edge_block}\n\n"
+        "List ONLY the edges to REMOVE, one per line as 'child <= parent', using the concept names "
+        "exactly as shown above. If none should be removed, output 'none'.\n\n"
+        "Edges to remove:\n"
+    )
+
+def prune_taxonomy_ranked(G, edge_votes, client, model_name, edge_salience=None,
+                          topk=0, rank_by="combined", max_retries=3, max_tokens=16328):
+    """Heuristic-ranked, DELETE-ONLY refinement: show the LLM the whole taxonomy ranked by
+    suspicion (``rank_by``) and let it only REMOVE edges (never re-parent/add). Starts from
+    G and deletes the model-confirmed-wrong edges among the eligible set -- the top-K
+    suspects if topk>0, else any edge. Everything outside that set is untouched, so recall
+    can only be hurt by the (bounded) edges it deletes; nothing is reorganized."""
+    if G.number_of_edges() == 0:
+        return G
+    records = edge_component_records(G, edge_votes, edge_salience)
+    ranked = rank_suspicious_edges(G, edge_votes, edge_salience, rank_by=rank_by)
+    eligible = set(ranked[:topk]) if topk else set(G.edges())
+    primary_to_full_map = {get_primary_term(n): n for n in G.nodes()}
+    content, reasoning = _llm_call(client, model_name, _prune_prompt(G, records, ranked, topk),
+                                   max_tokens=max_tokens, max_retries=max_retries)
+    if not (content or reasoning):
+        return G
+    to_remove = _parse_relations(content, primary_to_full_map) or _parse_relations(reasoning, primary_to_full_map)
+    G_out = G.copy()
+    G_out.remove_edges_from([e for e in to_remove if e in eligible])   # can only delete eligible edges
+    return G_out
+
 def method_our_approach(nodes, client, model_name, chunk_size=1000, max_retries=3,
                         alt_prompt=False, suspicion_candidates=0, variant=None, restructure=False,
-                        restructure_ranked=False, restructure_topk=0,
-                        debug_parse=False, debug_path=None):
+                        restructure_ranked=False, restructure_prune_only=False, restructure_topk=0,
+                        rank_by="combined", debug_parse=False, debug_path=None):
     final_dag, edge_votes, edge_salience = _extract_condensed_with_votes(
         nodes, client, model_name, chunk_size=chunk_size, max_retries=max_retries,
         alt_prompt=alt_prompt, variant=variant, debug_parse=debug_parse, debug_path=debug_path)
-    if restructure_ranked:
+    if restructure_prune_only:
+        final_dag = prune_taxonomy_ranked(final_dag, edge_votes, client, model_name,
+                                          edge_salience=edge_salience, topk=restructure_topk,
+                                          rank_by=rank_by, max_retries=max_retries)
+    elif restructure_ranked:
         final_dag = restructure_taxonomy_ranked(final_dag, edge_votes, client, model_name,
                                                 edge_salience=edge_salience, topk=restructure_topk,
-                                                max_retries=max_retries)
+                                                rank_by=rank_by, max_retries=max_retries)
     elif restructure:
         final_dag = restructure_taxonomy(final_dag, client, model_name, max_retries=max_retries)
     return precision_clawback(final_dag, edge_votes, client, model_name,
                               suspicion_candidates=suspicion_candidates, max_retries=max_retries,
-                              edge_salience=edge_salience)
+                              edge_salience=edge_salience, rank_by=rank_by)
 
 def method_our_approach_sweep(nodes, client, model_name, suspicion_candidates_list,
                               chunk_size=1000, max_retries=3, alt_prompt=False, variant=None,
-                              restructure=False, restructure_ranked=False, restructure_topk=0,
+                              restructure=False, restructure_ranked=False, restructure_prune_only=False,
+                              restructure_topk=0, rank_by="combined",
                               debug_parse=False, debug_path=None):
     """Extract ONCE, then return ({K: graph}, edge_components).
 
@@ -774,20 +856,26 @@ def method_our_approach_sweep(nodes, client, model_name, suspicion_candidates_li
     final_dag, edge_votes, edge_salience = _extract_condensed_with_votes(
         nodes, client, model_name, chunk_size=chunk_size, max_retries=max_retries,
         alt_prompt=alt_prompt, variant=variant, debug_parse=debug_parse, debug_path=debug_path)
-    if restructure_ranked:
+    if restructure_prune_only:
+        # DELETE-ONLY: whole-graph context ranked by the suspicion heuristics, but the model
+        # may only remove edges among the eligible (top-K, or all) set -- never re-parent/add.
+        final_dag = prune_taxonomy_ranked(final_dag, edge_votes, client, model_name,
+                                          edge_salience=edge_salience, topk=restructure_topk,
+                                          rank_by=rank_by, max_retries=max_retries)
+    elif restructure_ranked:
         # Same whole-graph rewrite, but the edges are ranked/annotated by the suspicion
-        # heuristics (leverage, neighborhood agreement, self-agreement, salience) so the
-        # model focuses on likely false positives. Uses the PRE-rewrite votes/salience.
+        # heuristics (rank_by) so the model focuses on likely false positives. Uses the
+        # PRE-rewrite votes/salience.
         final_dag = restructure_taxonomy_ranked(final_dag, edge_votes, client, model_name,
                                                 edge_salience=edge_salience, topk=restructure_topk,
-                                                max_retries=max_retries)
+                                                rank_by=rank_by, max_retries=max_retries)
     elif restructure:
         # Whole-graph rewrite REPLACES the extracted DAG before ranking/clawback. Votes
         # and salience (a clawback signal) are kept as-is and are simply not meaningful
         # for any edge the rewrite introduces; restructure is normally run clawback-off.
         final_dag = restructure_taxonomy(final_dag, client, model_name, max_retries=max_retries)
     ks = sorted({int(k) for k in suspicion_candidates_list})
-    ranked = rank_suspicious_edges(final_dag, edge_votes, edge_salience)
+    ranked = rank_suspicious_edges(final_dag, edge_votes, edge_salience, rank_by=rank_by)
 
     kmax = max(ks) if ks else 0
     verdicts = {}
