@@ -257,9 +257,9 @@ def plot(agg, llm, ks, out_path):
     matplotlib.use("Agg")
     import matplotlib.pyplot as plt
 
-    rankers = list(RANK_BYS) + (["learned"] if "learned" in agg[0]["by"] else [])
+    rankers = list(RANK_BYS) + [k for k in agg[0]["by"] if k not in RANK_BYS]   # extras (learned, taxollama_*) last
     cmap = plt.get_cmap("tab10")
-    color = {rb: cmap(i) for i, rb in enumerate(rankers)}
+    color = {rb: cmap(i % 10) for i, rb in enumerate(rankers)}
     metric_idx = {"F1": 2, "Precision": 0, "Recall": 1}
     fig, axes = plt.subplots(2, 2, figsize=(15, 11))
     panels = [("F1", axes[0, 0]), ("Precision", axes[0, 1]), ("Recall", axes[1, 0])]
@@ -270,8 +270,9 @@ def plot(agg, llm, ks, out_path):
         ax.axhline(base_m, ls=":", color=".5", lw=1.5, label=f"baseline ({base_m:.3f})")
         for rb in rankers:
             ys = [sum(a["by"][rb][K][mi] for a in agg) / len(agg) for K in ks]
-            lw = 2.8 if rb == "learned" else 1.3
-            mk = "s" if rb == "learned" else "o"
+            emph = rb not in RANK_BYS            # learned + taxollama_* stand out
+            lw = 2.8 if emph else 1.3
+            mk = "s" if emph else "o"
             ax.plot(ks, ys, "-", marker=mk, ms=(4 if rb == "learned" else 3),
                     color=color[rb], label=rb, alpha=0.95, lw=lw)
         oy = [sum(a["oracle"][K][mi] for a in agg) / len(agg) for K in ks]
@@ -313,6 +314,89 @@ def plot(agg, llm, ks, out_path):
     plt.close()
 
 
+# ----------------------------------------------------------------------------
+# Optional TaxoLLaMA per-edge is-a plausibility (perplexity) as an FP signal
+# ----------------------------------------------------------------------------
+def _primary(node):
+    return parse_lemma_format(node)[0]
+
+
+def taxollama_needed_pairs(D):
+    """Ordered (hyponym, hypernym) primary-term pairs needed: for each edge parent->child
+    the forward (child, parent) and the reverse (parent, child)."""
+    pairs = set()
+    for d in D:
+        for (p, c) in d["edges"]:
+            pp, cc = _primary(p), _primary(c)
+            pairs.add((cc, pp)); pairs.add((pp, cc))
+    return pairs
+
+
+def _load_taxollama(device):
+    """Load Llama-2-7b + the TaxoLLaMA adapter (4-bit) and return a masked-PPL scorer --
+    the same prompt/masking as taxollama_method.precompute_taxollama_ppl."""
+    import torch
+    from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
+    from peft import PeftModel
+    base_id, adapter_id = "meta-llama/Llama-2-7b-hf", "VityaVitalich/TaxoLLaMA"
+    qc = BitsAndBytesConfig(load_in_4bit=True, bnb_4bit_compute_dtype=torch.float16,
+                            bnb_4bit_quant_type="nf4", bnb_4bit_use_double_quant=True)
+    tok = AutoTokenizer.from_pretrained(base_id, token=True)
+    if tok.pad_token is None:
+        tok.pad_token = tok.eos_token
+    base = AutoModelForCausalLM.from_pretrained(base_id, quantization_config=qc, device_map="auto", token=True)
+    model = PeftModel.from_pretrained(base, adapter_id); model.eval()
+    sysp = ("[INST] <<SYS>> You are a helpfull assistant. List all the possible words divided with a "
+            "coma. Your answer should not include anything except the words divided by a coma<</SYS>>\n")
+
+    def masked_ppl(child, parent):
+        prompt = f"{sysp}hyponym: {child} | hypernyms: [/INST]"
+        ids = tok(prompt + f" {parent}", return_tensors="pt").input_ids.to(device)
+        plen = tok(prompt, return_tensors="pt").input_ids.shape[1]
+        labels = ids.clone(); m = min(plen, labels.shape[1] - 1); labels[0, :m] = -100
+        with torch.no_grad():
+            return torch.exp(model(ids, labels=labels).loss).item()
+    return masked_ppl
+
+
+def compute_ppl_cache(pairs, device, cache_path):
+    """{(hyponym, hypernym): ppl}, loading/saving a JSON cache so re-runs skip the model."""
+    cache = {}
+    if cache_path and os.path.exists(cache_path):
+        for k, v in json.load(open(cache_path, encoding="utf-8")).items():
+            hypo, hyper = k.split("\t")
+            cache[(hypo, hyper)] = v
+    todo = [pr for pr in pairs if pr not in cache]
+    if todo:
+        from tqdm import tqdm
+        ppl = _load_taxollama(device)
+        for (hypo, hyper) in tqdm(todo, desc="  -> TaxoLLaMA PPL"):
+            cache[(hypo, hyper)] = ppl(child=hypo, parent=hyper)
+        if cache_path:
+            os.makedirs(os.path.dirname(cache_path) or ".", exist_ok=True)
+            json.dump({f"{h}\t{y}": v for (h, y), v in cache.items()}, open(cache_path, "w", encoding="utf-8"))
+    return cache
+
+
+def attach_taxollama(D, cache):
+    """Set per-edge taxo_ppl (forward PPL) and taxo_ratio (forward/reverse), and append the
+    percentile-ranked ppl & ratio as two extra suspicion features (high = suspect: high PPL =
+    implausible is-a; high ratio = the reverse direction is more plausible)."""
+    for d in D:
+        edges = d["edges"]
+        fwd, rat = {}, {}
+        for (p, c) in edges:
+            pp, cc = _primary(p), _primary(c)
+            f = cache.get((cc, pp)); r = cache.get((pp, cc))
+            fwd[(p, c)] = f
+            rat[(p, c)] = (f / r) if (f is not None and r not in (None, 0)) else None
+        d["taxo_ppl"], d["taxo_ratio"] = fwd, rat
+        ppl_pct = _pct_rank([fwd[e] if fwd[e] is not None else 0.0 for e in edges])
+        rat_pct = _pct_rank([rat[e] if rat[e] is not None else 1.0 for e in edges])
+        for i, e in enumerate(edges):
+            d["feats"][i] = d["feats"][i] + [ppl_pct[i], rat_pct[i]]
+
+
 def main():
     ap = argparse.ArgumentParser(description="Offline prune-sweep: heuristic vs LLM vs oracle.")
     ap.add_argument("--results_dir", default="results",
@@ -320,6 +404,12 @@ def main():
     ap.add_argument("--llm_results", default=None, help="Results JSON to overlay LLM prune runs (optional).")
     ap.add_argument("--ks", default="0,1,2,3,5,7,10,15,20,25,30,40,50,75,100",
                     help="Comma-separated K values to sweep.")
+    ap.add_argument("--taxollama", action="store_true",
+                    help="Add TaxoLLaMA per-edge is-a perplexity as FP signals (taxollama_ppl & "
+                         "taxollama_ratio rankers + learned features). Needs a GPU + transformers/peft.")
+    ap.add_argument("--ppl_cache", default=os.path.join("results", "taxollama_ppl_cache.json"),
+                    help="JSON cache of TaxoLLaMA perplexities (reused across runs).")
+    ap.add_argument("--device", default="cuda")
     ap.add_argument("--out", default=os.path.join(VIS_DIR, "prune_sweep.png"))
     args = ap.parse_args()
 
@@ -344,30 +434,43 @@ def main():
         print("[!] No datasets evaluated (missing GT graphmls?).")
         return
 
-    # Learned FP scorer: leave-one-dataset-out logistic regression on the 4 features.
+    # Optional TaxoLLaMA per-edge is-a plausibility -> extra features + rankers.
+    feature_names = list(_FEATURES)
+    if args.taxollama:
+        print("[*] computing TaxoLLaMA per-edge perplexity (loads Llama-2-7b + adapter; cached)...")
+        cache = compute_ppl_cache(taxollama_needed_pairs(D), args.device, args.ppl_cache)
+        attach_taxollama(D, cache)
+        feature_names += ["taxollama_ppl", "taxollama_ratio"]
+
+    # Learned FP scorer: leave-one-dataset-out logistic regression on the features.
+    nf = len(D[0]["feats"][0])
     for i, d in enumerate(D):
         Xtr = [f for j, o in enumerate(D) if j != i for f in o["feats"]]
         ytr = [l for j, o in enumerate(D) if j != i for l in o["labels"]]
-        w = _fit_logreg(Xtr, ytr) if (0 < sum(ytr) < len(ytr)) else [0.0, 0, 0, 0, 0]
+        w = _fit_logreg(Xtr, ytr) if (0 < sum(ytr) < len(ytr)) else [0.0] * (nf + 1)
         d["learned"] = {e: _proba(w, f) for e, f in zip(d["edges"], d["feats"])}
 
     # AUC of each signal as an FP detector (pooled across datasets).
     yall = [l for d in D for l in d["labels"]]
     print("\n[*] FP-detection AUC (pooled; 0.5 = useless, higher = more separable):")
-    for fi, name in enumerate(_FEATURES):
+    for fi, name in enumerate(feature_names):
         print(f"      {name:16s} {auc([f[fi] for d in D for f in d['feats']], yall):.3f}")
     print(f"      {'combined(hand)':16s} "
           f"{auc([s for d in D for s in [score_edges(d['rows'], 'combined')[e] for e in d['edges']]], yall):.3f}")
     print(f"      {'learned(LOO)':16s} {auc([d['learned'][e] for d in D for e in d['edges']], yall):.3f}")
     w_all = _fit_logreg([f for d in D for f in d["feats"]], yall)
     ceil_auc = auc([_proba(w_all, f) for d in D for f in d["feats"]], yall)
-    print(f"      {'learned(in-samp)':16s} {ceil_auc:.3f}   <- ceiling of these 4 features")
+    print(f"      {'learned(in-samp)':16s} {ceil_auc:.3f}   <- ceiling of these {len(feature_names)} features")
 
-    # Sweep every dataset (heuristics + learned).
+    # Sweep every dataset (heuristics + learned + any TaxoLLaMA rankers).
     agg = []
     for d in D:
+        extra = {"learned": d["learned"]}
+        if args.taxollama:
+            extra["taxollama_ppl"] = {e: (d["taxo_ppl"][e] or 0.0) for e in d["edges"]}
+            extra["taxollama_ratio"] = {e: (d["taxo_ratio"][e] or 0.0) for e in d["edges"]}
         agg.append(sweep_dataset(d["rows"], d["G_pred"], d["gt_pairs"], d["gt_edges"], ks,
-                                 extra_scores={"learned": d["learned"]}))
+                                 extra_scores=extra))
         b = agg[-1]["baseline"]
         n_fp = sum(d["labels"])
         print(f"    {d['ds']:26s} edges={len(d['rows']):4d} (FP={n_fp:4d})  "
