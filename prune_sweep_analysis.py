@@ -91,6 +91,69 @@ def score_edges(rows, rank_by):
     return out
 
 
+_FEATURES = ("leverage", "neighborhood", "self_agreement", "salience")
+
+def edge_features(rows):
+    """-> (edges, feats): per-edge suspicion features (same 4 signals, suspicion direction,
+    leverage/salience percentile-normalised within the dataset)."""
+    lev_p = _pct_rank([r["leverage"] for r in rows])
+    sal_p = _pct_rank([r["salience"] for r in rows])
+    edges, feats = [], []
+    for i, r in enumerate(rows):
+        edges.append((r["parent"], r["child"]))
+        feats.append([lev_p[i], 1.0 - r["neighborhood_agreement"],
+                      1.0 if r["votes"] <= 1 else 0.0, 1.0 - sal_p[i]])
+    return edges, feats
+
+
+def _fit_logreg(X, y, iters=500, lr=0.5, l2=1e-2):
+    """Plain-Python logistic regression (no sklearn/numpy). Returns weights [bias, *coef]."""
+    import math
+    n = len(X); m = len(X[0]) if X else 0
+    w = [0.0] * (m + 1)
+    for _ in range(iters):
+        g = [0.0] * (m + 1)
+        for xi, yi in zip(X, y):
+            z = w[0] + sum(w[j + 1] * xi[j] for j in range(m))
+            pi = 1.0 / (1.0 + math.exp(-max(-30.0, min(30.0, z))))
+            e = pi - yi
+            g[0] += e
+            for j in range(m):
+                g[j + 1] += e * xi[j]
+        w[0] -= lr * g[0] / max(1, n)
+        for j in range(m):
+            w[j + 1] -= lr * (g[j + 1] / max(1, n) + l2 * w[j + 1])
+    return w
+
+
+def _proba(w, x):
+    import math
+    z = w[0] + sum(w[j + 1] * x[j] for j in range(len(x)))
+    return 1.0 / (1.0 + math.exp(-max(-30.0, min(30.0, z))))
+
+
+def auc(scores, labels):
+    """ROC AUC = P(score(FP) > score(TP)), tie-aware. NaN if a class is empty."""
+    data = sorted(zip(scores, labels), key=lambda t: t[0])
+    n = len(data)
+    ranks = [0.0] * n
+    j = 0
+    while j < n:
+        k = j
+        while k + 1 < n and data[k + 1][0] == data[j][0]:
+            k += 1
+        avg = (j + k) / 2.0 + 1.0
+        for t in range(j, k + 1):
+            ranks[t] = avg
+        j = k + 1
+    n_pos = sum(1 for _, l in data if l == 1)
+    n_neg = n - n_pos
+    if n_pos == 0 or n_neg == 0:
+        return float("nan")
+    sum_pos = sum(r for r, (_, l) in zip(ranks, data) if l == 1)
+    return (sum_pos - n_pos * (n_pos + 1) / 2.0) / (n_pos * n_neg)
+
+
 def cond_clos(G_pred, gt_pairs, gt_edges):
     """Cond. Closure (P, R, F1, n_fp) of G_pred vs the GT, set_overlap on synonyms."""
     pred_edges = list(nx.transitive_closure(G_pred).edges()) if G_pred.number_of_edges() else []
@@ -132,17 +195,22 @@ def load_dataset(csv_path, gt_dir):
     return (ds, rows, G_pred, gt_pairs, gt_edges)
 
 
-def sweep_dataset(rows, G_pred, gt_pairs, gt_edges, ks):
-    """-> {'rank_by'->{K->(p,r,f1)}, 'oracle'->{K->(p,r,f1)}, 'fp_curve'->[(n_removed, frac_fp_gone)]}."""
+def sweep_dataset(rows, G_pred, gt_pairs, gt_edges, ks, extra_scores=None):
+    """-> {'by'->{ranker->{K->(p,r,f1)}}, 'oracle'->{K->(p,r,f1)}, 'fp_curve'->[...]}.
+
+    extra_scores: optional {name: {edge: score}} rankers (e.g. the learned P(FP)) added
+    alongside the built-in --rank_by heuristics."""
     base_p, base_r, base_f1, base_fp = cond_clos(G_pred, gt_pairs, gt_edges)
     res = {"baseline": (base_p, base_r, base_f1), "by": {}, "oracle": {}}
-    for rb in RANK_BYS:
-        scores = score_edges(rows, rb)
+    rankers = {rb: score_edges(rows, rb) for rb in RANK_BYS}
+    if extra_scores:
+        rankers.update(extra_scores)
+    for name, scores in rankers.items():
         ranked = [e for e, _ in sorted(scores.items(), key=lambda x: x[1], reverse=True)]
-        res["by"][rb] = {}
+        res["by"][name] = {}
         for K in ks:
             G = G_pred.copy(); G.remove_edges_from(ranked[:K])
-            res["by"][rb][K] = cond_clos(G, gt_pairs, gt_edges)[:3]
+            res["by"][name][K] = cond_clos(G, gt_pairs, gt_edges)[:3]
     # oracle: remove the K highest-leverage TRUE FPs
     fp_by_lev = [ (r["parent"], r["child"]) for r in sorted([x for x in rows if x["is_fp"] == 1],
                                                             key=lambda x: x["leverage"], reverse=True) ]
@@ -189,8 +257,9 @@ def plot(agg, llm, ks, out_path):
     matplotlib.use("Agg")
     import matplotlib.pyplot as plt
 
+    rankers = list(RANK_BYS) + (["learned"] if "learned" in agg[0]["by"] else [])
     cmap = plt.get_cmap("tab10")
-    color = {rb: cmap(i) for i, rb in enumerate(RANK_BYS)}
+    color = {rb: cmap(i) for i, rb in enumerate(rankers)}
     metric_idx = {"F1": 2, "Precision": 0, "Recall": 1}
     fig, axes = plt.subplots(2, 2, figsize=(15, 11))
     panels = [("F1", axes[0, 0]), ("Precision", axes[0, 1]), ("Recall", axes[1, 0])]
@@ -199,9 +268,12 @@ def plot(agg, llm, ks, out_path):
         mi = metric_idx[name]
         base_m = sum(a["baseline"][mi] for a in agg) / len(agg)
         ax.axhline(base_m, ls=":", color=".5", lw=1.5, label=f"baseline ({base_m:.3f})")
-        for rb in RANK_BYS:
+        for rb in rankers:
             ys = [sum(a["by"][rb][K][mi] for a in agg) / len(agg) for K in ks]
-            ax.plot(ks, ys, "-o", ms=3, color=color[rb], label=rb, alpha=0.9)
+            lw = 2.8 if rb == "learned" else 1.3
+            mk = "s" if rb == "learned" else "o"
+            ax.plot(ks, ys, "-", marker=mk, ms=(4 if rb == "learned" else 3),
+                    color=color[rb], label=rb, alpha=0.95, lw=lw)
         oy = [sum(a["oracle"][K][mi] for a in agg) / len(agg) for K in ks]
         ax.plot(ks, oy, "--", color="black", lw=2, label="oracle (cut true FPs)")
         # overlay LLM prune points
@@ -257,29 +329,63 @@ def main():
         print(f"[!] No *_Our_Method_edge_diagnostics.csv in {args.results_dir}. "
               f"Run our_method (raw) so it writes edge diagnostics.")
         return
-    agg = []
+
+    # Load every dataset first (need the pooled feature set for the learned ranker).
+    D = []
     for c in csvs:
         loaded = load_dataset(c, args.results_dir)
         if loaded is None:
             continue
         ds, rows, G_pred, gt_pairs, gt_edges = loaded
-        agg.append(sweep_dataset(rows, G_pred, gt_pairs, gt_edges, ks))
-        b = agg[-1]["baseline"]
-        n_fp = sum(1 for r in rows if r["is_fp"] == 1)
-        print(f"    {ds:26s} edges={len(rows):4d} (FP={n_fp:4d})  baseline P/R/F1={b[0]:.3f}/{b[1]:.3f}/{b[2]:.3f}")
-    if not agg:
+        edges, feats = edge_features(rows)
+        D.append(dict(ds=ds, rows=rows, G_pred=G_pred, gt_pairs=gt_pairs, gt_edges=gt_edges,
+                      edges=edges, feats=feats, labels=[r["is_fp"] for r in rows]))
+    if not D:
         print("[!] No datasets evaluated (missing GT graphmls?).")
         return
+
+    # Learned FP scorer: leave-one-dataset-out logistic regression on the 4 features.
+    for i, d in enumerate(D):
+        Xtr = [f for j, o in enumerate(D) if j != i for f in o["feats"]]
+        ytr = [l for j, o in enumerate(D) if j != i for l in o["labels"]]
+        w = _fit_logreg(Xtr, ytr) if (0 < sum(ytr) < len(ytr)) else [0.0, 0, 0, 0, 0]
+        d["learned"] = {e: _proba(w, f) for e, f in zip(d["edges"], d["feats"])}
+
+    # AUC of each signal as an FP detector (pooled across datasets).
+    yall = [l for d in D for l in d["labels"]]
+    print("\n[*] FP-detection AUC (pooled; 0.5 = useless, higher = more separable):")
+    for fi, name in enumerate(_FEATURES):
+        print(f"      {name:16s} {auc([f[fi] for d in D for f in d['feats']], yall):.3f}")
+    print(f"      {'combined(hand)':16s} "
+          f"{auc([s for d in D for s in [score_edges(d['rows'], 'combined')[e] for e in d['edges']]], yall):.3f}")
+    print(f"      {'learned(LOO)':16s} {auc([d['learned'][e] for d in D for e in d['edges']], yall):.3f}")
+    w_all = _fit_logreg([f for d in D for f in d["feats"]], yall)
+    ceil_auc = auc([_proba(w_all, f) for d in D for f in d["feats"]], yall)
+    print(f"      {'learned(in-samp)':16s} {ceil_auc:.3f}   <- ceiling of these 4 features")
+
+    # Sweep every dataset (heuristics + learned).
+    agg = []
+    for d in D:
+        agg.append(sweep_dataset(d["rows"], d["G_pred"], d["gt_pairs"], d["gt_edges"], ks,
+                                 extra_scores={"learned": d["learned"]}))
+        b = agg[-1]["baseline"]
+        n_fp = sum(d["labels"])
+        print(f"    {d['ds']:26s} edges={len(d['rows']):4d} (FP={n_fp:4d})  "
+              f"baseline P/R/F1={b[0]:.3f}/{b[1]:.3f}/{b[2]:.3f}")
+
     llm = load_llm_prune(args.llm_results)
     if llm:
-        print(f"[*] overlaying {len(llm)} LLM prune point(s): "
+        print("[*] overlaying LLM prune point(s): "
               + ", ".join(f"top{k}/{rb}={v[2]:.3f}F1" for (k, rb), v in sorted(llm.items())))
-    # quick verdict: best heuristic F1 vs best LLM F1 (at matched K where available)
-    best_h = max(sum(a["by"][rb][K][2] for a in agg) / len(agg) for rb in RANK_BYS for K in ks)
-    print(f"[*] best heuristic-only mean F1 over the sweep: {best_h:.3f}  "
-          f"(baseline {sum(a['baseline'][2] for a in agg)/len(agg):.3f})")
-    if llm:
-        print(f"    best LLM-prune mean F1: {max(v[2] for v in llm.values()):.3f}")
+    n = len(agg)
+    best = lambda rb: max(sum(a["by"][rb][K][2] for a in agg) / n for K in ks)
+    base_f1 = sum(a["baseline"][2] for a in agg) / n
+    print(f"[*] best mean F1 over sweep  baseline={base_f1:.3f}  "
+          f"combined={best('combined'):.3f}  learned={best('learned'):.3f}  "
+          f"oracle={max(sum(a['oracle'][K][2] for a in agg)/n for K in ks):.3f}")
+    print("    verdict: if learned AUC approaches the in-sample ceiling AND its F1 curve nears the "
+          "oracle -> learn the weights. If the in-sample ceiling itself is low (~<0.75) -> these 4 "
+          "features can't separate FP/TP; you need new per-edge signals.")
     plot(agg, llm, ks, args.out)
     print(f"[*] wrote {args.out}")
 
