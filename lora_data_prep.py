@@ -103,10 +103,46 @@ def make_examples(train_pairs, candidates_per_example=99, max_examples=0, seed=4
     return out
 
 
+def build_full_prompt(target, candidates):
+    """Byte-for-byte copy of our_method.build_prompt(..., variant="full").
+
+    Reproduced here so data prep runs WITHOUT the ontology stack: the live builder lives in
+    our_method, which imports data_manager (requests/nltk/obonet) at module load, none of which
+    this pure string formatting needs. test_lora_prep.test_prompt_matches_live keeps this in
+    lock-step with the original whenever our_method is importable (e.g. in the benchmark env).
+    """
+    return (
+        f"You are identifying hierarchical relationships for the target entity: '{target}'.\n"
+        f"Below is a list of candidate entities. Identify any subclass or superclass relationships "
+        f"between the target and the candidates.\n"
+        f"- If every entity labeled with '{target}' could logically also be labeled with a candidate 'C', output '{target} <= C'\n"
+        f"- If every entity labeled with a candidate 'C' could logically also be labeled with '{target}', output 'C <= {target}'\n"
+        f"ONLY output relationships involving '{target}'. Do NOT output relationships between the candidates themselves. "
+        f"Output each relationship on a new line. If there are no relationships, output 'none'.\n\n"
+        f"Example: 'anucleate cell' <= 'cell'\n"
+        f"Candidates:\n"
+        + "\n".join([f"- {c}" for c in candidates]) + "\n\nRelationships:\n")
+
+
 def render(examples, variant="full"):
-    """Attach the real inference prompt (imported lazily: our_method pulls in data_manager)."""
-    from our_method import build_prompt
-    return [{"prompt": build_prompt(e["target"], e["candidates"], variant=variant),
+    """Attach the inference prompt to each example.
+
+    Prefers the LIVE our_method.build_prompt so any prompt change flows through automatically.
+    Falls back to the built-in 'full' copy when our_method can't import (the training-only env
+    has no data_manager deps) -- only 'full' is reproduced standalone, which is what the
+    experiment uses; any other variant then requires the full env.
+    """
+    try:
+        from our_method import build_prompt
+        bp = lambda t, c: build_prompt(t, c, variant=variant)
+    except Exception as e:
+        if variant != "full":
+            raise SystemExit(f"[!] variant '{variant}' needs the full env (our_method/data_manager "
+                             f"failed to import: {e}). Only 'full' renders standalone.")
+        print("    [i] our_method unavailable -- using the built-in 'full' prompt copy "
+              "(kept in sync by test_lora_prep).")
+        bp = build_full_prompt
+    return [{"prompt": bp(e["target"], e["candidates"]),
              "completion": e["completion"]} for e in examples]
 
 
