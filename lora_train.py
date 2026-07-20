@@ -96,7 +96,9 @@ def main():
                     help="Domains to drop (use for leave-one-domain-out with --train all).")
     ap.add_argument("--base_model", default="Qwen/Qwen2.5-7B-Instruct")
     ap.add_argument("--out_dir", required=True)
-    ap.add_argument("--max_seq_len", type=int, default=2048)
+    ap.add_argument("--max_seq_len", type=int, default=4096,
+                    help="Qwen2.5 handles 32k; 4096 clears the long high-fan-out completions "
+                         "(e.g. CellOntology) that 2048 truncated.")
     ap.add_argument("--epochs", type=float, default=2.0)
     ap.add_argument("--lr", type=float, default=1e-4)
     ap.add_argument("--batch_size", type=int, default=1)
@@ -128,9 +130,25 @@ def main():
         tok.pad_token = tok.eos_token
 
     ds = SFTDataset(records, tok, args.max_seq_len)
-    lens = [len(ds[i]["input_ids"]) for i in range(min(len(ds), 200))]
-    print(f"[*] token length (first {len(lens)}): mean={sum(lens)/len(lens):.0f} max={max(lens)} "
-          f"(cap {args.max_seq_len})")
+
+    # UNtruncated length distribution, so clipping is visible instead of silent. A truncated
+    # completion teaches the model to stop mid-answer, so any example over the cap is a warning.
+    eos = tok.eos_token or ""
+    sample = records if args.dry_run else records[:min(len(records), 1000)]
+    raw, comp_lens = [], []
+    for r in sample:
+        p = len(tok(r["prompt"], add_special_tokens=True).input_ids)
+        c = len(tok(r["completion"] + eos, add_special_tokens=False).input_ids)
+        raw.append(p + c); comp_lens.append(c)
+    over = sum(1 for L in raw if L > args.max_seq_len)
+    print(f"[*] untruncated length over {len(sample)} examples: mean={sum(raw)//len(raw)} "
+          f"max={max(raw)} | completion max={max(comp_lens)} | cap={args.max_seq_len}")
+    if over:
+        print(f"    [warn] {over}/{len(sample)} ({100*over/len(sample):.1f}%) exceed the cap and WILL be "
+              f"truncated -- raise --max_seq_len (Qwen2.5 handles up to 32k) to keep completions intact.")
+    else:
+        print(f"    [ok] no truncation: every sampled example fits under {args.max_seq_len}.")
+
     if args.dry_run:
         ex = ds[0]
         n_sup = sum(1 for x in ex["labels"] if x != -100)
