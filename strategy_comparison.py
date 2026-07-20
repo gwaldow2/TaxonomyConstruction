@@ -140,38 +140,41 @@ def plot(rows, group_by, ref, out_path):
     if ref not in cats:
         ref = order[0]
 
+    others = [c for c in order if c != ref]
     fig, axes = plt.subplots(1, len(METRICS), figsize=(6 * len(METRICS), 6))
     for ax, (key, title) in zip(axes, METRICS):
-        # box+strip per category
-        data = [[r[key] for r in rows if r["category"] == c and r[key] is not None] for c in order]
-        bp = ax.boxplot(data, labels=order, patch_artist=True, showfliers=False,
+        # Per-dataset PAIRED DELTA vs the control -- each point is one dataset's
+        # (category - control), so 0 means "no different from the control".
+        byds = defaultdict(dict)
+        for r in rows:
+            if r[key] is not None:
+                byds[r["dataset"]][r["category"]] = r[key]
+        deltas = {c: [v[c] - v[ref] for v in byds.values() if c in v and ref in v] for c in others}
+
+        data = [deltas[c] for c in others]
+        bp = ax.boxplot(data, labels=others, patch_artist=True, showfliers=False,
                         medianprops={"color": "black"})
         for patch in bp["boxes"]:
             patch.set_facecolor("#4C72B0"); patch.set_alpha(0.35)
         import numpy as np
         rng = np.random.default_rng(0)
-        for i, c in enumerate(order):
-            ys = [r[key] for r in rows if r["category"] == c and r[key] is not None]
+        for i, c in enumerate(others):
+            ys = deltas[c]
             ax.scatter(rng.uniform(i + 0.75, i + 1.25, len(ys)), ys, s=18, alpha=0.6, color=".25")
-        # paired t-test of each category vs ref (by dataset)
-        byds = defaultdict(dict)
-        for r in rows:
-            if r[key] is not None:
-                byds[r["dataset"]][r["category"]] = r[key]
+        ax.axhline(0.0, ls=":", color="crimson", lw=1.6)   # the control
+
         ann = []
-        for c in order:
-            if c == ref: continue
-            diffs = [v[c] - v[ref] for v in byds.values() if c in v and ref in v]
-            t, df, p = paired_ttest(diffs)
-            md = (sum(diffs) / len(diffs)) if diffs else float("nan")
-            ann.append(f"{c} vs {ref}: Δ={md:+.3f} p={p:.2g}{_stars(p)} (n={len(diffs)})")
-        ax.set_title(f"{title}\n" + ("\n".join(ann) if ann else ""), fontsize=8, fontweight="bold")
-        ax.set_ylabel(title, fontweight="bold")
-        ax.set_ylim(0, 1.05)
+        for c in others:
+            t, df, p = paired_ttest(deltas[c])
+            md = (sum(deltas[c]) / len(deltas[c])) if deltas[c] else float("nan")
+            ann.append(f"{c}: Δ={md:+.3f} p={p:.2g}{_stars(p)} (n={len(deltas[c])})")
+        ax.set_title(f"Δ {title} vs {ref}\n" + ("\n".join(ann) if ann else ""), fontsize=8, fontweight="bold")
+        ax.set_ylabel(f"Δ {title}  (>0 = better than {ref})", fontweight="bold")
         ax.tick_params(axis="x", labelrotation=20, labelsize=8)
 
     sub = "post-raw strategies vs Raw" if group_by == "strategy" else "prune-only by --rank_by (vs combined)"
-    fig.suptitle(f"Our Method: {sub}", y=1.02, fontsize=14, fontweight="bold")
+    fig.suptitle(f"Our Method: {sub}  --  paired deltas vs control '{ref}'",
+                 y=1.02, fontsize=14, fontweight="bold")
     plt.tight_layout()
     os.makedirs(os.path.dirname(out_path) or ".", exist_ok=True)
     plt.savefig(out_path, dpi=300, bbox_inches="tight")

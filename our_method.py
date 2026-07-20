@@ -600,19 +600,52 @@ def scrutinize_edge(client, model_name, parent, child, G=None, max_retries=3, ma
     text = _llm_text(client, model_name, prompt, max_tokens=max_tokens, max_retries=max_retries)
     return "SEVER" if _decide_sever(text) else "KEEP"   # conservative default: KEEP
 
+def closure_safe_removal(G, targets):
+    """Remove `targets` AND every edge that would re-imply them via transitive closure.
+
+    Deleting a direct edge a->c does not remove the ancestor pair (a,c) if any alternative
+    path a->...->c survives -- the closure brings it straight back, so the prune has no
+    effect on the closure-based metrics. For each target (a,c) we therefore also delete
+    every edge (x,y) on some a->...->c path (a reaches x, y reaches c), which guarantees a
+    can no longer reach c. Collateral edges on those paths go too: that is the true cost of
+    retracting an ancestor claim.
+    """
+    G_out = G.copy()
+    targets = [e for e in targets if G.has_edge(*e)]
+    if not targets:
+        return G_out
+    C = nx.transitive_closure(G)
+    doomed = set(targets)
+    edges = list(G.edges())
+    for (a, c) in targets:
+        desc_a = set(C.successors(a)) | {a}
+        anc_c = set(C.predecessors(c)) | {c}
+        for (x, y) in edges:
+            if x in desc_a and y in anc_c:
+                doomed.add((x, y))
+    G_out.remove_edges_from(doomed)
+    return G_out
+
+
 def precision_clawback(G, edge_votes, client, model_name, suspicion_candidates=0, max_retries=3,
-                       edge_salience=None, rank_by="combined"):
+                       edge_salience=None, rank_by="combined", closure_safe=True):
     """Sever the LLM-confirmed-wrong edges among the top `suspicion_candidates` suspects.
 
-    suspicion_candidates == 0 -> no clawback (returns G unchanged).
+    suspicion_candidates == 0 -> no clawback (returns G unchanged). With closure_safe (the
+    default) each severed edge is removed together with the edges that would re-imply it
+    through the transitive closure.
     """
     if not suspicion_candidates or suspicion_candidates <= 0:
         return G
     ranked = rank_suspicious_edges(G, edge_votes, edge_salience, rank_by=rank_by)
+    severed = [(a, c) for (a, c) in ranked[:suspicion_candidates]
+               if scrutinize_edge(client, model_name, a, c, G, max_retries=max_retries) == "SEVER"]
+    if not severed:
+        return G.copy()
+    if closure_safe:
+        return closure_safe_removal(G, severed)
     G_out = G.copy()
-    for (a, c) in ranked[:suspicion_candidates]:
-        if scrutinize_edge(client, model_name, a, c, G, max_retries=max_retries) == "SEVER" and G_out.has_edge(a, c):
-            G_out.remove_edge(a, c)
+    G_out.remove_edges_from(severed)
     return G_out
 
 # ----------------------------------------------------------------------------
@@ -777,7 +810,8 @@ def _prune_prompt(G, scores, ranked, topk):
     )
 
 def prune_taxonomy_ranked(G, edge_votes, client, model_name, edge_salience=None,
-                          topk=0, rank_by="combined", max_retries=3, max_tokens=16328):
+                          topk=0, rank_by="combined", max_retries=3, max_tokens=16328,
+                          closure_safe=True):
     """Heuristic-ranked, DELETE-ONLY refinement: show the LLM the whole taxonomy ranked by
     suspicion (``rank_by``) and let it only REMOVE edges (never re-parent/add). Starts from
     G and deletes the model-confirmed-wrong edges among the eligible set -- the top-K
@@ -794,8 +828,12 @@ def prune_taxonomy_ranked(G, edge_votes, client, model_name, edge_salience=None,
     if not (content or reasoning):
         return G
     to_remove = _parse_relations(content, primary_to_full_map) or _parse_relations(reasoning, primary_to_full_map)
+    to_remove = [e for e in to_remove if e in eligible]   # can only delete eligible edges
+    if closure_safe:
+        # also cut whatever would re-imply them through the closure (see closure_safe_removal)
+        return closure_safe_removal(G, to_remove)
     G_out = G.copy()
-    G_out.remove_edges_from([e for e in to_remove if e in eligible])   # can only delete eligible edges
+    G_out.remove_edges_from(to_remove)
     return G_out
 
 def method_our_approach(nodes, client, model_name, chunk_size=1000, max_retries=3,
