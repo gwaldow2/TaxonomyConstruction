@@ -1,7 +1,12 @@
 """QLoRA fine-tuning for taxonomy construction on the SFT files from lora_data_prep.py.
 
 Loss is masked to the completion only -- the prompt (instructions + candidate list) is context,
-not something to memorize. 4-bit NF4 base + bf16 compute fits a 27-31B model on one H100.
+not something to memorize. 4-bit NF4 base + bf16 compute fits a 7-31B model on one H100.
+
+Default base is Qwen2.5-7B-Instruct: PEFT/bitsandbytes support it cleanly, it's ungated, and
+7B is ample for these small datasets. NOTE: google/gemma-4-31b-it does NOT work here -- its
+projections are Gemma4ClippableLinear wrappers that released PEFT refuses to attach LoRA to.
+Whatever base you pick, evaluate the UNTUNED same base as the control (not a different model).
 
   in-domain     --train WordNetFood                        (eval on WordNetFood)
   cross-domain  --train CellOntology LLMs4OL_SchemaOrg      (eval on WordNetFood)
@@ -89,7 +94,7 @@ def main():
     ap.add_argument("--train", nargs="+", required=True, help="Domains to train on, or 'all'.")
     ap.add_argument("--exclude", nargs="+", default=[],
                     help="Domains to drop (use for leave-one-domain-out with --train all).")
-    ap.add_argument("--base_model", default="google/gemma-4-31b-it")
+    ap.add_argument("--base_model", default="Qwen/Qwen2.5-7B-Instruct")
     ap.add_argument("--out_dir", required=True)
     ap.add_argument("--max_seq_len", type=int, default=2048)
     ap.add_argument("--epochs", type=float, default=2.0)
