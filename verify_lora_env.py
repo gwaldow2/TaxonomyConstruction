@@ -32,11 +32,18 @@ def check(name):
     return wrap
 
 
+DEFAULT_BASE = "Qwen/Qwen2.5-7B-Instruct"
+LORA_TARGETS = ["q_proj", "k_proj", "v_proj", "o_proj", "gate_proj", "up_proj", "down_proj"]
+
+
 def main():
     ap = argparse.ArgumentParser(description="Verify a LoRA training environment.")
-    ap.add_argument("--base_model", default="google/gemma-4-31b-it")
+    ap.add_argument("--base_model", default=DEFAULT_BASE)
     ap.add_argument("--skip_tokenizer", action="store_true", help="Skip the base-model tokenizer download.")
-    ap.add_argument("--skip_smoke", action="store_true", help="Skip the 4-bit train-step smoke test.")
+    ap.add_argument("--skip_smoke", action="store_true", help="Skip the tiny-model 4-bit train-step test.")
+    ap.add_argument("--skip_base_lora", action="store_true",
+                    help="Skip attaching LoRA to the REAL base (downloads/loads it). "
+                         "This is the check that catches architecture gaps like Gemma 4's wrapped linears.")
     args = ap.parse_args()
 
     @check("versions")
@@ -144,6 +151,36 @@ def main():
             grads = [p for p in model.parameters() if p.requires_grad and p.grad is not None]
             assert grads, "no LoRA parameter received a gradient"
             print(f"    forward+backward OK: loss={loss.item():.4f}, {len(grads)} LoRA tensors got grads")
+
+    if not args.skip_base_lora:
+        @check(f"attach LoRA to real base: {args.base_model}")
+        def _base_attach():
+            # The definitive check: a tiny stand-in model can't tell you whether PEFT can wrap
+            # THIS architecture's modules. Gemma 4, for one, wraps its projections in
+            # Gemma4ClippableLinear, which PEFT refuses -- and only loading the actual base
+            # surfaces that. This is the check the tiny smoke test above cannot make.
+            import torch
+            from transformers import AutoModelForCausalLM, BitsAndBytesConfig
+            from peft import LoraConfig, get_peft_model, prepare_model_for_kbit_training
+            print(f"    loading {args.base_model} in 4-bit (downloads if not cached)...")
+            model = AutoModelForCausalLM.from_pretrained(
+                args.base_model, quantization_config=BitsAndBytesConfig(
+                    load_in_4bit=True, bnb_4bit_quant_type="nf4",
+                    bnb_4bit_compute_dtype=torch.bfloat16, bnb_4bit_use_double_quant=True),
+                dtype=torch.bfloat16, device_map="auto")
+            model = prepare_model_for_kbit_training(model, use_gradient_checkpointing=True)
+            try:
+                model = get_peft_model(model, LoraConfig(
+                    r=8, lora_alpha=16, target_modules=LORA_TARGETS,
+                    bias="none", task_type="CAUSAL_LM"))
+            except ValueError as e:
+                raise AssertionError(
+                    f"PEFT cannot attach LoRA to {args.base_model} with target_modules={LORA_TARGETS}. "
+                    f"This base/PEFT combo is unsupported -- pick a base PEFT handles "
+                    f"(Qwen2.5-7B-Instruct, Llama-3.1-8B-Instruct, Gemma-2). Original: {e}") from e
+            n_train = sum(p.numel() for p in model.parameters() if p.requires_grad)
+            assert n_train > 0, "no trainable LoRA parameters were created"
+            print(f"    LoRA attached: {n_train:,} trainable params across {len(LORA_TARGETS)} module types")
 
     failed = [(n, e) for n, e in _results if e is not None]
     print("\n" + "=" * 60)
