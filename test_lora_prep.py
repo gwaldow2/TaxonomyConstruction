@@ -5,7 +5,7 @@
 
 import networkx as nx
 
-from lora_data_prep import leakage_report, make_examples
+from lora_data_prep import leakage_report, make_examples, build_full_prompt
 
 
 def test_closure_leakage():
@@ -62,6 +62,23 @@ def test_completions_only_cite_listed_candidates():
 def test_deterministic_and_empty():
     assert make_examples(TRAIN, 99) == make_examples(TRAIN, 99)
     assert make_examples([]) == []
+
+
+def test_prompt_matches_live():
+    """The built-in 'full' prompt copy must stay byte-identical to our_method.build_prompt.
+
+    Skipped where the ontology stack isn't installed (the training-only env can't import
+    our_method); it runs in the benchmark env, which is where a prompt edit would land and
+    silently drift the training format away from inference.
+    """
+    try:
+        from our_method import build_prompt
+    except Exception:
+        print("      (skipped test_prompt_matches_live -- our_method not importable here)")
+        return
+    for target, cands in [("fruit", ["food", "apple"]), ("cell", []),
+                          ("x'y", ["a-b", "c", "d e"]), ("t", ["only"])]:
+        assert build_full_prompt(target, cands) == build_prompt(target, cands, variant="full"), target
 
 
 if __name__ == "__main__":

@@ -34,14 +34,9 @@ sentencepiece
 protobuf
 
 # --- lora_data_prep.py ---
-# networkx alone covers the graph work. The prompt renderer imports our_method, which pulls
-# data_manager and its ontology loaders; install the extras below if you want to regenerate
-# SFT data in this env rather than in `metasra`.
+# networkx alone covers it. Data prep runs fully standalone here: it renders prompts with a
+# built-in byte-for-byte copy of our_method's 'full' prompt when our_method can't import, so
+# the ontology stack (nltk/obonet/requests/...) is NOT needed just to build SFT data. If
+# our_method IS importable it's used directly; test_lora_prep keeps the copy in sync.
+# (The built-in copy only covers the 'full' variant -- any other --variant needs the full env.)
 networkx>=3.0
-
-# --- Optional: only if running lora_data_prep.py here ---
-# nltk
-# obonet
-# geonamescache
-# requests
-# pandas
