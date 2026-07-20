@@ -1,16 +1,25 @@
-"""Build LoRA SFT data for taxonomy construction from the held-out TRAIN splits.
+"""Build LoRA SFT data for taxonomy construction, held out from the SUB eval graph.
 
-Turns each domain's `benchmark_sets/<d>_<scale>_train_pairs.json` into supervised examples in
-the EXACT prompt format the method uses at inference (our_method.build_prompt), so train and
-test formats match. Completions list the gold `child <= parent` lines implied by the TRAIN
-graph's transitive closure (ancestor semantics, matching what the 'full' prompt asks for).
+Turns each domain's ontology into supervised examples in the EXACT prompt format the method
+uses at inference (our_method.build_prompt), so train and test formats match. Completions list
+the gold `child <= parent` lines implied by the training graph's transitive closure (ancestor
+semantics, matching what the 'full' prompt asks for).
 
-Before writing anything it runs a HARD LEAKAGE ASSERTION: if any training pair appears in the
-evaluation graph's transitive closure (synonym-aware, same set-overlap the evaluator uses),
-the domain is refused. Node overlap is reported but not fatal -- seeing a term is fine, seeing
-its answer is not.
+Training pool (`--train_source`):
+  * graphml (default) -- the LARGE `<d>_FULL.graphml` (the benchmark's 80%-test graph, hundreds
+    to thousands of edges) is the pool; the `<d>_SUB.graphml` eval graph is held out. This is
+    the real training set. The starved `<d>_FULL_train_pairs.json` (the split's orphaned 20%,
+    often 2-83 edges) is NOT used.
+  * pairs -- the old path: read `<d>_<train_scale>_train_pairs.json` directly. Kept for
+    back-compat; expect tiny volume.
 
-    python lora_data_prep.py --domains all --train_scale FULL --eval_scale SUB --out_dir sft
+Leakage safety (graphml path): the SUB eval nodes are dropped from the pool (node-disjoint),
+then any remaining pair that still appears in the SUB transitive closure (synonym-aware, same
+set-overlap the evaluator uses) is filtered out, and the kept set is ASSERTED clean before
+anything is written. Teaching a->b leaks the answer whenever (a,b) is an ancestor pair in the
+eval key, so the closure -- not just direct edges -- is what's checked.
+
+    python lora_data_prep.py --domains all --train_source graphml --out_dir sft
 
 Writes sft/<domain>.jsonl with {"prompt", "completion"} plus sft/_manifest.json.
 """
@@ -37,7 +46,7 @@ def load_train_pairs(domain, scale, bench_dir=BENCH_DIR):
         return json.load(f)
 
 
-def load_eval_graph(domain, scale, bench_dir=BENCH_DIR):
+def load_graph(domain, scale, bench_dir=BENCH_DIR):
     p = os.path.join(bench_dir, f"{domain}_{scale}.graphml")
     if not os.path.exists(p):
         return None
@@ -45,6 +54,33 @@ def load_eval_graph(domain, scale, bench_dir=BENCH_DIR):
     if "virtual_root" in G:
         G.remove_node("virtual_root")
     return G
+
+
+load_eval_graph = load_graph   # back-compat alias
+
+
+def train_pairs_from_graph(G_pool, G_eval, node_disjoint=True):
+    """Build leakage-safe training pairs from a pool graph, holding out the eval graph.
+
+    -> (kept_pairs, stats). SUB is a subgraph of FULL, so node identities match exactly:
+    dropping eval nodes (node_disjoint) removes the eval region wholesale, then the closure
+    filter catches any surviving pair that still implies an eval ancestor pair (synonym-aware).
+    The caller asserts the kept set is clean before writing.
+    """
+    eval_nodes = set(G_eval.nodes())
+    pool = G_pool
+    if node_disjoint:
+        pool = G_pool.subgraph([n for n in G_pool.nodes() if n not in eval_nodes])
+    raw = [{"parent": u, "child": v} for u, v in pool.edges()]
+
+    eval_pairs = _exploded_pairs(list(nx.transitive_closure(G_eval).edges()))
+    kept = [tp for tp in raw if not _matches(tp["parent"], tp["child"], eval_pairs)]
+    stats = {"pool_edges": G_pool.number_of_edges(),
+             "after_node_disjoint": len(raw),
+             "dropped_node_overlap": G_pool.number_of_edges() - len(raw),
+             "dropped_closure_leak": len(raw) - len(kept),
+             "kept": len(kept)}
+    return kept, stats
 
 
 def leakage_report(train_pairs, G_eval):
@@ -146,11 +182,47 @@ def render(examples, variant="full"):
              "completion": e["completion"]} for e in examples]
 
 
+def prepare_domain(d, args):
+    """-> (train_pairs, eval_graph, stats) for one domain, or (None, None, reason)."""
+    G_eval = load_graph(d, args.eval_scale, args.bench_dir)
+    if G_eval is None:
+        return None, None, f"no {args.eval_scale} eval graph"
+
+    if args.train_source == "graphml":
+        if args.train_scale == args.eval_scale:
+            return None, None, f"train_scale == eval_scale ({args.eval_scale}): would train on the eval graph"
+        G_pool = load_graph(d, args.train_scale, args.bench_dir)
+        if G_pool is None:
+            return None, None, f"no {args.train_scale} pool graph"
+        tp, stats = train_pairs_from_graph(G_pool, G_eval, node_disjoint=not args.keep_eval_nodes)
+        # Belt-and-suspenders: the kept set must now be leakage-clean.
+        violations, overlap = leakage_report(tp, G_eval)
+        if violations and not args.allow_leakage:
+            return None, None, f"{len(violations)} pair(s) still leak after filtering (unexpected): {violations[:3]}"
+        stats["node_overlap_with_eval"] = round(overlap, 3)
+        return tp, G_eval, stats
+
+    # train_source == "pairs": the old, starved path.
+    tp = load_train_pairs(d, args.train_scale, args.bench_dir)
+    if not tp:
+        return None, None, f"no {args.train_scale} train_pairs"
+    violations, overlap = leakage_report(tp, G_eval)
+    if violations and not args.allow_leakage:
+        return None, None, f"{len(violations)} train pair(s) leak into {args.eval_scale} closure, e.g. {violations[:3]}"
+    return tp, G_eval, {"pool_edges": len(tp), "kept": len(tp), "node_overlap_with_eval": round(overlap, 3)}
+
+
 def main():
-    ap = argparse.ArgumentParser(description="Build LoRA SFT data from the held-out train splits.")
+    ap = argparse.ArgumentParser(description="Build LoRA SFT data held out from the SUB eval graph.")
     ap.add_argument("--domains", nargs="+", default=["all"])
-    ap.add_argument("--train_scale", default="FULL", help="Scale whose train_pairs supply training data.")
-    ap.add_argument("--eval_scale", default="SUB", help="Scale used for the leakage check (what you evaluate on).")
+    ap.add_argument("--train_source", choices=["graphml", "pairs"], default="graphml",
+                    help="graphml: FULL graph as pool, hold out SUB (real volume). "
+                         "pairs: the starved <d>_<scale>_train_pairs.json (back-compat).")
+    ap.add_argument("--train_scale", default="FULL", help="Pool scale (graphml) or train_pairs scale (pairs).")
+    ap.add_argument("--eval_scale", default="SUB", help="Eval graph held out / leakage-checked (what you evaluate on).")
+    ap.add_argument("--keep_eval_nodes", action="store_true",
+                    help="graphml only: keep eval nodes in the pool (edge-disjoint only). "
+                         "Default drops them for full node-disjointness.")
     ap.add_argument("--bench_dir", default=BENCH_DIR)
     ap.add_argument("--out_dir", default="sft")
     ap.add_argument("--candidates_per_example", type=int, default=99,
@@ -166,21 +238,13 @@ def main():
     manifest, failed = {}, []
 
     for d in domains:
-        tp = load_train_pairs(d, args.train_scale, args.bench_dir)
-        G_eval = load_eval_graph(d, args.eval_scale, args.bench_dir)
+        tp, G_eval, stats = prepare_domain(d, args)
+        if tp is None:
+            print(f"    [!] {d}: {stats} -- skipping")
+            failed.append(d); continue
         if not tp:
-            print(f"    [!] {d}: no {args.train_scale} train_pairs -- skipping"); continue
-        if G_eval is None:
-            print(f"    [!] {d}: no {args.eval_scale} eval graph -- skipping"); continue
-
-        violations, overlap = leakage_report(tp, G_eval)
-        if violations:
-            msg = (f"    [LEAKAGE] {d}: {len(violations)} train pair(s) appear in the {args.eval_scale} "
-                   f"eval closure, e.g. {violations[:3]}")
-            if not args.allow_leakage:
-                print(msg + "  -> REFUSING to write this domain.")
-                failed.append(d); continue
-            print(msg + "  -> continuing anyway (--allow_leakage)")
+            print(f"    [!] {d}: 0 training pairs after holdout -- skipping")
+            failed.append(d); continue
 
         ex = make_examples(tp, args.candidates_per_example, args.max_examples_per_domain)
         recs = render(ex, args.variant)
@@ -190,15 +254,15 @@ def main():
                 f.write(json.dumps(r, ensure_ascii=False) + "\n")
         n_pos = sum(1 for r in recs if r["completion"] != "none")
         manifest[d] = {"examples": len(recs), "with_relations": n_pos,
-                       "train_pairs": len(tp), "node_overlap_with_eval": round(overlap, 3)}
-        print(f"    {d:26s} {len(recs):5d} examples ({n_pos} with relations) | "
-              f"train_pairs={len(tp):5d} | eval-node overlap={overlap:.2f} -> {path}")
+                       "train_pairs": len(tp), **stats}
+        print(f"    {d:26s} {len(recs):5d} examples ({n_pos} w/ rel) | pool_edges={stats.get('pool_edges', '?'):>5} "
+              f"kept={stats['kept']:>5} | eval-node overlap={stats['node_overlap_with_eval']:.2f} -> {path}")
 
     with open(os.path.join(args.out_dir, "_manifest.json"), "w", encoding="utf-8") as f:
         json.dump(manifest, f, indent=2)
     print(f"\n[*] wrote {len(manifest)} domain file(s) to {args.out_dir}/")
     if failed:
-        print(f"[!] REFUSED for leakage: {', '.join(failed)} -- fix the split before training on them.")
+        print(f"[!] skipped: {', '.join(failed)}")
 
 
 if __name__ == "__main__":
