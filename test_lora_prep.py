@@ -5,7 +5,8 @@
 
 import networkx as nx
 
-from lora_data_prep import leakage_report, make_examples, build_full_prompt
+from lora_data_prep import (leakage_report, make_examples, build_full_prompt,
+                            train_pairs_from_graph)
 
 
 def test_closure_leakage():
@@ -62,6 +63,35 @@ def test_completions_only_cite_listed_candidates():
 def test_deterministic_and_empty():
     assert make_examples(TRAIN, 99) == make_examples(TRAIN, 99)
     assert make_examples([]) == []
+
+
+def _full_and_sub():
+    """A FULL graph with SUB as a genuine subgraph, mirroring the benchmark layout."""
+    G = nx.DiGraph([("food", "fruit"), ("fruit", "apple"), ("fruit", "pear"),
+                    ("food", "vegetable"), ("vegetable", "carrot"), ("carrot", "baby carrot"),
+                    ("food", "grain"), ("grain", "rice"), ("grain", "wheat")])
+    G_sub = G.subgraph(["food", "fruit", "apple", "pear"]).copy()
+    return G, G_sub
+
+
+def test_graph_pool_node_disjoint_is_clean():
+    G_full, G_sub = _full_and_sub()
+    kept, stats = train_pairs_from_graph(G_full, G_sub, node_disjoint=True)
+    pairs = {(tp["parent"], tp["child"]) for tp in kept}
+    # every edge touching an eval node (all share ancestor 'food') is gone
+    assert not any(n in pr for pr in pairs for n in G_sub.nodes()), pairs
+    assert ("vegetable", "carrot") in pairs and ("grain", "rice") in pairs
+    assert leakage_report(kept, G_sub)[0] == []            # must be leakage-clean
+    assert stats["kept"] == len(kept) and stats["pool_edges"] == G_full.number_of_edges()
+
+
+def test_graph_pool_edge_disjoint_still_filters_closure():
+    G_full, G_sub = _full_and_sub()
+    kept, _ = train_pairs_from_graph(G_full, G_sub, node_disjoint=False)
+    # keeping eval nodes is allowed, but no kept pair may appear in the eval closure
+    assert leakage_report(kept, G_sub)[0] == []
+    pairs = {(tp["parent"], tp["child"]) for tp in kept}
+    assert ("food", "fruit") not in pairs and ("fruit", "apple") not in pairs
 
 
 def test_prompt_matches_live():
