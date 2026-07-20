@@ -154,9 +154,17 @@ def auc(scores, labels):
     return (sum_pos - n_pos * (n_pos + 1) / 2.0) / (n_pos * n_neg)
 
 
-def cond_clos(G_pred, gt_pairs, gt_edges):
-    """Cond. Closure (P, R, F1, n_fp) of G_pred vs the GT, set_overlap on synonyms."""
-    pred_edges = list(nx.transitive_closure(G_pred).edges()) if G_pred.number_of_edges() else []
+def evaluate(G_pred, gt_pairs, gt_edges, use_closure=True):
+    """(P, R, F1, n_fp) of G_pred vs the GT, set_overlap on synonyms.
+
+    use_closure=True  -> Cond. Closure metrics (predicted edges = transitive closure).
+    use_closure=False -> DIRECT edges only, no closure taken on either side; pass the GT's
+                         direct edges/pairs. Use this to see the heuristics' effect on the
+                         raw graph without the closure amplifying every kept/cut edge.
+    """
+    if G_pred.number_of_edges() == 0:
+        return (0.0, 0.0, 0.0, 0)
+    pred_edges = list(nx.transitive_closure(G_pred).edges()) if use_closure else list(G_pred.edges())
     if not pred_edges:
         return (0.0, 0.0, 0.0, 0)
     pred_pairs = _exploded_pairs(pred_edges)
@@ -168,8 +176,62 @@ def cond_clos(G_pred, gt_pairs, gt_edges):
     return (p, r, f1, len(pred_edges) - tp_pred)
 
 
-def load_dataset(csv_path, gt_dir):
-    """-> (dataset, rows, G_pred, gt_pairs, gt_edges) or None if the GT graphml is missing."""
+def cond_clos(G_pred, gt_pairs, gt_edges):
+    """Back-compat wrapper: closure-based evaluation."""
+    return evaluate(G_pred, gt_pairs, gt_edges, use_closure=True)
+
+
+def reach_maps(G):
+    """Precomputed reachability for closure-safe pruning: (desc, anc) including self."""
+    C = nx.transitive_closure(G)
+    desc = {n: set(C.successors(n)) | {n} for n in G.nodes()}
+    anc = {n: set(C.predecessors(n)) | {n} for n in G.nodes()}
+    return desc, anc
+
+
+def closure_safe_removal(G, targets, reach=None):
+    """Remove `targets` AND every edge that would re-imply them via transitive closure.
+
+    Deleting a direct edge a->c does NOT remove the pair (a,c) from the closure if any
+    alternative path a->...->c survives -- the closure simply brings it back. So for each
+    target (a,c) we also delete every edge (x,y) lying on some a->...->c path (a reaches x
+    and y reaches c), which guarantees a can no longer reach c.
+
+    This is deliberately thorough: collateral edges on those paths are removed too, which is
+    the real cost of actually retracting a bad ancestor claim.
+    """
+    G_out = G.copy()
+    if not targets:
+        return G_out
+    desc, anc = reach if reach is not None else reach_maps(G)
+    edges = list(G.edges())
+    doomed = set(targets)
+    for (a, c) in targets:
+        da, ac = desc.get(a), anc.get(c)
+        if not da or not ac:
+            continue
+        for (x, y) in edges:
+            if x in da and y in ac:
+                doomed.add((x, y))
+    G_out.remove_edges_from(doomed)
+    return G_out
+
+
+def apply_pruning(G, targets, closure_safe=True, reach=None):
+    """Remove `targets` from G -- closure-safe by default (see closure_safe_removal)."""
+    if closure_safe:
+        return closure_safe_removal(G, targets, reach)
+    G_out = G.copy()
+    G_out.remove_edges_from(targets)
+    return G_out
+
+
+def load_dataset_full(csv_path, gt_dir):
+    """-> dict with the predicted graph plus BOTH GT views (closure and direct), or None.
+
+    Also labels each row with is_fp_direct: the edge is not a DIRECT GT edge (the closure-
+    free notion of a false positive), alongside the CSV's closure-based is_fp.
+    """
     rows = []
     with open(csv_path, encoding="utf-8") as f:
         for d in csv.DictReader(f):
@@ -178,7 +240,6 @@ def load_dataset(csv_path, gt_dir):
                          "votes": float(d["votes"]), "salience": float(d["salience"]), "is_fp": int(d["is_fp"])})
     if not rows:
         return None
-    dataset = rows[0].get("dataset") if "dataset" in rows[0] else None
     # dataset from the filename: <ds>_Our_Method_edge_diagnostics.csv
     ds = re.sub(r"_Our_Method_edge_diagnostics\.csv$", "", os.path.basename(csv_path))
     gt_path = os.path.join(gt_dir, f"GT_{ds}_eval.graphml")
@@ -190,18 +251,40 @@ def load_dataset(csv_path, gt_dir):
         G_gt.remove_node("virtual_root")
     gt_edges = list(nx.transitive_closure(G_gt).edges())
     gt_pairs = _exploded_pairs(gt_edges)
+    gt_direct_edges = list(G_gt.edges())
+    gt_direct_pairs = _exploded_pairs(gt_direct_edges)
+    for r in rows:
+        r["is_fp_direct"] = 0 if _matches(r["parent"], r["child"], gt_direct_pairs) else 1
     G_pred = nx.DiGraph()
     G_pred.add_edges_from([(r["parent"], r["child"]) for r in rows])
-    return (ds, rows, G_pred, gt_pairs, gt_edges)
+    return {"ds": ds, "rows": rows, "G_pred": G_pred,
+            "gt_pairs": gt_pairs, "gt_edges": gt_edges,
+            "gt_direct_pairs": gt_direct_pairs, "gt_direct_edges": gt_direct_edges}
 
 
-def sweep_dataset(rows, G_pred, gt_pairs, gt_edges, ks, extra_scores=None):
+def load_dataset(csv_path, gt_dir):
+    """-> (dataset, rows, G_pred, gt_pairs, gt_edges) or None. Closure GT view (back-compat)."""
+    d = load_dataset_full(csv_path, gt_dir)
+    if d is None:
+        return None
+    return (d["ds"], d["rows"], d["G_pred"], d["gt_pairs"], d["gt_edges"])
+
+
+def sweep_dataset(rows, G_pred, gt_pairs, gt_edges, ks, extra_scores=None,
+                  closure_safe=True, use_closure=True, label_key="is_fp"):
     """-> {'by'->{ranker->{K->(p,r,f1)}}, 'oracle'->{K->(p,r,f1)}, 'fp_curve'->[...]}.
 
-    extra_scores: optional {name: {edge: score}} rankers (e.g. the learned P(FP)) added
-    alongside the built-in --rank_by heuristics."""
-    base_p, base_r, base_f1, base_fp = cond_clos(G_pred, gt_pairs, gt_edges)
+    extra_scores: optional {name: {edge: score}} rankers (e.g. the learned P(FP)).
+    closure_safe: also cut the edges that would re-imply each pruned edge (see
+                  closure_safe_removal) instead of naively deleting the direct edge only.
+    use_closure:  evaluate on the transitive closure (default) or on direct edges only --
+                  pass the matching gt_pairs/gt_edges and label_key.
+    """
+    base_p, base_r, base_f1, base_fp = evaluate(G_pred, gt_pairs, gt_edges, use_closure)
     res = {"baseline": (base_p, base_r, base_f1), "by": {}, "oracle": {}}
+    reach = reach_maps(G_pred)
+    ev = lambda G: evaluate(G, gt_pairs, gt_edges, use_closure)
+
     rankers = {rb: score_edges(rows, rb) for rb in RANK_BYS}
     if extra_scores:
         rankers.update(extra_scores)
@@ -209,19 +292,16 @@ def sweep_dataset(rows, G_pred, gt_pairs, gt_edges, ks, extra_scores=None):
         ranked = [e for e, _ in sorted(scores.items(), key=lambda x: x[1], reverse=True)]
         res["by"][name] = {}
         for K in ks:
-            G = G_pred.copy(); G.remove_edges_from(ranked[:K])
-            res["by"][name][K] = cond_clos(G, gt_pairs, gt_edges)[:3]
-    # oracle: remove the K highest-leverage TRUE FPs
-    fp_by_lev = [ (r["parent"], r["child"]) for r in sorted([x for x in rows if x["is_fp"] == 1],
-                                                            key=lambda x: x["leverage"], reverse=True) ]
+            res["by"][name][K] = ev(apply_pruning(G_pred, ranked[:K], closure_safe, reach))[:3]
+    # oracle: remove the K highest-leverage TRUE FPs (same pruning semantics, for fairness)
+    fp_by_lev = [(r["parent"], r["child"]) for r in sorted([x for x in rows if x[label_key] == 1],
+                                                           key=lambda x: x["leverage"], reverse=True)]
     for K in ks:
-        G = G_pred.copy(); G.remove_edges_from(fp_by_lev[:K])
-        res["oracle"][K] = cond_clos(G, gt_pairs, gt_edges)[:3]
-    # FP-mass concentration: fraction of baseline closure-FPs eliminated as we remove FP edges (oracle order)
+        res["oracle"][K] = ev(apply_pruning(G_pred, fp_by_lev[:K], closure_safe, reach))[:3]
+    # FP-mass concentration: fraction of baseline FPs eliminated as we remove FP edges (oracle order)
     curve = []
     for n in range(0, len(fp_by_lev) + 1):
-        G = G_pred.copy(); G.remove_edges_from(fp_by_lev[:n])
-        _, _, _, n_fp = cond_clos(G, gt_pairs, gt_edges)
+        _, _, _, n_fp = ev(apply_pruning(G_pred, fp_by_lev[:n], closure_safe, reach))
         frac_gone = 1.0 - (n_fp / base_fp) if base_fp else 0.0
         curve.append((n / len(fp_by_lev) if fp_by_lev else 0.0, frac_gone))
     res["fp_curve"] = curve
@@ -267,23 +347,26 @@ def plot(agg, llm, ks, out_path):
     for name, ax in panels:
         mi = metric_idx[name]
         base_m = sum(a["baseline"][mi] for a in agg) / len(agg)
-        ax.axhline(base_m, ls=":", color=".5", lw=1.5, label=f"baseline ({base_m:.3f})")
+        # Plotted as a PAIRED DELTA vs the no-pruning control: per dataset subtract that
+        # dataset's own baseline, then average. 0 = no change from control.
+        ax.axhline(0.0, ls=":", color=".4", lw=1.6, label=f"control / no pruning ({base_m:.3f})")
         for rb in rankers:
-            ys = [sum(a["by"][rb][K][mi] for a in agg) / len(agg) for K in ks]
+            ys = [sum(a["by"][rb][K][mi] - a["baseline"][mi] for a in agg) / len(agg) for K in ks]
             emph = rb not in RANK_BYS            # learned + taxollama_* stand out
             lw = 2.8 if emph else 1.3
             mk = "s" if emph else "o"
-            ax.plot(ks, ys, "-", marker=mk, ms=(4 if rb == "learned" else 3),
+            ax.plot(ks, ys, "-", marker=mk, ms=(4 if emph else 3),
                     color=color[rb], label=rb, alpha=0.95, lw=lw)
-        oy = [sum(a["oracle"][K][mi] for a in agg) / len(agg) for K in ks]
+        oy = [sum(a["oracle"][K][mi] - a["baseline"][mi] for a in agg) / len(agg) for K in ks]
         ax.plot(ks, oy, "--", color="black", lw=2, label="oracle (cut true FPs)")
-        # overlay LLM prune points
+        # overlay LLM prune points (also as a delta vs the mean control)
         for (k, rb), pr in (llm or {}).items():
-            ax.scatter([k], [pr[mi]], marker="*", s=180, color=color.get(rb, "red"),
+            ax.scatter([k], [pr[mi] - base_m], marker="*", s=180, color=color.get(rb, "red"),
                        edgecolors="black", zorder=5, label=f"LLM prune [{rb}]")
-        ax.set_title(f"Cond. Closure {name} vs edges removed (top-K)", fontweight="bold")
-        ax.set_xlabel("K (edges cut)", fontweight="bold"); ax.set_ylabel(name, fontweight="bold")
-        ax.set_ylim(0, 1.02)
+        ax.set_title(f"Δ {name} vs no-pruning control (top-K cut)", fontweight="bold")
+        ax.set_xlabel("K (edges cut)", fontweight="bold")
+        ax.set_ylabel(f"Δ {name}  (>0 = better than control)", fontweight="bold")
+        # deltas are signed -- let matplotlib autoscale rather than clamping to [0,1]
         # de-dupe legend
         h, l = ax.get_legend_handles_labels()
         seen = dict(zip(l, h))
@@ -410,8 +493,20 @@ def main():
     ap.add_argument("--ppl_cache", default=os.path.join("results", "taxollama_ppl_cache.json"),
                     help="JSON cache of TaxoLLaMA perplexities (reused across runs).")
     ap.add_argument("--device", default="cuda")
+    ap.add_argument("--naive_prune", action="store_true",
+                    help="Delete only the selected edge instead of also cutting the edges that "
+                         "would re-imply it through the closure (default is closure-safe).")
+    ap.add_argument("--no_closure", action="store_true",
+                    help="Evaluate on DIRECT edges instead of the transitive closure (and use the "
+                         "direct-edge FP label), to see the heuristics without closure amplification.")
     ap.add_argument("--out", default=os.path.join(VIS_DIR, "prune_sweep.png"))
     args = ap.parse_args()
+
+    closure_safe = not args.naive_prune
+    use_closure = not args.no_closure
+    label_key = "is_fp" if use_closure else "is_fp_direct"
+    print(f"[*] pruning = {'closure-safe' if closure_safe else 'naive (direct edge only)'} | "
+          f"evaluation = {'transitive closure' if use_closure else 'DIRECT edges (no closure)'}")
 
     ks = sorted({int(x) for x in args.ks.split(",")})
     csvs = sorted(glob.glob(os.path.join(args.results_dir, "*_Our_Method_edge_diagnostics.csv")))
@@ -423,13 +518,14 @@ def main():
     # Load every dataset first (need the pooled feature set for the learned ranker).
     D = []
     for c in csvs:
-        loaded = load_dataset(c, args.results_dir)
-        if loaded is None:
+        d = load_dataset_full(c, args.results_dir)
+        if d is None:
             continue
-        ds, rows, G_pred, gt_pairs, gt_edges = loaded
-        edges, feats = edge_features(rows)
-        D.append(dict(ds=ds, rows=rows, G_pred=G_pred, gt_pairs=gt_pairs, gt_edges=gt_edges,
-                      edges=edges, feats=feats, labels=[r["is_fp"] for r in rows]))
+        edges, feats = edge_features(d["rows"])
+        gp = d["gt_pairs"] if use_closure else d["gt_direct_pairs"]
+        ge = d["gt_edges"] if use_closure else d["gt_direct_edges"]
+        D.append(dict(ds=d["ds"], rows=d["rows"], G_pred=d["G_pred"], gt_pairs=gp, gt_edges=ge,
+                      edges=edges, feats=feats, labels=[r[label_key] for r in d["rows"]]))
     if not D:
         print("[!] No datasets evaluated (missing GT graphmls?).")
         return
@@ -470,7 +566,8 @@ def main():
             extra["taxollama_ppl"] = {e: (d["taxo_ppl"][e] or 0.0) for e in d["edges"]}
             extra["taxollama_ratio"] = {e: (d["taxo_ratio"][e] or 0.0) for e in d["edges"]}
         agg.append(sweep_dataset(d["rows"], d["G_pred"], d["gt_pairs"], d["gt_edges"], ks,
-                                 extra_scores=extra))
+                                 extra_scores=extra, closure_safe=closure_safe,
+                                 use_closure=use_closure, label_key=label_key))
         b = agg[-1]["baseline"]
         n_fp = sum(d["labels"])
         print(f"    {d['ds']:26s} edges={len(d['rows']):4d} (FP={n_fp:4d})  "

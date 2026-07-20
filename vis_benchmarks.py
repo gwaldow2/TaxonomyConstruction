@@ -812,13 +812,24 @@ def plot_restructure_comparison(df):
     metrics = [("Primary_F1", "Cond Closure F1"),
                ("Cond_Clos_Precision", "Cond Closure Precision"),
                ("Cond_Clos_Recall", "Cond Closure Recall")]
+    others = [m for m in present if m != ref]
     fig, axes = plt.subplots(1, len(metrics), figsize=(6 * len(metrics), 6))
     for ax, (col, title) in zip(axes, metrics):
-        sns.boxplot(data=dfr, x="Mode", y=col, order=present, palette="Set2", ax=ax,
-                    showmeans=True, meanprops={"marker":"o","markerfacecolor":"white","markeredgecolor":"black"})
-        sns.stripplot(data=dfr, x="Mode", y=col, order=present, color=".25", size=6, alpha=0.6, jitter=True, ax=ax)
-        # paired t-tests by dataset (Δ = first - second; positive = the first mode scores higher)
         piv = dfr.pivot_table(index="Dataset_Scenario", columns="Mode", values=col, aggfunc="mean")
+        # Per-dataset PAIRED DELTA vs the control -- one point per dataset, 0 = same as control.
+        recs = []
+        for m in others:
+            if m in piv.columns and ref in piv.columns:
+                paired = piv[[ref, m]].dropna()
+                recs += [{"Mode": m, "delta": d} for d in (paired[m] - paired[ref]).tolist()]
+        ddf = pd.DataFrame(recs)
+        if not ddf.empty:
+            sns.boxplot(data=ddf, x="Mode", y="delta", order=others, palette="Set2", ax=ax,
+                        showmeans=True, meanprops={"marker":"o","markerfacecolor":"white","markeredgecolor":"black"})
+            sns.stripplot(data=ddf, x="Mode", y="delta", order=others, color=".25", size=6,
+                          alpha=0.6, jitter=True, ax=ax)
+        ax.axhline(0.0, ls=":", color="crimson", lw=1.6)     # the control
+        # paired t-tests by dataset (Δ = first - second; positive = the first mode scores higher)
         ann_lines = []
         for a, b in pairs:
             if a not in piv.columns or b not in piv.columns:
@@ -828,13 +839,12 @@ def plot_restructure_comparison(df):
             t, dfree, p = paired_ttest(diffs)
             md = (sum(diffs) / len(diffs)) if diffs else float('nan')
             ann_lines.append(f"{_SHORT[a]}-{_SHORT[b]}: Δ={md:+.3f} p={p:.2g}{_p_stars(p)} (n={len(diffs)})")
-        ax.set_title(f"{title}\n" + ("\n".join(ann_lines) if ann_lines else "paired t: need shared datasets"),
+        ax.set_title(f"Δ {title} vs {ref}\n" + ("\n".join(ann_lines) if ann_lines else "paired t: need shared datasets"),
                      fontsize=9, fontweight='bold')
         ax.set_xlabel("")
-        ax.set_ylabel(title, fontweight='bold')
-        ax.set_ylim(0, 1.05)
+        ax.set_ylabel(f"Δ {title}  (>0 = better than control)", fontweight='bold')
         ax.tick_params(axis='x', labelrotation=12)
-    fig.suptitle("Whole-Graph Restructuring: plain vs heuristic-ranked (default prompt, clawback off)",
+    fig.suptitle(f"Whole-Graph Restructuring: paired deltas vs control '{ref}' (default prompt, clawback off)",
                  y=1.02, fontsize=14, fontweight='bold')
     plt.tight_layout()
     plt.savefig(os.path.join(VIS_DIR, "20_restructure_comparison.png"), dpi=300, bbox_inches='tight')
