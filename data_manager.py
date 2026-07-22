@@ -8,7 +8,6 @@ import pandas as pd
 import nltk
 from nltk.corpus import wordnet as wn
 import obonet
-import geonamescache
 
 DATA_DIR = "./taxonomy_data"
 BENCHMARK_DIR = "./benchmark_sets"
