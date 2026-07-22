@@ -7,15 +7,15 @@ import torch
 import pandas as pd
 import networkx as nx
 from openai import OpenAI
-from sentence_transformers import SentenceTransformer
 
 from data_manager import load_benchmark_graph
 from evaluator import evaluate_all_modes, update_benchmark_results
-from lexical_method import method_lexical, method_vector
 from basic_llm_method import method_llm_single_shot
 from our_method import method_our_approach, method_our_approach_sweep, PROMPT_VARIANTS, ALL_PROMPT_VARIANTS, RANK_BY_CHOICES
-from taxollama_method import precompute_taxollama_ppl, build_taxollama_graph
-from SBU_NLP_method import method_sbu_batch, method_sbu_embedding
+# lexical_method / SBU_NLP_method (sentence_transformers) and taxollama_method (torch) are
+# imported lazily inside main(), only when their method is selected. This keeps the our_method
+# eval path free of the torch / sentence-transformers / transformers stack -- which in some envs
+# transitively imports a broken torchcodec (missing FFmpeg libavutil.so) and crashes on import.
 
 def display_summary_table(domain, eval_results):
     data = []
@@ -52,6 +52,17 @@ def main(args):
     selected_methods = args.method
     if "all" in selected_methods:
         selected_methods = ["lexical", "vector", "llm_zero", "our_method", "taxollama", "sbu_batch", "sbu_embedding"]
+
+    # Lazily import method-specific heavy deps, so unselected methods can't crash the run on a
+    # broken torch/sentence-transformers stack (e.g. torchcodec's missing FFmpeg libs).
+    if any(m in selected_methods for m in ["lexical", "vector"]):
+        from lexical_method import method_lexical, method_vector
+    if any(m in selected_methods for m in ["vector", "sbu_embedding"]):
+        from sentence_transformers import SentenceTransformer
+    if any(m in selected_methods for m in ["sbu_batch", "sbu_embedding"]):
+        from SBU_NLP_method import method_sbu_batch, method_sbu_embedding
+    if "taxollama" in selected_methods:
+        from taxollama_method import precompute_taxollama_ppl, build_taxollama_graph
 
     if any(m in selected_methods for m in ["llm_zero", "our_method", "sbu_batch"]):
         print("Initializing LLM Client...")
