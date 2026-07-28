@@ -6,7 +6,7 @@ forward+backward on a tiny model. `--dry_run` in lora_train.py does NOT cover th
 stops after tokenizing and never builds TrainingArguments or the peft model.
 
     python verify_lora_env.py
-    python verify_lora_env.py --base_model google/gemma-4-31b-it --skip_smoke
+    python verify_lora_env.py --base gemma4
 """
 
 import argparse
@@ -32,19 +32,24 @@ def check(name):
     return wrap
 
 
-DEFAULT_BASE = "Qwen/Qwen2.5-7B-Instruct"
-LORA_TARGETS = ["q_proj", "k_proj", "v_proj", "o_proj", "gate_proj", "up_proj", "down_proj"]
-
-
 def main():
+    from lora_train import BASE_PRESETS, resolve_base       # single source of truth for presets
+
     ap = argparse.ArgumentParser(description="Verify a LoRA training environment.")
-    ap.add_argument("--base_model", default=DEFAULT_BASE)
+    ap.add_argument("--base", choices=sorted(BASE_PRESETS), default="qwen",
+                    help="Verify the environment for this --base preset from lora_train.py.")
+    ap.add_argument("--base_model", default=None, help="Override the preset's model id.")
     ap.add_argument("--skip_tokenizer", action="store_true", help="Skip the base-model tokenizer download.")
     ap.add_argument("--skip_smoke", action="store_true", help="Skip the tiny-model 4-bit train-step test.")
     ap.add_argument("--skip_base_lora", action="store_true",
                     help="Skip attaching LoRA to the REAL base (downloads/loads it). "
                          "This is the check that catches architecture gaps like Gemma 4's wrapped linears.")
     args = ap.parse_args()
+
+    base_model = args.base_model or BASE_PRESETS[args.base]["model"]
+    lora_targets = BASE_PRESETS[args.base]["target_modules"]
+    print(f"[*] verifying --base {args.base} -> {base_model}")
+    print(f"    target_modules: {lora_targets if lora_targets else 'PEFT defaults (auto)'}")
 
     @check("versions")
     def _versions():
@@ -56,6 +61,9 @@ def main():
         print(f"    bitsandbytes {bitsandbytes.__version__}")
         major = int(transformers.__version__.split(".")[0])
         assert major >= 5, "gemma4 needs transformers >= 5.14.1"
+        # Enforces the preset's own floor (gemma4 needs peft>=0.19 for its LoRA defaults).
+        resolve_base(argparse.Namespace(base=args.base, base_model=args.base_model,
+                                        target_modules=None))
 
     @check("cuda")
     def _cuda():
@@ -105,10 +113,10 @@ def main():
         print("    LoraConfig OK")
 
     if not args.skip_tokenizer:
-        @check(f"tokenizer: {args.base_model}")
+        @check(f"tokenizer: {base_model}")
         def _tok():
             from transformers import AutoTokenizer
-            t = AutoTokenizer.from_pretrained(args.base_model)
+            t = AutoTokenizer.from_pretrained(base_model)
             print(f"    class {type(t).__name__}, vocab {len(t)}")
             ids = t("apple <= fruit").input_ids
             assert ids, "tokenizer produced no ids"
@@ -153,34 +161,43 @@ def main():
             print(f"    forward+backward OK: loss={loss.item():.4f}, {len(grads)} LoRA tensors got grads")
 
     if not args.skip_base_lora:
-        @check(f"attach LoRA to real base: {args.base_model}")
+        @check(f"attach LoRA to real base: {base_model}")
         def _base_attach():
             # The definitive check: a tiny stand-in model can't tell you whether PEFT can wrap
-            # THIS architecture's modules. Gemma 4, for one, wraps its projections in
-            # Gemma4ClippableLinear, which PEFT refuses -- and only loading the actual base
-            # surfaces that. This is the check the tiny smoke test above cannot make.
+            # THIS architecture's modules. Gemma 4, for one, wraps its vision/audio encoder
+            # projections in Gemma4ClippableLinear, which PEFT's type allowlist refuses -- and
+            # only loading the actual base surfaces that. The tiny smoke test cannot.
             import torch
             from transformers import AutoModelForCausalLM, BitsAndBytesConfig
             from peft import LoraConfig, get_peft_model, prepare_model_for_kbit_training
-            print(f"    loading {args.base_model} in 4-bit (downloads if not cached)...")
+            print(f"    loading {base_model} in 4-bit (downloads if not cached)...")
             model = AutoModelForCausalLM.from_pretrained(
-                args.base_model, quantization_config=BitsAndBytesConfig(
+                base_model, quantization_config=BitsAndBytesConfig(
                     load_in_4bit=True, bnb_4bit_quant_type="nf4",
                     bnb_4bit_compute_dtype=torch.bfloat16, bnb_4bit_use_double_quant=True),
                 dtype=torch.bfloat16, device_map="auto")
             model = prepare_model_for_kbit_training(model, use_gradient_checkpointing=True)
             try:
                 model = get_peft_model(model, LoraConfig(
-                    r=8, lora_alpha=16, target_modules=LORA_TARGETS,
-                    bias="none", task_type="CAUSAL_LM"))
+                    r=8, lora_alpha=16, bias="none", task_type="CAUSAL_LM",
+                    **({"target_modules": lora_targets} if lora_targets else {})))
             except ValueError as e:
                 raise AssertionError(
-                    f"PEFT cannot attach LoRA to {args.base_model} with target_modules={LORA_TARGETS}. "
-                    f"This base/PEFT combo is unsupported -- pick a base PEFT handles "
-                    f"(Qwen2.5-7B-Instruct, Llama-3.1-8B-Instruct, Gemma-2). Original: {e}") from e
+                    f"PEFT cannot attach LoRA to {base_model} with "
+                    f"target_modules={lora_targets or 'PEFT defaults'}. If this is a multimodal "
+                    f"base, an explicit leaf-name list also matches its vision/audio encoder "
+                    f"projections; leaving target_modules unset lets PEFT scope to the language "
+                    f"model. Otherwise upgrade PEFT or pick a supported base. Original: {e}") from e
             n_train = sum(p.numel() for p in model.parameters() if p.requires_grad)
             assert n_train > 0, "no trainable LoRA parameters were created"
-            print(f"    LoRA attached: {n_train:,} trainable params across {len(LORA_TARGETS)} module types")
+            adapted = sorted({n.rsplit(".lora_", 1)[0] for n, _ in model.named_modules() if ".lora_A" in n})
+            leaves = sorted({a.rsplit(".", 1)[-1] for a in adapted})
+            print(f"    LoRA attached: {n_train:,} trainable params over {len(adapted)} modules")
+            print(f"    leaf types: {', '.join(leaves)}")
+            print(f"    e.g. {adapted[0] if adapted else '(none)'}")
+            stray = [a for a in adapted if any(k in a for k in ("vision", "audio", "multi_modal"))]
+            if stray:
+                print(f"    [warn] {len(stray)} adapter(s) on vision/audio modules, e.g. {stray[0]}")
 
     failed = [(n, e) for n, e in _results if e is not None]
     print("\n" + "=" * 60)

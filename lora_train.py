@@ -3,15 +3,27 @@
 Loss is masked to the completion only -- the prompt (instructions + candidate list) is context,
 not something to memorize. 4-bit NF4 base + bf16 compute fits a 7-31B model on one H100.
 
-Default base is Qwen2.5-7B-Instruct: PEFT/bitsandbytes support it cleanly, it's ungated, and
-7B is ample for these small datasets. NOTE: google/gemma-4-31b-it does NOT work here -- its
-projections are Gemma4ClippableLinear wrappers that released PEFT refuses to attach LoRA to.
-Whatever base you pick, evaluate the UNTUNED same base as the control (not a different model).
+--base selects which model to start from, so the same SFT data can be tuned from either and
+the results compared (see lora_comparison.py):
+
+  --base qwen     Qwen/Qwen2.5-7B-Instruct  -- small, ungated, fast to iterate on
+  --base gemma4   google/gemma-4-31b-it     -- the model the method itself uses
+
+Gemma 4 needs peft>=0.19.0 and NO explicit target_modules. Its vision/audio encoders wrap
+projections in Gemma4ClippableLinear, which subclasses nn.Module rather than nn.Linear, so
+PEFT's type allowlist rejects it. A leaf-name list like ["q_proj", ...] matches those encoder
+projections too (SigLIP reuses the names) and fails on the wrapper -- the language model's own
+layers were never the problem. peft>=0.19 ships Gemma 4 defaults that scope adapters to the
+language model by regex, so leaving target_modules unset is the fix.
+
+Whatever base you pick, evaluate the UNTUNED SAME base as the control -- a control from a
+different model measures the model, not the tuning.
 
   in-domain     --train WordNetFood                        (eval on WordNetFood)
   cross-domain  --train CellOntology LLMs4OL_SchemaOrg      (eval on WordNetFood)
 
-    python lora_train.py --sft_dir sft --train WordNetFood --out_dir adapters/in_WordNetFood
+    python lora_train.py --base qwen   --train WordNetFood --out_dir adapters/qwen_in_WordNetFood
+    python lora_train.py --base gemma4 --train WordNetFood --out_dir adapters/gemma4_in_WordNetFood
 
 Serve the adapter with:  vllm serve <base> --enable-lora --lora-modules taxo=<out_dir>
 then evaluate with:      python main.py --model taxo ...
@@ -21,6 +33,50 @@ import os
 import json
 import glob
 import argparse
+
+
+# --base presets. target_modules=None means "let PEFT choose": required for gemma4 (its
+# defaults skip the Gemma4ClippableLinear vision/audio wrappers), harmless elsewhere.
+BASE_PRESETS = {
+    "qwen": {
+        "model": "Qwen/Qwen2.5-7B-Instruct",
+        "target_modules": ["q_proj", "k_proj", "v_proj", "o_proj",
+                           "gate_proj", "up_proj", "down_proj"],
+        "min_peft": None,
+    },
+    "gemma4": {
+        "model": "google/gemma-4-31b-it",
+        "target_modules": None,          # MUST stay None -- see the module docstring
+        "min_peft": (0, 19, 0),
+    },
+}
+
+
+def _version_tuple(v):
+    out = []
+    for part in str(v).split(".")[:3]:
+        digits = "".join(c for c in part if c.isdigit())
+        out.append(int(digits) if digits else 0)
+    return tuple(out + [0] * (3 - len(out)))
+
+
+def resolve_base(args):
+    """-> (model_id, target_modules_or_None). CLI overrides win over the preset."""
+    preset = BASE_PRESETS[args.base]
+    model_id = args.base_model or preset["model"]
+    if args.target_modules:
+        targets = None if args.target_modules == ["auto"] else args.target_modules
+    else:
+        targets = preset["target_modules"]
+    if preset["min_peft"]:
+        import peft
+        need, have = preset["min_peft"], _version_tuple(peft.__version__)
+        if have < need:
+            raise SystemExit(
+                f"[!] --base {args.base} needs peft>={'.'.join(map(str, need))} (have {peft.__version__}). "
+                f"Older PEFT cannot attach LoRA to Gemma 4: its encoder projections are "
+                f"Gemma4ClippableLinear wrappers. Run: pip install -U 'peft>=0.19.0'")
+    return model_id, targets
 
 
 def load_records(sft_dir, domains, exclude):
@@ -94,7 +150,11 @@ def main():
     ap.add_argument("--train", nargs="+", required=True, help="Domains to train on, or 'all'.")
     ap.add_argument("--exclude", nargs="+", default=[],
                     help="Domains to drop (use for leave-one-domain-out with --train all).")
-    ap.add_argument("--base_model", default="Qwen/Qwen2.5-7B-Instruct")
+    ap.add_argument("--base", choices=sorted(BASE_PRESETS), default="qwen",
+                    help="Which base model to start from. Sets the model id and the LoRA "
+                         "target modules appropriate for that architecture.")
+    ap.add_argument("--base_model", default=None,
+                    help="Override the preset's model id (keeps the preset's target modules).")
     ap.add_argument("--out_dir", required=True)
     ap.add_argument("--max_seq_len", type=int, default=4096,
                     help="Qwen2.5 handles 32k; 4096 clears the long high-fan-out completions "
@@ -106,8 +166,9 @@ def main():
     ap.add_argument("--lora_r", type=int, default=32)
     ap.add_argument("--lora_alpha", type=int, default=32)
     ap.add_argument("--lora_dropout", type=float, default=0.05)
-    ap.add_argument("--target_modules", nargs="+",
-                    default=["q_proj", "k_proj", "v_proj", "o_proj", "gate_proj", "up_proj", "down_proj"])
+    ap.add_argument("--target_modules", nargs="+", default=None,
+                    help="Override the preset's LoRA target modules. Pass 'auto' to let PEFT "
+                         "pick its architecture defaults (this is what gemma4 uses).")
     ap.add_argument("--seed", type=int, default=42)
     ap.add_argument("--dry_run", action="store_true", help="Load + tokenize + report, then exit.")
     args = ap.parse_args()
@@ -124,8 +185,12 @@ def main():
                               Trainer, TrainingArguments, set_seed)
     from peft import LoraConfig, get_peft_model, prepare_model_for_kbit_training
 
+    base_model, target_modules = resolve_base(args)
+    print(f"[*] base '{args.base}' -> {base_model} | target_modules="
+          f"{target_modules if target_modules else 'PEFT defaults (auto)'}")
+
     set_seed(args.seed)
-    tok = AutoTokenizer.from_pretrained(args.base_model)
+    tok = AutoTokenizer.from_pretrained(base_model)
     if tok.pad_token is None:
         tok.pad_token = tok.eos_token
 
@@ -159,19 +224,31 @@ def main():
         print(records[0]["completion"][:400])
         return
 
-    print(f"[*] loading {args.base_model} in 4-bit NF4")
+    print(f"[*] loading {base_model} in 4-bit NF4")
     model = AutoModelForCausalLM.from_pretrained(
-        args.base_model,
+        base_model,
         quantization_config=BitsAndBytesConfig(
             load_in_4bit=True, bnb_4bit_quant_type="nf4",
             bnb_4bit_compute_dtype=torch.bfloat16, bnb_4bit_use_double_quant=True),
         dtype=torch.bfloat16, device_map="auto")
     model.config.use_cache = False
     model = prepare_model_for_kbit_training(model, use_gradient_checkpointing=True)
-    model = get_peft_model(model, LoraConfig(
-        r=args.lora_r, lora_alpha=args.lora_alpha, lora_dropout=args.lora_dropout,
-        target_modules=args.target_modules, bias="none", task_type="CAUSAL_LM"))
+    cfg = LoraConfig(r=args.lora_r, lora_alpha=args.lora_alpha, lora_dropout=args.lora_dropout,
+                     bias="none", task_type="CAUSAL_LM",
+                     **({"target_modules": target_modules} if target_modules else {}))
+    model = get_peft_model(model, cfg)
     model.print_trainable_parameters()
+    # Report WHERE the adapters landed. On a multimodal base this is the check that catches
+    # adapters attaching to the vision/audio tower instead of (or as well as) the LM.
+    adapted = sorted({n.rsplit(".lora_", 1)[0] for n, _ in model.named_modules() if ".lora_A" in n})
+    if adapted:
+        leaves = sorted({a.rsplit(".", 1)[-1] for a in adapted})
+        print(f"[*] LoRA attached to {len(adapted)} modules; leaf types: {', '.join(leaves)}")
+        print(f"    e.g. {adapted[0]}")
+        stray = [a for a in adapted if any(k in a for k in ("vision", "audio", "multi_modal"))]
+        if stray:
+            print(f"    [warn] {len(stray)} adapter(s) are on vision/audio modules, e.g. {stray[0]} "
+                  f"-- for a text-only task these add trainable params that never see gradient signal.")
 
     trainer = Trainer(
         model=model, train_dataset=ds, data_collator=make_collator(tok.pad_token_id),
@@ -187,7 +264,9 @@ def main():
     model.save_pretrained(args.out_dir)
     tok.save_pretrained(args.out_dir)
     with open(os.path.join(args.out_dir, "train_config.json"), "w", encoding="utf-8") as f:
-        json.dump({**vars(args), "train_domains": doms, "n_examples": len(records)}, f, indent=2)
+        json.dump({**vars(args), "resolved_base_model": base_model,
+                   "resolved_target_modules": target_modules, "train_domains": doms,
+                   "n_examples": len(records)}, f, indent=2)
     print(f"[*] adapter saved to {args.out_dir}")
 
 
