@@ -81,6 +81,14 @@ PROMPT_VARIANTS = {
     "oneway":         {"rules": _rules_oneway,        "restriction": True,  "example": True},   # ask only the superclass direction
     "no_example":     {"rules": _rules_full,          "restriction": True,  "example": False},  # remove the worked example
     "no_restriction": {"rules": _rules_full,          "restriction": False, "example": True},   # remove the ONLY/Do-NOT scoping
+    # 'full' + the ONE sentence legacy_json carries that no '<=' variant has: the ban on
+    # conversational text. Every other element of legacy_json has now been ablated without
+    # explaining its low F1, leaving this as the last untested difference -- the hypothesis
+    # being that forbidding prose suppresses the model's reasoning before it answers. This is
+    # the only variant that ADDS to 'full' rather than removing from it, so 'no_conversational'
+    # minus 'full' isolates that sentence's effect.
+    "no_conversational": {"rules": _rules_full,       "restriction": True,  "example": True,
+                          "no_conversational": True},
 }
 
 # 'legacy_json' is NOT a one-line ablation of 'full' -- it is the ORIGINAL alternate
@@ -166,7 +174,9 @@ def build_prompt(target_raw, candidates_chunk, alt_prompt=False, variant=None):
     if spec["restriction"]:
         instructions += (f"ONLY output relationships involving '{target_raw}'. "
                          f"Do NOT output relationships between the candidates themselves. ")
-    instructions += "Output each relationship on a new line. If there are no relationships, output 'none'.\n\n"
+    instructions += "Output each relationship on a new line. If there are no relationships, output 'none'."
+    # The legacy_json ban on prose, appended to the same sentence so it is the ONLY delta.
+    instructions += " Do not add conversational text.\n\n" if spec.get("no_conversational") else "\n\n"
     if spec["example"]:
         instructions += "Example: 'anucleate cell' <= 'cell'\n"
     instructions += "Candidates:\n"
