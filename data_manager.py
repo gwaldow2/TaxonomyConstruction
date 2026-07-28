@@ -2,12 +2,15 @@ import os
 import re
 import json
 import random
-import requests
 import networkx as nx
-import pandas as pd
-import nltk
-from nltk.corpus import wordnet as wn
-import obonet
+
+# requests / pandas / nltk / obonet are imported lazily inside the SOURCE LOADERS below
+# (get_semeval_graph, get_wordnet_food_graph, get_cell_ontology_graph, get_csv_graph). They are
+# only needed to BUILD benchmarks from source, never to LOAD a saved .graphml, so the eval path
+# (load_benchmark_graph and the term/graph helpers) stays free of them. Beyond being lighter,
+# this matters because nltk.corpus imports stdlib sqlite3, which fails outright on systems where
+# conda's ICU wants a newer libstdc++ (CXXABI) than the loader provides -- an environment fault
+# that would otherwise take down evaluation runs that never touch WordNet.
 
 DATA_DIR = "./taxonomy_data"
 BENCHMARK_DIR = "./benchmark_sets"
@@ -181,6 +184,7 @@ def get_rigorous_80_20_split(G_full):
 # ==========================================
 
 def get_semeval_graph(domain, use_synsets=False):
+    import pandas as pd
     file_map = {
         "SemEvalFood": "semeval_food.taxo",
         "SemEvalScience": "semeval_science.taxo",
@@ -203,6 +207,8 @@ def get_semeval_graph(domain, use_synsets=False):
     return get_rigorous_80_20_split(G)
 
 def get_wordnet_food_graph(use_synsets=False):
+    import nltk
+    from nltk.corpus import wordnet as wn
     nltk.download('wordnet', quiet=True)
     G = nx.DiGraph()
     queue = [wn.synset('food.n.01'), wn.synset('food.n.02')]
@@ -227,6 +233,8 @@ def get_wordnet_food_graph(use_synsets=False):
     return get_rigorous_80_20_split(G)
 
 def get_cell_ontology_graph(use_synsets=False):
+    import requests
+    import obonet
     file_path = os.path.join(DATA_DIR, "cl-basic.obo")
     url = "http://purl.obolibrary.org/obo/cl/cl-basic.obo"
     if not os.path.exists(file_path):
@@ -258,6 +266,7 @@ def get_cell_ontology_graph(use_synsets=False):
     return get_rigorous_80_20_split(G)
 
 def get_csv_graph(file_path, use_synsets=False):
+    import pandas as pd
     print(f"Loading custom CSV edge list dataset from {file_path}...")
     G = nx.DiGraph()
     try:
