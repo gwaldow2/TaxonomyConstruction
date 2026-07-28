@@ -30,7 +30,15 @@ def edge_is_correct(parent, child, gt_pairs):
                 return True
     return False
 
-def update_benchmark_results(dataset_name, method_name, metrics_dict, use_synsets, explode_nodes, filepath="benchmark_results.json"):
+def update_benchmark_results(dataset_name, method_name, metrics_dict, use_synsets, explode_nodes, filepath="benchmark_results.json", model=None):
+    """Upsert one method's metrics into a results file.
+
+    ``model`` records WHICH model (or LoRA adapter) served the run. Without it, two files
+    produced by the same method under different models are indistinguishable by content, and
+    which one produced a number survives only in the shell command that made it. Block identity
+    stays (dataset, use_synsets, explode_nodes) and the upsert still matches on method alone,
+    so merge behaviour is unchanged -- the file just now says which model it came from.
+    """
     if os.path.exists(filepath):
         with open(filepath, 'r', encoding='utf-8') as f:
             try:
@@ -64,11 +72,15 @@ def update_benchmark_results(dataset_name, method_name, metrics_dict, use_synset
     for i, res in enumerate(target_block["results"]):
         if res.get("method") == method_name:
             res.update(metrics_dict)
+            if model is not None:
+                res["model"] = model
             found_method = True
             break
 
     if not found_method:
         new_res = {"method": method_name}
+        if model is not None:
+            new_res["model"] = model
         new_res.update(metrics_dict)
         target_block["results"].append(new_res)
 
