@@ -59,7 +59,22 @@ def load_runs(specs, label=None):
             print(f"    [!] {path} contributed no datasets"
                   + (f" matching --label {label!r}" if label else ""))
         out[(base, condition)] = per_ds
-        print(f"    {base:10s} {condition:14s} {len(per_ds):2d} dataset(s)  <- {path}")
+
+        # Which model actually produced these numbers. Runs made before main.py started
+        # recording it have no 'model' key -- reported as 'unknown' rather than failing, since
+        # those results stay valid and are identifiable by provenance.
+        models = {r.get("model") for r in per_ds.values()}
+        known = sorted(m for m in models if m)
+        if not known:
+            shown = "unknown (predates model logging)"
+        elif len(known) == 1 and None not in models:
+            shown = known[0]
+        else:
+            shown = " + ".join(known + (["unknown"] if None in models else []))
+        print(f"    {base:10s} {condition:14s} {len(per_ds):2d} dataset(s)  model={shown}  <- {path}")
+        if len(known) > 1 or (known and None in models):
+            print(f"      [!] this file mixes models -- it was written by more than one run. "
+                  f"Each base/condition should have its own --results_file.")
     return out
 
 

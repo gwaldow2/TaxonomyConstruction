@@ -280,7 +280,7 @@ def main(args):
                 update_benchmark_results(
                     dataset_name=dataset_name_eval, method_name=method_name,
                     metrics_dict=flat_metrics, use_synsets=args.use_synsets, explode_nodes=args.explode_nodes,
-                    filepath=args.results_file
+                    filepath=args.results_file, model=MODEL_NAME
                 )
             print(f"Save complete -> {args.results_file}")
             
