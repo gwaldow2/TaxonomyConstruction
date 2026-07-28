@@ -1,0 +1,51 @@
+# Environment for the BENCHMARK / evaluation side: main.py, taxonomy_metrics.py, and the
+# analysis + visualization scripts. Companion to requirements-lora.txt (training only).
+#
+#   conda create -n taxoeval -c conda-forge python=3.11 -y
+#   conda activate taxoeval
+#   pip install -r requirements-eval.txt
+#   python verify_eval_env.py          # reports which method paths are importable
+#   pip freeze > requirements-eval.lock.txt    # lock what actually resolved
+#
+# Use a SINGLE conda channel (conda-forge). Mixing channels is what produced the
+# "libstdc++.so.6: version CXXABI_1.3.15 not found" crash -- bleeding-edge native libs (ICU,
+# sqlite) compiled against a newer C++ runtime than the one being loaded. That error breaks
+# Python's own sqlite3, which nltk imports, so it looks like a code failure and isn't.
+
+# --- HARD RULE: do NOT install vllm in this environment ---
+# vllm pulls torch 2.11 + CUDA 13 + torchcodec, which is how this env got corrupted:
+# torchcodec needs FFmpeg's libavutil.so and dies on import without it, and the CUDA-13 stack
+# drags in the native libs behind the CXXABI break. Serve models from a SEPARATE env (or the
+# training env) and let main.py talk to it over http://localhost:8000/v1.
+
+# --- Core (always needed: main.py, our_method, evaluator) ---
+openai>=1.0
+networkx>=3.0
+pandas
+numpy
+tqdm
+
+# --- Dataset loaders (data_manager.py) ---
+nltk
+obonet
+requests
+
+# --- Visualization + analysis (vis_benchmarks, *_comparison, prune_sweep_analysis) ---
+matplotlib
+seaborn
+
+# --- Baseline methods ---
+# transformers<5 is a HARD upper bound, not a preference: sentence-transformers requires
+# transformers<5.0.0, and main.py imports SentenceTransformer for the vector/lexical/sbu
+# baselines. Installing transformers 5.x here breaks that import chain. (The training env
+# needs transformers>=5.14 for gemma4 -- which is exactly why these are separate envs.)
+transformers<5
+sentence-transformers
+
+# torch is needed by main.py (device check) and the TaxoLLaMA baseline. Left unpinned so pip
+# picks a build matching the local CUDA; if TaxoLLaMA/4-bit is not needed, a CPU build is fine.
+torch
+
+# --- TaxoLLaMA baseline only (--method taxollama). Drop these if you never run it. ---
+peft
+bitsandbytes
