@@ -132,7 +132,11 @@ def plot_story(rows, agg, out_path):
         if prod:
             labels.append(f"{v}\n(>=1 edge)"); data.append(prod); box_colors.append(color[v])
     if data:
-        bp = ax.boxplot(data, labels=labels, patch_artist=True, showfliers=False)
+        # Tick labels set separately: matplotlib dropped boxplot's `labels=` kwarg (renamed
+        # `tick_labels=`), while set_xticklabels works on every version.
+        bp = ax.boxplot(data, patch_artist=True, showfliers=False)
+        ax.set_xticks(range(1, len(data) + 1))
+        ax.set_xticklabels(labels)
         for patch, c in zip(bp["boxes"], box_colors):
             patch.set_facecolor(c); patch.set_alpha(0.45)
     ax.set_title("Reasoning per response: empty vs productive", fontsize=12, fontweight="bold")
