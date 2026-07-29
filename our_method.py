@@ -96,25 +96,41 @@ PROMPT_VARIANTS = {
 # ontologist") that asks for a JSON [["parent","child"], ...] answer parsed by
 # _parse_relations_json. It lives outside PROMPT_VARIANTS (different template + parser)
 # but is a valid --prompt_variant choice so the old default-vs-alt gap can be replicated.
-ALL_PROMPT_VARIANTS = list(PROMPT_VARIANTS) + ["legacy_json", "full_json"]
+# 'legacy_vocab_fix' is legacy_json with ONE character-level change: the rendered candidate
+# list also contains the target. It isolates the defect described in _build_legacy_json_prompt
+# -- everything else, including the "ONLY use terms EXACTLY as they appear in the vocabulary
+# list" sentence the model cited, is untouched. legacy_vocab_fix minus legacy_json is therefore
+# the causal effect of withholding the target from its own vocabulary list.
+JSON_VARIANTS = ("legacy_json", "full_json", "legacy_vocab_fix")
 
-def _build_legacy_json_prompt(target_raw, candidates_chunk):
-    """Faithful reproduction of the ORIGINAL alt prompt (pre-formalization).
+ALL_PROMPT_VARIANTS = list(PROMPT_VARIANTS) + list(JSON_VARIANTS)
 
-    Reproduced quirks-and-all so the original score is replicable: the 16-space
-    indentation on every line and the candidate list rendered as a Python list repr
+def _build_legacy_json_prompt(target_raw, candidates_chunk, include_target=False):
+    """The ORIGINAL alt prompt (pre-formalization), reproduced quirks-and-all.
+
+    Defaults are byte-identical to the historical prompt so its score stays replicable: the
+    16-space indentation on every line and the candidate list rendered as a Python list repr
     (``Candidates: [[...]]``) are exactly as they were. The reply is JSON, parsed
-    CASE-SENSITIVELY by _parse_relations_json -- unlike the '<=' variants, whose
-    parser lowercases first.
+    CASE-SENSITIVELY by _parse_relations_json -- unlike the '<=' variants, whose parser
+    lowercases first.
+
+    ``include_target`` renders the TARGET inside that list as well (the 'legacy_vocab_fix'
+    variant). It is off by default because the omission is the historical behaviour, and that
+    omission is the defect: ``vocab`` is built only to print the count, so the prompt announces
+    N terms, shows N-1, adds "ONLY use terms EXACTLY as they appear in the vocabulary list",
+    and then asks for relationships involving the one term it withheld. Asked why it returned
+    an empty answer, the model cited that instruction by name in 20 of 20 interrogations,
+    and it answered nothing for 84 of 100 targets (vs 5 of 100 for full_json).
     """
     vocab = [target_raw] + candidates_chunk
+    shown = vocab if include_target else candidates_chunk
     return f"""You are an expert ontologist building a hierarchical taxonomy.
                 You are given a vocabulary of {len(vocab)} terms.
 
                 A parent is a broader concept, a child is a more specific concept.
                 ONLY use terms EXACTLY as they appear in the vocabulary list.
 
-                Candidates: [{candidates_chunk}]
+                Candidates: [{shown}]
                 ONLY output relationships involving '{target_raw}'. Do NOT output relationships between the candidates themselves. 
                 Format Example:
                 [
@@ -162,6 +178,8 @@ def build_prompt(target_raw, candidates_chunk, alt_prompt=False, variant=None):
         variant = "direct" if alt_prompt else "full"
     if variant == "legacy_json":
         return _build_legacy_json_prompt(target_raw, candidates_chunk)
+    if variant == "legacy_vocab_fix":
+        return _build_legacy_json_prompt(target_raw, candidates_chunk, include_target=True)
     if variant == "full_json":
         return _build_full_json_prompt(target_raw, candidates_chunk)
     spec = PROMPT_VARIANTS[variant]
@@ -361,7 +379,7 @@ def _extract_condensed_with_votes(nodes, client, model_name, chunk_size=1000, ma
     primary_nodes = list(primary_to_full_map.keys())
 
     # legacy_json and full_json return a JSON [["parent","child"], ...] answer -> JSON parser.
-    parse_fn = _parse_relations_json if variant in ("legacy_json", "full_json") else _parse_relations
+    parse_fn = _parse_relations_json if variant in JSON_VARIANTS else _parse_relations
     dbg_records = [] if debug_parse else None
     dbg_chunks = dbg_empty = 0
 
