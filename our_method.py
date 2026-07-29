@@ -393,11 +393,20 @@ def _extract_condensed_with_votes(nodes, client, model_name, chunk_size=1000, ma
 
             if debug_parse:
                 diag_text = content if content.strip() else reasoning
+                # BOTH channels, in full. Truncating either would make "there were no relations
+                # in this response" unfalsifiable -- you could never rule out that the text was
+                # simply cut off -- and the reasoning is needed on its own terms: the graph
+                # falls back to parsing it when the committed answer yields nothing (above), so
+                # an audit that cannot see it cannot check what the fallback actually read.
+                # ``parsed_from`` records which channel supplied this response's edges.
                 dbg_records.append({
                     "target": target_raw,
                     "chunk": i // chunk_size,
-                    "content": content[:4000],
+                    "content": content,
+                    "reasoning": reasoning,
                     "reasoning_chars": len(reasoning),
+                    "parsed_from": "content" if committed else ("reasoning" if deliberated else "neither"),
+                    "n_edges": len(graph_edges),
                     "diag": _parse_diagnostics(diag_text, primary_to_full_map),
                 })
 
