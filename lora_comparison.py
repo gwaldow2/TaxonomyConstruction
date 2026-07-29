@@ -134,8 +134,13 @@ def plot(runs, control, out_path):
                     ann.append(f"{base}/{cond}: no shared datasets with its control")
 
         if any(groups):
-            bp = ax.boxplot([g or [0] for g in groups], labels=labels, patch_artist=True,
+            # Tick labels are set separately rather than passed to boxplot(): matplotlib
+            # dropped the `labels=` kwarg (renamed `tick_labels=`), and set_xticklabels works
+            # on every version, old and new.
+            bp = ax.boxplot([g or [0] for g in groups], patch_artist=True,
                             showfliers=False, medianprops={"color": "black"})
+            ax.set_xticks(range(1, len(groups) + 1))
+            ax.set_xticklabels(labels)
             for i, patch in enumerate(bp["boxes"]):
                 patch.set_facecolor(colors[(i // max(1, len(tuned))) % 10]); patch.set_alpha(0.35)
             rng = np.random.default_rng(0)

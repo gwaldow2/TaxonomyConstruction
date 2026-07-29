@@ -152,8 +152,12 @@ def plot(rows, group_by, ref, out_path):
         deltas = {c: [v[c] - v[ref] for v in byds.values() if c in v and ref in v] for c in others}
 
         data = [deltas[c] for c in others]
-        bp = ax.boxplot(data, labels=others, patch_artist=True, showfliers=False,
+        # Tick labels set separately: matplotlib dropped boxplot's `labels=` kwarg (renamed
+        # `tick_labels=`), while set_xticklabels works on every version.
+        bp = ax.boxplot(data, patch_artist=True, showfliers=False,
                         medianprops={"color": "black"})
+        ax.set_xticks(range(1, len(data) + 1))
+        ax.set_xticklabels(others)
         for patch in bp["boxes"]:
             patch.set_facecolor("#4C72B0"); patch.set_alpha(0.35)
         import numpy as np
