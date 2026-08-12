@@ -20,7 +20,22 @@ Whatever base you pick, evaluate the UNTUNED SAME base as the control -- a contr
 different model measures the model, not the tuning.
 
   in-domain     --train WordNetFood                        (eval on WordNetFood)
-  cross-domain  --train CellOntology LLMs4OL_SchemaOrg      (eval on WordNetFood)
+  cross-domain  --train all --exclude WordNetFood           (eval on WordNetFood)
+
+Use --max_examples to make those two comparable. Unmatched, cross-domain trains on every other
+ontology and in-domain on one, so a difference between them confounds domain match with data
+volume. Setting --max_examples to the in-domain count gives both arms the same number of
+examples and the same number of optimizer steps:
+
+    for D in WordNetFood CellOntology LLMs4OL_OBI; do
+        N=$(wc -l < sft/$D.jsonl)
+        python lora_train.py --base gemma4 --train $D --out_dir adapters/in_$D
+        python lora_train.py --base gemma4 --train all --exclude $D --max_examples $N \
+            --out_dir adapters/cross_$D
+    done
+
+Do not regenerate sft/ partway through a sweep: the cross-domain pool would change between
+rows and "cross-domain" would no longer mean the same thing for every dataset.
 
     python lora_train.py --base qwen   --train WordNetFood --out_dir adapters/qwen_in_WordNetFood
     python lora_train.py --base gemma4 --train WordNetFood --out_dir adapters/gemma4_in_WordNetFood
@@ -32,7 +47,9 @@ then evaluate with:      python main.py --model taxo ...
 import os
 import json
 import glob
+import random
 import argparse
+from collections import Counter
 
 
 # --base presets. target_modules=None means "let PEFT choose": required for gemma4 (its
@@ -103,6 +120,35 @@ def load_records(sft_dir, domains, exclude):
     return recs
 
 
+def subsample(records, n, seed):
+    """Cut the POOLED record list to n examples, shuffled with `seed`.
+
+    This is what makes in-domain vs cross-domain a controlled comparison. Unmatched, the
+    cross-domain arm trains on every other ontology -- 6k-20k examples against in-domain's
+    156-3005 -- so a difference between them confounds domain match with data volume, and the
+    volume advantage is not even constant across datasets (it ranged 2.2x to 60x in practice).
+    Matching the counts makes both arms take the same number of optimizer steps, leaving the
+    source of the data as the only difference.
+
+    Sampling is from the POOL, not per source, so the mixture reflects the natural sizes of the
+    other ontologies. Equalising per source is a different design (it also controls source
+    diversity) and would belong in a separate arm.
+    """
+    if not n or n >= len(records):
+        if n:
+            print(f"    [i] --max_examples {n} >= {len(records)} available -- using all of them")
+        return records
+    rng = random.Random(seed)
+    out = records[:]
+    rng.shuffle(out)
+    out = out[:n]
+    kept = Counter(r["domain"] for r in out)
+    print(f"    [*] subsampled to {n} of {len(records)} examples (seed={seed})")
+    for d, k in sorted(kept.items(), key=lambda kv: -kv[1]):
+        print(f"        {d:26s} {k:5d}")
+    return out
+
+
 class SFTDataset:
     """Tokenizes prompt+completion and masks the prompt tokens out of the loss."""
 
@@ -150,6 +196,11 @@ def main():
     ap.add_argument("--train", nargs="+", required=True, help="Domains to train on, or 'all'.")
     ap.add_argument("--exclude", nargs="+", default=[],
                     help="Domains to drop (use for leave-one-domain-out with --train all).")
+    ap.add_argument("--max_examples", type=int, default=0,
+                    help="Cap the POOLED training set at N examples (0 = use all). Set it to the "
+                         "in-domain arm's example count so cross-domain trains on the same amount "
+                         "of data, making domain match the only difference between the two. "
+                         "Sampling is seeded by --seed.")
     ap.add_argument("--base", choices=sorted(BASE_PRESETS), default="qwen",
                     help="Which base model to start from. Sets the model id and the LoRA "
                          "target modules appropriate for that architecture.")
@@ -177,6 +228,8 @@ def main():
     records = load_records(args.sft_dir, args.train, set(args.exclude))
     if not records:
         raise SystemExit("[!] no training records -- run lora_data_prep.py first.")
+    n_pool = len(records)
+    records = subsample(records, args.max_examples, args.seed)
     doms = sorted({r["domain"] for r in records})
     print(f"[*] {len(records)} examples across {len(doms)} domain(s): {', '.join(doms)}")
 
@@ -266,7 +319,8 @@ def main():
     with open(os.path.join(args.out_dir, "train_config.json"), "w", encoding="utf-8") as f:
         json.dump({**vars(args), "resolved_base_model": base_model,
                    "resolved_target_modules": target_modules, "train_domains": doms,
-                   "n_examples": len(records)}, f, indent=2)
+                   "n_examples": len(records), "n_pool_before_subsample": n_pool,
+                   "subsampled": len(records) < n_pool}, f, indent=2)
     print(f"[*] adapter saved to {args.out_dir}")
 
 
