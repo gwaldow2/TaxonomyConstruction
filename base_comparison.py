@@ -3,9 +3,8 @@
 Neither existing comparison script fits this: model_comparison.py is strictly pairwise, and
 lora_comparison.py needs tuned conditions to delta against a control -- with only untuned runs
 it correctly refuses. This takes repeated --run LABEL:PATH and plots, per metric, each model's
-per-dataset difference from a reference model, so the question answered is "how much better or
-worse is each model than the reference on the same datasets", not "what are the raw scores"
-(which mostly restate model size).
+RAW per-dataset scores as a box per model, with the paired t-test against the reference kept
+in each panel title. The per-dataset deltas themselves are still printed to the console.
 
     python base_comparison.py \
         --run Gemma4-31B:control_gemma4N.json \
@@ -65,6 +64,10 @@ def deltas_vs_ref(runs, ref_label, key):
 
 
 def plot(runs, ref_label, out_path):
+    """Boxes are RAW per-dataset scores, one box per model, ALL models including the
+    reference. The paired t-test vs the reference stays in each panel title, so the figure
+    shows the absolute level of every model while the annotation carries the significance
+    of the differences -- the deltas themselves are printed by main()."""
     import matplotlib
     matplotlib.use("Agg")
     import matplotlib.pyplot as plt
@@ -73,9 +76,9 @@ def plot(runs, ref_label, out_path):
     fig, axes = plt.subplots(1, len(METRICS), figsize=(6.2 * len(METRICS), 6))
     colors = plt.cm.tab10.colors
     for ax, (key, title) in zip(axes, METRICS):
-        groups = deltas_vs_ref(runs, ref_label, key)
-        data = [g[2] for g in groups]
-        labels = [g[0] for g in groups]
+        labels = [label for label, _ in runs]
+        data = [[r[key] for r in per_ds.values() if r.get(key) is not None]
+                for _, per_ds in runs]
         if any(data):
             bp = ax.boxplot([d or [0] for d in data], patch_artist=True, showfliers=False,
                             medianprops={"color": "black"})
@@ -88,18 +91,19 @@ def plot(runs, ref_label, out_path):
             for i, d in enumerate(data):
                 if d:
                     ax.scatter(rng.uniform(i + 0.78, i + 1.22, len(d)), d, s=22, alpha=0.7, color=".25")
-        ax.axhline(0.0, ls=":", color="crimson", lw=1.6)
         ann = []
-        for label, shared, d in groups:
+        for label, shared, d in deltas_vs_ref(runs, ref_label, key):
             if d:
                 t, dfree, p = paired_ttest(d)
-                ann.append(f"{label}: Δ={sum(d)/len(d):+.3f} p={p:.2g}{_p_stars(p)} (n={len(d)})")
+                ann.append(f"{label} vs {ref_label}: Δ={sum(d)/len(d):+.3f} p={p:.2g}{_p_stars(p)} (n={len(d)})")
             else:
                 ann.append(f"{label}: no shared datasets with {ref_label}")
-        ax.set_title(f"Δ {title} vs {ref_label}\n" + "\n".join(ann), fontsize=9, fontweight="bold")
-        ax.set_ylabel(f"Δ {title}  (>0 = better than {ref_label})", fontweight="bold")
+        ax.set_title(f"{title}\n" + "\n".join(ann), fontsize=9, fontweight="bold")
+        ax.set_ylabel(title, fontweight="bold")
+        ax.set_ylim(0, 1)
 
-    fig.suptitle(f"Untuned base method: per-dataset paired deltas vs '{ref_label}'",
+    fig.suptitle("Untuned base method: raw per-dataset scores "
+                 f"(paired t-tests vs '{ref_label}' in titles)",
                  y=1.02, fontsize=14, fontweight="bold")
     plt.tight_layout()
     os.makedirs(os.path.dirname(out_path) or ".", exist_ok=True)
