@@ -11,11 +11,39 @@ from openai import OpenAI
 from data_manager import load_benchmark_graph
 from evaluator import evaluate_all_modes, update_benchmark_results
 from basic_llm_method import method_llm_single_shot
-from our_method import method_our_approach, method_our_approach_sweep, PROMPT_VARIANTS, ALL_PROMPT_VARIANTS, RANK_BY_CHOICES
+from our_method import (method_our_approach, method_our_approach_sweep, PROMPT_VARIANTS,
+                        ALL_PROMPT_VARIANTS, RANK_BY_CHOICES, EXTRACT_MAX_TOKENS)
 # lexical_method / SBU_NLP_method (sentence_transformers) and taxollama_method (torch) are
 # imported lazily inside main(), only when their method is selected. This keeps the our_method
 # eval path free of the torch / sentence-transformers / transformers stack -- which in some envs
 # transitively imports a broken torchcodec (missing FFmpeg libavutil.so) and crashes on import.
+
+# Where to send chat completions. Both providers speak the OpenAI API, so only the endpoint
+# and the credential differ -- Gemini publishes an OpenAI-compatible base URL, which is why a
+# frontier model needs no new client code.
+#
+# API keys are read from the environment, never taken on the command line: a --api_key argument
+# lands in shell history and in `ps` output for every user on a shared machine.
+PROVIDERS = {
+    "vllm":   {"base_url": "http://localhost:8000/v1",
+               "key_env": "TAXO_API_KEY", "fallback_key": "woohoo"},
+    "gemini": {"base_url": "https://generativelanguage.googleapis.com/v1beta/openai/",
+               "key_env": "GEMINI_API_KEY", "fallback_key": None},
+}
+
+
+def resolve_client(args):
+    """-> (base_url, api_key). Fails loudly when a hosted provider has no key in the env."""
+    spec = PROVIDERS[args.provider]
+    base_url = args.base_url or spec["base_url"]
+    key = os.environ.get(spec["key_env"]) or spec["fallback_key"]
+    if not key:
+        raise SystemExit(
+            f"[!] --provider {args.provider} needs an API key in ${spec['key_env']}. "
+            f"Run:  export {spec['key_env']}='...'  -- do not pass it as a flag, it would "
+            f"be stored in your shell history and visible in ps.")
+    return base_url, key
+
 
 def display_summary_table(domain, eval_results):
     data = []
@@ -66,7 +94,9 @@ def main(args):
 
     if any(m in selected_methods for m in ["llm_zero", "our_method", "sbu_batch"]):
         print("Initializing LLM Client...")
-        client = OpenAI(base_url="http://localhost:8000/v1", api_key="woohoo")
+        base_url, api_key = resolve_client(args)
+        print(f"  -> {args.provider}: {base_url} | model={MODEL_NAME}")
+        client = OpenAI(base_url=base_url, api_key=api_key)
         
     if any(m in selected_methods for m in ["vector", "sbu_embedding"]):
         print("Initializing Vector Encoder...")
@@ -192,7 +222,7 @@ def main(args):
                     restructure_ranked=args.restructure_ranked,
                     restructure_prune_only=args.restructure_prune_only,
                     restructure_topk=args.restructure_topk, rank_by=args.rank_by,
-                    debug_parse=args.debug_parse, debug_path=debug_path,
+                    debug_parse=args.debug_parse, debug_path=debug_path, max_tokens=args.max_tokens,
                 )
                 sweep_runtime = time.time() - t0
                 for K, G_our in graphs_by_k.items():
@@ -335,6 +365,14 @@ if __name__ == "__main__":
     parser.add_argument("--results_file", type=str, default="benchmark_results.json",
                         help="Where to append results. Point new runs at a fresh file (e.g. "
                              "benchmark_results_new.json) to keep them separate from older runs.")
+    parser.add_argument("--provider", type=str, default="vllm", choices=sorted(PROVIDERS),
+                        help="Where to send requests. 'vllm' is the local server; 'gemini' is "
+                             "Google's OpenAI-compatible endpoint (needs $GEMINI_API_KEY).")
+    parser.add_argument("--base_url", type=str, default=None,
+                        help="Override the provider's endpoint.")
+    parser.add_argument("--max_tokens", type=int, default=EXTRACT_MAX_TOKENS,
+                        help="Per-chunk completion budget. Lower it if a hosted provider rejects "
+                             "requests for exceeding its output cap.")
     parser.add_argument("--model", type=str, default="openai/gpt-oss-120b",
                         help="Model id sent to the vLLM/OpenAI server (must match the model loaded in "
                              "vLLM). Swap this when comparing models, e.g. --model google/gemma-... "

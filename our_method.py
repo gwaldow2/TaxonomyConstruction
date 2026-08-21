@@ -355,8 +355,13 @@ def _emit_parse_debug(records, n_chunks, n_empty, label, debug_path):
         except Exception as e:
             print(f"      [!] could not write parse debug: {e}")
 
+# Per-chunk completion budget. Generous for a local vLLM, but a hosted API may cap output
+# lower and reject the request outright, so it is a parameter rather than a literal.
+EXTRACT_MAX_TOKENS = 16328
+
 def _extract_condensed_with_votes(nodes, client, model_name, chunk_size=1000, max_retries=3,
-                                  alt_prompt=False, variant=None, debug_parse=False, debug_path=None):
+                                  alt_prompt=False, variant=None, debug_parse=False, debug_path=None,
+                                  max_tokens=EXTRACT_MAX_TOKENS):
     """Run the chunked extraction and return (condensed_dag, edge_votes, edge_salience).
 
     The GRAPH is built from the model's COMMITTED final answer (``content``); the
@@ -391,7 +396,7 @@ def _extract_condensed_with_votes(nodes, client, model_name, chunk_size=1000, ma
         for i in range(0, len(all_candidates), chunk_size):
             candidates_chunk = all_candidates[i:i + chunk_size]
             prompt = build_prompt(target_raw, candidates_chunk, alt_prompt=alt_prompt, variant=variant)
-            content, reasoning = _llm_call(client, model_name, prompt, max_tokens=16328, max_retries=max_retries)
+            content, reasoning = _llm_call(client, model_name, prompt, max_tokens=max_tokens, max_retries=max_retries)
             dbg_chunks += 1
             if not (content or reasoning):
                 dbg_empty += 1
@@ -876,10 +881,12 @@ def prune_taxonomy_ranked(G, edge_votes, client, model_name, edge_salience=None,
 def method_our_approach(nodes, client, model_name, chunk_size=1000, max_retries=3,
                         alt_prompt=False, suspicion_candidates=0, variant=None, restructure=False,
                         restructure_ranked=False, restructure_prune_only=False, restructure_topk=0,
-                        rank_by="combined", debug_parse=False, debug_path=None):
+                        rank_by="combined", debug_parse=False, debug_path=None,
+                        max_tokens=EXTRACT_MAX_TOKENS):
     final_dag, edge_votes, edge_salience = _extract_condensed_with_votes(
         nodes, client, model_name, chunk_size=chunk_size, max_retries=max_retries,
-        alt_prompt=alt_prompt, variant=variant, debug_parse=debug_parse, debug_path=debug_path)
+        alt_prompt=alt_prompt, variant=variant, debug_parse=debug_parse, debug_path=debug_path,
+        max_tokens=max_tokens)
     if restructure_prune_only:
         final_dag = prune_taxonomy_ranked(final_dag, edge_votes, client, model_name,
                                           edge_salience=edge_salience, topk=restructure_topk,
@@ -898,7 +905,8 @@ def method_our_approach_sweep(nodes, client, model_name, suspicion_candidates_li
                               chunk_size=1000, max_retries=3, alt_prompt=False, variant=None,
                               restructure=False, restructure_ranked=False, restructure_prune_only=False,
                               restructure_topk=0, rank_by="combined",
-                              debug_parse=False, debug_path=None):
+                              debug_parse=False, debug_path=None,
+                              max_tokens=EXTRACT_MAX_TOKENS):
     """Extract ONCE, then return ({K: graph}, edge_components).
 
     {K: graph} is one taxonomy per K in suspicion_candidates_list. The suspicion
@@ -913,7 +921,8 @@ def method_our_approach_sweep(nodes, client, model_name, suspicion_candidates_li
     """
     final_dag, edge_votes, edge_salience = _extract_condensed_with_votes(
         nodes, client, model_name, chunk_size=chunk_size, max_retries=max_retries,
-        alt_prompt=alt_prompt, variant=variant, debug_parse=debug_parse, debug_path=debug_path)
+        alt_prompt=alt_prompt, variant=variant, debug_parse=debug_parse, debug_path=debug_path,
+        max_tokens=max_tokens)
     if restructure_prune_only:
         # DELETE-ONLY: whole-graph context ranked by the suspicion heuristics, but the model
         # may only remove edges among the eligible (top-K, or all) set -- never re-parent/add.
