@@ -11,6 +11,7 @@ from openai import OpenAI
 from data_manager import load_benchmark_graph
 from evaluator import evaluate_all_modes, update_benchmark_results
 from basic_llm_method import method_llm_single_shot
+from single_call_method import method_single_call
 from our_method import (method_our_approach, method_our_approach_sweep, PROMPT_VARIANTS,
                         ALL_PROMPT_VARIANTS, RANK_BY_CHOICES, EXTRACT_MAX_TOKENS)
 # lexical_method / SBU_NLP_method (sentence_transformers) and taxollama_method (torch) are
@@ -92,7 +93,7 @@ def main(args):
     if "taxollama" in selected_methods:
         from taxollama_method import precompute_taxollama_ppl, build_taxollama_graph
 
-    if any(m in selected_methods for m in ["llm_zero", "our_method", "sbu_batch"]):
+    if any(m in selected_methods for m in ["llm_zero", "our_method", "sbu_batch", "single_call"]):
         print("Initializing LLM Client...")
         base_url, api_key = resolve_client(args)
         print(f"  -> {args.provider}: {base_url} | model={MODEL_NAME}")
@@ -181,6 +182,20 @@ def main(args):
             if "virtual_root" in G_llm_zero: G_llm_zero.remove_node("virtual_root")
             eval_results["LLM Zero-Shot"] = {
                 "metrics": evaluate_all_modes(G_llm_zero, G_gt, f"./results/{dataset_name_eval}_LLMZero"), 
+                "runtime": time.time() - t0
+            }
+
+        if "single_call" in selected_methods:
+            sc_label = "Single-Call Baseline" + (" (no-merge)" if args.no_merge_synonyms else "")
+            print(f"  -> Running {sc_label}...")
+            t0 = time.time()
+            G_sc = method_single_call(input_nodes, client, MODEL_NAME,
+                                      merge_synonyms=not args.no_merge_synonyms,
+                                      max_tokens=args.max_tokens)
+            if "virtual_root" in G_sc: G_sc.remove_node("virtual_root")
+            sc_safe = "SingleCall" + ("_nomerge" if args.no_merge_synonyms else "")
+            eval_results[sc_label] = {
+                "metrics": evaluate_all_modes(G_sc, G_gt, f"./results/{dataset_name_eval}_{sc_safe}"),
                 "runtime": time.time() - t0
             }
 
@@ -320,7 +335,7 @@ def main(args):
             
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Taxonomy Extraction Benchmark")
-    parser.add_argument("--method", nargs="+", default=["all"], choices=["all", "lexical", "vector", "llm_zero", "our_method", "taxollama", "sbu_batch", "sbu_embedding"])
+    parser.add_argument("--method", nargs="+", default=["all"], choices=["all", "lexical", "vector", "llm_zero", "our_method", "taxollama", "sbu_batch", "sbu_embedding", "single_call"])
     parser.add_argument("--datasets", nargs="+", default=["all"])
     parser.add_argument("--scale", type=str, default="sub", choices=["sub", "full"], help="Benchmark on 'sub' (100-node) or 'full' ontology")
     parser.add_argument("--use_synsets", action="store_true")
@@ -365,6 +380,9 @@ if __name__ == "__main__":
     parser.add_argument("--results_file", type=str, default="benchmark_results.json",
                         help="Where to append results. Point new runs at a fresh file (e.g. "
                              "benchmark_results_new.json) to keep them separate from older runs.")
+    parser.add_argument("--no_merge_synonyms", action="store_true",
+                        help="Single-Call Baseline only: skip the mutual-edge synonym condensation "
+                             "and rely on plain DAG enforcement, so the merge's effect is measurable.")
     parser.add_argument("--provider", type=str, default="vllm", choices=sorted(PROVIDERS),
                         help="Where to send requests. 'vllm' is the local server; 'gemini' is "
                              "Google's OpenAI-compatible endpoint (needs $GEMINI_API_KEY).")
