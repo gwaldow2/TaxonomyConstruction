@@ -92,6 +92,27 @@ def test_graph_pool_edge_disjoint_still_filters_closure():
     assert leakage_report(kept, G_sub)[0] == []
     pairs = {(tp["parent"], tp["child"]) for tp in kept}
     assert ("food", "fruit") not in pairs and ("fruit", "apple") not in pairs
+    # close-then-project emits closure pairs: the food->apple SKIP pair is in the eval
+    # closure and must be filtered, while a skip pair leaving the eval region survives
+    assert ("food", "apple") not in pairs
+    assert ("food", "carrot") in pairs
+
+
+def test_closure_recovered_through_held_out_hub():
+    """a->b->c with b held out: close-then-project must keep the true pair a<=c.
+
+    The old project-then-close order lost it -- both direct edges touch the held-out hub, so
+    nothing survived, and downstream the leaf would be served as a NEGATIVE candidate for the
+    top node despite being its true descendant."""
+    G = nx.DiGraph([("top", "hub"), ("hub", "leafA"), ("hub", "leafB")])
+    G_sub = G.subgraph(["hub"]).copy()
+    kept, stats = train_pairs_from_graph(G, G_sub, node_disjoint=True)
+    pairs = {(tp["parent"], tp["child"]) for tp in kept}
+    assert ("top", "leafA") in pairs and ("top", "leafB") in pairs, pairs
+    assert not any("hub" in pr for pr in pairs), pairs
+    assert leakage_report(kept, G_sub)[0] == []
+    assert stats["pool_closure_pairs"] == 5        # 3 direct + the 2 recovered skip pairs
+    assert stats["kept"] == 2
 
 
 def test_prompt_matches_live():

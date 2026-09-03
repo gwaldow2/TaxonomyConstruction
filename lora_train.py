@@ -3,6 +3,23 @@
 Loss is masked to the completion only -- the prompt (instructions + candidate list) is context,
 not something to memorize. 4-bit NF4 base + bf16 compute fits a 7-31B model on one H100.
 
+Recipe defaults (each individually revertible, so the legacy recipe stays reproducible):
+
+  * CHAT TEMPLATE: prompts and completions are rendered through the tokenizer's chat template,
+    matching how vLLM serves the model at inference. Training raw text while serving templated
+    text is a documented drift source (TRL docs; arXiv:2402.18540). --no_chat_template reverts.
+  * VALIDATION + EARLY STOPPING: --val_fraction (default 0.1, domain-stratified, seeded) holds
+    out an eval split; training runs up to --epochs (default 8) with patience
+    --early_stopping_patience (default 3) on eval_loss and reloads the best checkpoint.
+    --val_fraction 0 reverts to fixed-epoch training (then set --epochs yourself).
+  * PLACEMENT: --placement all_linear (default) attaches adapters to every language-model
+    projection Linear -- the QLoRA paper found all-linear placement necessary to match full
+    fine-tuning -- scanned from the loaded model so Gemma-4's multimodal towers are skipped
+    (its q/v-only PEFT default was leaving capacity on the table vs the Qwen arm).
+    --placement preset reverts to the per-base defaults below.
+
+  Legacy recipe = --no_chat_template --val_fraction 0 --epochs 2 --placement preset.
+
 --base selects which model to start from, so the same SFT data can be tuned from either and
 the results compared (see lora_comparison.py):
 
@@ -150,21 +167,48 @@ def subsample(records, n, seed):
 
 
 class SFTDataset:
-    """Tokenizes prompt+completion and masks the prompt tokens out of the loss."""
+    """Tokenizes prompt+completion and masks the prompt tokens out of the loss.
 
-    def __init__(self, records, tokenizer, max_len):
+    With use_chat_template (default), the prompt is rendered as a user turn with the
+    generation prompt appended and the completion as the assistant turn of the same
+    conversation -- byte-identical to what vLLM's chat endpoint feeds the model at
+    inference, end-of-turn token included. The completion ids are recovered as the suffix
+    of the templated full conversation beyond the templated prompt; if a template breaks
+    that prefix property, the raw legacy encoding is used and a warning printed once.
+    """
+
+    def __init__(self, records, tokenizer, max_len, use_chat_template=True):
         self.records, self.tok, self.max_len = records, tokenizer, max_len
+        self.use_chat_template = use_chat_template and bool(getattr(tokenizer, "chat_template", None))
+        self._warned_prefix = False
 
     def __len__(self):
         return len(self.records)
 
-    def __getitem__(self, i):
-        r = self.records[i]
+    def encode(self, r):
+        """-> (prompt_ids, completion_ids), untruncated."""
+        if self.use_chat_template:
+            msgs = [{"role": "user", "content": r["prompt"]}]
+            p_ids = self.tok.apply_chat_template(msgs, add_generation_prompt=True, tokenize=True)
+            full = self.tok.apply_chat_template(
+                msgs + [{"role": "assistant", "content": r["completion"]}], tokenize=True)
+            if len(full) > len(p_ids) and full[:len(p_ids)] == p_ids:
+                return p_ids, full[len(p_ids):]
+            if not self._warned_prefix:
+                self._warned_prefix = True
+                print("    [warn] chat template does not extend the generation prompt as a "
+                      "prefix -- falling back to raw prompt+completion tokenization.")
         prompt_ids = self.tok(r["prompt"], add_special_tokens=True).input_ids
         eos = self.tok.eos_token or ""
         comp_ids = self.tok(r["completion"] + eos, add_special_tokens=False).input_ids
+        return prompt_ids, comp_ids
+
+    def __getitem__(self, i):
+        prompt_ids, comp_ids = self.encode(self.records[i])
         # Truncate the PROMPT from the left if needed so the completion always survives intact;
-        # a truncated completion would train the model to stop mid-answer.
+        # a truncated completion would train the model to stop mid-answer. (Left-truncation can
+        # clip chat-template header tokens, but the length audit in main() showed 0 examples
+        # over the cap at 4096; the audit warns whenever that stops being true.)
         room = self.max_len - len(comp_ids)
         if room < 1:
             comp_ids = comp_ids[:self.max_len - 1]
@@ -172,6 +216,52 @@ class SFTDataset:
         prompt_ids = prompt_ids[-room:]
         return {"input_ids": prompt_ids + comp_ids,
                 "labels": [-100] * len(prompt_ids) + comp_ids}
+
+
+def split_train_val(records, frac, seed):
+    """Seeded, domain-stratified split -> (train, val).
+
+    Stratifying by domain matters for the pooled cross-domain arm: a plain random split can
+    leave a small source ontology entirely out of validation. A domain with a single example
+    keeps it in train. frac=0 disables validation entirely.
+    """
+    if not frac:
+        return records, []
+    from collections import defaultdict
+    rng = random.Random(seed + 1)          # decoupled from the subsample shuffle
+    by_dom = defaultdict(list)
+    for r in records:
+        by_dom[r["domain"]].append(r)
+    train, val = [], []
+    for d in sorted(by_dom):
+        rows = by_dom[d][:]
+        rng.shuffle(rows)
+        k = max(1, round(len(rows) * frac)) if len(rows) > 1 else 0
+        val += rows[:k]
+        train += rows[k:]
+    return train, val
+
+
+# Language-model projection leaves the QLoRA paper's all-linear placement targets.
+PROJ_LEAVES = ("q_proj", "k_proj", "v_proj", "o_proj", "gate_proj", "up_proj", "down_proj")
+MULTIMODAL_MARKERS = ("vision", "audio", "multi_modal", "image")
+
+
+def all_linear_targets(named_modules):
+    """Full module paths of every language-model projection Linear in the loaded model.
+
+    The QLoRA paper's ablation found adapting ALL linear transformer layers necessary to
+    match full fine-tuning, which the gemma4 preset (PEFT's q/v-only default) does not do.
+    Scanning the loaded model instead of hardcoding names keeps this safe on a multimodal
+    base: isinstance(nn.Linear) rejects the Gemma4ClippableLinear encoder wrappers (they
+    subclass nn.Module, not nn.Linear -- bnb's Linear4bit passes, it subclasses nn.Linear),
+    and the marker filter drops anything in a vision/audio tower. Full paths are returned so
+    PEFT's endswith matching cannot stray onto a same-named encoder leaf.
+    """
+    import torch.nn as nn
+    return sorted(name for name, mod in named_modules
+                  if isinstance(mod, nn.Linear) and name.rsplit(".", 1)[-1] in PROJ_LEAVES
+                  and not any(k in name.lower() for k in MULTIMODAL_MARKERS))
 
 
 def make_collator(pad_id):
@@ -210,7 +300,24 @@ def main():
     ap.add_argument("--max_seq_len", type=int, default=4096,
                     help="Qwen2.5 handles 32k; 4096 clears the long high-fan-out completions "
                          "(e.g. CellOntology) that 2048 truncated.")
-    ap.add_argument("--epochs", type=float, default=2.0)
+    ap.add_argument("--epochs", type=float, default=8.0,
+                    help="Epoch CAP -- early stopping on the validation split picks the "
+                         "actual stopping point. With --val_fraction 0 this many epochs run "
+                         "unconditionally, so set it explicitly there (legacy recipe used 2).")
+    ap.add_argument("--val_fraction", type=float, default=0.1,
+                    help="Fraction held out for validation (seeded, domain-stratified; "
+                         "applied AFTER --max_examples so matched-N arms stay matched). "
+                         "0 disables validation and early stopping.")
+    ap.add_argument("--early_stopping_patience", type=int, default=3,
+                    help="Stop after this many epochs without eval_loss improvement.")
+    ap.add_argument("--no_chat_template", action="store_true",
+                    help="Legacy encoding: tokenize the raw prompt text instead of rendering "
+                         "it through the tokenizer's chat template. Inference serves through "
+                         "the template, so only use this to reproduce old runs.")
+    ap.add_argument("--placement", choices=["all_linear", "preset"], default="all_linear",
+                    help="all_linear: adapters on every language-model projection Linear, "
+                         "scanned from the loaded model (QLoRA-paper placement). preset: the "
+                         "per-base defaults (gemma4 -> PEFT's q/v-only).")
     ap.add_argument("--lr", type=float, default=1e-4)
     ap.add_argument("--batch_size", type=int, default=1)
     ap.add_argument("--grad_accum", type=int, default=16)
@@ -233,6 +340,17 @@ def main():
     doms = sorted({r["domain"] for r in records})
     print(f"[*] {len(records)} examples across {len(doms)} domain(s): {', '.join(doms)}")
 
+    train_recs, val_recs = split_train_val(records, args.val_fraction, args.seed)
+    if val_recs:
+        print(f"[*] validation split: {len(train_recs)} train / {len(val_recs)} val "
+              f"(fraction {args.val_fraction}, domain-stratified) | early stopping "
+              f"patience {args.early_stopping_patience} on eval_loss, epoch cap {args.epochs}")
+    else:
+        print(f"[*] no validation split -- fixed {args.epochs} epoch(s), no early stopping")
+        if args.epochs > 4:
+            print("    [warn] --val_fraction 0 with a high epoch cap trains unconditionally "
+                  "long; the legacy recipe used --epochs 2.")
+
     import torch
     from transformers import (AutoTokenizer, AutoModelForCausalLM, BitsAndBytesConfig,
                               Trainer, TrainingArguments, set_seed)
@@ -247,17 +365,21 @@ def main():
     if tok.pad_token is None:
         tok.pad_token = tok.eos_token
 
-    ds = SFTDataset(records, tok, args.max_seq_len)
+    use_template = not args.no_chat_template
+    ds = SFTDataset(train_recs, tok, args.max_seq_len, use_chat_template=use_template)
+    val_ds = SFTDataset(val_recs, tok, args.max_seq_len, use_chat_template=use_template) if val_recs else None
+    if use_template and not ds.use_chat_template:
+        print("    [warn] tokenizer has no chat template -- falling back to raw encoding.")
+    print(f"[*] encoding: {'chat template' if ds.use_chat_template else 'raw prompt (legacy)'}")
 
     # UNtruncated length distribution, so clipping is visible instead of silent. A truncated
     # completion teaches the model to stop mid-answer, so any example over the cap is a warning.
-    eos = tok.eos_token or ""
-    sample = records if args.dry_run else records[:min(len(records), 1000)]
+    # Measured through ds.encode so the audit sees the ACTUAL encoding, template included.
+    sample = train_recs if args.dry_run else train_recs[:min(len(train_recs), 1000)]
     raw, comp_lens = [], []
     for r in sample:
-        p = len(tok(r["prompt"], add_special_tokens=True).input_ids)
-        c = len(tok(r["completion"] + eos, add_special_tokens=False).input_ids)
-        raw.append(p + c); comp_lens.append(c)
+        p_ids, c_ids = ds.encode(r)
+        raw.append(len(p_ids) + len(c_ids)); comp_lens.append(len(c_ids))
     over = sum(1 for L in raw if L > args.max_seq_len)
     print(f"[*] untruncated length over {len(sample)} examples: mean={sum(raw)//len(raw)} "
           f"max={max(raw)} | completion max={max(comp_lens)} | cap={args.max_seq_len}")
@@ -272,9 +394,13 @@ def main():
         n_sup = sum(1 for x in ex["labels"] if x != -100)
         print(f"[*] dry run -- example 0: {len(ex['input_ids'])} tokens, {n_sup} supervised (completion only)")
         print("---- prompt (first 400 chars) ----")
-        print(records[0]["prompt"][:400])
+        print(train_recs[0]["prompt"][:400])
         print("---- completion ----")
-        print(records[0]["completion"][:400])
+        print(train_recs[0]["completion"][:400])
+        if ds.use_chat_template:
+            p_ids, _ = ds.encode(train_recs[0])
+            print("---- templated prompt tail (last 200 chars) ----")
+            print(tok.decode(p_ids)[-200:])
         return
 
     print(f"[*] loading {base_model} in 4-bit NF4")
@@ -286,6 +412,18 @@ def main():
         dtype=torch.bfloat16, device_map="auto")
     model.config.use_cache = False
     model = prepare_model_for_kbit_training(model, use_gradient_checkpointing=True)
+
+    if args.placement == "all_linear":
+        scanned = all_linear_targets(model.named_modules())
+        if scanned:
+            target_modules = scanned
+            leaves = Counter(t.rsplit(".", 1)[-1] for t in scanned)
+            print(f"[*] placement all_linear: {len(scanned)} projection modules "
+                  f"({', '.join(f'{k}x{n}' for k, n in sorted(leaves.items()))})")
+        else:
+            print("    [warn] all_linear scan found no projection Linears -- "
+                  "falling back to the preset placement")
+
     cfg = LoraConfig(r=args.lora_r, lora_alpha=args.lora_alpha, lora_dropout=args.lora_dropout,
                      bias="none", task_type="CAUSAL_LM",
                      **({"target_modules": target_modules} if target_modules else {}))
@@ -303,24 +441,42 @@ def main():
             print(f"    [warn] {len(stray)} adapter(s) are on vision/audio modules, e.g. {stray[0]} "
                   f"-- for a text-only task these add trainable params that never see gradient signal.")
 
+    targs = dict(
+        output_dir=args.out_dir, num_train_epochs=args.epochs,
+        per_device_train_batch_size=args.batch_size, gradient_accumulation_steps=args.grad_accum,
+        per_device_eval_batch_size=args.batch_size,
+        learning_rate=args.lr, lr_scheduler_type="cosine", warmup_ratio=0.03,
+        bf16=True, gradient_checkpointing=True, optim="paged_adamw_8bit",
+        logging_steps=10, save_strategy="epoch", save_total_limit=2,
+        report_to=[], seed=args.seed, remove_unused_columns=False)
+    callbacks = []
+    if val_ds:
+        # Best checkpoint by eval_loss is what gets saved; save_total_limit=2 keeps best+last.
+        targs.update(eval_strategy="epoch", load_best_model_at_end=True,
+                     metric_for_best_model="eval_loss", greater_is_better=False)
+        from transformers import EarlyStoppingCallback
+        callbacks.append(EarlyStoppingCallback(early_stopping_patience=args.early_stopping_patience))
+
     trainer = Trainer(
-        model=model, train_dataset=ds, data_collator=make_collator(tok.pad_token_id),
-        args=TrainingArguments(
-            output_dir=args.out_dir, num_train_epochs=args.epochs,
-            per_device_train_batch_size=args.batch_size, gradient_accumulation_steps=args.grad_accum,
-            learning_rate=args.lr, lr_scheduler_type="cosine", warmup_ratio=0.03,
-            bf16=True, gradient_checkpointing=True, optim="paged_adamw_8bit",
-            logging_steps=10, save_strategy="epoch", save_total_limit=2,
-            report_to=[], seed=args.seed, remove_unused_columns=False))
+        model=model, train_dataset=ds, eval_dataset=val_ds,
+        data_collator=make_collator(tok.pad_token_id),
+        callbacks=callbacks, args=TrainingArguments(**targs))
     trainer.train()
+    if val_ds:
+        print(f"[*] best eval_loss {trainer.state.best_metric} at {trainer.state.best_model_checkpoint} "
+              f"(stopped after epoch {trainer.state.epoch:.1f} of {args.epochs:.0f} max)")
 
     model.save_pretrained(args.out_dir)
     tok.save_pretrained(args.out_dir)
     with open(os.path.join(args.out_dir, "train_config.json"), "w", encoding="utf-8") as f:
         json.dump({**vars(args), "resolved_base_model": base_model,
                    "resolved_target_modules": target_modules, "train_domains": doms,
-                   "n_examples": len(records), "n_pool_before_subsample": n_pool,
-                   "subsampled": len(records) < n_pool}, f, indent=2)
+                   "n_examples": len(records), "n_train": len(train_recs), "n_val": len(val_recs),
+                   "n_pool_before_subsample": n_pool, "subsampled": len(records) < n_pool,
+                   "chat_template_used": ds.use_chat_template,
+                   "stopped_epoch": trainer.state.epoch,
+                   "best_eval_loss": trainer.state.best_metric if val_ds else None},
+                  f, indent=2)
     print(f"[*] adapter saved to {args.out_dir}")
 
 
