@@ -13,11 +13,15 @@ Training pool (`--train_source`):
   * pairs -- the old path: read `<d>_<train_scale>_train_pairs.json` directly. Kept for
     back-compat; expect tiny volume.
 
-Leakage safety (graphml path): the SUB eval nodes are dropped from the pool (node-disjoint),
-then any remaining pair that still appears in the SUB transitive closure (synonym-aware, same
-set-overlap the evaluator uses) is filtered out, and the kept set is ASSERTED clean before
-anything is written. Teaching a->b leaks the answer whenever (a,b) is an ancestor pair in the
-eval key, so the closure -- not just direct edges -- is what's checked.
+Leakage safety (graphml path): the pool's transitive closure is computed FIRST, then the SUB
+eval nodes are dropped (close-then-project), then any remaining pair that still appears in the
+SUB transitive closure (synonym-aware, same set-overlap the evaluator uses) is filtered out,
+and the kept set is ASSERTED clean before anything is written. Closing before projecting
+matters: SUB is ancestor-closed, so it holds upper-level hub nodes, and dropping those first
+severs every chain routed through them -- a true pair a<=c with its midpoint held out would
+vanish from the labels and then be served as a "negative", training the model that related
+terms are unrelated. Teaching a->b leaks the answer whenever (a,b) is an ancestor pair in the
+eval key, so the closure -- not just direct edges -- is what's checked on the eval side too.
 
     python lora_data_prep.py --domains all --train_source graphml --out_dir sft
 
@@ -62,22 +66,32 @@ load_eval_graph = load_graph   # back-compat alias
 def train_pairs_from_graph(G_pool, G_eval, node_disjoint=True):
     """Build leakage-safe training pairs from a pool graph, holding out the eval graph.
 
-    -> (kept_pairs, stats). SUB is a subgraph of FULL, so node identities match exactly:
-    dropping eval nodes (node_disjoint) removes the eval region wholesale, then the closure
-    filter catches any surviving pair that still implies an eval ancestor pair (synonym-aware).
-    The caller asserts the kept set is clean before writing.
+    -> (kept_pairs, stats). The pool is transitively CLOSED before any node is dropped
+    (close-then-project). Projecting first would sever every ancestor chain routed through a
+    held-out node: with a->b->c and b in the eval graph, both direct edges touch b and die,
+    yet a<=c is a true relation whose endpoints both survive -- project-then-close loses it,
+    and make_examples would then serve c as a negative candidate for a. Closing first keeps
+    such pairs, so the labels stay true. Kept pairs are therefore CLOSURE pairs, which is
+    what the completions assert anyway (ancestor semantics).
+
+    SUB is a subgraph of FULL, so node identities match exactly: dropping eval nodes
+    (node_disjoint) removes the eval region wholesale, then the eval-closure filter catches
+    any surviving pair that still implies an eval ancestor pair (synonym-aware). The caller
+    asserts the kept set is clean before writing.
     """
+    C_pool = nx.transitive_closure(G_pool)
     eval_nodes = set(G_eval.nodes())
-    pool = G_pool
+    proj = C_pool
     if node_disjoint:
-        pool = G_pool.subgraph([n for n in G_pool.nodes() if n not in eval_nodes])
-    raw = [{"parent": u, "child": v} for u, v in pool.edges()]
+        proj = C_pool.subgraph([n for n in C_pool.nodes() if n not in eval_nodes])
+    raw = [{"parent": u, "child": v} for u, v in proj.edges()]
 
     eval_pairs = _exploded_pairs(list(nx.transitive_closure(G_eval).edges()))
     kept = [tp for tp in raw if not _matches(tp["parent"], tp["child"], eval_pairs)]
     stats = {"pool_edges": G_pool.number_of_edges(),
+             "pool_closure_pairs": C_pool.number_of_edges(),
              "after_node_disjoint": len(raw),
-             "dropped_node_overlap": G_pool.number_of_edges() - len(raw),
+             "dropped_node_overlap": C_pool.number_of_edges() - len(raw),
              "dropped_closure_leak": len(raw) - len(kept),
              "kept": len(kept)}
     return kept, stats
@@ -104,7 +118,11 @@ def leakage_report(train_pairs, G_eval):
 
 def make_examples(train_pairs, candidates_per_example=99, max_examples=0, seed=42):
     """-> [{target, candidates, completion}] mirroring inference: one example per train node,
-    candidates = that node's true relations padded with random negatives."""
+    candidates = that node's true relations padded with random negatives.
+
+    train_pairs from the graphml path are already transitively closed (close-then-project in
+    train_pairs_from_graph); the closure below is then idempotent. It stays because the
+    legacy `pairs` path still feeds direct edges."""
     G = nx.DiGraph()
     G.add_edges_from([(tp["parent"], tp["child"]) for tp in train_pairs])
     if G.number_of_nodes() == 0:
