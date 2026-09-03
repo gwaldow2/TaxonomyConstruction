@@ -1,0 +1,21 @@
+{
+  "model": "google/gemma-4-31b-it",
+  "n_nodes": 100,
+  "chunk_size": 1000,
+  "datasets": {
+    "WordNetFood": {
+      "terms": 164,
+      "clusters": 99,
+      "multi_member": 31,
+      "ambiguous_dropped": 3,
+      "runtime_sec": 420.5
+    },
+    "CellOntology": {
+      "terms": 196,
+      "clusters": 106,
+      "multi_member": 39,
+      "ambiguous_dropped": 4,
+      "runtime_sec": 831.4
+    }
+  }
+}
