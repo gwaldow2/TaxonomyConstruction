@@ -166,24 +166,42 @@ def subsample(records, n, seed):
     return out
 
 
+# Sentinel rendered through the template once, to locate where assistant content lands.
+_SUFFIX_PROBE = "XQZW93PROBE"
+
+
 class SFTDataset:
     """Tokenizes prompt+completion and masks the prompt tokens out of the loss.
 
-    With use_chat_template (default), the prompt is rendered as a user turn with the
-    generation prompt appended and the completion as the assistant turn of the same
-    conversation. The split happens at the STRING level (templated full conversation minus
-    templated prompt), and the two pieces are tokenized separately -- deliberately: vLLM
-    tokenizes the templated prompt alone and the completion arrives as generated tokens, so
-    separate tokenization matches inference exactly, whereas single-pass tokenization of the
-    full string merges tokens across the header/completion boundary on some templates
-    (Gemma's does). If a template breaks even the string prefix property, the raw legacy
-    encoding is used and a warning printed once.
+    With use_chat_template (default), the prompt is the templated user turn with the
+    generation prompt appended -- the EXACT string vLLM tokenizes at inference -- and the
+    completion is the raw completion text plus the template's assistant end-of-turn suffix.
+    That suffix is derived once by rendering a probe assistant turn and taking everything the
+    template emits after the probe, so no assumption is made about the template's internal
+    structure (earlier prefix-property checks failed on Gemma's template, whose generation
+    prompt is not a prefix of a re-rendered completed turn). The two pieces are tokenized
+    separately, matching inference, where the completion arrives as generated tokens. A
+    template that never renders assistant content verbatim falls back to the raw legacy
+    encoding with a warning.
     """
 
     def __init__(self, records, tokenizer, max_len, use_chat_template=True):
         self.records, self.tok, self.max_len = records, tokenizer, max_len
         self.use_chat_template = use_chat_template and bool(getattr(tokenizer, "chat_template", None))
-        self._warned_prefix = False
+        self.assistant_suffix = None
+        if self.use_chat_template:
+            try:
+                full = tokenizer.apply_chat_template(
+                    [{"role": "user", "content": "q"},
+                     {"role": "assistant", "content": _SUFFIX_PROBE}], tokenize=False)
+                i = full.rfind(_SUFFIX_PROBE)
+                if i == -1:
+                    raise ValueError("assistant content is not rendered verbatim")
+                self.assistant_suffix = full[i + len(_SUFFIX_PROBE):]
+            except Exception as e:
+                print(f"    [warn] chat template unusable ({e}) -- "
+                      f"falling back to raw prompt+completion tokenization.")
+                self.use_chat_template = False
 
     def __len__(self):
         return len(self.records)
@@ -191,19 +209,13 @@ class SFTDataset:
     def encode(self, r):
         """-> (prompt_ids, completion_ids), untruncated."""
         if self.use_chat_template:
-            msgs = [{"role": "user", "content": r["prompt"]}]
-            p_str = self.tok.apply_chat_template(msgs, add_generation_prompt=True, tokenize=False)
-            f_str = self.tok.apply_chat_template(
-                msgs + [{"role": "assistant", "content": r["completion"]}], tokenize=False)
-            if len(f_str) > len(p_str) and f_str.startswith(p_str):
-                # add_special_tokens=False: the template already carries BOS where required.
-                p_ids = self.tok(p_str, add_special_tokens=False).input_ids
-                c_ids = self.tok(f_str[len(p_str):], add_special_tokens=False).input_ids
-                return p_ids, c_ids
-            if not self._warned_prefix:
-                self._warned_prefix = True
-                print("    [warn] chat template does not extend the generation prompt as a "
-                      "string prefix -- falling back to raw prompt+completion tokenization.")
+            p_str = self.tok.apply_chat_template([{"role": "user", "content": r["prompt"]}],
+                                                 add_generation_prompt=True, tokenize=False)
+            # add_special_tokens=False: the template already carries BOS where required.
+            p_ids = self.tok(p_str, add_special_tokens=False).input_ids
+            c_ids = self.tok(r["completion"] + self.assistant_suffix,
+                             add_special_tokens=False).input_ids
+            return p_ids, c_ids
         prompt_ids = self.tok(r["prompt"], add_special_tokens=True).input_ids
         eos = self.tok.eos_token or ""
         comp_ids = self.tok(r["completion"] + eos, add_special_tokens=False).input_ids
@@ -374,9 +386,9 @@ def main():
     use_template = not args.no_chat_template
     ds = SFTDataset(train_recs, tok, args.max_seq_len, use_chat_template=use_template)
     val_ds = SFTDataset(val_recs, tok, args.max_seq_len, use_chat_template=use_template) if val_recs else None
-    if use_template and not ds.use_chat_template:
+    if use_template and not ds.use_chat_template and getattr(tok, "chat_template", None) is None:
         print("    [warn] tokenizer has no chat template -- falling back to raw encoding.")
-    print(f"[*] encoding: {'chat template' if ds.use_chat_template else 'raw prompt (legacy)'}")
+    print(f"[*] encoding: {'chat template | assistant suffix ' + repr(ds.assistant_suffix) if ds.use_chat_template else 'raw prompt (legacy)'}")
 
     # UNtruncated length distribution, so clipping is visible instead of silent. A truncated
     # completion teaches the model to stop mid-answer, so any example over the cap is a warning.
