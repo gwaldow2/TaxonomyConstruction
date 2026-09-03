@@ -31,15 +31,18 @@ class _Tok:
             parts += [f"<{m['role']}>", m["content"], "<end>"]
         if add_generation_prompt:
             parts.append("<assistant>")
-        return self._ids(" ".join(parts))
+        text = " ".join(parts)
+        return self._ids(text) if tokenize else text
 
 
 class _BrokenTok(_Tok):
-    """Template that violates the prefix property (re-renders the whole conversation)."""
+    """Template that violates the string prefix property (re-renders the conversation)."""
 
     def apply_chat_template(self, msgs, add_generation_prompt=False, tokenize=True):
-        ids = super().apply_chat_template(msgs, add_generation_prompt, tokenize)
-        return ids if add_generation_prompt else list(reversed(ids))
+        out = super().apply_chat_template(msgs, add_generation_prompt, tokenize=False)
+        if not add_generation_prompt:
+            out = out[::-1]
+        return self._ids(out) if tokenize else out
 
 
 REC = {"prompt": "identify relations for apple", "completion": "apple <= fruit"}
