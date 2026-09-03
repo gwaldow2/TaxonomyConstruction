@@ -171,10 +171,13 @@ class SFTDataset:
 
     With use_chat_template (default), the prompt is rendered as a user turn with the
     generation prompt appended and the completion as the assistant turn of the same
-    conversation -- byte-identical to what vLLM's chat endpoint feeds the model at
-    inference, end-of-turn token included. The completion ids are recovered as the suffix
-    of the templated full conversation beyond the templated prompt; if a template breaks
-    that prefix property, the raw legacy encoding is used and a warning printed once.
+    conversation. The split happens at the STRING level (templated full conversation minus
+    templated prompt), and the two pieces are tokenized separately -- deliberately: vLLM
+    tokenizes the templated prompt alone and the completion arrives as generated tokens, so
+    separate tokenization matches inference exactly, whereas single-pass tokenization of the
+    full string merges tokens across the header/completion boundary on some templates
+    (Gemma's does). If a template breaks even the string prefix property, the raw legacy
+    encoding is used and a warning printed once.
     """
 
     def __init__(self, records, tokenizer, max_len, use_chat_template=True):
@@ -189,15 +192,18 @@ class SFTDataset:
         """-> (prompt_ids, completion_ids), untruncated."""
         if self.use_chat_template:
             msgs = [{"role": "user", "content": r["prompt"]}]
-            p_ids = self.tok.apply_chat_template(msgs, add_generation_prompt=True, tokenize=True)
-            full = self.tok.apply_chat_template(
-                msgs + [{"role": "assistant", "content": r["completion"]}], tokenize=True)
-            if len(full) > len(p_ids) and full[:len(p_ids)] == p_ids:
-                return p_ids, full[len(p_ids):]
+            p_str = self.tok.apply_chat_template(msgs, add_generation_prompt=True, tokenize=False)
+            f_str = self.tok.apply_chat_template(
+                msgs + [{"role": "assistant", "content": r["completion"]}], tokenize=False)
+            if len(f_str) > len(p_str) and f_str.startswith(p_str):
+                # add_special_tokens=False: the template already carries BOS where required.
+                p_ids = self.tok(p_str, add_special_tokens=False).input_ids
+                c_ids = self.tok(f_str[len(p_str):], add_special_tokens=False).input_ids
+                return p_ids, c_ids
             if not self._warned_prefix:
                 self._warned_prefix = True
                 print("    [warn] chat template does not extend the generation prompt as a "
-                      "prefix -- falling back to raw prompt+completion tokenization.")
+                      "string prefix -- falling back to raw prompt+completion tokenization.")
         prompt_ids = self.tok(r["prompt"], add_special_tokens=True).input_ids
         eos = self.tok.eos_token or ""
         comp_ids = self.tok(r["completion"] + eos, add_special_tokens=False).input_ids
