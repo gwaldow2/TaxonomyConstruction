@@ -36,13 +36,11 @@ class _Tok:
 
 
 class _BrokenTok(_Tok):
-    """Template that violates the string prefix property (re-renders the conversation)."""
+    """Template that never renders assistant content verbatim (probe cannot be located)."""
 
     def apply_chat_template(self, msgs, add_generation_prompt=False, tokenize=True):
-        out = super().apply_chat_template(msgs, add_generation_prompt, tokenize=False)
-        if not add_generation_prompt:
-            out = out[::-1]
-        return self._ids(out) if tokenize else out
+        kept = [m for m in msgs if m["role"] != "assistant"]
+        return super().apply_chat_template(kept, add_generation_prompt, tokenize)
 
 
 REC = {"prompt": "identify relations for apple", "completion": "apple <= fruit"}
@@ -52,6 +50,7 @@ def test_chat_encoding_masks_prompt_and_keeps_end_of_turn():
     tok = _Tok()
     ds = SFTDataset([REC], tok, max_len=4096)
     assert ds.use_chat_template
+    assert ds.assistant_suffix == " <end>"        # derived from the probe render
     p_ids, c_ids = ds.encode(REC)
     # prompt ends with the generation prompt, completion ends with the end-of-turn token
     assert p_ids[-1] == tok.vocab["<assistant>"]
@@ -63,11 +62,22 @@ def test_chat_encoding_masks_prompt_and_keeps_end_of_turn():
     assert ex["input_ids"] == p_ids + c_ids
 
 
-def test_prefix_violation_falls_back_to_raw():
+def test_prompt_is_exact_inference_render():
+    """The supervised prompt must be byte-identical to what vLLM tokenizes at inference:
+    the templated user turn plus generation prompt, nothing recomputed from a full render."""
+    tok = _Tok()
+    ds = SFTDataset([REC], tok, max_len=4096)
+    p_ids, _ = ds.encode(REC)
+    expected = tok.apply_chat_template([{"role": "user", "content": REC["prompt"]}],
+                                       add_generation_prompt=True, tokenize=True)
+    assert p_ids == expected
+
+
+def test_unrenderable_template_falls_back_to_raw():
     tok = _BrokenTok()
     ds = SFTDataset([REC], tok, max_len=4096)
+    assert not ds.use_chat_template
     p_ids, c_ids = ds.encode(REC)
-    assert ds._warned_prefix
     assert p_ids == tok(REC["prompt"]).input_ids
     assert c_ids == tok(REC["completion"] + tok.eos_token).input_ids
 
