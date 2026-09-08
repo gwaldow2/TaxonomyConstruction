@@ -1,0 +1,142 @@
+[
+    {
+        "dataset": "WordNetFood_SUB",
+        "use_synsets": false,
+        "explode_nodes": false,
+        "results": [
+            {
+                "method": "Our Method (k=1000, clawback=0)",
+                "model": "gemma4V2_cross_WordNetFood",
+                "Cond_Red_F1": 0.3853211009174312,
+                "Cond_Red_Precision": 0.3684210526315789,
+                "Cond_Red_Recall": 0.40384615384615385,
+                "Cond_Clos_F1": 0.353609851816767,
+                "Cond_Clos_Precision": 0.22773722627737225,
+                "Cond_Clos_Recall": 0.7905604719764012,
+                "Exp_Raw_F1": 0.08707607699358387,
+                "Exp_Clos_F1": 0.21657381615598884,
+                "Runtime_sec": 184.53600358963013
+            }
+        ]
+    },
+    {
+        "dataset": "CellOntology_SUB",
+        "use_synsets": false,
+        "explode_nodes": false,
+        "results": [
+            {
+                "method": "Our Method (k=1000, clawback=0)",
+                "model": "gemma4V2_cross_CellOntology",
+                "Cond_Red_F1": 0.5131233595800524,
+                "Cond_Red_Precision": 0.5151515151515151,
+                "Cond_Red_Recall": 0.5111111111111111,
+                "Cond_Clos_F1": 0.7124019039092264,
+                "Cond_Clos_Precision": 0.617741935483871,
+                "Cond_Clos_Recall": 0.8413223140495868,
+                "Exp_Raw_F1": 0.1931150293870697,
+                "Exp_Clos_F1": 0.5659574468085107,
+                "Runtime_sec": 237.0578556060791
+            }
+        ]
+    },
+    {
+        "dataset": "SemEvalFood_SUB",
+        "use_synsets": false,
+        "explode_nodes": false,
+        "results": [
+            {
+                "method": "Our Method (k=1000, clawback=0)",
+                "model": "gemma4V2_cross_SemEvalFood",
+                "Cond_Red_F1": 0.47619047619047616,
+                "Cond_Red_Precision": 0.5113636363636364,
+                "Cond_Red_Recall": 0.44554455445544555,
+                "Cond_Clos_F1": 0.5165239301121107,
+                "Cond_Clos_Precision": 0.3618421052631579,
+                "Cond_Clos_Recall": 0.902200488997555,
+                "Exp_Raw_F1": 0.10692177827799662,
+                "Exp_Clos_F1": 0.3221639079531691,
+                "Runtime_sec": 247.00984120368958
+            }
+        ]
+    },
+    {
+        "dataset": "LLMs4OL_OBI_SUB",
+        "use_synsets": false,
+        "explode_nodes": false,
+        "results": [
+            {
+                "method": "Our Method (k=1000, clawback=0)",
+                "model": "gemma4V2_cross_LLMs4OL_OBI",
+                "Cond_Red_F1": 0.5410628019323672,
+                "Cond_Red_Precision": 0.4628099173553719,
+                "Cond_Red_Recall": 0.6511627906976745,
+                "Cond_Clos_F1": 0.3985699152542373,
+                "Cond_Clos_Precision": 0.26515151515151514,
+                "Cond_Clos_Recall": 0.8022388059701493,
+                "Exp_Raw_F1": 0.2928709055876686,
+                "Exp_Clos_F1": 0.38037865748709127,
+                "Runtime_sec": 153.19433975219727
+            }
+        ]
+    },
+    {
+        "dataset": "LLMs4OL_PO_SUB",
+        "use_synsets": false,
+        "explode_nodes": false,
+        "results": [
+            {
+                "method": "Our Method (k=1000, clawback=0)",
+                "model": "gemma4V2_cross_LLMs4OL_PO",
+                "Cond_Red_F1": 0.4524199205050269,
+                "Cond_Red_Precision": 0.4056603773584906,
+                "Cond_Red_Recall": 0.5113636363636364,
+                "Cond_Clos_F1": 0.5798599570121209,
+                "Cond_Clos_Precision": 0.44719101123595506,
+                "Cond_Clos_Recall": 0.8244514106583072,
+                "Exp_Raw_F1": 0.16125419932810753,
+                "Exp_Clos_F1": 0.4309133489461358,
+                "Runtime_sec": 196.8991265296936
+            }
+        ]
+    },
+    {
+        "dataset": "LLMs4OL_SchemaOrg_SUB",
+        "use_synsets": false,
+        "explode_nodes": false,
+        "results": [
+            {
+                "method": "Our Method (k=1000, clawback=0)",
+                "model": "gemma4V2_cross_LLMs4OL_SchemaOrg",
+                "Cond_Red_F1": 0.5373134328358209,
+                "Cond_Red_Precision": 0.46551724137931033,
+                "Cond_Red_Recall": 0.6352941176470588,
+                "Cond_Clos_F1": 0.5639269406392693,
+                "Cond_Clos_Precision": 0.4318181818181818,
+                "Cond_Clos_Recall": 0.8125,
+                "Exp_Raw_F1": 0.37746478873239436,
+                "Exp_Clos_F1": 0.5466970387243737,
+                "Runtime_sec": 70.07689476013184
+            }
+        ]
+    },
+    {
+        "dataset": "LLMs4OL_MatOnto_SUB",
+        "use_synsets": false,
+        "explode_nodes": false,
+        "results": [
+            {
+                "method": "Our Method (k=1000, clawback=0)",
+                "model": "gemma4V2_cross_LLMs4OL_MatOnto",
+                "Cond_Red_F1": 0.3628691983122363,
+                "Cond_Red_Precision": 0.2925170068027211,
+                "Cond_Red_Recall": 0.4777777777777778,
+                "Cond_Clos_F1": 0.4569424923142635,
+                "Cond_Clos_Precision": 0.30456026058631924,
+                "Cond_Clos_Recall": 0.9144981412639405,
+                "Exp_Raw_F1": 0.17513513513513512,
+                "Exp_Clos_F1": 0.3952569169960474,
+                "Runtime_sec": 217.58475518226624
+            }
+        ]
+    }
+]
