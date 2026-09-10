@@ -1,0 +1,142 @@
+[
+    {
+        "dataset": "WordNetFood_SUB",
+        "use_synsets": false,
+        "explode_nodes": false,
+        "results": [
+            {
+                "method": "Our Method (k=1000, clawback=0)",
+                "model": "openai/gpt-oss-120b",
+                "Cond_Red_F1": 0.5986613782845811,
+                "Cond_Red_Precision": 0.5390625,
+                "Cond_Red_Recall": 0.6730769230769231,
+                "Cond_Clos_F1": 0.6765399580963782,
+                "Cond_Clos_Precision": 0.541015625,
+                "Cond_Clos_Recall": 0.9026548672566371,
+                "Exp_Raw_F1": 0.25409836065573765,
+                "Exp_Clos_F1": 0.5869980879541109,
+                "Runtime_sec": 1150.9524796009064
+            }
+        ]
+    },
+    {
+        "dataset": "CellOntology_SUB",
+        "use_synsets": false,
+        "explode_nodes": false,
+        "results": [
+            {
+                "method": "Our Method (k=1000, clawback=0)",
+                "model": "openai/gpt-oss-120b",
+                "Cond_Red_F1": 0.5846153846153846,
+                "Cond_Red_Precision": 0.608,
+                "Cond_Red_Recall": 0.562962962962963,
+                "Cond_Clos_F1": 0.7855107413848423,
+                "Cond_Clos_Precision": 0.6804564907275321,
+                "Cond_Clos_Recall": 0.9289256198347108,
+                "Exp_Raw_F1": 0.2542372881355932,
+                "Exp_Clos_F1": 0.7807848443843031,
+                "Runtime_sec": 1230.0089738368988
+            }
+        ]
+    },
+    {
+        "dataset": "SemEvalFood_SUB",
+        "use_synsets": false,
+        "explode_nodes": false,
+        "results": [
+            {
+                "method": "Our Method (k=1000, clawback=0)",
+                "model": "openai/gpt-oss-120b",
+                "Cond_Red_F1": 0.588235294117647,
+                "Cond_Red_Precision": 0.5416666666666666,
+                "Cond_Red_Recall": 0.6435643564356436,
+                "Cond_Clos_F1": 0.7225523928683141,
+                "Cond_Clos_Precision": 0.6542056074766355,
+                "Cond_Clos_Recall": 0.8068459657701712,
+                "Exp_Raw_F1": 0.20238095238095236,
+                "Exp_Clos_F1": 0.5535420098846787,
+                "Runtime_sec": 678.7099833488464
+            }
+        ]
+    },
+    {
+        "dataset": "LLMs4OL_OBI_SUB",
+        "use_synsets": false,
+        "explode_nodes": false,
+        "results": [
+            {
+                "method": "Our Method (k=1000, clawback=0)",
+                "model": "openai/gpt-oss-120b",
+                "Cond_Red_F1": 0.592964824120603,
+                "Cond_Red_Precision": 0.5221238938053098,
+                "Cond_Red_Recall": 0.686046511627907,
+                "Cond_Clos_F1": 0.6789703176833597,
+                "Cond_Clos_Precision": 0.5826558265582655,
+                "Cond_Clos_Recall": 0.8134328358208955,
+                "Exp_Raw_F1": 0.33658536585365856,
+                "Exp_Clos_F1": 0.6759259259259259,
+                "Runtime_sec": 649.2390692234039
+            }
+        ]
+    },
+    {
+        "dataset": "LLMs4OL_PO_SUB",
+        "use_synsets": false,
+        "explode_nodes": false,
+        "results": [
+            {
+                "method": "Our Method (k=1000, clawback=0)",
+                "model": "openai/gpt-oss-120b",
+                "Cond_Red_F1": 0.5904761904761906,
+                "Cond_Red_Precision": 0.5081967213114754,
+                "Cond_Red_Recall": 0.7045454545454546,
+                "Cond_Clos_F1": 0.6432858190631079,
+                "Cond_Clos_Precision": 0.5367847411444142,
+                "Cond_Clos_Recall": 0.8025078369905956,
+                "Exp_Raw_F1": 0.260707635009311,
+                "Exp_Clos_F1": 0.6142857142857143,
+                "Runtime_sec": 654.2702243328094
+            }
+        ]
+    },
+    {
+        "dataset": "LLMs4OL_SchemaOrg_SUB",
+        "use_synsets": false,
+        "explode_nodes": false,
+        "results": [
+            {
+                "method": "Our Method (k=1000, clawback=0)",
+                "model": "openai/gpt-oss-120b",
+                "Cond_Red_F1": 0.6802030456852792,
+                "Cond_Red_Precision": 0.5982142857142857,
+                "Cond_Red_Recall": 0.788235294117647,
+                "Cond_Clos_F1": 0.6297229219143576,
+                "Cond_Clos_Precision": 0.49407114624505927,
+                "Cond_Clos_Recall": 0.8680555555555556,
+                "Exp_Raw_F1": 0.4478527607361963,
+                "Exp_Clos_F1": 0.6297229219143576,
+                "Runtime_sec": 358.5271258354187
+            }
+        ]
+    },
+    {
+        "dataset": "LLMs4OL_MatOnto_SUB",
+        "use_synsets": false,
+        "explode_nodes": false,
+        "results": [
+            {
+                "method": "Our Method (k=1000, clawback=0)",
+                "model": "openai/gpt-oss-120b",
+                "Cond_Red_F1": 0.48571428571428565,
+                "Cond_Red_Precision": 0.425,
+                "Cond_Red_Recall": 0.5666666666666667,
+                "Cond_Clos_F1": 0.5545657015590201,
+                "Cond_Clos_Precision": 0.3958664546899841,
+                "Cond_Clos_Recall": 0.9256505576208178,
+                "Exp_Raw_F1": 0.29699248120300753,
+                "Exp_Clos_F1": 0.5010060362173038,
+                "Runtime_sec": 693.3022391796112
+            }
+        ]
+    }
+]
