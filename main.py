@@ -186,14 +186,16 @@ def main(args):
             }
 
         if "single_call" in selected_methods:
-            sc_label = "Single-Call Baseline" + (" (no-merge)" if args.no_merge_synonyms else "")
+            sc_label = "Single-Call Baseline" + (" [matched]" if args.sc_style == "matched" else "") \
+                       + (" (no-merge)" if args.no_merge_synonyms else "")
             print(f"  -> Running {sc_label}...")
             t0 = time.time()
             G_sc = method_single_call(input_nodes, client, MODEL_NAME,
                                       merge_synonyms=not args.no_merge_synonyms,
-                                      max_tokens=args.max_tokens)
+                                      max_tokens=args.max_tokens, style=args.sc_style)
             if "virtual_root" in G_sc: G_sc.remove_node("virtual_root")
-            sc_safe = "SingleCall" + ("_nomerge" if args.no_merge_synonyms else "")
+            sc_safe = "SingleCall" + ("_matched" if args.sc_style == "matched" else "") \
+                      + ("_nomerge" if args.no_merge_synonyms else "")
             eval_results[sc_label] = {
                 "metrics": evaluate_all_modes(G_sc, G_gt, f"./results/{dataset_name_eval}_{sc_safe}"),
                 "runtime": time.time() - t0
@@ -380,6 +382,10 @@ if __name__ == "__main__":
     parser.add_argument("--results_file", type=str, default="benchmark_results.json",
                         help="Where to append results. Point new runs at a fresh file (e.g. "
                              "benchmark_results_new.json) to keep them separate from older runs.")
+    parser.add_argument("--sc_style", choices=["bestpractice", "matched"], default="bestpractice",
+                        help="Single-call prompt style. 'matched' uses the structured method's "
+                             "semantics ('<=' ancestor lines, no few-shot) in one call, isolating "
+                             "call structure from prompt content.")
     parser.add_argument("--no_merge_synonyms", action="store_true",
                         help="Single-Call Baseline only: skip the mutual-edge synonym condensation "
                              "and rely on plain DAG enforcement, so the merge's effect is measurable.")

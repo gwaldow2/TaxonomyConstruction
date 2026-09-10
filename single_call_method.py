@@ -30,7 +30,7 @@ import re
 import networkx as nx
 
 from data_manager import get_primary_term
-from our_method import condense_synonyms, enforce_dag, _llm_call, EXTRACT_MAX_TOKENS
+from our_method import condense_synonyms, enforce_dag, _llm_call, _parse_relations, EXTRACT_MAX_TOKENS
 
 # A single ["parent", "child"] pair in either quote style. Findall over the whole text is
 # deliberately lenient about the surrounding array: a missing closing bracket or trailing prose
@@ -84,6 +84,32 @@ Output:
 """
 
 
+def build_matched_prompt(primary_terms):
+    """MATCHED-SEMANTICS single call: the structured method's prompt content, one call.
+
+    Exists to isolate CALL STRUCTURE. The best-practice baseline differs from the structured
+    method on four axes at once (call count, direct-vs-ancestor semantics, output format,
+    few-shot presence), so their score gap measures a bundle. This prompt keeps the structured
+    'full' variant's semantics verbatim where possible -- the extensional "could logically also
+    be labeled" rule, the same example line, '<=' line output, the same terminator -- and no
+    few-shot examples. The ONLY change from the structured method is that all relationships
+    are requested in a single call over the whole vocabulary. Structured-vs-matched isolates
+    call structure; matched-vs-best-practice isolates prompt content.
+    """
+    listing = "\n".join(f"- {t}" for t in primary_terms)
+    return (
+        "You are identifying hierarchical relationships within a vocabulary of entities.\n"
+        "Below is the complete list of entities. Identify every subclass or superclass "
+        "relationship between any two entities in the list.\n"
+        "- If every entity labeled with an entity 'A' could logically also be labeled with an "
+        "entity 'B', output 'A <= B'\n"
+        "ONLY use entities exactly as they appear in the list. Output each relationship on a "
+        "new line. If there are no relationships, output 'none'.\n\n"
+        "Example: 'anucleate cell' <= 'cell'\n"
+        "Entities:\n"
+        f"{listing}\n\nRelationships:\n")
+
+
 def parse_pairs(text, primary_to_full_map):
     """-> [(parent_node, child_node)] for pairs whose BOTH terms are in the vocabulary."""
     out = []
@@ -95,24 +121,35 @@ def parse_pairs(text, primary_to_full_map):
 
 
 def method_single_call(nodes, client, model_name, merge_synonyms=True,
-                       max_tokens=EXTRACT_MAX_TOKENS, max_retries=3):
+                       max_tokens=EXTRACT_MAX_TOKENS, max_retries=3, style="bestpractice"):
     """One LLM call over the whole vocabulary -> taxonomy DAG.
 
     merge_synonyms=True runs the same mutual-edge condensation as our_method; False leaves
     reciprocal assertions to enforce_dag's cycle-breaking, so the merge's effect is measurable.
+
+    style selects the prompt/parser pairing:
+      * "bestpractice" -- the standard baseline (direct edges, JSON pairs, few-shot);
+      * "matched"      -- the structured method's semantics in one call ('<=' ancestor lines,
+                          no few-shot), parsed with the structured method's own line parser.
+                          See build_matched_prompt for what it isolates.
     """
     primary_to_full_map = {get_primary_term(n): n for n in nodes}
-    prompt = build_single_call_prompt(sorted(primary_to_full_map))
+    if style == "matched":
+        prompt = build_matched_prompt(sorted(primary_to_full_map))
+        parse = _parse_relations
+    else:
+        prompt = build_single_call_prompt(sorted(primary_to_full_map))
+        parse = parse_pairs
 
     content, reasoning = _llm_call(client, model_name, prompt, max_tokens, max_retries)
     # Committed answer first; the scratchpad only rescues an empty answer.
-    edges = parse_pairs(content, primary_to_full_map) or parse_pairs(reasoning, primary_to_full_map)
+    edges = parse(content, primary_to_full_map) or parse(reasoning, primary_to_full_map)
 
     G = nx.DiGraph()
     G.add_nodes_from(nodes)
     G.add_edges_from(edges)
-    print(f"    [Single-Call] {len(edges)} in-vocabulary edges parsed "
-          f"({'content' if parse_pairs(content, primary_to_full_map) else 'reasoning fallback' if edges else 'nothing'})")
+    print(f"    [Single-Call:{style}] {len(edges)} in-vocabulary edges parsed "
+          f"({'content' if parse(content, primary_to_full_map) else 'reasoning fallback' if edges else 'nothing'})")
 
     if merge_synonyms:
         condensed, _ = condense_synonyms(G)
