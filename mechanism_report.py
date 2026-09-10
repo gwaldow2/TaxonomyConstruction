@@ -38,6 +38,7 @@ from collections import defaultdict
 OUT_DIR = os.path.join("results", "mechanisms")
 METRIC = "Cond_Clos_F1"
 K_RE = re.compile(r"\(k=(\d+)")
+M_RE = re.compile(r"\[density m=(\d+)\]")
 
 
 # ----------------------------------------------------------------------------
@@ -239,6 +240,111 @@ def _plot_ksweep(table, ks, metric, out_path):
 
 
 # ----------------------------------------------------------------------------
+# density mode (targets-per-call knee)
+# ----------------------------------------------------------------------------
+
+def collect_density(result_maps, metric=METRIC):
+    """-> {dataset: {m: row}} from density_sweep.py results file(s)."""
+    table = defaultdict(dict)
+    for rm in result_maps:
+        for ds, rows in rm.items():
+            for lbl, row in rows.items():
+                match = M_RE.search(lbl)
+                if match and metric in row:
+                    table[ds][int(match.group(1))] = row
+    return dict(table)
+
+
+def find_knee(mean_by_m, tol=0.02):
+    """Largest m whose mean score stays within tol of the m=1 anchor.
+
+    A conservative, readable knee definition: the last density level before the mean drops
+    more than tol below the per-target anchor. Returns (knee_m, first_degraded_m_or_None).
+    """
+    if 1 not in mean_by_m:
+        raise ValueError("density sweep has no m=1 anchor")
+    anchor = mean_by_m[1]
+    knee, degraded = 1, None
+    for m in sorted(mean_by_m):
+        if mean_by_m[m] >= anchor - tol:
+            knee = m
+        elif degraded is None:
+            degraded = m
+    return knee, degraded
+
+
+def run_density(args):
+    table = collect_density([load_results(p) for p in args.results], args.metric)
+    ms = sorted({m for v in table.values() for m in v})
+    if len(ms) < 2:
+        raise SystemExit(f"[!] found only m={ms} -- not a sweep. Run density_sweep.py with "
+                         f"more --targets_per_call values first.")
+    datasets = sorted(ds for ds, v in table.items() if len(v) >= 2)
+    print(f"\n=== density sweep [{args.metric}]: m values {ms}, {len(datasets)} datasets ===")
+
+    mean_by_m, stat_rows = {}, []
+    for m in ms:
+        vals = [table[ds][m][args.metric] for ds in datasets if m in table[ds]]
+        mean_by_m[m] = sum(vals) / len(vals)
+    for m in ms:
+        if m == 1:
+            continue
+        pair = [(table[ds][m][args.metric], table[ds][1][args.metric])
+                for ds in datasets if m in table[ds] and 1 in table[ds]]
+        if len(pair) < 3:
+            continue
+        d = [a - b for a, b in pair]
+        mean, t_p, w_p, up = paired_stats(d)
+        jpc = next((table[ds][m].get("judgments_per_call", "") for ds in datasets
+                    if m in table[ds]), "")
+        stat_rows.append({"m": m, "judgments_per_call": jpc, "mean_score": round(mean_by_m[m], 4),
+                          "delta_vs_m1": round(mean, 4), "t_p": round(t_p, 4),
+                          "wilcoxon_p": round(w_p, 4), "datasets_up": f"{up}/{len(d)}"})
+        print(f"  m={m:4d} (~{jpc} judg/call): mean={mean_by_m[m]:.4f}  "
+              f"d vs m=1 = {mean:+.4f}  t-p={t_p:.4f}  ({up}/{len(d)} up)")
+
+    knee, degraded = find_knee(mean_by_m, args.knee_tol)
+    print(f"\n  [knee] capacity holds through m={knee}"
+          + (f"; first degradation at m={degraded}" if degraded else
+         "; no degradation observed in the swept range -- capacity exceeds it"))
+
+    os.makedirs(args.out_dir, exist_ok=True)
+    base = os.path.join(args.out_dir, f"density_{args.tag}")
+    flat = [{"dataset": ds, "m": m, args.metric: table[ds][m][args.metric],
+             "judgments_per_call": table[ds][m].get("judgments_per_call", "")}
+            for ds in datasets for m in sorted(table[ds])]
+    _write_csv(base + ".csv", flat + [{}] + stat_rows
+               + [{}, {"dataset": f"KNEE: holds through m={knee}",
+                       "m": degraded or "", args.metric: "first degraded m"}])
+    _plot_density(table, datasets, ms, mean_by_m, args.metric, base + ".png")
+    print(f"[*] wrote {base}.csv and {base}.png")
+
+
+def _plot_density(table, datasets, ms, mean_by_m, metric, out_path):
+    import matplotlib
+    matplotlib.use("Agg")
+    import matplotlib.pyplot as plt
+    fig, ax = plt.subplots(figsize=(9, 5.5))
+    for ds in datasets:
+        xs = sorted(table[ds])
+        ax.plot(xs, [table[ds][m][metric] for m in xs], marker="o", alpha=0.45, lw=1,
+                label=ds.replace("_SUB", ""))
+    ax.plot(sorted(mean_by_m), [mean_by_m[m] for m in sorted(mean_by_m)], marker="s",
+            color="black", lw=2.5, label="mean")
+    ax.set_xscale("log")
+    ax.set_xticks(ms)
+    ax.set_xticklabels([str(m) for m in ms])
+    ax.set_xlabel("targets per call m  (judgments per call = m x (N-1))", fontweight="bold")
+    ax.set_ylabel(metric, fontweight="bold")
+    ax.legend(fontsize=7, ncol=2)
+    ax.set_title("Judgment-density dose response: where does capacity saturate?",
+                 fontweight="bold")
+    plt.tight_layout()
+    plt.savefig(out_path, dpi=200, bbox_inches="tight")
+    plt.close()
+
+
+# ----------------------------------------------------------------------------
 
 def _write_csv(path, rows):
     import csv
@@ -273,8 +379,16 @@ def main():
     k.add_argument("--tag", required=True)
     k.add_argument("--out_dir", default=OUT_DIR)
 
+    d = sub.add_parser("density", help="targets-per-call knee from density_sweep.py results")
+    d.add_argument("--results", action="append", required=True)
+    d.add_argument("--metric", default=METRIC)
+    d.add_argument("--tag", required=True)
+    d.add_argument("--knee_tol", type=float, default=0.02,
+                   help="Mean-score drop vs the m=1 anchor that counts as degradation.")
+    d.add_argument("--out_dir", default=OUT_DIR)
+
     args = ap.parse_args()
-    (run_compare if args.mode == "compare" else run_ksweep)(args)
+    {"compare": run_compare, "ksweep": run_ksweep, "density": run_density}[args.mode](args)
 
 
 if __name__ == "__main__":
