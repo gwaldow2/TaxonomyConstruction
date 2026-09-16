@@ -158,17 +158,28 @@ def stratified_sample(edges, n, seed=42):
 
 
 def load_cache(path):
-    """Previously classified edges, so an interrupted run resumes instead of re-paying."""
+    """Previously classified edges, so an interrupted run resumes instead of re-paying.
+
+    Rows with an empty justification are failed calls (the judge's response was empty,
+    so parse_type fell back to 'unrelated'); they are excluded so a resume re-judges them.
+    """
     if not os.path.exists(path):
         return {}, []
     with open(path, newline="", encoding="utf-8") as f:
         rows = list(csv.DictReader(f))
-    return {(r["dataset"], r["source"], r["parent"], r["child"]): r for r in rows}, rows
+    good = [r for r in rows if r.get("justification", "").strip()]
+    if len(good) < len(rows):
+        print(f"[*] dropping {len(rows) - len(good)} failed rows (empty justification) "
+              f"from {path}; they will be re-judged")
+    return {(r["dataset"], r["source"], r["parent"], r["child"]): r for r in good}, good
+
+
+FAILFAST_N = 5
 
 
 def classify_all(work, respond, cache, model, verbose=True):
     """work: [(dataset, source, parent, child, is_fp, ctx)] -> (rows, n_newly_classified)."""
-    rows, n_new = [], 0
+    rows, n_new, n_empty = [], 0, 0
     for i, (ds, source, p, c, is_fp, ctx) in enumerate(work, 1):
         key = (ds, source, p, c)
         if key in cache:
@@ -177,13 +188,23 @@ def classify_all(work, respond, cache, model, verbose=True):
         text = respond(build_prompt(p, c, ctx, source))
         t = parse_type(text)
         just = text.strip().splitlines()[0][:300] if text.strip() else ""
+        if not just:
+            n_empty += 1
         row = {"dataset": ds, "source": source, "parent": p, "child": c,
                "is_fp": is_fp, "type": t, "model": model, "justification": just}
         rows.append(row)
         cache[key] = row
         n_new += 1
+        if n_new == FAILFAST_N and n_empty == FAILFAST_N:
+            raise SystemExit(
+                f"[!] the first {FAILFAST_N} judge calls all returned empty text -- "
+                f"aborting before writing garbage labels. Check --api_key, --base_url "
+                f"and --max_tokens (thinking models need a larger completion budget).")
         if verbose and n_new % 25 == 0:
             print(f"    ... {n_new} newly classified ({i}/{len(work)} processed)")
+    if n_empty:
+        print(f"[!] {n_empty}/{n_new} calls failed (empty response); those rows carry an "
+              f"empty justification and will be re-judged on the next resume")
     return rows, n_new
 
 
@@ -348,6 +369,9 @@ def main():
     ap.add_argument("--model", default="google/gemma-4-31b-it")
     ap.add_argument("--base_url", default="http://localhost:8000/v1")
     ap.add_argument("--api_key", default="woohoo")
+    ap.add_argument("--max_tokens", type=int, default=400,
+                    help="Judge completion budget. Thinking models (e.g. Gemini Pro) spend "
+                         "reasoning tokens from this budget; give them 4000+.")
     ap.add_argument("--seed", type=int, default=42)
     ap.add_argument("--out_csv", default=os.path.join(RESULTS_DIR, "relation_types.csv"))
     ap.add_argument("--summary_csv", default=os.path.join(RESULTS_DIR, "relation_types_summary.csv"))
@@ -405,7 +429,8 @@ def main():
         print(f"[*] resuming: {len(cache)} edges already classified in {args.out_csv}")
 
     from fp_reason_analysis import openai_responder
-    respond = openai_responder(args.base_url, args.api_key, args.model)
+    respond = openai_responder(args.base_url, args.api_key, args.model,
+                               max_tokens=args.max_tokens)
     print(f"[*] classifying {len(work)} edges with {args.model} ...")
     rows, n_new = classify_all(work, respond, cache, args.model)
     write_rows(args.out_csv, rows)

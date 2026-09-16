@@ -11,8 +11,9 @@ from collections import Counter
 
 import networkx as nx
 
-from relation_type_audit import (CANONICAL_TYPES, parse_type, stratified_sample,
-                                 write_isa_only_gt, rescore, load_pred_edges)
+from relation_type_audit import (CANONICAL_TYPES, FAILFAST_N, parse_type, stratified_sample,
+                                 write_isa_only_gt, rescore, load_pred_edges, load_cache,
+                                 classify_all)
 
 
 def test_canonical_types_unique():
@@ -131,6 +132,58 @@ def test_load_pred_edges_reads_is_fp():
         assert Counter(r[2] for r in rows) == Counter({0: 3, 1: 2})
     finally:
         shutil.rmtree(tmp, ignore_errors=True)
+
+
+def _work(n):
+    ctx = {"child_is_a": [], "parent_is_a": [], "parent_contains": []}
+    return [("T_SUB", "gt", f"p{i}", f"c{i}", "", ctx) for i in range(n)]
+
+
+def test_load_cache_drops_failed_rows():
+    """Empty justification == the judge call failed and 'unrelated' is a fallback, not a
+    verdict. A resume must re-judge those rows instead of trusting them (the 2026-09 Gemini
+    audit wrote 3,422 such rows)."""
+    tmp = tempfile.mkdtemp()
+    try:
+        p = os.path.join(tmp, "cache.csv")
+        with open(p, "w", newline="", encoding="utf-8") as f:
+            w = csv.DictWriter(f, fieldnames=["dataset", "source", "parent", "child",
+                                              "is_fp", "type", "model", "justification"])
+            w.writeheader()
+            w.writerow({"dataset": "T_SUB", "source": "gt", "parent": "a", "child": "b",
+                        "is_fp": "", "type": "is_a", "model": "m", "justification": "b is a a"})
+            w.writerow({"dataset": "T_SUB", "source": "gt", "parent": "c", "child": "d",
+                        "is_fp": "", "type": "unrelated", "model": "m", "justification": ""})
+        cache, rows = load_cache(p)
+        assert set(cache) == {("T_SUB", "gt", "a", "b")}
+        assert len(rows) == 1
+    finally:
+        shutil.rmtree(tmp, ignore_errors=True)
+
+
+def test_classify_all_fails_fast_on_dead_endpoint():
+    calls = []
+    def dead(prompt):
+        calls.append(prompt)
+        return ""
+    try:
+        classify_all(_work(50), dead, {}, "m", verbose=False)
+    except SystemExit:
+        assert len(calls) == FAILFAST_N, calls
+    else:
+        raise AssertionError("expected SystemExit after all-empty responses")
+
+
+def test_classify_all_tolerates_sporadic_failures():
+    """One failure past the fail-fast window is recorded with an empty justification (so a
+    resume re-judges it) and does not abort the run."""
+    def flaky(prompt):
+        return "" if "p7" in prompt else "child is a kind of parent\nis_a"
+    rows, n_new = classify_all(_work(10), flaky, {}, "m", verbose=False)
+    assert n_new == 10
+    failed = [r for r in rows if not r["justification"]]
+    assert len(failed) == 1 and failed[0]["parent"] == "p7"
+    assert all(r["type"] == "is_a" for r in rows if r["justification"])
 
 
 if __name__ == "__main__":
