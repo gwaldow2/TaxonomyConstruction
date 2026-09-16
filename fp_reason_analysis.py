@@ -119,6 +119,7 @@ def openai_responder(base_url, api_key, model, max_tokens=400, temperature=0.0, 
     client = OpenAI(base_url=base_url, api_key=api_key)
 
     def respond(prompt):
+        last_err = None
         for attempt in range(max_retries):
             try:
                 r = client.chat.completions.create(
@@ -127,10 +128,13 @@ def openai_responder(base_url, api_key, model, max_tokens=400, temperature=0.0, 
                 content = r.choices[0].message.content or ""
                 if content.strip():
                     return content
-            except Exception:
-                pass
+                last_err = (f"empty content at max_tokens={max_tokens} -- a thinking model's "
+                            f"reasoning counts against this budget; raise --max_tokens")
+            except Exception as e:
+                last_err = f"{type(e).__name__}: {str(e)[:200]}"
             if attempt < max_retries - 1:
                 time.sleep(2)
+        print(f"    [!] call failed after {max_retries} attempts: {last_err}")
         return ""
     return respond
 
