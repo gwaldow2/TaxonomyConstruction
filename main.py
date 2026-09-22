@@ -228,6 +228,11 @@ def main(args):
                     base_label = f"{base_label} +{t}"
                 base_safe = (base_label.replace(" ", "_").replace("(", "").replace(")", "")
                              .replace(".", "").replace("[", "").replace("]", ""))
+                # Without a tag, every model's structured run writes the SAME diagnostics
+                # filename and silently overwrites the previous model's predictions -- which
+                # is how the Sep 2026 audits ended up judging different models' edges.
+                if args.diag_tag:
+                    base_safe = f"{base_safe}_{args.diag_tag}"
                 debug_path = (f"./results/{dataset_name_eval}_{base_safe}_parse_debug.jsonl"
                               if args.debug_parse else None)
                 print(f"  -> Running {base_label} (k={args.chunk_size}) | clawback sweep: {args.suspicion_candidates}...")
@@ -354,6 +359,11 @@ if __name__ == "__main__":
                              "lenient vs '<=' edge counts) and dump raw responses to "
                              "results/<dataset>_<variant>_parse_debug.jsonl -- to tell a parsing artifact from a "
                              "genuine model/prompt effect (esp. for legacy_json).")
+    parser.add_argument("--diag_tag", type=str, default="",
+                        help="Suffix for Our Method's edge-diagnostics (and parse-debug) filenames, "
+                             "e.g. the model nickname. Without it every model overwrites the same "
+                             "results/<dataset>_Our_Method_edge_diagnostics.csv, destroying the "
+                             "provenance the relation-type audit depends on.")
     parser.add_argument("--suspicion_candidates", nargs="+", type=int, default=[0],
                         help="Precision-clawback sweep for Our Method: number(s) of top-suspicious edges the "
                              "LLM scrutinizes for removal (0 = clawback off). Pass several to sweep, e.g. 0 5 10 25.")
