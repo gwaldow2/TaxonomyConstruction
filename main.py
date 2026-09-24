@@ -3,6 +3,7 @@ import csv
 import argparse
 import gc
 import time
+from datetime import datetime
 import torch
 import pandas as pd
 import networkx as nx
@@ -70,13 +71,23 @@ def display_summary_table(domain, eval_results):
 
 def main(args):
     os.makedirs("./results", exist_ok=True)
-    
+
     client = None
     vector_encoder = None
     taxo_model = None
     taxo_tokenizer = None
     MODEL_NAME = args.model
     device = "cuda" if torch.cuda.is_available() else "cpu"
+
+    # Run provenance, applied by the evaluator to EVERY per-run artifact: the report txts
+    # and saved prediction graphs get "_<diag_tag>" filenames and carry these fields as
+    # graph attributes. Without this, successive runs with the same method label silently
+    # overwrote each other's outputs (which is how two audits ended up judging different
+    # models' predictions without anyone noticing).
+    import evaluator as _evaluator
+    _evaluator.RUN_META = {"model": MODEL_NAME, "tag": args.diag_tag,
+                           "results_file": args.results_file,
+                           "timestamp": datetime.now().isoformat(timespec="seconds")}
 
     selected_methods = args.method
     if "all" in selected_methods:
