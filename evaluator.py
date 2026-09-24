@@ -3,6 +3,12 @@ import json
 import networkx as nx
 from data_manager import parse_lemma_format
 
+# Provenance for the current run, set once by the driver (main.py) before any evaluation.
+# "tag" is appended to every per-run output filename so runs with the same method label
+# can never overwrite each other; the whole dict is stamped into the saved prediction
+# graph's attributes so a file's origin survives without the shell command that made it.
+RUN_META = {}
+
 
 def gt_closure_term_pairs(G_gt):
     """Set of (ancestor_term, descendant_term) over the GT transitive closure,
@@ -178,6 +184,19 @@ def explode_graph(G):
     return G_exp
 
 def evaluate_all_modes(G_pred_condensed, G_gt_condensed, out_prefix):
+    # Apply the run tag to every artifact this evaluation writes, and preserve the
+    # scored prediction graph itself: with PRED_*.graphml on disk, any later analysis
+    # (new metrics, audits, rescoring) can run without repeating the LLM calls.
+    if RUN_META.get("tag"):
+        out_prefix = f"{out_prefix}_{RUN_META['tag']}"
+    try:
+        G_save = G_pred_condensed.copy()
+        for k, v in RUN_META.items():
+            G_save.graph[k] = str(v)
+        nx.write_graphml(G_save, f"{out_prefix}_pred.graphml")
+    except Exception as e:
+        print(f"    [!] could not save prediction graph: {e}")
+
     G_pred_exploded = explode_graph(G_pred_condensed)
     G_gt_exploded = explode_graph(G_gt_condensed)
 
