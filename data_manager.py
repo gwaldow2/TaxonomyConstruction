@@ -97,8 +97,14 @@ def enforce_dag(G):
                 
     return G_dag
 
-def save_benchmark_graph(G, name, scale="SUB", train_pairs=None):
+def save_benchmark_graph(G, name, scale="SUB", train_pairs=None, meta=None):
     path = os.path.join(BENCHMARK_DIR, f"{name}_{scale}.graphml")
+    if meta:
+        # Generation provenance rides inside the graphml itself (graphml attribute
+        # values must be scalars, hence str()).
+        G = G.copy()
+        for k, v in meta.items():
+            G.graph[k] = str(v)
     nx.write_graphml(G, path)
     
     if train_pairs is not None:
@@ -123,20 +129,49 @@ def load_benchmark_graph(name, scale="SUB"):
             
     return G, train_pairs
 
-def get_closed_subgraph(G, target_nodes=100):
+def get_closed_subgraph(G, target_nodes=100, seed=42):
     nodes = list(G.nodes())
     subgraph_nodes = set()
-    random.seed(42) 
+    random.seed(seed)
     random.shuffle(nodes)
-    
+
     for node in nodes:
         if len(subgraph_nodes) >= target_nodes:
             break
         ancestors = nx.ancestors(G, node)
         subgraph_nodes.add(node)
         subgraph_nodes.update(ancestors)
-        
+
     return G.subgraph(subgraph_nodes).copy()
+
+# ==========================================
+# SCALE TOKENS (SUB25 / SUB200 / SUB25S7 ...)
+# ==========================================
+# The scale token is the single string that names a benchmark file
+# ({name}_{token}.graphml), selects it at run time (main.py --scale), and prefixes
+# every downstream artifact (results rows, diagnostics, saved prediction graphs)
+# through dataset_name_eval = f"{domain}_{token}". Legacy tokens "SUB" (the original
+# 100-node, seed-42 benchmarks) and "FULL" parse as None here and keep their meaning.
+
+SCALE_TOKEN_RE = re.compile(r'^SUB(\d+)(?:S(\d+))?$')
+DEFAULT_SCALE_SEED = 42
+
+def scale_token(target_nodes, seed=DEFAULT_SCALE_SEED):
+    token = f"SUB{int(target_nodes)}"
+    if int(seed) != DEFAULT_SCALE_SEED:
+        token += f"S{int(seed)}"
+    return token
+
+def parse_scale_token(token):
+    """'SUB200' -> (200, 42); 'SUB25S7' -> (25, 7); legacy 'SUB'/'FULL' -> None."""
+    m = SCALE_TOKEN_RE.match(str(token).upper())
+    if not m:
+        return None
+    return int(m.group(1)), int(m.group(2)) if m.group(2) else DEFAULT_SCALE_SEED
+
+def is_valid_scale(token):
+    t = str(token).upper()
+    return t in ("SUB", "FULL") or parse_scale_token(t) is not None
 
 def get_rigorous_80_20_split(G_full):
     """
