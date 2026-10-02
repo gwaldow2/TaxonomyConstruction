@@ -1,0 +1,297 @@
+==================================================
+=== Detailed Node Pair Analysis (Exploded Transitive Closure) ===
+Match Type Used: EXACT
+==================================================
+Precision: 0.7069 | Recall: 0.1524 | F1: 0.2508
+
+CORRECT PREDICTIONS (True Positives: 41 Pred edges covering 41 GT edges):
+  [TP] angle -> solid angle
+  [TP] atom -> curium atom
+  [TP] atom -> gallium atom
+  [TP] atom -> potassium atom
+  [TP] atom -> rubidium atom
+  [TP] atom -> tellurium atom
+  [TP] atom -> terbium atom
+  [TP] concentration -> amount of substance concentration
+  [TP] continuant -> dependent_continuant
+  [TP] continuant -> independent_continuant
+  [TP] density unit -> area density unit
+  [TP] density unit -> linear density unit
+  [TP] electronegativity -> mulliken electronegativity
+  [TP] electronegativity -> pauling electronegativity
+  [TP] material -> ceramic material
+  [TP] mixture -> homogeneous mixture
+  [TP] quality -> chemical quality
+  [TP] quality -> molecularquality
+  [TP] scaled unit -> peta scaled unit
+  [TP] scaled unit -> zepto scaled unit
+  [TP] unit -> area density unit
+  [TP] unit -> catalytic activity unit
+  [TP] unit -> conduction unit
+  [TP] unit -> density unit
+  [TP] unit -> derivedunit
+  [TP] unit -> dose equivalent unit
+  [TP] unit -> electric current unit
+  [TP] unit -> electric resistance unit
+  [TP] unit -> electromagnetic radiation unit
+  [TP] unit -> energy unit
+  [TP] unit -> linear density unit
+  [TP] unit -> luminous flux unit
+  [TP] unit -> molar mass unit
+  [TP] unit -> molecular mass unit
+  [TP] unit -> moment of force unit
+  [TP] unit -> peta scaled unit
+  [TP] unit -> radiation unit
+  [TP] unit -> scaled unit
+  [TP] unit -> zepto scaled unit
+  [TP] unit raised to power -> unit raised to power of negative one
+  [TP] unit raised to power -> unit raised to power of three
+
+INCORRECT PREDICTIONS (False Positives: 17):
+  [FP] aromatic -> aromaticity
+  [FP] atom -> undefined stereo atom count
+  [FP] count -> moleculecomponentcount
+  [FP] count -> undefined stereo atom count
+  [FP] density -> area density unit
+  [FP] density -> density unit
+  [FP] density -> linear density unit
+  [FP] dependent_continuant -> independent_continuant
+  [FP] electric resistance -> electric resistance unit
+  [FP] element -> p-block element
+  [FP] element -> periodic table element
+  [FP] radiation -> electromagnetic radiation unit
+  [FP] radiation -> radiation unit
+  [FP] radiation unit -> electromagnetic radiation unit
+  [FP] unit -> unit raised to power
+  [FP] unit -> unit raised to power of negative one
+  [FP] unit -> unit raised to power of three
+
+MISSED RELATIONS (False Negatives: 228):
+  [FN] aromaticity -> aromatic
+  [FN] carbon allotrope -> chaoite
+  [FN] carbon allotrope -> fullerene
+  [FN] chemical formula -> molecular formula
+  [FN] chemical quality -> chemical class
+  [FN] chemical quality -> chemical formula
+  [FN] chemical quality -> chiral center
+  [FN] chemical quality -> electronegativity
+  [FN] chemical quality -> molecular center
+  [FN] chemical quality -> molecular formula
+  [FN] chemical quality -> mulliken electronegativity
+  [FN] chemical quality -> pauling electronegativity
+  [FN] continuant -> acyclic
+  [FN] continuant -> amount of substance concentration
+  [FN] continuant -> angle
+  [FN] continuant -> angular acceleration
+  [FN] continuant -> aromatic
+  [FN] continuant -> aromaticity
+  [FN] continuant -> atom
+  [FN] continuant -> chemical class
+  [FN] continuant -> chemical formula
+  [FN] continuant -> chemical quality
+  [FN] continuant -> chiral center
+  [FN] continuant -> concentration
+  [FN] continuant -> count
+  [FN] continuant -> curium atom
+  [FN] continuant -> cyclicity
+  [FN] continuant -> density
+  [FN] continuant -> electric resistance
+  [FN] continuant -> electronegativity
+  [FN] continuant -> exposure
+  [FN] continuant -> flexural modulus
+  [FN] continuant -> gallium atom
+  [FN] continuant -> general sulfinic acid group
+  [FN] continuant -> homogeneous mixture
+  [FN] continuant -> identifier
+  [FN] continuant -> intensive property
+  [FN] continuant -> magnetic flux
+  [FN] continuant -> measured property
+  [FN] continuant -> mixture
+  [FN] continuant -> molar entropy
+  [FN] continuant -> molecular center
+  [FN] continuant -> molecular formula
+  [FN] continuant -> molecularquality
+  [FN] continuant -> moleculecomponentcount
+  [FN] continuant -> mulliken electronegativity
+  [FN] continuant -> object
+  [FN] continuant -> organic group
+  [FN] continuant -> pauling electronegativity
+  [FN] continuant -> permittivity
+  [FN] continuant -> potassium atom
+  [FN] continuant -> quality
+  [FN] continuant -> radiation
+  [FN] continuant -> rubidium atom
+  [FN] continuant -> site
+  [FN] continuant -> solid angle
+  [FN] continuant -> solution
+  [FN] continuant -> surface tension
+  [FN] continuant -> tellurium atom
+  [FN] continuant -> temperature
+  [FN] continuant -> terbium atom
+  [FN] continuant -> thiol group
+  [FN] continuant -> undefined stereo atom count
+  [FN] continuant -> velocity
+  [FN] continuant -> wavenumber
+  [FN] cyclicity -> acyclic
+  [FN] dependent_continuant -> acyclic
+  [FN] dependent_continuant -> amount of substance concentration
+  [FN] dependent_continuant -> angle
+  [FN] dependent_continuant -> angular acceleration
+  [FN] dependent_continuant -> aromatic
+  [FN] dependent_continuant -> aromaticity
+  [FN] dependent_continuant -> chemical class
+  [FN] dependent_continuant -> chemical formula
+  [FN] dependent_continuant -> chemical quality
+  [FN] dependent_continuant -> chiral center
+  [FN] dependent_continuant -> concentration
+  [FN] dependent_continuant -> count
+  [FN] dependent_continuant -> cyclicity
+  [FN] dependent_continuant -> density
+  [FN] dependent_continuant -> electric resistance
+  [FN] dependent_continuant -> electronegativity
+  [FN] dependent_continuant -> exposure
+  [FN] dependent_continuant -> flexural modulus
+  [FN] dependent_continuant -> identifier
+  [FN] dependent_continuant -> intensive property
+  [FN] dependent_continuant -> magnetic flux
+  [FN] dependent_continuant -> measured property
+  [FN] dependent_continuant -> molar entropy
+  [FN] dependent_continuant -> molecular center
+  [FN] dependent_continuant -> molecular formula
+  [FN] dependent_continuant -> molecularquality
+  [FN] dependent_continuant -> moleculecomponentcount
+  [FN] dependent_continuant -> mulliken electronegativity
+  [FN] dependent_continuant -> pauling electronegativity
+  [FN] dependent_continuant -> permittivity
+  [FN] dependent_continuant -> quality
+  [FN] dependent_continuant -> radiation
+  [FN] dependent_continuant -> solid angle
+  [FN] dependent_continuant -> surface tension
+  [FN] dependent_continuant -> temperature
+  [FN] dependent_continuant -> undefined stereo atom count
+  [FN] dependent_continuant -> velocity
+  [FN] dependent_continuant -> wavenumber
+  [FN] derivedunit -> peta scaled unit
+  [FN] derivedunit -> scaled unit
+  [FN] derivedunit -> zepto scaled unit
+  [FN] electromagnetic radiation unit -> luminous flux unit
+  [FN] element -> darmstadtium
+  [FN] element -> magnesium
+  [FN] element -> molybdenum
+  [FN] element -> promethium
+  [FN] element -> scandium
+  [FN] element -> xenon
+  [FN] homogeneous mixture -> solution
+  [FN] identifier -> molecular formula
+  [FN] independent_continuant -> atom
+  [FN] independent_continuant -> curium atom
+  [FN] independent_continuant -> gallium atom
+  [FN] independent_continuant -> general sulfinic acid group
+  [FN] independent_continuant -> homogeneous mixture
+  [FN] independent_continuant -> mixture
+  [FN] independent_continuant -> object
+  [FN] independent_continuant -> organic group
+  [FN] independent_continuant -> potassium atom
+  [FN] independent_continuant -> rubidium atom
+  [FN] independent_continuant -> site
+  [FN] independent_continuant -> solution
+  [FN] independent_continuant -> tellurium atom
+  [FN] independent_continuant -> terbium atom
+  [FN] independent_continuant -> thiol group
+  [FN] intensive property -> flexural modulus
+  [FN] ion -> anion
+  [FN] measured property -> acyclic
+  [FN] measured property -> amount of substance concentration
+  [FN] measured property -> angle
+  [FN] measured property -> angular acceleration
+  [FN] measured property -> aromatic
+  [FN] measured property -> aromaticity
+  [FN] measured property -> concentration
+  [FN] measured property -> count
+  [FN] measured property -> cyclicity
+  [FN] measured property -> density
+  [FN] measured property -> electric resistance
+  [FN] measured property -> exposure
+  [FN] measured property -> flexural modulus
+  [FN] measured property -> identifier
+  [FN] measured property -> intensive property
+  [FN] measured property -> magnetic flux
+  [FN] measured property -> molar entropy
+  [FN] measured property -> molecular formula
+  [FN] measured property -> molecularquality
+  [FN] measured property -> moleculecomponentcount
+  [FN] measured property -> permittivity
+  [FN] measured property -> radiation
+  [FN] measured property -> solid angle
+  [FN] measured property -> surface tension
+  [FN] measured property -> temperature
+  [FN] measured property -> undefined stereo atom count
+  [FN] measured property -> velocity
+  [FN] measured property -> wavenumber
+  [FN] mixture -> solution
+  [FN] molecular center -> chiral center
+  [FN] molecularquality -> acyclic
+  [FN] molecularquality -> aromatic
+  [FN] molecularquality -> aromaticity
+  [FN] molecularquality -> cyclicity
+  [FN] molecularquality -> identifier
+  [FN] molecularquality -> molecular formula
+  [FN] molecularquality -> moleculecomponentcount
+  [FN] molecularquality -> undefined stereo atom count
+  [FN] moleculecomponentcount -> undefined stereo atom count
+  [FN] object -> atom
+  [FN] object -> curium atom
+  [FN] object -> gallium atom
+  [FN] object -> general sulfinic acid group
+  [FN] object -> homogeneous mixture
+  [FN] object -> mixture
+  [FN] object -> organic group
+  [FN] object -> potassium atom
+  [FN] object -> rubidium atom
+  [FN] object -> solution
+  [FN] object -> tellurium atom
+  [FN] object -> terbium atom
+  [FN] object -> thiol group
+  [FN] organic compound -> imine
+  [FN] organic group -> general sulfinic acid group
+  [FN] organic group -> thiol group
+  [FN] periodic block -> p-block element
+  [FN] periodic table element -> p-block element
+  [FN] periodic table element -> periodic block
+  [FN] quality -> acyclic
+  [FN] quality -> amount of substance concentration
+  [FN] quality -> angle
+  [FN] quality -> angular acceleration
+  [FN] quality -> aromatic
+  [FN] quality -> aromaticity
+  [FN] quality -> chemical class
+  [FN] quality -> chemical formula
+  [FN] quality -> chiral center
+  [FN] quality -> concentration
+  [FN] quality -> count
+  [FN] quality -> cyclicity
+  [FN] quality -> density
+  [FN] quality -> electric resistance
+  [FN] quality -> electronegativity
+  [FN] quality -> exposure
+  [FN] quality -> flexural modulus
+  [FN] quality -> identifier
+  [FN] quality -> intensive property
+  [FN] quality -> magnetic flux
+  [FN] quality -> measured property
+  [FN] quality -> molar entropy
+  [FN] quality -> molecular center
+  [FN] quality -> molecular formula
+  [FN] quality -> moleculecomponentcount
+  [FN] quality -> mulliken electronegativity
+  [FN] quality -> pauling electronegativity
+  [FN] quality -> permittivity
+  [FN] quality -> radiation
+  [FN] quality -> solid angle
+  [FN] quality -> surface tension
+  [FN] quality -> temperature
+  [FN] quality -> undefined stereo atom count
+  [FN] quality -> velocity
+  [FN] quality -> wavenumber
+  [FN] radiation -> exposure
+  [FN] radiation unit -> dose equivalent unit

@@ -1,0 +1,172 @@
+==================================================
+=== Detailed Node Pair Analysis (Condensed Transitive Reduction) ===
+Match Type Used: SET_OVERLAP
+==================================================
+Precision: 0.3200 | Recall: 0.2791 | F1: 0.2981
+
+CORRECT PREDICTIONS (True Positives: 24 Pred edges covering 24 GT edges):
+  [TP] PRED: (alpha-beta t cell -> cd4-positive alpha-beta t cell)
+        matches GT: (alpha-beta t cell -> cd4-positive alpha-beta t cell)
+  [TP] PRED: (assay -> analyte assay)
+        matches GT: (assay -> analyte assay)
+  [TP] PRED: (assay -> blood assay)
+        matches GT: (assay -> blood assay)
+  [TP] PRED: (assay -> carboxyfluorescein succinimidyl ester staining assay)
+        matches GT: (assay -> carboxyfluorescein succinimidyl ester staining assay)
+  [TP] PRED: (assay -> enzymatic activity level assay)
+        matches GT: (assay -> enzymatic activity level assay)
+  [TP] PRED: (assay -> insecticide resistance assay)
+        matches GT: (assay -> insecticide resistance assay)
+  [TP] PRED: (assay -> organism detection assay)
+        matches GT: (assay -> organism detection assay)
+  [TP] PRED: (assay -> polymerase chain reaction assay)
+        matches GT: (assay -> polymerase chain reaction assay)
+  [TP] PRED: (assay -> protein expression profiling assay)
+        matches GT: (assay -> protein expression profiling assay)
+  [TP] PRED: (clinical history -> family clinical history of cancer)
+        matches GT: (clinical history -> family clinical history of cancer)
+  [TP] PRED: (container -> vial)
+        matches GT: (container -> vial)
+  [TP] PRED: (continuant -> independent continuant)
+        matches GT: (continuant -> independent continuant)
+  [TP] PRED: (device -> environmental control device)
+        matches GT: (device -> environmental control device)
+  [TP] PRED: (device -> material separation device)
+        matches GT: (device -> material separation device)
+  [TP] PRED: (device -> measurement device)
+        matches GT: (device -> measurement device)
+  [TP] PRED: (function -> connection function)
+        matches GT: (function -> connection function)
+  [TP] PRED: (material processing -> material combination)
+        matches GT: (material processing -> material combination)
+  [TP] PRED: (material processing -> material component separation)
+        matches GT: (material processing -> material component separation)
+  [TP] PRED: (measurement device -> multichannel pipette)
+        matches GT: (measurement device -> multichannel pipette)
+  [TP] PRED: (realizable entity -> role)
+        matches GT: (realizable entity -> role)
+  [TP] PRED: (role -> accessed material role)
+        matches GT: (role -> accessed material role)
+  [TP] PRED: (role -> adjuvant role)
+        matches GT: (role -> adjuvant role)
+  [TP] PRED: (role -> regulatory role)
+        matches GT: (role -> regulatory role)
+  [TP] PRED: (specimen collection process -> arthropod specimen collection process)
+        matches GT: (specimen collection process -> arthropod specimen collection process)
+
+INCORRECT PREDICTIONS (False Positives: 51):
+  [FP] assay -> 5-nucleotidase activity level assay
+  [FP] assay -> albumin assay
+  [FP] assay -> assay array
+  [FP] assay -> assay measuring a binding constant of a t cell epitopemhctcr complex
+  [FP] assay -> assay measuring binding of a t cell epitopemhctcr complex
+  [FP] assay -> assay measuring epitope specific interferon-alpha production by t cells
+  [FP] assay -> assay measuring quantitative binding of an epitopemhctcr complex
+  [FP] assay -> assay measuring the on rate kon of a t cell epitopemhctcr complex
+  [FP] assay -> carboxyfluorescein succinimidyl ester staining assay measuring epitope specific proliferation of t cells
+  [FP] assay -> comprehensive metabolic panel venous blood albumin assay
+  [FP] assay -> cytometry assay
+  [FP] assay -> dna microarray
+  [FP] assay -> in vivo assay measuring b cell epitope specific protection based on survival
+  [FP] assay -> insecticide resistance by detecting enzyme activity assay
+  [FP] assay -> insecticide resistance by detecting glutathione s-transferase activity assay
+  [FP] assay -> lymphocyte assay
+  [FP] assay -> lymphocyte count assay
+  [FP] assay -> manual differential bodily fluid monocyte count assay
+  [FP] assay -> microarray
+  [FP] assay -> monocyte assay
+  [FP] assay -> nanodroplet processing in one pot for trace samples assay
+  [FP] assay -> parasite detection assay
+  [FP] assay -> proximity extension assay
+  [FP] assay -> t cell epitope assay
+  [FP] assay -> thyroid stimulating hormone assay
+  [FP] assay -> venous blood thyroid stimulating hormone assay
+  [FP] clinical history -> brother clinical history of cancer
+  [FP] container -> anticoagulant-containing test tube
+  [FP] container -> test tube
+  [FP] continuant -> realizable entity
+  [FP] device -> cryostat
+  [FP] device -> cytometer
+  [FP] device -> flow cytometer
+  [FP] device -> flow cytometer analyzer
+  [FP] device -> spectrophotometer
+  [FP] material entity -> ceruloplasmin
+  [FP] material entity -> filter paper
+  [FP] material entity -> protein
+  [FP] material entity -> tobramycin
+  [FP] material processing -> adding a material entity into a target
+  [FP] measurement device -> lactoscope c4
+  [FP] measurement device -> lsrfortessa x-20
+  [FP] microarray -> affymetrix rhesus macaque genome array
+  [FP] realizable entity -> function
+  [FP] realizable entity -> planned process
+  [FP] role -> regulator role
+  [FP] role -> role of regulator of consumables and medical devices
+  [FP] specimen collection process -> adult arthropod specimen collection process
+  [FP] specimen collection process -> arthropod specimen collection by aspiration
+  [FP] specimen collection process -> daytime arthropod specimen collection by aspiration
+  [FP] specimen collection process -> live arthropod specimen collection process
+
+MISSED RELATIONS (False Negatives: 62):
+  [FN] adult arthropod specimen collection process -> arthropod specimen collection by aspiration
+  [FN] albumin assay -> comprehensive metabolic panel venous blood albumin assay
+  [FN] analyte assay -> proximity extension assay
+  [FN] arthropod specimen collection by aspiration -> daytime arthropod specimen collection by aspiration
+  [FN] arthropod specimen collection process -> live arthropod specimen collection process
+  [FN] assay array -> microarray
+  [FN] assay measuring a binding constant of a t cell epitopemhctcr complex -> assay measuring the on rate kon of a t cell epitopemhctcr complex
+  [FN] assay measuring binding of a t cell epitopemhctcr complex -> assay measuring quantitative binding of an epitopemhctcr complex
+  [FN] assay measuring quantitative binding of an epitopemhctcr complex -> assay measuring a binding constant of a t cell epitopemhctcr complex
+  [FN] blood assay -> comprehensive metabolic panel venous blood albumin assay
+  [FN] blood assay -> venous blood thyroid stimulating hormone assay
+  [FN] carboxyfluorescein succinimidyl ester staining assay -> carboxyfluorescein succinimidyl ester staining assay measuring epitope specific proliferation of t cells
+  [FN] container -> cryostat
+  [FN] cytometer -> flow cytometer
+  [FN] cytometry assay -> lymphocyte assay
+  [FN] cytometry assay -> monocyte assay
+  [FN] data item -> measurement datum
+  [FN] device -> assay array
+  [FN] device -> container
+  [FN] dna microarray -> affymetrix rhesus macaque genome array
+  [FN] environmental control device -> cryostat
+  [FN] enzymatic activity level assay -> 5-nucleotidase activity level assay
+  [FN] epitope protection experiment -> epitope protection experiment based on survival
+  [FN] epitope protection experiment based on survival -> in vivo assay measuring b cell epitope specific protection based on survival
+  [FN] epitope specific cytokine production by t cells -> epitope specific interleukin-3 production by t cells
+  [FN] family clinical history of cancer -> brother clinical history of cancer
+  [FN] flow cytometer -> flow cytometer analyzer
+  [FN] flow cytometer analyzer -> lsrfortessa x-20
+  [FN] functional assessment of individual -> nose to finger assessment
+  [FN] independent continuant -> material entity
+  [FN] insecticide resistance assay -> insecticide resistance by detecting enzyme activity assay
+  [FN] insecticide resistance by detecting enzyme activity assay -> insecticide resistance by detecting glutathione s-transferase activity assay
+  [FN] interleukin-3 production -> epitope specific interleukin-3 production by t cells
+  [FN] live arthropod specimen collection process -> adult arthropod specimen collection process
+  [FN] lymphocyte assay -> lymphocyte count assay
+  [FN] material combination -> adding a material entity into a target
+  [FN] material component separation -> dna subtraction
+  [FN] material entity -> molecular entity
+  [FN] material entity -> processed material
+  [FN] material processing -> artificially induced dna repair
+  [FN] material separation device -> filter paper
+  [FN] measurement datum -> dose
+  [FN] measurement device -> cytometer
+  [FN] measurement device -> spectrophotometer
+  [FN] microarray -> dna microarray
+  [FN] molecular entity -> tobramycin
+  [FN] monocyte assay -> manual differential bodily fluid monocyte count assay
+  [FN] organism detection assay -> parasite detection assay
+  [FN] organization -> organization of specimen collector
+  [FN] planned process -> assay
+  [FN] planned process -> material processing
+  [FN] polymerase chain reaction assay -> proximity extension assay
+  [FN] processed material -> device
+  [FN] protein -> ceruloplasmin
+  [FN] protein expression profiling assay -> nanodroplet processing in one pot for trace samples assay
+  [FN] regulator role -> role of regulator of consumables and medical devices
+  [FN] regulatory role -> regulator role
+  [FN] spectrophotometer -> lactoscope c4
+  [FN] t cell epitope assay -> assay measuring binding of a t cell epitopemhctcr complex
+  [FN] test tube -> anticoagulant-containing test tube
+  [FN] thyroid stimulating hormone assay -> venous blood thyroid stimulating hormone assay
+  [FN] vial -> test tube

@@ -1,0 +1,162 @@
+==================================================
+=== Detailed Node Pair Analysis (Exploded Raw Edges) ===
+Match Type Used: EXACT
+==================================================
+Precision: 0.3646 | Recall: 0.3889 | F1: 0.3763
+
+CORRECT PREDICTIONS (True Positives: 35 Pred edges covering 35 GT edges):
+  [TP] angle -> solid angle
+  [TP] atom -> curium atom
+  [TP] atom -> gallium atom
+  [TP] atom -> potassium atom
+  [TP] atom -> rubidium atom
+  [TP] atom -> tellurium atom
+  [TP] atom -> terbium atom
+  [TP] carbon allotrope -> fullerene
+  [TP] chemical formula -> molecular formula
+  [TP] concentration -> amount of substance concentration
+  [TP] continuant -> dependent_continuant
+  [TP] continuant -> independent_continuant
+  [TP] density unit -> area density unit
+  [TP] density unit -> linear density unit
+  [TP] electronegativity -> mulliken electronegativity
+  [TP] electronegativity -> pauling electronegativity
+  [TP] homogeneous mixture -> solution
+  [TP] ion -> anion
+  [TP] material -> ceramic material
+  [TP] mixture -> homogeneous mixture
+  [TP] organic compound -> imine
+  [TP] organic group -> thiol group
+  [TP] quality -> chemical quality
+  [TP] scaled unit -> peta scaled unit
+  [TP] scaled unit -> zepto scaled unit
+  [TP] unit -> catalytic activity unit
+  [TP] unit -> conduction unit
+  [TP] unit -> density unit
+  [TP] unit -> derivedunit
+  [TP] unit -> electric current unit
+  [TP] unit -> electric resistance unit
+  [TP] unit -> electromagnetic radiation unit
+  [TP] unit -> energy unit
+  [TP] unit -> moment of force unit
+  [TP] unit -> radiation unit
+
+INCORRECT PREDICTIONS (False Positives: 61):
+  [FP] acyclic -> angular acceleration
+  [FP] aromatic -> aromaticity
+  [FP] aromaticity -> chiral center
+  [FP] atom -> element
+  [FP] atom -> ion
+  [FP] atom -> undefined stereo atom count
+  [FP] count -> moleculecomponentcount
+  [FP] density unit -> density
+  [FP] electromagnetic radiation unit -> permittivity
+  [FP] electromagnetic radiation unit -> wavenumber
+  [FP] electronegativity -> electric resistance
+  [FP] element -> periodic table element
+  [FP] exposure -> radiation
+  [FP] exposure -> site
+  [FP] homogeneous mixture -> organic compound
+  [FP] intensive property -> molar entropy
+  [FP] luminous flux unit -> magnetic flux
+  [FP] molar mass unit -> molecular center
+  [FP] molar mass unit -> velocity
+  [FP] molecular mass unit -> molar mass unit
+  [FP] molybdenum -> chaoite
+  [FP] molybdenum -> count
+  [FP] molybdenum -> cyclicity
+  [FP] molybdenum -> exposure
+  [FP] molybdenum -> hardness range
+  [FP] molybdenum -> magnesium
+  [FP] molybdenum -> promethium
+  [FP] molybdenum -> quality
+  [FP] molybdenum -> temperature
+  [FP] molybdenum -> xenon
+  [FP] organic compound -> acyclic
+  [FP] organic compound -> angle
+  [FP] organic compound -> aromatic
+  [FP] organic compound -> carbon allotrope
+  [FP] organic compound -> chemical class
+  [FP] organic compound -> concentration
+  [FP] organic compound -> continuant
+  [FP] organic compound -> general sulfinic acid group
+  [FP] organic compound -> identifier
+  [FP] organic compound -> intensive property
+  [FP] organic compound -> material
+  [FP] organic compound -> measured property
+  [FP] organic compound -> object
+  [FP] organic compound -> opticalisomer
+  [FP] organic compound -> organic group
+  [FP] organic compound -> periodic block
+  [FP] organic compound -> unit
+  [FP] p-block element -> darmstadtium
+  [FP] p-block element -> molybdenum
+  [FP] p-block element -> scandium
+  [FP] periodic table element -> p-block element
+  [FP] permittivity -> surface tension
+  [FP] quality -> molecularquality
+  [FP] surface tension -> electronegativity
+  [FP] surface tension -> flexural modulus
+  [FP] unit -> dose equivalent unit
+  [FP] unit -> luminous flux unit
+  [FP] unit -> scaled unit
+  [FP] unit -> unit raised to power
+  [FP] unit -> unit raised to power of negative one
+  [FP] unit -> unit raised to power of three
+
+MISSED RELATIONS (False Negatives: 55):
+  [FN] aromaticity -> aromatic
+  [FN] carbon allotrope -> chaoite
+  [FN] chemical quality -> chemical class
+  [FN] chemical quality -> chemical formula
+  [FN] chemical quality -> electronegativity
+  [FN] chemical quality -> molecular center
+  [FN] cyclicity -> acyclic
+  [FN] dependent_continuant -> quality
+  [FN] derivedunit -> scaled unit
+  [FN] electromagnetic radiation unit -> luminous flux unit
+  [FN] element -> darmstadtium
+  [FN] element -> magnesium
+  [FN] element -> molybdenum
+  [FN] element -> promethium
+  [FN] element -> scandium
+  [FN] element -> xenon
+  [FN] identifier -> molecular formula
+  [FN] independent_continuant -> object
+  [FN] independent_continuant -> site
+  [FN] intensive property -> flexural modulus
+  [FN] measured property -> angle
+  [FN] measured property -> angular acceleration
+  [FN] measured property -> concentration
+  [FN] measured property -> count
+  [FN] measured property -> density
+  [FN] measured property -> electric resistance
+  [FN] measured property -> intensive property
+  [FN] measured property -> magnetic flux
+  [FN] measured property -> molar entropy
+  [FN] measured property -> molecularquality
+  [FN] measured property -> permittivity
+  [FN] measured property -> radiation
+  [FN] measured property -> surface tension
+  [FN] measured property -> temperature
+  [FN] measured property -> velocity
+  [FN] measured property -> wavenumber
+  [FN] molecular center -> chiral center
+  [FN] molecularquality -> aromaticity
+  [FN] molecularquality -> cyclicity
+  [FN] molecularquality -> identifier
+  [FN] molecularquality -> moleculecomponentcount
+  [FN] moleculecomponentcount -> undefined stereo atom count
+  [FN] object -> atom
+  [FN] object -> mixture
+  [FN] object -> organic group
+  [FN] organic group -> general sulfinic acid group
+  [FN] periodic block -> p-block element
+  [FN] periodic table element -> periodic block
+  [FN] quality -> measured property
+  [FN] radiation -> exposure
+  [FN] radiation unit -> dose equivalent unit
+  [FN] unit -> molar mass unit
+  [FN] unit -> molecular mass unit
+  [FN] unit raised to power -> unit raised to power of negative one
+  [FN] unit raised to power -> unit raised to power of three

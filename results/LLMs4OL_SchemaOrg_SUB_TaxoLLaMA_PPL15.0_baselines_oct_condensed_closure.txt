@@ -1,0 +1,392 @@
+==================================================
+=== Detailed Node Pair Analysis (Condensed Transitive Closure) ===
+Match Type Used: SET_OVERLAP
+==================================================
+Precision: 0.2236 | Recall: 0.3681 | F1: 0.2782
+
+CORRECT PREDICTIONS (True Positives: 53 Pred edges covering 53 GT edges):
+  [TP] PRED: (action -> achieveaction)
+        matches GT: (action -> achieveaction)
+  [TP] PRED: (action -> allocateaction)
+        matches GT: (action -> allocateaction)
+  [TP] PRED: (action -> assignaction)
+        matches GT: (action -> assignaction)
+  [TP] PRED: (action -> authorizeaction)
+        matches GT: (action -> authorizeaction)
+  [TP] PRED: (action -> bookmarkaction)
+        matches GT: (action -> bookmarkaction)
+  [TP] PRED: (action -> consumeaction)
+        matches GT: (action -> consumeaction)
+  [TP] PRED: (action -> cookaction)
+        matches GT: (action -> cookaction)
+  [TP] PRED: (action -> createaction)
+        matches GT: (action -> createaction)
+  [TP] PRED: (action -> eataction)
+        matches GT: (action -> eataction)
+  [TP] PRED: (action -> findaction)
+        matches GT: (action -> findaction)
+  [TP] PRED: (action -> organizeaction)
+        matches GT: (action -> organizeaction)
+  [TP] PRED: (action -> takeaction)
+        matches GT: (action -> takeaction)
+  [TP] PRED: (action -> tieaction)
+        matches GT: (action -> tieaction)
+  [TP] PRED: (action -> transferaction)
+        matches GT: (action -> transferaction)
+  [TP] PRED: (article -> techarticle)
+        matches GT: (article -> techarticle)
+  [TP] PRED: (audience -> peopleaudience)
+        matches GT: (audience -> peopleaudience)
+  [TP] PRED: (clip -> movieclip)
+        matches GT: (clip -> movieclip)
+  [TP] PRED: (enumeration -> adultorientedenumeration)
+        matches GT: (enumeration -> adultorientedenumeration)
+  [TP] PRED: (enumeration -> certificationstatusenumeration)
+        matches GT: (enumeration -> certificationstatusenumeration)
+  [TP] PRED: (enumeration -> itemlistordertype)
+        matches GT: (enumeration -> itemlistordertype)
+  [TP] PRED: (enumeration -> measurementmethodenum)
+        matches GT: (enumeration -> measurementmethodenum)
+  [TP] PRED: (enumeration -> measurementtypeenumeration)
+        matches GT: (enumeration -> measurementtypeenumeration)
+  [TP] PRED: (enumeration -> sizegroupenumeration)
+        matches GT: (enumeration -> sizegroupenumeration)
+  [TP] PRED: (enumeration -> wearablemeasurementtypeenumeration)
+        matches GT: (enumeration -> wearablemeasurementtypeenumeration)
+  [TP] PRED: (foodestablishment -> bakery)
+        matches GT: (foodestablishment -> bakery)
+  [TP] PRED: (imageobject -> imageobjectsnapshot)
+        matches GT: (imageobject -> imageobjectsnapshot)
+  [TP] PRED: (intangible -> audience)
+        matches GT: (intangible -> audience)
+  [TP] PRED: (intangible -> broadcastservice)
+        matches GT: (intangible -> broadcastservice)
+  [TP] PRED: (intangible -> creativeworkseries)
+        matches GT: (intangible -> creativeworkseries)
+  [TP] PRED: (intangible -> entrypoint)
+        matches GT: (intangible -> entrypoint)
+  [TP] PRED: (intangible -> invoice)
+        matches GT: (intangible -> invoice)
+  [TP] PRED: (intangible -> movieseries)
+        matches GT: (intangible -> movieseries)
+  [TP] PRED: (intangible -> peopleaudience)
+        matches GT: (intangible -> peopleaudience)
+  [TP] PRED: (intangible -> radiobroadcastservice)
+        matches GT: (intangible -> radiobroadcastservice)
+  [TP] PRED: (intangible -> radioseries)
+        matches GT: (intangible -> radioseries)
+  [TP] PRED: (intangible -> seat)
+        matches GT: (intangible -> seat)
+  [TP] PRED: (intangible -> series)
+        matches GT: (intangible -> series)
+  [TP] PRED: (intangible -> service)
+        matches GT: (intangible -> service)
+  [TP] PRED: (intangible -> speakablespecification)
+        matches GT: (intangible -> speakablespecification)
+  [TP] PRED: (intangible -> taxiservice)
+        matches GT: (intangible -> taxiservice)
+  [TP] PRED: (intangible -> ticket)
+        matches GT: (intangible -> ticket)
+  [TP] PRED: (lodgingbusiness -> motel)
+        matches GT: (lodgingbusiness -> motel)
+  [TP] PRED: (organization -> medicalorganization)
+        matches GT: (organization -> medicalorganization)
+  [TP] PRED: (organization -> researchorganization)
+        matches GT: (organization -> researchorganization)
+  [TP] PRED: (place -> sportsactivitylocation)
+        matches GT: (place -> sportsactivitylocation)
+  [TP] PRED: (series -> creativeworkseries)
+        matches GT: (series -> creativeworkseries)
+  [TP] PRED: (series -> movieseries)
+        matches GT: (series -> movieseries)
+  [TP] PRED: (series -> radioseries)
+        matches GT: (series -> radioseries)
+  [TP] PRED: (service -> broadcastservice)
+        matches GT: (service -> broadcastservice)
+  [TP] PRED: (service -> radiobroadcastservice)
+        matches GT: (service -> radiobroadcastservice)
+  [TP] PRED: (service -> taxiservice)
+        matches GT: (service -> taxiservice)
+  [TP] PRED: (therapeuticprocedure -> medicaltherapy)
+        matches GT: (therapeuticprocedure -> medicaltherapy)
+  [TP] PRED: (vehicle -> busorcoach)
+        matches GT: (vehicle -> busorcoach)
+
+INCORRECT PREDICTIONS (False Positives: 184):
+  [FP] blogposting -> socialmediaposting
+  [FP] collection -> comicseries
+  [FP] collection -> creativeworkseries
+  [FP] collection -> movieseries
+  [FP] collection -> periodical
+  [FP] collection -> radioseries
+  [FP] collection -> series
+  [FP] collection -> zoo
+  [FP] entertainmentbusiness -> lodgingbusiness
+  [FP] entertainmentbusiness -> motel
+  [FP] enumeration -> itemlist
+  [FP] enumeration -> listitem
+  [FP] enumeration -> sizesystemenumeration
+  [FP] event -> achieveaction
+  [FP] event -> action
+  [FP] event -> allocateaction
+  [FP] event -> assignaction
+  [FP] event -> authorizeaction
+  [FP] event -> bookmarkaction
+  [FP] event -> consumeaction
+  [FP] event -> cookaction
+  [FP] event -> createaction
+  [FP] event -> eataction
+  [FP] event -> findaction
+  [FP] event -> organizeaction
+  [FP] event -> takeaction
+  [FP] event -> tieaction
+  [FP] event -> transferaction
+  [FP] intangible -> achieveaction
+  [FP] intangible -> action
+  [FP] intangible -> allocateaction
+  [FP] intangible -> article
+  [FP] intangible -> assignaction
+  [FP] intangible -> authorizeaction
+  [FP] intangible -> bookmarkaction
+  [FP] intangible -> busorcoach
+  [FP] intangible -> civicstructure
+  [FP] intangible -> collection
+  [FP] intangible -> comicseries
+  [FP] intangible -> consumeaction
+  [FP] intangible -> cookaction
+  [FP] intangible -> createaction
+  [FP] intangible -> creativework
+  [FP] intangible -> datatype
+  [FP] intangible -> eataction
+  [FP] intangible -> emergencyservice
+  [FP] intangible -> entertainmentbusiness
+  [FP] intangible -> event
+  [FP] intangible -> findaction
+  [FP] intangible -> game
+  [FP] intangible -> governmentbenefitstype
+  [FP] intangible -> imageobject
+  [FP] intangible -> imageobjectsnapshot
+  [FP] intangible -> legalservice
+  [FP] intangible -> lodgingbusiness
+  [FP] intangible -> medicalentity
+  [FP] intangible -> medicalintangible
+  [FP] intangible -> medicalorganization
+  [FP] intangible -> motel
+  [FP] intangible -> organization
+  [FP] intangible -> organizeaction
+  [FP] intangible -> paymentmethod
+  [FP] intangible -> paymentservice
+  [FP] intangible -> periodical
+  [FP] intangible -> place
+  [FP] intangible -> product
+  [FP] intangible -> researchorganization
+  [FP] intangible -> sheetmusic
+  [FP] intangible -> sportsactivitylocation
+  [FP] intangible -> takeaction
+  [FP] intangible -> techarticle
+  [FP] intangible -> tieaction
+  [FP] intangible -> time
+  [FP] intangible -> transferaction
+  [FP] intangible -> vehicle
+  [FP] intangible -> zoo
+  [FP] invoice -> ticket
+  [FP] itemlist -> itemlistordertype
+  [FP] organization -> civicstructure
+  [FP] place -> seat
+  [FP] series -> comicseries
+  [FP] series -> periodical
+  [FP] service -> emergencyservice
+  [FP] service -> legalservice
+  [FP] service -> paymentservice
+  [FP] shortstory -> ampstory
+  [FP] therapeuticprocedure -> achieveaction
+  [FP] therapeuticprocedure -> action
+  [FP] therapeuticprocedure -> adultorientedenumeration
+  [FP] therapeuticprocedure -> allocateaction
+  [FP] therapeuticprocedure -> ampstory
+  [FP] therapeuticprocedure -> article
+  [FP] therapeuticprocedure -> assignaction
+  [FP] therapeuticprocedure -> audience
+  [FP] therapeuticprocedure -> authorizeaction
+  [FP] therapeuticprocedure -> blogposting
+  [FP] therapeuticprocedure -> bookmarkaction
+  [FP] therapeuticprocedure -> broadcastservice
+  [FP] therapeuticprocedure -> busorcoach
+  [FP] therapeuticprocedure -> certificationstatusenumeration
+  [FP] therapeuticprocedure -> civicstructure
+  [FP] therapeuticprocedure -> clip
+  [FP] therapeuticprocedure -> collection
+  [FP] therapeuticprocedure -> comicseries
+  [FP] therapeuticprocedure -> constraintnode
+  [FP] therapeuticprocedure -> consumeaction
+  [FP] therapeuticprocedure -> conversation
+  [FP] therapeuticprocedure -> cookaction
+  [FP] therapeuticprocedure -> createaction
+  [FP] therapeuticprocedure -> creativework
+  [FP] therapeuticprocedure -> creativeworkseries
+  [FP] therapeuticprocedure -> datatype
+  [FP] therapeuticprocedure -> eataction
+  [FP] therapeuticprocedure -> emergencyservice
+  [FP] therapeuticprocedure -> entertainmentbusiness
+  [FP] therapeuticprocedure -> entrypoint
+  [FP] therapeuticprocedure -> enumeration
+  [FP] therapeuticprocedure -> event
+  [FP] therapeuticprocedure -> exercisegym
+  [FP] therapeuticprocedure -> findaction
+  [FP] therapeuticprocedure -> game
+  [FP] therapeuticprocedure -> governmentbenefitstype
+  [FP] therapeuticprocedure -> governmentbuilding
+  [FP] therapeuticprocedure -> howtostep
+  [FP] therapeuticprocedure -> imageobject
+  [FP] therapeuticprocedure -> imageobjectsnapshot
+  [FP] therapeuticprocedure -> intangible
+  [FP] therapeuticprocedure -> invoice
+  [FP] therapeuticprocedure -> itemlist
+  [FP] therapeuticprocedure -> itemlistordertype
+  [FP] therapeuticprocedure -> legalservice
+  [FP] therapeuticprocedure -> listitem
+  [FP] therapeuticprocedure -> localbusiness
+  [FP] therapeuticprocedure -> lodgingbusiness
+  [FP] therapeuticprocedure -> measurementmethodenum
+  [FP] therapeuticprocedure -> measurementtypeenumeration
+  [FP] therapeuticprocedure -> medicalcode
+  [FP] therapeuticprocedure -> medicalentity
+  [FP] therapeuticprocedure -> medicalintangible
+  [FP] therapeuticprocedure -> medicalorganization
+  [FP] therapeuticprocedure -> medicalprocedure
+  [FP] therapeuticprocedure -> motel
+  [FP] therapeuticprocedure -> movieclip
+  [FP] therapeuticprocedure -> movieseries
+  [FP] therapeuticprocedure -> observation
+  [FP] therapeuticprocedure -> offer
+  [FP] therapeuticprocedure -> organization
+  [FP] therapeuticprocedure -> organizeaction
+  [FP] therapeuticprocedure -> paymentmethod
+  [FP] therapeuticprocedure -> paymentservice
+  [FP] therapeuticprocedure -> peopleaudience
+  [FP] therapeuticprocedure -> periodical
+  [FP] therapeuticprocedure -> pharmacy
+  [FP] therapeuticprocedure -> physicalactivitycategory
+  [FP] therapeuticprocedure -> place
+  [FP] therapeuticprocedure -> product
+  [FP] therapeuticprocedure -> radiobroadcastservice
+  [FP] therapeuticprocedure -> radioseries
+  [FP] therapeuticprocedure -> recommendation
+  [FP] therapeuticprocedure -> researchorganization
+  [FP] therapeuticprocedure -> review
+  [FP] therapeuticprocedure -> sculpture
+  [FP] therapeuticprocedure -> seat
+  [FP] therapeuticprocedure -> series
+  [FP] therapeuticprocedure -> service
+  [FP] therapeuticprocedure -> sheetmusic
+  [FP] therapeuticprocedure -> shortstory
+  [FP] therapeuticprocedure -> sizegroupenumeration
+  [FP] therapeuticprocedure -> sizesystemenumeration
+  [FP] therapeuticprocedure -> socialmediaposting
+  [FP] therapeuticprocedure -> speakablespecification
+  [FP] therapeuticprocedure -> sportsactivitylocation
+  [FP] therapeuticprocedure -> surgicalprocedure
+  [FP] therapeuticprocedure -> takeaction
+  [FP] therapeuticprocedure -> taxiservice
+  [FP] therapeuticprocedure -> techarticle
+  [FP] therapeuticprocedure -> tenniscomplex
+  [FP] therapeuticprocedure -> ticket
+  [FP] therapeuticprocedure -> tieaction
+  [FP] therapeuticprocedure -> time
+  [FP] therapeuticprocedure -> transferaction
+  [FP] therapeuticprocedure -> vehicle
+  [FP] therapeuticprocedure -> wearablemeasurementtypeenumeration
+  [FP] therapeuticprocedure -> zoo
+
+MISSED RELATIONS (False Negatives: 91):
+  [FN] achieveaction -> tieaction
+  [FN] allocateaction -> assignaction
+  [FN] allocateaction -> authorizeaction
+  [FN] article -> blogposting
+  [FN] article -> socialmediaposting
+  [FN] broadcastservice -> radiobroadcastservice
+  [FN] civicstructure -> zoo
+  [FN] consumeaction -> eataction
+  [FN] createaction -> cookaction
+  [FN] creativework -> ampstory
+  [FN] creativework -> article
+  [FN] creativework -> blogposting
+  [FN] creativework -> collection
+  [FN] creativework -> conversation
+  [FN] creativework -> creativeworkseries
+  [FN] creativework -> howtostep
+  [FN] creativework -> movieseries
+  [FN] creativework -> radioseries
+  [FN] creativework -> sculpture
+  [FN] creativework -> sheetmusic
+  [FN] creativework -> shortstory
+  [FN] creativework -> socialmediaposting
+  [FN] creativework -> techarticle
+  [FN] creativeworkseries -> movieseries
+  [FN] creativeworkseries -> radioseries
+  [FN] datatype -> time
+  [FN] enumeration -> governmentbenefitstype
+  [FN] enumeration -> physicalactivitycategory
+  [FN] intangible -> constraintnode
+  [FN] intangible -> howtostep
+  [FN] intangible -> listitem
+  [FN] intangible -> observation
+  [FN] itemlist -> howtostep
+  [FN] listitem -> howtostep
+  [FN] localbusiness -> bakery
+  [FN] localbusiness -> emergencyservice
+  [FN] localbusiness -> entertainmentbusiness
+  [FN] localbusiness -> exercisegym
+  [FN] localbusiness -> foodestablishment
+  [FN] localbusiness -> legalservice
+  [FN] localbusiness -> lodgingbusiness
+  [FN] localbusiness -> motel
+  [FN] localbusiness -> sportsactivitylocation
+  [FN] localbusiness -> tenniscomplex
+  [FN] measurementtypeenumeration -> wearablemeasurementtypeenumeration
+  [FN] medicalentity -> medicalcode
+  [FN] medicalentity -> medicalintangible
+  [FN] medicalentity -> medicalprocedure
+  [FN] medicalentity -> medicaltherapy
+  [FN] medicalentity -> surgicalprocedure
+  [FN] medicalentity -> therapeuticprocedure
+  [FN] medicalintangible -> medicalcode
+  [FN] medicalorganization -> pharmacy
+  [FN] medicalprocedure -> medicaltherapy
+  [FN] medicalprocedure -> surgicalprocedure
+  [FN] medicalprocedure -> therapeuticprocedure
+  [FN] organization -> bakery
+  [FN] organization -> emergencyservice
+  [FN] organization -> entertainmentbusiness
+  [FN] organization -> exercisegym
+  [FN] organization -> foodestablishment
+  [FN] organization -> legalservice
+  [FN] organization -> localbusiness
+  [FN] organization -> lodgingbusiness
+  [FN] organization -> motel
+  [FN] organization -> pharmacy
+  [FN] organization -> sportsactivitylocation
+  [FN] organization -> tenniscomplex
+  [FN] organizeaction -> allocateaction
+  [FN] organizeaction -> assignaction
+  [FN] organizeaction -> authorizeaction
+  [FN] organizeaction -> bookmarkaction
+  [FN] paymentmethod -> paymentservice
+  [FN] periodical -> comicseries
+  [FN] place -> bakery
+  [FN] place -> emergencyservice
+  [FN] place -> entertainmentbusiness
+  [FN] place -> exercisegym
+  [FN] place -> foodestablishment
+  [FN] place -> legalservice
+  [FN] place -> localbusiness
+  [FN] place -> lodgingbusiness
+  [FN] place -> motel
+  [FN] place -> tenniscomplex
+  [FN] product -> busorcoach
+  [FN] product -> vehicle
+  [FN] review -> recommendation
+  [FN] socialmediaposting -> blogposting
+  [FN] sportsactivitylocation -> exercisegym
+  [FN] sportsactivitylocation -> tenniscomplex
+  [FN] transferaction -> takeaction

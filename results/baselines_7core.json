@@ -1,0 +1,737 @@
+[
+    {
+        "dataset": "WordNetFood_SUB",
+        "use_synsets": false,
+        "explode_nodes": false,
+        "results": [
+            {
+                "method": "Lexical",
+                "model": "openai/gpt-oss-120b",
+                "Cond_Red_F1": 0.25196850393700787,
+                "Cond_Red_Precision": 0.6956521739130435,
+                "Cond_Red_Recall": 0.15384615384615385,
+                "Cond_Clos_F1": 0.10497237569060773,
+                "Cond_Clos_Precision": 0.8260869565217391,
+                "Cond_Clos_Recall": 0.05604719764011799,
+                "Exp_Raw_F1": 0.24806201550387597,
+                "Exp_Clos_F1": 0.10497237569060773,
+                "Runtime_sec": 0.03827166557312012
+            },
+            {
+                "method": "Vector",
+                "model": "openai/gpt-oss-120b",
+                "Cond_Red_F1": 0.23255813953488366,
+                "Cond_Red_Precision": 0.6,
+                "Cond_Red_Recall": 0.14423076923076922,
+                "Cond_Clos_F1": 0.09863013698630137,
+                "Cond_Clos_Precision": 0.6923076923076923,
+                "Cond_Clos_Recall": 0.05309734513274336,
+                "Exp_Raw_F1": 0.22727272727272727,
+                "Exp_Clos_F1": 0.09863013698630137,
+                "Runtime_sec": 0.5982701778411865
+            },
+            {
+                "method": "SBU LLM Batch",
+                "model": "google/gemma-4-31b-it",
+                "Cond_Red_F1": 0.5360824742268041,
+                "Cond_Red_Precision": 0.5777777777777777,
+                "Cond_Red_Recall": 0.5,
+                "Cond_Clos_F1": 0.5911504424778762,
+                "Cond_Clos_Precision": 0.7389380530973452,
+                "Cond_Clos_Recall": 0.49262536873156343,
+                "Exp_Raw_F1": 0.5306122448979591,
+                "Exp_Clos_F1": 0.5911504424778762,
+                "Runtime_sec": 36.103965044021606
+            },
+            {
+                "method": "SBU Embedding",
+                "model": "openai/gpt-oss-120b",
+                "Cond_Red_F1": 0.0,
+                "Cond_Red_Precision": 0.0,
+                "Cond_Red_Recall": 0.0,
+                "Cond_Clos_F1": 0.14022140221402213,
+                "Cond_Clos_Precision": 0.18719211822660098,
+                "Cond_Clos_Recall": 0.11209439528023599,
+                "Exp_Raw_F1": 0.21359223300970873,
+                "Exp_Clos_F1": 0.14022140221402213,
+                "Runtime_sec": 0.16860699653625488
+            },
+            {
+                "method": "TaxoLLaMA (PPL<15.0)",
+                "model": "meta-llama/Llama-2-7b-hf+TaxoLLaMA",
+                "Cond_Red_F1": 0.5656565656565657,
+                "Cond_Red_Precision": 0.5957446808510638,
+                "Cond_Red_Recall": 0.5384615384615384,
+                "Cond_Clos_F1": 0.46623794212218644,
+                "Cond_Clos_Precision": 0.5123674911660777,
+                "Cond_Clos_Recall": 0.4277286135693215,
+                "Exp_Raw_F1": 0.56,
+                "Exp_Clos_F1": 0.46623794212218644,
+                "Runtime_sec": 519.9178078174591
+            }
+        ]
+    },
+    {
+        "dataset": "CellOntology_SUB",
+        "use_synsets": false,
+        "explode_nodes": false,
+        "results": [
+            {
+                "method": "Lexical",
+                "model": "openai/gpt-oss-120b",
+                "Cond_Red_F1": 0.37931034482758624,
+                "Cond_Red_Precision": 0.4536082474226804,
+                "Cond_Red_Recall": 0.32592592592592595,
+                "Cond_Clos_F1": 0.3813333333333333,
+                "Cond_Clos_Precision": 0.9862068965517241,
+                "Cond_Clos_Recall": 0.23636363636363636,
+                "Exp_Raw_F1": 0.31428571428571433,
+                "Exp_Clos_F1": 0.3813333333333333,
+                "Runtime_sec": 0.25342679023742676
+            },
+            {
+                "method": "Vector",
+                "model": "openai/gpt-oss-120b",
+                "Cond_Red_F1": 0.38009049773755654,
+                "Cond_Red_Precision": 0.4883720930232558,
+                "Cond_Red_Recall": 0.3111111111111111,
+                "Cond_Clos_F1": 0.30256410256410254,
+                "Cond_Clos_Precision": 0.6742857142857143,
+                "Cond_Clos_Recall": 0.19504132231404958,
+                "Exp_Raw_F1": 0.4063745019920318,
+                "Exp_Clos_F1": 0.30256410256410254,
+                "Runtime_sec": 0.4448249340057373
+            },
+            {
+                "method": "SBU LLM Batch",
+                "model": "google/gemma-4-31b-it",
+                "Cond_Red_F1": 0.4406779661016949,
+                "Cond_Red_Precision": 0.5148514851485149,
+                "Cond_Red_Recall": 0.3851851851851852,
+                "Cond_Clos_F1": 0.67,
+                "Cond_Clos_Precision": 0.8481012658227848,
+                "Cond_Clos_Recall": 0.5537190082644629,
+                "Exp_Raw_F1": 0.4406779661016949,
+                "Exp_Clos_F1": 0.67,
+                "Runtime_sec": 51.525622844696045
+            },
+            {
+                "method": "SBU Embedding",
+                "model": "openai/gpt-oss-120b",
+                "Cond_Red_F1": 0.0,
+                "Cond_Red_Precision": 0.0,
+                "Cond_Red_Recall": 0.0,
+                "Cond_Clos_F1": 0.19512195121951217,
+                "Cond_Clos_Precision": 0.37209302325581395,
+                "Cond_Clos_Recall": 0.1322314049586777,
+                "Exp_Raw_F1": 0.3430962343096234,
+                "Exp_Clos_F1": 0.19512195121951217,
+                "Runtime_sec": 0.3257479667663574
+            },
+            {
+                "method": "TaxoLLaMA (PPL<15.0)",
+                "model": "meta-llama/Llama-2-7b-hf+TaxoLLaMA",
+                "Cond_Red_F1": 0.3206751054852321,
+                "Cond_Red_Precision": 0.37254901960784315,
+                "Cond_Red_Recall": 0.2814814814814815,
+                "Cond_Clos_F1": 0.47836538461538464,
+                "Cond_Clos_Precision": 0.8766519823788547,
+                "Cond_Clos_Recall": 0.32892561983471075,
+                "Exp_Raw_F1": 0.3206751054852321,
+                "Exp_Clos_F1": 0.47836538461538464,
+                "Runtime_sec": 562.9687809944153
+            }
+        ]
+    },
+    {
+        "dataset": "SemEvalFood_SUB",
+        "use_synsets": false,
+        "explode_nodes": false,
+        "results": [
+            {
+                "method": "Lexical",
+                "model": "openai/gpt-oss-120b",
+                "Cond_Red_F1": 0.24,
+                "Cond_Red_Precision": 0.625,
+                "Cond_Red_Recall": 0.1485148514851485,
+                "Cond_Clos_F1": 0.10138248847926266,
+                "Cond_Clos_Precision": 0.88,
+                "Cond_Clos_Recall": 0.05378973105134474,
+                "Exp_Raw_F1": 0.2362204724409449,
+                "Exp_Clos_F1": 0.10138248847926266,
+                "Runtime_sec": 0.0418093204498291
+            },
+            {
+                "method": "Vector",
+                "model": "openai/gpt-oss-120b",
+                "Cond_Red_F1": 0.22047244094488191,
+                "Cond_Red_Precision": 0.5384615384615384,
+                "Cond_Red_Recall": 0.13861386138613863,
+                "Cond_Clos_F1": 0.10430839002267574,
+                "Cond_Clos_Precision": 0.71875,
+                "Cond_Clos_Recall": 0.05623471882640587,
+                "Exp_Raw_F1": 0.22388059701492538,
+                "Exp_Clos_F1": 0.10430839002267574,
+                "Runtime_sec": 0.19571256637573242
+            },
+            {
+                "method": "SBU LLM Batch",
+                "model": "google/gemma-4-31b-it",
+                "Cond_Red_F1": 0.5280898876404494,
+                "Cond_Red_Precision": 0.6103896103896104,
+                "Cond_Red_Recall": 0.46534653465346537,
+                "Cond_Clos_F1": 0.39292035398230085,
+                "Cond_Clos_Precision": 0.7115384615384616,
+                "Cond_Clos_Recall": 0.2713936430317848,
+                "Exp_Raw_F1": 0.5251396648044693,
+                "Exp_Clos_F1": 0.39292035398230085,
+                "Runtime_sec": 42.40554356575012
+            },
+            {
+                "method": "SBU Embedding",
+                "model": "openai/gpt-oss-120b",
+                "Cond_Red_F1": 0.0,
+                "Cond_Red_Precision": 0.0,
+                "Cond_Red_Recall": 0.0,
+                "Cond_Clos_F1": 0.16051364365971107,
+                "Cond_Clos_Precision": 0.2336448598130841,
+                "Cond_Clos_Recall": 0.12224938875305623,
+                "Exp_Raw_F1": 0.21782178217821785,
+                "Exp_Clos_F1": 0.16051364365971107,
+                "Runtime_sec": 0.1950845718383789
+            },
+            {
+                "method": "TaxoLLaMA (PPL<15.0)",
+                "model": "meta-llama/Llama-2-7b-hf+TaxoLLaMA",
+                "Cond_Red_F1": 0.45918367346938777,
+                "Cond_Red_Precision": 0.47368421052631576,
+                "Cond_Red_Recall": 0.44554455445544555,
+                "Cond_Clos_F1": 0.37967115097159937,
+                "Cond_Clos_Precision": 0.48846153846153845,
+                "Cond_Clos_Recall": 0.3105134474327628,
+                "Exp_Raw_F1": 0.45685279187817257,
+                "Exp_Clos_F1": 0.37967115097159937,
+                "Runtime_sec": 519.5404939651489
+            }
+        ]
+    },
+    {
+        "dataset": "LLMs4OL_OBI_SUB",
+        "use_synsets": false,
+        "explode_nodes": false,
+        "results": [
+            {
+                "method": "Lexical",
+                "model": "openai/gpt-oss-120b",
+                "Cond_Red_F1": 0.4246575342465753,
+                "Cond_Red_Precision": 0.5166666666666667,
+                "Cond_Red_Recall": 0.36046511627906974,
+                "Cond_Clos_F1": 0.281437125748503,
+                "Cond_Clos_Precision": 0.7121212121212122,
+                "Cond_Clos_Recall": 0.17537313432835822,
+                "Exp_Raw_F1": 0.40789473684210525,
+                "Exp_Clos_F1": 0.281437125748503,
+                "Runtime_sec": 0.08281993865966797
+            },
+            {
+                "method": "Vector",
+                "model": "openai/gpt-oss-120b",
+                "Cond_Red_F1": 0.368,
+                "Cond_Red_Precision": 0.5897435897435898,
+                "Cond_Red_Recall": 0.26744186046511625,
+                "Cond_Clos_F1": 0.2626865671641791,
+                "Cond_Clos_Precision": 0.6567164179104478,
+                "Cond_Clos_Recall": 0.16417910447761194,
+                "Exp_Raw_F1": 0.3546099290780142,
+                "Exp_Clos_F1": 0.2626865671641791,
+                "Runtime_sec": 0.2202310562133789
+            },
+            {
+                "method": "SBU LLM Batch",
+                "model": "google/gemma-4-31b-it",
+                "Cond_Red_F1": 0.2981366459627329,
+                "Cond_Red_Precision": 0.32,
+                "Cond_Red_Recall": 0.27906976744186046,
+                "Cond_Clos_F1": 0.3370165745856354,
+                "Cond_Clos_Precision": 0.648936170212766,
+                "Cond_Clos_Recall": 0.22761194029850745,
+                "Exp_Raw_F1": 0.2981366459627329,
+                "Exp_Clos_F1": 0.3370165745856354,
+                "Runtime_sec": 46.98098826408386
+            },
+            {
+                "method": "SBU Embedding",
+                "model": "openai/gpt-oss-120b",
+                "Cond_Red_F1": 0.0,
+                "Cond_Red_Precision": 0.0,
+                "Cond_Red_Recall": 0.0,
+                "Cond_Clos_F1": 0.17710583153347734,
+                "Cond_Clos_Precision": 0.21025641025641026,
+                "Cond_Clos_Recall": 0.15298507462686567,
+                "Exp_Raw_F1": 0.3118279569892473,
+                "Exp_Clos_F1": 0.17710583153347734,
+                "Runtime_sec": 0.1714775562286377
+            },
+            {
+                "method": "TaxoLLaMA (PPL<15.0)",
+                "model": "meta-llama/Llama-2-7b-hf+TaxoLLaMA",
+                "Cond_Red_F1": 0.3695652173913043,
+                "Cond_Red_Precision": 0.3469387755102041,
+                "Cond_Red_Recall": 0.3953488372093023,
+                "Cond_Clos_F1": 0.23721881390593047,
+                "Cond_Clos_Precision": 0.26244343891402716,
+                "Cond_Clos_Recall": 0.21641791044776118,
+                "Exp_Raw_F1": 0.3695652173913043,
+                "Exp_Clos_F1": 0.23721881390593047,
+                "Runtime_sec": 520.4756088256836
+            }
+        ]
+    },
+    {
+        "dataset": "LLMs4OL_PO_SUB",
+        "use_synsets": false,
+        "explode_nodes": false,
+        "results": [
+            {
+                "method": "Lexical",
+                "model": "openai/gpt-oss-120b",
+                "Cond_Red_F1": 0.3149606299212598,
+                "Cond_Red_Precision": 0.5128205128205128,
+                "Cond_Red_Recall": 0.22727272727272727,
+                "Cond_Clos_F1": 0.14246575342465753,
+                "Cond_Clos_Precision": 0.5652173913043478,
+                "Cond_Clos_Recall": 0.08150470219435736,
+                "Exp_Raw_F1": 0.31343283582089554,
+                "Exp_Clos_F1": 0.14246575342465753,
+                "Runtime_sec": 0.0627284049987793
+            },
+            {
+                "method": "Vector",
+                "model": "openai/gpt-oss-120b",
+                "Cond_Red_F1": 0.3087248322147651,
+                "Cond_Red_Precision": 0.3770491803278688,
+                "Cond_Red_Recall": 0.26136363636363635,
+                "Cond_Clos_F1": 0.20047732696897375,
+                "Cond_Clos_Precision": 0.42,
+                "Cond_Clos_Recall": 0.13166144200626959,
+                "Exp_Raw_F1": 0.33918128654970764,
+                "Exp_Clos_F1": 0.20047732696897375,
+                "Runtime_sec": 0.2484724521636963
+            },
+            {
+                "method": "SBU LLM Batch",
+                "model": "google/gemma-4-31b-it",
+                "Cond_Red_F1": 0.5274725274725275,
+                "Cond_Red_Precision": 0.5106382978723404,
+                "Cond_Red_Recall": 0.5454545454545454,
+                "Cond_Clos_F1": 0.6206896551724138,
+                "Cond_Clos_Precision": 0.6206896551724138,
+                "Cond_Clos_Recall": 0.6206896551724138,
+                "Exp_Raw_F1": 0.5245901639344263,
+                "Exp_Clos_F1": 0.6206896551724138,
+                "Runtime_sec": 58.15672278404236
+            },
+            {
+                "method": "SBU Embedding",
+                "model": "openai/gpt-oss-120b",
+                "Cond_Red_F1": 0.0,
+                "Cond_Red_Precision": 0.0,
+                "Cond_Red_Recall": 0.0,
+                "Cond_Clos_F1": 0.15500945179584125,
+                "Cond_Clos_Precision": 0.19523809523809524,
+                "Cond_Clos_Recall": 0.12852664576802508,
+                "Exp_Raw_F1": 0.26595744680851063,
+                "Exp_Clos_F1": 0.15500945179584125,
+                "Runtime_sec": 0.19313931465148926
+            },
+            {
+                "method": "TaxoLLaMA (PPL<15.0)",
+                "model": "meta-llama/Llama-2-7b-hf+TaxoLLaMA",
+                "Cond_Red_F1": 0.3118279569892473,
+                "Cond_Red_Precision": 0.29591836734693877,
+                "Cond_Red_Recall": 0.32954545454545453,
+                "Cond_Clos_F1": 0.19963031423290203,
+                "Cond_Clos_Precision": 0.24324324324324326,
+                "Cond_Clos_Recall": 0.16927899686520376,
+                "Exp_Raw_F1": 0.3118279569892473,
+                "Exp_Clos_F1": 0.19963031423290203,
+                "Runtime_sec": 521.76611161232
+            }
+        ]
+    },
+    {
+        "dataset": "LLMs4OL_SchemaOrg_SUB",
+        "use_synsets": false,
+        "explode_nodes": false,
+        "results": [
+            {
+                "method": "Lexical",
+                "model": "openai/gpt-oss-120b",
+                "Cond_Red_F1": 0.3548387096774194,
+                "Cond_Red_Precision": 0.5641025641025641,
+                "Cond_Red_Recall": 0.25882352941176473,
+                "Cond_Clos_F1": 0.3675675675675676,
+                "Cond_Clos_Precision": 0.8292682926829268,
+                "Cond_Clos_Recall": 0.2361111111111111,
+                "Exp_Raw_F1": 0.3492063492063493,
+                "Exp_Clos_F1": 0.3675675675675676,
+                "Runtime_sec": 0.03891253471374512
+            },
+            {
+                "method": "Vector",
+                "model": "openai/gpt-oss-120b",
+                "Cond_Red_F1": 0.0970873786407767,
+                "Cond_Red_Precision": 0.2777777777777778,
+                "Cond_Red_Recall": 0.058823529411764705,
+                "Cond_Clos_F1": 0.10778443113772455,
+                "Cond_Clos_Precision": 0.391304347826087,
+                "Cond_Clos_Recall": 0.0625,
+                "Exp_Raw_F1": 0.11428571428571428,
+                "Exp_Clos_F1": 0.10778443113772455,
+                "Runtime_sec": 0.18485260009765625
+            },
+            {
+                "method": "SBU LLM Batch",
+                "model": "google/gemma-4-31b-it",
+                "Cond_Red_F1": 0.0,
+                "Cond_Red_Precision": 0.0,
+                "Cond_Red_Recall": 0.0,
+                "Cond_Clos_F1": 0.0,
+                "Cond_Clos_Precision": 0.0,
+                "Cond_Clos_Recall": 0.0,
+                "Exp_Raw_F1": 0.0,
+                "Exp_Clos_F1": 0.0,
+                "Runtime_sec": 3.475565195083618
+            },
+            {
+                "method": "SBU Embedding",
+                "model": "openai/gpt-oss-120b",
+                "Cond_Red_F1": 0.0,
+                "Cond_Red_Precision": 0.0,
+                "Cond_Red_Recall": 0.0,
+                "Cond_Clos_F1": 0.10493827160493828,
+                "Cond_Clos_Precision": 0.09444444444444444,
+                "Cond_Clos_Recall": 0.11805555555555555,
+                "Exp_Raw_F1": 0.16042780748663102,
+                "Exp_Clos_F1": 0.10493827160493828,
+                "Runtime_sec": 0.09475421905517578
+            },
+            {
+                "method": "TaxoLLaMA (PPL<15.0)",
+                "model": "meta-llama/Llama-2-7b-hf+TaxoLLaMA",
+                "Cond_Red_F1": 0.31351351351351353,
+                "Cond_Red_Precision": 0.29,
+                "Cond_Red_Recall": 0.3411764705882353,
+                "Cond_Clos_F1": 0.2782152230971129,
+                "Cond_Clos_Precision": 0.22362869198312235,
+                "Cond_Clos_Recall": 0.3680555555555556,
+                "Exp_Raw_F1": 0.31351351351351353,
+                "Exp_Clos_F1": 0.2782152230971129,
+                "Runtime_sec": 542.6565825939178
+            }
+        ]
+    },
+    {
+        "dataset": "LLMs4OL_MatOnto_SUB",
+        "use_synsets": false,
+        "explode_nodes": false,
+        "results": [
+            {
+                "method": "Lexical",
+                "model": "openai/gpt-oss-120b",
+                "Cond_Red_F1": 0.4525547445255474,
+                "Cond_Red_Precision": 0.6595744680851063,
+                "Cond_Red_Recall": 0.34444444444444444,
+                "Cond_Clos_F1": 0.2507645259938838,
+                "Cond_Clos_Precision": 0.7068965517241379,
+                "Cond_Clos_Recall": 0.1524163568773234,
+                "Exp_Raw_F1": 0.445945945945946,
+                "Exp_Clos_F1": 0.2507645259938838,
+                "Runtime_sec": 0.059775352478027344
+            },
+            {
+                "method": "Vector",
+                "model": "openai/gpt-oss-120b",
+                "Cond_Red_F1": 0.23728813559322035,
+                "Cond_Red_Precision": 0.5,
+                "Cond_Red_Recall": 0.15555555555555556,
+                "Cond_Clos_F1": 0.12377850162866451,
+                "Cond_Clos_Precision": 0.5,
+                "Cond_Clos_Recall": 0.07063197026022305,
+                "Exp_Raw_F1": 0.2764227642276423,
+                "Exp_Clos_F1": 0.12377850162866451,
+                "Runtime_sec": 0.1933305263519287
+            },
+            {
+                "method": "SBU LLM Batch",
+                "model": "google/gemma-4-31b-it",
+                "Cond_Red_F1": 0.5116279069767442,
+                "Cond_Red_Precision": 0.5365853658536586,
+                "Cond_Red_Recall": 0.4888888888888889,
+                "Cond_Clos_F1": 0.3325062034739454,
+                "Cond_Clos_Precision": 0.5,
+                "Cond_Clos_Recall": 0.24907063197026022,
+                "Exp_Raw_F1": 0.508670520231214,
+                "Exp_Clos_F1": 0.3325062034739454,
+                "Runtime_sec": 36.92429995536804
+            },
+            {
+                "method": "SBU Embedding",
+                "model": "openai/gpt-oss-120b",
+                "Cond_Red_F1": 0.0,
+                "Cond_Red_Precision": 0.0,
+                "Cond_Red_Recall": 0.0,
+                "Cond_Clos_F1": 0.15319148936170213,
+                "Cond_Clos_Precision": 0.1791044776119403,
+                "Cond_Clos_Recall": 0.13382899628252787,
+                "Exp_Raw_F1": 0.3578947368421052,
+                "Exp_Clos_F1": 0.15319148936170213,
+                "Runtime_sec": 0.1517648696899414
+            },
+            {
+                "method": "TaxoLLaMA (PPL<15.0)",
+                "model": "meta-llama/Llama-2-7b-hf+TaxoLLaMA",
+                "Cond_Red_F1": 0.3763440860215054,
+                "Cond_Red_Precision": 0.3645833333333333,
+                "Cond_Red_Recall": 0.3888888888888889,
+                "Cond_Clos_F1": 0.16062992125984252,
+                "Cond_Clos_Precision": 0.13934426229508196,
+                "Cond_Clos_Recall": 0.1895910780669145,
+                "Exp_Raw_F1": 0.3763440860215054,
+                "Exp_Clos_F1": 0.16062992125984252,
+                "Runtime_sec": 521.5229823589325
+            }
+        ]
+    },
+    {
+        "dataset": "WordNetFood_SUB200",
+        "use_synsets": false,
+        "explode_nodes": false,
+        "results": [
+            {
+                "method": "Lexical",
+                "model": "openai/gpt-oss-120b",
+                "Cond_Red_F1": 0.3487544483985765,
+                "Cond_Red_Precision": 0.6363636363636364,
+                "Cond_Red_Recall": 0.24019607843137256,
+                "Cond_Clos_F1": 0.13878562577447337,
+                "Cond_Clos_Precision": 0.7,
+                "Cond_Clos_Recall": 0.07702888583218707,
+                "Exp_Raw_F1": 0.3426573426573427,
+                "Exp_Clos_F1": 0.13878562577447337,
+                "Runtime_sec": 0.19864320755004883
+            },
+            {
+                "method": "Vector",
+                "model": "openai/gpt-oss-120b",
+                "Cond_Red_F1": 0.3076923076923077,
+                "Cond_Red_Precision": 0.5365853658536586,
+                "Cond_Red_Recall": 0.21568627450980393,
+                "Cond_Clos_F1": 0.13981042654028436,
+                "Cond_Clos_Precision": 0.5042735042735043,
+                "Cond_Clos_Recall": 0.0811554332874828,
+                "Exp_Raw_F1": 0.31023102310231027,
+                "Exp_Clos_F1": 0.13981042654028436,
+                "Runtime_sec": 1.1623220443725586
+            }
+        ]
+    },
+    {
+        "dataset": "CellOntology_SUB200",
+        "use_synsets": false,
+        "explode_nodes": false,
+        "results": [
+            {
+                "method": "Lexical",
+                "model": "openai/gpt-oss-120b",
+                "Cond_Red_F1": 0.32340425531914896,
+                "Cond_Red_Precision": 0.41081081081081083,
+                "Cond_Red_Recall": 0.26666666666666666,
+                "Cond_Clos_F1": 0.33312845728334356,
+                "Cond_Clos_Precision": 0.9854545454545455,
+                "Cond_Clos_Recall": 0.20044378698224852,
+                "Exp_Raw_F1": 0.275,
+                "Exp_Clos_F1": 0.33312845728334356,
+                "Runtime_sec": 1.0490765571594238
+            },
+            {
+                "method": "Vector",
+                "model": "openai/gpt-oss-120b",
+                "Cond_Red_F1": 0.28991596638655465,
+                "Cond_Red_Precision": 0.3612565445026178,
+                "Cond_Red_Recall": 0.24210526315789474,
+                "Cond_Clos_F1": 0.2736732570239334,
+                "Cond_Clos_Precision": 0.4614035087719298,
+                "Cond_Clos_Recall": 0.1945266272189349,
+                "Exp_Raw_F1": 0.34991423670668953,
+                "Exp_Clos_F1": 0.2736732570239334,
+                "Runtime_sec": 2.5114200115203857
+            }
+        ]
+    },
+    {
+        "dataset": "SemEvalFood_SUB200",
+        "use_synsets": false,
+        "explode_nodes": false,
+        "results": [
+            {
+                "method": "Lexical",
+                "model": "openai/gpt-oss-120b",
+                "Cond_Red_F1": 0.2783882783882784,
+                "Cond_Red_Precision": 0.5588235294117647,
+                "Cond_Red_Recall": 0.18536585365853658,
+                "Cond_Clos_F1": 0.1106290672451193,
+                "Cond_Clos_Precision": 0.7285714285714285,
+                "Cond_Clos_Recall": 0.05985915492957746,
+                "Exp_Raw_F1": 0.2753623188405797,
+                "Exp_Clos_F1": 0.1106290672451193,
+                "Runtime_sec": 0.19189977645874023
+            },
+            {
+                "method": "Vector",
+                "model": "openai/gpt-oss-120b",
+                "Cond_Red_F1": 0.23571428571428574,
+                "Cond_Red_Precision": 0.44,
+                "Cond_Red_Recall": 0.16097560975609757,
+                "Cond_Clos_F1": 0.11740473738414006,
+                "Cond_Clos_Precision": 0.4789915966386555,
+                "Cond_Clos_Recall": 0.06690140845070422,
+                "Exp_Raw_F1": 0.24262295081967214,
+                "Exp_Clos_F1": 0.11740473738414006,
+                "Runtime_sec": 0.8262693881988525
+            }
+        ]
+    },
+    {
+        "dataset": "LLMs4OL_OBI_SUB200",
+        "use_synsets": false,
+        "explode_nodes": false,
+        "results": [
+            {
+                "method": "Lexical",
+                "model": "openai/gpt-oss-120b",
+                "Cond_Red_F1": 0.3313253012048193,
+                "Cond_Red_Precision": 0.3741496598639456,
+                "Cond_Red_Recall": 0.2972972972972973,
+                "Cond_Clos_F1": 0.2745664739884393,
+                "Cond_Clos_Precision": 0.5397727272727273,
+                "Cond_Clos_Recall": 0.18410852713178294,
+                "Exp_Raw_F1": 0.3047091412742382,
+                "Exp_Clos_F1": 0.2745664739884393,
+                "Runtime_sec": 0.39864611625671387
+            },
+            {
+                "method": "Vector",
+                "model": "openai/gpt-oss-120b",
+                "Cond_Red_F1": 0.323943661971831,
+                "Cond_Red_Precision": 0.46464646464646464,
+                "Cond_Red_Recall": 0.24864864864864866,
+                "Cond_Clos_F1": 0.23261117445838084,
+                "Cond_Clos_Precision": 0.28254847645429365,
+                "Cond_Clos_Recall": 0.19767441860465115,
+                "Exp_Raw_F1": 0.31016042780748665,
+                "Exp_Clos_F1": 0.23261117445838084,
+                "Runtime_sec": 1.1602020263671875
+            }
+        ]
+    },
+    {
+        "dataset": "LLMs4OL_PO_SUB200",
+        "use_synsets": false,
+        "explode_nodes": false,
+        "results": [
+            {
+                "method": "Lexical",
+                "model": "openai/gpt-oss-120b",
+                "Cond_Red_F1": 0.3154121863799283,
+                "Cond_Red_Precision": 0.43137254901960786,
+                "Cond_Red_Recall": 0.24858757062146894,
+                "Cond_Clos_F1": 0.17103448275862068,
+                "Cond_Clos_Precision": 0.5210084033613446,
+                "Cond_Clos_Recall": 0.10231023102310231,
+                "Exp_Raw_F1": 0.30405405405405406,
+                "Exp_Clos_F1": 0.17103448275862068,
+                "Runtime_sec": 0.28066086769104004
+            },
+            {
+                "method": "Vector",
+                "model": "openai/gpt-oss-120b",
+                "Cond_Red_F1": 0.2848297213622291,
+                "Cond_Red_Precision": 0.3150684931506849,
+                "Cond_Red_Recall": 0.2598870056497175,
+                "Cond_Clos_F1": 0.19098712446351931,
+                "Cond_Clos_Precision": 0.27300613496932513,
+                "Cond_Clos_Recall": 0.14686468646864687,
+                "Exp_Raw_F1": 0.3152454780361757,
+                "Exp_Clos_F1": 0.19098712446351931,
+                "Runtime_sec": 1.1467304229736328
+            }
+        ]
+    },
+    {
+        "dataset": "LLMs4OL_SchemaOrg_SUB200",
+        "use_synsets": false,
+        "explode_nodes": false,
+        "results": [
+            {
+                "method": "Lexical",
+                "model": "openai/gpt-oss-120b",
+                "Cond_Red_F1": 0.27419354838709675,
+                "Cond_Red_Precision": 0.4473684210526316,
+                "Cond_Red_Recall": 0.19767441860465115,
+                "Cond_Clos_F1": 0.29842931937172773,
+                "Cond_Clos_Precision": 0.7307692307692307,
+                "Cond_Clos_Recall": 0.1875,
+                "Exp_Raw_F1": 0.27091633466135456,
+                "Exp_Clos_F1": 0.29842931937172773,
+                "Runtime_sec": 0.14059209823608398
+            },
+            {
+                "method": "Vector",
+                "model": "openai/gpt-oss-120b",
+                "Cond_Red_F1": 0.09954751131221719,
+                "Cond_Red_Precision": 0.22448979591836735,
+                "Cond_Red_Recall": 0.06395348837209303,
+                "Cond_Clos_F1": 0.08,
+                "Cond_Clos_Precision": 0.2112676056338028,
+                "Cond_Clos_Recall": 0.049342105263157895,
+                "Exp_Raw_F1": 0.10480349344978165,
+                "Exp_Clos_F1": 0.08,
+                "Runtime_sec": 0.672882080078125
+            }
+        ]
+    },
+    {
+        "dataset": "LLMs4OL_MatOnto_SUB200",
+        "use_synsets": false,
+        "explode_nodes": false,
+        "results": [
+            {
+                "method": "Lexical",
+                "model": "openai/gpt-oss-120b",
+                "Cond_Red_F1": 0.4305555555555555,
+                "Cond_Red_Precision": 0.5904761904761905,
+                "Cond_Red_Recall": 0.33879781420765026,
+                "Cond_Clos_F1": 0.23179791976225853,
+                "Cond_Clos_Precision": 0.6190476190476191,
+                "Cond_Clos_Recall": 0.1425959780621572,
+                "Exp_Raw_F1": 0.4089456869009584,
+                "Exp_Clos_F1": 0.23179791976225853,
+                "Runtime_sec": 0.2574806213378906
+            },
+            {
+                "method": "Vector",
+                "model": "openai/gpt-oss-120b",
+                "Cond_Red_F1": 0.22053231939163498,
+                "Cond_Red_Precision": 0.3625,
+                "Cond_Red_Recall": 0.15846994535519127,
+                "Cond_Clos_F1": 0.1274658573596358,
+                "Cond_Clos_Precision": 0.375,
+                "Cond_Clos_Recall": 0.07678244972577697,
+                "Exp_Raw_F1": 0.26148409893992935,
+                "Exp_Clos_F1": 0.1274658573596358,
+                "Runtime_sec": 0.7814302444458008
+            }
+        ]
+    }
+]

@@ -1,0 +1,128 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d4" for="graph" attr.name="timestamp" attr.type="string"/>
+<key id="d3" for="graph" attr.name="scale" attr.type="string"/>
+<key id="d2" for="graph" attr.name="results_file" attr.type="string"/>
+<key id="d1" for="graph" attr.name="tag" attr.type="string"/>
+<key id="d0" for="graph" attr.name="model" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">openai/gpt-oss-120b</data>
+<data key="d1">baselines_oct</data>
+<data key="d2">results/baselines_7core.json</data>
+<data key="d3">SUB200</data>
+<data key="d4">2026-10-01T23:36:43</data>
+<node id="listitem"/>
+<node id="itemlistordertype"/>
+<node id="createaction"/>
+<node id="achieveaction"/>
+<node id="measurementmethodenum"/>
+<node id="measurementtypeenumeration"/>
+<node id="imageobject"/>
+<node id="imageobjectsnapshot"/>
+<node id="applyaction"/>
+<node id="performaction"/>
+<node id="chooseaction"/>
+<node id="interactaction"/>
+<node id="takeaction"/>
+<node id="medicalentity"/>
+<node id="medicalenumeration"/>
+<node id="medicalindication"/>
+<node id="medicalprocedure"/>
+<node id="itemlist"/>
+<node id="medicalorganization"/>
+<node id="researchorganization"/>
+<node id="review"/>
+<node id="reviewaction"/>
+<node id="checkaction"/>
+<node id="videoobject"/>
+<node id="videoobjectsnapshot"/>
+<node id="hotel"/>
+<node id="lodgingbusiness"/>
+<node id="accommodation"/>
+<node id="physician"/>
+<node id="physiciansoffice"/>
+<node id="educationalorganization"/>
+<node id="broadcastservice"/>
+<node id="radiobroadcastservice"/>
+<node id="tvseries"/>
+<node id="televisionstation"/>
+<node id="intangible"/>
+<node id="medicalintangible"/>
+<node id="eataction"/>
+<node id="consumeaction"/>
+<node id="playaction"/>
+<node id="likeaction"/>
+<node id="cookaction"/>
+<node id="radiochannel"/>
+<node id="medicalcondition"/>
+<node id="organization"/>
+<node id="organizationrole"/>
+<node id="educationalaudience"/>
+<node id="blogposting"/>
+<node id="socialmediaposting"/>
+<node id="winaction"/>
+<node id="findaction"/>
+<node id="medicalbusiness"/>
+<node id="healthandbeautybusiness"/>
+<node id="action"/>
+<node id="discoveraction"/>
+<node id="medicalsign"/>
+<node id="medicaltrialdesign"/>
+<node id="therapeuticprocedure"/>
+<node id="surgicalprocedure"/>
+<node id="communicateaction"/>
+<edge source="listitem" target="itemlistordertype"/>
+<edge source="createaction" target="achieveaction"/>
+<edge source="measurementmethodenum" target="measurementtypeenumeration"/>
+<edge source="imageobject" target="imageobjectsnapshot"/>
+<edge source="applyaction" target="performaction"/>
+<edge source="applyaction" target="chooseaction"/>
+<edge source="applyaction" target="achieveaction"/>
+<edge source="applyaction" target="interactaction"/>
+<edge source="interactaction" target="communicateaction"/>
+<edge source="takeaction" target="achieveaction"/>
+<edge source="medicalentity" target="medicalenumeration"/>
+<edge source="medicalentity" target="medicalindication"/>
+<edge source="medicalentity" target="medicalprocedure"/>
+<edge source="medicalindication" target="medicalenumeration"/>
+<edge source="medicalprocedure" target="therapeuticprocedure"/>
+<edge source="medicalprocedure" target="surgicalprocedure"/>
+<edge source="itemlist" target="itemlistordertype"/>
+<edge source="medicalorganization" target="researchorganization"/>
+<edge source="researchorganization" target="educationalorganization"/>
+<edge source="review" target="reviewaction"/>
+<edge source="checkaction" target="reviewaction"/>
+<edge source="checkaction" target="chooseaction"/>
+<edge source="videoobject" target="videoobjectsnapshot"/>
+<edge source="hotel" target="lodgingbusiness"/>
+<edge source="hotel" target="accommodation"/>
+<edge source="accommodation" target="lodgingbusiness"/>
+<edge source="physician" target="physiciansoffice"/>
+<edge source="broadcastservice" target="radiobroadcastservice"/>
+<edge source="tvseries" target="televisionstation"/>
+<edge source="intangible" target="medicalintangible"/>
+<edge source="eataction" target="takeaction"/>
+<edge source="eataction" target="consumeaction"/>
+<edge source="eataction" target="playaction"/>
+<edge source="eataction" target="likeaction"/>
+<edge source="eataction" target="cookaction"/>
+<edge source="radiochannel" target="radiobroadcastservice"/>
+<edge source="medicalcondition" target="medicalindication"/>
+<edge source="organization" target="organizationrole"/>
+<edge source="educationalaudience" target="educationalorganization"/>
+<edge source="blogposting" target="socialmediaposting"/>
+<edge source="winaction" target="createaction"/>
+<edge source="winaction" target="playaction"/>
+<edge source="winaction" target="chooseaction"/>
+<edge source="winaction" target="findaction"/>
+<edge source="findaction" target="createaction"/>
+<edge source="findaction" target="performaction"/>
+<edge source="findaction" target="discoveraction"/>
+<edge source="findaction" target="checkaction"/>
+<edge source="findaction" target="chooseaction"/>
+<edge source="findaction" target="achieveaction"/>
+<edge source="medicalbusiness" target="medicalorganization"/>
+<edge source="medicalbusiness" target="healthandbeautybusiness"/>
+<edge source="action" target="takeaction"/>
+<edge source="action" target="achieveaction"/>
+<edge source="medicalsign" target="medicaltrialdesign"/>
+<edge source="medicalsign" target="medicalindication"/>
+</graph></graphml>

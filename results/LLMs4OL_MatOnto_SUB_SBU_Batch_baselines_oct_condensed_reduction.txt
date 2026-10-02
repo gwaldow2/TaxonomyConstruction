@@ -1,0 +1,183 @@
+==================================================
+=== Detailed Node Pair Analysis (Condensed Transitive Reduction) ===
+Match Type Used: SET_OVERLAP
+==================================================
+Precision: 0.5366 | Recall: 0.4889 | F1: 0.5116
+
+CORRECT PREDICTIONS (True Positives: 44 Pred edges covering 44 GT edges):
+  [TP] PRED: (carbon allotrope -> fullerene)
+        matches GT: (carbon allotrope -> fullerene)
+  [TP] PRED: (chemical formula -> molecular formula)
+        matches GT: (chemical formula -> molecular formula)
+  [TP] PRED: (continuant -> dependent_continuant)
+        matches GT: (continuant -> dependent_continuant)
+  [TP] PRED: (continuant -> independent_continuant)
+        matches GT: (continuant -> independent_continuant)
+  [TP] PRED: (electronegativity -> mulliken electronegativity)
+        matches GT: (electronegativity -> mulliken electronegativity)
+  [TP] PRED: (electronegativity -> pauling electronegativity)
+        matches GT: (electronegativity -> pauling electronegativity)
+  [TP] PRED: (element -> darmstadtium)
+        matches GT: (element -> darmstadtium)
+  [TP] PRED: (element -> magnesium)
+        matches GT: (element -> magnesium)
+  [TP] PRED: (element -> molybdenum)
+        matches GT: (element -> molybdenum)
+  [TP] PRED: (element -> promethium)
+        matches GT: (element -> promethium)
+  [TP] PRED: (element -> scandium)
+        matches GT: (element -> scandium)
+  [TP] PRED: (element -> xenon)
+        matches GT: (element -> xenon)
+  [TP] PRED: (independent_continuant -> object)
+        matches GT: (independent_continuant -> object)
+  [TP] PRED: (ion -> anion)
+        matches GT: (ion -> anion)
+  [TP] PRED: (material -> ceramic material)
+        matches GT: (material -> ceramic material)
+  [TP] PRED: (measured property -> angle)
+        matches GT: (measured property -> angle)
+  [TP] PRED: (measured property -> angular acceleration)
+        matches GT: (measured property -> angular acceleration)
+  [TP] PRED: (measured property -> concentration)
+        matches GT: (measured property -> concentration)
+  [TP] PRED: (measured property -> density)
+        matches GT: (measured property -> density)
+  [TP] PRED: (measured property -> electric resistance)
+        matches GT: (measured property -> electric resistance)
+  [TP] PRED: (measured property -> magnetic flux)
+        matches GT: (measured property -> magnetic flux)
+  [TP] PRED: (measured property -> molar entropy)
+        matches GT: (measured property -> molar entropy)
+  [TP] PRED: (measured property -> permittivity)
+        matches GT: (measured property -> permittivity)
+  [TP] PRED: (measured property -> surface tension)
+        matches GT: (measured property -> surface tension)
+  [TP] PRED: (measured property -> temperature)
+        matches GT: (measured property -> temperature)
+  [TP] PRED: (measured property -> velocity)
+        matches GT: (measured property -> velocity)
+  [TP] PRED: (measured property -> wavenumber)
+        matches GT: (measured property -> wavenumber)
+  [TP] PRED: (mixture -> homogeneous mixture)
+        matches GT: (mixture -> homogeneous mixture)
+  [TP] PRED: (organic group -> general sulfinic acid group)
+        matches GT: (organic group -> general sulfinic acid group)
+  [TP] PRED: (organic group -> thiol group)
+        matches GT: (organic group -> thiol group)
+  [TP] PRED: (periodic block -> p-block element)
+        matches GT: (periodic block -> p-block element)
+  [TP] PRED: (quality -> chemical quality)
+        matches GT: (quality -> chemical quality)
+  [TP] PRED: (unit -> catalytic activity unit)
+        matches GT: (unit -> catalytic activity unit)
+  [TP] PRED: (unit -> conduction unit)
+        matches GT: (unit -> conduction unit)
+  [TP] PRED: (unit -> density unit)
+        matches GT: (unit -> density unit)
+  [TP] PRED: (unit -> derivedunit)
+        matches GT: (unit -> derivedunit)
+  [TP] PRED: (unit -> electric current unit)
+        matches GT: (unit -> electric current unit)
+  [TP] PRED: (unit -> electric resistance unit)
+        matches GT: (unit -> electric resistance unit)
+  [TP] PRED: (unit -> electromagnetic radiation unit)
+        matches GT: (unit -> electromagnetic radiation unit)
+  [TP] PRED: (unit -> energy unit)
+        matches GT: (unit -> energy unit)
+  [TP] PRED: (unit -> molar mass unit)
+        matches GT: (unit -> molar mass unit)
+  [TP] PRED: (unit -> molecular mass unit)
+        matches GT: (unit -> molecular mass unit)
+  [TP] PRED: (unit -> moment of force unit)
+        matches GT: (unit -> moment of force unit)
+  [TP] PRED: (unit -> radiation unit)
+        matches GT: (unit -> radiation unit)
+
+INCORRECT PREDICTIONS (False Positives: 38):
+  [FP] chemical class -> ion
+  [FP] chemical class -> organic compound
+  [FP] element -> atom
+  [FP] element -> curium atom
+  [FP] element -> gallium atom
+  [FP] element -> potassium atom
+  [FP] element -> rubidium atom
+  [FP] element -> tellurium atom
+  [FP] element -> terbium atom
+  [FP] independent_continuant -> material
+  [FP] intensive property -> measured property
+  [FP] material -> chaoite
+  [FP] measured property -> amount of substance concentration
+  [FP] measured property -> electronegativity
+  [FP] measured property -> exposure
+  [FP] measured property -> flexural modulus
+  [FP] mixture -> solution
+  [FP] object -> chiral center
+  [FP] object -> count
+  [FP] object -> molecular center
+  [FP] object -> moleculecomponentcount
+  [FP] object -> site
+  [FP] object -> undefined stereo atom count
+  [FP] organic group -> imine
+  [FP] periodic table element -> element
+  [FP] quality -> aromaticity
+  [FP] quality -> cyclicity
+  [FP] quality -> molecularquality
+  [FP] unit -> area density unit
+  [FP] unit -> dose equivalent unit
+  [FP] unit -> linear density unit
+  [FP] unit -> luminous flux unit
+  [FP] unit -> peta scaled unit
+  [FP] unit -> scaled unit
+  [FP] unit -> unit raised to power
+  [FP] unit -> unit raised to power of negative one
+  [FP] unit -> unit raised to power of three
+  [FP] unit -> zepto scaled unit
+
+MISSED RELATIONS (False Negatives: 46):
+  [FN] angle -> solid angle
+  [FN] aromaticity -> aromatic
+  [FN] atom -> curium atom
+  [FN] atom -> gallium atom
+  [FN] atom -> potassium atom
+  [FN] atom -> rubidium atom
+  [FN] atom -> tellurium atom
+  [FN] atom -> terbium atom
+  [FN] carbon allotrope -> chaoite
+  [FN] chemical quality -> chemical class
+  [FN] chemical quality -> chemical formula
+  [FN] chemical quality -> electronegativity
+  [FN] chemical quality -> molecular center
+  [FN] concentration -> amount of substance concentration
+  [FN] cyclicity -> acyclic
+  [FN] density unit -> area density unit
+  [FN] density unit -> linear density unit
+  [FN] dependent_continuant -> quality
+  [FN] derivedunit -> scaled unit
+  [FN] electromagnetic radiation unit -> luminous flux unit
+  [FN] homogeneous mixture -> solution
+  [FN] identifier -> molecular formula
+  [FN] independent_continuant -> site
+  [FN] intensive property -> flexural modulus
+  [FN] measured property -> count
+  [FN] measured property -> intensive property
+  [FN] measured property -> molecularquality
+  [FN] measured property -> radiation
+  [FN] molecular center -> chiral center
+  [FN] molecularquality -> aromaticity
+  [FN] molecularquality -> cyclicity
+  [FN] molecularquality -> identifier
+  [FN] molecularquality -> moleculecomponentcount
+  [FN] moleculecomponentcount -> undefined stereo atom count
+  [FN] object -> atom
+  [FN] object -> mixture
+  [FN] object -> organic group
+  [FN] organic compound -> imine
+  [FN] periodic table element -> periodic block
+  [FN] quality -> measured property
+  [FN] radiation -> exposure
+  [FN] radiation unit -> dose equivalent unit
+  [FN] scaled unit -> peta scaled unit
+  [FN] scaled unit -> zepto scaled unit
+  [FN] unit raised to power -> unit raised to power of negative one
+  [FN] unit raised to power -> unit raised to power of three

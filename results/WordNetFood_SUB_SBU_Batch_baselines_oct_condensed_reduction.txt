@@ -1,0 +1,205 @@
+==================================================
+=== Detailed Node Pair Analysis (Condensed Transitive Reduction) ===
+Match Type Used: SET_OVERLAP
+==================================================
+Precision: 0.5778 | Recall: 0.5000 | F1: 0.5361
+
+CORRECT PREDICTIONS (True Positives: 52 Pred edges covering 52 GT edges):
+  [TP] PRED: (ale -> pale ale)
+        matches GT: (ale -> pale ale)
+  [TP] PRED: (baked goods -> bread)
+        matches GT: (baked goods -> bread)
+  [TP] PRED: (baked goods -> pastry)
+        matches GT: (baked goods -> pastry)
+  [TP] PRED: (beer -> ale)
+        matches GT: (beer -> ale)
+  [TP] PRED: (berry -> boysenberry)
+        matches GT: (berry -> boysenberry)
+  [TP] PRED: (berry -> raspberry)
+        matches GT: (berry -> raspberry)
+  [TP] PRED: (beverage -> alcohol)
+        matches GT: (beverage -> alcohol)
+  [TP] PRED: (cake -> applesauce cake)
+        matches GT: (cake -> applesauce cake)
+  [TP] PRED: (cheese -> camembert)
+        matches GT: (cheese -> camembert)
+  [TP] PRED: (chocolate -> chocolate candy)
+        matches GT: (chocolate -> chocolate candy)
+  [TP] PRED: (chowder -> clam chowder)
+        matches GT: (chowder -> clam chowder)
+  [TP] PRED: (citrus -> orange)
+        matches GT: (citrus -> orange)
+  [TP] PRED: (condiment -> sauce)
+        matches GT: (condiment -> sauce)
+  [TP] PRED: (cookie -> gingersnap)
+        matches GT: (cookie -> gingersnap)
+  [TP] PRED: (dairy product -> cheese)
+        matches GT: (dairy product -> cheese)
+  [TP] PRED: (dessert -> pudding)
+        matches GT: (dessert -> pudding)
+  [TP] PRED: (dish -> snack food)
+        matches GT: (dish -> snack food)
+  [TP] PRED: (dish -> soup)
+        matches GT: (dish -> soup)
+  [TP] PRED: (edible fruit -> berry)
+        matches GT: (edible fruit -> berry)
+  [TP] PRED: (edible fruit -> citrus)
+        matches GT: (edible fruit -> citrus)
+  [TP] PRED: (food -> fare)
+        matches GT: (food -> fare)
+  [TP] PRED: (food -> foodstuff)
+        matches GT: (food -> foodstuff)
+  [TP] PRED: (food -> nutriment)
+        matches GT: (food -> nutriment)
+  [TP] PRED: (grain -> rice)
+        matches GT: (grain -> rice)
+  [TP] PRED: (greens -> salad green)
+        matches GT: (greens -> salad green)
+  [TP] PRED: (herb -> marjoram)
+        matches GT: (herb -> marjoram)
+  [TP] PRED: (ingredient -> flavorer)
+        matches GT: (ingredient -> flavorer)
+  [TP] PRED: (jerky -> beef jerky)
+        matches GT: (jerky -> beef jerky)
+  [TP] PRED: (legume -> pea)
+        matches GT: (legume -> pea)
+  [TP] PRED: (lettuce -> cos)
+        matches GT: (lettuce -> cos)
+  [TP] PRED: (lobster -> lobster tail)
+        matches GT: (lobster -> lobster tail)
+  [TP] PRED: (meat -> pork)
+        matches GT: (meat -> pork)
+  [TP] PRED: (orange -> sweet orange)
+        matches GT: (orange -> sweet orange)
+  [TP] PRED: (pea -> field pea)
+        matches GT: (pea -> field pea)
+  [TP] PRED: (pea -> marrowfat pea)
+        matches GT: (pea -> marrowfat pea)
+  [TP] PRED: (pie -> squash pie)
+        matches GT: (pie -> squash pie)
+  [TP] PRED: (pie -> tart)
+        matches GT: (pie -> tart)
+  [TP] PRED: (pork -> cochon de lait)
+        matches GT: (pork -> cochon de lait)
+  [TP] PRED: (produce -> edible fruit)
+        matches GT: (produce -> edible fruit)
+  [TP] PRED: (produce -> vegetable)
+        matches GT: (produce -> vegetable)
+  [TP] PRED: (pudding -> corn pudding)
+        matches GT: (pudding -> corn pudding)
+  [TP] PRED: (rice -> brown rice)
+        matches GT: (rice -> brown rice)
+  [TP] PRED: (sandwich -> gyro)
+        matches GT: (sandwich -> gyro)
+  [TP] PRED: (sauce -> anchovy sauce)
+        matches GT: (sauce -> anchovy sauce)
+  [TP] PRED: (seafood -> freshwater fish)
+        matches GT: (seafood -> freshwater fish)
+  [TP] PRED: (seafood -> shellfish)
+        matches GT: (seafood -> shellfish)
+  [TP] PRED: (shellfish -> lobster)
+        matches GT: (shellfish -> lobster)
+  [TP] PRED: (soup -> chowder)
+        matches GT: (soup -> chowder)
+  [TP] PRED: (tart -> lobster tart)
+        matches GT: (tart -> lobster tart)
+  [TP] PRED: (vegetable -> greens)
+        matches GT: (vegetable -> greens)
+  [TP] PRED: (vegetable -> legume)
+        matches GT: (vegetable -> legume)
+  [TP] PRED: (vitamin -> water-soluble vitamin)
+        matches GT: (vitamin -> water-soluble vitamin)
+
+INCORRECT PREDICTIONS (False Positives: 38):
+  [FP] alcohol -> beer
+  [FP] beer -> spruce beer
+  [FP] berry -> elderberry
+  [FP] beverage -> brew
+  [FP] bread -> dough
+  [FP] brew -> koumiss
+  [FP] cut -> flat bone
+  [FP] cut of beef -> cut
+  [FP] dairy product -> egg
+  [FP] dessert -> cake
+  [FP] dessert -> pastry
+  [FP] dessert -> pie
+  [FP] dish -> course
+  [FP] dish -> dessert
+  [FP] dish -> sandwich
+  [FP] food -> concoction
+  [FP] food -> diet
+  [FP] food -> dish
+  [FP] food -> ingredient
+  [FP] food -> meal
+  [FP] grain -> starches
+  [FP] greens -> lettuce
+  [FP] ingredient -> condiment
+  [FP] ingredient -> vitamin
+  [FP] meat -> cut of beef
+  [FP] orange -> navel orange
+  [FP] pastry -> bear claw
+  [FP] pastry -> bun
+  [FP] pastry -> cookie
+  [FP] pastry -> sweet roll
+  [FP] pea -> pea flour
+  [FP] shellfish -> octopus
+  [FP] shellfish -> scampi
+  [FP] snack food -> jerky
+  [FP] soul food -> chicken paprika
+  [FP] vegetable -> herb
+  [FP] vitamin -> b-complex vitamin
+  [FP] vitamin -> choline
+
+MISSED RELATIONS (False Negatives: 52):
+  [FN] alcohol -> brew
+  [FN] alcohol -> koumiss
+  [FN] b-complex vitamin -> choline
+  [FN] baked goods -> cake
+  [FN] bread -> bun
+  [FN] brew -> beer
+  [FN] brew -> spruce beer
+  [FN] bun -> sweet roll
+  [FN] cake -> cookie
+  [FN] concoction -> dough
+  [FN] course -> dessert
+  [FN] cut -> cut of beef
+  [FN] cut of beef -> flat bone
+  [FN] dish -> chicken paprika
+  [FN] dish -> pudding
+  [FN] dish -> scampi
+  [FN] dough -> pastry
+  [FN] edible fruit -> elderberry
+  [FN] fare -> diet
+  [FN] flavorer -> condiment
+  [FN] flavorer -> herb
+  [FN] food -> baked goods
+  [FN] food -> beverage
+  [FN] food -> chocolate
+  [FN] food -> culture medium
+  [FN] food -> meat
+  [FN] food -> produce
+  [FN] food -> seafood
+  [FN] food -> soul food
+  [FN] foodstuff -> concoction
+  [FN] foodstuff -> dairy product
+  [FN] foodstuff -> egg
+  [FN] foodstuff -> grain
+  [FN] foodstuff -> ingredient
+  [FN] foodstuff -> meal
+  [FN] foodstuff -> starches
+  [FN] meal -> pea flour
+  [FN] meat -> cut
+  [FN] meat -> jerky
+  [FN] nutriment -> course
+  [FN] nutriment -> dish
+  [FN] nutriment -> meal
+  [FN] nutriment -> vitamin
+  [FN] pastry -> pie
+  [FN] salad green -> lettuce
+  [FN] seafood -> octopus
+  [FN] snack food -> sandwich
+  [FN] starches -> bread
+  [FN] starches -> rice
+  [FN] sweet orange -> navel orange
+  [FN] sweet roll -> bear claw
+  [FN] water-soluble vitamin -> b-complex vitamin

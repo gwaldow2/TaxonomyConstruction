@@ -1,0 +1,197 @@
+==================================================
+=== Detailed Node Pair Analysis (Condensed Transitive Reduction) ===
+Match Type Used: SET_OVERLAP
+==================================================
+Precision: 0.3646 | Recall: 0.3889 | F1: 0.3763
+
+CORRECT PREDICTIONS (True Positives: 35 Pred edges covering 35 GT edges):
+  [TP] PRED: (angle -> solid angle)
+        matches GT: (angle -> solid angle)
+  [TP] PRED: (atom -> curium atom)
+        matches GT: (atom -> curium atom)
+  [TP] PRED: (atom -> gallium atom)
+        matches GT: (atom -> gallium atom)
+  [TP] PRED: (atom -> potassium atom)
+        matches GT: (atom -> potassium atom)
+  [TP] PRED: (atom -> rubidium atom)
+        matches GT: (atom -> rubidium atom)
+  [TP] PRED: (atom -> tellurium atom)
+        matches GT: (atom -> tellurium atom)
+  [TP] PRED: (atom -> terbium atom)
+        matches GT: (atom -> terbium atom)
+  [TP] PRED: (carbon allotrope -> fullerene)
+        matches GT: (carbon allotrope -> fullerene)
+  [TP] PRED: (chemical formula -> molecular formula)
+        matches GT: (chemical formula -> molecular formula)
+  [TP] PRED: (concentration -> amount of substance concentration)
+        matches GT: (concentration -> amount of substance concentration)
+  [TP] PRED: (continuant -> dependent_continuant)
+        matches GT: (continuant -> dependent_continuant)
+  [TP] PRED: (continuant -> independent_continuant)
+        matches GT: (continuant -> independent_continuant)
+  [TP] PRED: (density unit -> area density unit)
+        matches GT: (density unit -> area density unit)
+  [TP] PRED: (density unit -> linear density unit)
+        matches GT: (density unit -> linear density unit)
+  [TP] PRED: (electronegativity -> mulliken electronegativity)
+        matches GT: (electronegativity -> mulliken electronegativity)
+  [TP] PRED: (electronegativity -> pauling electronegativity)
+        matches GT: (electronegativity -> pauling electronegativity)
+  [TP] PRED: (homogeneous mixture -> solution)
+        matches GT: (homogeneous mixture -> solution)
+  [TP] PRED: (ion -> anion)
+        matches GT: (ion -> anion)
+  [TP] PRED: (material -> ceramic material)
+        matches GT: (material -> ceramic material)
+  [TP] PRED: (mixture -> homogeneous mixture)
+        matches GT: (mixture -> homogeneous mixture)
+  [TP] PRED: (organic compound -> imine)
+        matches GT: (organic compound -> imine)
+  [TP] PRED: (organic group -> thiol group)
+        matches GT: (organic group -> thiol group)
+  [TP] PRED: (quality -> chemical quality)
+        matches GT: (quality -> chemical quality)
+  [TP] PRED: (scaled unit -> peta scaled unit)
+        matches GT: (scaled unit -> peta scaled unit)
+  [TP] PRED: (scaled unit -> zepto scaled unit)
+        matches GT: (scaled unit -> zepto scaled unit)
+  [TP] PRED: (unit -> catalytic activity unit)
+        matches GT: (unit -> catalytic activity unit)
+  [TP] PRED: (unit -> conduction unit)
+        matches GT: (unit -> conduction unit)
+  [TP] PRED: (unit -> density unit)
+        matches GT: (unit -> density unit)
+  [TP] PRED: (unit -> derivedunit)
+        matches GT: (unit -> derivedunit)
+  [TP] PRED: (unit -> electric current unit)
+        matches GT: (unit -> electric current unit)
+  [TP] PRED: (unit -> electric resistance unit)
+        matches GT: (unit -> electric resistance unit)
+  [TP] PRED: (unit -> electromagnetic radiation unit)
+        matches GT: (unit -> electromagnetic radiation unit)
+  [TP] PRED: (unit -> energy unit)
+        matches GT: (unit -> energy unit)
+  [TP] PRED: (unit -> moment of force unit)
+        matches GT: (unit -> moment of force unit)
+  [TP] PRED: (unit -> radiation unit)
+        matches GT: (unit -> radiation unit)
+
+INCORRECT PREDICTIONS (False Positives: 61):
+  [FP] acyclic -> angular acceleration
+  [FP] aromatic -> aromaticity
+  [FP] aromaticity -> chiral center
+  [FP] atom -> element
+  [FP] atom -> ion
+  [FP] atom -> undefined stereo atom count
+  [FP] count -> moleculecomponentcount
+  [FP] density unit -> density
+  [FP] electromagnetic radiation unit -> permittivity
+  [FP] electromagnetic radiation unit -> wavenumber
+  [FP] electronegativity -> electric resistance
+  [FP] element -> periodic table element
+  [FP] exposure -> radiation
+  [FP] exposure -> site
+  [FP] homogeneous mixture -> organic compound
+  [FP] intensive property -> molar entropy
+  [FP] luminous flux unit -> magnetic flux
+  [FP] molar mass unit -> molecular center
+  [FP] molar mass unit -> velocity
+  [FP] molecular mass unit -> molar mass unit
+  [FP] molybdenum -> chaoite
+  [FP] molybdenum -> count
+  [FP] molybdenum -> cyclicity
+  [FP] molybdenum -> exposure
+  [FP] molybdenum -> hardness range
+  [FP] molybdenum -> magnesium
+  [FP] molybdenum -> promethium
+  [FP] molybdenum -> quality
+  [FP] molybdenum -> temperature
+  [FP] molybdenum -> xenon
+  [FP] organic compound -> acyclic
+  [FP] organic compound -> angle
+  [FP] organic compound -> aromatic
+  [FP] organic compound -> carbon allotrope
+  [FP] organic compound -> chemical class
+  [FP] organic compound -> concentration
+  [FP] organic compound -> continuant
+  [FP] organic compound -> general sulfinic acid group
+  [FP] organic compound -> identifier
+  [FP] organic compound -> intensive property
+  [FP] organic compound -> material
+  [FP] organic compound -> measured property
+  [FP] organic compound -> object
+  [FP] organic compound -> opticalisomer
+  [FP] organic compound -> organic group
+  [FP] organic compound -> periodic block
+  [FP] organic compound -> unit
+  [FP] p-block element -> darmstadtium
+  [FP] p-block element -> molybdenum
+  [FP] p-block element -> scandium
+  [FP] periodic table element -> p-block element
+  [FP] permittivity -> surface tension
+  [FP] quality -> molecularquality
+  [FP] surface tension -> electronegativity
+  [FP] surface tension -> flexural modulus
+  [FP] unit -> dose equivalent unit
+  [FP] unit -> luminous flux unit
+  [FP] unit -> scaled unit
+  [FP] unit -> unit raised to power
+  [FP] unit -> unit raised to power of negative one
+  [FP] unit -> unit raised to power of three
+
+MISSED RELATIONS (False Negatives: 55):
+  [FN] aromaticity -> aromatic
+  [FN] carbon allotrope -> chaoite
+  [FN] chemical quality -> chemical class
+  [FN] chemical quality -> chemical formula
+  [FN] chemical quality -> electronegativity
+  [FN] chemical quality -> molecular center
+  [FN] cyclicity -> acyclic
+  [FN] dependent_continuant -> quality
+  [FN] derivedunit -> scaled unit
+  [FN] electromagnetic radiation unit -> luminous flux unit
+  [FN] element -> darmstadtium
+  [FN] element -> magnesium
+  [FN] element -> molybdenum
+  [FN] element -> promethium
+  [FN] element -> scandium
+  [FN] element -> xenon
+  [FN] identifier -> molecular formula
+  [FN] independent_continuant -> object
+  [FN] independent_continuant -> site
+  [FN] intensive property -> flexural modulus
+  [FN] measured property -> angle
+  [FN] measured property -> angular acceleration
+  [FN] measured property -> concentration
+  [FN] measured property -> count
+  [FN] measured property -> density
+  [FN] measured property -> electric resistance
+  [FN] measured property -> intensive property
+  [FN] measured property -> magnetic flux
+  [FN] measured property -> molar entropy
+  [FN] measured property -> molecularquality
+  [FN] measured property -> permittivity
+  [FN] measured property -> radiation
+  [FN] measured property -> surface tension
+  [FN] measured property -> temperature
+  [FN] measured property -> velocity
+  [FN] measured property -> wavenumber
+  [FN] molecular center -> chiral center
+  [FN] molecularquality -> aromaticity
+  [FN] molecularquality -> cyclicity
+  [FN] molecularquality -> identifier
+  [FN] molecularquality -> moleculecomponentcount
+  [FN] moleculecomponentcount -> undefined stereo atom count
+  [FN] object -> atom
+  [FN] object -> mixture
+  [FN] object -> organic group
+  [FN] organic group -> general sulfinic acid group
+  [FN] periodic block -> p-block element
+  [FN] periodic table element -> periodic block
+  [FN] quality -> measured property
+  [FN] radiation -> exposure
+  [FN] radiation unit -> dose equivalent unit
+  [FN] unit -> molar mass unit
+  [FN] unit -> molecular mass unit
+  [FN] unit raised to power -> unit raised to power of negative one
+  [FN] unit raised to power -> unit raised to power of three

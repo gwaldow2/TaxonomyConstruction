@@ -1,0 +1,103 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d4" for="graph" attr.name="timestamp" attr.type="string"/>
+<key id="d3" for="graph" attr.name="scale" attr.type="string"/>
+<key id="d2" for="graph" attr.name="results_file" attr.type="string"/>
+<key id="d1" for="graph" attr.name="tag" attr.type="string"/>
+<key id="d0" for="graph" attr.name="model" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">openai/gpt-oss-120b</data>
+<data key="d1">baselines_oct</data>
+<data key="d2">results/baselines_7core.json</data>
+<data key="d3">SUB</data>
+<data key="d4">2026-10-01T20:52:24</data>
+<node id="clip"/>
+<node id="movieclip"/>
+<node id="measurementtypeenumeration"/>
+<node id="wearablemeasurementtypeenumeration"/>
+<node id="creativework"/>
+<node id="creativeworkseries"/>
+<node id="enumeration"/>
+<node id="sizegroupenumeration"/>
+<node id="adultorientedenumeration"/>
+<node id="certificationstatusenumeration"/>
+<node id="sizesystemenumeration"/>
+<node id="article"/>
+<node id="techarticle"/>
+<node id="action"/>
+<node id="bookmarkaction"/>
+<node id="authorizeaction"/>
+<node id="takeaction"/>
+<node id="tieaction"/>
+<node id="consumeaction"/>
+<node id="allocateaction"/>
+<node id="achieveaction"/>
+<node id="organizeaction"/>
+<node id="createaction"/>
+<node id="findaction"/>
+<node id="eataction"/>
+<node id="transferaction"/>
+<node id="assignaction"/>
+<node id="cookaction"/>
+<node id="intangible"/>
+<node id="medicalintangible"/>
+<node id="audience"/>
+<node id="peopleaudience"/>
+<node id="imageobject"/>
+<node id="imageobjectsnapshot"/>
+<node id="service"/>
+<node id="paymentservice"/>
+<node id="taxiservice"/>
+<node id="radiobroadcastservice"/>
+<node id="legalservice"/>
+<node id="emergencyservice"/>
+<node id="broadcastservice"/>
+<node id="itemlist"/>
+<node id="itemlistordertype"/>
+<node id="organization"/>
+<node id="researchorganization"/>
+<node id="medicalorganization"/>
+<node id="series"/>
+<node id="movieseries"/>
+<node id="radioseries"/>
+<node id="comicseries"/>
+<edge source="clip" target="movieclip"/>
+<edge source="measurementtypeenumeration" target="wearablemeasurementtypeenumeration"/>
+<edge source="creativework" target="creativeworkseries"/>
+<edge source="enumeration" target="sizegroupenumeration"/>
+<edge source="enumeration" target="adultorientedenumeration"/>
+<edge source="enumeration" target="measurementtypeenumeration"/>
+<edge source="enumeration" target="certificationstatusenumeration"/>
+<edge source="enumeration" target="sizesystemenumeration"/>
+<edge source="enumeration" target="wearablemeasurementtypeenumeration"/>
+<edge source="article" target="techarticle"/>
+<edge source="action" target="bookmarkaction"/>
+<edge source="action" target="authorizeaction"/>
+<edge source="action" target="takeaction"/>
+<edge source="action" target="tieaction"/>
+<edge source="action" target="consumeaction"/>
+<edge source="action" target="allocateaction"/>
+<edge source="action" target="achieveaction"/>
+<edge source="action" target="organizeaction"/>
+<edge source="action" target="createaction"/>
+<edge source="action" target="findaction"/>
+<edge source="action" target="eataction"/>
+<edge source="action" target="transferaction"/>
+<edge source="action" target="assignaction"/>
+<edge source="action" target="cookaction"/>
+<edge source="intangible" target="medicalintangible"/>
+<edge source="audience" target="peopleaudience"/>
+<edge source="imageobject" target="imageobjectsnapshot"/>
+<edge source="service" target="paymentservice"/>
+<edge source="service" target="taxiservice"/>
+<edge source="service" target="radiobroadcastservice"/>
+<edge source="service" target="legalservice"/>
+<edge source="service" target="emergencyservice"/>
+<edge source="service" target="broadcastservice"/>
+<edge source="broadcastservice" target="radiobroadcastservice"/>
+<edge source="itemlist" target="itemlistordertype"/>
+<edge source="organization" target="researchorganization"/>
+<edge source="organization" target="medicalorganization"/>
+<edge source="series" target="movieseries"/>
+<edge source="series" target="radioseries"/>
+<edge source="series" target="creativeworkseries"/>
+<edge source="series" target="comicseries"/>
+</graph></graphml>

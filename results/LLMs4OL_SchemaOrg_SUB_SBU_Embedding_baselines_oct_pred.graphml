@@ -1,0 +1,238 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d4" for="graph" attr.name="timestamp" attr.type="string"/>
+<key id="d3" for="graph" attr.name="scale" attr.type="string"/>
+<key id="d2" for="graph" attr.name="results_file" attr.type="string"/>
+<key id="d1" for="graph" attr.name="tag" attr.type="string"/>
+<key id="d0" for="graph" attr.name="model" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">openai/gpt-oss-120b</data>
+<data key="d1">baselines_oct</data>
+<data key="d2">results/baselines_7core.json</data>
+<data key="d3">SUB</data>
+<data key="d4">2026-10-01T20:52:24</data>
+<node id="socialmediaposting"/>
+<node id="blogposting"/>
+<node id="game"/>
+<node id="time"/>
+<node id="sizesystemenumeration"/>
+<node id="sizegroupenumeration"/>
+<node id="mediaenumeration"/>
+<node id="adultorientedenumeration"/>
+<node id="paymentmethod"/>
+<node id="paymentservice"/>
+<node id="buyaction"/>
+<node id="bookmarkaction"/>
+<node id="movieclip"/>
+<node id="clip"/>
+<node id="createaction"/>
+<node id="authorizeaction"/>
+<node id="measurementmethodenum"/>
+<node id="measurementtypeenumeration"/>
+<node id="creativeworkseries"/>
+<node id="creativework"/>
+<node id="tradeaction"/>
+<node id="takeaction"/>
+<node id="movieseries"/>
+<node id="medicalprocedure"/>
+<node id="surgicalprocedure"/>
+<node id="motel"/>
+<node id="lodgingbusiness"/>
+<node id="statusenumeration"/>
+<node id="enumeration"/>
+<node id="entertainmentbusiness"/>
+<node id="localbusiness"/>
+<node id="book"/>
+<node id="article"/>
+<node id="invoice"/>
+<node id="collection"/>
+<node id="periodical"/>
+<node id="offer"/>
+<node id="therapeuticprocedure"/>
+<node id="tipaction"/>
+<node id="tieaction"/>
+<node id="rating"/>
+<node id="review"/>
+<node id="eataction"/>
+<node id="consumeaction"/>
+<node id="presentationdigitaldocument"/>
+<node id="speakablespecification"/>
+<node id="audience"/>
+<node id="observation"/>
+<node id="allocateaction"/>
+<node id="medicalorganization"/>
+<node id="pharmacy"/>
+<node id="radioseries"/>
+<node id="findaction"/>
+<node id="achieveaction"/>
+<node id="placeofworship"/>
+<node id="tenniscomplex"/>
+<node id="governmentbuilding"/>
+<node id="governmentbenefitstype"/>
+<node id="foodestablishment"/>
+<node id="bakery"/>
+<node id="protein"/>
+<node id="howtostep"/>
+<node id="service"/>
+<node id="product"/>
+<node id="contactpoint"/>
+<node id="entrypoint"/>
+<node id="peopleaudience"/>
+<node id="action"/>
+<node id="intangible"/>
+<node id="medicalintangible"/>
+<node id="medicalentity"/>
+<node id="taxiservice"/>
+<node id="eventstatustype"/>
+<node id="event"/>
+<node id="seat"/>
+<node id="ticket"/>
+<node id="shortstory"/>
+<node id="medicalwebpage"/>
+<node id="medicalcode"/>
+<node id="audiobook"/>
+<node id="sheetmusic"/>
+<node id="certificationstatusenumeration"/>
+<node id="broadcastservice"/>
+<node id="radiobroadcastservice"/>
+<node id="researchorganization"/>
+<node id="gameserverstatus"/>
+<node id="recommendation"/>
+<node id="orderaction"/>
+<node id="organizeaction"/>
+<node id="busorcoach"/>
+<node id="legalforcestatus"/>
+<node id="legalservice"/>
+<node id="imageobjectsnapshot"/>
+<node id="imageobject"/>
+<node id="medicaltherapy"/>
+<node id="constraintnode"/>
+<node id="itemlist"/>
+<node id="listitem"/>
+<node id="itemlistordertype"/>
+<node id="emergencyservice"/>
+<node id="paymentstatustype"/>
+<node id="techarticle"/>
+<node id="wearablemeasurementtypeenumeration"/>
+<node id="organization"/>
+<node id="collectionpage"/>
+<node id="datatype"/>
+<node id="physicalactivitycategory"/>
+<node id="place"/>
+<node id="zoo"/>
+<node id="moveaction"/>
+<node id="transferaction"/>
+<node id="civicstructure"/>
+<node id="assignaction"/>
+<node id="volcano"/>
+<node id="sculpture"/>
+<node id="conversation"/>
+<node id="exercisegym"/>
+<node id="ampstory"/>
+<node id="vehicle"/>
+<node id="comicseries"/>
+<node id="series"/>
+<node id="travelaction"/>
+<node id="sportsactivitylocation"/>
+<node id="cookaction"/>
+<edge source="socialmediaposting" target="blogposting"/>
+<edge source="blogposting" target="socialmediaposting"/>
+<edge source="game" target="time"/>
+<edge source="sizesystemenumeration" target="sizegroupenumeration"/>
+<edge source="sizegroupenumeration" target="sizesystemenumeration"/>
+<edge source="mediaenumeration" target="adultorientedenumeration"/>
+<edge source="mediaenumeration" target="techarticle"/>
+<edge source="paymentmethod" target="paymentservice"/>
+<edge source="paymentservice" target="invoice"/>
+<edge source="paymentservice" target="taxiservice"/>
+<edge source="buyaction" target="bookmarkaction"/>
+<edge source="buyaction" target="eataction"/>
+<edge source="movieclip" target="clip"/>
+<edge source="clip" target="movieclip"/>
+<edge source="createaction" target="authorizeaction"/>
+<edge source="createaction" target="findaction"/>
+<edge source="createaction" target="assignaction"/>
+<edge source="measurementmethodenum" target="measurementtypeenumeration"/>
+<edge source="measurementtypeenumeration" target="measurementmethodenum"/>
+<edge source="measurementtypeenumeration" target="wearablemeasurementtypeenumeration"/>
+<edge source="creativeworkseries" target="creativework"/>
+<edge source="creativeworkseries" target="movieseries"/>
+<edge source="tradeaction" target="takeaction"/>
+<edge source="tradeaction" target="offer"/>
+<edge source="takeaction" target="action"/>
+<edge source="movieseries" target="radioseries"/>
+<edge source="movieseries" target="creativeworkseries"/>
+<edge source="movieseries" target="comicseries"/>
+<edge source="movieseries" target="series"/>
+<edge source="medicalprocedure" target="surgicalprocedure"/>
+<edge source="medicalprocedure" target="therapeuticprocedure"/>
+<edge source="medicalprocedure" target="medicalentity"/>
+<edge source="surgicalprocedure" target="medicalprocedure"/>
+<edge source="motel" target="lodgingbusiness"/>
+<edge source="lodgingbusiness" target="motel"/>
+<edge source="statusenumeration" target="enumeration"/>
+<edge source="statusenumeration" target="certificationstatusenumeration"/>
+<edge source="entertainmentbusiness" target="localbusiness"/>
+<edge source="localbusiness" target="entertainmentbusiness"/>
+<edge source="book" target="article"/>
+<edge source="book" target="shortstory"/>
+<edge source="book" target="recommendation"/>
+<edge source="collection" target="periodical"/>
+<edge source="therapeuticprocedure" target="medicaltherapy"/>
+<edge source="tipaction" target="tieaction"/>
+<edge source="tieaction" target="allocateaction"/>
+<edge source="tieaction" target="constraintnode"/>
+<edge source="rating" target="review"/>
+<edge source="eataction" target="consumeaction"/>
+<edge source="eataction" target="foodestablishment"/>
+<edge source="eataction" target="exercisegym"/>
+<edge source="eataction" target="cookaction"/>
+<edge source="presentationdigitaldocument" target="speakablespecification"/>
+<edge source="audience" target="observation"/>
+<edge source="audience" target="peopleaudience"/>
+<edge source="audience" target="conversation"/>
+<edge source="medicalorganization" target="pharmacy"/>
+<edge source="medicalorganization" target="researchorganization"/>
+<edge source="findaction" target="achieveaction"/>
+<edge source="findaction" target="createaction"/>
+<edge source="findaction" target="physicalactivitycategory"/>
+<edge source="placeofworship" target="tenniscomplex"/>
+<edge source="placeofworship" target="place"/>
+<edge source="placeofworship" target="ampstory"/>
+<edge source="governmentbuilding" target="governmentbenefitstype"/>
+<edge source="governmentbuilding" target="civicstructure"/>
+<edge source="governmentbenefitstype" target="datatype"/>
+<edge source="governmentbenefitstype" target="governmentbuilding"/>
+<edge source="foodestablishment" target="bakery"/>
+<edge source="protein" target="howtostep"/>
+<edge source="service" target="product"/>
+<edge source="service" target="emergencyservice"/>
+<edge source="contactpoint" target="entrypoint"/>
+<edge source="peopleaudience" target="audience"/>
+<edge source="intangible" target="medicalintangible"/>
+<edge source="medicalintangible" target="intangible"/>
+<edge source="taxiservice" target="busorcoach"/>
+<edge source="eventstatustype" target="event"/>
+<edge source="seat" target="ticket"/>
+<edge source="seat" target="vehicle"/>
+<edge source="medicalwebpage" target="medicalcode"/>
+<edge source="audiobook" target="sheetmusic"/>
+<edge source="broadcastservice" target="radiobroadcastservice"/>
+<edge source="radiobroadcastservice" target="broadcastservice"/>
+<edge source="researchorganization" target="medicalorganization"/>
+<edge source="gameserverstatus" target="game"/>
+<edge source="orderaction" target="organizeaction"/>
+<edge source="organizeaction" target="organization"/>
+<edge source="legalforcestatus" target="legalservice"/>
+<edge source="imageobjectsnapshot" target="imageobject"/>
+<edge source="imageobject" target="imageobjectsnapshot"/>
+<edge source="itemlist" target="listitem"/>
+<edge source="itemlist" target="itemlistordertype"/>
+<edge source="itemlistordertype" target="itemlist"/>
+<edge source="emergencyservice" target="service"/>
+<edge source="paymentstatustype" target="paymentmethod"/>
+<edge source="collectionpage" target="collection"/>
+<edge source="place" target="zoo"/>
+<edge source="moveaction" target="transferaction"/>
+<edge source="volcano" target="sculpture"/>
+<edge source="vehicle" target="seat"/>
+<edge source="travelaction" target="sportsactivitylocation"/>
+</graph></graphml>

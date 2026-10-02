@@ -1,0 +1,117 @@
+==================================================
+=== Detailed Node Pair Analysis (Exploded Raw Edges) ===
+Match Type Used: EXACT
+==================================================
+Precision: 0.5152 | Recall: 0.1889 | F1: 0.2764
+
+CORRECT PREDICTIONS (True Positives: 17 Pred edges covering 17 GT edges):
+  [TP] angle -> solid angle
+  [TP] atom -> potassium atom
+  [TP] atom -> rubidium atom
+  [TP] atom -> tellurium atom
+  [TP] chemical formula -> molecular formula
+  [TP] concentration -> amount of substance concentration
+  [TP] density unit -> area density unit
+  [TP] density unit -> linear density unit
+  [TP] electronegativity -> mulliken electronegativity
+  [TP] electronegativity -> pauling electronegativity
+  [TP] material -> ceramic material
+  [TP] mixture -> homogeneous mixture
+  [TP] scaled unit -> peta scaled unit
+  [TP] scaled unit -> zepto scaled unit
+  [TP] unit -> energy unit
+  [TP] unit raised to power -> unit raised to power of negative one
+  [TP] unit raised to power -> unit raised to power of three
+
+INCORRECT PREDICTIONS (False Positives: 16):
+  [FP] area density unit -> linear density unit
+  [FP] aromatic -> aromaticity
+  [FP] conduction unit -> electric current unit
+  [FP] density -> area density unit
+  [FP] density -> density unit
+  [FP] dependent_continuant -> independent_continuant
+  [FP] electric current unit -> electric resistance unit
+  [FP] electric resistance -> electric resistance unit
+  [FP] energy unit -> radiation unit
+  [FP] molar mass unit -> molecular mass unit
+  [FP] organic group -> organic compound
+  [FP] pauling electronegativity -> mulliken electronegativity
+  [FP] radiation -> electromagnetic radiation unit
+  [FP] radiation -> radiation unit
+  [FP] radiation unit -> electromagnetic radiation unit
+  [FP] unit raised to power of three -> unit raised to power of negative one
+
+MISSED RELATIONS (False Negatives: 73):
+  [FN] aromaticity -> aromatic
+  [FN] atom -> curium atom
+  [FN] atom -> gallium atom
+  [FN] atom -> terbium atom
+  [FN] carbon allotrope -> chaoite
+  [FN] carbon allotrope -> fullerene
+  [FN] chemical quality -> chemical class
+  [FN] chemical quality -> chemical formula
+  [FN] chemical quality -> electronegativity
+  [FN] chemical quality -> molecular center
+  [FN] continuant -> dependent_continuant
+  [FN] continuant -> independent_continuant
+  [FN] cyclicity -> acyclic
+  [FN] dependent_continuant -> quality
+  [FN] derivedunit -> scaled unit
+  [FN] electromagnetic radiation unit -> luminous flux unit
+  [FN] element -> darmstadtium
+  [FN] element -> magnesium
+  [FN] element -> molybdenum
+  [FN] element -> promethium
+  [FN] element -> scandium
+  [FN] element -> xenon
+  [FN] homogeneous mixture -> solution
+  [FN] identifier -> molecular formula
+  [FN] independent_continuant -> object
+  [FN] independent_continuant -> site
+  [FN] intensive property -> flexural modulus
+  [FN] ion -> anion
+  [FN] measured property -> angle
+  [FN] measured property -> angular acceleration
+  [FN] measured property -> concentration
+  [FN] measured property -> count
+  [FN] measured property -> density
+  [FN] measured property -> electric resistance
+  [FN] measured property -> intensive property
+  [FN] measured property -> magnetic flux
+  [FN] measured property -> molar entropy
+  [FN] measured property -> molecularquality
+  [FN] measured property -> permittivity
+  [FN] measured property -> radiation
+  [FN] measured property -> surface tension
+  [FN] measured property -> temperature
+  [FN] measured property -> velocity
+  [FN] measured property -> wavenumber
+  [FN] molecular center -> chiral center
+  [FN] molecularquality -> aromaticity
+  [FN] molecularquality -> cyclicity
+  [FN] molecularquality -> identifier
+  [FN] molecularquality -> moleculecomponentcount
+  [FN] moleculecomponentcount -> undefined stereo atom count
+  [FN] object -> atom
+  [FN] object -> mixture
+  [FN] object -> organic group
+  [FN] organic compound -> imine
+  [FN] organic group -> general sulfinic acid group
+  [FN] organic group -> thiol group
+  [FN] periodic block -> p-block element
+  [FN] periodic table element -> periodic block
+  [FN] quality -> chemical quality
+  [FN] quality -> measured property
+  [FN] radiation -> exposure
+  [FN] radiation unit -> dose equivalent unit
+  [FN] unit -> catalytic activity unit
+  [FN] unit -> conduction unit
+  [FN] unit -> density unit
+  [FN] unit -> derivedunit
+  [FN] unit -> electric current unit
+  [FN] unit -> electric resistance unit
+  [FN] unit -> electromagnetic radiation unit
+  [FN] unit -> molar mass unit
+  [FN] unit -> molecular mass unit
+  [FN] unit -> moment of force unit
+  [FN] unit -> radiation unit

@@ -1,0 +1,84 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d4" for="graph" attr.name="timestamp" attr.type="string"/>
+<key id="d3" for="graph" attr.name="scale" attr.type="string"/>
+<key id="d2" for="graph" attr.name="results_file" attr.type="string"/>
+<key id="d1" for="graph" attr.name="tag" attr.type="string"/>
+<key id="d0" for="graph" attr.name="model" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">openai/gpt-oss-120b</data>
+<data key="d1">baselines_oct</data>
+<data key="d2">results/baselines_7core.json</data>
+<data key="d3">SUB</data>
+<data key="d4">2026-10-01T20:52:24</data>
+<node id="jelly"/>
+<node id="crabapple jelly"/>
+<node id="apple jelly"/>
+<node id="herb"/>
+<node id="herb tea"/>
+<node id="hard sauce"/>
+<node id="steak sauce"/>
+<node id="potato"/>
+<node id="mashed potato"/>
+<node id="corn"/>
+<node id="popcorn"/>
+<node id="sauce"/>
+<node id="tea"/>
+<node id="sun tea"/>
+<node id="camomile tea"/>
+<node id="bread"/>
+<node id="french bread"/>
+<node id="flatbread"/>
+<node id="white bread"/>
+<node id="meal"/>
+<node id="eatage"/>
+<node id="relish"/>
+<node id="pickle relish"/>
+<node id="gin"/>
+<node id="gin and it"/>
+<node id="vitamin"/>
+<node id="water soluble vitamin"/>
+<node id="vitamin b2"/>
+<node id="b complex vitamin"/>
+<node id="liquor"/>
+<node id="cocktail"/>
+<node id="candy"/>
+<node id="hard candy"/>
+<node id="baguet"/>
+<node id="soda water"/>
+<node id="sugar water"/>
+<node id="drinking water"/>
+<node id="mayonnaise"/>
+<node id="green mayonnaise"/>
+<node id="water"/>
+<edge source="jelly" target="crabapple jelly"/>
+<edge source="jelly" target="apple jelly"/>
+<edge source="apple jelly" target="crabapple jelly"/>
+<edge source="herb" target="herb tea"/>
+<edge source="hard sauce" target="steak sauce"/>
+<edge source="potato" target="mashed potato"/>
+<edge source="corn" target="popcorn"/>
+<edge source="sauce" target="hard sauce"/>
+<edge source="sauce" target="steak sauce"/>
+<edge source="tea" target="sun tea"/>
+<edge source="tea" target="camomile tea"/>
+<edge source="tea" target="herb tea"/>
+<edge source="bread" target="french bread"/>
+<edge source="bread" target="flatbread"/>
+<edge source="bread" target="white bread"/>
+<edge source="white bread" target="french bread"/>
+<edge source="meal" target="eatage"/>
+<edge source="relish" target="pickle relish"/>
+<edge source="gin" target="gin and it"/>
+<edge source="vitamin" target="water soluble vitamin"/>
+<edge source="vitamin" target="vitamin b2"/>
+<edge source="vitamin" target="b complex vitamin"/>
+<edge source="vitamin b2" target="b complex vitamin"/>
+<edge source="liquor" target="cocktail"/>
+<edge source="candy" target="hard candy"/>
+<edge source="baguet" target="french bread"/>
+<edge source="soda water" target="sugar water"/>
+<edge source="soda water" target="drinking water"/>
+<edge source="mayonnaise" target="green mayonnaise"/>
+<edge source="water" target="sugar water"/>
+<edge source="water" target="drinking water"/>
+<edge source="water" target="soda water"/>
+</graph></graphml>

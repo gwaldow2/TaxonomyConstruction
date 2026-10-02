@@ -1,0 +1,376 @@
+==================================================
+=== Detailed Node Pair Analysis (Condensed Transitive Closure) ===
+Match Type Used: SET_OVERLAP
+==================================================
+Precision: 0.5652 | Recall: 0.0815 | F1: 0.1425
+
+CORRECT PREDICTIONS (True Positives: 26 Pred edges covering 26 GT edges):
+  [TP] PRED: (abscission zone -> floral organ abscission zone)
+        matches GT: (abscission zone -> floral organ abscission zone)
+  [TP] PRED: (cambium -> cork cambium)
+        matches GT: (cambium -> cork cambium)
+  [TP] PRED: (central root cap -> central root cap of lateral root)
+        matches GT: (central root cap -> central root cap of lateral root)
+  [TP] PRED: (flower -> pistillate flower)
+        matches GT: (flower -> pistillate flower)
+  [TP] PRED: (fruit -> samara fruit)
+        matches GT: (fruit -> samara fruit)
+  [TP] PRED: (fruit pedicel -> infructescence fruit pedicel)
+        matches GT: (fruit pedicel -> infructescence fruit pedicel)
+  [TP] PRED: (lateral root cap -> lateral root cap of lateral root)
+        matches GT: (lateral root cap -> lateral root cap of lateral root)
+  [TP] PRED: (lateral root cap -> lateral root cap of primary root)
+        matches GT: (lateral root cap -> lateral root cap of primary root)
+  [TP] PRED: (leaf -> adult vascular leaf)
+        matches GT: (leaf -> adult vascular leaf)
+  [TP] PRED: (leaf -> flag leaf)
+        matches GT: (leaf -> flag leaf)
+  [TP] PRED: (leaf -> spine leaf)
+        matches GT: (leaf -> spine leaf)
+  [TP] PRED: (leaf -> vascular leaf)
+        matches GT: (leaf -> vascular leaf)
+  [TP] PRED: (parenchyma -> root parenchyma)
+        matches GT: (parenchyma -> root parenchyma)
+  [TP] PRED: (pith -> tuber pith)
+        matches GT: (pith -> tuber pith)
+  [TP] PRED: (plant structure -> cardinal part of multi-tissue plant structure)
+        matches GT: (plant structure -> cardinal part of multi-tissue plant structure)
+  [TP] PRED: (plant structure -> multi-tissue plant structure)
+        matches GT: (plant structure -> multi-tissue plant structure)
+  [TP] PRED: (primordium -> root primordium)
+        matches GT: (primordium -> root primordium)
+  [TP] PRED: (procambium -> leaf procambium)
+        matches GT: (procambium -> leaf procambium)
+  [TP] PRED: (procambium -> shoot procambium)
+        matches GT: (procambium -> shoot procambium)
+  [TP] PRED: (reproductive bud -> terminal reproductive bud)
+        matches GT: (reproductive bud -> terminal reproductive bud)
+  [TP] PRED: (storage parenchyma -> tuber storage parenchyma)
+        matches GT: (storage parenchyma -> tuber storage parenchyma)
+  [TP] PRED: (strobilus bud -> terminal strobilus bud)
+        matches GT: (strobilus bud -> terminal strobilus bud)
+  [TP] PRED: (tuber axillary shoot -> subterranean tuber axillary shoot)
+        matches GT: (tuber axillary shoot -> subterranean tuber axillary shoot)
+  [TP] PRED: (upper glume -> upper glume of pedicellate spikelet of tassel)
+        matches GT: (upper glume -> upper glume of pedicellate spikelet of tassel)
+  [TP] PRED: (upper glume -> upper glume of tassel spikelet)
+        matches GT: (upper glume -> upper glume of tassel spikelet)
+  [TP] PRED: (vascular leaf -> adult vascular leaf)
+        matches GT: (vascular leaf -> adult vascular leaf)
+
+INCORRECT PREDICTIONS (False Positives: 20):
+  [FP] axil -> subterranean tuber axillary shoot
+  [FP] axil -> tuber axillary shoot
+  [FP] cambium -> leaf procambium
+  [FP] cambium -> procambium
+  [FP] cambium -> shoot procambium
+  [FP] chlorenchyma -> chlorenchyma cell
+  [FP] fruit -> fruit pedicel
+  [FP] fruit -> infructescence fruit pedicel
+  [FP] leaf -> leaf adaxial epidermis
+  [FP] leaf -> leaf epidermis
+  [FP] leaf -> leaf lamina adaxial epidermis
+  [FP] leaf -> leaf lamina epidermis
+  [FP] leaf -> leaf procambium
+  [FP] multi-tissue plant structure -> cardinal part of multi-tissue plant structure
+  [FP] parenchyma -> parenchyma cell
+  [FP] parenchyma -> storage parenchyma
+  [FP] parenchyma -> tuber storage parenchyma
+  [FP] phyllome -> phyllome epidermis
+  [FP] shoot system -> reproductive shoot system
+  [FP] shoot system -> shoot system epidermis
+
+MISSED RELATIONS (False Negatives: 293):
+  [FN] adult vascular leaf -> flag leaf
+  [FN] bract epidermis -> bract adaxial epidermis
+  [FN] cardinal organ part -> branch internode differentiation zone
+  [FN] cardinal organ part -> plant axis differentiation zone
+  [FN] cardinal organ part -> pulvinus
+  [FN] cardinal organ part -> shoot internode differentiation zone
+  [FN] cardinal part of multi-tissue plant structure -> branch internode differentiation zone
+  [FN] cardinal part of multi-tissue plant structure -> cardinal organ part
+  [FN] cardinal part of multi-tissue plant structure -> plant axis differentiation zone
+  [FN] cardinal part of multi-tissue plant structure -> pulvinus
+  [FN] cardinal part of multi-tissue plant structure -> shoot internode differentiation zone
+  [FN] carpel epidermis -> style epidermis
+  [FN] chlorenchyma -> plant ovary wall middle layer
+  [FN] chlorenchyma cell -> mesophyll cell
+  [FN] flower -> ear floret
+  [FN] flower -> spikelet floret
+  [FN] ground tissue cell -> chlorenchyma cell
+  [FN] ground tissue cell -> mesophyll cell
+  [FN] ground tissue cell -> parenchyma cell
+  [FN] lateral meristem -> cambium
+  [FN] lateral meristem -> cork cambium
+  [FN] leaf adaxial epidermis -> leaf lamina adaxial epidermis
+  [FN] leaf epidermis -> leaf adaxial epidermis
+  [FN] leaf epidermis -> leaf lamina adaxial epidermis
+  [FN] leaf epidermis -> leaf lamina epidermis
+  [FN] leaf lamina epidermis -> leaf lamina adaxial epidermis
+  [FN] multi-tissue plant structure -> adult vascular leaf
+  [FN] multi-tissue plant structure -> flag leaf
+  [FN] multi-tissue plant structure -> fruit
+  [FN] multi-tissue plant structure -> leaf
+  [FN] multi-tissue plant structure -> phyllome
+  [FN] multi-tissue plant structure -> plant organ
+  [FN] multi-tissue plant structure -> samara fruit
+  [FN] multi-tissue plant structure -> spine leaf
+  [FN] multi-tissue plant structure -> sporophyll
+  [FN] multi-tissue plant structure -> vascular leaf
+  [FN] native plant cell -> chlorenchyma cell
+  [FN] native plant cell -> embryo sac egg cell
+  [FN] native plant cell -> ground tissue cell
+  [FN] native plant cell -> mesophyll cell
+  [FN] native plant cell -> parenchyma cell
+  [FN] native plant cell -> plant egg cell
+  [FN] native plant cell -> plant gamete
+  [FN] native plant cell -> plant sperm cell
+  [FN] parenchyma -> central root cap
+  [FN] parenchyma -> central root cap of lateral root
+  [FN] parenchyma -> chlorenchyma
+  [FN] parenchyma -> lateral root cap
+  [FN] parenchyma -> lateral root cap of lateral root
+  [FN] parenchyma -> lateral root cap of primary root
+  [FN] parenchyma -> pith
+  [FN] parenchyma -> plant ovary wall middle layer
+  [FN] parenchyma -> tuber pith
+  [FN] parenchyma cell -> chlorenchyma cell
+  [FN] parenchyma cell -> mesophyll cell
+  [FN] phyllome -> adult vascular leaf
+  [FN] phyllome -> flag leaf
+  [FN] phyllome -> leaf
+  [FN] phyllome -> spine leaf
+  [FN] phyllome -> sporophyll
+  [FN] phyllome -> vascular leaf
+  [FN] phyllome epidermis -> bract adaxial epidermis
+  [FN] phyllome epidermis -> bract epidermis
+  [FN] phyllome epidermis -> carpel epidermis
+  [FN] phyllome epidermis -> leaf adaxial epidermis
+  [FN] phyllome epidermis -> leaf epidermis
+  [FN] phyllome epidermis -> leaf lamina adaxial epidermis
+  [FN] phyllome epidermis -> leaf lamina epidermis
+  [FN] phyllome epidermis -> style epidermis
+  [FN] pistillate flower -> ear floret
+  [FN] plant anatomical entity -> abscission zone
+  [FN] plant anatomical entity -> adult vascular leaf
+  [FN] plant anatomical entity -> bract adaxial epidermis
+  [FN] plant anatomical entity -> bract epidermis
+  [FN] plant anatomical entity -> branch internode differentiation zone
+  [FN] plant anatomical entity -> cambium
+  [FN] plant anatomical entity -> cardinal organ part
+  [FN] plant anatomical entity -> cardinal part of multi-tissue plant structure
+  [FN] plant anatomical entity -> carpel epidermis
+  [FN] plant anatomical entity -> central endosperm
+  [FN] plant anatomical entity -> central root cap
+  [FN] plant anatomical entity -> central root cap of lateral root
+  [FN] plant anatomical entity -> chlorenchyma
+  [FN] plant anatomical entity -> coma
+  [FN] plant anatomical entity -> cork cambium
+  [FN] plant anatomical entity -> flag leaf
+  [FN] plant anatomical entity -> floral organ abscission zone
+  [FN] plant anatomical entity -> fruit
+  [FN] plant anatomical entity -> lateral meristem
+  [FN] plant anatomical entity -> lateral root cap
+  [FN] plant anatomical entity -> lateral root cap of lateral root
+  [FN] plant anatomical entity -> lateral root cap of primary root
+  [FN] plant anatomical entity -> leaf
+  [FN] plant anatomical entity -> leaf adaxial epidermis
+  [FN] plant anatomical entity -> leaf epidermis
+  [FN] plant anatomical entity -> leaf lamina adaxial epidermis
+  [FN] plant anatomical entity -> leaf lamina epidermis
+  [FN] plant anatomical entity -> multi-tissue plant structure
+  [FN] plant anatomical entity -> parenchyma
+  [FN] plant anatomical entity -> phyllome
+  [FN] plant anatomical entity -> phyllome epidermis
+  [FN] plant anatomical entity -> pith
+  [FN] plant anatomical entity -> plant axis differentiation zone
+  [FN] plant anatomical entity -> plant callus
+  [FN] plant anatomical entity -> plant epidermis
+  [FN] plant anatomical entity -> plant organ
+  [FN] plant anatomical entity -> plant ovary wall middle layer
+  [FN] plant anatomical entity -> plant structure
+  [FN] plant anatomical entity -> portion of ground tissue
+  [FN] plant anatomical entity -> portion of meristem tissue
+  [FN] plant anatomical entity -> portion of plant tissue
+  [FN] plant anatomical entity -> pulvinus
+  [FN] plant anatomical entity -> root parenchyma
+  [FN] plant anatomical entity -> samara fruit
+  [FN] plant anatomical entity -> seed coat epidermis
+  [FN] plant anatomical entity -> shoot internode differentiation zone
+  [FN] plant anatomical entity -> shoot system epidermis
+  [FN] plant anatomical entity -> spine leaf
+  [FN] plant anatomical entity -> sporophyll
+  [FN] plant anatomical entity -> style epidermis
+  [FN] plant anatomical entity -> tuber pith
+  [FN] plant anatomical entity -> vascular leaf
+  [FN] plant axis differentiation zone -> branch internode differentiation zone
+  [FN] plant axis differentiation zone -> shoot internode differentiation zone
+  [FN] plant egg cell -> embryo sac egg cell
+  [FN] plant epidermis -> bract adaxial epidermis
+  [FN] plant epidermis -> bract epidermis
+  [FN] plant epidermis -> carpel epidermis
+  [FN] plant epidermis -> coma
+  [FN] plant epidermis -> leaf adaxial epidermis
+  [FN] plant epidermis -> leaf epidermis
+  [FN] plant epidermis -> leaf lamina adaxial epidermis
+  [FN] plant epidermis -> leaf lamina epidermis
+  [FN] plant epidermis -> phyllome epidermis
+  [FN] plant epidermis -> seed coat epidermis
+  [FN] plant epidermis -> shoot system epidermis
+  [FN] plant epidermis -> style epidermis
+  [FN] plant gamete -> embryo sac egg cell
+  [FN] plant gamete -> plant egg cell
+  [FN] plant gamete -> plant sperm cell
+  [FN] plant organ -> adult vascular leaf
+  [FN] plant organ -> flag leaf
+  [FN] plant organ -> leaf
+  [FN] plant organ -> phyllome
+  [FN] plant organ -> spine leaf
+  [FN] plant organ -> sporophyll
+  [FN] plant organ -> vascular leaf
+  [FN] plant structure -> abscission zone
+  [FN] plant structure -> adult vascular leaf
+  [FN] plant structure -> bract adaxial epidermis
+  [FN] plant structure -> bract epidermis
+  [FN] plant structure -> branch internode differentiation zone
+  [FN] plant structure -> cambium
+  [FN] plant structure -> cardinal organ part
+  [FN] plant structure -> carpel epidermis
+  [FN] plant structure -> central endosperm
+  [FN] plant structure -> central root cap
+  [FN] plant structure -> central root cap of lateral root
+  [FN] plant structure -> chlorenchyma
+  [FN] plant structure -> coma
+  [FN] plant structure -> cork cambium
+  [FN] plant structure -> flag leaf
+  [FN] plant structure -> floral organ abscission zone
+  [FN] plant structure -> fruit
+  [FN] plant structure -> lateral meristem
+  [FN] plant structure -> lateral root cap
+  [FN] plant structure -> lateral root cap of lateral root
+  [FN] plant structure -> lateral root cap of primary root
+  [FN] plant structure -> leaf
+  [FN] plant structure -> leaf adaxial epidermis
+  [FN] plant structure -> leaf epidermis
+  [FN] plant structure -> leaf lamina adaxial epidermis
+  [FN] plant structure -> leaf lamina epidermis
+  [FN] plant structure -> parenchyma
+  [FN] plant structure -> phyllome
+  [FN] plant structure -> phyllome epidermis
+  [FN] plant structure -> pith
+  [FN] plant structure -> plant axis differentiation zone
+  [FN] plant structure -> plant callus
+  [FN] plant structure -> plant epidermis
+  [FN] plant structure -> plant organ
+  [FN] plant structure -> plant ovary wall middle layer
+  [FN] plant structure -> portion of ground tissue
+  [FN] plant structure -> portion of meristem tissue
+  [FN] plant structure -> portion of plant tissue
+  [FN] plant structure -> pulvinus
+  [FN] plant structure -> root parenchyma
+  [FN] plant structure -> samara fruit
+  [FN] plant structure -> seed coat epidermis
+  [FN] plant structure -> shoot internode differentiation zone
+  [FN] plant structure -> shoot system epidermis
+  [FN] plant structure -> spine leaf
+  [FN] plant structure -> sporophyll
+  [FN] plant structure -> style epidermis
+  [FN] plant structure -> tuber pith
+  [FN] plant structure -> vascular leaf
+  [FN] po_0000055 -> reproductive bud
+  [FN] po_0000055 -> strobilus bud
+  [FN] po_0000055 -> terminal bud
+  [FN] po_0000055 -> terminal reproductive bud
+  [FN] po_0000055 -> terminal strobilus bud
+  [FN] portion of ground tissue -> central root cap
+  [FN] portion of ground tissue -> central root cap of lateral root
+  [FN] portion of ground tissue -> chlorenchyma
+  [FN] portion of ground tissue -> lateral root cap
+  [FN] portion of ground tissue -> lateral root cap of lateral root
+  [FN] portion of ground tissue -> lateral root cap of primary root
+  [FN] portion of ground tissue -> parenchyma
+  [FN] portion of ground tissue -> pith
+  [FN] portion of ground tissue -> plant ovary wall middle layer
+  [FN] portion of ground tissue -> root parenchyma
+  [FN] portion of ground tissue -> tuber pith
+  [FN] portion of meristem tissue -> cambium
+  [FN] portion of meristem tissue -> cork cambium
+  [FN] portion of meristem tissue -> lateral meristem
+  [FN] portion of plant tissue -> abscission zone
+  [FN] portion of plant tissue -> bract adaxial epidermis
+  [FN] portion of plant tissue -> bract epidermis
+  [FN] portion of plant tissue -> cambium
+  [FN] portion of plant tissue -> carpel epidermis
+  [FN] portion of plant tissue -> central endosperm
+  [FN] portion of plant tissue -> central root cap
+  [FN] portion of plant tissue -> central root cap of lateral root
+  [FN] portion of plant tissue -> chlorenchyma
+  [FN] portion of plant tissue -> coma
+  [FN] portion of plant tissue -> cork cambium
+  [FN] portion of plant tissue -> floral organ abscission zone
+  [FN] portion of plant tissue -> lateral meristem
+  [FN] portion of plant tissue -> lateral root cap
+  [FN] portion of plant tissue -> lateral root cap of lateral root
+  [FN] portion of plant tissue -> lateral root cap of primary root
+  [FN] portion of plant tissue -> leaf adaxial epidermis
+  [FN] portion of plant tissue -> leaf epidermis
+  [FN] portion of plant tissue -> leaf lamina adaxial epidermis
+  [FN] portion of plant tissue -> leaf lamina epidermis
+  [FN] portion of plant tissue -> parenchyma
+  [FN] portion of plant tissue -> phyllome epidermis
+  [FN] portion of plant tissue -> pith
+  [FN] portion of plant tissue -> plant callus
+  [FN] portion of plant tissue -> plant epidermis
+  [FN] portion of plant tissue -> plant ovary wall middle layer
+  [FN] portion of plant tissue -> portion of ground tissue
+  [FN] portion of plant tissue -> portion of meristem tissue
+  [FN] portion of plant tissue -> root parenchyma
+  [FN] portion of plant tissue -> seed coat epidermis
+  [FN] portion of plant tissue -> shoot system epidermis
+  [FN] portion of plant tissue -> style epidermis
+  [FN] portion of plant tissue -> tuber pith
+  [FN] reproductive bud -> strobilus bud
+  [FN] reproductive bud -> terminal strobilus bud
+  [FN] reproductive shoot system -> ear floret
+  [FN] reproductive shoot system -> flower
+  [FN] reproductive shoot system -> pistillate flower
+  [FN] reproductive shoot system -> reproductive bud
+  [FN] reproductive shoot system -> spikelet floret
+  [FN] reproductive shoot system -> strobilus bud
+  [FN] reproductive shoot system -> terminal reproductive bud
+  [FN] reproductive shoot system -> terminal strobilus bud
+  [FN] root development stage -> radicle emergence stage
+  [FN] root parenchyma -> central root cap
+  [FN] root parenchyma -> central root cap of lateral root
+  [FN] root parenchyma -> lateral root cap
+  [FN] root parenchyma -> lateral root cap of lateral root
+  [FN] root parenchyma -> lateral root cap of primary root
+  [FN] seed coat epidermis -> coma
+  [FN] shoot axis node -> inflorescence axis node
+  [FN] shoot internode differentiation zone -> branch internode differentiation zone
+  [FN] shoot procambium -> leaf procambium
+  [FN] shoot system -> po_0000055
+  [FN] shoot system -> reproductive bud
+  [FN] shoot system -> strobilus bud
+  [FN] shoot system -> terminal bud
+  [FN] shoot system -> terminal reproductive bud
+  [FN] shoot system -> terminal strobilus bud
+  [FN] shoot system epidermis -> bract adaxial epidermis
+  [FN] shoot system epidermis -> bract epidermis
+  [FN] shoot system epidermis -> carpel epidermis
+  [FN] shoot system epidermis -> leaf adaxial epidermis
+  [FN] shoot system epidermis -> leaf epidermis
+  [FN] shoot system epidermis -> leaf lamina adaxial epidermis
+  [FN] shoot system epidermis -> leaf lamina epidermis
+  [FN] shoot system epidermis -> phyllome epidermis
+  [FN] shoot system epidermis -> style epidermis
+  [FN] shoot-borne internode root -> basal root
+  [FN] spikelet floret -> ear floret
+  [FN] stem elongation stage -> se05 five nodes or internodes visible stage
+  [FN] stem elongation stage -> se07 seven nodes or internodes visible stage
+  [FN] terminal bud -> terminal reproductive bud
+  [FN] terminal bud -> terminal strobilus bud
+  [FN] terminal reproductive bud -> terminal strobilus bud
+  [FN] upper glume of tassel spikelet -> upper glume of pedicellate spikelet of tassel
+  [FN] vascular leaf -> flag leaf
+  [FN] vascular leaf -> spine leaf

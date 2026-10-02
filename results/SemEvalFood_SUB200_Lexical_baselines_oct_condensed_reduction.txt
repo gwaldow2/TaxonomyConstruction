@@ -1,0 +1,284 @@
+==================================================
+=== Detailed Node Pair Analysis (Condensed Transitive Reduction) ===
+Match Type Used: SET_OVERLAP
+==================================================
+Precision: 0.5588 | Recall: 0.1854 | F1: 0.2784
+
+CORRECT PREDICTIONS (True Positives: 38 Pred edges covering 38 GT edges):
+  [TP] PRED: (apple jelly -> crabapple jelly)
+        matches GT: (apple jelly -> crabapple jelly)
+  [TP] PRED: (batter -> puff batter)
+        matches GT: (batter -> puff batter)
+  [TP] PRED: (boiled egg -> hard boiled egg)
+        matches GT: (boiled egg -> hard boiled egg)
+  [TP] PRED: (bread -> dark bread)
+        matches GT: (bread -> dark bread)
+  [TP] PRED: (bread -> flatbread)
+        matches GT: (bread -> flatbread)
+  [TP] PRED: (bread -> loaf of bread)
+        matches GT: (bread -> loaf of bread)
+  [TP] PRED: (bread -> quick bread)
+        matches GT: (bread -> quick bread)
+  [TP] PRED: (bread -> white bread)
+        matches GT: (bread -> white bread)
+  [TP] PRED: (breakfast -> continental breakfast)
+        matches GT: (breakfast -> continental breakfast)
+  [TP] PRED: (candy -> hard candy)
+        matches GT: (candy -> hard candy)
+  [TP] PRED: (chowder -> fish chowder)
+        matches GT: (chowder -> fish chowder)
+  [TP] PRED: (concentrate -> tomato concentrate)
+        matches GT: (concentrate -> tomato concentrate)
+  [TP] PRED: (corn -> popcorn)
+        matches GT: (corn -> popcorn)
+  [TP] PRED: (dessert -> frozen dessert)
+        matches GT: (dessert -> frozen dessert)
+  [TP] PRED: (diet -> diabetic diet)
+        matches GT: (diet -> diabetic diet)
+  [TP] PRED: (diet -> high protein diet)
+        matches GT: (diet -> high protein diet)
+  [TP] PRED: (diet -> low sodium diet)
+        matches GT: (diet -> low sodium diet)
+  [TP] PRED: (dough -> bread dough)
+        matches GT: (dough -> bread dough)
+  [TP] PRED: (dressing -> blue cheese dressing)
+        matches GT: (dressing -> blue cheese dressing)
+  [TP] PRED: (feed -> creep feed)
+        matches GT: (feed -> creep feed)
+  [TP] PRED: (food -> foodstuff)
+        matches GT: (food -> foodstuff)
+  [TP] PRED: (food -> miraculous food)
+        matches GT: (food -> miraculous food)
+  [TP] PRED: (gelatin -> gelatin dessert)
+        matches GT: (gelatin -> gelatin dessert)
+  [TP] PRED: (jelly -> apple jelly)
+        matches GT: (jelly -> apple jelly)
+  [TP] PRED: (mayonnaise -> green mayonnaise)
+        matches GT: (mayonnaise -> green mayonnaise)
+  [TP] PRED: (meal -> square meal)
+        matches GT: (meal -> square meal)
+  [TP] PRED: (meatball -> swedish meatball)
+        matches GT: (meatball -> swedish meatball)
+  [TP] PRED: (muffin -> corn muffin)
+        matches GT: (muffin -> corn muffin)
+  [TP] PRED: (potato -> mashed potato)
+        matches GT: (potato -> mashed potato)
+  [TP] PRED: (relish -> pickle relish)
+        matches GT: (relish -> pickle relish)
+  [TP] PRED: (sauce -> hard sauce)
+        matches GT: (sauce -> hard sauce)
+  [TP] PRED: (sauce -> lyonnaise sauce)
+        matches GT: (sauce -> lyonnaise sauce)
+  [TP] PRED: (sauce -> newburg sauce)
+        matches GT: (sauce -> newburg sauce)
+  [TP] PRED: (sauce -> white sauce)
+        matches GT: (sauce -> white sauce)
+  [TP] PRED: (stew -> brunswick stew)
+        matches GT: (stew -> brunswick stew)
+  [TP] PRED: (stuffing -> turkey stuffing)
+        matches GT: (stuffing -> turkey stuffing)
+  [TP] PRED: (vitamin -> water soluble vitamin)
+        matches GT: (vitamin -> water soluble vitamin)
+  [TP] PRED: (water -> drinking water)
+        matches GT: (water -> drinking water)
+
+INCORRECT PREDICTIONS (False Positives: 30):
+  [FP] bread -> bread dough
+  [FP] bread -> cornbread
+  [FP] bread -> french bread
+  [FP] bread -> skillet corn bread
+  [FP] cheese -> blue cheese dressing
+  [FP] cheese -> cheese sauce
+  [FP] chow -> chow mein
+  [FP] chow -> chowder
+  [FP] corn -> corn muffin
+  [FP] corn -> cornbread
+  [FP] corn -> skillet corn bread
+  [FP] dessert -> gelatin dessert
+  [FP] dish -> swedish meatball
+  [FP] food -> snack food
+  [FP] herb -> herb tea
+  [FP] nut butter -> peanut butter
+  [FP] pudding -> frozen pudding
+  [FP] sandwich -> sandwich plate
+  [FP] sauce -> cheese sauce
+  [FP] sauce -> mornay sauce
+  [FP] sauce -> steak sauce
+  [FP] sauce -> taco sauce
+  [FP] sugar -> barley sugar
+  [FP] sugar -> sugar water
+  [FP] sweet -> sweetening
+  [FP] vitamin -> b complex vitamin
+  [FP] vitamin -> vitamin b2
+  [FP] water -> soda water
+  [FP] water -> sugar water
+  [FP] water -> water soluble vitamin
+
+MISSED RELATIONS (False Negatives: 167):
+  [FN] appetizer -> antipasto
+  [FN] appetizer -> cocktail
+  [FN] appetizer -> crudites
+  [FN] b complex vitamin -> niacin
+  [FN] b complex vitamin -> pantothenic acid
+  [FN] b complex vitamin -> vitamin b2
+  [FN] bite -> refreshment
+  [FN] brandy -> armagnac
+  [FN] brandy -> cognac
+  [FN] brandy -> grappa
+  [FN] bread -> bap
+  [FN] bread -> bun
+  [FN] broth -> liquor
+  [FN] bun -> parker house roll
+  [FN] candy -> easter egg
+  [FN] candy -> nut bar
+  [FN] cheese -> velveeta
+  [FN] cheese sauce -> mornay sauce
+  [FN] chewing gum -> gum ball
+  [FN] cocktail -> bullshot
+  [FN] cocktail -> gin and it
+  [FN] concoction -> batter
+  [FN] concoction -> dough
+  [FN] concoction -> mix
+  [FN] concoction -> stuffing
+  [FN] condiment -> marinade
+  [FN] condiment -> relish
+  [FN] condiment -> sauce
+  [FN] condiment -> spread
+  [FN] condiment -> steak sauce
+  [FN] condiment -> taco sauce
+  [FN] condiment -> wasabi
+  [FN] confiture -> conserve
+  [FN] conserve -> jelly
+  [FN] cornbread -> skillet corn bread
+  [FN] course -> appetizer
+  [FN] course -> dessert
+  [FN] course -> entree
+  [FN] crudites -> celery stick
+  [FN] custard -> creme brulee
+  [FN] dainty -> gelatin
+  [FN] dainty -> savory
+  [FN] dainty -> sweet
+  [FN] dairy product -> cheese
+  [FN] dairy product -> curd
+  [FN] dessert -> blancmange
+  [FN] dessert -> pudding
+  [FN] dessert -> tiramisu
+  [FN] dessert -> zabaglione
+  [FN] dish -> boiled egg
+  [FN] dish -> chow mein
+  [FN] dish -> custard
+  [FN] dish -> frog legs
+  [FN] dish -> galantine
+  [FN] dish -> meat loaf
+  [FN] dish -> meatball
+  [FN] dish -> moo goo gai pan
+  [FN] dish -> pizza
+  [FN] dish -> pudding
+  [FN] dish -> salad
+  [FN] dish -> sandwich plate
+  [FN] dish -> scampi
+  [FN] dish -> snack food
+  [FN] dish -> soup
+  [FN] dish -> stew
+  [FN] dish -> succotash
+  [FN] dish -> tamale pie
+  [FN] dish -> turnover
+  [FN] dressing -> mayonnaise
+  [FN] drinking water -> soda water
+  [FN] drinking water -> sugar water
+  [FN] fare -> chow
+  [FN] fare -> diet
+  [FN] fare -> menu
+  [FN] feed -> fodder
+  [FN] fish loaf -> salmon loaf
+  [FN] flatbread -> bannock
+  [FN] flatbread -> flatbrod
+  [FN] flavorer -> caraway seed
+  [FN] flavorer -> condiment
+  [FN] flavorer -> fennel seed
+  [FN] flavorer -> fenugreek
+  [FN] flavorer -> garlic
+  [FN] flavorer -> herb
+  [FN] flavorer -> sassafras
+  [FN] flavorer -> sweetening
+  [FN] fodder -> alfalfa
+  [FN] fodder -> eatage
+  [FN] food -> fare
+  [FN] food -> feed
+  [FN] food -> nutriment
+  [FN] food -> water
+  [FN] foodstuff -> coloring
+  [FN] foodstuff -> concentrate
+  [FN] foodstuff -> concoction
+  [FN] foodstuff -> dairy product
+  [FN] foodstuff -> grain
+  [FN] foodstuff -> ingredient
+  [FN] foodstuff -> meal
+  [FN] foodstuff -> starches
+  [FN] foodstuff -> tapioca
+  [FN] french bread -> baguet
+  [FN] frozen dessert -> frozen pudding
+  [FN] grain -> buckwheat
+  [FN] grain -> corn
+  [FN] grain -> groats
+  [FN] grain -> malt
+  [FN] hard boiled egg -> easter egg
+  [FN] hard candy -> barley sugar
+  [FN] herb -> costmary
+  [FN] herb -> savory
+  [FN] herb -> tea
+  [FN] herb tea -> tisane
+  [FN] ingredient -> flavorer
+  [FN] liquor -> brandy
+  [FN] liquor -> gin
+  [FN] loaf of bread -> meat loaf
+  [FN] malt -> wort
+  [FN] meal -> bite
+  [FN] meal -> breakfast
+  [FN] meal -> tea
+  [FN] meat loaf -> fish loaf
+  [FN] meatball -> porcupine ball
+  [FN] mix -> ready mix
+  [FN] nutriment -> course
+  [FN] nutriment -> dainty
+  [FN] nutriment -> dish
+  [FN] nutriment -> meal
+  [FN] nutriment -> vitamin
+  [FN] potato -> home fries
+  [FN] pudding -> trifle
+  [FN] quick bread -> cornbread
+  [FN] quick bread -> muffin
+  [FN] ragout -> salmi
+  [FN] ready mix -> cake mix
+  [FN] salad -> coleslaw
+  [FN] sandwich -> tunaburger
+  [FN] sauce -> dressing
+  [FN] sauce -> pesto
+  [FN] sauce -> ravigote
+  [FN] sauce -> soubise
+  [FN] snack food -> sandwich
+  [FN] soup -> broth
+  [FN] soup -> chowder
+  [FN] soup -> consomme
+  [FN] soup -> gazpacho
+  [FN] soup -> marmite
+  [FN] spread -> margarine
+  [FN] spread -> nut butter
+  [FN] spread -> peanut butter
+  [FN] starches -> bread
+  [FN] starches -> potato
+  [FN] stew -> ragout
+  [FN] sweet -> candy
+  [FN] sweet -> center
+  [FN] sweet -> chewing gum
+  [FN] sweet -> comfit
+  [FN] sweet -> confiture
+  [FN] sweetening -> sugar
+  [FN] tea -> herb tea
+  [FN] tea -> oolong
+  [FN] tea -> sun tea
+  [FN] tisane -> camomile tea
+  [FN] trifle -> tipsy cake
+  [FN] water soluble vitamin -> b complex vitamin
+  [FN] white bread -> french bread
+  [FN] white sauce -> cheese sauce

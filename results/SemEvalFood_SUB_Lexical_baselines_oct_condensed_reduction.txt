@@ -1,0 +1,136 @@
+==================================================
+=== Detailed Node Pair Analysis (Condensed Transitive Reduction) ===
+Match Type Used: SET_OVERLAP
+==================================================
+Precision: 0.6250 | Recall: 0.1485 | F1: 0.2400
+
+CORRECT PREDICTIONS (True Positives: 15 Pred edges covering 15 GT edges):
+  [TP] PRED: (apple jelly -> crabapple jelly)
+        matches GT: (apple jelly -> crabapple jelly)
+  [TP] PRED: (bread -> flatbread)
+        matches GT: (bread -> flatbread)
+  [TP] PRED: (bread -> white bread)
+        matches GT: (bread -> white bread)
+  [TP] PRED: (candy -> hard candy)
+        matches GT: (candy -> hard candy)
+  [TP] PRED: (corn -> popcorn)
+        matches GT: (corn -> popcorn)
+  [TP] PRED: (diet -> diabetic diet)
+        matches GT: (diet -> diabetic diet)
+  [TP] PRED: (dressing -> blue cheese dressing)
+        matches GT: (dressing -> blue cheese dressing)
+  [TP] PRED: (food -> foodstuff)
+        matches GT: (food -> foodstuff)
+  [TP] PRED: (jelly -> apple jelly)
+        matches GT: (jelly -> apple jelly)
+  [TP] PRED: (mayonnaise -> green mayonnaise)
+        matches GT: (mayonnaise -> green mayonnaise)
+  [TP] PRED: (potato -> mashed potato)
+        matches GT: (potato -> mashed potato)
+  [TP] PRED: (relish -> pickle relish)
+        matches GT: (relish -> pickle relish)
+  [TP] PRED: (sauce -> hard sauce)
+        matches GT: (sauce -> hard sauce)
+  [TP] PRED: (vitamin -> water soluble vitamin)
+        matches GT: (vitamin -> water soluble vitamin)
+  [TP] PRED: (water -> drinking water)
+        matches GT: (water -> drinking water)
+
+INCORRECT PREDICTIONS (False Positives: 9):
+  [FP] bread -> french bread
+  [FP] herb -> herb tea
+  [FP] sauce -> steak sauce
+  [FP] sauce -> taco sauce
+  [FP] vitamin -> b complex vitamin
+  [FP] vitamin -> vitamin b2
+  [FP] water -> soda water
+  [FP] water -> sugar water
+  [FP] water -> water soluble vitamin
+
+MISSED RELATIONS (False Negatives: 86):
+  [FN] appetizer -> antipasto
+  [FN] appetizer -> cocktail
+  [FN] appetizer -> crudites
+  [FN] b complex vitamin -> niacin
+  [FN] b complex vitamin -> pantothenic acid
+  [FN] b complex vitamin -> vitamin b2
+  [FN] bread -> bap
+  [FN] broth -> liquor
+  [FN] cocktail -> bullshot
+  [FN] cocktail -> gin and it
+  [FN] condiment -> relish
+  [FN] condiment -> sauce
+  [FN] condiment -> spread
+  [FN] condiment -> steak sauce
+  [FN] condiment -> taco sauce
+  [FN] confiture -> conserve
+  [FN] conserve -> jelly
+  [FN] course -> appetizer
+  [FN] course -> dessert
+  [FN] course -> entree
+  [FN] crudites -> celery stick
+  [FN] dainty -> sweet
+  [FN] dairy product -> curd
+  [FN] dessert -> tiramisu
+  [FN] dish -> meatball
+  [FN] dish -> moo goo gai pan
+  [FN] dish -> scampi
+  [FN] dish -> soup
+  [FN] dish -> succotash
+  [FN] dish -> tamale pie
+  [FN] dressing -> mayonnaise
+  [FN] drinking water -> soda water
+  [FN] drinking water -> sugar water
+  [FN] fare -> chow
+  [FN] fare -> diet
+  [FN] feed -> fodder
+  [FN] flatbread -> bannock
+  [FN] flatbread -> flatbrod
+  [FN] flavorer -> caraway seed
+  [FN] flavorer -> condiment
+  [FN] flavorer -> fennel seed
+  [FN] flavorer -> garlic
+  [FN] flavorer -> herb
+  [FN] fodder -> alfalfa
+  [FN] fodder -> eatage
+  [FN] food -> fare
+  [FN] food -> feed
+  [FN] food -> nutriment
+  [FN] food -> water
+  [FN] foodstuff -> dairy product
+  [FN] foodstuff -> grain
+  [FN] foodstuff -> ingredient
+  [FN] foodstuff -> meal
+  [FN] foodstuff -> starches
+  [FN] french bread -> baguet
+  [FN] grain -> buckwheat
+  [FN] grain -> corn
+  [FN] grain -> groats
+  [FN] herb -> tea
+  [FN] herb tea -> tisane
+  [FN] ingredient -> flavorer
+  [FN] liquor -> gin
+  [FN] meal -> tea
+  [FN] meatball -> porcupine ball
+  [FN] nutriment -> course
+  [FN] nutriment -> dainty
+  [FN] nutriment -> dish
+  [FN] nutriment -> meal
+  [FN] nutriment -> vitamin
+  [FN] potato -> home fries
+  [FN] sauce -> dressing
+  [FN] sauce -> ravigote
+  [FN] soup -> broth
+  [FN] soup -> gazpacho
+  [FN] spread -> nut butter
+  [FN] starches -> bread
+  [FN] starches -> potato
+  [FN] sweet -> candy
+  [FN] sweet -> center
+  [FN] sweet -> confiture
+  [FN] tea -> herb tea
+  [FN] tea -> oolong
+  [FN] tea -> sun tea
+  [FN] tisane -> camomile tea
+  [FN] water soluble vitamin -> b complex vitamin
+  [FN] white bread -> french bread

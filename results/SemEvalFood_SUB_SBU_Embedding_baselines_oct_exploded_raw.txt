@@ -1,0 +1,191 @@
+==================================================
+=== Detailed Node Pair Analysis (Exploded Raw Edges) ===
+Match Type Used: EXACT
+==================================================
+Precision: 0.2200 | Recall: 0.2157 | F1: 0.2178
+
+CORRECT PREDICTIONS (True Positives: 22 Pred edges covering 22 GT edges):
+  [TP] b complex vitamin -> vitamin b2
+  [TP] bread -> flatbread
+  [TP] bread -> white bread
+  [TP] candy -> hard candy
+  [TP] corn -> popcorn
+  [TP] diet -> diabetic diet
+  [TP] dressing -> blue cheese dressing
+  [TP] flatbread -> flatbrod
+  [TP] food -> fare
+  [TP] french bread -> baguet
+  [TP] jelly -> apple jelly
+  [TP] mayonnaise -> green mayonnaise
+  [TP] meatball -> porcupine ball
+  [TP] potato -> home fries
+  [TP] potato -> mashed potato
+  [TP] relish -> pickle relish
+  [TP] sauce -> hard sauce
+  [TP] sauce -> ravigote
+  [TP] soup -> broth
+  [TP] tea -> sun tea
+  [TP] vitamin -> water soluble vitamin
+  [TP] water -> drinking water
+
+INCORRECT PREDICTIONS (False Positives: 78):
+  [FP] absinth -> niacin
+  [FP] agar -> fodder
+  [FP] appetizer -> flavorer
+  [FP] apple jelly -> jelly
+  [FP] baguet -> bannock
+  [FP] beer -> liquor
+  [FP] blue cheese dressing -> dressing
+  [FP] bread -> french bread
+  [FP] buckwheat -> bullshot
+  [FP] buckwheat -> tisane
+  [FP] bullshot -> buckwheat
+  [FP] caraway seed -> fennel seed
+  [FP] center -> confiture
+  [FP] center -> spread
+  [FP] corn -> grain
+  [FP] course -> sweet
+  [FP] creme de menthe -> crudites
+  [FP] dairy product -> ingredient
+  [FP] diabetic diet -> diet
+  [FP] drinking water -> water
+  [FP] eatage -> foodstuff
+  [FP] fennel seed -> caraway seed
+  [FP] flavorer -> appetizer
+  [FP] food -> condiment
+  [FP] food -> entree
+  [FP] food -> meal
+  [FP] foodstuff -> celery stick
+  [FP] garlic -> antipasto
+  [FP] gin -> gin and it
+  [FP] gin and it -> gin
+  [FP] grain -> starches
+  [FP] green mayonnaise -> mayonnaise
+  [FP] hard candy -> candy
+  [FP] hard sauce -> sauce
+  [FP] herb -> herb tea
+  [FP] herb tea -> herb
+  [FP] highball -> meatball
+  [FP] ingredient -> dairy product
+  [FP] ingredient -> pantothenic acid
+  [FP] jelly -> bap
+  [FP] jelly -> crabapple jelly
+  [FP] julep -> oolong
+  [FP] liquor -> cocktail
+  [FP] mashed potato -> potato
+  [FP] meal -> dessert
+  [FP] meal -> dish
+  [FP] meal -> eatage
+  [FP] meal -> feed
+  [FP] meal -> food
+  [FP] meal -> soup
+  [FP] moo goo gai pan -> gazpacho
+  [FP] nut butter -> nutriment
+  [FP] nutriment -> nut butter
+  [FP] oolong -> dainty
+  [FP] pickle relish -> relish
+  [FP] popcorn -> corn
+  [FP] potato -> alfalfa
+  [FP] ratafia -> tiramisu
+  [FP] riesling -> groats
+  [FP] sauce -> steak sauce
+  [FP] sauce -> taco sauce
+  [FP] scampi -> succotash
+  [FP] soda water -> sugar water
+  [FP] soup -> chow
+  [FP] soup -> garlic
+  [FP] spread -> center
+  [FP] succotash -> scampi
+  [FP] sun tea -> tea
+  [FP] sweet -> course
+  [FP] taco sauce -> tamale pie
+  [FP] tamale pie -> moo goo gai pan
+  [FP] tea -> camomile tea
+  [FP] tisane -> curd
+  [FP] vitamin b2 -> b complex vitamin
+  [FP] vitamin b2 -> vitamin
+  [FP] water -> conserve
+  [FP] water -> soda water
+  [FP] white bread -> bread
+
+MISSED RELATIONS (False Negatives: 80):
+  [FN] appetizer -> antipasto
+  [FN] appetizer -> cocktail
+  [FN] appetizer -> crudites
+  [FN] apple jelly -> crabapple jelly
+  [FN] b complex vitamin -> niacin
+  [FN] b complex vitamin -> pantothenic acid
+  [FN] bread -> bap
+  [FN] broth -> liquor
+  [FN] cocktail -> bullshot
+  [FN] cocktail -> gin and it
+  [FN] condiment -> relish
+  [FN] condiment -> sauce
+  [FN] condiment -> spread
+  [FN] condiment -> steak sauce
+  [FN] condiment -> taco sauce
+  [FN] confiture -> conserve
+  [FN] conserve -> jelly
+  [FN] course -> appetizer
+  [FN] course -> dessert
+  [FN] course -> entree
+  [FN] crudites -> celery stick
+  [FN] dainty -> sweet
+  [FN] dairy product -> curd
+  [FN] dessert -> tiramisu
+  [FN] dish -> meatball
+  [FN] dish -> moo goo gai pan
+  [FN] dish -> scampi
+  [FN] dish -> soup
+  [FN] dish -> succotash
+  [FN] dish -> tamale pie
+  [FN] dressing -> mayonnaise
+  [FN] drinking water -> soda water
+  [FN] drinking water -> sugar water
+  [FN] fare -> chow
+  [FN] fare -> diet
+  [FN] feed -> fodder
+  [FN] flatbread -> bannock
+  [FN] flavorer -> caraway seed
+  [FN] flavorer -> condiment
+  [FN] flavorer -> fennel seed
+  [FN] flavorer -> garlic
+  [FN] flavorer -> herb
+  [FN] fodder -> alfalfa
+  [FN] fodder -> eatage
+  [FN] food -> feed
+  [FN] food -> foodstuff
+  [FN] food -> nutriment
+  [FN] food -> water
+  [FN] foodstuff -> curd
+  [FN] foodstuff -> dairy product
+  [FN] foodstuff -> grain
+  [FN] foodstuff -> ingredient
+  [FN] foodstuff -> meal
+  [FN] foodstuff -> starches
+  [FN] grain -> buckwheat
+  [FN] grain -> corn
+  [FN] grain -> groats
+  [FN] herb -> tea
+  [FN] herb tea -> tisane
+  [FN] ingredient -> flavorer
+  [FN] liquor -> gin
+  [FN] meal -> tea
+  [FN] nutriment -> course
+  [FN] nutriment -> dainty
+  [FN] nutriment -> dish
+  [FN] nutriment -> meal
+  [FN] nutriment -> vitamin
+  [FN] sauce -> dressing
+  [FN] soup -> gazpacho
+  [FN] spread -> nut butter
+  [FN] starches -> bread
+  [FN] starches -> potato
+  [FN] sweet -> candy
+  [FN] sweet -> center
+  [FN] sweet -> confiture
+  [FN] tea -> herb tea
+  [FN] tea -> oolong
+  [FN] tisane -> camomile tea
+  [FN] water soluble vitamin -> b complex vitamin
+  [FN] white bread -> french bread

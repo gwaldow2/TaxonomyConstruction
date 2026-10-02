@@ -1,0 +1,442 @@
+==================================================
+=== Detailed Node Pair Analysis (Exploded Transitive Closure) ===
+Match Type Used: EXACT
+==================================================
+Precision: 0.2624 | Recall: 0.2164 | F1: 0.2372
+
+CORRECT PREDICTIONS (True Positives: 58 Pred edges covering 58 GT edges):
+  [TP] albumin assay -> comprehensive metabolic panel venous blood albumin assay
+  [TP] alpha-beta t cell -> cd4-positive alpha-beta t cell
+  [TP] arthropod specimen collection by aspiration -> daytime arthropod specimen collection by aspiration
+  [TP] arthropod specimen collection process -> adult arthropod specimen collection process
+  [TP] arthropod specimen collection process -> arthropod specimen collection by aspiration
+  [TP] arthropod specimen collection process -> daytime arthropod specimen collection by aspiration
+  [TP] arthropod specimen collection process -> live arthropod specimen collection process
+  [TP] assay -> 5-nucleotidase activity level assay
+  [TP] assay -> analyte assay
+  [TP] assay -> blood assay
+  [TP] assay -> carboxyfluorescein succinimidyl ester staining assay
+  [TP] assay -> carboxyfluorescein succinimidyl ester staining assay measuring epitope specific proliferation of t cells
+  [TP] assay -> comprehensive metabolic panel venous blood albumin assay
+  [TP] assay -> enzymatic activity level assay
+  [TP] assay -> insecticide resistance assay
+  [TP] assay -> insecticide resistance by detecting enzyme activity assay
+  [TP] assay -> insecticide resistance by detecting glutathione s-transferase activity assay
+  [TP] assay -> nanodroplet processing in one pot for trace samples assay
+  [TP] assay -> organism detection assay
+  [TP] assay -> parasite detection assay
+  [TP] assay -> polymerase chain reaction assay
+  [TP] assay -> protein expression profiling assay
+  [TP] assay -> proximity extension assay
+  [TP] assay -> venous blood thyroid stimulating hormone assay
+  [TP] carboxyfluorescein succinimidyl ester staining assay -> carboxyfluorescein succinimidyl ester staining assay measuring epitope specific proliferation of t cells
+  [TP] clinical history -> brother clinical history of cancer
+  [TP] clinical history -> family clinical history of cancer
+  [TP] container -> anticoagulant-containing test tube
+  [TP] container -> test tube
+  [TP] container -> vial
+  [TP] continuant -> independent continuant
+  [TP] cytometer -> flow cytometer
+  [TP] cytometer -> flow cytometer analyzer
+  [TP] device -> environmental control device
+  [TP] device -> material separation device
+  [TP] device -> measurement device
+  [TP] epitope protection experiment -> epitope protection experiment based on survival
+  [TP] flow cytometer -> flow cytometer analyzer
+  [TP] function -> connection function
+  [TP] insecticide resistance by detecting enzyme activity assay -> insecticide resistance by detecting glutathione s-transferase activity assay
+  [TP] interleukin-3 production -> epitope specific interleukin-3 production by t cells
+  [TP] material entity -> molecular entity
+  [TP] microarray -> affymetrix rhesus macaque genome array
+  [TP] microarray -> dna microarray
+  [TP] organization -> organization of specimen collector
+  [TP] role -> accessed material role
+  [TP] role -> adjuvant role
+  [TP] role -> regulator role
+  [TP] role -> regulatory role
+  [TP] role -> role of regulator of consumables and medical devices
+  [TP] specimen collection process -> adult arthropod specimen collection process
+  [TP] specimen collection process -> arthropod specimen collection by aspiration
+  [TP] specimen collection process -> arthropod specimen collection process
+  [TP] specimen collection process -> daytime arthropod specimen collection by aspiration
+  [TP] specimen collection process -> live arthropod specimen collection process
+  [TP] spectrophotometer -> lactoscope c4
+  [TP] test tube -> anticoagulant-containing test tube
+  [TP] thyroid stimulating hormone assay -> venous blood thyroid stimulating hormone assay
+
+INCORRECT PREDICTIONS (False Positives: 163):
+  [FP] assay -> accessed material role
+  [FP] assay -> adding a material entity into a target
+  [FP] assay -> adjuvant role
+  [FP] assay -> adult arthropod specimen collection process
+  [FP] assay -> affymetrix rhesus macaque genome array
+  [FP] assay -> albumin assay
+  [FP] assay -> anticoagulant-containing test tube
+  [FP] assay -> arthropod specimen collection by aspiration
+  [FP] assay -> arthropod specimen collection process
+  [FP] assay -> artificially induced dna repair
+  [FP] assay -> assay array
+  [FP] assay -> assay measuring a binding constant of a t cell epitopemhctcr complex
+  [FP] assay -> assay measuring binding of a t cell epitopemhctcr complex
+  [FP] assay -> assay measuring epitope specific interferon-alpha production by t cells
+  [FP] assay -> assay measuring quantitative binding of an epitopemhctcr complex
+  [FP] assay -> assay measuring the on rate kon of a t cell epitopemhctcr complex
+  [FP] assay -> brother clinical history of cancer
+  [FP] assay -> ceruloplasmin
+  [FP] assay -> clinical history
+  [FP] assay -> connection function
+  [FP] assay -> container
+  [FP] assay -> continuant
+  [FP] assay -> cryostat
+  [FP] assay -> cytometer
+  [FP] assay -> cytometry assay
+  [FP] assay -> data item
+  [FP] assay -> daytime arthropod specimen collection by aspiration
+  [FP] assay -> device
+  [FP] assay -> dna microarray
+  [FP] assay -> dna subtraction
+  [FP] assay -> dose
+  [FP] assay -> environmental control device
+  [FP] assay -> epitope protection experiment
+  [FP] assay -> epitope protection experiment based on survival
+  [FP] assay -> epitope specific cytokine production by t cells
+  [FP] assay -> epitope specific interleukin-3 production by t cells
+  [FP] assay -> family clinical history of cancer
+  [FP] assay -> filter paper
+  [FP] assay -> flow cytometer
+  [FP] assay -> flow cytometer analyzer
+  [FP] assay -> function
+  [FP] assay -> functional assessment of individual
+  [FP] assay -> in vivo assay measuring b cell epitope specific protection based on survival
+  [FP] assay -> independent continuant
+  [FP] assay -> interleukin-3 production
+  [FP] assay -> lactoscope c4
+  [FP] assay -> live arthropod specimen collection process
+  [FP] assay -> lsrfortessa x-20
+  [FP] assay -> lymphocyte assay
+  [FP] assay -> lymphocyte count assay
+  [FP] assay -> manual differential bodily fluid monocyte count assay
+  [FP] assay -> material combination
+  [FP] assay -> material component separation
+  [FP] assay -> material entity
+  [FP] assay -> material processing
+  [FP] assay -> material separation device
+  [FP] assay -> measurement datum
+  [FP] assay -> measurement device
+  [FP] assay -> microarray
+  [FP] assay -> molecular entity
+  [FP] assay -> monocyte assay
+  [FP] assay -> multichannel pipette
+  [FP] assay -> nose to finger assessment
+  [FP] assay -> organization
+  [FP] assay -> organization of specimen collector
+  [FP] assay -> planned process
+  [FP] assay -> processed material
+  [FP] assay -> protein
+  [FP] assay -> realizable entity
+  [FP] assay -> regulator role
+  [FP] assay -> regulatory role
+  [FP] assay -> role
+  [FP] assay -> role of regulator of consumables and medical devices
+  [FP] assay -> specimen collection process
+  [FP] assay -> spectrophotometer
+  [FP] assay -> t cell epitope assay
+  [FP] assay -> test tube
+  [FP] assay -> thyroid stimulating hormone assay
+  [FP] assay -> tobramycin
+  [FP] assay -> vial
+  [FP] carboxyfluorescein succinimidyl ester staining assay -> accessed material role
+  [FP] carboxyfluorescein succinimidyl ester staining assay -> adding a material entity into a target
+  [FP] carboxyfluorescein succinimidyl ester staining assay -> adjuvant role
+  [FP] carboxyfluorescein succinimidyl ester staining assay -> adult arthropod specimen collection process
+  [FP] carboxyfluorescein succinimidyl ester staining assay -> anticoagulant-containing test tube
+  [FP] carboxyfluorescein succinimidyl ester staining assay -> arthropod specimen collection by aspiration
+  [FP] carboxyfluorescein succinimidyl ester staining assay -> arthropod specimen collection process
+  [FP] carboxyfluorescein succinimidyl ester staining assay -> artificially induced dna repair
+  [FP] carboxyfluorescein succinimidyl ester staining assay -> brother clinical history of cancer
+  [FP] carboxyfluorescein succinimidyl ester staining assay -> clinical history
+  [FP] carboxyfluorescein succinimidyl ester staining assay -> connection function
+  [FP] carboxyfluorescein succinimidyl ester staining assay -> container
+  [FP] carboxyfluorescein succinimidyl ester staining assay -> continuant
+  [FP] carboxyfluorescein succinimidyl ester staining assay -> cytometer
+  [FP] carboxyfluorescein succinimidyl ester staining assay -> data item
+  [FP] carboxyfluorescein succinimidyl ester staining assay -> daytime arthropod specimen collection by aspiration
+  [FP] carboxyfluorescein succinimidyl ester staining assay -> device
+  [FP] carboxyfluorescein succinimidyl ester staining assay -> dose
+  [FP] carboxyfluorescein succinimidyl ester staining assay -> environmental control device
+  [FP] carboxyfluorescein succinimidyl ester staining assay -> epitope specific cytokine production by t cells
+  [FP] carboxyfluorescein succinimidyl ester staining assay -> epitope specific interleukin-3 production by t cells
+  [FP] carboxyfluorescein succinimidyl ester staining assay -> family clinical history of cancer
+  [FP] carboxyfluorescein succinimidyl ester staining assay -> flow cytometer
+  [FP] carboxyfluorescein succinimidyl ester staining assay -> flow cytometer analyzer
+  [FP] carboxyfluorescein succinimidyl ester staining assay -> function
+  [FP] carboxyfluorescein succinimidyl ester staining assay -> functional assessment of individual
+  [FP] carboxyfluorescein succinimidyl ester staining assay -> independent continuant
+  [FP] carboxyfluorescein succinimidyl ester staining assay -> interleukin-3 production
+  [FP] carboxyfluorescein succinimidyl ester staining assay -> lactoscope c4
+  [FP] carboxyfluorescein succinimidyl ester staining assay -> live arthropod specimen collection process
+  [FP] carboxyfluorescein succinimidyl ester staining assay -> material combination
+  [FP] carboxyfluorescein succinimidyl ester staining assay -> material component separation
+  [FP] carboxyfluorescein succinimidyl ester staining assay -> material entity
+  [FP] carboxyfluorescein succinimidyl ester staining assay -> material processing
+  [FP] carboxyfluorescein succinimidyl ester staining assay -> material separation device
+  [FP] carboxyfluorescein succinimidyl ester staining assay -> measurement datum
+  [FP] carboxyfluorescein succinimidyl ester staining assay -> measurement device
+  [FP] carboxyfluorescein succinimidyl ester staining assay -> molecular entity
+  [FP] carboxyfluorescein succinimidyl ester staining assay -> multichannel pipette
+  [FP] carboxyfluorescein succinimidyl ester staining assay -> nose to finger assessment
+  [FP] carboxyfluorescein succinimidyl ester staining assay -> organization
+  [FP] carboxyfluorescein succinimidyl ester staining assay -> organization of specimen collector
+  [FP] carboxyfluorescein succinimidyl ester staining assay -> planned process
+  [FP] carboxyfluorescein succinimidyl ester staining assay -> processed material
+  [FP] carboxyfluorescein succinimidyl ester staining assay -> protein
+  [FP] carboxyfluorescein succinimidyl ester staining assay -> realizable entity
+  [FP] carboxyfluorescein succinimidyl ester staining assay -> regulator role
+  [FP] carboxyfluorescein succinimidyl ester staining assay -> regulatory role
+  [FP] carboxyfluorescein succinimidyl ester staining assay -> role
+  [FP] carboxyfluorescein succinimidyl ester staining assay -> role of regulator of consumables and medical devices
+  [FP] carboxyfluorescein succinimidyl ester staining assay -> specimen collection process
+  [FP] carboxyfluorescein succinimidyl ester staining assay -> spectrophotometer
+  [FP] carboxyfluorescein succinimidyl ester staining assay -> test tube
+  [FP] carboxyfluorescein succinimidyl ester staining assay -> vial
+  [FP] carboxyfluorescein succinimidyl ester staining assay measuring epitope specific proliferation of t cells -> adding a material entity into a target
+  [FP] carboxyfluorescein succinimidyl ester staining assay measuring epitope specific proliferation of t cells -> continuant
+  [FP] carboxyfluorescein succinimidyl ester staining assay measuring epitope specific proliferation of t cells -> independent continuant
+  [FP] carboxyfluorescein succinimidyl ester staining assay measuring epitope specific proliferation of t cells -> material entity
+  [FP] carboxyfluorescein succinimidyl ester staining assay measuring epitope specific proliferation of t cells -> molecular entity
+  [FP] carboxyfluorescein succinimidyl ester staining assay measuring epitope specific proliferation of t cells -> processed material
+  [FP] carboxyfluorescein succinimidyl ester staining assay measuring epitope specific proliferation of t cells -> realizable entity
+  [FP] cytometer -> lactoscope c4
+  [FP] epitope specific interleukin-3 production by t cells -> epitope specific cytokine production by t cells
+  [FP] function -> accessed material role
+  [FP] function -> adjuvant role
+  [FP] function -> regulator role
+  [FP] function -> regulatory role
+  [FP] function -> role
+  [FP] function -> role of regulator of consumables and medical devices
+  [FP] interleukin-3 production -> epitope specific cytokine production by t cells
+  [FP] lymphocyte assay -> epitope protection experiment
+  [FP] lymphocyte assay -> epitope protection experiment based on survival
+  [FP] lymphocyte count assay -> manual differential bodily fluid monocyte count assay
+  [FP] material entity -> adding a material entity into a target
+  [FP] polymerase chain reaction assay -> ceruloplasmin
+  [FP] polymerase chain reaction assay -> cryostat
+  [FP] polymerase chain reaction assay -> dna subtraction
+  [FP] polymerase chain reaction assay -> filter paper
+  [FP] polymerase chain reaction assay -> lsrfortessa x-20
+  [FP] polymerase chain reaction assay -> tobramycin
+  [FP] spectrophotometer -> cytometer
+  [FP] spectrophotometer -> flow cytometer
+  [FP] spectrophotometer -> flow cytometer analyzer
+
+MISSED RELATIONS (False Negatives: 210):
+  [FN] adult arthropod specimen collection process -> arthropod specimen collection by aspiration
+  [FN] adult arthropod specimen collection process -> daytime arthropod specimen collection by aspiration
+  [FN] analyte assay -> proximity extension assay
+  [FN] assay array -> affymetrix rhesus macaque genome array
+  [FN] assay array -> dna microarray
+  [FN] assay array -> microarray
+  [FN] assay measuring a binding constant of a t cell epitopemhctcr complex -> assay measuring the on rate kon of a t cell epitopemhctcr complex
+  [FN] assay measuring binding of a t cell epitopemhctcr complex -> assay measuring a binding constant of a t cell epitopemhctcr complex
+  [FN] assay measuring binding of a t cell epitopemhctcr complex -> assay measuring quantitative binding of an epitopemhctcr complex
+  [FN] assay measuring binding of a t cell epitopemhctcr complex -> assay measuring the on rate kon of a t cell epitopemhctcr complex
+  [FN] assay measuring quantitative binding of an epitopemhctcr complex -> assay measuring a binding constant of a t cell epitopemhctcr complex
+  [FN] assay measuring quantitative binding of an epitopemhctcr complex -> assay measuring the on rate kon of a t cell epitopemhctcr complex
+  [FN] blood assay -> comprehensive metabolic panel venous blood albumin assay
+  [FN] blood assay -> venous blood thyroid stimulating hormone assay
+  [FN] container -> cryostat
+  [FN] continuant -> affymetrix rhesus macaque genome array
+  [FN] continuant -> anticoagulant-containing test tube
+  [FN] continuant -> assay array
+  [FN] continuant -> container
+  [FN] continuant -> cryostat
+  [FN] continuant -> cytometer
+  [FN] continuant -> device
+  [FN] continuant -> dna microarray
+  [FN] continuant -> environmental control device
+  [FN] continuant -> filter paper
+  [FN] continuant -> flow cytometer
+  [FN] continuant -> flow cytometer analyzer
+  [FN] continuant -> lactoscope c4
+  [FN] continuant -> lsrfortessa x-20
+  [FN] continuant -> material entity
+  [FN] continuant -> material separation device
+  [FN] continuant -> measurement device
+  [FN] continuant -> microarray
+  [FN] continuant -> molecular entity
+  [FN] continuant -> multichannel pipette
+  [FN] continuant -> processed material
+  [FN] continuant -> spectrophotometer
+  [FN] continuant -> test tube
+  [FN] continuant -> tobramycin
+  [FN] continuant -> vial
+  [FN] cytometer -> lsrfortessa x-20
+  [FN] cytometry assay -> lymphocyte assay
+  [FN] cytometry assay -> lymphocyte count assay
+  [FN] cytometry assay -> manual differential bodily fluid monocyte count assay
+  [FN] cytometry assay -> monocyte assay
+  [FN] data item -> dose
+  [FN] data item -> measurement datum
+  [FN] device -> affymetrix rhesus macaque genome array
+  [FN] device -> anticoagulant-containing test tube
+  [FN] device -> assay array
+  [FN] device -> container
+  [FN] device -> cryostat
+  [FN] device -> cytometer
+  [FN] device -> dna microarray
+  [FN] device -> filter paper
+  [FN] device -> flow cytometer
+  [FN] device -> flow cytometer analyzer
+  [FN] device -> lactoscope c4
+  [FN] device -> lsrfortessa x-20
+  [FN] device -> microarray
+  [FN] device -> multichannel pipette
+  [FN] device -> spectrophotometer
+  [FN] device -> test tube
+  [FN] device -> vial
+  [FN] dna microarray -> affymetrix rhesus macaque genome array
+  [FN] environmental control device -> cryostat
+  [FN] enzymatic activity level assay -> 5-nucleotidase activity level assay
+  [FN] epitope protection experiment -> in vivo assay measuring b cell epitope specific protection based on survival
+  [FN] epitope protection experiment based on survival -> in vivo assay measuring b cell epitope specific protection based on survival
+  [FN] epitope specific cytokine production by t cells -> epitope specific interleukin-3 production by t cells
+  [FN] family clinical history of cancer -> brother clinical history of cancer
+  [FN] flow cytometer -> lsrfortessa x-20
+  [FN] flow cytometer analyzer -> lsrfortessa x-20
+  [FN] functional assessment of individual -> nose to finger assessment
+  [FN] independent continuant -> affymetrix rhesus macaque genome array
+  [FN] independent continuant -> anticoagulant-containing test tube
+  [FN] independent continuant -> assay array
+  [FN] independent continuant -> container
+  [FN] independent continuant -> cryostat
+  [FN] independent continuant -> cytometer
+  [FN] independent continuant -> device
+  [FN] independent continuant -> dna microarray
+  [FN] independent continuant -> environmental control device
+  [FN] independent continuant -> filter paper
+  [FN] independent continuant -> flow cytometer
+  [FN] independent continuant -> flow cytometer analyzer
+  [FN] independent continuant -> lactoscope c4
+  [FN] independent continuant -> lsrfortessa x-20
+  [FN] independent continuant -> material entity
+  [FN] independent continuant -> material separation device
+  [FN] independent continuant -> measurement device
+  [FN] independent continuant -> microarray
+  [FN] independent continuant -> molecular entity
+  [FN] independent continuant -> multichannel pipette
+  [FN] independent continuant -> processed material
+  [FN] independent continuant -> spectrophotometer
+  [FN] independent continuant -> test tube
+  [FN] independent continuant -> tobramycin
+  [FN] independent continuant -> vial
+  [FN] insecticide resistance assay -> insecticide resistance by detecting enzyme activity assay
+  [FN] insecticide resistance assay -> insecticide resistance by detecting glutathione s-transferase activity assay
+  [FN] live arthropod specimen collection process -> adult arthropod specimen collection process
+  [FN] live arthropod specimen collection process -> arthropod specimen collection by aspiration
+  [FN] live arthropod specimen collection process -> daytime arthropod specimen collection by aspiration
+  [FN] lymphocyte assay -> lymphocyte count assay
+  [FN] material combination -> adding a material entity into a target
+  [FN] material component separation -> dna subtraction
+  [FN] material entity -> affymetrix rhesus macaque genome array
+  [FN] material entity -> anticoagulant-containing test tube
+  [FN] material entity -> assay array
+  [FN] material entity -> container
+  [FN] material entity -> cryostat
+  [FN] material entity -> cytometer
+  [FN] material entity -> device
+  [FN] material entity -> dna microarray
+  [FN] material entity -> environmental control device
+  [FN] material entity -> filter paper
+  [FN] material entity -> flow cytometer
+  [FN] material entity -> flow cytometer analyzer
+  [FN] material entity -> lactoscope c4
+  [FN] material entity -> lsrfortessa x-20
+  [FN] material entity -> material separation device
+  [FN] material entity -> measurement device
+  [FN] material entity -> microarray
+  [FN] material entity -> multichannel pipette
+  [FN] material entity -> processed material
+  [FN] material entity -> spectrophotometer
+  [FN] material entity -> test tube
+  [FN] material entity -> tobramycin
+  [FN] material entity -> vial
+  [FN] material processing -> adding a material entity into a target
+  [FN] material processing -> artificially induced dna repair
+  [FN] material processing -> dna subtraction
+  [FN] material processing -> material combination
+  [FN] material processing -> material component separation
+  [FN] material separation device -> filter paper
+  [FN] measurement datum -> dose
+  [FN] measurement device -> cytometer
+  [FN] measurement device -> flow cytometer
+  [FN] measurement device -> flow cytometer analyzer
+  [FN] measurement device -> lactoscope c4
+  [FN] measurement device -> lsrfortessa x-20
+  [FN] measurement device -> multichannel pipette
+  [FN] measurement device -> spectrophotometer
+  [FN] molecular entity -> tobramycin
+  [FN] monocyte assay -> manual differential bodily fluid monocyte count assay
+  [FN] organism detection assay -> parasite detection assay
+  [FN] planned process -> 5-nucleotidase activity level assay
+  [FN] planned process -> adding a material entity into a target
+  [FN] planned process -> analyte assay
+  [FN] planned process -> artificially induced dna repair
+  [FN] planned process -> assay
+  [FN] planned process -> blood assay
+  [FN] planned process -> carboxyfluorescein succinimidyl ester staining assay
+  [FN] planned process -> carboxyfluorescein succinimidyl ester staining assay measuring epitope specific proliferation of t cells
+  [FN] planned process -> comprehensive metabolic panel venous blood albumin assay
+  [FN] planned process -> dna subtraction
+  [FN] planned process -> enzymatic activity level assay
+  [FN] planned process -> insecticide resistance assay
+  [FN] planned process -> insecticide resistance by detecting enzyme activity assay
+  [FN] planned process -> insecticide resistance by detecting glutathione s-transferase activity assay
+  [FN] planned process -> material combination
+  [FN] planned process -> material component separation
+  [FN] planned process -> material processing
+  [FN] planned process -> nanodroplet processing in one pot for trace samples assay
+  [FN] planned process -> organism detection assay
+  [FN] planned process -> parasite detection assay
+  [FN] planned process -> polymerase chain reaction assay
+  [FN] planned process -> protein expression profiling assay
+  [FN] planned process -> proximity extension assay
+  [FN] planned process -> venous blood thyroid stimulating hormone assay
+  [FN] polymerase chain reaction assay -> proximity extension assay
+  [FN] processed material -> affymetrix rhesus macaque genome array
+  [FN] processed material -> anticoagulant-containing test tube
+  [FN] processed material -> assay array
+  [FN] processed material -> container
+  [FN] processed material -> cryostat
+  [FN] processed material -> cytometer
+  [FN] processed material -> device
+  [FN] processed material -> dna microarray
+  [FN] processed material -> environmental control device
+  [FN] processed material -> filter paper
+  [FN] processed material -> flow cytometer
+  [FN] processed material -> flow cytometer analyzer
+  [FN] processed material -> lactoscope c4
+  [FN] processed material -> lsrfortessa x-20
+  [FN] processed material -> material separation device
+  [FN] processed material -> measurement device
+  [FN] processed material -> microarray
+  [FN] processed material -> multichannel pipette
+  [FN] processed material -> spectrophotometer
+  [FN] processed material -> test tube
+  [FN] processed material -> vial
+  [FN] protein -> ceruloplasmin
+  [FN] protein expression profiling assay -> nanodroplet processing in one pot for trace samples assay
+  [FN] realizable entity -> accessed material role
+  [FN] realizable entity -> adjuvant role
+  [FN] realizable entity -> regulator role
+  [FN] realizable entity -> regulatory role
+  [FN] realizable entity -> role
+  [FN] realizable entity -> role of regulator of consumables and medical devices
+  [FN] regulator role -> role of regulator of consumables and medical devices
+  [FN] regulatory role -> regulator role
+  [FN] regulatory role -> role of regulator of consumables and medical devices
+  [FN] t cell epitope assay -> assay measuring a binding constant of a t cell epitopemhctcr complex
+  [FN] t cell epitope assay -> assay measuring binding of a t cell epitopemhctcr complex
+  [FN] t cell epitope assay -> assay measuring quantitative binding of an epitopemhctcr complex
+  [FN] t cell epitope assay -> assay measuring the on rate kon of a t cell epitopemhctcr complex
+  [FN] vial -> anticoagulant-containing test tube
+  [FN] vial -> test tube

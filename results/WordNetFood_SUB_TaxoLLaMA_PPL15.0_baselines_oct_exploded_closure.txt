@@ -1,0 +1,488 @@
+==================================================
+=== Detailed Node Pair Analysis (Exploded Transitive Closure) ===
+Match Type Used: EXACT
+==================================================
+Precision: 0.5124 | Recall: 0.4277 | F1: 0.4662
+
+CORRECT PREDICTIONS (True Positives: 145 Pred edges covering 145 GT edges):
+  [TP] alcohol -> ale
+  [TP] alcohol -> beer
+  [TP] alcohol -> pale ale
+  [TP] alcohol -> spruce beer
+  [TP] baked goods -> bear claw
+  [TP] baked goods -> bread
+  [TP] baked goods -> cookie
+  [TP] baked goods -> gingersnap
+  [TP] baked goods -> pastry
+  [TP] baked goods -> pie
+  [TP] baked goods -> squash pie
+  [TP] baked goods -> sweet roll
+  [TP] beer -> ale
+  [TP] beer -> pale ale
+  [TP] berry -> boysenberry
+  [TP] berry -> raspberry
+  [TP] beverage -> brew
+  [TP] beverage -> koumiss
+  [TP] cake -> applesauce cake
+  [TP] cheese -> camembert
+  [TP] chowder -> clam chowder
+  [TP] citrus -> navel orange
+  [TP] citrus -> orange
+  [TP] citrus -> sweet orange
+  [TP] condiment -> anchovy sauce
+  [TP] condiment -> sauce
+  [TP] cookie -> gingersnap
+  [TP] cut -> cut of beef
+  [TP] dairy product -> camembert
+  [TP] dairy product -> cheese
+  [TP] dessert -> corn pudding
+  [TP] dessert -> pudding
+  [TP] dish -> chicken paprika
+  [TP] dish -> chowder
+  [TP] dish -> clam chowder
+  [TP] dish -> corn pudding
+  [TP] dish -> pudding
+  [TP] dish -> soup
+  [TP] edible fruit -> berry
+  [TP] edible fruit -> boysenberry
+  [TP] edible fruit -> citrus
+  [TP] edible fruit -> elderberry
+  [TP] edible fruit -> navel orange
+  [TP] edible fruit -> orange
+  [TP] edible fruit -> raspberry
+  [TP] edible fruit -> sweet orange
+  [TP] flavorer -> anchovy sauce
+  [TP] flavorer -> condiment
+  [TP] flavorer -> sauce
+  [TP] food -> baked goods
+  [TP] food -> bear claw
+  [TP] food -> beef jerky
+  [TP] food -> bread
+  [TP] food -> camembert
+  [TP] food -> cheese
+  [TP] food -> cochon de lait
+  [TP] food -> cookie
+  [TP] food -> dairy product
+  [TP] food -> freshwater fish
+  [TP] food -> gingersnap
+  [TP] food -> jerky
+  [TP] food -> lobster
+  [TP] food -> lobster tail
+  [TP] food -> meat
+  [TP] food -> octopus
+  [TP] food -> pastry
+  [TP] food -> pie
+  [TP] food -> pork
+  [TP] food -> sandwich
+  [TP] food -> scampi
+  [TP] food -> seafood
+  [TP] food -> shellfish
+  [TP] food -> snack food
+  [TP] food -> soul food
+  [TP] food -> squash pie
+  [TP] food -> sweet roll
+  [TP] foodstuff -> brown rice
+  [TP] foodstuff -> bun
+  [TP] foodstuff -> concoction
+  [TP] foodstuff -> dough
+  [TP] foodstuff -> egg
+  [TP] foodstuff -> grain
+  [TP] foodstuff -> herb
+  [TP] foodstuff -> ingredient
+  [TP] foodstuff -> marjoram
+  [TP] foodstuff -> rice
+  [TP] foodstuff -> starches
+  [TP] grain -> brown rice
+  [TP] grain -> rice
+  [TP] herb -> marjoram
+  [TP] jerky -> beef jerky
+  [TP] legume -> field pea
+  [TP] legume -> marrowfat pea
+  [TP] legume -> pea
+  [TP] lobster -> lobster tail
+  [TP] meal -> pea flour
+  [TP] meat -> beef jerky
+  [TP] meat -> cochon de lait
+  [TP] meat -> jerky
+  [TP] meat -> pork
+  [TP] nutriment -> chicken paprika
+  [TP] nutriment -> chowder
+  [TP] nutriment -> clam chowder
+  [TP] nutriment -> corn pudding
+  [TP] nutriment -> dessert
+  [TP] nutriment -> dish
+  [TP] nutriment -> meal
+  [TP] nutriment -> pea flour
+  [TP] nutriment -> pudding
+  [TP] nutriment -> sandwich
+  [TP] nutriment -> scampi
+  [TP] nutriment -> snack food
+  [TP] nutriment -> soup
+  [TP] orange -> navel orange
+  [TP] orange -> sweet orange
+  [TP] pastry -> pie
+  [TP] pastry -> squash pie
+  [TP] pea -> field pea
+  [TP] pea -> marrowfat pea
+  [TP] pie -> squash pie
+  [TP] pork -> cochon de lait
+  [TP] pudding -> corn pudding
+  [TP] rice -> brown rice
+  [TP] salad green -> lettuce
+  [TP] sauce -> anchovy sauce
+  [TP] seafood -> freshwater fish
+  [TP] seafood -> lobster
+  [TP] seafood -> lobster tail
+  [TP] seafood -> octopus
+  [TP] seafood -> shellfish
+  [TP] shellfish -> lobster
+  [TP] shellfish -> lobster tail
+  [TP] snack food -> sandwich
+  [TP] soup -> chowder
+  [TP] soup -> clam chowder
+  [TP] tart -> lobster tart
+  [TP] vegetable -> field pea
+  [TP] vegetable -> greens
+  [TP] vegetable -> legume
+  [TP] vegetable -> marrowfat pea
+  [TP] vegetable -> pea
+  [TP] vitamin -> b-complex vitamin
+  [TP] vitamin -> choline
+  [TP] vitamin -> water-soluble vitamin
+  [TP] water-soluble vitamin -> b-complex vitamin
+
+INCORRECT PREDICTIONS (False Positives: 138):
+  [FP] beer -> spruce beer
+  [FP] berry -> elderberry
+  [FP] berry -> lobster tart
+  [FP] berry -> tart
+  [FP] beverage -> concoction
+  [FP] brew -> concoction
+  [FP] cake -> bun
+  [FP] chocolate candy -> chocolate
+  [FP] dessert -> applesauce cake
+  [FP] dessert -> bun
+  [FP] dessert -> cake
+  [FP] dish -> applesauce cake
+  [FP] dish -> bun
+  [FP] dish -> cake
+  [FP] dish -> dessert
+  [FP] edible fruit -> lobster tart
+  [FP] edible fruit -> tart
+  [FP] foodstuff -> applesauce cake
+  [FP] foodstuff -> beverage
+  [FP] foodstuff -> brew
+  [FP] foodstuff -> cake
+  [FP] foodstuff -> chicken paprika
+  [FP] foodstuff -> chowder
+  [FP] foodstuff -> clam chowder
+  [FP] foodstuff -> corn pudding
+  [FP] foodstuff -> dessert
+  [FP] foodstuff -> dish
+  [FP] foodstuff -> field pea
+  [FP] foodstuff -> greens
+  [FP] foodstuff -> koumiss
+  [FP] foodstuff -> legume
+  [FP] foodstuff -> marrowfat pea
+  [FP] foodstuff -> pea
+  [FP] foodstuff -> pudding
+  [FP] foodstuff -> soup
+  [FP] foodstuff -> vegetable
+  [FP] lobster -> octopus
+  [FP] lobster -> scampi
+  [FP] nutriment -> applesauce cake
+  [FP] nutriment -> baked goods
+  [FP] nutriment -> bear claw
+  [FP] nutriment -> beef jerky
+  [FP] nutriment -> beverage
+  [FP] nutriment -> bread
+  [FP] nutriment -> brew
+  [FP] nutriment -> brown rice
+  [FP] nutriment -> bun
+  [FP] nutriment -> cake
+  [FP] nutriment -> camembert
+  [FP] nutriment -> cheese
+  [FP] nutriment -> cochon de lait
+  [FP] nutriment -> concoction
+  [FP] nutriment -> cookie
+  [FP] nutriment -> culture medium
+  [FP] nutriment -> dairy product
+  [FP] nutriment -> diet
+  [FP] nutriment -> dough
+  [FP] nutriment -> egg
+  [FP] nutriment -> fare
+  [FP] nutriment -> field pea
+  [FP] nutriment -> food
+  [FP] nutriment -> foodstuff
+  [FP] nutriment -> freshwater fish
+  [FP] nutriment -> gingersnap
+  [FP] nutriment -> grain
+  [FP] nutriment -> greens
+  [FP] nutriment -> herb
+  [FP] nutriment -> ingredient
+  [FP] nutriment -> jerky
+  [FP] nutriment -> koumiss
+  [FP] nutriment -> legume
+  [FP] nutriment -> lobster
+  [FP] nutriment -> lobster tail
+  [FP] nutriment -> marjoram
+  [FP] nutriment -> marrowfat pea
+  [FP] nutriment -> meat
+  [FP] nutriment -> octopus
+  [FP] nutriment -> pastry
+  [FP] nutriment -> pea
+  [FP] nutriment -> pie
+  [FP] nutriment -> pork
+  [FP] nutriment -> rice
+  [FP] nutriment -> seafood
+  [FP] nutriment -> shellfish
+  [FP] nutriment -> soul food
+  [FP] nutriment -> squash pie
+  [FP] nutriment -> starches
+  [FP] nutriment -> sweet roll
+  [FP] nutriment -> vegetable
+  [FP] pastry -> bear claw
+  [FP] pastry -> sweet roll
+  [FP] seafood -> scampi
+  [FP] shellfish -> octopus
+  [FP] shellfish -> scampi
+  [FP] vegetable -> herb
+  [FP] vegetable -> marjoram
+  [FP] vitamin -> alcohol
+  [FP] vitamin -> ale
+  [FP] vitamin -> beer
+  [FP] vitamin -> berry
+  [FP] vitamin -> boysenberry
+  [FP] vitamin -> citrus
+  [FP] vitamin -> cos
+  [FP] vitamin -> course
+  [FP] vitamin -> edible fruit
+  [FP] vitamin -> elderberry
+  [FP] vitamin -> flat bone
+  [FP] vitamin -> gyro
+  [FP] vitamin -> lobster tart
+  [FP] vitamin -> navel orange
+  [FP] vitamin -> orange
+  [FP] vitamin -> pale ale
+  [FP] vitamin -> produce
+  [FP] vitamin -> raspberry
+  [FP] vitamin -> spruce beer
+  [FP] vitamin -> sweet orange
+  [FP] vitamin -> tart
+  [FP] water-soluble vitamin -> alcohol
+  [FP] water-soluble vitamin -> ale
+  [FP] water-soluble vitamin -> beer
+  [FP] water-soluble vitamin -> berry
+  [FP] water-soluble vitamin -> boysenberry
+  [FP] water-soluble vitamin -> citrus
+  [FP] water-soluble vitamin -> cos
+  [FP] water-soluble vitamin -> course
+  [FP] water-soluble vitamin -> edible fruit
+  [FP] water-soluble vitamin -> elderberry
+  [FP] water-soluble vitamin -> flat bone
+  [FP] water-soluble vitamin -> gyro
+  [FP] water-soluble vitamin -> lobster tart
+  [FP] water-soluble vitamin -> navel orange
+  [FP] water-soluble vitamin -> orange
+  [FP] water-soluble vitamin -> pale ale
+  [FP] water-soluble vitamin -> produce
+  [FP] water-soluble vitamin -> raspberry
+  [FP] water-soluble vitamin -> spruce beer
+  [FP] water-soluble vitamin -> sweet orange
+  [FP] water-soluble vitamin -> tart
+
+MISSED RELATIONS (False Negatives: 194):
+  [FN] alcohol -> brew
+  [FN] alcohol -> koumiss
+  [FN] ale -> pale ale
+  [FN] b-complex vitamin -> choline
+  [FN] baked goods -> applesauce cake
+  [FN] baked goods -> bun
+  [FN] baked goods -> cake
+  [FN] baked goods -> lobster tart
+  [FN] baked goods -> tart
+  [FN] beverage -> alcohol
+  [FN] beverage -> ale
+  [FN] beverage -> beer
+  [FN] beverage -> pale ale
+  [FN] beverage -> spruce beer
+  [FN] bread -> bear claw
+  [FN] bread -> bun
+  [FN] bread -> sweet roll
+  [FN] brew -> ale
+  [FN] brew -> beer
+  [FN] brew -> pale ale
+  [FN] brew -> spruce beer
+  [FN] bun -> bear claw
+  [FN] bun -> sweet roll
+  [FN] cake -> cookie
+  [FN] cake -> gingersnap
+  [FN] chocolate -> chocolate candy
+  [FN] concoction -> dough
+  [FN] concoction -> lobster tart
+  [FN] concoction -> pastry
+  [FN] concoction -> pie
+  [FN] concoction -> squash pie
+  [FN] concoction -> tart
+  [FN] course -> corn pudding
+  [FN] course -> dessert
+  [FN] course -> pudding
+  [FN] cut -> flat bone
+  [FN] cut of beef -> flat bone
+  [FN] dish -> gyro
+  [FN] dish -> sandwich
+  [FN] dish -> scampi
+  [FN] dish -> snack food
+  [FN] dough -> lobster tart
+  [FN] dough -> pastry
+  [FN] dough -> pie
+  [FN] dough -> squash pie
+  [FN] dough -> tart
+  [FN] fare -> diet
+  [FN] flavorer -> herb
+  [FN] flavorer -> marjoram
+  [FN] food -> alcohol
+  [FN] food -> ale
+  [FN] food -> anchovy sauce
+  [FN] food -> applesauce cake
+  [FN] food -> b-complex vitamin
+  [FN] food -> beer
+  [FN] food -> berry
+  [FN] food -> beverage
+  [FN] food -> boysenberry
+  [FN] food -> brew
+  [FN] food -> brown rice
+  [FN] food -> bun
+  [FN] food -> cake
+  [FN] food -> chicken paprika
+  [FN] food -> chocolate
+  [FN] food -> chocolate candy
+  [FN] food -> choline
+  [FN] food -> chowder
+  [FN] food -> citrus
+  [FN] food -> clam chowder
+  [FN] food -> concoction
+  [FN] food -> condiment
+  [FN] food -> corn pudding
+  [FN] food -> cos
+  [FN] food -> course
+  [FN] food -> culture medium
+  [FN] food -> cut
+  [FN] food -> cut of beef
+  [FN] food -> dessert
+  [FN] food -> diet
+  [FN] food -> dish
+  [FN] food -> dough
+  [FN] food -> edible fruit
+  [FN] food -> egg
+  [FN] food -> elderberry
+  [FN] food -> fare
+  [FN] food -> field pea
+  [FN] food -> flat bone
+  [FN] food -> flavorer
+  [FN] food -> foodstuff
+  [FN] food -> grain
+  [FN] food -> greens
+  [FN] food -> gyro
+  [FN] food -> herb
+  [FN] food -> ingredient
+  [FN] food -> koumiss
+  [FN] food -> legume
+  [FN] food -> lettuce
+  [FN] food -> lobster tart
+  [FN] food -> marjoram
+  [FN] food -> marrowfat pea
+  [FN] food -> meal
+  [FN] food -> navel orange
+  [FN] food -> nutriment
+  [FN] food -> orange
+  [FN] food -> pale ale
+  [FN] food -> pea
+  [FN] food -> pea flour
+  [FN] food -> produce
+  [FN] food -> pudding
+  [FN] food -> raspberry
+  [FN] food -> rice
+  [FN] food -> salad green
+  [FN] food -> sauce
+  [FN] food -> soup
+  [FN] food -> spruce beer
+  [FN] food -> starches
+  [FN] food -> sweet orange
+  [FN] food -> tart
+  [FN] food -> vegetable
+  [FN] food -> vitamin
+  [FN] food -> water-soluble vitamin
+  [FN] foodstuff -> anchovy sauce
+  [FN] foodstuff -> bear claw
+  [FN] foodstuff -> bread
+  [FN] foodstuff -> camembert
+  [FN] foodstuff -> cheese
+  [FN] foodstuff -> condiment
+  [FN] foodstuff -> dairy product
+  [FN] foodstuff -> flavorer
+  [FN] foodstuff -> lobster tart
+  [FN] foodstuff -> meal
+  [FN] foodstuff -> pastry
+  [FN] foodstuff -> pea flour
+  [FN] foodstuff -> pie
+  [FN] foodstuff -> sauce
+  [FN] foodstuff -> squash pie
+  [FN] foodstuff -> sweet roll
+  [FN] foodstuff -> tart
+  [FN] greens -> cos
+  [FN] greens -> lettuce
+  [FN] greens -> salad green
+  [FN] ingredient -> anchovy sauce
+  [FN] ingredient -> condiment
+  [FN] ingredient -> flavorer
+  [FN] ingredient -> herb
+  [FN] ingredient -> marjoram
+  [FN] ingredient -> sauce
+  [FN] lettuce -> cos
+  [FN] meat -> cut
+  [FN] meat -> cut of beef
+  [FN] meat -> flat bone
+  [FN] nutriment -> b-complex vitamin
+  [FN] nutriment -> choline
+  [FN] nutriment -> course
+  [FN] nutriment -> gyro
+  [FN] nutriment -> vitamin
+  [FN] nutriment -> water-soluble vitamin
+  [FN] pastry -> lobster tart
+  [FN] pastry -> tart
+  [FN] pie -> lobster tart
+  [FN] pie -> tart
+  [FN] produce -> berry
+  [FN] produce -> boysenberry
+  [FN] produce -> citrus
+  [FN] produce -> cos
+  [FN] produce -> edible fruit
+  [FN] produce -> elderberry
+  [FN] produce -> field pea
+  [FN] produce -> greens
+  [FN] produce -> legume
+  [FN] produce -> lettuce
+  [FN] produce -> marrowfat pea
+  [FN] produce -> navel orange
+  [FN] produce -> orange
+  [FN] produce -> pea
+  [FN] produce -> raspberry
+  [FN] produce -> salad green
+  [FN] produce -> sweet orange
+  [FN] produce -> vegetable
+  [FN] salad green -> cos
+  [FN] sandwich -> gyro
+  [FN] snack food -> gyro
+  [FN] starches -> bear claw
+  [FN] starches -> bread
+  [FN] starches -> brown rice
+  [FN] starches -> bun
+  [FN] starches -> rice
+  [FN] starches -> sweet roll
+  [FN] sweet orange -> navel orange
+  [FN] sweet roll -> bear claw
+  [FN] vegetable -> cos
+  [FN] vegetable -> lettuce
+  [FN] vegetable -> salad green
+  [FN] water-soluble vitamin -> choline

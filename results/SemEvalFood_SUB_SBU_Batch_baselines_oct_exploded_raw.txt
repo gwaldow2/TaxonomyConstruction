@@ -1,0 +1,143 @@
+==================================================
+=== Detailed Node Pair Analysis (Exploded Raw Edges) ===
+Match Type Used: EXACT
+==================================================
+Precision: 0.6104 | Recall: 0.4608 | F1: 0.5251
+
+CORRECT PREDICTIONS (True Positives: 47 Pred edges covering 47 GT edges):
+  [TP] appetizer -> antipasto
+  [TP] appetizer -> crudites
+  [TP] b complex vitamin -> niacin
+  [TP] b complex vitamin -> pantothenic acid
+  [TP] b complex vitamin -> vitamin b2
+  [TP] bread -> flatbread
+  [TP] bread -> white bread
+  [TP] candy -> hard candy
+  [TP] cocktail -> bullshot
+  [TP] cocktail -> gin and it
+  [TP] condiment -> relish
+  [TP] condiment -> sauce
+  [TP] condiment -> spread
+  [TP] dairy product -> curd
+  [TP] dessert -> tiramisu
+  [TP] diet -> diabetic diet
+  [TP] dish -> soup
+  [TP] dressing -> blue cheese dressing
+  [TP] dressing -> mayonnaise
+  [TP] flatbread -> bannock
+  [TP] flatbread -> flatbrod
+  [TP] food -> fare
+  [TP] food -> feed
+  [TP] food -> foodstuff
+  [TP] food -> nutriment
+  [TP] grain -> buckwheat
+  [TP] grain -> corn
+  [TP] grain -> groats
+  [TP] ingredient -> flavorer
+  [TP] jelly -> apple jelly
+  [TP] liquor -> gin
+  [TP] mayonnaise -> green mayonnaise
+  [TP] potato -> home fries
+  [TP] potato -> mashed potato
+  [TP] relish -> pickle relish
+  [TP] sauce -> hard sauce
+  [TP] sauce -> ravigote
+  [TP] soup -> broth
+  [TP] soup -> gazpacho
+  [TP] spread -> nut butter
+  [TP] starches -> potato
+  [TP] tea -> oolong
+  [TP] tea -> sun tea
+  [TP] tisane -> camomile tea
+  [TP] vitamin -> water soluble vitamin
+  [TP] water -> drinking water
+  [TP] water soluble vitamin -> b complex vitamin
+
+INCORRECT PREDICTIONS (False Positives: 30):
+  [FP] bread -> french bread
+  [FP] condiment -> dressing
+  [FP] dessert -> candy
+  [FP] dish -> appetizer
+  [FP] dish -> dessert
+  [FP] dish -> entree
+  [FP] flatbread -> baguet
+  [FP] flatbread -> bap
+  [FP] food -> dish
+  [FP] food -> eatage
+  [FP] food -> fodder
+  [FP] food -> meal
+  [FP] grain -> starches
+  [FP] herb -> caraway seed
+  [FP] herb -> fennel seed
+  [FP] herb -> garlic
+  [FP] ingredient -> condiment
+  [FP] jelly -> confiture
+  [FP] jelly -> conserve
+  [FP] jelly -> crabapple jelly
+  [FP] liquor -> cocktail
+  [FP] meal -> course
+  [FP] sauce -> steak sauce
+  [FP] sauce -> taco sauce
+  [FP] soup -> chow
+  [FP] spread -> jelly
+  [FP] tea -> tisane
+  [FP] tisane -> herb tea
+  [FP] water -> soda water
+  [FP] water -> sugar water
+
+MISSED RELATIONS (False Negatives: 55):
+  [FN] appetizer -> cocktail
+  [FN] apple jelly -> crabapple jelly
+  [FN] bread -> bap
+  [FN] broth -> liquor
+  [FN] condiment -> steak sauce
+  [FN] condiment -> taco sauce
+  [FN] confiture -> conserve
+  [FN] conserve -> jelly
+  [FN] corn -> popcorn
+  [FN] course -> appetizer
+  [FN] course -> dessert
+  [FN] course -> entree
+  [FN] crudites -> celery stick
+  [FN] dainty -> sweet
+  [FN] dish -> meatball
+  [FN] dish -> moo goo gai pan
+  [FN] dish -> scampi
+  [FN] dish -> succotash
+  [FN] dish -> tamale pie
+  [FN] drinking water -> soda water
+  [FN] drinking water -> sugar water
+  [FN] fare -> chow
+  [FN] fare -> diet
+  [FN] feed -> fodder
+  [FN] flavorer -> caraway seed
+  [FN] flavorer -> condiment
+  [FN] flavorer -> fennel seed
+  [FN] flavorer -> garlic
+  [FN] flavorer -> herb
+  [FN] fodder -> alfalfa
+  [FN] fodder -> eatage
+  [FN] food -> water
+  [FN] foodstuff -> curd
+  [FN] foodstuff -> dairy product
+  [FN] foodstuff -> grain
+  [FN] foodstuff -> ingredient
+  [FN] foodstuff -> meal
+  [FN] foodstuff -> starches
+  [FN] french bread -> baguet
+  [FN] herb -> tea
+  [FN] herb tea -> tisane
+  [FN] meal -> tea
+  [FN] meatball -> porcupine ball
+  [FN] nutriment -> course
+  [FN] nutriment -> dainty
+  [FN] nutriment -> dish
+  [FN] nutriment -> meal
+  [FN] nutriment -> vitamin
+  [FN] sauce -> dressing
+  [FN] starches -> bread
+  [FN] sweet -> candy
+  [FN] sweet -> center
+  [FN] sweet -> confiture
+  [FN] tea -> herb tea
+  [FN] white bread -> french bread

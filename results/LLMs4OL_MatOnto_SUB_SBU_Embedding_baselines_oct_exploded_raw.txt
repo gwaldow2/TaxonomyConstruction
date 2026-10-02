@@ -1,0 +1,167 @@
+==================================================
+=== Detailed Node Pair Analysis (Exploded Raw Edges) ===
+Match Type Used: EXACT
+==================================================
+Precision: 0.3400 | Recall: 0.3778 | F1: 0.3579
+
+CORRECT PREDICTIONS (True Positives: 34 Pred edges covering 34 GT edges):
+  [TP] angle -> solid angle
+  [TP] aromaticity -> aromatic
+  [TP] atom -> curium atom
+  [TP] atom -> gallium atom
+  [TP] atom -> potassium atom
+  [TP] atom -> rubidium atom
+  [TP] atom -> tellurium atom
+  [TP] atom -> terbium atom
+  [TP] chemical formula -> molecular formula
+  [TP] chemical quality -> chemical class
+  [TP] concentration -> amount of substance concentration
+  [TP] cyclicity -> acyclic
+  [TP] density unit -> area density unit
+  [TP] density unit -> linear density unit
+  [TP] electronegativity -> mulliken electronegativity
+  [TP] electronegativity -> pauling electronegativity
+  [TP] element -> darmstadtium
+  [TP] material -> ceramic material
+  [TP] measured property -> intensive property
+  [TP] mixture -> homogeneous mixture
+  [TP] molecular center -> chiral center
+  [TP] moleculecomponentcount -> undefined stereo atom count
+  [TP] organic group -> general sulfinic acid group
+  [TP] organic group -> thiol group
+  [TP] periodic block -> p-block element
+  [TP] periodic table element -> periodic block
+  [TP] quality -> chemical quality
+  [TP] radiation unit -> dose equivalent unit
+  [TP] scaled unit -> peta scaled unit
+  [TP] scaled unit -> zepto scaled unit
+  [TP] unit -> energy unit
+  [TP] unit -> moment of force unit
+  [TP] unit raised to power -> unit raised to power of negative one
+  [TP] unit raised to power -> unit raised to power of three
+
+INCORRECT PREDICTIONS (False Positives: 66):
+  [FP] acyclic -> cyclicity
+  [FP] alkali metal -> magnesium
+  [FP] amount of substance concentration -> concentration
+  [FP] angle -> velocity
+  [FP] anion -> imine
+  [FP] area density unit -> density unit
+  [FP] aromatic -> aromaticity
+  [FP] atom -> fullerene
+  [FP] atom -> ion
+  [FP] catalyst -> catalytic activity unit
+  [FP] ceramic material -> material
+  [FP] chemical quality -> quality
+  [FP] chiral center -> molecular center
+  [FP] concentration -> exposure
+  [FP] conduction unit -> permittivity
+  [FP] count -> wavenumber
+  [FP] density unit -> density
+  [FP] dependent_continuant -> continuant
+  [FP] dependent_continuant -> independent_continuant
+  [FP] diastereomer -> chaoite
+  [FP] electric current unit -> conduction unit
+  [FP] electric resistance -> electric resistance unit
+  [FP] electric resistance unit -> electric current unit
+  [FP] electric resistance unit -> electric resistance
+  [FP] electromagnetic radiation unit -> radiation unit
+  [FP] element -> object
+  [FP] element -> periodic table element
+  [FP] energy unit -> unit
+  [FP] group element -> element
+  [FP] homogeneous mixture -> mixture
+  [FP] imine -> anion
+  [FP] independent_continuant -> dependent_continuant
+  [FP] intensive property -> hardness range
+  [FP] ion -> xenon
+  [FP] lanthanide -> molybdenum
+  [FP] lanthanide -> promethium
+  [FP] luminous flux unit -> magnetic flux
+  [FP] magnetic flux -> luminous flux unit
+  [FP] metalloid -> scandium
+  [FP] molar mass unit -> molar entropy
+  [FP] molar mass unit -> molecular mass unit
+  [FP] molecular formula -> chemical formula
+  [FP] molecular formula -> molecularquality
+  [FP] molecular mass unit -> molar mass unit
+  [FP] molecular mass unit -> moleculecomponentcount
+  [FP] object -> identifier
+  [FP] organic compound -> carbon allotrope
+  [FP] organic compound -> organic group
+  [FP] organic group -> organic compound
+  [FP] pauling electronegativity -> electronegativity
+  [FP] peta scaled unit -> scaled unit
+  [FP] polar -> temperature
+  [FP] product -> count
+  [FP] product -> site
+  [FP] product -> solution
+  [FP] radiation unit -> derivedunit
+  [FP] radiation unit -> electromagnetic radiation unit
+  [FP] radiation unit -> radiation
+  [FP] rubidium atom -> atom
+  [FP] scaled unit -> flexural modulus
+  [FP] scaled unit -> measured property
+  [FP] solid angle -> angle
+  [FP] solid angle -> surface tension
+  [FP] stereo bond -> opticalisomer
+  [FP] unit raised to power of three -> unit raised to power
+  [FP] velocity -> angular acceleration
+
+MISSED RELATIONS (False Negatives: 56):
+  [FN] carbon allotrope -> chaoite
+  [FN] carbon allotrope -> fullerene
+  [FN] chemical quality -> chemical formula
+  [FN] chemical quality -> electronegativity
+  [FN] chemical quality -> molecular center
+  [FN] continuant -> dependent_continuant
+  [FN] continuant -> independent_continuant
+  [FN] dependent_continuant -> quality
+  [FN] derivedunit -> scaled unit
+  [FN] electromagnetic radiation unit -> luminous flux unit
+  [FN] element -> magnesium
+  [FN] element -> molybdenum
+  [FN] element -> promethium
+  [FN] element -> scandium
+  [FN] element -> xenon
+  [FN] homogeneous mixture -> solution
+  [FN] identifier -> molecular formula
+  [FN] independent_continuant -> object
+  [FN] independent_continuant -> site
+  [FN] intensive property -> flexural modulus
+  [FN] ion -> anion
+  [FN] measured property -> angle
+  [FN] measured property -> angular acceleration
+  [FN] measured property -> concentration
+  [FN] measured property -> count
+  [FN] measured property -> density
+  [FN] measured property -> electric resistance
+  [FN] measured property -> magnetic flux
+  [FN] measured property -> molar entropy
+  [FN] measured property -> molecularquality
+  [FN] measured property -> permittivity
+  [FN] measured property -> radiation
+  [FN] measured property -> surface tension
+  [FN] measured property -> temperature
+  [FN] measured property -> velocity
+  [FN] measured property -> wavenumber
+  [FN] molecularquality -> aromaticity
+  [FN] molecularquality -> cyclicity
+  [FN] molecularquality -> identifier
+  [FN] molecularquality -> moleculecomponentcount
+  [FN] object -> atom
+  [FN] object -> mixture
+  [FN] object -> organic group
+  [FN] organic compound -> imine
+  [FN] quality -> measured property
+  [FN] radiation -> exposure
+  [FN] unit -> catalytic activity unit
+  [FN] unit -> conduction unit
+  [FN] unit -> density unit
+  [FN] unit -> derivedunit
+  [FN] unit -> electric current unit
+  [FN] unit -> electric resistance unit
+  [FN] unit -> electromagnetic radiation unit
+  [FN] unit -> molar mass unit
+  [FN] unit -> molecular mass unit
+  [FN] unit -> radiation unit

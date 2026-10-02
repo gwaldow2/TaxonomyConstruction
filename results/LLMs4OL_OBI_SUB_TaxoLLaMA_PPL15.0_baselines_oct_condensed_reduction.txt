@@ -1,0 +1,195 @@
+==================================================
+=== Detailed Node Pair Analysis (Condensed Transitive Reduction) ===
+Match Type Used: SET_OVERLAP
+==================================================
+Precision: 0.3469 | Recall: 0.3953 | F1: 0.3696
+
+CORRECT PREDICTIONS (True Positives: 34 Pred edges covering 34 GT edges):
+  [TP] PRED: (albumin assay -> comprehensive metabolic panel venous blood albumin assay)
+        matches GT: (albumin assay -> comprehensive metabolic panel venous blood albumin assay)
+  [TP] PRED: (alpha-beta t cell -> cd4-positive alpha-beta t cell)
+        matches GT: (alpha-beta t cell -> cd4-positive alpha-beta t cell)
+  [TP] PRED: (arthropod specimen collection by aspiration -> daytime arthropod specimen collection by aspiration)
+        matches GT: (arthropod specimen collection by aspiration -> daytime arthropod specimen collection by aspiration)
+  [TP] PRED: (arthropod specimen collection process -> live arthropod specimen collection process)
+        matches GT: (arthropod specimen collection process -> live arthropod specimen collection process)
+  [TP] PRED: (assay -> analyte assay)
+        matches GT: (assay -> analyte assay)
+  [TP] PRED: (assay -> blood assay)
+        matches GT: (assay -> blood assay)
+  [TP] PRED: (assay -> carboxyfluorescein succinimidyl ester staining assay)
+        matches GT: (assay -> carboxyfluorescein succinimidyl ester staining assay)
+  [TP] PRED: (assay -> enzymatic activity level assay)
+        matches GT: (assay -> enzymatic activity level assay)
+  [TP] PRED: (assay -> insecticide resistance assay)
+        matches GT: (assay -> insecticide resistance assay)
+  [TP] PRED: (assay -> organism detection assay)
+        matches GT: (assay -> organism detection assay)
+  [TP] PRED: (assay -> polymerase chain reaction assay)
+        matches GT: (assay -> polymerase chain reaction assay)
+  [TP] PRED: (assay -> protein expression profiling assay)
+        matches GT: (assay -> protein expression profiling assay)
+  [TP] PRED: (carboxyfluorescein succinimidyl ester staining assay -> carboxyfluorescein succinimidyl ester staining assay measuring epitope specific proliferation of t cells)
+        matches GT: (carboxyfluorescein succinimidyl ester staining assay -> carboxyfluorescein succinimidyl ester staining assay measuring epitope specific proliferation of t cells)
+  [TP] PRED: (clinical history -> family clinical history of cancer)
+        matches GT: (clinical history -> family clinical history of cancer)
+  [TP] PRED: (container -> vial)
+        matches GT: (container -> vial)
+  [TP] PRED: (continuant -> independent continuant)
+        matches GT: (continuant -> independent continuant)
+  [TP] PRED: (cytometer -> flow cytometer)
+        matches GT: (cytometer -> flow cytometer)
+  [TP] PRED: (device -> environmental control device)
+        matches GT: (device -> environmental control device)
+  [TP] PRED: (device -> material separation device)
+        matches GT: (device -> material separation device)
+  [TP] PRED: (device -> measurement device)
+        matches GT: (device -> measurement device)
+  [TP] PRED: (epitope protection experiment -> epitope protection experiment based on survival)
+        matches GT: (epitope protection experiment -> epitope protection experiment based on survival)
+  [TP] PRED: (flow cytometer -> flow cytometer analyzer)
+        matches GT: (flow cytometer -> flow cytometer analyzer)
+  [TP] PRED: (function -> connection function)
+        matches GT: (function -> connection function)
+  [TP] PRED: (insecticide resistance by detecting enzyme activity assay -> insecticide resistance by detecting glutathione s-transferase activity assay)
+        matches GT: (insecticide resistance by detecting enzyme activity assay -> insecticide resistance by detecting glutathione s-transferase activity assay)
+  [TP] PRED: (interleukin-3 production -> epitope specific interleukin-3 production by t cells)
+        matches GT: (interleukin-3 production -> epitope specific interleukin-3 production by t cells)
+  [TP] PRED: (material entity -> molecular entity)
+        matches GT: (material entity -> molecular entity)
+  [TP] PRED: (microarray -> dna microarray)
+        matches GT: (microarray -> dna microarray)
+  [TP] PRED: (organization -> organization of specimen collector)
+        matches GT: (organization -> organization of specimen collector)
+  [TP] PRED: (role -> accessed material role)
+        matches GT: (role -> accessed material role)
+  [TP] PRED: (role -> adjuvant role)
+        matches GT: (role -> adjuvant role)
+  [TP] PRED: (role -> regulatory role)
+        matches GT: (role -> regulatory role)
+  [TP] PRED: (specimen collection process -> arthropod specimen collection process)
+        matches GT: (specimen collection process -> arthropod specimen collection process)
+  [TP] PRED: (test tube -> anticoagulant-containing test tube)
+        matches GT: (test tube -> anticoagulant-containing test tube)
+  [TP] PRED: (thyroid stimulating hormone assay -> venous blood thyroid stimulating hormone assay)
+        matches GT: (thyroid stimulating hormone assay -> venous blood thyroid stimulating hormone assay)
+
+INCORRECT PREDICTIONS (False Positives: 64):
+  [FP] arthropod specimen collection process -> adult arthropod specimen collection process
+  [FP] arthropod specimen collection process -> arthropod specimen collection by aspiration
+  [FP] assay -> 5-nucleotidase activity level assay
+  [FP] assay -> albumin assay
+  [FP] assay -> assay array
+  [FP] assay -> assay measuring a binding constant of a t cell epitopemhctcr complex
+  [FP] assay -> assay measuring binding of a t cell epitopemhctcr complex
+  [FP] assay -> assay measuring epitope specific interferon-alpha production by t cells
+  [FP] assay -> assay measuring quantitative binding of an epitopemhctcr complex
+  [FP] assay -> assay measuring the on rate kon of a t cell epitopemhctcr complex
+  [FP] assay -> cytometry assay
+  [FP] assay -> in vivo assay measuring b cell epitope specific protection based on survival
+  [FP] assay -> insecticide resistance by detecting enzyme activity assay
+  [FP] assay -> lymphocyte assay
+  [FP] assay -> lymphocyte count assay
+  [FP] assay -> microarray
+  [FP] assay -> monocyte assay
+  [FP] assay -> nanodroplet processing in one pot for trace samples assay
+  [FP] assay -> parasite detection assay
+  [FP] assay -> proximity extension assay
+  [FP] assay -> t cell epitope assay
+  [FP] assay -> thyroid stimulating hormone assay
+  [FP] carboxyfluorescein succinimidyl ester staining assay -> artificially induced dna repair
+  [FP] carboxyfluorescein succinimidyl ester staining assay -> clinical history
+  [FP] carboxyfluorescein succinimidyl ester staining assay -> container
+  [FP] carboxyfluorescein succinimidyl ester staining assay -> data item
+  [FP] carboxyfluorescein succinimidyl ester staining assay -> device
+  [FP] carboxyfluorescein succinimidyl ester staining assay -> dose
+  [FP] carboxyfluorescein succinimidyl ester staining assay -> function
+  [FP] carboxyfluorescein succinimidyl ester staining assay -> functional assessment of individual
+  [FP] carboxyfluorescein succinimidyl ester staining assay -> interleukin-3 production
+  [FP] carboxyfluorescein succinimidyl ester staining assay -> material combination
+  [FP] carboxyfluorescein succinimidyl ester staining assay -> material component separation
+  [FP] carboxyfluorescein succinimidyl ester staining assay -> material processing
+  [FP] carboxyfluorescein succinimidyl ester staining assay -> measurement datum
+  [FP] carboxyfluorescein succinimidyl ester staining assay -> multichannel pipette
+  [FP] carboxyfluorescein succinimidyl ester staining assay -> nose to finger assessment
+  [FP] carboxyfluorescein succinimidyl ester staining assay -> organization
+  [FP] carboxyfluorescein succinimidyl ester staining assay -> planned process
+  [FP] carboxyfluorescein succinimidyl ester staining assay -> protein
+  [FP] carboxyfluorescein succinimidyl ester staining assay -> specimen collection process
+  [FP] carboxyfluorescein succinimidyl ester staining assay -> spectrophotometer
+  [FP] carboxyfluorescein succinimidyl ester staining assay measuring epitope specific proliferation of t cells -> continuant
+  [FP] carboxyfluorescein succinimidyl ester staining assay measuring epitope specific proliferation of t cells -> material entity
+  [FP] carboxyfluorescein succinimidyl ester staining assay measuring epitope specific proliferation of t cells -> processed material
+  [FP] carboxyfluorescein succinimidyl ester staining assay measuring epitope specific proliferation of t cells -> realizable entity
+  [FP] clinical history -> brother clinical history of cancer
+  [FP] container -> test tube
+  [FP] cytometer -> lactoscope c4
+  [FP] epitope specific interleukin-3 production by t cells -> epitope specific cytokine production by t cells
+  [FP] function -> role
+  [FP] lymphocyte assay -> epitope protection experiment
+  [FP] lymphocyte count assay -> manual differential bodily fluid monocyte count assay
+  [FP] material entity -> adding a material entity into a target
+  [FP] microarray -> affymetrix rhesus macaque genome array
+  [FP] polymerase chain reaction assay -> ceruloplasmin
+  [FP] polymerase chain reaction assay -> cryostat
+  [FP] polymerase chain reaction assay -> dna subtraction
+  [FP] polymerase chain reaction assay -> filter paper
+  [FP] polymerase chain reaction assay -> lsrfortessa x-20
+  [FP] polymerase chain reaction assay -> tobramycin
+  [FP] role -> regulator role
+  [FP] role -> role of regulator of consumables and medical devices
+  [FP] spectrophotometer -> cytometer
+
+MISSED RELATIONS (False Negatives: 52):
+  [FN] adult arthropod specimen collection process -> arthropod specimen collection by aspiration
+  [FN] analyte assay -> proximity extension assay
+  [FN] assay array -> microarray
+  [FN] assay measuring a binding constant of a t cell epitopemhctcr complex -> assay measuring the on rate kon of a t cell epitopemhctcr complex
+  [FN] assay measuring binding of a t cell epitopemhctcr complex -> assay measuring quantitative binding of an epitopemhctcr complex
+  [FN] assay measuring quantitative binding of an epitopemhctcr complex -> assay measuring a binding constant of a t cell epitopemhctcr complex
+  [FN] blood assay -> comprehensive metabolic panel venous blood albumin assay
+  [FN] blood assay -> venous blood thyroid stimulating hormone assay
+  [FN] container -> cryostat
+  [FN] cytometry assay -> lymphocyte assay
+  [FN] cytometry assay -> monocyte assay
+  [FN] data item -> measurement datum
+  [FN] device -> assay array
+  [FN] device -> container
+  [FN] dna microarray -> affymetrix rhesus macaque genome array
+  [FN] environmental control device -> cryostat
+  [FN] enzymatic activity level assay -> 5-nucleotidase activity level assay
+  [FN] epitope protection experiment based on survival -> in vivo assay measuring b cell epitope specific protection based on survival
+  [FN] epitope specific cytokine production by t cells -> epitope specific interleukin-3 production by t cells
+  [FN] family clinical history of cancer -> brother clinical history of cancer
+  [FN] flow cytometer analyzer -> lsrfortessa x-20
+  [FN] functional assessment of individual -> nose to finger assessment
+  [FN] independent continuant -> material entity
+  [FN] insecticide resistance assay -> insecticide resistance by detecting enzyme activity assay
+  [FN] live arthropod specimen collection process -> adult arthropod specimen collection process
+  [FN] lymphocyte assay -> lymphocyte count assay
+  [FN] material combination -> adding a material entity into a target
+  [FN] material component separation -> dna subtraction
+  [FN] material entity -> processed material
+  [FN] material processing -> artificially induced dna repair
+  [FN] material processing -> material combination
+  [FN] material processing -> material component separation
+  [FN] material separation device -> filter paper
+  [FN] measurement datum -> dose
+  [FN] measurement device -> cytometer
+  [FN] measurement device -> multichannel pipette
+  [FN] measurement device -> spectrophotometer
+  [FN] molecular entity -> tobramycin
+  [FN] monocyte assay -> manual differential bodily fluid monocyte count assay
+  [FN] organism detection assay -> parasite detection assay
+  [FN] planned process -> assay
+  [FN] planned process -> material processing
+  [FN] polymerase chain reaction assay -> proximity extension assay
+  [FN] processed material -> device
+  [FN] protein -> ceruloplasmin
+  [FN] protein expression profiling assay -> nanodroplet processing in one pot for trace samples assay
+  [FN] realizable entity -> role
+  [FN] regulator role -> role of regulator of consumables and medical devices
+  [FN] regulatory role -> regulator role
+  [FN] spectrophotometer -> lactoscope c4
+  [FN] t cell epitope assay -> assay measuring binding of a t cell epitopemhctcr complex
+  [FN] vial -> test tube

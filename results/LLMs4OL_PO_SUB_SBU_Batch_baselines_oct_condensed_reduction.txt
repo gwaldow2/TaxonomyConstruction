@@ -1,0 +1,193 @@
+==================================================
+=== Detailed Node Pair Analysis (Condensed Transitive Reduction) ===
+Match Type Used: SET_OVERLAP
+==================================================
+Precision: 0.5106 | Recall: 0.5455 | F1: 0.5275
+
+CORRECT PREDICTIONS (True Positives: 48 Pred edges covering 48 GT edges):
+  [TP] PRED: (abscission zone -> floral organ abscission zone)
+        matches GT: (abscission zone -> floral organ abscission zone)
+  [TP] PRED: (bract epidermis -> bract adaxial epidermis)
+        matches GT: (bract epidermis -> bract adaxial epidermis)
+  [TP] PRED: (cambium -> cork cambium)
+        matches GT: (cambium -> cork cambium)
+  [TP] PRED: (cardinal part of multi-tissue plant structure -> cardinal organ part)
+        matches GT: (cardinal part of multi-tissue plant structure -> cardinal organ part)
+  [TP] PRED: (central root cap -> central root cap of lateral root)
+        matches GT: (central root cap -> central root cap of lateral root)
+  [TP] PRED: (flower -> pistillate flower)
+        matches GT: (flower -> pistillate flower)
+  [TP] PRED: (flower -> spikelet floret)
+        matches GT: (flower -> spikelet floret)
+  [TP] PRED: (fruit -> samara fruit)
+        matches GT: (fruit -> samara fruit)
+  [TP] PRED: (fruit pedicel -> infructescence fruit pedicel)
+        matches GT: (fruit pedicel -> infructescence fruit pedicel)
+  [TP] PRED: (lateral root cap -> lateral root cap of lateral root)
+        matches GT: (lateral root cap -> lateral root cap of lateral root)
+  [TP] PRED: (lateral root cap -> lateral root cap of primary root)
+        matches GT: (lateral root cap -> lateral root cap of primary root)
+  [TP] PRED: (leaf -> vascular leaf)
+        matches GT: (leaf -> vascular leaf)
+  [TP] PRED: (leaf epidermis -> leaf adaxial epidermis)
+        matches GT: (leaf epidermis -> leaf adaxial epidermis)
+  [TP] PRED: (leaf epidermis -> leaf lamina epidermis)
+        matches GT: (leaf epidermis -> leaf lamina epidermis)
+  [TP] PRED: (leaf lamina epidermis -> leaf lamina adaxial epidermis)
+        matches GT: (leaf lamina epidermis -> leaf lamina adaxial epidermis)
+  [TP] PRED: (multi-tissue plant structure -> plant organ)
+        matches GT: (multi-tissue plant structure -> plant organ)
+  [TP] PRED: (native plant cell -> ground tissue cell)
+        matches GT: (native plant cell -> ground tissue cell)
+  [TP] PRED: (phyllome -> leaf)
+        matches GT: (phyllome -> leaf)
+  [TP] PRED: (phyllome -> sporophyll)
+        matches GT: (phyllome -> sporophyll)
+  [TP] PRED: (phyllome epidermis -> leaf epidermis)
+        matches GT: (phyllome epidermis -> leaf epidermis)
+  [TP] PRED: (pith -> tuber pith)
+        matches GT: (pith -> tuber pith)
+  [TP] PRED: (plant anatomical entity -> plant structure)
+        matches GT: (plant anatomical entity -> plant structure)
+  [TP] PRED: (plant axis differentiation zone -> shoot internode differentiation zone)
+        matches GT: (plant axis differentiation zone -> shoot internode differentiation zone)
+  [TP] PRED: (plant egg cell -> embryo sac egg cell)
+        matches GT: (plant egg cell -> embryo sac egg cell)
+  [TP] PRED: (plant epidermis -> seed coat epidermis)
+        matches GT: (plant epidermis -> seed coat epidermis)
+  [TP] PRED: (plant gamete -> plant egg cell)
+        matches GT: (plant gamete -> plant egg cell)
+  [TP] PRED: (plant gamete -> plant sperm cell)
+        matches GT: (plant gamete -> plant sperm cell)
+  [TP] PRED: (plant organ -> phyllome)
+        matches GT: (plant organ -> phyllome)
+  [TP] PRED: (plant structure -> multi-tissue plant structure)
+        matches GT: (plant structure -> multi-tissue plant structure)
+  [TP] PRED: (plant structure -> portion of plant tissue)
+        matches GT: (plant structure -> portion of plant tissue)
+  [TP] PRED: (portion of ground tissue -> parenchyma)
+        matches GT: (portion of ground tissue -> parenchyma)
+  [TP] PRED: (portion of meristem tissue -> lateral meristem)
+        matches GT: (portion of meristem tissue -> lateral meristem)
+  [TP] PRED: (portion of plant tissue -> portion of ground tissue)
+        matches GT: (portion of plant tissue -> portion of ground tissue)
+  [TP] PRED: (portion of plant tissue -> portion of meristem tissue)
+        matches GT: (portion of plant tissue -> portion of meristem tissue)
+  [TP] PRED: (primordium -> root primordium)
+        matches GT: (primordium -> root primordium)
+  [TP] PRED: (procambium -> shoot procambium)
+        matches GT: (procambium -> shoot procambium)
+  [TP] PRED: (reproductive bud -> strobilus bud)
+        matches GT: (reproductive bud -> strobilus bud)
+  [TP] PRED: (reproductive bud -> terminal reproductive bud)
+        matches GT: (reproductive bud -> terminal reproductive bud)
+  [TP] PRED: (root development stage -> radicle emergence stage)
+        matches GT: (root development stage -> radicle emergence stage)
+  [TP] PRED: (shoot axis node -> inflorescence axis node)
+        matches GT: (shoot axis node -> inflorescence axis node)
+  [TP] PRED: (spikelet floret -> ear floret)
+        matches GT: (spikelet floret -> ear floret)
+  [TP] PRED: (stem elongation stage -> se05 five nodes or internodes visible stage)
+        matches GT: (stem elongation stage -> se05 five nodes or internodes visible stage)
+  [TP] PRED: (stem elongation stage -> se07 seven nodes or internodes visible stage)
+        matches GT: (stem elongation stage -> se07 seven nodes or internodes visible stage)
+  [TP] PRED: (storage parenchyma -> tuber storage parenchyma)
+        matches GT: (storage parenchyma -> tuber storage parenchyma)
+  [TP] PRED: (strobilus bud -> terminal strobilus bud)
+        matches GT: (strobilus bud -> terminal strobilus bud)
+  [TP] PRED: (tuber axillary shoot -> subterranean tuber axillary shoot)
+        matches GT: (tuber axillary shoot -> subterranean tuber axillary shoot)
+  [TP] PRED: (upper glume -> upper glume of tassel spikelet)
+        matches GT: (upper glume -> upper glume of tassel spikelet)
+  [TP] PRED: (vascular leaf -> adult vascular leaf)
+        matches GT: (vascular leaf -> adult vascular leaf)
+
+INCORRECT PREDICTIONS (False Positives: 46):
+  [FP] chlorenchyma -> chlorenchyma cell
+  [FP] flower -> upper glume
+  [FP] inflorescence emergence stage -> stem elongation stage
+  [FP] leaf -> flag leaf
+  [FP] leaf -> spine leaf
+  [FP] multi-tissue plant structure -> cardinal part of multi-tissue plant structure
+  [FP] parenchyma -> parenchyma cell
+  [FP] parenchyma -> storage parenchyma
+  [FP] parenchyma cell -> mesophyll cell
+  [FP] plant axis differentiation zone -> branch internode differentiation zone
+  [FP] plant epidermis -> bract epidermis
+  [FP] plant epidermis -> carpel epidermis
+  [FP] plant epidermis -> phyllome epidermis
+  [FP] plant epidermis -> style epidermis
+  [FP] plant organ -> flower
+  [FP] plant organ -> fruit
+  [FP] plant organ -> shoot system
+  [FP] plant structure -> abscission zone
+  [FP] plant structure -> axil
+  [FP] plant structure -> basal root
+  [FP] plant structure -> central endosperm
+  [FP] plant structure -> central root cap
+  [FP] plant structure -> coma
+  [FP] plant structure -> fruit pedicel
+  [FP] plant structure -> lateral root cap
+  [FP] plant structure -> pith
+  [FP] plant structure -> plant axis differentiation zone
+  [FP] plant structure -> plant callus
+  [FP] plant structure -> plant epidermis
+  [FP] plant structure -> plant ovary wall middle layer
+  [FP] plant structure -> primordium
+  [FP] plant structure -> pulvinus
+  [FP] plant structure -> reproductive bud
+  [FP] plant structure -> root parenchyma
+  [FP] plant structure -> shoot axis apex
+  [FP] plant structure -> shoot axis node
+  [FP] plant structure -> shoot-borne internode root
+  [FP] plant structure -> terminal bud
+  [FP] plant structure -> tuber axillary shoot
+  [FP] portion of ground tissue -> chlorenchyma
+  [FP] portion of meristem tissue -> cambium
+  [FP] portion of meristem tissue -> procambium
+  [FP] procambium -> leaf procambium
+  [FP] shoot system -> reproductive shoot system
+  [FP] shoot system -> shoot system epidermis
+  [FP] upper glume -> upper glume of pedicellate spikelet of tassel
+
+MISSED RELATIONS (False Negatives: 40):
+  [FN] adult vascular leaf -> flag leaf
+  [FN] cardinal organ part -> plant axis differentiation zone
+  [FN] cardinal organ part -> pulvinus
+  [FN] carpel epidermis -> style epidermis
+  [FN] chlorenchyma -> plant ovary wall middle layer
+  [FN] chlorenchyma cell -> mesophyll cell
+  [FN] ground tissue cell -> parenchyma cell
+  [FN] lateral meristem -> cambium
+  [FN] leaf adaxial epidermis -> leaf lamina adaxial epidermis
+  [FN] multi-tissue plant structure -> fruit
+  [FN] native plant cell -> plant gamete
+  [FN] parenchyma -> chlorenchyma
+  [FN] parenchyma -> pith
+  [FN] parenchyma -> root parenchyma
+  [FN] parenchyma cell -> chlorenchyma cell
+  [FN] phyllome epidermis -> bract epidermis
+  [FN] phyllome epidermis -> carpel epidermis
+  [FN] pistillate flower -> ear floret
+  [FN] plant epidermis -> shoot system epidermis
+  [FN] plant structure -> cardinal part of multi-tissue plant structure
+  [FN] po_0000055 -> reproductive bud
+  [FN] po_0000055 -> terminal bud
+  [FN] portion of plant tissue -> abscission zone
+  [FN] portion of plant tissue -> central endosperm
+  [FN] portion of plant tissue -> plant callus
+  [FN] portion of plant tissue -> plant epidermis
+  [FN] reproductive shoot system -> flower
+  [FN] reproductive shoot system -> reproductive bud
+  [FN] root parenchyma -> central root cap
+  [FN] root parenchyma -> lateral root cap
+  [FN] seed coat epidermis -> coma
+  [FN] shoot internode differentiation zone -> branch internode differentiation zone
+  [FN] shoot procambium -> leaf procambium
+  [FN] shoot system -> po_0000055
+  [FN] shoot system epidermis -> phyllome epidermis
+  [FN] shoot-borne internode root -> basal root
+  [FN] terminal bud -> terminal reproductive bud
+  [FN] terminal reproductive bud -> terminal strobilus bud
+  [FN] upper glume of tassel spikelet -> upper glume of pedicellate spikelet of tassel
+  [FN] vascular leaf -> spine leaf

@@ -1,0 +1,138 @@
+==================================================
+=== Detailed Node Pair Analysis (Condensed Transitive Reduction) ===
+Match Type Used: SET_OVERLAP
+==================================================
+Precision: 0.6957 | Recall: 0.1538 | F1: 0.2520
+
+CORRECT PREDICTIONS (True Positives: 16 Pred edges covering 16 GT edges):
+  [TP] PRED: (berry -> boysenberry)
+        matches GT: (berry -> boysenberry)
+  [TP] PRED: (berry -> raspberry)
+        matches GT: (berry -> raspberry)
+  [TP] PRED: (cake -> applesauce cake)
+        matches GT: (cake -> applesauce cake)
+  [TP] PRED: (chocolate -> chocolate candy)
+        matches GT: (chocolate -> chocolate candy)
+  [TP] PRED: (chowder -> clam chowder)
+        matches GT: (chowder -> clam chowder)
+  [TP] PRED: (food -> foodstuff)
+        matches GT: (food -> foodstuff)
+  [TP] PRED: (food -> seafood)
+        matches GT: (food -> seafood)
+  [TP] PRED: (food -> soul food)
+        matches GT: (food -> soul food)
+  [TP] PRED: (jerky -> beef jerky)
+        matches GT: (jerky -> beef jerky)
+  [TP] PRED: (lobster -> lobster tail)
+        matches GT: (lobster -> lobster tail)
+  [TP] PRED: (orange -> sweet orange)
+        matches GT: (orange -> sweet orange)
+  [TP] PRED: (pudding -> corn pudding)
+        matches GT: (pudding -> corn pudding)
+  [TP] PRED: (rice -> brown rice)
+        matches GT: (rice -> brown rice)
+  [TP] PRED: (sauce -> anchovy sauce)
+        matches GT: (sauce -> anchovy sauce)
+  [TP] PRED: (tart -> lobster tart)
+        matches GT: (tart -> lobster tart)
+  [TP] PRED: (vitamin -> water-soluble vitamin)
+        matches GT: (vitamin -> water-soluble vitamin)
+
+INCORRECT PREDICTIONS (False Positives: 7):
+  [FP] beer -> spruce beer
+  [FP] berry -> elderberry
+  [FP] food -> snack food
+  [FP] lobster -> lobster tart
+  [FP] orange -> navel orange
+  [FP] sauce -> applesauce cake
+  [FP] vitamin -> b-complex vitamin
+
+MISSED RELATIONS (False Negatives: 88):
+  [FN] alcohol -> brew
+  [FN] alcohol -> koumiss
+  [FN] ale -> pale ale
+  [FN] b-complex vitamin -> choline
+  [FN] baked goods -> bread
+  [FN] baked goods -> cake
+  [FN] baked goods -> pastry
+  [FN] beer -> ale
+  [FN] beverage -> alcohol
+  [FN] bread -> bun
+  [FN] brew -> beer
+  [FN] brew -> spruce beer
+  [FN] bun -> sweet roll
+  [FN] cake -> cookie
+  [FN] cheese -> camembert
+  [FN] citrus -> orange
+  [FN] concoction -> dough
+  [FN] condiment -> sauce
+  [FN] cookie -> gingersnap
+  [FN] course -> dessert
+  [FN] cut -> cut of beef
+  [FN] cut of beef -> flat bone
+  [FN] dairy product -> cheese
+  [FN] dessert -> pudding
+  [FN] dish -> chicken paprika
+  [FN] dish -> pudding
+  [FN] dish -> scampi
+  [FN] dish -> snack food
+  [FN] dish -> soup
+  [FN] dough -> pastry
+  [FN] edible fruit -> berry
+  [FN] edible fruit -> citrus
+  [FN] edible fruit -> elderberry
+  [FN] fare -> diet
+  [FN] flavorer -> condiment
+  [FN] flavorer -> herb
+  [FN] food -> baked goods
+  [FN] food -> beverage
+  [FN] food -> chocolate
+  [FN] food -> culture medium
+  [FN] food -> fare
+  [FN] food -> meat
+  [FN] food -> nutriment
+  [FN] food -> produce
+  [FN] foodstuff -> concoction
+  [FN] foodstuff -> dairy product
+  [FN] foodstuff -> egg
+  [FN] foodstuff -> grain
+  [FN] foodstuff -> ingredient
+  [FN] foodstuff -> meal
+  [FN] foodstuff -> starches
+  [FN] grain -> rice
+  [FN] greens -> salad green
+  [FN] herb -> marjoram
+  [FN] ingredient -> flavorer
+  [FN] legume -> pea
+  [FN] lettuce -> cos
+  [FN] meal -> pea flour
+  [FN] meat -> cut
+  [FN] meat -> jerky
+  [FN] meat -> pork
+  [FN] nutriment -> course
+  [FN] nutriment -> dish
+  [FN] nutriment -> meal
+  [FN] nutriment -> vitamin
+  [FN] pastry -> pie
+  [FN] pea -> field pea
+  [FN] pea -> marrowfat pea
+  [FN] pie -> squash pie
+  [FN] pie -> tart
+  [FN] pork -> cochon de lait
+  [FN] produce -> edible fruit
+  [FN] produce -> vegetable
+  [FN] salad green -> lettuce
+  [FN] sandwich -> gyro
+  [FN] seafood -> freshwater fish
+  [FN] seafood -> octopus
+  [FN] seafood -> shellfish
+  [FN] shellfish -> lobster
+  [FN] snack food -> sandwich
+  [FN] soup -> chowder
+  [FN] starches -> bread
+  [FN] starches -> rice
+  [FN] sweet orange -> navel orange
+  [FN] sweet roll -> bear claw
+  [FN] vegetable -> greens
+  [FN] vegetable -> legume
+  [FN] water-soluble vitamin -> b-complex vitamin

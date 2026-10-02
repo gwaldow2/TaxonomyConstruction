@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d4" for="graph" attr.name="timestamp" attr.type="string"/>
+<key id="d3" for="graph" attr.name="scale" attr.type="string"/>
+<key id="d2" for="graph" attr.name="results_file" attr.type="string"/>
+<key id="d1" for="graph" attr.name="tag" attr.type="string"/>
+<key id="d0" for="graph" attr.name="model" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">openai/gpt-oss-120b</data>
+<data key="d1">baselines_oct</data>
+<data key="d2">results/baselines_7core.json</data>
+<data key="d3">SUB</data>
+<data key="d4">2026-10-01T20:52:24</data>
+<node id="blogposting"/>
+<node id="socialmediaposting"/>
+<node id="takeaction"/>
+<node id="achieveaction"/>
+<node id="action"/>
+<node id="intangible"/>
+<node id="medicalintangible"/>
+<node id="medicalentity"/>
+<node id="medicalprocedure"/>
+<node id="surgicalprocedure"/>
+<node id="therapeuticprocedure"/>
+<node id="createaction"/>
+<node id="imageobject"/>
+<node id="imageobjectsnapshot"/>
+<node id="listitem"/>
+<node id="itemlistordertype"/>
+<node id="findaction"/>
+<node id="measurementmethodenum"/>
+<node id="measurementtypeenumeration"/>
+<node id="itemlist"/>
+<node id="eataction"/>
+<node id="consumeaction"/>
+<node id="cookaction"/>
+<node id="medicalorganization"/>
+<node id="researchorganization"/>
+<node id="broadcastservice"/>
+<node id="radiobroadcastservice"/>
+<edge source="blogposting" target="socialmediaposting"/>
+<edge source="takeaction" target="achieveaction"/>
+<edge source="action" target="takeaction"/>
+<edge source="action" target="achieveaction"/>
+<edge source="intangible" target="medicalintangible"/>
+<edge source="medicalentity" target="medicalprocedure"/>
+<edge source="medicalprocedure" target="surgicalprocedure"/>
+<edge source="medicalprocedure" target="therapeuticprocedure"/>
+<edge source="createaction" target="achieveaction"/>
+<edge source="imageobject" target="imageobjectsnapshot"/>
+<edge source="listitem" target="itemlistordertype"/>
+<edge source="findaction" target="achieveaction"/>
+<edge source="findaction" target="createaction"/>
+<edge source="measurementmethodenum" target="measurementtypeenumeration"/>
+<edge source="itemlist" target="itemlistordertype"/>
+<edge source="eataction" target="takeaction"/>
+<edge source="eataction" target="consumeaction"/>
+<edge source="eataction" target="cookaction"/>
+<edge source="medicalorganization" target="researchorganization"/>
+<edge source="broadcastservice" target="radiobroadcastservice"/>
+</graph></graphml>

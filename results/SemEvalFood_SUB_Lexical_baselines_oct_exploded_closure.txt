@@ -1,0 +1,423 @@
+==================================================
+=== Detailed Node Pair Analysis (Exploded Transitive Closure) ===
+Match Type Used: EXACT
+==================================================
+Precision: 0.8800 | Recall: 0.0538 | F1: 0.1014
+
+CORRECT PREDICTIONS (True Positives: 22 Pred edges covering 22 GT edges):
+  [TP] apple jelly -> crabapple jelly
+  [TP] bread -> flatbread
+  [TP] bread -> french bread
+  [TP] bread -> white bread
+  [TP] candy -> hard candy
+  [TP] corn -> popcorn
+  [TP] diet -> diabetic diet
+  [TP] dressing -> blue cheese dressing
+  [TP] food -> foodstuff
+  [TP] herb -> herb tea
+  [TP] jelly -> apple jelly
+  [TP] jelly -> crabapple jelly
+  [TP] mayonnaise -> green mayonnaise
+  [TP] potato -> mashed potato
+  [TP] relish -> pickle relish
+  [TP] sauce -> hard sauce
+  [TP] vitamin -> b complex vitamin
+  [TP] vitamin -> vitamin b2
+  [TP] vitamin -> water soluble vitamin
+  [TP] water -> drinking water
+  [TP] water -> soda water
+  [TP] water -> sugar water
+
+INCORRECT PREDICTIONS (False Positives: 3):
+  [FP] sauce -> steak sauce
+  [FP] sauce -> taco sauce
+  [FP] water -> water soluble vitamin
+
+MISSED RELATIONS (False Negatives: 387):
+  [FN] appetizer -> antipasto
+  [FN] appetizer -> bullshot
+  [FN] appetizer -> celery stick
+  [FN] appetizer -> cocktail
+  [FN] appetizer -> crudites
+  [FN] appetizer -> gin and it
+  [FN] b complex vitamin -> niacin
+  [FN] b complex vitamin -> pantothenic acid
+  [FN] b complex vitamin -> vitamin b2
+  [FN] bread -> baguet
+  [FN] bread -> bannock
+  [FN] bread -> bap
+  [FN] bread -> flatbrod
+  [FN] broth -> gin
+  [FN] broth -> liquor
+  [FN] cocktail -> bullshot
+  [FN] cocktail -> gin and it
+  [FN] condiment -> blue cheese dressing
+  [FN] condiment -> dressing
+  [FN] condiment -> green mayonnaise
+  [FN] condiment -> hard sauce
+  [FN] condiment -> mayonnaise
+  [FN] condiment -> nut butter
+  [FN] condiment -> pickle relish
+  [FN] condiment -> ravigote
+  [FN] condiment -> relish
+  [FN] condiment -> sauce
+  [FN] condiment -> spread
+  [FN] condiment -> steak sauce
+  [FN] condiment -> taco sauce
+  [FN] confiture -> apple jelly
+  [FN] confiture -> conserve
+  [FN] confiture -> crabapple jelly
+  [FN] confiture -> jelly
+  [FN] conserve -> apple jelly
+  [FN] conserve -> crabapple jelly
+  [FN] conserve -> jelly
+  [FN] course -> antipasto
+  [FN] course -> appetizer
+  [FN] course -> bullshot
+  [FN] course -> celery stick
+  [FN] course -> cocktail
+  [FN] course -> crudites
+  [FN] course -> dessert
+  [FN] course -> entree
+  [FN] course -> gin and it
+  [FN] course -> tiramisu
+  [FN] crudites -> celery stick
+  [FN] dainty -> apple jelly
+  [FN] dainty -> candy
+  [FN] dainty -> center
+  [FN] dainty -> confiture
+  [FN] dainty -> conserve
+  [FN] dainty -> crabapple jelly
+  [FN] dainty -> hard candy
+  [FN] dainty -> jelly
+  [FN] dainty -> sweet
+  [FN] dairy product -> curd
+  [FN] dessert -> tiramisu
+  [FN] dish -> broth
+  [FN] dish -> gazpacho
+  [FN] dish -> gin
+  [FN] dish -> liquor
+  [FN] dish -> meatball
+  [FN] dish -> moo goo gai pan
+  [FN] dish -> porcupine ball
+  [FN] dish -> scampi
+  [FN] dish -> soup
+  [FN] dish -> succotash
+  [FN] dish -> tamale pie
+  [FN] dressing -> green mayonnaise
+  [FN] dressing -> mayonnaise
+  [FN] drinking water -> soda water
+  [FN] drinking water -> sugar water
+  [FN] fare -> chow
+  [FN] fare -> diabetic diet
+  [FN] fare -> diet
+  [FN] feed -> alfalfa
+  [FN] feed -> eatage
+  [FN] feed -> fodder
+  [FN] flatbread -> bannock
+  [FN] flatbread -> flatbrod
+  [FN] flavorer -> blue cheese dressing
+  [FN] flavorer -> camomile tea
+  [FN] flavorer -> caraway seed
+  [FN] flavorer -> condiment
+  [FN] flavorer -> dressing
+  [FN] flavorer -> fennel seed
+  [FN] flavorer -> garlic
+  [FN] flavorer -> green mayonnaise
+  [FN] flavorer -> hard sauce
+  [FN] flavorer -> herb
+  [FN] flavorer -> herb tea
+  [FN] flavorer -> mayonnaise
+  [FN] flavorer -> nut butter
+  [FN] flavorer -> oolong
+  [FN] flavorer -> pickle relish
+  [FN] flavorer -> ravigote
+  [FN] flavorer -> relish
+  [FN] flavorer -> sauce
+  [FN] flavorer -> spread
+  [FN] flavorer -> steak sauce
+  [FN] flavorer -> sun tea
+  [FN] flavorer -> taco sauce
+  [FN] flavorer -> tea
+  [FN] flavorer -> tisane
+  [FN] fodder -> alfalfa
+  [FN] fodder -> eatage
+  [FN] food -> alfalfa
+  [FN] food -> antipasto
+  [FN] food -> appetizer
+  [FN] food -> apple jelly
+  [FN] food -> b complex vitamin
+  [FN] food -> baguet
+  [FN] food -> bannock
+  [FN] food -> bap
+  [FN] food -> blue cheese dressing
+  [FN] food -> bread
+  [FN] food -> broth
+  [FN] food -> buckwheat
+  [FN] food -> bullshot
+  [FN] food -> camomile tea
+  [FN] food -> candy
+  [FN] food -> caraway seed
+  [FN] food -> celery stick
+  [FN] food -> center
+  [FN] food -> chow
+  [FN] food -> cocktail
+  [FN] food -> condiment
+  [FN] food -> confiture
+  [FN] food -> conserve
+  [FN] food -> corn
+  [FN] food -> course
+  [FN] food -> crabapple jelly
+  [FN] food -> crudites
+  [FN] food -> curd
+  [FN] food -> dainty
+  [FN] food -> dairy product
+  [FN] food -> dessert
+  [FN] food -> diabetic diet
+  [FN] food -> diet
+  [FN] food -> dish
+  [FN] food -> dressing
+  [FN] food -> drinking water
+  [FN] food -> eatage
+  [FN] food -> entree
+  [FN] food -> fare
+  [FN] food -> feed
+  [FN] food -> fennel seed
+  [FN] food -> flatbread
+  [FN] food -> flatbrod
+  [FN] food -> flavorer
+  [FN] food -> fodder
+  [FN] food -> french bread
+  [FN] food -> garlic
+  [FN] food -> gazpacho
+  [FN] food -> gin
+  [FN] food -> gin and it
+  [FN] food -> grain
+  [FN] food -> green mayonnaise
+  [FN] food -> groats
+  [FN] food -> hard candy
+  [FN] food -> hard sauce
+  [FN] food -> herb
+  [FN] food -> herb tea
+  [FN] food -> home fries
+  [FN] food -> ingredient
+  [FN] food -> jelly
+  [FN] food -> liquor
+  [FN] food -> mashed potato
+  [FN] food -> mayonnaise
+  [FN] food -> meal
+  [FN] food -> meatball
+  [FN] food -> moo goo gai pan
+  [FN] food -> niacin
+  [FN] food -> nut butter
+  [FN] food -> nutriment
+  [FN] food -> oolong
+  [FN] food -> pantothenic acid
+  [FN] food -> pickle relish
+  [FN] food -> popcorn
+  [FN] food -> porcupine ball
+  [FN] food -> potato
+  [FN] food -> ravigote
+  [FN] food -> relish
+  [FN] food -> sauce
+  [FN] food -> scampi
+  [FN] food -> soda water
+  [FN] food -> soup
+  [FN] food -> spread
+  [FN] food -> starches
+  [FN] food -> steak sauce
+  [FN] food -> succotash
+  [FN] food -> sugar water
+  [FN] food -> sun tea
+  [FN] food -> sweet
+  [FN] food -> taco sauce
+  [FN] food -> tamale pie
+  [FN] food -> tea
+  [FN] food -> tiramisu
+  [FN] food -> tisane
+  [FN] food -> vitamin
+  [FN] food -> vitamin b2
+  [FN] food -> water
+  [FN] food -> water soluble vitamin
+  [FN] food -> white bread
+  [FN] foodstuff -> baguet
+  [FN] foodstuff -> bannock
+  [FN] foodstuff -> bap
+  [FN] foodstuff -> blue cheese dressing
+  [FN] foodstuff -> bread
+  [FN] foodstuff -> buckwheat
+  [FN] foodstuff -> camomile tea
+  [FN] foodstuff -> caraway seed
+  [FN] foodstuff -> condiment
+  [FN] foodstuff -> corn
+  [FN] foodstuff -> curd
+  [FN] foodstuff -> dairy product
+  [FN] foodstuff -> dressing
+  [FN] foodstuff -> fennel seed
+  [FN] foodstuff -> flatbread
+  [FN] foodstuff -> flatbrod
+  [FN] foodstuff -> flavorer
+  [FN] foodstuff -> french bread
+  [FN] foodstuff -> garlic
+  [FN] foodstuff -> grain
+  [FN] foodstuff -> green mayonnaise
+  [FN] foodstuff -> groats
+  [FN] foodstuff -> hard sauce
+  [FN] foodstuff -> herb
+  [FN] foodstuff -> herb tea
+  [FN] foodstuff -> home fries
+  [FN] foodstuff -> ingredient
+  [FN] foodstuff -> mashed potato
+  [FN] foodstuff -> mayonnaise
+  [FN] foodstuff -> meal
+  [FN] foodstuff -> nut butter
+  [FN] foodstuff -> oolong
+  [FN] foodstuff -> pickle relish
+  [FN] foodstuff -> popcorn
+  [FN] foodstuff -> potato
+  [FN] foodstuff -> ravigote
+  [FN] foodstuff -> relish
+  [FN] foodstuff -> sauce
+  [FN] foodstuff -> spread
+  [FN] foodstuff -> starches
+  [FN] foodstuff -> steak sauce
+  [FN] foodstuff -> sun tea
+  [FN] foodstuff -> taco sauce
+  [FN] foodstuff -> tea
+  [FN] foodstuff -> tisane
+  [FN] foodstuff -> white bread
+  [FN] french bread -> baguet
+  [FN] grain -> buckwheat
+  [FN] grain -> corn
+  [FN] grain -> groats
+  [FN] grain -> popcorn
+  [FN] herb -> camomile tea
+  [FN] herb -> oolong
+  [FN] herb -> sun tea
+  [FN] herb -> tea
+  [FN] herb -> tisane
+  [FN] herb tea -> camomile tea
+  [FN] herb tea -> tisane
+  [FN] ingredient -> blue cheese dressing
+  [FN] ingredient -> camomile tea
+  [FN] ingredient -> caraway seed
+  [FN] ingredient -> condiment
+  [FN] ingredient -> dressing
+  [FN] ingredient -> fennel seed
+  [FN] ingredient -> flavorer
+  [FN] ingredient -> garlic
+  [FN] ingredient -> green mayonnaise
+  [FN] ingredient -> hard sauce
+  [FN] ingredient -> herb
+  [FN] ingredient -> herb tea
+  [FN] ingredient -> mayonnaise
+  [FN] ingredient -> nut butter
+  [FN] ingredient -> oolong
+  [FN] ingredient -> pickle relish
+  [FN] ingredient -> ravigote
+  [FN] ingredient -> relish
+  [FN] ingredient -> sauce
+  [FN] ingredient -> spread
+  [FN] ingredient -> steak sauce
+  [FN] ingredient -> sun tea
+  [FN] ingredient -> taco sauce
+  [FN] ingredient -> tea
+  [FN] ingredient -> tisane
+  [FN] liquor -> gin
+  [FN] meal -> camomile tea
+  [FN] meal -> herb tea
+  [FN] meal -> oolong
+  [FN] meal -> sun tea
+  [FN] meal -> tea
+  [FN] meal -> tisane
+  [FN] meatball -> porcupine ball
+  [FN] nutriment -> antipasto
+  [FN] nutriment -> appetizer
+  [FN] nutriment -> apple jelly
+  [FN] nutriment -> b complex vitamin
+  [FN] nutriment -> broth
+  [FN] nutriment -> bullshot
+  [FN] nutriment -> camomile tea
+  [FN] nutriment -> candy
+  [FN] nutriment -> celery stick
+  [FN] nutriment -> center
+  [FN] nutriment -> cocktail
+  [FN] nutriment -> confiture
+  [FN] nutriment -> conserve
+  [FN] nutriment -> course
+  [FN] nutriment -> crabapple jelly
+  [FN] nutriment -> crudites
+  [FN] nutriment -> dainty
+  [FN] nutriment -> dessert
+  [FN] nutriment -> dish
+  [FN] nutriment -> entree
+  [FN] nutriment -> gazpacho
+  [FN] nutriment -> gin
+  [FN] nutriment -> gin and it
+  [FN] nutriment -> hard candy
+  [FN] nutriment -> herb tea
+  [FN] nutriment -> jelly
+  [FN] nutriment -> liquor
+  [FN] nutriment -> meal
+  [FN] nutriment -> meatball
+  [FN] nutriment -> moo goo gai pan
+  [FN] nutriment -> niacin
+  [FN] nutriment -> oolong
+  [FN] nutriment -> pantothenic acid
+  [FN] nutriment -> porcupine ball
+  [FN] nutriment -> scampi
+  [FN] nutriment -> soup
+  [FN] nutriment -> succotash
+  [FN] nutriment -> sun tea
+  [FN] nutriment -> sweet
+  [FN] nutriment -> tamale pie
+  [FN] nutriment -> tea
+  [FN] nutriment -> tiramisu
+  [FN] nutriment -> tisane
+  [FN] nutriment -> vitamin
+  [FN] nutriment -> vitamin b2
+  [FN] nutriment -> water soluble vitamin
+  [FN] potato -> home fries
+  [FN] sauce -> blue cheese dressing
+  [FN] sauce -> dressing
+  [FN] sauce -> green mayonnaise
+  [FN] sauce -> mayonnaise
+  [FN] sauce -> ravigote
+  [FN] soup -> broth
+  [FN] soup -> gazpacho
+  [FN] soup -> gin
+  [FN] soup -> liquor
+  [FN] spread -> nut butter
+  [FN] starches -> baguet
+  [FN] starches -> bannock
+  [FN] starches -> bap
+  [FN] starches -> bread
+  [FN] starches -> flatbread
+  [FN] starches -> flatbrod
+  [FN] starches -> french bread
+  [FN] starches -> home fries
+  [FN] starches -> mashed potato
+  [FN] starches -> potato
+  [FN] starches -> white bread
+  [FN] sweet -> apple jelly
+  [FN] sweet -> candy
+  [FN] sweet -> center
+  [FN] sweet -> confiture
+  [FN] sweet -> conserve
+  [FN] sweet -> crabapple jelly
+  [FN] sweet -> hard candy
+  [FN] sweet -> jelly
+  [FN] tea -> camomile tea
+  [FN] tea -> herb tea
+  [FN] tea -> oolong
+  [FN] tea -> sun tea
+  [FN] tea -> tisane
+  [FN] tisane -> camomile tea
+  [FN] vitamin -> niacin
+  [FN] vitamin -> pantothenic acid
+  [FN] water soluble vitamin -> b complex vitamin
+  [FN] water soluble vitamin -> niacin
+  [FN] water soluble vitamin -> pantothenic acid
+  [FN] water soluble vitamin -> vitamin b2
+  [FN] white bread -> baguet
+  [FN] white bread -> french bread

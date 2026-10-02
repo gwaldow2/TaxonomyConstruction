@@ -1,0 +1,337 @@
+==================================================
+=== Detailed Node Pair Analysis (Exploded Raw Edges) ===
+Match Type Used: EXACT
+==================================================
+Precision: 0.2905 | Recall: 0.3446 | F1: 0.3152
+
+CORRECT PREDICTIONS (True Positives: 61 Pred edges covering 61 GT edges):
+  [TP] aerenchyma -> root aerenchyma
+  [TP] apical meristem -> shoot apical meristem
+  [TP] axillary bud -> axillary vegetative bud
+  [TP] axillary vegetative bud -> shoot axis tuber axillary vegetative bud
+  [TP] booting stage -> bo02 mid boot stage
+  [TP] bract epidermis -> bract adaxial epidermis
+  [TP] cambium -> cork cambium
+  [TP] central root cap -> central root cap of lateral root
+  [TP] cotyledon -> seedling cotyledon
+  [TP] endodermis -> root endodermis
+  [TP] flower -> pistillate flower
+  [TP] fruit -> berry fruit
+  [TP] fruit -> drupe fruit
+  [TP] fruit -> samara fruit
+  [TP] fruit pedicel -> infructescence fruit pedicel
+  [TP] inflorescence meristem -> inflorescence apical meristem
+  [TP] inflorescence meristem -> inflorescence axillary meristem
+  [TP] infructescence -> ear infructescence
+  [TP] lateral root cap -> lateral root cap of lateral root
+  [TP] lateral root cap -> lateral root cap of primary root
+  [TP] laticifer cell -> articulated laticifer cell
+  [TP] leaf -> vascular leaf
+  [TP] leaf adaxial epidermis -> leaf lamina adaxial epidermis
+  [TP] leaf epidermis -> leaf adaxial epidermis
+  [TP] leaf epidermis -> leaf lamina epidermis
+  [TP] leaf lamina epidermis -> leaf lamina adaxial epidermis
+  [TP] leaf stomatal complex -> leaf adaxial stomatal complex
+  [TP] meristematic apical cell -> gametophyte meristematic apical cell
+  [TP] meristematic apical cell -> sporophyte meristematic apical cell
+  [TP] native plant cell -> plant epidermal cell
+  [TP] nectary -> nectary parenchyma
+  [TP] parenchyma -> root parenchyma
+  [TP] pith -> tuber pith
+  [TP] plant axis elongation zone -> shoot axis internode elongation zone
+  [TP] plant egg cell -> embryo sac egg cell
+  [TP] plant embryo -> somatic plant embryo
+  [TP] plant epidermis -> seed coat epidermis
+  [TP] plant structure -> multi-tissue plant structure
+  [TP] portion of plant tissue -> portion of ground tissue
+  [TP] portion of plant tissue -> portion of meristem tissue
+  [TP] primordium -> root primordium
+  [TP] procambium -> shoot procambium
+  [TP] reproductive bud -> terminal reproductive bud
+  [TP] root epidermal cell -> non-hair root epidermal cell
+  [TP] root nodule -> adventitious root nodule
+  [TP] root primordium -> shoot-borne root primordium
+  [TP] secondary xylem parenchyma -> ray secondary xylem parenchyma
+  [TP] shoot apical meristem -> reproductive shoot apical meristem
+  [TP] shoot epidermal cell -> shoot epidermal pavement cell
+  [TP] shoot internode differentiation zone -> branch internode differentiation zone
+  [TP] sporangium wall -> megasporangium wall
+  [TP] storage parenchyma -> tuber storage parenchyma
+  [TP] strobilus bud -> terminal strobilus bud
+  [TP] tapetum cell -> microsporangium tapetum cell
+  [TP] trichome -> multicellular trichome
+  [TP] trichome -> seed trichome
+  [TP] tuber axillary shoot -> subterranean tuber axillary shoot
+  [TP] upper glume of tassel spikelet -> upper glume of pedicellate spikelet of tassel
+  [TP] vascular leaf -> adult vascular leaf
+  [TP] vascular leaf initiation stage -> vascular leaf anlagen formation stage
+  [TP] vegetative bud -> axillary vegetative bud
+
+INCORRECT PREDICTIONS (False Positives: 149):
+  [FP] adult vascular leaf -> vascular leaf initiation stage
+  [FP] aerial tuber axillary vegetative bud -> shoot axis tuber axillary vegetative bud
+  [FP] apical meristem -> gametophyte meristematic apical cell
+  [FP] apical meristem -> inflorescence apical meristem
+  [FP] apical meristem -> meristematic apical cell
+  [FP] apical meristem -> portion of meristem tissue
+  [FP] apical meristem -> reproductive shoot apical meristem
+  [FP] apical meristem -> root meristematic apical cell
+  [FP] apical meristem -> sporophyte meristematic apical cell
+  [FP] apical meristem -> thallus meristematic apical cell
+  [FP] axillary bud -> aerial tuber axillary vegetative bud
+  [FP] axillary bud -> shoot axis tuber axillary vegetative bud
+  [FP] axillary vegetative bud -> aerial tuber axillary vegetative bud
+  [FP] berry fruit -> fruit pedicel
+  [FP] berry fruit -> samara fruit
+  [FP] bract adaxial epidermis -> leaf lamina adaxial epidermis
+  [FP] bract epidermis -> carpel epidermis
+  [FP] bract epidermis -> leaf adaxial epidermis
+  [FP] bract epidermis -> leaf lamina adaxial epidermis
+  [FP] bract epidermis -> leaf lamina epidermis
+  [FP] bract epidermis -> seed coat epidermis
+  [FP] bract epidermis -> shoot system epidermis
+  [FP] cambium -> procambium
+  [FP] cambium -> shoot procambium
+  [FP] carpel epidermis -> bract adaxial epidermis
+  [FP] carpel epidermis -> leaf lamina adaxial epidermis
+  [FP] carpel epidermis -> leaf lamina epidermis
+  [FP] central root cap -> lateral root cap of lateral root
+  [FP] central root cap -> lateral root cap of primary root
+  [FP] chlorenchyma -> chlorenchyma cell
+  [FP] drupe fruit -> fruit pedicel
+  [FP] fruit -> fruit pedicel
+  [FP] ground tissue cell -> portion of ground tissue
+  [FP] inflorescence apical meristem -> inflorescence axillary meristem
+  [FP] inflorescence apical meristem -> reproductive shoot apical meristem
+  [FP] inflorescence apical meristem -> sporophyte meristematic apical cell
+  [FP] inflorescence apical meristem -> thallus meristematic apical cell
+  [FP] inflorescence axis node -> inflorescence development stage
+  [FP] inflorescence axis node -> inflorescence emergence stage
+  [FP] inflorescence axis node -> inflorescence initiation stage
+  [FP] inflorescence emergence stage -> inflorescence development stage
+  [FP] inflorescence emergence stage -> inflorescence initiation stage
+  [FP] inflorescence initiation stage -> inflorescence development stage
+  [FP] infructescence -> higher order infructescence axis
+  [FP] infructescence -> infructescence axis
+  [FP] infructescence -> infructescence fruit pedicel
+  [FP] infructescence axis -> higher order infructescence axis
+  [FP] infructescence axis -> inflorescence axis node
+  [FP] lateral leaf vein -> adult vascular leaf
+  [FP] lateral leaf vein -> secondary leaf vein
+  [FP] lateral root cap -> central root cap of lateral root
+  [FP] leaf -> compound leaf
+  [FP] leaf -> leaf collar
+  [FP] leaf -> leaf procambium
+  [FP] leaf -> spine leaf
+  [FP] leaf adaxial epidermis -> bract adaxial epidermis
+  [FP] leaf epidermis -> bract epidermis
+  [FP] leaf epidermis -> leaf lamina adaxial epidermis
+  [FP] leaf epidermis -> plant epidermal cell
+  [FP] leaf epidermis -> plant epidermis
+  [FP] leaf epidermis -> seed coat epidermis
+  [FP] leaf epidermis -> style epidermis
+  [FP] leaf lamina epidermis -> leaf adaxial epidermis
+  [FP] leaf pavement cell -> shoot epidermal pavement cell
+  [FP] leaf procambium -> shoot procambium
+  [FP] meristematic apical cell -> inflorescence apical meristem
+  [FP] meristematic apical cell -> portion of meristem tissue
+  [FP] meristematic apical cell -> reproductive shoot apical meristem
+  [FP] meristematic apical cell -> root meristematic apical cell
+  [FP] meristematic apical cell -> thallus meristematic apical cell
+  [FP] mesophyll -> mesophyll cell
+  [FP] multi-tissue plant structure -> cardinal part of multi-tissue plant structure
+  [FP] parenchyma -> nectary parenchyma
+  [FP] parenchyma -> parenchyma cell
+  [FP] phyllome -> phyllome base
+  [FP] phyllome -> phyllome epidermis
+  [FP] phyllome -> phyllome lamina crena
+  [FP] phyllome -> phyllome margin
+  [FP] phyllome base -> collective phyllome structure development stage
+  [FP] plant axis -> plant axis differentiation zone
+  [FP] plant axis -> plant axis elongation zone
+  [FP] plant axis elongation zone -> plant axis differentiation zone
+  [FP] plant axis elongation zone -> stem internode elongation zone
+  [FP] plant embryo -> plant embryo development stage
+  [FP] plant embryo -> plant sperm cell
+  [FP] plant epidermal cell -> leaf adaxial epidermis
+  [FP] plant epidermal cell -> leaf lamina adaxial epidermis
+  [FP] plant epidermal cell -> leaf lamina epidermis
+  [FP] plant epidermal cell -> non-hair root epidermal cell
+  [FP] plant epidermis -> carpel epidermis
+  [FP] plant epidermis -> leaf adaxial epidermis
+  [FP] plant epidermis -> leaf lamina adaxial epidermis
+  [FP] plant epidermis -> leaf lamina epidermis
+  [FP] plant epidermis -> phyllome epidermis
+  [FP] plant epidermis -> plant epidermal cell
+  [FP] plant fiber cell -> native plant cell
+  [FP] plant organ -> plant anatomical entity
+  [FP] plant organ -> plant organ margin
+  [FP] plant organ margin -> floral organ abscission zone
+  [FP] plant organ margin -> plant anatomical entity
+  [FP] plant organ margin -> portion of plant tissue
+  [FP] portion of plant tissue -> cardinal part of multi-tissue plant structure
+  [FP] portion of plant tissue -> multi-tissue plant structure
+  [FP] procambium -> leaf procambium
+  [FP] root endodermis -> root epidermal cell
+  [FP] root epidermal cell -> plant epidermal cell
+  [FP] root epidermal cell -> root meristematic apical cell
+  [FP] root epidermal cell -> shoot epidermal cell
+  [FP] root meristematic apical cell -> gametophyte meristematic apical cell
+  [FP] root meristematic apical cell -> reproductive shoot apical meristem
+  [FP] root meristematic apical cell -> sporophyte meristematic apical cell
+  [FP] root meristematic apical cell -> thallus meristematic apical cell
+  [FP] se05 five nodes or internodes visible stage -> se07 seven nodes or internodes visible stage
+  [FP] seed coat epidermis -> leaf lamina epidermis
+  [FP] seedling -> seed obturator
+  [FP] seedling -> seedling cotyledon
+  [FP] shoot apical meristem -> inflorescence apical meristem
+  [FP] shoot apical meristem -> meristematic apical cell
+  [FP] shoot apical meristem -> root meristematic apical cell
+  [FP] shoot apical meristem -> sporophyte meristematic apical cell
+  [FP] shoot axis -> shoot axis apex
+  [FP] shoot axis -> shoot axis node
+  [FP] shoot epidermal cell -> shoot system epidermis
+  [FP] shoot system -> reproductive shoot system
+  [FP] shoot system -> shoot system meristem
+  [FP] shoot-borne internode root -> shoot-borne root primordium
+  [FP] somatic plant embryo -> plant embryo development stage
+  [FP] sporocyte -> sporophyll
+  [FP] sporophyte meristematic apical cell -> gametophyte meristematic apical cell
+  [FP] stem elongation stage -> stem internode elongation zone
+  [FP] stem internode elongation zone -> shoot axis internode elongation zone
+  [FP] style epidermis -> bract adaxial epidermis
+  [FP] style epidermis -> carpel epidermis
+  [FP] style epidermis -> leaf adaxial epidermis
+  [FP] style epidermis -> leaf lamina adaxial epidermis
+  [FP] style epidermis -> leaf lamina epidermis
+  [FP] style epidermis -> phyllome epidermis
+  [FP] style epidermis -> seed coat epidermis
+  [FP] style epidermis -> shoot system epidermis
+  [FP] subterranean tuber axillary shoot -> shoot axis tuber axillary vegetative bud
+  [FP] terminal bud -> terminal strobilus bud
+  [FP] terminal strobilus bud -> terminal reproductive bud
+  [FP] thallus meristematic apical cell -> gametophyte meristematic apical cell
+  [FP] thallus meristematic apical cell -> sporophyte meristematic apical cell
+  [FP] tuber axillary shoot -> shoot axis tuber axillary vegetative bud
+  [FP] vascular leaf -> lateral leaf vein
+  [FP] vascular leaf -> secondary leaf vein
+  [FP] vascular leaf -> vascular leaf initiation stage
+  [FP] vegetative bud -> reproductive bud
+
+MISSED RELATIONS (False Negatives: 116):
+  [FN] abscission zone -> floral organ abscission zone
+  [FN] adult vascular leaf -> flag leaf
+  [FN] androecium development stage -> anther development stage
+  [FN] androecium development stage -> stamen primordium visible stage
+  [FN] anther development stage -> g anther dehiscence stage
+  [FN] arilloid -> caruncle
+  [FN] axillary vegetative bud -> areole bud
+  [FN] berry fruit -> hesperidium fruit
+  [FN] cambial initial cell -> ray initial cell
+  [FN] cardinal organ part -> phyllome base
+  [FN] cardinal organ part -> phyllome lamina crena
+  [FN] cardinal organ part -> plant axis differentiation zone
+  [FN] cardinal organ part -> plant axis elongation zone
+  [FN] cardinal organ part -> plant organ margin
+  [FN] cardinal organ part -> pulvinus
+  [FN] cardinal organ part -> root nodule
+  [FN] cardinal organ part -> sporangium wall
+  [FN] cardinal part of multi-tissue plant structure -> arilloid
+  [FN] cardinal part of multi-tissue plant structure -> cardinal organ part
+  [FN] carpel epidermis -> style epidermis
+  [FN] chlorenchyma -> plant ovary wall middle layer
+  [FN] chlorenchyma cell -> mesophyll cell
+  [FN] collective phyllome structure development stage -> androecium development stage
+  [FN] compound leaf -> pinnate leaf
+  [FN] flower -> spikelet floret
+  [FN] gametophyte meristematic apical cell -> thallus meristematic apical cell
+  [FN] ground tissue cell -> parenchyma cell
+  [FN] ground tissue cell -> root giant cell
+  [FN] inflorescence development stage -> inflorescence initiation stage
+  [FN] lateral meristem -> cambium
+  [FN] multi-tissue plant structure -> fruit
+  [FN] multi-tissue plant structure -> plant organ
+  [FN] multicellular trichome -> axillary hair
+  [FN] native plant cell -> antheridium jacket layer cell
+  [FN] native plant cell -> ground tissue cell
+  [FN] native plant cell -> plant gamete
+  [FN] native plant cell -> sporocyte
+  [FN] native plant cell -> tapetum cell
+  [FN] parenchyma -> aerenchyma
+  [FN] parenchyma -> chlorenchyma
+  [FN] parenchyma -> pith
+  [FN] parenchyma -> secondary xylem parenchyma
+  [FN] parenchyma cell -> chlorenchyma cell
+  [FN] phyllome -> leaf
+  [FN] phyllome -> sporophyll
+  [FN] phyllome base -> petal base
+  [FN] phyllome epidermis -> bract epidermis
+  [FN] phyllome epidermis -> carpel epidermis
+  [FN] phyllome epidermis -> leaf epidermis
+  [FN] phyllome margin -> bract margin
+  [FN] pistillate flower -> ear floret
+  [FN] plant anatomical entity -> plant structure
+  [FN] plant axis -> shoot axis
+  [FN] plant axis differentiation zone -> shoot internode differentiation zone
+  [FN] plant epidermal cell -> root epidermal cell
+  [FN] plant epidermal cell -> shoot epidermal cell
+  [FN] plant epidermis -> shoot system epidermis
+  [FN] plant fiber cell -> xylem fiber cell
+  [FN] plant gamete -> plant egg cell
+  [FN] plant gamete -> plant sperm cell
+  [FN] plant organ -> phyllome
+  [FN] plant organ margin -> phyllome margin
+  [FN] plant structure -> cardinal part of multi-tissue plant structure
+  [FN] plant structure -> portion of plant tissue
+  [FN] plant structure -> trichome
+  [FN] plant structure -> whole plant
+  [FN] po_0000055 -> axillary bud
+  [FN] po_0000055 -> reproductive bud
+  [FN] po_0000055 -> terminal bud
+  [FN] po_0000055 -> vegetative bud
+  [FN] portion of ground tissue -> parenchyma
+  [FN] portion of meristem tissue -> apical meristem
+  [FN] portion of meristem tissue -> lateral meristem
+  [FN] portion of meristem tissue -> leaf collar
+  [FN] portion of meristem tissue -> shoot system meristem
+  [FN] portion of plant tissue -> abscission zone
+  [FN] portion of plant tissue -> central endosperm
+  [FN] portion of plant tissue -> multicellular trichome
+  [FN] portion of plant tissue -> plant callus
+  [FN] portion of plant tissue -> plant epidermis
+  [FN] portion of plant tissue -> portion of secretory tissue
+  [FN] portion of plant tissue -> seed obturator
+  [FN] portion of secretory tissue -> nectary
+  [FN] reproductive bud -> strobilus bud
+  [FN] reproductive shoot apical meristem -> inflorescence apical meristem
+  [FN] reproductive shoot system -> flower
+  [FN] reproductive shoot system -> infructescence
+  [FN] reproductive shoot system -> reproductive bud
+  [FN] root development stage -> radicle emergence stage
+  [FN] root parenchyma -> central root cap
+  [FN] root parenchyma -> lateral root cap
+  [FN] secondary leaf vein -> lateral leaf vein
+  [FN] seed coat epidermis -> coma
+  [FN] shoot axis -> infructescence axis
+  [FN] shoot axis apex -> branch apex
+  [FN] shoot axis internode elongation zone -> stem internode elongation zone
+  [FN] shoot axis node -> inflorescence axis node
+  [FN] shoot axis tuber axillary vegetative bud -> aerial tuber axillary vegetative bud
+  [FN] shoot epidermal pavement cell -> leaf pavement cell
+  [FN] shoot procambium -> leaf procambium
+  [FN] shoot system -> po_0000055
+  [FN] shoot system epidermis -> phyllome epidermis
+  [FN] shoot system meristem -> shoot apical meristem
+  [FN] shoot-borne internode root -> basal root
+  [FN] spikelet floret -> ear floret
+  [FN] sporophyte meristematic apical cell -> root meristematic apical cell
+  [FN] stem elongation stage -> se05 five nodes or internodes visible stage
+  [FN] stem elongation stage -> se07 seven nodes or internodes visible stage
+  [FN] terminal bud -> terminal reproductive bud
+  [FN] terminal reproductive bud -> terminal strobilus bud
+  [FN] upper glume -> upper glume of tassel spikelet
+  [FN] vascular leaf -> compound leaf
+  [FN] vascular leaf -> cotyledon
+  [FN] vascular leaf -> spine leaf
+  [FN] whole plant -> plant embryo
+  [FN] whole plant -> seedling
