@@ -119,6 +119,11 @@ def main(args):
         from peft import PeftModel
         from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
         print("Initializing TaxoLLaMA (Base Llama-2 + Adapter)...")
+        # The cuDNN SDPA backend cannot build an execution plan for Llama-2's 4-bit
+        # inference path on some torch/cuDNN pairings ("cudnn_frontend ... No valid
+        # execution plans built"); the flash/math SDPA backends handle it, so drop cuDNN.
+        if torch.cuda.is_available():
+            torch.backends.cuda.enable_cudnn_sdp(False)
         
         base_model_id = "meta-llama/Llama-2-7b-hf"
         adapter_id = "VityaVitalich/TaxoLLaMA"
