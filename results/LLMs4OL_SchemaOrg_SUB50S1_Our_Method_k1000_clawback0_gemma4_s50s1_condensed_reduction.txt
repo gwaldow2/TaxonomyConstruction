@@ -1,0 +1,90 @@
+==================================================
+=== Detailed Node Pair Analysis (Condensed Transitive Reduction) ===
+Match Type Used: SET_OVERLAP
+==================================================
+Precision: 0.3571 | Recall: 0.4054 | F1: 0.3797
+
+CORRECT PREDICTIONS (True Positives: 15 Pred edges covering 15 GT edges):
+  [TP] PRED: (action -> controlaction)
+        matches GT: (action -> controlaction)
+  [TP] PRED: (civicstructure (civicstructure, eventvenue, governmentbuilding) -> movietheater)
+        matches GT: (civicstructure -> movietheater)
+  [TP] PRED: (controlaction -> suspendaction)
+        matches GT: (controlaction -> suspendaction)
+  [TP] PRED: (entertainmentbusiness -> movietheater)
+        matches GT: (entertainmentbusiness -> movietheater)
+  [TP] PRED: (episode -> tvepisode)
+        matches GT: (episode -> tvepisode)
+  [TP] PRED: (homeandconstructionbusiness -> generalcontractor)
+        matches GT: (homeandconstructionbusiness -> generalcontractor)
+  [TP] PRED: (localbusiness -> emergencyservice)
+        matches GT: (localbusiness -> emergencyservice)
+  [TP] PRED: (localbusiness -> entertainmentbusiness)
+        matches GT: (localbusiness -> entertainmentbusiness)
+  [TP] PRED: (organization -> localbusiness)
+        matches GT: (organization -> localbusiness)
+  [TP] PRED: (place -> localbusiness)
+        matches GT: (place -> localbusiness)
+  [TP] PRED: (qualitativevalue -> drivewheelconfigurationvalue)
+        matches GT: (qualitativevalue -> drivewheelconfigurationvalue)
+  [TP] PRED: (sportsactivitylocation -> healthclub)
+        matches GT: (sportsactivitylocation -> healthclub)
+  [TP] PRED: (text -> pronounceabletext)
+        matches GT: (text -> pronounceabletext)
+  [TP] PRED: (transferaction -> giveaction)
+        matches GT: (transferaction -> giveaction)
+  [TP] PRED: (trip -> flight)
+        matches GT: (trip -> flight)
+
+INCORRECT PREDICTIONS (False Positives: 27):
+  [FP] action -> ondemandevent
+  [FP] action -> publicationevent
+  [FP] civicstructure (civicstructure, eventvenue, governmentbuilding) -> sportsactivitylocation
+  [FP] controlaction -> findaction
+  [FP] controlaction -> transferaction
+  [FP] creativework -> mediaobject
+  [FP] creativework -> project
+  [FP] entertainmentbusiness -> broadcastchannel (broadcastchannel, televisionchannel)
+  [FP] enumeration -> qualitativevalue
+  [FP] intangible -> mediaobject
+  [FP] intangible -> qualitativevalue
+  [FP] localbusiness -> civicstructure (civicstructure, eventvenue, governmentbuilding)
+  [FP] localbusiness -> homeandconstructionbusiness
+  [FP] mediaobject -> broadcastchannel (broadcastchannel, televisionchannel)
+  [FP] mediaobject -> episode
+  [FP] mediaobject -> photograph
+  [FP] mediaobject -> text
+  [FP] occupation -> generalcontractor
+  [FP] organization -> fundingagency
+  [FP] qualitativevalue -> carusagetype
+  [FP] qualitativevalue -> datatype
+  [FP] qualitativevalue -> governmentbenefitstype
+  [FP] qualitativevalue -> legalvaluelevel
+  [FP] qualitativevalue -> pricecomponenttypeenumeration
+  [FP] qualitativevalue -> sizegroupenumeration
+  [FP] text -> manuscript
+  [FP] transferaction -> datadownload
+
+MISSED RELATIONS (False Negatives: 22):
+  [FN] action -> findaction
+  [FN] action -> transferaction
+  [FN] broadcastchannel -> televisionchannel
+  [FN] civicstructure -> eventvenue
+  [FN] creativework -> collection
+  [FN] creativework -> manuscript
+  [FN] creativework -> photograph
+  [FN] datatype -> text
+  [FN] enumeration -> carusagetype
+  [FN] enumeration -> governmentbenefitstype
+  [FN] enumeration -> legalvaluelevel
+  [FN] enumeration -> pricecomponenttypeenumeration
+  [FN] enumeration -> sizegroupenumeration
+  [FN] intangible -> broadcastchannel
+  [FN] intangible -> menuitem
+  [FN] intangible -> occupation
+  [FN] intangible -> trip
+  [FN] localbusiness -> sportsactivitylocation
+  [FN] mediaobject -> datadownload
+  [FN] organization -> project
+  [FN] project -> fundingagency
+  [FN] publicationevent -> ondemandevent

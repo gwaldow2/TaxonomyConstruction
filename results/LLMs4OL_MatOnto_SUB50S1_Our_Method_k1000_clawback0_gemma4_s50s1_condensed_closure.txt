@@ -1,0 +1,360 @@
+==================================================
+=== Detailed Node Pair Analysis (Condensed Transitive Closure) ===
+Match Type Used: SET_OVERLAP
+==================================================
+Precision: 0.3581 | Recall: 0.8704 | F1: 0.5074
+
+CORRECT PREDICTIONS (True Positives: 82 Pred edges covering 94 GT edges):
+  [TP] PRED: (addition reaction -> nucleophilic addition reaction)
+        matches GT: (addition reaction -> nucleophilic addition reaction)
+  [TP] PRED: (addition reaction -> polar addition reaction)
+        matches GT: (addition reaction -> polar addition reaction)
+  [TP] PRED: (atom -> californium atom)
+        matches GT: (atom -> californium atom)
+  [TP] PRED: (atom -> helium atom)
+        matches GT: (atom -> helium atom)
+  [TP] PRED: (atom -> lithium atom)
+        matches GT: (atom -> lithium atom)
+  [TP] PRED: (atom -> ytterbium atom)
+        matches GT: (atom -> ytterbium atom)
+  [TP] PRED: (continuant -> atom)
+        matches GT: (continuant -> atom)
+  [TP] PRED: (continuant -> californium atom)
+        matches GT: (continuant -> californium atom)
+  [TP] PRED: (continuant -> concentration)
+        matches GT: (continuant -> concentration)
+  [TP] PRED: (continuant -> dependent_continuant)
+        matches GT: (continuant -> dependent_continuant)
+  [TP] PRED: (continuant -> electric current)
+        matches GT: (continuant -> electric current)
+  [TP] PRED: (continuant -> electromagnetic radation)
+        matches GT: (continuant -> electromagnetic radation)
+  [TP] PRED: (continuant -> flexural modulus)
+        matches GT: (continuant -> flexural modulus)
+  [TP] PRED: (continuant -> helium atom)
+        matches GT: (continuant -> helium atom)
+  [TP] PRED: (continuant -> illuminance)
+        matches GT: (continuant -> illuminance)
+  [TP] PRED: (continuant -> independent_continuant)
+        matches GT: (continuant -> independent_continuant)
+  [TP] PRED: (continuant -> intensive property (intensive property, measured property, quality))
+        matches GT: (continuant -> intensive property)
+  [TP] PRED: (continuant -> intensive property (intensive property, measured property, quality))
+        matches GT: (continuant -> measured property)
+  [TP] PRED: (continuant -> intensive property (intensive property, measured property, quality))
+        matches GT: (continuant -> quality)
+  [TP] PRED: (continuant -> lithium atom)
+        matches GT: (continuant -> lithium atom)
+  [TP] PRED: (continuant -> luminous flux)
+        matches GT: (continuant -> luminous flux)
+  [TP] PRED: (continuant -> object)
+        matches GT: (continuant -> object)
+  [TP] PRED: (continuant -> open thermodynamic system)
+        matches GT: (continuant -> open thermodynamic system)
+  [TP] PRED: (continuant -> ph)
+        matches GT: (continuant -> ph)
+  [TP] PRED: (continuant -> spatial_region)
+        matches GT: (continuant -> spatial_region)
+  [TP] PRED: (continuant -> specific energy)
+        matches GT: (continuant -> specific energy)
+  [TP] PRED: (continuant -> thermodynamic system)
+        matches GT: (continuant -> thermodynamic system)
+  [TP] PRED: (continuant -> three_dimensional_region)
+        matches GT: (continuant -> three_dimensional_region)
+  [TP] PRED: (continuant -> ytterbium atom)
+        matches GT: (continuant -> ytterbium atom)
+  [TP] PRED: (continuant -> zero_dimensional_region)
+        matches GT: (continuant -> zero_dimensional_region)
+  [TP] PRED: (dependent_continuant -> concentration)
+        matches GT: (dependent_continuant -> concentration)
+  [TP] PRED: (dependent_continuant -> electric current)
+        matches GT: (dependent_continuant -> electric current)
+  [TP] PRED: (dependent_continuant -> electromagnetic radation)
+        matches GT: (dependent_continuant -> electromagnetic radation)
+  [TP] PRED: (dependent_continuant -> flexural modulus)
+        matches GT: (dependent_continuant -> flexural modulus)
+  [TP] PRED: (dependent_continuant -> illuminance)
+        matches GT: (dependent_continuant -> illuminance)
+  [TP] PRED: (dependent_continuant -> intensive property (intensive property, measured property, quality))
+        matches GT: (dependent_continuant -> intensive property)
+  [TP] PRED: (dependent_continuant -> intensive property (intensive property, measured property, quality))
+        matches GT: (dependent_continuant -> measured property)
+  [TP] PRED: (dependent_continuant -> intensive property (intensive property, measured property, quality))
+        matches GT: (dependent_continuant -> quality)
+  [TP] PRED: (dependent_continuant -> luminous flux)
+        matches GT: (dependent_continuant -> luminous flux)
+  [TP] PRED: (dependent_continuant -> ph)
+        matches GT: (dependent_continuant -> ph)
+  [TP] PRED: (dependent_continuant -> specific energy)
+        matches GT: (dependent_continuant -> specific energy)
+  [TP] PRED: (derivedunit -> centi scaled unit)
+        matches GT: (derivedunit -> centi scaled unit)
+  [TP] PRED: (derivedunit -> giga scaled unit)
+        matches GT: (derivedunit -> giga scaled unit)
+  [TP] PRED: (derivedunit -> scaled unit)
+        matches GT: (derivedunit -> scaled unit)
+  [TP] PRED: (electromagnetic radiation unit -> illuminance unit)
+        matches GT: (electromagnetic radiation unit -> illuminance unit)
+  [TP] PRED: (element -> erbium)
+        matches GT: (element -> erbium)
+  [TP] PRED: (element -> ununbium)
+        matches GT: (element -> ununbium)
+  [TP] PRED: (entity -> connected_spatiotemporal_region)
+        matches GT: (entity -> connected_spatiotemporal_region)
+  [TP] PRED: (entity -> occurrent)
+        matches GT: (entity -> occurrent)
+  [TP] PRED: (entity -> spatiotemporal_region)
+        matches GT: (entity -> spatiotemporal_region)
+  [TP] PRED: (independent_continuant -> atom)
+        matches GT: (independent_continuant -> atom)
+  [TP] PRED: (independent_continuant -> californium atom)
+        matches GT: (independent_continuant -> californium atom)
+  [TP] PRED: (independent_continuant -> helium atom)
+        matches GT: (independent_continuant -> helium atom)
+  [TP] PRED: (independent_continuant -> lithium atom)
+        matches GT: (independent_continuant -> lithium atom)
+  [TP] PRED: (independent_continuant -> object)
+        matches GT: (independent_continuant -> object)
+  [TP] PRED: (independent_continuant -> ytterbium atom)
+        matches GT: (independent_continuant -> ytterbium atom)
+  [TP] PRED: (intensive property (intensive property, measured property, quality) -> concentration)
+        matches GT: (measured property -> concentration)
+  [TP] PRED: (intensive property (intensive property, measured property, quality) -> concentration)
+        matches GT: (quality -> concentration)
+  [TP] PRED: (intensive property (intensive property, measured property, quality) -> electric current)
+        matches GT: (measured property -> electric current)
+  [TP] PRED: (intensive property (intensive property, measured property, quality) -> electric current)
+        matches GT: (quality -> electric current)
+  [TP] PRED: (intensive property (intensive property, measured property, quality) -> flexural modulus)
+        matches GT: (intensive property -> flexural modulus)
+  [TP] PRED: (intensive property (intensive property, measured property, quality) -> flexural modulus)
+        matches GT: (measured property -> flexural modulus)
+  [TP] PRED: (intensive property (intensive property, measured property, quality) -> flexural modulus)
+        matches GT: (quality -> flexural modulus)
+  [TP] PRED: (intensive property (intensive property, measured property, quality) -> illuminance)
+        matches GT: (measured property -> illuminance)
+  [TP] PRED: (intensive property (intensive property, measured property, quality) -> illuminance)
+        matches GT: (quality -> illuminance)
+  [TP] PRED: (intensive property (intensive property, measured property, quality) -> luminous flux)
+        matches GT: (measured property -> luminous flux)
+  [TP] PRED: (intensive property (intensive property, measured property, quality) -> luminous flux)
+        matches GT: (quality -> luminous flux)
+  [TP] PRED: (intensive property (intensive property, measured property, quality) -> ph)
+        matches GT: (measured property -> ph)
+  [TP] PRED: (intensive property (intensive property, measured property, quality) -> ph)
+        matches GT: (quality -> ph)
+  [TP] PRED: (intensive property (intensive property, measured property, quality) -> specific energy)
+        matches GT: (measured property -> specific energy)
+  [TP] PRED: (intensive property (intensive property, measured property, quality) -> specific energy)
+        matches GT: (quality -> specific energy)
+  [TP] PRED: (object -> atom)
+        matches GT: (object -> atom)
+  [TP] PRED: (object -> californium atom)
+        matches GT: (object -> californium atom)
+  [TP] PRED: (object -> helium atom)
+        matches GT: (object -> helium atom)
+  [TP] PRED: (object -> lithium atom)
+        matches GT: (object -> lithium atom)
+  [TP] PRED: (object -> ytterbium atom)
+        matches GT: (object -> ytterbium atom)
+  [TP] PRED: (occurrent -> connected_spatiotemporal_region)
+        matches GT: (occurrent -> connected_spatiotemporal_region)
+  [TP] PRED: (occurrent -> spatiotemporal_region)
+        matches GT: (occurrent -> spatiotemporal_region)
+  [TP] PRED: (polar addition reaction -> nucleophilic addition reaction)
+        matches GT: (polar addition reaction -> nucleophilic addition reaction)
+  [TP] PRED: (scaled unit -> centi scaled unit)
+        matches GT: (scaled unit -> centi scaled unit)
+  [TP] PRED: (scaled unit -> giga scaled unit)
+        matches GT: (scaled unit -> giga scaled unit)
+  [TP] PRED: (spatial_region -> three_dimensional_region)
+        matches GT: (spatial_region -> three_dimensional_region)
+  [TP] PRED: (spatial_region -> zero_dimensional_region)
+        matches GT: (spatial_region -> zero_dimensional_region)
+  [TP] PRED: (spatiotemporal_region -> connected_spatiotemporal_region)
+        matches GT: (spatiotemporal_region -> connected_spatiotemporal_region)
+  [TP] PRED: (thermodynamic system -> open thermodynamic system)
+        matches GT: (thermodynamic system -> open thermodynamic system)
+  [TP] PRED: (unit -> centi scaled unit)
+        matches GT: (unit -> centi scaled unit)
+  [TP] PRED: (unit -> derivedunit)
+        matches GT: (unit -> derivedunit)
+  [TP] PRED: (unit -> electromagnetic radiation unit)
+        matches GT: (unit -> electromagnetic radiation unit)
+  [TP] PRED: (unit -> giga scaled unit)
+        matches GT: (unit -> giga scaled unit)
+  [TP] PRED: (unit -> illuminance unit)
+        matches GT: (unit -> illuminance unit)
+  [TP] PRED: (unit -> molar energy unit)
+        matches GT: (unit -> molar energy unit)
+  [TP] PRED: (unit -> scaled unit)
+        matches GT: (unit -> scaled unit)
+  [TP] PRED: (unit -> velocity unit)
+        matches GT: (unit -> velocity unit)
+  [TP] PRED: (unit raised to power -> unit raised to power of negative three)
+        matches GT: (unit raised to power -> unit raised to power of negative three)
+
+INCORRECT PREDICTIONS (False Positives: 147):
+  [FP] atom -> erbium
+  [FP] atom -> ununbium
+  [FP] continuant -> addition reaction
+  [FP] continuant -> centi scaled unit
+  [FP] continuant -> chemical conformation
+  [FP] continuant -> connected_spatiotemporal_region
+  [FP] continuant -> derivedunit
+  [FP] continuant -> electromagnetic radiation unit
+  [FP] continuant -> element
+  [FP] continuant -> erbium
+  [FP] continuant -> giga scaled unit
+  [FP] continuant -> illuminance unit
+  [FP] continuant -> material category
+  [FP] continuant -> molar energy unit
+  [FP] continuant -> nucleophilic addition reaction
+  [FP] continuant -> polar addition reaction
+  [FP] continuant -> scaled unit
+  [FP] continuant -> spatiotemporal_region
+  [FP] continuant -> unit
+  [FP] continuant -> unit raised to power
+  [FP] continuant -> unit raised to power of negative three
+  [FP] continuant -> ununbium
+  [FP] continuant -> velocity unit
+  [FP] continuant -> wikipedia
+  [FP] dependent_continuant -> addition reaction
+  [FP] dependent_continuant -> chemical conformation
+  [FP] dependent_continuant -> connected_spatiotemporal_region
+  [FP] dependent_continuant -> illuminance unit
+  [FP] dependent_continuant -> nucleophilic addition reaction
+  [FP] dependent_continuant -> polar addition reaction
+  [FP] dependent_continuant -> spatial_region
+  [FP] dependent_continuant -> spatiotemporal_region
+  [FP] dependent_continuant -> three_dimensional_region
+  [FP] dependent_continuant -> zero_dimensional_region
+  [FP] derivedunit -> electromagnetic radiation unit
+  [FP] derivedunit -> illuminance unit
+  [FP] derivedunit -> molar energy unit
+  [FP] derivedunit -> unit raised to power
+  [FP] derivedunit -> unit raised to power of negative three
+  [FP] derivedunit -> velocity unit
+  [FP] entity -> addition reaction
+  [FP] entity -> atom
+  [FP] entity -> californium atom
+  [FP] entity -> centi scaled unit
+  [FP] entity -> chemical conformation
+  [FP] entity -> concentration
+  [FP] entity -> continuant
+  [FP] entity -> dependent_continuant
+  [FP] entity -> derivedunit
+  [FP] entity -> electric current
+  [FP] entity -> electromagnetic radation
+  [FP] entity -> electromagnetic radiation unit
+  [FP] entity -> element
+  [FP] entity -> erbium
+  [FP] entity -> flexural modulus
+  [FP] entity -> giga scaled unit
+  [FP] entity -> helium atom
+  [FP] entity -> illuminance
+  [FP] entity -> illuminance unit
+  [FP] entity -> independent_continuant
+  [FP] entity -> intensive property (intensive property, measured property, quality)
+  [FP] entity -> lithium atom
+  [FP] entity -> luminous flux
+  [FP] entity -> material category
+  [FP] entity -> molar energy unit
+  [FP] entity -> nucleophilic addition reaction
+  [FP] entity -> object
+  [FP] entity -> open thermodynamic system
+  [FP] entity -> ph
+  [FP] entity -> polar addition reaction
+  [FP] entity -> scaled unit
+  [FP] entity -> spatial_region
+  [FP] entity -> specific energy
+  [FP] entity -> thermodynamic system
+  [FP] entity -> three_dimensional_region
+  [FP] entity -> unit
+  [FP] entity -> unit raised to power
+  [FP] entity -> unit raised to power of negative three
+  [FP] entity -> ununbium
+  [FP] entity -> velocity unit
+  [FP] entity -> wikipedia
+  [FP] entity -> ytterbium atom
+  [FP] entity -> zero_dimensional_region
+  [FP] independent_continuant -> centi scaled unit
+  [FP] independent_continuant -> connected_spatiotemporal_region
+  [FP] independent_continuant -> derivedunit
+  [FP] independent_continuant -> electromagnetic radation
+  [FP] independent_continuant -> electromagnetic radiation unit
+  [FP] independent_continuant -> element
+  [FP] independent_continuant -> erbium
+  [FP] independent_continuant -> giga scaled unit
+  [FP] independent_continuant -> illuminance unit
+  [FP] independent_continuant -> material category
+  [FP] independent_continuant -> molar energy unit
+  [FP] independent_continuant -> open thermodynamic system
+  [FP] independent_continuant -> scaled unit
+  [FP] independent_continuant -> spatial_region
+  [FP] independent_continuant -> thermodynamic system
+  [FP] independent_continuant -> three_dimensional_region
+  [FP] independent_continuant -> unit
+  [FP] independent_continuant -> unit raised to power
+  [FP] independent_continuant -> unit raised to power of negative three
+  [FP] independent_continuant -> ununbium
+  [FP] independent_continuant -> velocity unit
+  [FP] independent_continuant -> wikipedia
+  [FP] independent_continuant -> zero_dimensional_region
+  [FP] intensive property (intensive property, measured property, quality) -> chemical conformation
+  [FP] object -> centi scaled unit
+  [FP] object -> connected_spatiotemporal_region
+  [FP] object -> derivedunit
+  [FP] object -> electromagnetic radiation unit
+  [FP] object -> element
+  [FP] object -> erbium
+  [FP] object -> giga scaled unit
+  [FP] object -> illuminance unit
+  [FP] object -> material category
+  [FP] object -> molar energy unit
+  [FP] object -> open thermodynamic system
+  [FP] object -> scaled unit
+  [FP] object -> spatial_region
+  [FP] object -> thermodynamic system
+  [FP] object -> three_dimensional_region
+  [FP] object -> unit
+  [FP] object -> unit raised to power
+  [FP] object -> unit raised to power of negative three
+  [FP] object -> ununbium
+  [FP] object -> velocity unit
+  [FP] object -> wikipedia
+  [FP] object -> zero_dimensional_region
+  [FP] occurrent -> addition reaction
+  [FP] occurrent -> electric current
+  [FP] occurrent -> electromagnetic radation
+  [FP] occurrent -> nucleophilic addition reaction
+  [FP] occurrent -> polar addition reaction
+  [FP] occurrent -> spatial_region
+  [FP] occurrent -> three_dimensional_region
+  [FP] occurrent -> zero_dimensional_region
+  [FP] scaled unit -> molar energy unit
+  [FP] scaled unit -> unit raised to power
+  [FP] scaled unit -> unit raised to power of negative three
+  [FP] scaled unit -> velocity unit
+  [FP] spatial_region -> connected_spatiotemporal_region
+  [FP] spatiotemporal_region -> spatial_region
+  [FP] spatiotemporal_region -> three_dimensional_region
+  [FP] spatiotemporal_region -> zero_dimensional_region
+  [FP] unit -> unit raised to power
+  [FP] unit -> unit raised to power of negative three
+
+MISSED RELATIONS (False Negatives: 14):
+  [FN] chemical conformation -> wikipedia
+  [FN] concentration -> ph
+  [FN] electromagnetic radation -> illuminance
+  [FN] electromagnetic radation -> luminous flux
+  [FN] material category -> refactory
+  [FN] measured property -> electromagnetic radation
+  [FN] measured property -> intensive property
+  [FN] quality -> electromagnetic radation
+  [FN] quality -> intensive property
+  [FN] quality -> measured property
+  [FN] spatial_region -> open thermodynamic system
+  [FN] spatial_region -> thermodynamic system
+  [FN] three_dimensional_region -> open thermodynamic system
+  [FN] three_dimensional_region -> thermodynamic system

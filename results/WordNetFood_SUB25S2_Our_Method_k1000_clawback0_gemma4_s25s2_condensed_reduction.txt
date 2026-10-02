@@ -1,0 +1,56 @@
+==================================================
+=== Detailed Node Pair Analysis (Condensed Transitive Reduction) ===
+Match Type Used: SET_OVERLAP
+==================================================
+Precision: 0.9500 | Recall: 0.7600 | F1: 0.8444
+
+CORRECT PREDICTIONS (True Positives: 19 Pred edges covering 19 GT edges):
+  [TP] PRED: (baked goods -> bread)
+        matches GT: (baked goods -> bread)
+  [TP] PRED: (bread -> toast)
+        matches GT: (bread -> toast)
+  [TP] PRED: (bread -> white bread)
+        matches GT: (bread -> white bread)
+  [TP] PRED: (cheese -> parmesan)
+        matches GT: (cheese -> parmesan)
+  [TP] PRED: (condiment (condiment, flavorer) -> sauce)
+        matches GT: (condiment -> sauce)
+  [TP] PRED: (dairy product -> cheese)
+        matches GT: (dairy product -> cheese)
+  [TP] PRED: (dish -> stew)
+        matches GT: (dish -> stew)
+  [TP] PRED: (food (food, foodstuff, ingredient, nutriment) -> condiment (condiment, flavorer))
+        matches GT: (ingredient -> flavorer)
+  [TP] PRED: (food (food, foodstuff, ingredient, nutriment) -> dairy product)
+        matches GT: (foodstuff -> dairy product)
+  [TP] PRED: (food (food, foodstuff, ingredient, nutriment) -> dish)
+        matches GT: (nutriment -> dish)
+  [TP] PRED: (food (food, foodstuff, ingredient, nutriment) -> produce (produce, vegetable))
+        matches GT: (food -> produce)
+  [TP] PRED: (food (food, foodstuff, ingredient, nutriment) -> starches)
+        matches GT: (foodstuff -> starches)
+  [TP] PRED: (french bread -> baguet)
+        matches GT: (french bread -> baguet)
+  [TP] PRED: (produce (produce, vegetable) -> solanaceous vegetable)
+        matches GT: (vegetable -> solanaceous vegetable)
+  [TP] PRED: (sauce -> chocolate sauce)
+        matches GT: (sauce -> chocolate sauce)
+  [TP] PRED: (starches -> bread)
+        matches GT: (starches -> bread)
+  [TP] PRED: (stew -> bigos)
+        matches GT: (stew -> bigos)
+  [TP] PRED: (toast -> zwieback)
+        matches GT: (toast -> zwieback)
+  [TP] PRED: (white bread -> french bread)
+        matches GT: (white bread -> french bread)
+
+INCORRECT PREDICTIONS (False Positives: 1):
+  [FP] dish -> baked goods
+
+MISSED RELATIONS (False Negatives: 6):
+  [FN] flavorer -> condiment
+  [FN] food -> baked goods
+  [FN] food -> foodstuff
+  [FN] food -> nutriment
+  [FN] foodstuff -> ingredient
+  [FN] produce -> vegetable

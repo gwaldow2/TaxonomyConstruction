@@ -1,0 +1,106 @@
+==================================================
+=== Detailed Node Pair Analysis (Condensed Transitive Reduction) ===
+Match Type Used: SET_OVERLAP
+==================================================
+Precision: 0.5714 | Recall: 0.6087 | F1: 0.5895
+
+CORRECT PREDICTIONS (True Positives: 28 Pred edges covering 28 GT edges):
+  [TP] PRED: (analyte assay -> chloride assay)
+        matches GT: (analyte assay -> chloride assay)
+  [TP] PRED: (assay -> analyte assay)
+        matches GT: (assay -> analyte assay)
+  [TP] PRED: (assay measuring biological activity resulting from t cell epitopemhctcr binding -> assay measuring epitope specific cytokine production by t cells (assay measuring epitope specific cytokine production by t cells, assay measuring epitope specific interleukin-6 production by t cells, cell culture analyte detection bioassay measuring epitope specific interleukin-6 production by t cells, cell culture assay, reporter cell line analyte detection bioassay))
+        matches GT: (assay measuring biological activity resulting from t cell epitopemhctcr binding -> assay measuring epitope specific cytokine production by t cells)
+  [TP] PRED: (biological attribute -> limb coordination efficacy)
+        matches GT: (biological attribute -> limb coordination efficacy)
+  [TP] PRED: (blood assay -> basic metabolic panel venous blood chloride assay)
+        matches GT: (blood assay -> basic metabolic panel venous blood chloride assay)
+  [TP] PRED: (chip-chip assay -> dna methylation profiling by chip-chip assay)
+        matches GT: (chip-chip assay -> dna methylation profiling by chip-chip assay)
+  [TP] PRED: (chloride assay -> basic metabolic panel venous blood chloride assay)
+        matches GT: (chloride assay -> basic metabolic panel venous blood chloride assay)
+  [TP] PRED: (continuant -> independent continuant)
+        matches GT: (continuant -> independent continuant)
+  [TP] PRED: (data transformation -> descriptive statistical calculation data transformation)
+        matches GT: (data transformation -> descriptive statistical calculation data transformation)
+  [TP] PRED: (descriptive statistical calculation data transformation -> kurtosis calculation)
+        matches GT: (descriptive statistical calculation data transformation -> kurtosis calculation)
+  [TP] PRED: (device -> catheter)
+        matches GT: (device -> catheter)
+  [TP] PRED: (device -> chip spotting device)
+        matches GT: (device -> chip spotting device)
+  [TP] PRED: (dna methylation profiling assay -> dna methylation profiling by array assay)
+        matches GT: (dna methylation profiling assay -> dna methylation profiling by array assay)
+  [TP] PRED: (epigenetic modification assay -> dna methylation profiling assay)
+        matches GT: (epigenetic modification assay -> dna methylation profiling assay)
+  [TP] PRED: (establishing cell culture -> establishing primary cell culture)
+        matches GT: (establishing cell culture -> establishing primary cell culture)
+  [TP] PRED: (imaging assay -> magnetic resonance imaging assay)
+        matches GT: (imaging assay -> magnetic resonance imaging assay)
+  [TP] PRED: (independent continuant -> material entity)
+        matches GT: (independent continuant -> material entity)
+  [TP] PRED: (limb coordination efficacy -> lower limb coordination efficacy)
+        matches GT: (limb coordination efficacy -> lower limb coordination efficacy)
+  [TP] PRED: (material entity -> processed material)
+        matches GT: (material entity -> processed material)
+  [TP] PRED: (material processing -> establishing cell culture)
+        matches GT: (material processing -> establishing cell culture)
+  [TP] PRED: (network analysis -> network subgraph quality calculation)
+        matches GT: (network analysis -> network subgraph quality calculation)
+  [TP] PRED: (network subgraph quality calculation -> subgraph degree calculation)
+        matches GT: (network subgraph quality calculation -> subgraph degree calculation)
+  [TP] PRED: (organism detection assay -> organism detection by salinity tolerance assay)
+        matches GT: (organism detection assay -> organism detection by salinity tolerance assay)
+  [TP] PRED: (osmolality assay -> urine osmolality assay)
+        matches GT: (osmolality assay -> urine osmolality assay)
+  [TP] PRED: (performance status value specification -> eastern cooperative oncology group score value specification)
+        matches GT: (performance status value specification -> eastern cooperative oncology group score value specification)
+  [TP] PRED: (t cell epitope assay -> assay measuring biological activity resulting from t cell epitopemhctcr binding)
+        matches GT: (t cell epitope assay -> assay measuring biological activity resulting from t cell epitopemhctcr binding)
+  [TP] PRED: (urine assay -> urine osmolality assay)
+        matches GT: (urine assay -> urine osmolality assay)
+  [TP] PRED: (varian nmr instrument -> varian unity inova spectrometer)
+        matches GT: (varian nmr instrument -> varian unity inova spectrometer)
+
+INCORRECT PREDICTIONS (False Positives: 21):
+  [FP] analyte assay -> blood assay
+  [FP] analyte assay -> epigenetic modification assay
+  [FP] analyte assay -> imaging assay
+  [FP] analyte assay -> organism detection assay
+  [FP] analyte assay -> osmolality assay
+  [FP] analyte assay -> t cell epitope assay
+  [FP] analyte assay -> urine assay
+  [FP] blood assay -> luteinizing hormone assay
+  [FP] data transformation -> network subgraph quality calculation
+  [FP] descriptive statistical calculation data transformation -> spread calculation data transformation
+  [FP] descriptive statistical calculation data transformation -> subgraph degree calculation
+  [FP] device -> assay measuring epitope specific cytokine production by t cells (assay measuring epitope specific cytokine production by t cells, assay measuring epitope specific interleukin-6 production by t cells, cell culture analyte detection bioassay measuring epitope specific interleukin-6 production by t cells, cell culture assay, reporter cell line analyte detection bioassay)
+  [FP] device -> varian nmr instrument
+  [FP] dna methylation profiling assay -> dna methylation profiling by chip-chip assay
+  [FP] epigenetic modification assay -> chip-chip assay
+  [FP] material entity -> device
+  [FP] material processing -> assay measuring epitope specific cytokine production by t cells (assay measuring epitope specific cytokine production by t cells, assay measuring epitope specific interleukin-6 production by t cells, cell culture analyte detection bioassay measuring epitope specific interleukin-6 production by t cells, cell culture assay, reporter cell line analyte detection bioassay)
+  [FP] planned process -> assay measuring epitope specific cytokine production by t cells (assay measuring epitope specific cytokine production by t cells, assay measuring epitope specific interleukin-6 production by t cells, cell culture analyte detection bioassay measuring epitope specific interleukin-6 production by t cells, cell culture assay, reporter cell line analyte detection bioassay)
+  [FP] planned process -> establishing cell culture
+  [FP] planned process -> network subgraph quality calculation
+  [FP] urine assay -> luteinizing hormone assay
+
+MISSED RELATIONS (False Negatives: 18):
+  [FN] analyte assay -> luteinizing hormone assay
+  [FN] analyte assay -> reporter cell line analyte detection bioassay
+  [FN] assay -> blood assay
+  [FN] assay -> cell culture assay
+  [FN] assay -> epigenetic modification assay
+  [FN] assay -> organism detection assay
+  [FN] assay measuring epitope specific cytokine production by t cells -> assay measuring epitope specific interleukin-6 production by t cells
+  [FN] assay measuring epitope specific interleukin-6 production by t cells -> cell culture analyte detection bioassay measuring epitope specific interleukin-6 production by t cells
+  [FN] cell culture assay -> reporter cell line analyte detection bioassay
+  [FN] data transformation -> network analysis
+  [FN] epigenetic modification assay -> dna methylation profiling by chip-chip assay
+  [FN] planned process -> assay
+  [FN] planned process -> data transformation
+  [FN] planned process -> material processing
+  [FN] planned process -> study intervention
+  [FN] processed material -> device
+  [FN] reporter cell line analyte detection bioassay -> cell culture analyte detection bioassay measuring epitope specific interleukin-6 production by t cells
+  [FN] spread calculation data transformation -> kurtosis calculation

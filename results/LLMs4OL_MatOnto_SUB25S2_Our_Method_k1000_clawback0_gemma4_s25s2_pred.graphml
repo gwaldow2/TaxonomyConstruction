@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d4" for="graph" attr.name="timestamp" attr.type="string"/>
+<key id="d3" for="graph" attr.name="scale" attr.type="string"/>
+<key id="d2" for="graph" attr.name="results_file" attr.type="string"/>
+<key id="d1" for="graph" attr.name="tag" attr.type="string"/>
+<key id="d0" for="graph" attr.name="model" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">google/gemma-4-31b-it</data>
+<data key="d1">gemma4_s25s2</data>
+<data key="d2">results/scaling_gemma4.json</data>
+<data key="d3">SUB25S2</data>
+<data key="d4">2026-09-30T16:51:14</data>
+<node id="atom"/>
+<node id="xenon atom"/>
+<node id="continuant (continuant, independent_continuant, object)"/>
+<node id="measured property (measured property, quality)"/>
+<node id="molecularquality"/>
+<node id="dependent_continuant"/>
+<node id="hardness range"/>
+<node id="ultimate tensile strength"/>
+<node id="unit"/>
+<node id="molar energy unit"/>
+<node id="organic group"/>
+<node id="carbon group"/>
+<node id="bismuth atom"/>
+<node id="hassium atom"/>
+<node id="radon atom"/>
+<node id="moleculecomponentcount"/>
+<node id="permittivity"/>
+<node id="chemical phase"/>
+<node id="uncommon chemical phase"/>
+<node id="strange matter phase"/>
+<node id="aryl"/>
+<node id="undefined stereo bond count"/>
+<edge source="atom" target="xenon atom"/>
+<edge source="atom" target="bismuth atom"/>
+<edge source="atom" target="hassium atom"/>
+<edge source="atom" target="radon atom"/>
+<edge source="continuant (continuant, independent_continuant, object)" target="xenon atom"/>
+<edge source="continuant (continuant, independent_continuant, object)" target="carbon group"/>
+<edge source="continuant (continuant, independent_continuant, object)" target="chemical phase"/>
+<edge source="continuant (continuant, independent_continuant, object)" target="bismuth atom"/>
+<edge source="continuant (continuant, independent_continuant, object)" target="atom"/>
+<edge source="continuant (continuant, independent_continuant, object)" target="aryl"/>
+<edge source="continuant (continuant, independent_continuant, object)" target="hassium atom"/>
+<edge source="continuant (continuant, independent_continuant, object)" target="radon atom"/>
+<edge source="continuant (continuant, independent_continuant, object)" target="strange matter phase"/>
+<edge source="continuant (continuant, independent_continuant, object)" target="organic group"/>
+<edge source="continuant (continuant, independent_continuant, object)" target="dependent_continuant"/>
+<edge source="continuant (continuant, independent_continuant, object)" target="measured property (measured property, quality)"/>
+<edge source="measured property (measured property, quality)" target="molecularquality"/>
+<edge source="measured property (measured property, quality)" target="hardness range"/>
+<edge source="measured property (measured property, quality)" target="ultimate tensile strength"/>
+<edge source="measured property (measured property, quality)" target="moleculecomponentcount"/>
+<edge source="measured property (measured property, quality)" target="permittivity"/>
+<edge source="measured property (measured property, quality)" target="undefined stereo bond count"/>
+<edge source="molecularquality" target="hardness range"/>
+<edge source="molecularquality" target="moleculecomponentcount"/>
+<edge source="molecularquality" target="permittivity"/>
+<edge source="molecularquality" target="undefined stereo bond count"/>
+<edge source="dependent_continuant" target="measured property (measured property, quality)"/>
+<edge source="dependent_continuant" target="permittivity"/>
+<edge source="dependent_continuant" target="molecularquality"/>
+<edge source="dependent_continuant" target="organic group"/>
+<edge source="unit" target="molar energy unit"/>
+<edge source="organic group" target="carbon group"/>
+<edge source="organic group" target="aryl"/>
+<edge source="moleculecomponentcount" target="undefined stereo bond count"/>
+<edge source="chemical phase" target="uncommon chemical phase"/>
+<edge source="chemical phase" target="strange matter phase"/>
+<edge source="uncommon chemical phase" target="strange matter phase"/>
+</graph></graphml>

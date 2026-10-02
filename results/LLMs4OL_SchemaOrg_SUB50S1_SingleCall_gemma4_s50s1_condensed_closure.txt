@@ -1,0 +1,152 @@
+==================================================
+=== Detailed Node Pair Analysis (Condensed Transitive Closure) ===
+Match Type Used: SET_OVERLAP
+==================================================
+Precision: 0.3488 | Recall: 0.5455 | F1: 0.4255
+
+CORRECT PREDICTIONS (True Positives: 30 Pred edges covering 30 GT edges):
+  [TP] PRED: (action -> controlaction)
+        matches GT: (action -> controlaction)
+  [TP] PRED: (action -> findaction)
+        matches GT: (action -> findaction)
+  [TP] PRED: (action -> giveaction)
+        matches GT: (action -> giveaction)
+  [TP] PRED: (action -> suspendaction)
+        matches GT: (action -> suspendaction)
+  [TP] PRED: (action -> transferaction)
+        matches GT: (action -> transferaction)
+  [TP] PRED: (broadcastchannel -> televisionchannel)
+        matches GT: (broadcastchannel -> televisionchannel)
+  [TP] PRED: (creativework -> manuscript)
+        matches GT: (creativework -> manuscript)
+  [TP] PRED: (creativework -> photograph)
+        matches GT: (creativework -> photograph)
+  [TP] PRED: (datatype -> pronounceabletext)
+        matches GT: (datatype -> pronounceabletext)
+  [TP] PRED: (datatype -> text)
+        matches GT: (datatype -> text)
+  [TP] PRED: (enumeration -> carusagetype)
+        matches GT: (enumeration -> carusagetype)
+  [TP] PRED: (enumeration -> governmentbenefitstype)
+        matches GT: (enumeration -> governmentbenefitstype)
+  [TP] PRED: (enumeration -> legalvaluelevel)
+        matches GT: (enumeration -> legalvaluelevel)
+  [TP] PRED: (enumeration -> pricecomponenttypeenumeration)
+        matches GT: (enumeration -> pricecomponenttypeenumeration)
+  [TP] PRED: (enumeration -> sizegroupenumeration)
+        matches GT: (enumeration -> sizegroupenumeration)
+  [TP] PRED: (episode -> tvepisode)
+        matches GT: (episode -> tvepisode)
+  [TP] PRED: (intangible -> broadcastchannel)
+        matches GT: (intangible -> broadcastchannel)
+  [TP] PRED: (intangible -> menuitem)
+        matches GT: (intangible -> menuitem)
+  [TP] PRED: (intangible -> televisionchannel)
+        matches GT: (intangible -> televisionchannel)
+  [TP] PRED: (intangible -> trip)
+        matches GT: (intangible -> trip)
+  [TP] PRED: (localbusiness -> entertainmentbusiness)
+        matches GT: (localbusiness -> entertainmentbusiness)
+  [TP] PRED: (organization -> emergencyservice)
+        matches GT: (organization -> emergencyservice)
+  [TP] PRED: (organization -> entertainmentbusiness)
+        matches GT: (organization -> entertainmentbusiness)
+  [TP] PRED: (organization -> fundingagency)
+        matches GT: (organization -> fundingagency)
+  [TP] PRED: (organization -> localbusiness)
+        matches GT: (organization -> localbusiness)
+  [TP] PRED: (place -> entertainmentbusiness)
+        matches GT: (place -> entertainmentbusiness)
+  [TP] PRED: (place -> healthclub)
+        matches GT: (place -> healthclub)
+  [TP] PRED: (place -> localbusiness)
+        matches GT: (place -> localbusiness)
+  [TP] PRED: (place -> movietheater)
+        matches GT: (place -> movietheater)
+  [TP] PRED: (place -> sportsactivitylocation)
+        matches GT: (place -> sportsactivitylocation)
+
+INCORRECT PREDICTIONS (False Positives: 56):
+  [FP] civicstructure -> governmentbuilding
+  [FP] creativework -> episode
+  [FP] creativework -> mediaobject
+  [FP] creativework -> tvepisode
+  [FP] datatype -> carusagetype
+  [FP] datatype -> drivewheelconfigurationvalue
+  [FP] datatype -> enumeration
+  [FP] datatype -> governmentbenefitstype
+  [FP] datatype -> legalvaluelevel
+  [FP] datatype -> pricecomponenttypeenumeration
+  [FP] datatype -> qualitativevalue
+  [FP] datatype -> sizegroupenumeration
+  [FP] enumeration -> drivewheelconfigurationvalue
+  [FP] intangible -> action
+  [FP] intangible -> carusagetype
+  [FP] intangible -> collection
+  [FP] intangible -> controlaction
+  [FP] intangible -> creativework
+  [FP] intangible -> datadownload
+  [FP] intangible -> datatype
+  [FP] intangible -> drivewheelconfigurationvalue
+  [FP] intangible -> enumeration
+  [FP] intangible -> episode
+  [FP] intangible -> findaction
+  [FP] intangible -> giveaction
+  [FP] intangible -> governmentbenefitstype
+  [FP] intangible -> legalvaluelevel
+  [FP] intangible -> manuscript
+  [FP] intangible -> mediaobject
+  [FP] intangible -> ondemandevent
+  [FP] intangible -> photograph
+  [FP] intangible -> pricecomponenttypeenumeration
+  [FP] intangible -> project
+  [FP] intangible -> pronounceabletext
+  [FP] intangible -> publicationevent
+  [FP] intangible -> qualitativevalue
+  [FP] intangible -> sizegroupenumeration
+  [FP] intangible -> suspendaction
+  [FP] intangible -> text
+  [FP] intangible -> transferaction
+  [FP] intangible -> tvepisode
+  [FP] localbusiness -> homeandconstructionbusiness
+  [FP] medicalentity -> emergencyservice
+  [FP] medicalentity -> entertainmentbusiness
+  [FP] medicalentity -> fundingagency
+  [FP] medicalentity -> generalcontractor
+  [FP] medicalentity -> homeandconstructionbusiness
+  [FP] medicalentity -> localbusiness
+  [FP] medicalentity -> organization
+  [FP] occupation -> generalcontractor
+  [FP] organization -> generalcontractor
+  [FP] organization -> homeandconstructionbusiness
+  [FP] place -> civicstructure
+  [FP] place -> eventvenue
+  [FP] place -> governmentbuilding
+  [FP] place -> homeandconstructionbusiness
+
+MISSED RELATIONS (False Negatives: 25):
+  [FN] civicstructure -> eventvenue
+  [FN] civicstructure -> movietheater
+  [FN] controlaction -> suspendaction
+  [FN] creativework -> collection
+  [FN] entertainmentbusiness -> movietheater
+  [FN] homeandconstructionbusiness -> generalcontractor
+  [FN] intangible -> flight
+  [FN] intangible -> occupation
+  [FN] localbusiness -> emergencyservice
+  [FN] localbusiness -> healthclub
+  [FN] localbusiness -> movietheater
+  [FN] localbusiness -> sportsactivitylocation
+  [FN] mediaobject -> datadownload
+  [FN] organization -> healthclub
+  [FN] organization -> movietheater
+  [FN] organization -> project
+  [FN] organization -> sportsactivitylocation
+  [FN] place -> emergencyservice
+  [FN] project -> fundingagency
+  [FN] publicationevent -> ondemandevent
+  [FN] qualitativevalue -> drivewheelconfigurationvalue
+  [FN] sportsactivitylocation -> healthclub
+  [FN] text -> pronounceabletext
+  [FN] transferaction -> giveaction
+  [FN] trip -> flight

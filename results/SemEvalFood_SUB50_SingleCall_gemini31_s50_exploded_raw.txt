@@ -1,0 +1,74 @@
+==================================================
+=== Detailed Node Pair Analysis (Exploded Raw Edges) ===
+Match Type Used: EXACT
+==================================================
+Precision: 0.7143 | Recall: 0.5882 | F1: 0.6452
+
+CORRECT PREDICTIONS (True Positives: 30 Pred edges covering 30 GT edges):
+  [TP] b complex vitamin -> niacin
+  [TP] b complex vitamin -> vitamin b2
+  [TP] cocktail -> gin and it
+  [TP] condiment -> relish
+  [TP] condiment -> sauce
+  [TP] course -> appetizer
+  [TP] course -> entree
+  [TP] diet -> diabetic diet
+  [TP] dish -> meatball
+  [TP] dressing -> blue cheese dressing
+  [TP] dressing -> mayonnaise
+  [TP] fare -> diet
+  [TP] feed -> fodder
+  [TP] flavorer -> condiment
+  [TP] flavorer -> herb
+  [TP] fodder -> eatage
+  [TP] food -> fare
+  [TP] food -> feed
+  [TP] food -> foodstuff
+  [TP] foodstuff -> ingredient
+  [TP] grain -> buckwheat
+  [TP] mayonnaise -> green mayonnaise
+  [TP] meatball -> porcupine ball
+  [TP] sauce -> dressing
+  [TP] starches -> potato
+  [TP] sweet -> center
+  [TP] tea -> oolong
+  [TP] tea -> sun tea
+  [TP] vitamin -> water soluble vitamin
+  [TP] water soluble vitamin -> b complex vitamin
+
+INCORRECT PREDICTIONS (False Positives: 12):
+  [FP] dish -> home fries
+  [FP] dish -> mashed potato
+  [FP] eatage -> alfalfa
+  [FP] food -> chow
+  [FP] food -> dainty
+  [FP] food -> dish
+  [FP] food -> starches
+  [FP] food -> sweet
+  [FP] herb -> garlic
+  [FP] meal -> course
+  [FP] nutriment -> food
+  [FP] sauce -> steak sauce
+
+MISSED RELATIONS (False Negatives: 21):
+  [FN] appetizer -> antipasto
+  [FN] appetizer -> cocktail
+  [FN] condiment -> steak sauce
+  [FN] dainty -> sweet
+  [FN] fare -> chow
+  [FN] flavorer -> garlic
+  [FN] fodder -> alfalfa
+  [FN] food -> nutriment
+  [FN] foodstuff -> grain
+  [FN] foodstuff -> meal
+  [FN] foodstuff -> starches
+  [FN] herb -> tea
+  [FN] ingredient -> flavorer
+  [FN] meal -> tea
+  [FN] nutriment -> course
+  [FN] nutriment -> dainty
+  [FN] nutriment -> dish
+  [FN] nutriment -> meal
+  [FN] nutriment -> vitamin
+  [FN] potato -> home fries
+  [FN] potato -> mashed potato

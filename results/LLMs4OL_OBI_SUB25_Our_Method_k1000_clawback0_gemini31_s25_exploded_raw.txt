@@ -1,0 +1,95 @@
+==================================================
+=== Detailed Node Pair Analysis (Exploded Raw Edges) ===
+Match Type Used: EXACT
+==================================================
+Precision: 0.2651 | Recall: 1.0000 | F1: 0.4190
+
+CORRECT PREDICTIONS (True Positives: 22 Pred edges covering 22 GT edges):
+  [TP] assay -> carboxyfluorescein succinimidyl ester staining assay
+  [TP] assay -> insecticide resistance assay
+  [TP] assay -> organism detection assay
+  [TP] assay array -> microarray
+  [TP] carboxyfluorescein succinimidyl ester staining assay -> carboxyfluorescein succinimidyl ester staining assay measuring epitope specific proliferation of t cells
+  [TP] clinical history -> family clinical history of cancer
+  [TP] continuant -> independent continuant
+  [TP] device -> assay array
+  [TP] device -> material separation device
+  [TP] dna microarray -> affymetrix rhesus macaque genome array
+  [TP] family clinical history of cancer -> brother clinical history of cancer
+  [TP] function -> connection function
+  [TP] independent continuant -> material entity
+  [TP] insecticide resistance assay -> insecticide resistance by detecting enzyme activity assay
+  [TP] insecticide resistance by detecting enzyme activity assay -> insecticide resistance by detecting glutathione s-transferase activity assay
+  [TP] material entity -> processed material
+  [TP] material separation device -> filter paper
+  [TP] microarray -> dna microarray
+  [TP] organism detection assay -> parasite detection assay
+  [TP] organization -> organization of specimen collector
+  [TP] planned process -> assay
+  [TP] processed material -> device
+
+INCORRECT PREDICTIONS (False Positives: 61):
+  [FP] assay -> carboxyfluorescein succinimidyl ester staining assay measuring epitope specific proliferation of t cells
+  [FP] assay -> insecticide resistance by detecting enzyme activity assay
+  [FP] assay -> insecticide resistance by detecting glutathione s-transferase activity assay
+  [FP] assay -> parasite detection assay
+  [FP] assay array -> affymetrix rhesus macaque genome array
+  [FP] assay array -> dna microarray
+  [FP] clinical history -> brother clinical history of cancer
+  [FP] continuant -> affymetrix rhesus macaque genome array
+  [FP] continuant -> assay array
+  [FP] continuant -> brother clinical history of cancer
+  [FP] continuant -> clinical history
+  [FP] continuant -> connection function
+  [FP] continuant -> device
+  [FP] continuant -> dna microarray
+  [FP] continuant -> family clinical history of cancer
+  [FP] continuant -> filter paper
+  [FP] continuant -> function
+  [FP] continuant -> material entity
+  [FP] continuant -> material separation device
+  [FP] continuant -> microarray
+  [FP] continuant -> organization
+  [FP] continuant -> organization of specimen collector
+  [FP] continuant -> processed material
+  [FP] device -> affymetrix rhesus macaque genome array
+  [FP] device -> dna microarray
+  [FP] device -> filter paper
+  [FP] device -> microarray
+  [FP] independent continuant -> affymetrix rhesus macaque genome array
+  [FP] independent continuant -> assay array
+  [FP] independent continuant -> device
+  [FP] independent continuant -> dna microarray
+  [FP] independent continuant -> filter paper
+  [FP] independent continuant -> material separation device
+  [FP] independent continuant -> microarray
+  [FP] independent continuant -> organization
+  [FP] independent continuant -> organization of specimen collector
+  [FP] independent continuant -> processed material
+  [FP] insecticide resistance assay -> insecticide resistance by detecting glutathione s-transferase activity assay
+  [FP] material entity -> affymetrix rhesus macaque genome array
+  [FP] material entity -> assay array
+  [FP] material entity -> device
+  [FP] material entity -> dna microarray
+  [FP] material entity -> filter paper
+  [FP] material entity -> material separation device
+  [FP] material entity -> microarray
+  [FP] material entity -> organization
+  [FP] material entity -> organization of specimen collector
+  [FP] microarray -> affymetrix rhesus macaque genome array
+  [FP] planned process -> carboxyfluorescein succinimidyl ester staining assay
+  [FP] planned process -> carboxyfluorescein succinimidyl ester staining assay measuring epitope specific proliferation of t cells
+  [FP] planned process -> insecticide resistance assay
+  [FP] planned process -> insecticide resistance by detecting enzyme activity assay
+  [FP] planned process -> insecticide resistance by detecting glutathione s-transferase activity assay
+  [FP] planned process -> organism detection assay
+  [FP] planned process -> parasite detection assay
+  [FP] processed material -> affymetrix rhesus macaque genome array
+  [FP] processed material -> assay array
+  [FP] processed material -> dna microarray
+  [FP] processed material -> filter paper
+  [FP] processed material -> material separation device
+  [FP] processed material -> microarray
+
+MISSED RELATIONS (False Negatives: 0):
+  None. (Perfect Recall!)

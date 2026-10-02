@@ -1,0 +1,37 @@
+==================================================
+=== Detailed Node Pair Analysis (Exploded Raw Edges) ===
+Match Type Used: EXACT
+==================================================
+Precision: 0.7619 | Recall: 0.7619 | F1: 0.7619
+
+CORRECT PREDICTIONS (True Positives: 16 Pred edges covering 16 GT edges):
+  [TP] atom -> bismuth atom
+  [TP] atom -> hassium atom
+  [TP] atom -> radon atom
+  [TP] atom -> xenon atom
+  [TP] chemical phase -> uncommon chemical phase
+  [TP] continuant -> dependent_continuant
+  [TP] continuant -> independent_continuant
+  [TP] dependent_continuant -> quality
+  [TP] independent_continuant -> object
+  [TP] measured property -> permittivity
+  [TP] measured property -> ultimate tensile strength
+  [TP] object -> atom
+  [TP] organic group -> aryl
+  [TP] quality -> measured property
+  [TP] uncommon chemical phase -> strange matter phase
+  [TP] unit -> molar energy unit
+
+INCORRECT PREDICTIONS (False Positives: 5):
+  [FP] carbon group -> organic group
+  [FP] dependent_continuant -> moleculecomponentcount
+  [FP] dependent_continuant -> undefined stereo bond count
+  [FP] measured property -> hardness range
+  [FP] quality -> molecularquality
+
+MISSED RELATIONS (False Negatives: 5):
+  [FN] measured property -> molecularquality
+  [FN] molecularquality -> moleculecomponentcount
+  [FN] moleculecomponentcount -> undefined stereo bond count
+  [FN] object -> organic group
+  [FN] organic group -> carbon group

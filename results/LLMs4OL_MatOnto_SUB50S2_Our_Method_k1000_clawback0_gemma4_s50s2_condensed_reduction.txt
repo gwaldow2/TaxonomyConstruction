@@ -1,0 +1,117 @@
+==================================================
+=== Detailed Node Pair Analysis (Condensed Transitive Reduction) ===
+Match Type Used: SET_OVERLAP
+==================================================
+Precision: 0.5161 | Recall: 0.7273 | F1: 0.6038
+
+CORRECT PREDICTIONS (True Positives: 32 Pred edges covering 32 GT edges):
+  [TP] PRED: (atom -> argon atom)
+        matches GT: (atom -> argon atom)
+  [TP] PRED: (atom -> bismuth atom)
+        matches GT: (atom -> bismuth atom)
+  [TP] PRED: (atom -> californium atom)
+        matches GT: (atom -> californium atom)
+  [TP] PRED: (atom -> hassium atom)
+        matches GT: (atom -> hassium atom)
+  [TP] PRED: (atom -> radon atom)
+        matches GT: (atom -> radon atom)
+  [TP] PRED: (atom -> xenon atom)
+        matches GT: (atom -> xenon atom)
+  [TP] PRED: (chemical agent -> oxidizing agent)
+        matches GT: (chemical agent -> oxidizing agent)
+  [TP] PRED: (chemical agent -> reducing agent)
+        matches GT: (chemical agent -> reducing agent)
+  [TP] PRED: (chemical phase -> uncommon chemical phase)
+        matches GT: (chemical phase -> uncommon chemical phase)
+  [TP] PRED: (cistrans isomer -> cis isomer)
+        matches GT: (cistrans isomer -> cis isomer)
+  [TP] PRED: (continuant (continuant, independent_continuant, object) -> dependent_continuant)
+        matches GT: (continuant -> dependent_continuant)
+  [TP] PRED: (continuant (continuant, independent_continuant, object) -> ring)
+        matches GT: (object -> ring)
+  [TP] PRED: (dependent_continuant -> quality)
+        matches GT: (dependent_continuant -> quality)
+  [TP] PRED: (derivedunit -> scaled unit)
+        matches GT: (derivedunit -> scaled unit)
+  [TP] PRED: (element -> hydrogen)
+        matches GT: (element -> hydrogen)
+  [TP] PRED: (element -> magnesium)
+        matches GT: (element -> magnesium)
+  [TP] PRED: (element -> ununbium)
+        matches GT: (element -> ununbium)
+  [TP] PRED: (element -> ununoctium)
+        matches GT: (element -> ununoctium)
+  [TP] PRED: (homogeneous mixture -> solution)
+        matches GT: (homogeneous mixture -> solution)
+  [TP] PRED: (measured property -> molecularquality)
+        matches GT: (measured property -> molecularquality)
+  [TP] PRED: (measured property -> permeability)
+        matches GT: (measured property -> permeability)
+  [TP] PRED: (measured property -> permittivity)
+        matches GT: (measured property -> permittivity)
+  [TP] PRED: (measured property -> ultimate tensile strength)
+        matches GT: (measured property -> ultimate tensile strength)
+  [TP] PRED: (mixture -> homogeneous mixture)
+        matches GT: (mixture -> homogeneous mixture)
+  [TP] PRED: (molecularquality -> moleculecomponentcount)
+        matches GT: (molecularquality -> moleculecomponentcount)
+  [TP] PRED: (moleculecomponentcount -> undefined stereo bond count)
+        matches GT: (moleculecomponentcount -> undefined stereo bond count)
+  [TP] PRED: (organic group -> aryl)
+        matches GT: (organic group -> aryl)
+  [TP] PRED: (quality -> measured property)
+        matches GT: (quality -> measured property)
+  [TP] PRED: (ring -> non aromatic ring)
+        matches GT: (ring -> non aromatic ring)
+  [TP] PRED: (scaled unit -> zepto scaled unit)
+        matches GT: (scaled unit -> zepto scaled unit)
+  [TP] PRED: (uncommon chemical phase -> strange matter phase)
+        matches GT: (uncommon chemical phase -> strange matter phase)
+  [TP] PRED: (unit -> derivedunit)
+        matches GT: (unit -> derivedunit)
+
+INCORRECT PREDICTIONS (False Positives: 30):
+  [FP] atom -> hydrogen
+  [FP] atom -> magnesium
+  [FP] atom -> ununbium
+  [FP] atom -> ununoctium
+  [FP] chemical agent -> argon atom
+  [FP] chemical agent -> bismuth atom
+  [FP] chemical agent -> cis isomer
+  [FP] chemical agent -> element
+  [FP] chemical agent -> hassium atom
+  [FP] chemical agent -> mixture
+  [FP] chemical agent -> radon atom
+  [FP] chemical substance -> atom
+  [FP] chemical substance -> chemical agent
+  [FP] chemical substance -> cistrans isomer
+  [FP] chemical substance -> organic group
+  [FP] chemical substance -> uncommon chemical phase
+  [FP] chemical substance -> zepto scaled unit
+  [FP] continuant (continuant, independent_continuant, object) -> unit
+  [FP] dependent_continuant -> chemical substance
+  [FP] element -> carbon group
+  [FP] element -> xenon atom
+  [FP] homogeneous mixture -> racemic mixture
+  [FP] measured property -> hardness range
+  [FP] molecularquality -> molar mass
+  [FP] quality -> chemical phase
+  [FP] reducing agent -> hydrogen
+  [FP] reducing agent -> magnesium
+  [FP] scaled unit -> electromagnetic radiation unit
+  [FP] scaled unit -> illuminance unit
+  [FP] scaled unit -> molar energy unit
+
+MISSED RELATIONS (False Negatives: 12):
+  [FN] connected_temporal_region -> temporal_instant
+  [FN] continuant -> independent_continuant
+  [FN] electromagnetic radiation unit -> illuminance unit
+  [FN] independent_continuant -> object
+  [FN] measured property -> molar mass
+  [FN] object -> atom
+  [FN] object -> mixture
+  [FN] object -> organic group
+  [FN] organic group -> carbon group
+  [FN] solution -> racemic mixture
+  [FN] unit -> electromagnetic radiation unit
+  [FN] unit -> molar energy unit

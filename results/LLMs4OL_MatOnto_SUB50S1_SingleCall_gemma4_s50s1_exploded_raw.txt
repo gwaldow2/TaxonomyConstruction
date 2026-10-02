@@ -1,0 +1,72 @@
+==================================================
+=== Detailed Node Pair Analysis (Exploded Raw Edges) ===
+Match Type Used: EXACT
+==================================================
+Precision: 0.5250 | Recall: 0.5000 | F1: 0.5122
+
+CORRECT PREDICTIONS (True Positives: 21 Pred edges covering 21 GT edges):
+  [TP] addition reaction -> polar addition reaction
+  [TP] atom -> californium atom
+  [TP] atom -> helium atom
+  [TP] atom -> lithium atom
+  [TP] atom -> ytterbium atom
+  [TP] continuant -> dependent_continuant
+  [TP] continuant -> independent_continuant
+  [TP] dependent_continuant -> quality
+  [TP] entity -> occurrent
+  [TP] independent_continuant -> object
+  [TP] measured property -> concentration
+  [TP] measured property -> specific energy
+  [TP] object -> atom
+  [TP] scaled unit -> centi scaled unit
+  [TP] scaled unit -> giga scaled unit
+  [TP] spatial_region -> three_dimensional_region
+  [TP] spatial_region -> zero_dimensional_region
+  [TP] spatiotemporal_region -> connected_spatiotemporal_region
+  [TP] thermodynamic system -> open thermodynamic system
+  [TP] unit -> derivedunit
+  [TP] unit raised to power -> unit raised to power of negative three
+
+INCORRECT PREDICTIONS (False Positives: 19):
+  [FP] addition reaction -> nucleophilic addition reaction
+  [FP] derivedunit -> electromagnetic radiation unit
+  [FP] derivedunit -> illuminance unit
+  [FP] derivedunit -> molar energy unit
+  [FP] derivedunit -> velocity unit
+  [FP] entity -> continuant
+  [FP] entity -> thermodynamic system
+  [FP] entity -> unit
+  [FP] independent_continuant -> spatial_region
+  [FP] intensive property -> measured property
+  [FP] measured property -> flexural modulus
+  [FP] measured property -> illuminance
+  [FP] measured property -> luminous flux
+  [FP] measured property -> ph
+  [FP] occurrent -> addition reaction
+  [FP] quality -> intensive property
+  [FP] spatial_region -> spatiotemporal_region
+  [FP] unit -> scaled unit
+  [FP] unit -> unit raised to power
+
+MISSED RELATIONS (False Negatives: 21):
+  [FN] chemical conformation -> wikipedia
+  [FN] concentration -> ph
+  [FN] continuant -> spatial_region
+  [FN] derivedunit -> scaled unit
+  [FN] electromagnetic radation -> illuminance
+  [FN] electromagnetic radation -> luminous flux
+  [FN] electromagnetic radiation unit -> illuminance unit
+  [FN] element -> erbium
+  [FN] element -> ununbium
+  [FN] intensive property -> flexural modulus
+  [FN] material category -> refactory
+  [FN] measured property -> electric current
+  [FN] measured property -> electromagnetic radation
+  [FN] measured property -> intensive property
+  [FN] occurrent -> spatiotemporal_region
+  [FN] polar addition reaction -> nucleophilic addition reaction
+  [FN] quality -> measured property
+  [FN] three_dimensional_region -> thermodynamic system
+  [FN] unit -> electromagnetic radiation unit
+  [FN] unit -> molar energy unit
+  [FN] unit -> velocity unit

@@ -1,0 +1,78 @@
+==================================================
+=== Detailed Node Pair Analysis (Exploded Transitive Closure) ===
+Match Type Used: EXACT
+==================================================
+Precision: 0.7455 | Recall: 0.7736 | F1: 0.7593
+
+CORRECT PREDICTIONS (True Positives: 41 Pred edges covering 41 GT edges):
+  [TP] addition reaction -> nucleophilic addition reaction
+  [TP] addition reaction -> polar addition reaction
+  [TP] atom -> californium atom
+  [TP] atom -> helium atom
+  [TP] atom -> ytterbium atom
+  [TP] continuant -> atom
+  [TP] continuant -> californium atom
+  [TP] continuant -> dependent_continuant
+  [TP] continuant -> helium atom
+  [TP] continuant -> illuminance
+  [TP] continuant -> independent_continuant
+  [TP] continuant -> measured property
+  [TP] continuant -> object
+  [TP] continuant -> open thermodynamic system
+  [TP] continuant -> quality
+  [TP] continuant -> spatial_region
+  [TP] continuant -> specific energy
+  [TP] continuant -> thermodynamic system
+  [TP] continuant -> three_dimensional_region
+  [TP] continuant -> ytterbium atom
+  [TP] dependent_continuant -> illuminance
+  [TP] dependent_continuant -> measured property
+  [TP] dependent_continuant -> quality
+  [TP] dependent_continuant -> specific energy
+  [TP] independent_continuant -> atom
+  [TP] independent_continuant -> californium atom
+  [TP] independent_continuant -> helium atom
+  [TP] independent_continuant -> object
+  [TP] independent_continuant -> ytterbium atom
+  [TP] measured property -> illuminance
+  [TP] measured property -> specific energy
+  [TP] object -> atom
+  [TP] object -> californium atom
+  [TP] object -> helium atom
+  [TP] object -> ytterbium atom
+  [TP] quality -> illuminance
+  [TP] quality -> measured property
+  [TP] quality -> specific energy
+  [TP] spatial_region -> three_dimensional_region
+  [TP] thermodynamic system -> open thermodynamic system
+  [TP] unit -> molar energy unit
+
+INCORRECT PREDICTIONS (False Positives: 14):
+  [FP] continuant -> addition reaction
+  [FP] continuant -> chemical conformation
+  [FP] continuant -> nucleophilic addition reaction
+  [FP] continuant -> polar addition reaction
+  [FP] dependent_continuant -> addition reaction
+  [FP] dependent_continuant -> chemical conformation
+  [FP] dependent_continuant -> nucleophilic addition reaction
+  [FP] dependent_continuant -> polar addition reaction
+  [FP] independent_continuant -> open thermodynamic system
+  [FP] independent_continuant -> spatial_region
+  [FP] independent_continuant -> thermodynamic system
+  [FP] independent_continuant -> three_dimensional_region
+  [FP] object -> open thermodynamic system
+  [FP] object -> thermodynamic system
+
+MISSED RELATIONS (False Negatives: 12):
+  [FN] chemical conformation -> wikipedia
+  [FN] continuant -> electromagnetic radation
+  [FN] dependent_continuant -> electromagnetic radation
+  [FN] electromagnetic radation -> illuminance
+  [FN] element -> ununbium
+  [FN] measured property -> electromagnetic radation
+  [FN] polar addition reaction -> nucleophilic addition reaction
+  [FN] quality -> electromagnetic radation
+  [FN] spatial_region -> open thermodynamic system
+  [FN] spatial_region -> thermodynamic system
+  [FN] three_dimensional_region -> open thermodynamic system
+  [FN] three_dimensional_region -> thermodynamic system

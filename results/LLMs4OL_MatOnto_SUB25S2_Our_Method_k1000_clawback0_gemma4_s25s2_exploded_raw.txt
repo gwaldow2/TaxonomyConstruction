@@ -1,0 +1,91 @@
+==================================================
+=== Detailed Node Pair Analysis (Exploded Raw Edges) ===
+Match Type Used: EXACT
+==================================================
+Precision: 0.2658 | Recall: 1.0000 | F1: 0.4200
+
+CORRECT PREDICTIONS (True Positives: 21 Pred edges covering 21 GT edges):
+  [TP] atom -> bismuth atom
+  [TP] atom -> hassium atom
+  [TP] atom -> radon atom
+  [TP] atom -> xenon atom
+  [TP] chemical phase -> uncommon chemical phase
+  [TP] continuant -> dependent_continuant
+  [TP] continuant -> independent_continuant
+  [TP] dependent_continuant -> quality
+  [TP] independent_continuant -> object
+  [TP] measured property -> molecularquality
+  [TP] measured property -> permittivity
+  [TP] measured property -> ultimate tensile strength
+  [TP] molecularquality -> moleculecomponentcount
+  [TP] moleculecomponentcount -> undefined stereo bond count
+  [TP] object -> atom
+  [TP] object -> organic group
+  [TP] organic group -> aryl
+  [TP] organic group -> carbon group
+  [TP] quality -> measured property
+  [TP] uncommon chemical phase -> strange matter phase
+  [TP] unit -> molar energy unit
+
+INCORRECT PREDICTIONS (False Positives: 58):
+  [FP] chemical phase -> strange matter phase
+  [FP] continuant -> aryl
+  [FP] continuant -> atom
+  [FP] continuant -> bismuth atom
+  [FP] continuant -> carbon group
+  [FP] continuant -> chemical phase
+  [FP] continuant -> hassium atom
+  [FP] continuant -> measured property
+  [FP] continuant -> object
+  [FP] continuant -> organic group
+  [FP] continuant -> quality
+  [FP] continuant -> radon atom
+  [FP] continuant -> strange matter phase
+  [FP] continuant -> xenon atom
+  [FP] dependent_continuant -> measured property
+  [FP] dependent_continuant -> molecularquality
+  [FP] dependent_continuant -> organic group
+  [FP] dependent_continuant -> permittivity
+  [FP] independent_continuant -> aryl
+  [FP] independent_continuant -> atom
+  [FP] independent_continuant -> bismuth atom
+  [FP] independent_continuant -> carbon group
+  [FP] independent_continuant -> chemical phase
+  [FP] independent_continuant -> continuant
+  [FP] independent_continuant -> dependent_continuant
+  [FP] independent_continuant -> hassium atom
+  [FP] independent_continuant -> measured property
+  [FP] independent_continuant -> organic group
+  [FP] independent_continuant -> quality
+  [FP] independent_continuant -> radon atom
+  [FP] independent_continuant -> strange matter phase
+  [FP] independent_continuant -> xenon atom
+  [FP] measured property -> hardness range
+  [FP] measured property -> moleculecomponentcount
+  [FP] measured property -> quality
+  [FP] measured property -> undefined stereo bond count
+  [FP] molecularquality -> hardness range
+  [FP] molecularquality -> permittivity
+  [FP] molecularquality -> undefined stereo bond count
+  [FP] object -> aryl
+  [FP] object -> bismuth atom
+  [FP] object -> carbon group
+  [FP] object -> chemical phase
+  [FP] object -> continuant
+  [FP] object -> dependent_continuant
+  [FP] object -> hassium atom
+  [FP] object -> independent_continuant
+  [FP] object -> measured property
+  [FP] object -> quality
+  [FP] object -> radon atom
+  [FP] object -> strange matter phase
+  [FP] object -> xenon atom
+  [FP] quality -> hardness range
+  [FP] quality -> molecularquality
+  [FP] quality -> moleculecomponentcount
+  [FP] quality -> permittivity
+  [FP] quality -> ultimate tensile strength
+  [FP] quality -> undefined stereo bond count
+
+MISSED RELATIONS (False Negatives: 0):
+  None. (Perfect Recall!)

@@ -1,0 +1,155 @@
+==================================================
+=== Detailed Node Pair Analysis (Exploded Raw Edges) ===
+Match Type Used: EXACT
+==================================================
+Precision: 0.1338 | Recall: 0.9048 | F1: 0.2331
+
+CORRECT PREDICTIONS (True Positives: 19 Pred edges covering 19 GT edges):
+  [TP] cardinal organ part -> plant axis elongation zone
+  [TP] cardinal organ part -> shoot axis internode
+  [TP] cardinal part of multi-tissue plant structure -> cardinal organ part
+  [TP] leaf -> vascular leaf
+  [TP] multi-tissue plant structure -> plant organ
+  [TP] parenchyma -> pith
+  [TP] phyllome -> leaf
+  [TP] pith -> tuber pith
+  [TP] plant anatomical entity -> plant structure
+  [TP] plant axis elongation zone -> root elongation zone
+  [TP] plant organ -> phyllome
+  [TP] plant structure -> cardinal part of multi-tissue plant structure
+  [TP] plant structure -> multi-tissue plant structure
+  [TP] plant structure -> portion of plant tissue
+  [TP] portion of ground tissue -> parenchyma
+  [TP] portion of plant tissue -> portion of ground tissue
+  [TP] prickle -> root prickle
+  [TP] root elongation zone -> primary root elongation zone
+  [TP] tuber pith -> aerial tuber pith
+
+INCORRECT PREDICTIONS (False Positives: 123):
+  [FP] cardinal organ part -> cardinal part of multi-tissue plant structure
+  [FP] cardinal organ part -> leaf apex
+  [FP] cardinal organ part -> primary root elongation zone
+  [FP] cardinal organ part -> root elongation zone
+  [FP] cardinal part of multi-tissue plant structure -> leaf apex
+  [FP] cardinal part of multi-tissue plant structure -> plant axis elongation zone
+  [FP] cardinal part of multi-tissue plant structure -> primary root elongation zone
+  [FP] cardinal part of multi-tissue plant structure -> root elongation zone
+  [FP] cardinal part of multi-tissue plant structure -> shoot axis internode
+  [FP] leaf -> leaf apex
+  [FP] leaf -> leaf tendril
+  [FP] multi-tissue plant structure -> aerial tuber pith
+  [FP] multi-tissue plant structure -> cardinal organ part
+  [FP] multi-tissue plant structure -> cardinal part of multi-tissue plant structure
+  [FP] multi-tissue plant structure -> leaf
+  [FP] multi-tissue plant structure -> leaf apex
+  [FP] multi-tissue plant structure -> leaf tendril
+  [FP] multi-tissue plant structure -> parenchyma
+  [FP] multi-tissue plant structure -> phyllome
+  [FP] multi-tissue plant structure -> pith
+  [FP] multi-tissue plant structure -> plant anatomical entity
+  [FP] multi-tissue plant structure -> plant axis elongation zone
+  [FP] multi-tissue plant structure -> plant structure
+  [FP] multi-tissue plant structure -> portion of ground tissue
+  [FP] multi-tissue plant structure -> portion of plant tissue
+  [FP] multi-tissue plant structure -> prickle
+  [FP] multi-tissue plant structure -> primary root elongation zone
+  [FP] multi-tissue plant structure -> root elongation zone
+  [FP] multi-tissue plant structure -> root prickle
+  [FP] multi-tissue plant structure -> shoot axis internode
+  [FP] multi-tissue plant structure -> shoot system
+  [FP] multi-tissue plant structure -> tuber pith
+  [FP] multi-tissue plant structure -> vascular leaf
+  [FP] parenchyma -> aerial tuber pith
+  [FP] phyllome -> leaf tendril
+  [FP] phyllome -> vascular leaf
+  [FP] pith -> aerial tuber pith
+  [FP] plant anatomical entity -> aerial tuber pith
+  [FP] plant anatomical entity -> cardinal organ part
+  [FP] plant anatomical entity -> cardinal part of multi-tissue plant structure
+  [FP] plant anatomical entity -> leaf
+  [FP] plant anatomical entity -> leaf apex
+  [FP] plant anatomical entity -> leaf tendril
+  [FP] plant anatomical entity -> multi-tissue plant structure
+  [FP] plant anatomical entity -> parenchyma
+  [FP] plant anatomical entity -> phyllome
+  [FP] plant anatomical entity -> pith
+  [FP] plant anatomical entity -> plant axis elongation zone
+  [FP] plant anatomical entity -> plant organ
+  [FP] plant anatomical entity -> portion of ground tissue
+  [FP] plant anatomical entity -> portion of plant tissue
+  [FP] plant anatomical entity -> prickle
+  [FP] plant anatomical entity -> primary root elongation zone
+  [FP] plant anatomical entity -> root elongation zone
+  [FP] plant anatomical entity -> root prickle
+  [FP] plant anatomical entity -> shoot axis internode
+  [FP] plant anatomical entity -> shoot system
+  [FP] plant anatomical entity -> tuber pith
+  [FP] plant anatomical entity -> vascular leaf
+  [FP] plant axis elongation zone -> primary root elongation zone
+  [FP] plant organ -> aerial tuber pith
+  [FP] plant organ -> cardinal organ part
+  [FP] plant organ -> cardinal part of multi-tissue plant structure
+  [FP] plant organ -> leaf
+  [FP] plant organ -> leaf apex
+  [FP] plant organ -> leaf tendril
+  [FP] plant organ -> multi-tissue plant structure
+  [FP] plant organ -> parenchyma
+  [FP] plant organ -> pith
+  [FP] plant organ -> plant anatomical entity
+  [FP] plant organ -> plant axis elongation zone
+  [FP] plant organ -> plant structure
+  [FP] plant organ -> portion of ground tissue
+  [FP] plant organ -> portion of plant tissue
+  [FP] plant organ -> prickle
+  [FP] plant organ -> primary root elongation zone
+  [FP] plant organ -> root elongation zone
+  [FP] plant organ -> root prickle
+  [FP] plant organ -> shoot axis internode
+  [FP] plant organ -> shoot system
+  [FP] plant organ -> tuber pith
+  [FP] plant organ -> vascular leaf
+  [FP] plant structure -> aerial tuber pith
+  [FP] plant structure -> cardinal organ part
+  [FP] plant structure -> leaf
+  [FP] plant structure -> leaf apex
+  [FP] plant structure -> leaf tendril
+  [FP] plant structure -> parenchyma
+  [FP] plant structure -> phyllome
+  [FP] plant structure -> pith
+  [FP] plant structure -> plant anatomical entity
+  [FP] plant structure -> plant axis elongation zone
+  [FP] plant structure -> plant organ
+  [FP] plant structure -> portion of ground tissue
+  [FP] plant structure -> prickle
+  [FP] plant structure -> primary root elongation zone
+  [FP] plant structure -> root elongation zone
+  [FP] plant structure -> root prickle
+  [FP] plant structure -> shoot axis internode
+  [FP] plant structure -> shoot system
+  [FP] plant structure -> tuber pith
+  [FP] plant structure -> vascular leaf
+  [FP] portion of ground tissue -> aerial tuber pith
+  [FP] portion of ground tissue -> pith
+  [FP] portion of ground tissue -> tuber pith
+  [FP] portion of plant tissue -> aerial tuber pith
+  [FP] portion of plant tissue -> leaf apex
+  [FP] portion of plant tissue -> leaf tendril
+  [FP] portion of plant tissue -> parenchyma
+  [FP] portion of plant tissue -> pith
+  [FP] portion of plant tissue -> plant axis elongation zone
+  [FP] portion of plant tissue -> primary root elongation zone
+  [FP] portion of plant tissue -> root elongation zone
+  [FP] portion of plant tissue -> root prickle
+  [FP] portion of plant tissue -> shoot axis internode
+  [FP] portion of plant tissue -> tuber pith
+  [FP] shoot system -> aerial tuber pith
+  [FP] shoot system -> leaf
+  [FP] shoot system -> leaf apex
+  [FP] shoot system -> leaf tendril
+  [FP] shoot system -> phyllome
+  [FP] shoot system -> shoot axis internode
+  [FP] shoot system -> vascular leaf
+
+MISSED RELATIONS (False Negatives: 2):
+  [FN] shoot system -> po_0000055
+  [FN] vascular leaf -> leaf tendril

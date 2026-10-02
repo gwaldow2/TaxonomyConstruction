@@ -1,0 +1,82 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d8" for="node" attr.name="is_virtual" attr.type="boolean"/>
+<key id="d7" for="graph" attr.name="generated" attr.type="string"/>
+<key id="d6" for="graph" attr.name="generator" attr.type="string"/>
+<key id="d5" for="graph" attr.name="source_edges" attr.type="string"/>
+<key id="d4" for="graph" attr.name="source_nodes" attr.type="string"/>
+<key id="d3" for="graph" attr.name="source_file" attr.type="string"/>
+<key id="d2" for="graph" attr.name="seed" attr.type="string"/>
+<key id="d1" for="graph" attr.name="target_nodes" attr.type="string"/>
+<key id="d0" for="graph" attr.name="scale" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">SUB25S1</data>
+<data key="d1">25</data>
+<data key="d2">1</data>
+<data key="d3">LLMs4OL_PROCO_FULL.graphml</data>
+<data key="d4">518</data>
+<data key="d5">584</data>
+<data key="d6">scale_benchmarks.py</data>
+<data key="d7">2026-09-30T16:27:43</data>
+<node id="thermodynamic reaction property"/>
+<node id="entity"/>
+<node id="mixing"/>
+<node id="process"/>
+<node id="supercritical fluid extraction"/>
+<node id="reaction property"/>
+<node id="chemical role"/>
+<node id="afrl_0000344"/>
+<node id="environmental contaminant"/>
+<node id="planned process"/>
+<node id="vacuum sublimation"/>
+<node id="unit operation in chemical processing"/>
+<node id="purification"/>
+<node id="occurrent"/>
+<node id="process profile"/>
+<node id="afrl_0000217"/>
+<node id="solvent extraction"/>
+<node id="sample sublimation"/>
+<node id="material processing"/>
+<node id="gibbs free energy change"/>
+<node id="unit cell quality"/>
+<node id="separation method"/>
+<node id="reagent role"/>
+<node id="solvate"/>
+<node id="afrl_0000249"/>
+<node id="extraction"/>
+<node id="stirring"/>
+<node id="role"/>
+<node id="virtual_root">
+  <data key="d8">True</data>
+</node>
+<edge source="thermodynamic reaction property" target="gibbs free energy change"/>
+<edge source="entity" target="occurrent"/>
+<edge source="mixing" target="stirring"/>
+<edge source="process" target="planned process"/>
+<edge source="process" target="process profile"/>
+<edge source="reaction property" target="thermodynamic reaction property"/>
+<edge source="chemical role" target="environmental contaminant"/>
+<edge source="afrl_0000344" target="afrl_0000249"/>
+<edge source="planned process" target="unit operation in chemical processing"/>
+<edge source="planned process" target="material processing"/>
+<edge source="unit operation in chemical processing" target="separation method"/>
+<edge source="unit operation in chemical processing" target="mixing"/>
+<edge source="unit operation in chemical processing" target="extraction"/>
+<edge source="purification" target="sample sublimation"/>
+<edge source="occurrent" target="process"/>
+<edge source="process profile" target="reaction property"/>
+<edge source="solvent extraction" target="supercritical fluid extraction"/>
+<edge source="sample sublimation" target="vacuum sublimation"/>
+<edge source="material processing" target="separation method"/>
+<edge source="material processing" target="extraction"/>
+<edge source="material processing" target="mixing"/>
+<edge source="separation method" target="purification"/>
+<edge source="reagent role" target="afrl_0000217"/>
+<edge source="afrl_0000249" target="reagent role"/>
+<edge source="extraction" target="solvent extraction"/>
+<edge source="role" target="chemical role"/>
+<edge source="role" target="afrl_0000344"/>
+<edge source="role" target="reagent role"/>
+<edge source="virtual_root" target="entity"/>
+<edge source="virtual_root" target="unit cell quality"/>
+<edge source="virtual_root" target="solvate"/>
+<edge source="virtual_root" target="role"/>
+</graph></graphml>

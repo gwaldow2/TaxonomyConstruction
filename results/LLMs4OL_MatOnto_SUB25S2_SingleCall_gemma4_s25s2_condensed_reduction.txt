@@ -1,0 +1,53 @@
+==================================================
+=== Detailed Node Pair Analysis (Condensed Transitive Reduction) ===
+Match Type Used: SET_OVERLAP
+==================================================
+Precision: 0.7619 | Recall: 0.7619 | F1: 0.7619
+
+CORRECT PREDICTIONS (True Positives: 16 Pred edges covering 16 GT edges):
+  [TP] PRED: (atom -> bismuth atom)
+        matches GT: (atom -> bismuth atom)
+  [TP] PRED: (atom -> hassium atom)
+        matches GT: (atom -> hassium atom)
+  [TP] PRED: (atom -> radon atom)
+        matches GT: (atom -> radon atom)
+  [TP] PRED: (atom -> xenon atom)
+        matches GT: (atom -> xenon atom)
+  [TP] PRED: (chemical phase -> uncommon chemical phase)
+        matches GT: (chemical phase -> uncommon chemical phase)
+  [TP] PRED: (continuant -> dependent_continuant)
+        matches GT: (continuant -> dependent_continuant)
+  [TP] PRED: (continuant -> independent_continuant)
+        matches GT: (continuant -> independent_continuant)
+  [TP] PRED: (dependent_continuant -> quality)
+        matches GT: (dependent_continuant -> quality)
+  [TP] PRED: (independent_continuant -> object)
+        matches GT: (independent_continuant -> object)
+  [TP] PRED: (measured property -> permittivity)
+        matches GT: (measured property -> permittivity)
+  [TP] PRED: (measured property -> ultimate tensile strength)
+        matches GT: (measured property -> ultimate tensile strength)
+  [TP] PRED: (object -> atom)
+        matches GT: (object -> atom)
+  [TP] PRED: (organic group -> aryl)
+        matches GT: (organic group -> aryl)
+  [TP] PRED: (quality -> measured property)
+        matches GT: (quality -> measured property)
+  [TP] PRED: (uncommon chemical phase -> strange matter phase)
+        matches GT: (uncommon chemical phase -> strange matter phase)
+  [TP] PRED: (unit -> molar energy unit)
+        matches GT: (unit -> molar energy unit)
+
+INCORRECT PREDICTIONS (False Positives: 5):
+  [FP] carbon group -> organic group
+  [FP] dependent_continuant -> moleculecomponentcount
+  [FP] dependent_continuant -> undefined stereo bond count
+  [FP] measured property -> hardness range
+  [FP] quality -> molecularquality
+
+MISSED RELATIONS (False Negatives: 5):
+  [FN] measured property -> molecularquality
+  [FN] molecularquality -> moleculecomponentcount
+  [FN] moleculecomponentcount -> undefined stereo bond count
+  [FN] object -> organic group
+  [FN] organic group -> carbon group

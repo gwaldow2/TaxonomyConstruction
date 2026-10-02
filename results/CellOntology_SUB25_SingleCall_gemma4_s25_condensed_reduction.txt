@@ -1,0 +1,74 @@
+==================================================
+=== Detailed Node Pair Analysis (Condensed Transitive Reduction) ===
+Match Type Used: SET_OVERLAP
+==================================================
+Precision: 0.6296 | Recall: 0.4722 | F1: 0.5397
+
+CORRECT PREDICTIONS (True Positives: 17 Pred edges covering 17 GT edges):
+  [TP] PRED: (connective tissue cell -> stromal cell)
+        matches GT: (connective tissue cell -> stromal cell)
+  [TP] PRED: (ecto-epithelial cell -> neurecto-epithelial cell)
+        matches GT: (ecto-epithelial cell -> neurecto-epithelial cell)
+  [TP] PRED: (electrically active cell -> electrically signaling cell)
+        matches GT: (electrically active cell -> electrically signaling cell)
+  [TP] PRED: (epithelial cell -> columnarcuboidal epithelial cell)
+        matches GT: (epithelial cell -> columnarcuboidal epithelial cell)
+  [TP] PRED: (epithelial cell -> ecto-epithelial cell)
+        matches GT: (epithelial cell -> ecto-epithelial cell)
+  [TP] PRED: (epithelial cell -> endo-epithelial cell)
+        matches GT: (epithelial cell -> endo-epithelial cell)
+  [TP] PRED: (epithelial cell -> sensory epithelial cell)
+        matches GT: (epithelial cell -> sensory epithelial cell)
+  [TP] PRED: (fibroblast -> mesothelial fibroblast)
+        matches GT: (fibroblast -> mesothelial fibroblast)
+  [TP] PRED: (mesothelial fibroblast -> mesothelial fibroblast of the leptomeninx)
+        matches GT: (mesothelial fibroblast -> mesothelial fibroblast of the leptomeninx)
+  [TP] PRED: (neural cell -> neuron)
+        matches GT: (neural cell -> neuron)
+  [TP] PRED: (neuron -> central nervous system neuron)
+        matches GT: (neuron -> central nervous system neuron)
+  [TP] PRED: (respiratory tract epithelial cell -> epithelial cell of upper respiratory tract)
+        matches GT: (respiratory tract epithelial cell -> epithelial cell of upper respiratory tract)
+  [TP] PRED: (sensory epithelial cell -> auditory epithelial cell)
+        matches GT: (sensory epithelial cell -> auditory epithelial cell)
+  [TP] PRED: (sensory epithelial cell -> olfactory epithelial cell)
+        matches GT: (sensory epithelial cell -> olfactory epithelial cell)
+  [TP] PRED: (sensory receptor cell -> chemoreceptor cell)
+        matches GT: (sensory receptor cell -> chemoreceptor cell)
+  [TP] PRED: (stromal cell -> fibroblast)
+        matches GT: (stromal cell -> fibroblast)
+  [TP] PRED: (vascular leptomeningeal cell -> vlmc nn vascular leptomeningeal cell mmus)
+        matches GT: (vascular leptomeningeal cell -> vlmc nn vascular leptomeningeal cell mmus)
+
+INCORRECT PREDICTIONS (False Positives: 10):
+  [FP] cell -> connective tissue cell
+  [FP] cell -> electrically responsive cell
+  [FP] cell -> epithelial cell
+  [FP] cell -> neural cell
+  [FP] cell -> sensory receptor cell
+  [FP] electrically responsive cell -> electrically active cell
+  [FP] epithelial cell -> respiratory tract epithelial cell
+  [FP] epithelial cell -> strial basal cell
+  [FP] eukaryotic cell -> cell
+  [FP] stromal cell -> vascular leptomeningeal cell
+
+MISSED RELATIONS (False Negatives: 19):
+  [FN] auditory epithelial cell -> strial basal cell
+  [FN] cell -> electrically active cell
+  [FN] cell -> eukaryotic cell
+  [FN] chemoreceptor cell -> olfactory epithelial cell
+  [FN] columnarcuboidal epithelial cell -> neurecto-epithelial cell
+  [FN] electrically active cell -> electrically responsive cell
+  [FN] electrically responsive cell -> neuron
+  [FN] electrically signaling cell -> neuron
+  [FN] endo-epithelial cell -> respiratory tract epithelial cell
+  [FN] epithelial cell of upper respiratory tract -> olfactory epithelial cell
+  [FN] eukaryotic cell -> connective tissue cell
+  [FN] eukaryotic cell -> epithelial cell
+  [FN] eukaryotic cell -> neural cell
+  [FN] eukaryotic cell -> sensory receptor cell
+  [FN] mesothelial fibroblast of the leptomeninx -> vascular leptomeningeal cell
+  [FN] neural cell -> mesothelial fibroblast of the leptomeninx
+  [FN] neural cell -> olfactory epithelial cell
+  [FN] neurecto-epithelial cell -> olfactory epithelial cell
+  [FN] sensory receptor cell -> sensory epithelial cell

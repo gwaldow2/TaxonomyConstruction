@@ -1,0 +1,524 @@
+==================================================
+=== Detailed Node Pair Analysis (Condensed Transitive Closure) ===
+Match Type Used: SET_OVERLAP
+==================================================
+Precision: 0.4926 | Recall: 0.9598 | F1: 0.6511
+
+CORRECT PREDICTIONS (True Positives: 167 Pred edges covering 167 GT edges):
+  [TP] PRED: (abscission zone -> floral organ abscission zone)
+        matches GT: (abscission zone -> floral organ abscission zone)
+  [TP] PRED: (cardinal organ part -> branch internode differentiation zone)
+        matches GT: (cardinal organ part -> branch internode differentiation zone)
+  [TP] PRED: (cardinal organ part -> po_0000055 (po_0000055, shoot internode differentiation zone))
+        matches GT: (cardinal organ part -> shoot internode differentiation zone)
+  [TP] PRED: (cardinal part of multi-tissue plant structure -> branch internode differentiation zone)
+        matches GT: (cardinal part of multi-tissue plant structure -> branch internode differentiation zone)
+  [TP] PRED: (cardinal part of multi-tissue plant structure -> cardinal organ part)
+        matches GT: (cardinal part of multi-tissue plant structure -> cardinal organ part)
+  [TP] PRED: (cardinal part of multi-tissue plant structure -> plant axis differentiation zone)
+        matches GT: (cardinal part of multi-tissue plant structure -> plant axis differentiation zone)
+  [TP] PRED: (cardinal part of multi-tissue plant structure -> po_0000055 (po_0000055, shoot internode differentiation zone))
+        matches GT: (cardinal part of multi-tissue plant structure -> shoot internode differentiation zone)
+  [TP] PRED: (carpel epidermis -> style epidermis)
+        matches GT: (carpel epidermis -> style epidermis)
+  [TP] PRED: (chlorenchyma cell -> mesophyll cell)
+        matches GT: (chlorenchyma cell -> mesophyll cell)
+  [TP] PRED: (flower -> ear floret)
+        matches GT: (flower -> ear floret)
+  [TP] PRED: (flower -> pistillate flower)
+        matches GT: (flower -> pistillate flower)
+  [TP] PRED: (flower -> spikelet floret)
+        matches GT: (flower -> spikelet floret)
+  [TP] PRED: (ground tissue cell -> chlorenchyma cell)
+        matches GT: (ground tissue cell -> chlorenchyma cell)
+  [TP] PRED: (ground tissue cell -> mesophyll cell)
+        matches GT: (ground tissue cell -> mesophyll cell)
+  [TP] PRED: (ground tissue cell -> parenchyma cell)
+        matches GT: (ground tissue cell -> parenchyma cell)
+  [TP] PRED: (lateral root cap -> lateral root cap of primary root)
+        matches GT: (lateral root cap -> lateral root cap of primary root)
+  [TP] PRED: (leaf adaxial epidermis -> leaf lamina adaxial epidermis)
+        matches GT: (leaf adaxial epidermis -> leaf lamina adaxial epidermis)
+  [TP] PRED: (leaf epidermis -> leaf adaxial epidermis)
+        matches GT: (leaf epidermis -> leaf adaxial epidermis)
+  [TP] PRED: (leaf epidermis -> leaf lamina adaxial epidermis)
+        matches GT: (leaf epidermis -> leaf lamina adaxial epidermis)
+  [TP] PRED: (leaf epidermis -> leaf lamina epidermis)
+        matches GT: (leaf epidermis -> leaf lamina epidermis)
+  [TP] PRED: (leaf lamina epidermis -> leaf lamina adaxial epidermis)
+        matches GT: (leaf lamina epidermis -> leaf lamina adaxial epidermis)
+  [TP] PRED: (multi-tissue plant structure -> phyllome)
+        matches GT: (multi-tissue plant structure -> phyllome)
+  [TP] PRED: (multi-tissue plant structure -> plant organ)
+        matches GT: (multi-tissue plant structure -> plant organ)
+  [TP] PRED: (multi-tissue plant structure -> sporophyll)
+        matches GT: (multi-tissue plant structure -> sporophyll)
+  [TP] PRED: (native plant cell -> chlorenchyma cell)
+        matches GT: (native plant cell -> chlorenchyma cell)
+  [TP] PRED: (native plant cell -> ground tissue cell)
+        matches GT: (native plant cell -> ground tissue cell)
+  [TP] PRED: (native plant cell -> mesophyll cell)
+        matches GT: (native plant cell -> mesophyll cell)
+  [TP] PRED: (native plant cell -> parenchyma cell)
+        matches GT: (native plant cell -> parenchyma cell)
+  [TP] PRED: (native plant cell -> plant gamete)
+        matches GT: (native plant cell -> plant gamete)
+  [TP] PRED: (native plant cell -> plant sperm cell)
+        matches GT: (native plant cell -> plant sperm cell)
+  [TP] PRED: (parenchyma -> root parenchyma)
+        matches GT: (parenchyma -> root parenchyma)
+  [TP] PRED: (parenchyma cell -> chlorenchyma cell)
+        matches GT: (parenchyma cell -> chlorenchyma cell)
+  [TP] PRED: (parenchyma cell -> mesophyll cell)
+        matches GT: (parenchyma cell -> mesophyll cell)
+  [TP] PRED: (phyllome -> sporophyll)
+        matches GT: (phyllome -> sporophyll)
+  [TP] PRED: (phyllome epidermis -> carpel epidermis)
+        matches GT: (phyllome epidermis -> carpel epidermis)
+  [TP] PRED: (phyllome epidermis -> leaf adaxial epidermis)
+        matches GT: (phyllome epidermis -> leaf adaxial epidermis)
+  [TP] PRED: (phyllome epidermis -> leaf epidermis)
+        matches GT: (phyllome epidermis -> leaf epidermis)
+  [TP] PRED: (phyllome epidermis -> leaf lamina adaxial epidermis)
+        matches GT: (phyllome epidermis -> leaf lamina adaxial epidermis)
+  [TP] PRED: (phyllome epidermis -> leaf lamina epidermis)
+        matches GT: (phyllome epidermis -> leaf lamina epidermis)
+  [TP] PRED: (phyllome epidermis -> style epidermis)
+        matches GT: (phyllome epidermis -> style epidermis)
+  [TP] PRED: (pistillate flower -> ear floret)
+        matches GT: (pistillate flower -> ear floret)
+  [TP] PRED: (plant anatomical entity -> abscission zone)
+        matches GT: (plant anatomical entity -> abscission zone)
+  [TP] PRED: (plant anatomical entity -> branch internode differentiation zone)
+        matches GT: (plant anatomical entity -> branch internode differentiation zone)
+  [TP] PRED: (plant anatomical entity -> cardinal organ part)
+        matches GT: (plant anatomical entity -> cardinal organ part)
+  [TP] PRED: (plant anatomical entity -> cardinal part of multi-tissue plant structure)
+        matches GT: (plant anatomical entity -> cardinal part of multi-tissue plant structure)
+  [TP] PRED: (plant anatomical entity -> carpel epidermis)
+        matches GT: (plant anatomical entity -> carpel epidermis)
+  [TP] PRED: (plant anatomical entity -> central endosperm)
+        matches GT: (plant anatomical entity -> central endosperm)
+  [TP] PRED: (plant anatomical entity -> floral organ abscission zone)
+        matches GT: (plant anatomical entity -> floral organ abscission zone)
+  [TP] PRED: (plant anatomical entity -> lateral root cap of primary root)
+        matches GT: (plant anatomical entity -> lateral root cap of primary root)
+  [TP] PRED: (plant anatomical entity -> lateral root cap)
+        matches GT: (plant anatomical entity -> lateral root cap)
+  [TP] PRED: (plant anatomical entity -> leaf adaxial epidermis)
+        matches GT: (plant anatomical entity -> leaf adaxial epidermis)
+  [TP] PRED: (plant anatomical entity -> leaf epidermis)
+        matches GT: (plant anatomical entity -> leaf epidermis)
+  [TP] PRED: (plant anatomical entity -> leaf lamina adaxial epidermis)
+        matches GT: (plant anatomical entity -> leaf lamina adaxial epidermis)
+  [TP] PRED: (plant anatomical entity -> leaf lamina epidermis)
+        matches GT: (plant anatomical entity -> leaf lamina epidermis)
+  [TP] PRED: (plant anatomical entity -> multi-tissue plant structure)
+        matches GT: (plant anatomical entity -> multi-tissue plant structure)
+  [TP] PRED: (plant anatomical entity -> parenchyma)
+        matches GT: (plant anatomical entity -> parenchyma)
+  [TP] PRED: (plant anatomical entity -> phyllome epidermis)
+        matches GT: (plant anatomical entity -> phyllome epidermis)
+  [TP] PRED: (plant anatomical entity -> phyllome)
+        matches GT: (plant anatomical entity -> phyllome)
+  [TP] PRED: (plant anatomical entity -> plant axis differentiation zone)
+        matches GT: (plant anatomical entity -> plant axis differentiation zone)
+  [TP] PRED: (plant anatomical entity -> plant epidermis)
+        matches GT: (plant anatomical entity -> plant epidermis)
+  [TP] PRED: (plant anatomical entity -> plant organ)
+        matches GT: (plant anatomical entity -> plant organ)
+  [TP] PRED: (plant anatomical entity -> plant structure)
+        matches GT: (plant anatomical entity -> plant structure)
+  [TP] PRED: (plant anatomical entity -> po_0000055 (po_0000055, shoot internode differentiation zone))
+        matches GT: (plant anatomical entity -> shoot internode differentiation zone)
+  [TP] PRED: (plant anatomical entity -> portion of ground tissue)
+        matches GT: (plant anatomical entity -> portion of ground tissue)
+  [TP] PRED: (plant anatomical entity -> portion of plant tissue)
+        matches GT: (plant anatomical entity -> portion of plant tissue)
+  [TP] PRED: (plant anatomical entity -> root parenchyma)
+        matches GT: (plant anatomical entity -> root parenchyma)
+  [TP] PRED: (plant anatomical entity -> shoot system epidermis)
+        matches GT: (plant anatomical entity -> shoot system epidermis)
+  [TP] PRED: (plant anatomical entity -> sporophyll)
+        matches GT: (plant anatomical entity -> sporophyll)
+  [TP] PRED: (plant anatomical entity -> style epidermis)
+        matches GT: (plant anatomical entity -> style epidermis)
+  [TP] PRED: (plant axis differentiation zone -> branch internode differentiation zone)
+        matches GT: (plant axis differentiation zone -> branch internode differentiation zone)
+  [TP] PRED: (plant axis differentiation zone -> po_0000055 (po_0000055, shoot internode differentiation zone))
+        matches GT: (plant axis differentiation zone -> shoot internode differentiation zone)
+  [TP] PRED: (plant epidermis -> carpel epidermis)
+        matches GT: (plant epidermis -> carpel epidermis)
+  [TP] PRED: (plant epidermis -> leaf adaxial epidermis)
+        matches GT: (plant epidermis -> leaf adaxial epidermis)
+  [TP] PRED: (plant epidermis -> leaf epidermis)
+        matches GT: (plant epidermis -> leaf epidermis)
+  [TP] PRED: (plant epidermis -> leaf lamina adaxial epidermis)
+        matches GT: (plant epidermis -> leaf lamina adaxial epidermis)
+  [TP] PRED: (plant epidermis -> leaf lamina epidermis)
+        matches GT: (plant epidermis -> leaf lamina epidermis)
+  [TP] PRED: (plant epidermis -> phyllome epidermis)
+        matches GT: (plant epidermis -> phyllome epidermis)
+  [TP] PRED: (plant epidermis -> shoot system epidermis)
+        matches GT: (plant epidermis -> shoot system epidermis)
+  [TP] PRED: (plant epidermis -> style epidermis)
+        matches GT: (plant epidermis -> style epidermis)
+  [TP] PRED: (plant gamete -> plant sperm cell)
+        matches GT: (plant gamete -> plant sperm cell)
+  [TP] PRED: (plant organ -> phyllome)
+        matches GT: (plant organ -> phyllome)
+  [TP] PRED: (plant organ -> sporophyll)
+        matches GT: (plant organ -> sporophyll)
+  [TP] PRED: (plant structure -> abscission zone)
+        matches GT: (plant structure -> abscission zone)
+  [TP] PRED: (plant structure -> branch internode differentiation zone)
+        matches GT: (plant structure -> branch internode differentiation zone)
+  [TP] PRED: (plant structure -> cardinal organ part)
+        matches GT: (plant structure -> cardinal organ part)
+  [TP] PRED: (plant structure -> cardinal part of multi-tissue plant structure)
+        matches GT: (plant structure -> cardinal part of multi-tissue plant structure)
+  [TP] PRED: (plant structure -> carpel epidermis)
+        matches GT: (plant structure -> carpel epidermis)
+  [TP] PRED: (plant structure -> central endosperm)
+        matches GT: (plant structure -> central endosperm)
+  [TP] PRED: (plant structure -> floral organ abscission zone)
+        matches GT: (plant structure -> floral organ abscission zone)
+  [TP] PRED: (plant structure -> lateral root cap of primary root)
+        matches GT: (plant structure -> lateral root cap of primary root)
+  [TP] PRED: (plant structure -> lateral root cap)
+        matches GT: (plant structure -> lateral root cap)
+  [TP] PRED: (plant structure -> leaf adaxial epidermis)
+        matches GT: (plant structure -> leaf adaxial epidermis)
+  [TP] PRED: (plant structure -> leaf epidermis)
+        matches GT: (plant structure -> leaf epidermis)
+  [TP] PRED: (plant structure -> leaf lamina adaxial epidermis)
+        matches GT: (plant structure -> leaf lamina adaxial epidermis)
+  [TP] PRED: (plant structure -> leaf lamina epidermis)
+        matches GT: (plant structure -> leaf lamina epidermis)
+  [TP] PRED: (plant structure -> multi-tissue plant structure)
+        matches GT: (plant structure -> multi-tissue plant structure)
+  [TP] PRED: (plant structure -> parenchyma)
+        matches GT: (plant structure -> parenchyma)
+  [TP] PRED: (plant structure -> phyllome epidermis)
+        matches GT: (plant structure -> phyllome epidermis)
+  [TP] PRED: (plant structure -> phyllome)
+        matches GT: (plant structure -> phyllome)
+  [TP] PRED: (plant structure -> plant axis differentiation zone)
+        matches GT: (plant structure -> plant axis differentiation zone)
+  [TP] PRED: (plant structure -> plant epidermis)
+        matches GT: (plant structure -> plant epidermis)
+  [TP] PRED: (plant structure -> plant organ)
+        matches GT: (plant structure -> plant organ)
+  [TP] PRED: (plant structure -> po_0000055 (po_0000055, shoot internode differentiation zone))
+        matches GT: (plant structure -> shoot internode differentiation zone)
+  [TP] PRED: (plant structure -> portion of ground tissue)
+        matches GT: (plant structure -> portion of ground tissue)
+  [TP] PRED: (plant structure -> portion of plant tissue)
+        matches GT: (plant structure -> portion of plant tissue)
+  [TP] PRED: (plant structure -> root parenchyma)
+        matches GT: (plant structure -> root parenchyma)
+  [TP] PRED: (plant structure -> shoot system epidermis)
+        matches GT: (plant structure -> shoot system epidermis)
+  [TP] PRED: (plant structure -> sporophyll)
+        matches GT: (plant structure -> sporophyll)
+  [TP] PRED: (plant structure -> style epidermis)
+        matches GT: (plant structure -> style epidermis)
+  [TP] PRED: (po_0000055 (po_0000055, shoot internode differentiation zone) -> branch internode differentiation zone)
+        matches GT: (shoot internode differentiation zone -> branch internode differentiation zone)
+  [TP] PRED: (po_0000055 (po_0000055, shoot internode differentiation zone) -> reproductive bud)
+        matches GT: (po_0000055 -> reproductive bud)
+  [TP] PRED: (po_0000055 (po_0000055, shoot internode differentiation zone) -> strobilus bud)
+        matches GT: (po_0000055 -> strobilus bud)
+  [TP] PRED: (po_0000055 (po_0000055, shoot internode differentiation zone) -> terminal bud)
+        matches GT: (po_0000055 -> terminal bud)
+  [TP] PRED: (po_0000055 (po_0000055, shoot internode differentiation zone) -> terminal reproductive bud)
+        matches GT: (po_0000055 -> terminal reproductive bud)
+  [TP] PRED: (po_0000055 (po_0000055, shoot internode differentiation zone) -> terminal strobilus bud)
+        matches GT: (po_0000055 -> terminal strobilus bud)
+  [TP] PRED: (portion of ground tissue -> parenchyma)
+        matches GT: (portion of ground tissue -> parenchyma)
+  [TP] PRED: (portion of ground tissue -> root parenchyma)
+        matches GT: (portion of ground tissue -> root parenchyma)
+  [TP] PRED: (portion of plant tissue -> abscission zone)
+        matches GT: (portion of plant tissue -> abscission zone)
+  [TP] PRED: (portion of plant tissue -> carpel epidermis)
+        matches GT: (portion of plant tissue -> carpel epidermis)
+  [TP] PRED: (portion of plant tissue -> central endosperm)
+        matches GT: (portion of plant tissue -> central endosperm)
+  [TP] PRED: (portion of plant tissue -> floral organ abscission zone)
+        matches GT: (portion of plant tissue -> floral organ abscission zone)
+  [TP] PRED: (portion of plant tissue -> lateral root cap of primary root)
+        matches GT: (portion of plant tissue -> lateral root cap of primary root)
+  [TP] PRED: (portion of plant tissue -> lateral root cap)
+        matches GT: (portion of plant tissue -> lateral root cap)
+  [TP] PRED: (portion of plant tissue -> leaf adaxial epidermis)
+        matches GT: (portion of plant tissue -> leaf adaxial epidermis)
+  [TP] PRED: (portion of plant tissue -> leaf epidermis)
+        matches GT: (portion of plant tissue -> leaf epidermis)
+  [TP] PRED: (portion of plant tissue -> leaf lamina adaxial epidermis)
+        matches GT: (portion of plant tissue -> leaf lamina adaxial epidermis)
+  [TP] PRED: (portion of plant tissue -> leaf lamina epidermis)
+        matches GT: (portion of plant tissue -> leaf lamina epidermis)
+  [TP] PRED: (portion of plant tissue -> parenchyma)
+        matches GT: (portion of plant tissue -> parenchyma)
+  [TP] PRED: (portion of plant tissue -> phyllome epidermis)
+        matches GT: (portion of plant tissue -> phyllome epidermis)
+  [TP] PRED: (portion of plant tissue -> plant epidermis)
+        matches GT: (portion of plant tissue -> plant epidermis)
+  [TP] PRED: (portion of plant tissue -> portion of ground tissue)
+        matches GT: (portion of plant tissue -> portion of ground tissue)
+  [TP] PRED: (portion of plant tissue -> root parenchyma)
+        matches GT: (portion of plant tissue -> root parenchyma)
+  [TP] PRED: (portion of plant tissue -> shoot system epidermis)
+        matches GT: (portion of plant tissue -> shoot system epidermis)
+  [TP] PRED: (portion of plant tissue -> style epidermis)
+        matches GT: (portion of plant tissue -> style epidermis)
+  [TP] PRED: (reproductive bud -> strobilus bud)
+        matches GT: (reproductive bud -> strobilus bud)
+  [TP] PRED: (reproductive bud -> terminal reproductive bud)
+        matches GT: (reproductive bud -> terminal reproductive bud)
+  [TP] PRED: (reproductive bud -> terminal strobilus bud)
+        matches GT: (reproductive bud -> terminal strobilus bud)
+  [TP] PRED: (reproductive shoot system -> ear floret)
+        matches GT: (reproductive shoot system -> ear floret)
+  [TP] PRED: (reproductive shoot system -> flower)
+        matches GT: (reproductive shoot system -> flower)
+  [TP] PRED: (reproductive shoot system -> pistillate flower)
+        matches GT: (reproductive shoot system -> pistillate flower)
+  [TP] PRED: (reproductive shoot system -> reproductive bud)
+        matches GT: (reproductive shoot system -> reproductive bud)
+  [TP] PRED: (reproductive shoot system -> spikelet floret)
+        matches GT: (reproductive shoot system -> spikelet floret)
+  [TP] PRED: (reproductive shoot system -> strobilus bud)
+        matches GT: (reproductive shoot system -> strobilus bud)
+  [TP] PRED: (reproductive shoot system -> terminal reproductive bud)
+        matches GT: (reproductive shoot system -> terminal reproductive bud)
+  [TP] PRED: (reproductive shoot system -> terminal strobilus bud)
+        matches GT: (reproductive shoot system -> terminal strobilus bud)
+  [TP] PRED: (shoot system -> po_0000055 (po_0000055, shoot internode differentiation zone))
+        matches GT: (shoot system -> po_0000055)
+  [TP] PRED: (shoot system -> reproductive bud)
+        matches GT: (shoot system -> reproductive bud)
+  [TP] PRED: (shoot system -> strobilus bud)
+        matches GT: (shoot system -> strobilus bud)
+  [TP] PRED: (shoot system -> terminal bud)
+        matches GT: (shoot system -> terminal bud)
+  [TP] PRED: (shoot system -> terminal reproductive bud)
+        matches GT: (shoot system -> terminal reproductive bud)
+  [TP] PRED: (shoot system -> terminal strobilus bud)
+        matches GT: (shoot system -> terminal strobilus bud)
+  [TP] PRED: (shoot system epidermis -> carpel epidermis)
+        matches GT: (shoot system epidermis -> carpel epidermis)
+  [TP] PRED: (shoot system epidermis -> leaf adaxial epidermis)
+        matches GT: (shoot system epidermis -> leaf adaxial epidermis)
+  [TP] PRED: (shoot system epidermis -> leaf epidermis)
+        matches GT: (shoot system epidermis -> leaf epidermis)
+  [TP] PRED: (shoot system epidermis -> leaf lamina adaxial epidermis)
+        matches GT: (shoot system epidermis -> leaf lamina adaxial epidermis)
+  [TP] PRED: (shoot system epidermis -> leaf lamina epidermis)
+        matches GT: (shoot system epidermis -> leaf lamina epidermis)
+  [TP] PRED: (shoot system epidermis -> phyllome epidermis)
+        matches GT: (shoot system epidermis -> phyllome epidermis)
+  [TP] PRED: (shoot system epidermis -> style epidermis)
+        matches GT: (shoot system epidermis -> style epidermis)
+  [TP] PRED: (spikelet floret -> ear floret)
+        matches GT: (spikelet floret -> ear floret)
+  [TP] PRED: (stem elongation stage -> se05 five nodes or internodes visible stage)
+        matches GT: (stem elongation stage -> se05 five nodes or internodes visible stage)
+  [TP] PRED: (stem elongation stage -> se07 seven nodes or internodes visible stage)
+        matches GT: (stem elongation stage -> se07 seven nodes or internodes visible stage)
+  [TP] PRED: (storage parenchyma -> tuber storage parenchyma)
+        matches GT: (storage parenchyma -> tuber storage parenchyma)
+  [TP] PRED: (strobilus bud -> terminal strobilus bud)
+        matches GT: (strobilus bud -> terminal strobilus bud)
+  [TP] PRED: (terminal bud -> terminal reproductive bud)
+        matches GT: (terminal bud -> terminal reproductive bud)
+  [TP] PRED: (terminal bud -> terminal strobilus bud)
+        matches GT: (terminal bud -> terminal strobilus bud)
+  [TP] PRED: (terminal reproductive bud -> terminal strobilus bud)
+        matches GT: (terminal reproductive bud -> terminal strobilus bud)
+  [TP] PRED: (tuber axillary shoot -> subterranean tuber axillary shoot)
+        matches GT: (tuber axillary shoot -> subterranean tuber axillary shoot)
+
+INCORRECT PREDICTIONS (False Positives: 172):
+  [FP] cardinal organ part -> carpel epidermis
+  [FP] cardinal organ part -> floral organ abscission zone
+  [FP] cardinal organ part -> lateral root cap
+  [FP] cardinal organ part -> lateral root cap of primary root
+  [FP] cardinal organ part -> leaf adaxial epidermis
+  [FP] cardinal organ part -> leaf epidermis
+  [FP] cardinal organ part -> leaf lamina adaxial epidermis
+  [FP] cardinal organ part -> leaf lamina epidermis
+  [FP] cardinal organ part -> phyllome epidermis
+  [FP] cardinal organ part -> reproductive bud
+  [FP] cardinal organ part -> strobilus bud
+  [FP] cardinal organ part -> style epidermis
+  [FP] cardinal organ part -> terminal bud
+  [FP] cardinal organ part -> terminal reproductive bud
+  [FP] cardinal organ part -> terminal strobilus bud
+  [FP] cardinal part of multi-tissue plant structure -> abscission zone
+  [FP] cardinal part of multi-tissue plant structure -> axil
+  [FP] cardinal part of multi-tissue plant structure -> carpel epidermis
+  [FP] cardinal part of multi-tissue plant structure -> floral organ abscission zone
+  [FP] cardinal part of multi-tissue plant structure -> lateral root cap
+  [FP] cardinal part of multi-tissue plant structure -> lateral root cap of primary root
+  [FP] cardinal part of multi-tissue plant structure -> leaf adaxial epidermis
+  [FP] cardinal part of multi-tissue plant structure -> leaf epidermis
+  [FP] cardinal part of multi-tissue plant structure -> leaf lamina adaxial epidermis
+  [FP] cardinal part of multi-tissue plant structure -> leaf lamina epidermis
+  [FP] cardinal part of multi-tissue plant structure -> phyllome epidermis
+  [FP] cardinal part of multi-tissue plant structure -> reproductive bud
+  [FP] cardinal part of multi-tissue plant structure -> shoot system epidermis
+  [FP] cardinal part of multi-tissue plant structure -> strobilus bud
+  [FP] cardinal part of multi-tissue plant structure -> style epidermis
+  [FP] cardinal part of multi-tissue plant structure -> terminal bud
+  [FP] cardinal part of multi-tissue plant structure -> terminal reproductive bud
+  [FP] cardinal part of multi-tissue plant structure -> terminal strobilus bud
+  [FP] leaf epidermis -> branch internode differentiation zone
+  [FP] leaf epidermis -> lateral root cap of primary root
+  [FP] leaf epidermis -> po_0000055 (po_0000055, shoot internode differentiation zone)
+  [FP] leaf epidermis -> reproductive bud
+  [FP] leaf epidermis -> strobilus bud
+  [FP] leaf epidermis -> terminal bud
+  [FP] leaf epidermis -> terminal reproductive bud
+  [FP] leaf epidermis -> terminal strobilus bud
+  [FP] multi-tissue plant structure -> abscission zone
+  [FP] multi-tissue plant structure -> axil
+  [FP] multi-tissue plant structure -> branch internode differentiation zone
+  [FP] multi-tissue plant structure -> cardinal organ part
+  [FP] multi-tissue plant structure -> cardinal part of multi-tissue plant structure
+  [FP] multi-tissue plant structure -> carpel epidermis
+  [FP] multi-tissue plant structure -> ear floret
+  [FP] multi-tissue plant structure -> floral organ abscission zone
+  [FP] multi-tissue plant structure -> flower
+  [FP] multi-tissue plant structure -> lateral root cap
+  [FP] multi-tissue plant structure -> lateral root cap of primary root
+  [FP] multi-tissue plant structure -> leaf adaxial epidermis
+  [FP] multi-tissue plant structure -> leaf epidermis
+  [FP] multi-tissue plant structure -> leaf lamina adaxial epidermis
+  [FP] multi-tissue plant structure -> leaf lamina epidermis
+  [FP] multi-tissue plant structure -> phyllome epidermis
+  [FP] multi-tissue plant structure -> pistillate flower
+  [FP] multi-tissue plant structure -> plant axis differentiation zone
+  [FP] multi-tissue plant structure -> po_0000055 (po_0000055, shoot internode differentiation zone)
+  [FP] multi-tissue plant structure -> reproductive bud
+  [FP] multi-tissue plant structure -> reproductive shoot system
+  [FP] multi-tissue plant structure -> shoot system
+  [FP] multi-tissue plant structure -> shoot system epidermis
+  [FP] multi-tissue plant structure -> spikelet floret
+  [FP] multi-tissue plant structure -> strobilus bud
+  [FP] multi-tissue plant structure -> style epidermis
+  [FP] multi-tissue plant structure -> subterranean tuber axillary shoot
+  [FP] multi-tissue plant structure -> terminal bud
+  [FP] multi-tissue plant structure -> terminal reproductive bud
+  [FP] multi-tissue plant structure -> terminal strobilus bud
+  [FP] multi-tissue plant structure -> tuber axillary shoot
+  [FP] parenchyma -> storage parenchyma
+  [FP] parenchyma -> tuber storage parenchyma
+  [FP] phyllome epidermis -> branch internode differentiation zone
+  [FP] phyllome epidermis -> lateral root cap of primary root
+  [FP] phyllome epidermis -> po_0000055 (po_0000055, shoot internode differentiation zone)
+  [FP] phyllome epidermis -> reproductive bud
+  [FP] phyllome epidermis -> strobilus bud
+  [FP] phyllome epidermis -> terminal bud
+  [FP] phyllome epidermis -> terminal reproductive bud
+  [FP] phyllome epidermis -> terminal strobilus bud
+  [FP] plant anatomical entity -> axil
+  [FP] plant anatomical entity -> chlorenchyma cell
+  [FP] plant anatomical entity -> ear floret
+  [FP] plant anatomical entity -> flower
+  [FP] plant anatomical entity -> ground tissue cell
+  [FP] plant anatomical entity -> mesophyll cell
+  [FP] plant anatomical entity -> native plant cell
+  [FP] plant anatomical entity -> parenchyma cell
+  [FP] plant anatomical entity -> pistillate flower
+  [FP] plant anatomical entity -> plant gamete
+  [FP] plant anatomical entity -> plant sperm cell
+  [FP] plant anatomical entity -> reproductive bud
+  [FP] plant anatomical entity -> reproductive shoot system
+  [FP] plant anatomical entity -> shoot system
+  [FP] plant anatomical entity -> spikelet floret
+  [FP] plant anatomical entity -> storage parenchyma
+  [FP] plant anatomical entity -> strobilus bud
+  [FP] plant anatomical entity -> subterranean tuber axillary shoot
+  [FP] plant anatomical entity -> terminal bud
+  [FP] plant anatomical entity -> terminal reproductive bud
+  [FP] plant anatomical entity -> terminal strobilus bud
+  [FP] plant anatomical entity -> tuber axillary shoot
+  [FP] plant anatomical entity -> tuber storage parenchyma
+  [FP] plant axis differentiation zone -> lateral root cap of primary root
+  [FP] plant axis differentiation zone -> reproductive bud
+  [FP] plant axis differentiation zone -> strobilus bud
+  [FP] plant axis differentiation zone -> terminal bud
+  [FP] plant axis differentiation zone -> terminal reproductive bud
+  [FP] plant axis differentiation zone -> terminal strobilus bud
+  [FP] plant epidermis -> branch internode differentiation zone
+  [FP] plant epidermis -> lateral root cap of primary root
+  [FP] plant epidermis -> po_0000055 (po_0000055, shoot internode differentiation zone)
+  [FP] plant epidermis -> reproductive bud
+  [FP] plant epidermis -> strobilus bud
+  [FP] plant epidermis -> terminal bud
+  [FP] plant epidermis -> terminal reproductive bud
+  [FP] plant epidermis -> terminal strobilus bud
+  [FP] plant structure -> axil
+  [FP] plant structure -> chlorenchyma cell
+  [FP] plant structure -> ear floret
+  [FP] plant structure -> flower
+  [FP] plant structure -> ground tissue cell
+  [FP] plant structure -> mesophyll cell
+  [FP] plant structure -> native plant cell
+  [FP] plant structure -> parenchyma cell
+  [FP] plant structure -> pistillate flower
+  [FP] plant structure -> plant gamete
+  [FP] plant structure -> plant sperm cell
+  [FP] plant structure -> reproductive bud
+  [FP] plant structure -> reproductive shoot system
+  [FP] plant structure -> shoot system
+  [FP] plant structure -> spikelet floret
+  [FP] plant structure -> storage parenchyma
+  [FP] plant structure -> strobilus bud
+  [FP] plant structure -> subterranean tuber axillary shoot
+  [FP] plant structure -> terminal bud
+  [FP] plant structure -> terminal reproductive bud
+  [FP] plant structure -> terminal strobilus bud
+  [FP] plant structure -> tuber axillary shoot
+  [FP] plant structure -> tuber storage parenchyma
+  [FP] po_0000055 (po_0000055, shoot internode differentiation zone) -> lateral root cap of primary root
+  [FP] portion of ground tissue -> storage parenchyma
+  [FP] portion of ground tissue -> tuber storage parenchyma
+  [FP] portion of plant tissue -> branch internode differentiation zone
+  [FP] portion of plant tissue -> plant axis differentiation zone
+  [FP] portion of plant tissue -> po_0000055 (po_0000055, shoot internode differentiation zone)
+  [FP] portion of plant tissue -> reproductive bud
+  [FP] portion of plant tissue -> storage parenchyma
+  [FP] portion of plant tissue -> strobilus bud
+  [FP] portion of plant tissue -> terminal bud
+  [FP] portion of plant tissue -> terminal reproductive bud
+  [FP] portion of plant tissue -> terminal strobilus bud
+  [FP] portion of plant tissue -> tuber storage parenchyma
+  [FP] shoot system -> branch internode differentiation zone
+  [FP] shoot system -> ear floret
+  [FP] shoot system -> flower
+  [FP] shoot system -> lateral root cap of primary root
+  [FP] shoot system -> pistillate flower
+  [FP] shoot system -> reproductive shoot system
+  [FP] shoot system -> spikelet floret
+  [FP] shoot system -> subterranean tuber axillary shoot
+  [FP] shoot system -> tuber axillary shoot
+  [FP] shoot system epidermis -> branch internode differentiation zone
+  [FP] shoot system epidermis -> lateral root cap of primary root
+  [FP] shoot system epidermis -> po_0000055 (po_0000055, shoot internode differentiation zone)
+  [FP] shoot system epidermis -> reproductive bud
+  [FP] shoot system epidermis -> strobilus bud
+  [FP] shoot system epidermis -> terminal bud
+  [FP] shoot system epidermis -> terminal reproductive bud
+  [FP] shoot system epidermis -> terminal strobilus bud
+
+MISSED RELATIONS (False Negatives: 7):
+  [FN] cardinal organ part -> plant axis differentiation zone
+  [FN] parenchyma -> lateral root cap
+  [FN] parenchyma -> lateral root cap of primary root
+  [FN] portion of ground tissue -> lateral root cap
+  [FN] portion of ground tissue -> lateral root cap of primary root
+  [FN] root parenchyma -> lateral root cap
+  [FN] root parenchyma -> lateral root cap of primary root

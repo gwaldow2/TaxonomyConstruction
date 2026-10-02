@@ -1,0 +1,76 @@
+==================================================
+=== Detailed Node Pair Analysis (Exploded Raw Edges) ===
+Match Type Used: EXACT
+==================================================
+Precision: 0.4043 | Recall: 0.5135 | F1: 0.4524
+
+CORRECT PREDICTIONS (True Positives: 19 Pred edges covering 19 GT edges):
+  [TP] action -> controlaction
+  [TP] action -> findaction
+  [TP] action -> transferaction
+  [TP] broadcastchannel -> televisionchannel
+  [TP] creativework -> manuscript
+  [TP] creativework -> photograph
+  [TP] datatype -> text
+  [TP] enumeration -> carusagetype
+  [TP] enumeration -> governmentbenefitstype
+  [TP] enumeration -> legalvaluelevel
+  [TP] enumeration -> pricecomponenttypeenumeration
+  [TP] enumeration -> sizegroupenumeration
+  [TP] episode -> tvepisode
+  [TP] intangible -> broadcastchannel
+  [TP] intangible -> menuitem
+  [TP] intangible -> trip
+  [TP] localbusiness -> entertainmentbusiness
+  [TP] organization -> localbusiness
+  [TP] place -> localbusiness
+
+INCORRECT PREDICTIONS (False Positives: 28):
+  [FP] action -> giveaction
+  [FP] action -> suspendaction
+  [FP] civicstructure -> governmentbuilding
+  [FP] creativework -> episode
+  [FP] creativework -> mediaobject
+  [FP] datatype -> enumeration
+  [FP] datatype -> pronounceabletext
+  [FP] datatype -> qualitativevalue
+  [FP] enumeration -> drivewheelconfigurationvalue
+  [FP] intangible -> action
+  [FP] intangible -> collection
+  [FP] intangible -> creativework
+  [FP] intangible -> datadownload
+  [FP] intangible -> datatype
+  [FP] intangible -> ondemandevent
+  [FP] intangible -> project
+  [FP] intangible -> publicationevent
+  [FP] localbusiness -> homeandconstructionbusiness
+  [FP] medicalentity -> organization
+  [FP] occupation -> generalcontractor
+  [FP] organization -> emergencyservice
+  [FP] organization -> fundingagency
+  [FP] organization -> generalcontractor
+  [FP] place -> civicstructure
+  [FP] place -> eventvenue
+  [FP] place -> healthclub
+  [FP] place -> movietheater
+  [FP] place -> sportsactivitylocation
+
+MISSED RELATIONS (False Negatives: 18):
+  [FN] civicstructure -> eventvenue
+  [FN] civicstructure -> movietheater
+  [FN] controlaction -> suspendaction
+  [FN] creativework -> collection
+  [FN] entertainmentbusiness -> movietheater
+  [FN] homeandconstructionbusiness -> generalcontractor
+  [FN] intangible -> occupation
+  [FN] localbusiness -> emergencyservice
+  [FN] localbusiness -> sportsactivitylocation
+  [FN] mediaobject -> datadownload
+  [FN] organization -> project
+  [FN] project -> fundingagency
+  [FN] publicationevent -> ondemandevent
+  [FN] qualitativevalue -> drivewheelconfigurationvalue
+  [FN] sportsactivitylocation -> healthclub
+  [FN] text -> pronounceabletext
+  [FN] transferaction -> giveaction
+  [FN] trip -> flight

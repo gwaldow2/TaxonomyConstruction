@@ -1,0 +1,110 @@
+==================================================
+=== Detailed Node Pair Analysis (Condensed Transitive Reduction) ===
+Match Type Used: SET_OVERLAP
+==================================================
+Precision: 0.6458 | Recall: 0.6078 | F1: 0.6263
+
+CORRECT PREDICTIONS (True Positives: 31 Pred edges covering 31 GT edges):
+  [TP] PRED: (b complex vitamin -> inositol)
+        matches GT: (b complex vitamin -> inositol)
+  [TP] PRED: (bread -> bun)
+        matches GT: (bread -> bun)
+  [TP] PRED: (bun -> sweet roll)
+        matches GT: (bun -> sweet roll)
+  [TP] PRED: (canned food -> canned meat)
+        matches GT: (canned food -> canned meat)
+  [TP] PRED: (cheese -> cheshire cheese)
+        matches GT: (cheese -> cheshire cheese)
+  [TP] PRED: (cheese -> parmesan)
+        matches GT: (cheese -> parmesan)
+  [TP] PRED: (condiment (condiment, flavorer) -> sauce)
+        matches GT: (condiment -> sauce)
+  [TP] PRED: (condiment (condiment, flavorer) -> spread)
+        matches GT: (condiment -> spread)
+  [TP] PRED: (course -> dessert)
+        matches GT: (course -> dessert)
+  [TP] PRED: (cream -> whipping cream)
+        matches GT: (cream -> whipping cream)
+  [TP] PRED: (dairy product -> cheese)
+        matches GT: (dairy product -> cheese)
+  [TP] PRED: (dairy product -> milk)
+        matches GT: (dairy product -> milk)
+  [TP] PRED: (dessert -> frozen dessert)
+        matches GT: (dessert -> frozen dessert)
+  [TP] PRED: (dish (dish, food, foodstuff, nutriment) -> enchilada)
+        matches GT: (dish -> enchilada)
+  [TP] PRED: (dish (dish, food, foodstuff, nutriment) -> feed)
+        matches GT: (food -> feed)
+  [TP] PRED: (dish (dish, food, foodstuff, nutriment) -> ingredient)
+        matches GT: (foodstuff -> ingredient)
+  [TP] PRED: (dish (dish, food, foodstuff, nutriment) -> water)
+        matches GT: (food -> water)
+  [TP] PRED: (feed -> cattle cake)
+        matches GT: (feed -> cattle cake)
+  [TP] PRED: (frozen dessert -> parfait)
+        matches GT: (frozen dessert -> parfait)
+  [TP] PRED: (grain -> rice)
+        matches GT: (grain -> rice)
+  [TP] PRED: (herb -> sweet cicely)
+        matches GT: (herb -> sweet cicely)
+  [TP] PRED: (ingredient -> condiment (condiment, flavorer))
+        matches GT: (ingredient -> flavorer)
+  [TP] PRED: (milk -> colostrum)
+        matches GT: (milk -> colostrum)
+  [TP] PRED: (milk -> whole milk)
+        matches GT: (milk -> whole milk)
+  [TP] PRED: (rice -> brown rice)
+        matches GT: (rice -> brown rice)
+  [TP] PRED: (sauce -> white sauce)
+        matches GT: (sauce -> white sauce)
+  [TP] PRED: (snack food -> corn chip)
+        matches GT: (snack food -> corn chip)
+  [TP] PRED: (starches -> rice)
+        matches GT: (starches -> rice)
+  [TP] PRED: (sweet roll -> honey bun)
+        matches GT: (sweet roll -> honey bun)
+  [TP] PRED: (vitamin -> water soluble vitamin)
+        matches GT: (vitamin -> water soluble vitamin)
+  [TP] PRED: (water soluble vitamin -> b complex vitamin)
+        matches GT: (water soluble vitamin -> b complex vitamin)
+
+INCORRECT PREDICTIONS (False Positives: 17):
+  [FP] cheese -> cheese spread
+  [FP] dessert -> sweet roll
+  [FP] dish (dish, food, foodstuff, nutriment) -> dessert
+  [FP] ingredient -> bread
+  [FP] ingredient -> canned food
+  [FP] ingredient -> cattle cake
+  [FP] ingredient -> chili
+  [FP] ingredient -> dairy product
+  [FP] ingredient -> grain
+  [FP] ingredient -> herb
+  [FP] ingredient -> snack food
+  [FP] ingredient -> starches
+  [FP] ingredient -> vitamin
+  [FP] milk -> cream
+  [FP] snack food -> cheese
+  [FP] snack food -> sweet roll
+  [FP] spread -> cheese
+
+MISSED RELATIONS (False Negatives: 20):
+  [FN] canned meat -> fanny adams
+  [FN] dairy product -> cream
+  [FN] dish -> chili
+  [FN] dish -> snack food
+  [FN] flavorer -> condiment
+  [FN] flavorer -> herb
+  [FN] food -> foodstuff
+  [FN] food -> nutriment
+  [FN] foodstuff -> canned food
+  [FN] foodstuff -> dairy product
+  [FN] foodstuff -> grain
+  [FN] foodstuff -> starches
+  [FN] nutriment -> course
+  [FN] nutriment -> dainty
+  [FN] nutriment -> dish
+  [FN] nutriment -> milk
+  [FN] nutriment -> vitamin
+  [FN] spread -> cheese spread
+  [FN] starches -> bread
+  [FN] white sauce -> blanc

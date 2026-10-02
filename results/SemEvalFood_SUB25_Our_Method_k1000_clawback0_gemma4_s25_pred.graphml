@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d4" for="graph" attr.name="timestamp" attr.type="string"/>
+<key id="d3" for="graph" attr.name="scale" attr.type="string"/>
+<key id="d2" for="graph" attr.name="results_file" attr.type="string"/>
+<key id="d1" for="graph" attr.name="tag" attr.type="string"/>
+<key id="d0" for="graph" attr.name="model" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">google/gemma-4-31b-it</data>
+<data key="d1">gemma4_s25</data>
+<data key="d2">results/scaling_gemma4.json</data>
+<data key="d3">SUB25</data>
+<data key="d4">2026-09-30T16:34:01</data>
+<node id="fodder"/>
+<node id="alfalfa"/>
+<node id="food (food, foodstuff, ingredient, nutriment)"/>
+<node id="feed"/>
+<node id="chow"/>
+<node id="eatage"/>
+<node id="fare"/>
+<node id="home fries"/>
+<node id="meal"/>
+<node id="condiment (condiment, dressing, flavorer, sauce)"/>
+<node id="steak sauce"/>
+<node id="relish"/>
+<node id="blue cheese dressing"/>
+<node id="herb"/>
+<node id="tea"/>
+<node id="sun tea"/>
+<node id="starches"/>
+<node id="potato"/>
+<node id="oolong"/>
+<edge source="fodder" target="alfalfa"/>
+<edge source="fodder" target="potato"/>
+<edge source="food (food, foodstuff, ingredient, nutriment)" target="alfalfa"/>
+<edge source="food (food, foodstuff, ingredient, nutriment)" target="eatage"/>
+<edge source="food (food, foodstuff, ingredient, nutriment)" target="home fries"/>
+<edge source="food (food, foodstuff, ingredient, nutriment)" target="steak sauce"/>
+<edge source="food (food, foodstuff, ingredient, nutriment)" target="condiment (condiment, dressing, flavorer, sauce)"/>
+<edge source="food (food, foodstuff, ingredient, nutriment)" target="chow"/>
+<edge source="food (food, foodstuff, ingredient, nutriment)" target="meal"/>
+<edge source="food (food, foodstuff, ingredient, nutriment)" target="fodder"/>
+<edge source="food (food, foodstuff, ingredient, nutriment)" target="relish"/>
+<edge source="food (food, foodstuff, ingredient, nutriment)" target="herb"/>
+<edge source="food (food, foodstuff, ingredient, nutriment)" target="fare"/>
+<edge source="food (food, foodstuff, ingredient, nutriment)" target="tea"/>
+<edge source="food (food, foodstuff, ingredient, nutriment)" target="blue cheese dressing"/>
+<edge source="food (food, foodstuff, ingredient, nutriment)" target="sun tea"/>
+<edge source="food (food, foodstuff, ingredient, nutriment)" target="starches"/>
+<edge source="food (food, foodstuff, ingredient, nutriment)" target="potato"/>
+<edge source="food (food, foodstuff, ingredient, nutriment)" target="feed"/>
+<edge source="food (food, foodstuff, ingredient, nutriment)" target="oolong"/>
+<edge source="feed" target="alfalfa"/>
+<edge source="feed" target="eatage"/>
+<edge source="feed" target="chow"/>
+<edge source="feed" target="fodder"/>
+<edge source="feed" target="herb"/>
+<edge source="feed" target="potato"/>
+<edge source="chow" target="eatage"/>
+<edge source="chow" target="home fries"/>
+<edge source="fare" target="eatage"/>
+<edge source="fare" target="home fries"/>
+<edge source="fare" target="chow"/>
+<edge source="fare" target="meal"/>
+<edge source="meal" target="home fries"/>
+<edge source="meal" target="chow"/>
+<edge source="condiment (condiment, dressing, flavorer, sauce)" target="steak sauce"/>
+<edge source="condiment (condiment, dressing, flavorer, sauce)" target="relish"/>
+<edge source="condiment (condiment, dressing, flavorer, sauce)" target="blue cheese dressing"/>
+<edge source="condiment (condiment, dressing, flavorer, sauce)" target="herb"/>
+<edge source="condiment (condiment, dressing, flavorer, sauce)" target="tea"/>
+<edge source="tea" target="sun tea"/>
+<edge source="tea" target="oolong"/>
+<edge source="starches" target="potato"/>
+</graph></graphml>

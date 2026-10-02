@@ -1,0 +1,1409 @@
+==================================================
+=== Detailed Node Pair Analysis (Condensed Transitive Closure) ===
+Match Type Used: SET_OVERLAP
+==================================================
+Precision: 0.4925 | Recall: 0.8135 | F1: 0.6136
+
+CORRECT PREDICTIONS (True Positives: 394 Pred edges covering 445 GT edges):
+  [TP] PRED: (angle -> solid angle)
+        matches GT: (angle -> solid angle)
+  [TP] PRED: (area -> polar surface area)
+        matches GT: (area -> polar surface area)
+  [TP] PRED: (atom -> aluminium atom)
+        matches GT: (atom -> aluminium atom)
+  [TP] PRED: (atom -> americium atom)
+        matches GT: (atom -> americium atom)
+  [TP] PRED: (atom -> astatine atom)
+        matches GT: (atom -> astatine atom)
+  [TP] PRED: (atom -> curium atom)
+        matches GT: (atom -> curium atom)
+  [TP] PRED: (atom -> gallium atom)
+        matches GT: (atom -> gallium atom)
+  [TP] PRED: (atom -> halogenatom)
+        matches GT: (atom -> halogenatom)
+  [TP] PRED: (atom -> holmium atom)
+        matches GT: (atom -> holmium atom)
+  [TP] PRED: (atom -> manganese atom)
+        matches GT: (atom -> manganese atom)
+  [TP] PRED: (atom -> mercury atom)
+        matches GT: (atom -> mercury atom)
+  [TP] PRED: (atom -> polonium atom)
+        matches GT: (atom -> polonium atom)
+  [TP] PRED: (atom -> potassium atom)
+        matches GT: (atom -> potassium atom)
+  [TP] PRED: (atom -> rubidium atom)
+        matches GT: (atom -> rubidium atom)
+  [TP] PRED: (atom -> silicon atom)
+        matches GT: (atom -> silicon atom)
+  [TP] PRED: (atom -> tellurium atom)
+        matches GT: (atom -> tellurium atom)
+  [TP] PRED: (atom -> terbium atom)
+        matches GT: (atom -> terbium atom)
+  [TP] PRED: (atom -> ununpentium atom)
+        matches GT: (atom -> ununpentium atom)
+  [TP] PRED: (atom -> ununseptium atom)
+        matches GT: (atom -> ununseptium atom)
+  [TP] PRED: (atom -> unununium atom)
+        matches GT: (atom -> unununium atom)
+  [TP] PRED: (atom -> xenon atom)
+        matches GT: (atom -> xenon atom)
+  [TP] PRED: (carbon allotrope -> chaoite)
+        matches GT: (carbon allotrope -> chaoite)
+  [TP] PRED: (carbon allotrope -> fullerene)
+        matches GT: (carbon allotrope -> fullerene)
+  [TP] PRED: (carbon allotrope -> glassy carbon)
+        matches GT: (carbon allotrope -> glassy carbon)
+  [TP] PRED: (chemical conformation -> anticlinal conformation)
+        matches GT: (chemical conformation -> anticlinal conformation)
+  [TP] PRED: (chemical conformation -> periplanar conformation)
+        matches GT: (chemical conformation -> periplanar conformation)
+  [TP] PRED: (chemical formula -> molecular formula)
+        matches GT: (chemical formula -> molecular formula)
+  [TP] PRED: (chemical quality -> electronegativity)
+        matches GT: (chemical quality -> electronegativity)
+  [TP] PRED: (chemical quality -> molecular geometry)
+        matches GT: (chemical quality -> molecular geometry)
+  [TP] PRED: (chemical quality -> mulliken electronegativity)
+        matches GT: (chemical quality -> mulliken electronegativity)
+  [TP] PRED: (chemical quality -> pauling electronegativity)
+        matches GT: (chemical quality -> pauling electronegativity)
+  [TP] PRED: (chemical quality -> trigonal pyramidal molecular geometry)
+        matches GT: (chemical quality -> trigonal pyramidal molecular geometry)
+  [TP] PRED: (chemical substance -> binary compound)
+        matches GT: (chemical substance -> binary compound)
+  [TP] PRED: (chemical substance -> complex)
+        matches GT: (chemical substance -> complex)
+  [TP] PRED: (chemical substance -> compound)
+        matches GT: (chemical substance -> compound)
+  [TP] PRED: (chemical substance -> ionic compound)
+        matches GT: (chemical substance -> ionic compound)
+  [TP] PRED: (chemical substance -> metal complex)
+        matches GT: (chemical substance -> metal complex)
+  [TP] PRED: (complex -> metal complex)
+        matches GT: (complex -> metal complex)
+  [TP] PRED: (compound -> binary compound)
+        matches GT: (compound -> binary compound)
+  [TP] PRED: (compound -> complex)
+        matches GT: (compound -> complex)
+  [TP] PRED: (compound -> ionic compound)
+        matches GT: (compound -> ionic compound)
+  [TP] PRED: (compound -> metal complex)
+        matches GT: (compound -> metal complex)
+  [TP] PRED: (concentration -> amount of substance concentration)
+        matches GT: (concentration -> amount of substance concentration)
+  [TP] PRED: (concentration -> catalytic concentration)
+        matches GT: (concentration -> catalytic concentration)
+  [TP] PRED: (concentration unit -> molality unit)
+        matches GT: (concentration unit -> molality unit)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> absorbed dose rate)
+        matches GT: (continuant -> absorbed dose rate)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> acyclic)
+        matches GT: (continuant -> acyclic)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> aluminium atom)
+        matches GT: (continuant -> aluminium atom)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> aluminium atom)
+        matches GT: (independent_continuant -> aluminium atom)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> aluminium atom)
+        matches GT: (object -> aluminium atom)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> americium atom)
+        matches GT: (continuant -> americium atom)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> americium atom)
+        matches GT: (independent_continuant -> americium atom)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> americium atom)
+        matches GT: (object -> americium atom)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> amount of substance concentration)
+        matches GT: (continuant -> amount of substance concentration)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> angle)
+        matches GT: (continuant -> angle)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> angular acceleration)
+        matches GT: (continuant -> angular acceleration)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> area)
+        matches GT: (continuant -> area)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> aromatic)
+        matches GT: (continuant -> aromatic)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> aromaticity)
+        matches GT: (continuant -> aromaticity)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> astatine atom)
+        matches GT: (continuant -> astatine atom)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> astatine atom)
+        matches GT: (independent_continuant -> astatine atom)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> astatine atom)
+        matches GT: (object -> astatine atom)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> atom property)
+        matches GT: (continuant -> atom property)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> atom)
+        matches GT: (continuant -> atom)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> atom)
+        matches GT: (independent_continuant -> atom)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> atom)
+        matches GT: (object -> atom)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> band gap)
+        matches GT: (continuant -> band gap)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> carbon group)
+        matches GT: (continuant -> carbon group)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> carbon group)
+        matches GT: (independent_continuant -> carbon group)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> carbon group)
+        matches GT: (object -> carbon group)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> catalytic concentration)
+        matches GT: (continuant -> catalytic concentration)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> chemical quality)
+        matches GT: (continuant -> chemical quality)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> chiral center)
+        matches GT: (continuant -> chiral center)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> concentration)
+        matches GT: (continuant -> concentration)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> connected_spatiotemporal_region)
+        matches GT: (entity -> connected_spatiotemporal_region)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> count)
+        matches GT: (continuant -> count)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> curium atom)
+        matches GT: (continuant -> curium atom)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> curium atom)
+        matches GT: (independent_continuant -> curium atom)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> curium atom)
+        matches GT: (object -> curium atom)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> cyclicity)
+        matches GT: (continuant -> cyclicity)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> density)
+        matches GT: (continuant -> density)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> dependent_continuant)
+        matches GT: (continuant -> dependent_continuant)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> disposition)
+        matches GT: (continuant -> disposition)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> electric flux density)
+        matches GT: (continuant -> electric flux density)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> electric resistance)
+        matches GT: (continuant -> electric resistance)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> electronegativity)
+        matches GT: (continuant -> electronegativity)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> energy)
+        matches GT: (continuant -> energy)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> entropy)
+        matches GT: (continuant -> entropy)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> exposure)
+        matches GT: (continuant -> exposure)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> flexural modulus)
+        matches GT: (continuant -> flexural modulus)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> gallium atom)
+        matches GT: (continuant -> gallium atom)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> gallium atom)
+        matches GT: (independent_continuant -> gallium atom)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> gallium atom)
+        matches GT: (object -> gallium atom)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> gibbs free energy)
+        matches GT: (continuant -> gibbs free energy)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> halogenatom)
+        matches GT: (continuant -> halogenatom)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> halogenatom)
+        matches GT: (independent_continuant -> halogenatom)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> halogenatom)
+        matches GT: (object -> halogenatom)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> holmium atom)
+        matches GT: (continuant -> holmium atom)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> holmium atom)
+        matches GT: (independent_continuant -> holmium atom)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> holmium atom)
+        matches GT: (object -> holmium atom)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> homogeneous mixture)
+        matches GT: (continuant -> homogeneous mixture)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> homogeneous mixture)
+        matches GT: (independent_continuant -> homogeneous mixture)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> homogeneous mixture)
+        matches GT: (object -> homogeneous mixture)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> hydrogen bond acceptor count)
+        matches GT: (continuant -> hydrogen bond acceptor count)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> intensive property)
+        matches GT: (continuant -> intensive property)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> internal energy)
+        matches GT: (continuant -> internal energy)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> lattice parameter)
+        matches GT: (continuant -> lattice parameter)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> length)
+        matches GT: (continuant -> length)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> magnetic flux density)
+        matches GT: (continuant -> magnetic flux density)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> magnetic flux)
+        matches GT: (continuant -> magnetic flux)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> manganese atom)
+        matches GT: (continuant -> manganese atom)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> manganese atom)
+        matches GT: (independent_continuant -> manganese atom)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> manganese atom)
+        matches GT: (object -> manganese atom)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> mass density)
+        matches GT: (continuant -> mass density)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> measured property)
+        matches GT: (continuant -> measured property)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> mercury atom)
+        matches GT: (continuant -> mercury atom)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> mercury atom)
+        matches GT: (independent_continuant -> mercury atom)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> mercury atom)
+        matches GT: (object -> mercury atom)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> mixture)
+        matches GT: (continuant -> mixture)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> mixture)
+        matches GT: (independent_continuant -> mixture)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> mixture)
+        matches GT: (object -> mixture)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> molar energy)
+        matches GT: (continuant -> molar energy)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> molar entropy)
+        matches GT: (continuant -> molar entropy)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> molecular center)
+        matches GT: (continuant -> molecular center)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> molecular geometry)
+        matches GT: (continuant -> molecular geometry)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> molecular mass)
+        matches GT: (continuant -> molecular mass)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> molecularquality)
+        matches GT: (continuant -> molecularquality)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> moleculecomponentcount)
+        matches GT: (continuant -> moleculecomponentcount)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> mulliken electronegativity)
+        matches GT: (continuant -> mulliken electronegativity)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> non aromatic)
+        matches GT: (continuant -> non aromatic)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> occurrent)
+        matches GT: (entity -> occurrent)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> partition coefficient)
+        matches GT: (continuant -> partition coefficient)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> pauling electronegativity)
+        matches GT: (continuant -> pauling electronegativity)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> permittivity)
+        matches GT: (continuant -> permittivity)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> polar surface area)
+        matches GT: (continuant -> polar surface area)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> polonium atom)
+        matches GT: (continuant -> polonium atom)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> polonium atom)
+        matches GT: (independent_continuant -> polonium atom)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> polonium atom)
+        matches GT: (object -> polonium atom)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> potassium atom)
+        matches GT: (continuant -> potassium atom)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> potassium atom)
+        matches GT: (independent_continuant -> potassium atom)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> potassium atom)
+        matches GT: (object -> potassium atom)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> power)
+        matches GT: (continuant -> power)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> quality)
+        matches GT: (continuant -> quality)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> realizable_entity)
+        matches GT: (continuant -> realizable_entity)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> rubidium atom)
+        matches GT: (continuant -> rubidium atom)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> rubidium atom)
+        matches GT: (independent_continuant -> rubidium atom)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> rubidium atom)
+        matches GT: (object -> rubidium atom)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> secondary amine group)
+        matches GT: (continuant -> secondary amine group)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> secondary amine group)
+        matches GT: (independent_continuant -> secondary amine group)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> secondary amine group)
+        matches GT: (object -> secondary amine group)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> silicon atom)
+        matches GT: (continuant -> silicon atom)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> silicon atom)
+        matches GT: (independent_continuant -> silicon atom)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> silicon atom)
+        matches GT: (object -> silicon atom)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> site)
+        matches GT: (continuant -> site)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> site)
+        matches GT: (independent_continuant -> site)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> solid angle)
+        matches GT: (continuant -> solid angle)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> solution)
+        matches GT: (continuant -> solution)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> solution)
+        matches GT: (independent_continuant -> solution)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> solution)
+        matches GT: (object -> solution)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> space group property)
+        matches GT: (continuant -> space group property)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> spatial_region)
+        matches GT: (continuant -> spatial_region)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> spatiotemporal_interval)
+        matches GT: (entity -> spatiotemporal_interval)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> spatiotemporal_region)
+        matches GT: (entity -> spatiotemporal_region)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> specific volume)
+        matches GT: (continuant -> specific volume)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> surface tension)
+        matches GT: (continuant -> surface tension)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> tellurium atom)
+        matches GT: (continuant -> tellurium atom)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> tellurium atom)
+        matches GT: (independent_continuant -> tellurium atom)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> tellurium atom)
+        matches GT: (object -> tellurium atom)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> temperature)
+        matches GT: (continuant -> temperature)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> terbium atom)
+        matches GT: (continuant -> terbium atom)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> terbium atom)
+        matches GT: (independent_continuant -> terbium atom)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> terbium atom)
+        matches GT: (object -> terbium atom)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> three_dimensional_region)
+        matches GT: (continuant -> three_dimensional_region)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> trigonal pyramidal molecular geometry)
+        matches GT: (continuant -> trigonal pyramidal molecular geometry)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> undefined stereo atom count)
+        matches GT: (continuant -> undefined stereo atom count)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> ununpentium atom)
+        matches GT: (continuant -> ununpentium atom)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> ununpentium atom)
+        matches GT: (independent_continuant -> ununpentium atom)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> ununpentium atom)
+        matches GT: (object -> ununpentium atom)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> ununseptium atom)
+        matches GT: (continuant -> ununseptium atom)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> ununseptium atom)
+        matches GT: (independent_continuant -> ununseptium atom)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> ununseptium atom)
+        matches GT: (object -> ununseptium atom)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> unununium atom)
+        matches GT: (continuant -> unununium atom)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> unununium atom)
+        matches GT: (independent_continuant -> unununium atom)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> unununium atom)
+        matches GT: (object -> unununium atom)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> velocity)
+        matches GT: (continuant -> velocity)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> wavenumber)
+        matches GT: (continuant -> wavenumber)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> xenon atom)
+        matches GT: (continuant -> xenon atom)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> xenon atom)
+        matches GT: (independent_continuant -> xenon atom)
+  [TP] PRED: (continuant (continuant, entity, independent_continuant, object) -> xenon atom)
+        matches GT: (object -> xenon atom)
+  [TP] PRED: (covalent bond -> disulfide bond)
+        matches GT: (covalent bond -> disulfide bond)
+  [TP] PRED: (density -> mass density)
+        matches GT: (density -> mass density)
+  [TP] PRED: (density unit -> area density unit)
+        matches GT: (density unit -> area density unit)
+  [TP] PRED: (density unit -> linear density unit)
+        matches GT: (density unit -> linear density unit)
+  [TP] PRED: (dependent_continuant -> absorbed dose rate)
+        matches GT: (dependent_continuant -> absorbed dose rate)
+  [TP] PRED: (dependent_continuant -> acyclic)
+        matches GT: (dependent_continuant -> acyclic)
+  [TP] PRED: (dependent_continuant -> amount of substance concentration)
+        matches GT: (dependent_continuant -> amount of substance concentration)
+  [TP] PRED: (dependent_continuant -> angle)
+        matches GT: (dependent_continuant -> angle)
+  [TP] PRED: (dependent_continuant -> angular acceleration)
+        matches GT: (dependent_continuant -> angular acceleration)
+  [TP] PRED: (dependent_continuant -> area)
+        matches GT: (dependent_continuant -> area)
+  [TP] PRED: (dependent_continuant -> aromatic)
+        matches GT: (dependent_continuant -> aromatic)
+  [TP] PRED: (dependent_continuant -> aromaticity)
+        matches GT: (dependent_continuant -> aromaticity)
+  [TP] PRED: (dependent_continuant -> atom property)
+        matches GT: (dependent_continuant -> atom property)
+  [TP] PRED: (dependent_continuant -> band gap)
+        matches GT: (dependent_continuant -> band gap)
+  [TP] PRED: (dependent_continuant -> catalytic concentration)
+        matches GT: (dependent_continuant -> catalytic concentration)
+  [TP] PRED: (dependent_continuant -> chemical quality)
+        matches GT: (dependent_continuant -> chemical quality)
+  [TP] PRED: (dependent_continuant -> concentration)
+        matches GT: (dependent_continuant -> concentration)
+  [TP] PRED: (dependent_continuant -> count)
+        matches GT: (dependent_continuant -> count)
+  [TP] PRED: (dependent_continuant -> cyclicity)
+        matches GT: (dependent_continuant -> cyclicity)
+  [TP] PRED: (dependent_continuant -> density)
+        matches GT: (dependent_continuant -> density)
+  [TP] PRED: (dependent_continuant -> disposition)
+        matches GT: (dependent_continuant -> disposition)
+  [TP] PRED: (dependent_continuant -> electric flux density)
+        matches GT: (dependent_continuant -> electric flux density)
+  [TP] PRED: (dependent_continuant -> electric resistance)
+        matches GT: (dependent_continuant -> electric resistance)
+  [TP] PRED: (dependent_continuant -> electronegativity)
+        matches GT: (dependent_continuant -> electronegativity)
+  [TP] PRED: (dependent_continuant -> energy)
+        matches GT: (dependent_continuant -> energy)
+  [TP] PRED: (dependent_continuant -> entropy)
+        matches GT: (dependent_continuant -> entropy)
+  [TP] PRED: (dependent_continuant -> exposure)
+        matches GT: (dependent_continuant -> exposure)
+  [TP] PRED: (dependent_continuant -> flexural modulus)
+        matches GT: (dependent_continuant -> flexural modulus)
+  [TP] PRED: (dependent_continuant -> gibbs free energy)
+        matches GT: (dependent_continuant -> gibbs free energy)
+  [TP] PRED: (dependent_continuant -> hydrogen bond acceptor count)
+        matches GT: (dependent_continuant -> hydrogen bond acceptor count)
+  [TP] PRED: (dependent_continuant -> intensive property)
+        matches GT: (dependent_continuant -> intensive property)
+  [TP] PRED: (dependent_continuant -> internal energy)
+        matches GT: (dependent_continuant -> internal energy)
+  [TP] PRED: (dependent_continuant -> lattice parameter)
+        matches GT: (dependent_continuant -> lattice parameter)
+  [TP] PRED: (dependent_continuant -> length)
+        matches GT: (dependent_continuant -> length)
+  [TP] PRED: (dependent_continuant -> magnetic flux density)
+        matches GT: (dependent_continuant -> magnetic flux density)
+  [TP] PRED: (dependent_continuant -> magnetic flux)
+        matches GT: (dependent_continuant -> magnetic flux)
+  [TP] PRED: (dependent_continuant -> mass density)
+        matches GT: (dependent_continuant -> mass density)
+  [TP] PRED: (dependent_continuant -> measured property)
+        matches GT: (dependent_continuant -> measured property)
+  [TP] PRED: (dependent_continuant -> molar energy)
+        matches GT: (dependent_continuant -> molar energy)
+  [TP] PRED: (dependent_continuant -> molar entropy)
+        matches GT: (dependent_continuant -> molar entropy)
+  [TP] PRED: (dependent_continuant -> molecular geometry)
+        matches GT: (dependent_continuant -> molecular geometry)
+  [TP] PRED: (dependent_continuant -> molecular mass)
+        matches GT: (dependent_continuant -> molecular mass)
+  [TP] PRED: (dependent_continuant -> molecularquality)
+        matches GT: (dependent_continuant -> molecularquality)
+  [TP] PRED: (dependent_continuant -> moleculecomponentcount)
+        matches GT: (dependent_continuant -> moleculecomponentcount)
+  [TP] PRED: (dependent_continuant -> mulliken electronegativity)
+        matches GT: (dependent_continuant -> mulliken electronegativity)
+  [TP] PRED: (dependent_continuant -> non aromatic)
+        matches GT: (dependent_continuant -> non aromatic)
+  [TP] PRED: (dependent_continuant -> partition coefficient)
+        matches GT: (dependent_continuant -> partition coefficient)
+  [TP] PRED: (dependent_continuant -> pauling electronegativity)
+        matches GT: (dependent_continuant -> pauling electronegativity)
+  [TP] PRED: (dependent_continuant -> permittivity)
+        matches GT: (dependent_continuant -> permittivity)
+  [TP] PRED: (dependent_continuant -> polar surface area)
+        matches GT: (dependent_continuant -> polar surface area)
+  [TP] PRED: (dependent_continuant -> power)
+        matches GT: (dependent_continuant -> power)
+  [TP] PRED: (dependent_continuant -> quality)
+        matches GT: (dependent_continuant -> quality)
+  [TP] PRED: (dependent_continuant -> solid angle)
+        matches GT: (dependent_continuant -> solid angle)
+  [TP] PRED: (dependent_continuant -> space group property)
+        matches GT: (dependent_continuant -> space group property)
+  [TP] PRED: (dependent_continuant -> specific volume)
+        matches GT: (dependent_continuant -> specific volume)
+  [TP] PRED: (dependent_continuant -> surface tension)
+        matches GT: (dependent_continuant -> surface tension)
+  [TP] PRED: (dependent_continuant -> temperature)
+        matches GT: (dependent_continuant -> temperature)
+  [TP] PRED: (dependent_continuant -> trigonal pyramidal molecular geometry)
+        matches GT: (dependent_continuant -> trigonal pyramidal molecular geometry)
+  [TP] PRED: (dependent_continuant -> undefined stereo atom count)
+        matches GT: (dependent_continuant -> undefined stereo atom count)
+  [TP] PRED: (dependent_continuant -> velocity)
+        matches GT: (dependent_continuant -> velocity)
+  [TP] PRED: (dependent_continuant -> wavenumber)
+        matches GT: (dependent_continuant -> wavenumber)
+  [TP] PRED: (derivedunit -> centi scaled unit)
+        matches GT: (derivedunit -> centi scaled unit)
+  [TP] PRED: (derivedunit -> giga scaled unit)
+        matches GT: (derivedunit -> giga scaled unit)
+  [TP] PRED: (derivedunit -> peta scaled unit)
+        matches GT: (derivedunit -> peta scaled unit)
+  [TP] PRED: (derivedunit -> pico scaled unit)
+        matches GT: (derivedunit -> pico scaled unit)
+  [TP] PRED: (derivedunit -> scaled unit)
+        matches GT: (derivedunit -> scaled unit)
+  [TP] PRED: (derivedunit -> tera scaled unit)
+        matches GT: (derivedunit -> tera scaled unit)
+  [TP] PRED: (derivedunit -> zepto scaled unit)
+        matches GT: (derivedunit -> zepto scaled unit)
+  [TP] PRED: (electromagnetic radiation unit -> luminous flux unit)
+        matches GT: (electromagnetic radiation unit -> luminous flux unit)
+  [TP] PRED: (electronegativity -> mulliken electronegativity)
+        matches GT: (electronegativity -> mulliken electronegativity)
+  [TP] PRED: (electronegativity -> pauling electronegativity)
+        matches GT: (electronegativity -> pauling electronegativity)
+  [TP] PRED: (element -> beryllium)
+        matches GT: (element -> beryllium)
+  [TP] PRED: (element -> bromine)
+        matches GT: (element -> bromine)
+  [TP] PRED: (element -> darmstadtium)
+        matches GT: (element -> darmstadtium)
+  [TP] PRED: (element -> hafnium)
+        matches GT: (element -> hafnium)
+  [TP] PRED: (element -> magnesium)
+        matches GT: (element -> magnesium)
+  [TP] PRED: (element -> molybdenum)
+        matches GT: (element -> molybdenum)
+  [TP] PRED: (element -> osmium)
+        matches GT: (element -> osmium)
+  [TP] PRED: (element -> promethium)
+        matches GT: (element -> promethium)
+  [TP] PRED: (element -> scandium)
+        matches GT: (element -> scandium)
+  [TP] PRED: (element -> silver)
+        matches GT: (element -> silver)
+  [TP] PRED: (element -> ununoctium)
+        matches GT: (element -> ununoctium)
+  [TP] PRED: (element -> xenon)
+        matches GT: (element -> xenon)
+  [TP] PRED: (energy -> internal energy)
+        matches GT: (energy -> internal energy)
+  [TP] PRED: (hardness range -> hardness range lower bound)
+        matches GT: (hardness range -> hardness range lower bound)
+  [TP] PRED: (homogeneous mixture -> solution)
+        matches GT: (homogeneous mixture -> solution)
+  [TP] PRED: (identifier -> molecular formula)
+        matches GT: (identifier -> molecular formula)
+  [TP] PRED: (intensive property -> flexural modulus)
+        matches GT: (intensive property -> flexural modulus)
+  [TP] PRED: (ion -> anion)
+        matches GT: (ion -> anion)
+  [TP] PRED: (material -> ceramic material)
+        matches GT: (material -> ceramic material)
+  [TP] PRED: (material category -> metals)
+        matches GT: (material category -> metals)
+  [TP] PRED: (measured property -> absorbed dose rate)
+        matches GT: (measured property -> absorbed dose rate)
+  [TP] PRED: (measured property -> amount of substance concentration)
+        matches GT: (measured property -> amount of substance concentration)
+  [TP] PRED: (measured property -> angle)
+        matches GT: (measured property -> angle)
+  [TP] PRED: (measured property -> angular acceleration)
+        matches GT: (measured property -> angular acceleration)
+  [TP] PRED: (measured property -> area)
+        matches GT: (measured property -> area)
+  [TP] PRED: (measured property -> band gap)
+        matches GT: (measured property -> band gap)
+  [TP] PRED: (measured property -> catalytic concentration)
+        matches GT: (measured property -> catalytic concentration)
+  [TP] PRED: (measured property -> concentration)
+        matches GT: (measured property -> concentration)
+  [TP] PRED: (measured property -> count)
+        matches GT: (measured property -> count)
+  [TP] PRED: (measured property -> density)
+        matches GT: (measured property -> density)
+  [TP] PRED: (measured property -> electric flux density)
+        matches GT: (measured property -> electric flux density)
+  [TP] PRED: (measured property -> electric resistance)
+        matches GT: (measured property -> electric resistance)
+  [TP] PRED: (measured property -> energy)
+        matches GT: (measured property -> energy)
+  [TP] PRED: (measured property -> entropy)
+        matches GT: (measured property -> entropy)
+  [TP] PRED: (measured property -> exposure)
+        matches GT: (measured property -> exposure)
+  [TP] PRED: (measured property -> flexural modulus)
+        matches GT: (measured property -> flexural modulus)
+  [TP] PRED: (measured property -> gibbs free energy)
+        matches GT: (measured property -> gibbs free energy)
+  [TP] PRED: (measured property -> hydrogen bond acceptor count)
+        matches GT: (measured property -> hydrogen bond acceptor count)
+  [TP] PRED: (measured property -> intensive property)
+        matches GT: (measured property -> intensive property)
+  [TP] PRED: (measured property -> internal energy)
+        matches GT: (measured property -> internal energy)
+  [TP] PRED: (measured property -> lattice parameter)
+        matches GT: (measured property -> lattice parameter)
+  [TP] PRED: (measured property -> length)
+        matches GT: (measured property -> length)
+  [TP] PRED: (measured property -> magnetic flux density)
+        matches GT: (measured property -> magnetic flux density)
+  [TP] PRED: (measured property -> magnetic flux)
+        matches GT: (measured property -> magnetic flux)
+  [TP] PRED: (measured property -> mass density)
+        matches GT: (measured property -> mass density)
+  [TP] PRED: (measured property -> molar energy)
+        matches GT: (measured property -> molar energy)
+  [TP] PRED: (measured property -> molar entropy)
+        matches GT: (measured property -> molar entropy)
+  [TP] PRED: (measured property -> molecular mass)
+        matches GT: (measured property -> molecular mass)
+  [TP] PRED: (measured property -> moleculecomponentcount)
+        matches GT: (measured property -> moleculecomponentcount)
+  [TP] PRED: (measured property -> partition coefficient)
+        matches GT: (measured property -> partition coefficient)
+  [TP] PRED: (measured property -> permittivity)
+        matches GT: (measured property -> permittivity)
+  [TP] PRED: (measured property -> polar surface area)
+        matches GT: (measured property -> polar surface area)
+  [TP] PRED: (measured property -> power)
+        matches GT: (measured property -> power)
+  [TP] PRED: (measured property -> solid angle)
+        matches GT: (measured property -> solid angle)
+  [TP] PRED: (measured property -> specific volume)
+        matches GT: (measured property -> specific volume)
+  [TP] PRED: (measured property -> surface tension)
+        matches GT: (measured property -> surface tension)
+  [TP] PRED: (measured property -> temperature)
+        matches GT: (measured property -> temperature)
+  [TP] PRED: (measured property -> undefined stereo atom count)
+        matches GT: (measured property -> undefined stereo atom count)
+  [TP] PRED: (measured property -> velocity)
+        matches GT: (measured property -> velocity)
+  [TP] PRED: (measured property -> wavenumber)
+        matches GT: (measured property -> wavenumber)
+  [TP] PRED: (mixture -> homogeneous mixture)
+        matches GT: (mixture -> homogeneous mixture)
+  [TP] PRED: (mixture -> solution)
+        matches GT: (mixture -> solution)
+  [TP] PRED: (molecular center -> chiral center)
+        matches GT: (molecular center -> chiral center)
+  [TP] PRED: (molecular geometry -> trigonal pyramidal molecular geometry)
+        matches GT: (molecular geometry -> trigonal pyramidal molecular geometry)
+  [TP] PRED: (moleculecomponentcount -> undefined stereo atom count)
+        matches GT: (moleculecomponentcount -> undefined stereo atom count)
+  [TP] PRED: (occurrent -> spatiotemporal_interval)
+        matches GT: (occurrent -> spatiotemporal_interval)
+  [TP] PRED: (opticalisomer -> r or s isomer)
+        matches GT: (opticalisomer -> r or s isomer)
+  [TP] PRED: (organic compound -> acyl compound)
+        matches GT: (organic compound -> acyl compound)
+  [TP] PRED: (organic compound -> amine)
+        matches GT: (organic compound -> amine)
+  [TP] PRED: (organic compound -> imine)
+        matches GT: (organic compound -> imine)
+  [TP] PRED: (organic compound -> ketone)
+        matches GT: (organic compound -> ketone)
+  [TP] PRED: (organic group -> carboxylic acid group)
+        matches GT: (organic group -> carboxylic acid group)
+  [TP] PRED: (organic group -> general sulfinic acid group)
+        matches GT: (organic group -> general sulfinic acid group)
+  [TP] PRED: (organic group -> methyl group)
+        matches GT: (organic group -> methyl group)
+  [TP] PRED: (organic group -> secondary amine group)
+        matches GT: (organic group -> secondary amine group)
+  [TP] PRED: (organic group -> sulfonic acid derivative group)
+        matches GT: (organic group -> sulfonic acid derivative group)
+  [TP] PRED: (organic group -> sulfonic acid group)
+        matches GT: (organic group -> sulfonic acid group)
+  [TP] PRED: (organic group -> sulfoxide group)
+        matches GT: (organic group -> sulfoxide group)
+  [TP] PRED: (organic group -> thiol group)
+        matches GT: (organic group -> thiol group)
+  [TP] PRED: (period element -> period 3 element)
+        matches GT: (period element -> period 3 element)
+  [TP] PRED: (periodic block -> g-block element)
+        matches GT: (periodic block -> g-block element)
+  [TP] PRED: (periodic block -> p-block element)
+        matches GT: (periodic block -> p-block element)
+  [TP] PRED: (periodic table element -> g-block element)
+        matches GT: (periodic table element -> g-block element)
+  [TP] PRED: (periodic table element -> p-block element)
+        matches GT: (periodic table element -> p-block element)
+  [TP] PRED: (periodic table element -> period 3 element)
+        matches GT: (periodic table element -> period 3 element)
+  [TP] PRED: (periodic table element -> period element)
+        matches GT: (periodic table element -> period element)
+  [TP] PRED: (processual_entity -> process_aggregate)
+        matches GT: (processual_entity -> process_aggregate)
+  [TP] PRED: (quality -> absorbed dose rate)
+        matches GT: (quality -> absorbed dose rate)
+  [TP] PRED: (quality -> acyclic)
+        matches GT: (quality -> acyclic)
+  [TP] PRED: (quality -> amount of substance concentration)
+        matches GT: (quality -> amount of substance concentration)
+  [TP] PRED: (quality -> angle)
+        matches GT: (quality -> angle)
+  [TP] PRED: (quality -> angular acceleration)
+        matches GT: (quality -> angular acceleration)
+  [TP] PRED: (quality -> area)
+        matches GT: (quality -> area)
+  [TP] PRED: (quality -> aromatic)
+        matches GT: (quality -> aromatic)
+  [TP] PRED: (quality -> aromaticity)
+        matches GT: (quality -> aromaticity)
+  [TP] PRED: (quality -> atom property)
+        matches GT: (quality -> atom property)
+  [TP] PRED: (quality -> band gap)
+        matches GT: (quality -> band gap)
+  [TP] PRED: (quality -> catalytic concentration)
+        matches GT: (quality -> catalytic concentration)
+  [TP] PRED: (quality -> chemical quality)
+        matches GT: (quality -> chemical quality)
+  [TP] PRED: (quality -> concentration)
+        matches GT: (quality -> concentration)
+  [TP] PRED: (quality -> count)
+        matches GT: (quality -> count)
+  [TP] PRED: (quality -> cyclicity)
+        matches GT: (quality -> cyclicity)
+  [TP] PRED: (quality -> density)
+        matches GT: (quality -> density)
+  [TP] PRED: (quality -> electric flux density)
+        matches GT: (quality -> electric flux density)
+  [TP] PRED: (quality -> electric resistance)
+        matches GT: (quality -> electric resistance)
+  [TP] PRED: (quality -> electronegativity)
+        matches GT: (quality -> electronegativity)
+  [TP] PRED: (quality -> energy)
+        matches GT: (quality -> energy)
+  [TP] PRED: (quality -> entropy)
+        matches GT: (quality -> entropy)
+  [TP] PRED: (quality -> exposure)
+        matches GT: (quality -> exposure)
+  [TP] PRED: (quality -> flexural modulus)
+        matches GT: (quality -> flexural modulus)
+  [TP] PRED: (quality -> gibbs free energy)
+        matches GT: (quality -> gibbs free energy)
+  [TP] PRED: (quality -> hydrogen bond acceptor count)
+        matches GT: (quality -> hydrogen bond acceptor count)
+  [TP] PRED: (quality -> intensive property)
+        matches GT: (quality -> intensive property)
+  [TP] PRED: (quality -> internal energy)
+        matches GT: (quality -> internal energy)
+  [TP] PRED: (quality -> lattice parameter)
+        matches GT: (quality -> lattice parameter)
+  [TP] PRED: (quality -> length)
+        matches GT: (quality -> length)
+  [TP] PRED: (quality -> magnetic flux density)
+        matches GT: (quality -> magnetic flux density)
+  [TP] PRED: (quality -> magnetic flux)
+        matches GT: (quality -> magnetic flux)
+  [TP] PRED: (quality -> mass density)
+        matches GT: (quality -> mass density)
+  [TP] PRED: (quality -> measured property)
+        matches GT: (quality -> measured property)
+  [TP] PRED: (quality -> molar energy)
+        matches GT: (quality -> molar energy)
+  [TP] PRED: (quality -> molar entropy)
+        matches GT: (quality -> molar entropy)
+  [TP] PRED: (quality -> molecular geometry)
+        matches GT: (quality -> molecular geometry)
+  [TP] PRED: (quality -> molecular mass)
+        matches GT: (quality -> molecular mass)
+  [TP] PRED: (quality -> molecularquality)
+        matches GT: (quality -> molecularquality)
+  [TP] PRED: (quality -> moleculecomponentcount)
+        matches GT: (quality -> moleculecomponentcount)
+  [TP] PRED: (quality -> mulliken electronegativity)
+        matches GT: (quality -> mulliken electronegativity)
+  [TP] PRED: (quality -> non aromatic)
+        matches GT: (quality -> non aromatic)
+  [TP] PRED: (quality -> partition coefficient)
+        matches GT: (quality -> partition coefficient)
+  [TP] PRED: (quality -> pauling electronegativity)
+        matches GT: (quality -> pauling electronegativity)
+  [TP] PRED: (quality -> permittivity)
+        matches GT: (quality -> permittivity)
+  [TP] PRED: (quality -> polar surface area)
+        matches GT: (quality -> polar surface area)
+  [TP] PRED: (quality -> power)
+        matches GT: (quality -> power)
+  [TP] PRED: (quality -> solid angle)
+        matches GT: (quality -> solid angle)
+  [TP] PRED: (quality -> space group property)
+        matches GT: (quality -> space group property)
+  [TP] PRED: (quality -> specific volume)
+        matches GT: (quality -> specific volume)
+  [TP] PRED: (quality -> surface tension)
+        matches GT: (quality -> surface tension)
+  [TP] PRED: (quality -> temperature)
+        matches GT: (quality -> temperature)
+  [TP] PRED: (quality -> trigonal pyramidal molecular geometry)
+        matches GT: (quality -> trigonal pyramidal molecular geometry)
+  [TP] PRED: (quality -> undefined stereo atom count)
+        matches GT: (quality -> undefined stereo atom count)
+  [TP] PRED: (quality -> velocity)
+        matches GT: (quality -> velocity)
+  [TP] PRED: (quality -> wavenumber)
+        matches GT: (quality -> wavenumber)
+  [TP] PRED: (radiation unit -> dose equivalent unit)
+        matches GT: (radiation unit -> dose equivalent unit)
+  [TP] PRED: (realizable_entity -> disposition)
+        matches GT: (realizable_entity -> disposition)
+  [TP] PRED: (scaled unit -> centi scaled unit)
+        matches GT: (scaled unit -> centi scaled unit)
+  [TP] PRED: (scaled unit -> giga scaled unit)
+        matches GT: (scaled unit -> giga scaled unit)
+  [TP] PRED: (scaled unit -> peta scaled unit)
+        matches GT: (scaled unit -> peta scaled unit)
+  [TP] PRED: (scaled unit -> pico scaled unit)
+        matches GT: (scaled unit -> pico scaled unit)
+  [TP] PRED: (scaled unit -> tera scaled unit)
+        matches GT: (scaled unit -> tera scaled unit)
+  [TP] PRED: (scaled unit -> zepto scaled unit)
+        matches GT: (scaled unit -> zepto scaled unit)
+  [TP] PRED: (spatial_region -> three_dimensional_region)
+        matches GT: (spatial_region -> three_dimensional_region)
+  [TP] PRED: (spatiotemporal_region -> connected_spatiotemporal_region)
+        matches GT: (spatiotemporal_region -> connected_spatiotemporal_region)
+  [TP] PRED: (spatiotemporal_region -> spatiotemporal_interval)
+        matches GT: (spatiotemporal_region -> spatiotemporal_interval)
+  [TP] PRED: (stereoisomer -> enantiomer)
+        matches GT: (stereoisomer -> enantiomer)
+  [TP] PRED: (thermodynamic system -> closed thermodynamic system)
+        matches GT: (thermodynamic system -> closed thermodynamic system)
+  [TP] PRED: (unit -> angular velocity unit)
+        matches GT: (unit -> angular velocity unit)
+  [TP] PRED: (unit -> area density unit)
+        matches GT: (unit -> area density unit)
+  [TP] PRED: (unit -> catalytic activity unit)
+        matches GT: (unit -> catalytic activity unit)
+  [TP] PRED: (unit -> centi scaled unit)
+        matches GT: (unit -> centi scaled unit)
+  [TP] PRED: (unit -> concentration unit)
+        matches GT: (unit -> concentration unit)
+  [TP] PRED: (unit -> conduction unit)
+        matches GT: (unit -> conduction unit)
+  [TP] PRED: (unit -> density unit)
+        matches GT: (unit -> density unit)
+  [TP] PRED: (unit -> derivedunit)
+        matches GT: (unit -> derivedunit)
+  [TP] PRED: (unit -> dose equivalent unit)
+        matches GT: (unit -> dose equivalent unit)
+  [TP] PRED: (unit -> electric current unit)
+        matches GT: (unit -> electric current unit)
+  [TP] PRED: (unit -> electric resistance unit)
+        matches GT: (unit -> electric resistance unit)
+  [TP] PRED: (unit -> electromagnetic radiation unit)
+        matches GT: (unit -> electromagnetic radiation unit)
+  [TP] PRED: (unit -> energy unit)
+        matches GT: (unit -> energy unit)
+  [TP] PRED: (unit -> giga scaled unit)
+        matches GT: (unit -> giga scaled unit)
+  [TP] PRED: (unit -> linear density unit)
+        matches GT: (unit -> linear density unit)
+  [TP] PRED: (unit -> luminous flux unit)
+        matches GT: (unit -> luminous flux unit)
+  [TP] PRED: (unit -> molality unit)
+        matches GT: (unit -> molality unit)
+  [TP] PRED: (unit -> molar mass unit)
+        matches GT: (unit -> molar mass unit)
+  [TP] PRED: (unit -> molecular mass unit)
+        matches GT: (unit -> molecular mass unit)
+  [TP] PRED: (unit -> moment of force unit)
+        matches GT: (unit -> moment of force unit)
+  [TP] PRED: (unit -> peta scaled unit)
+        matches GT: (unit -> peta scaled unit)
+  [TP] PRED: (unit -> pico scaled unit)
+        matches GT: (unit -> pico scaled unit)
+  [TP] PRED: (unit -> radiation unit)
+        matches GT: (unit -> radiation unit)
+  [TP] PRED: (unit -> scaled unit)
+        matches GT: (unit -> scaled unit)
+  [TP] PRED: (unit -> tera scaled unit)
+        matches GT: (unit -> tera scaled unit)
+  [TP] PRED: (unit -> zepto scaled unit)
+        matches GT: (unit -> zepto scaled unit)
+  [TP] PRED: (unit raised to power -> unit raised to power of negative one)
+        matches GT: (unit raised to power -> unit raised to power of negative one)
+  [TP] PRED: (unit raised to power -> unit raised to power of negative two)
+        matches GT: (unit raised to power -> unit raised to power of negative two)
+  [TP] PRED: (unit raised to power -> unit raised to power of one)
+        matches GT: (unit raised to power -> unit raised to power of one)
+  [TP] PRED: (unit raised to power -> unit raised to power of three)
+        matches GT: (unit raised to power -> unit raised to power of three)
+
+INCORRECT PREDICTIONS (False Positives: 406):
+  [FP] amine -> secondary amine group
+  [FP] atom -> bromine
+  [FP] atom -> ununoctium
+  [FP] atom property -> electronegativity
+  [FP] atom property -> mulliken electronegativity
+  [FP] atom property -> pauling electronegativity
+  [FP] chemical class -> acyl compound
+  [FP] chemical class -> amine
+  [FP] chemical class -> aromatic
+  [FP] chemical class -> beryllium
+  [FP] chemical class -> binary compound
+  [FP] chemical class -> ceramic material
+  [FP] chemical class -> complex
+  [FP] chemical class -> darmstadtium
+  [FP] chemical class -> hafnium
+  [FP] chemical class -> imine
+  [FP] chemical class -> ionic compound
+  [FP] chemical class -> ketone
+  [FP] chemical class -> magnesium
+  [FP] chemical class -> material category
+  [FP] chemical class -> metal complex
+  [FP] chemical class -> metals
+  [FP] chemical class -> molybdenum
+  [FP] chemical class -> organic compound
+  [FP] chemical class -> osmium
+  [FP] chemical class -> promethium
+  [FP] chemical class -> scandium
+  [FP] chemical class -> secondary amine group
+  [FP] chemical class -> silver
+  [FP] chemical class -> sulfonic acid derivative group
+  [FP] chemical quality -> acyclic
+  [FP] chemical quality -> aromatic
+  [FP] chemical quality -> aromaticity
+  [FP] chemical quality -> cyclicity
+  [FP] chemical quality -> molecular mass
+  [FP] chemical quality -> molecularquality
+  [FP] chemical quality -> non aromatic
+  [FP] chemical quality -> partition coefficient
+  [FP] chemical substance -> acyl compound
+  [FP] chemical substance -> aluminium atom
+  [FP] chemical substance -> amine
+  [FP] chemical substance -> anion
+  [FP] chemical substance -> aromatic
+  [FP] chemical substance -> beryllium
+  [FP] chemical substance -> bromine
+  [FP] chemical substance -> carbon allotrope
+  [FP] chemical substance -> carbon group
+  [FP] chemical substance -> ceramic material
+  [FP] chemical substance -> chaoite
+  [FP] chemical substance -> darmstadtium
+  [FP] chemical substance -> element
+  [FP] chemical substance -> enantiomer
+  [FP] chemical substance -> fullerene
+  [FP] chemical substance -> g-block element
+  [FP] chemical substance -> glassy carbon
+  [FP] chemical substance -> hafnium
+  [FP] chemical substance -> homogeneous mixture
+  [FP] chemical substance -> imine
+  [FP] chemical substance -> ion
+  [FP] chemical substance -> ketone
+  [FP] chemical substance -> magnesium
+  [FP] chemical substance -> metals
+  [FP] chemical substance -> mixture
+  [FP] chemical substance -> molybdenum
+  [FP] chemical substance -> opticalisomer
+  [FP] chemical substance -> organic compound
+  [FP] chemical substance -> osmium
+  [FP] chemical substance -> p-block element
+  [FP] chemical substance -> period 3 element
+  [FP] chemical substance -> period element
+  [FP] chemical substance -> periodic table element
+  [FP] chemical substance -> promethium
+  [FP] chemical substance -> r or s isomer
+  [FP] chemical substance -> scandium
+  [FP] chemical substance -> secondary amine group
+  [FP] chemical substance -> silver
+  [FP] chemical substance -> solution
+  [FP] chemical substance -> stereoisomer
+  [FP] chemical substance -> ununoctium
+  [FP] chemical substance -> ununpentium atom
+  [FP] chemical substance -> ununseptium atom
+  [FP] chemical substance -> unununium atom
+  [FP] chemical substance -> xenon
+  [FP] compound -> acyl compound
+  [FP] compound -> amine
+  [FP] compound -> aromatic
+  [FP] compound -> imine
+  [FP] compound -> ketone
+  [FP] compound -> organic compound
+  [FP] compound -> secondary amine group
+  [FP] concentration unit -> amount of substance concentration
+  [FP] conduction unit -> electric current unit
+  [FP] connected_spatiotemporal_region -> three_dimensional_region
+  [FP] continuant (continuant, entity, independent_continuant, object) -> acyl compound
+  [FP] continuant (continuant, entity, independent_continuant, object) -> amine
+  [FP] continuant (continuant, entity, independent_continuant, object) -> anion
+  [FP] continuant (continuant, entity, independent_continuant, object) -> beryllium
+  [FP] continuant (continuant, entity, independent_continuant, object) -> binary compound
+  [FP] continuant (continuant, entity, independent_continuant, object) -> bromine
+  [FP] continuant (continuant, entity, independent_continuant, object) -> carbon allotrope
+  [FP] continuant (continuant, entity, independent_continuant, object) -> ceramic material
+  [FP] continuant (continuant, entity, independent_continuant, object) -> chaoite
+  [FP] continuant (continuant, entity, independent_continuant, object) -> chemical phase
+  [FP] continuant (continuant, entity, independent_continuant, object) -> chemical substance
+  [FP] continuant (continuant, entity, independent_continuant, object) -> complex
+  [FP] continuant (continuant, entity, independent_continuant, object) -> compound
+  [FP] continuant (continuant, entity, independent_continuant, object) -> darmstadtium
+  [FP] continuant (continuant, entity, independent_continuant, object) -> element
+  [FP] continuant (continuant, entity, independent_continuant, object) -> enantiomer
+  [FP] continuant (continuant, entity, independent_continuant, object) -> fullerene
+  [FP] continuant (continuant, entity, independent_continuant, object) -> g-block element
+  [FP] continuant (continuant, entity, independent_continuant, object) -> glassy carbon
+  [FP] continuant (continuant, entity, independent_continuant, object) -> hafnium
+  [FP] continuant (continuant, entity, independent_continuant, object) -> hardness range
+  [FP] continuant (continuant, entity, independent_continuant, object) -> hardness range lower bound
+  [FP] continuant (continuant, entity, independent_continuant, object) -> imine
+  [FP] continuant (continuant, entity, independent_continuant, object) -> ion
+  [FP] continuant (continuant, entity, independent_continuant, object) -> ionic compound
+  [FP] continuant (continuant, entity, independent_continuant, object) -> ketone
+  [FP] continuant (continuant, entity, independent_continuant, object) -> magnesium
+  [FP] continuant (continuant, entity, independent_continuant, object) -> material
+  [FP] continuant (continuant, entity, independent_continuant, object) -> metal complex
+  [FP] continuant (continuant, entity, independent_continuant, object) -> metals
+  [FP] continuant (continuant, entity, independent_continuant, object) -> molybdenum
+  [FP] continuant (continuant, entity, independent_continuant, object) -> non polar addition reaction
+  [FP] continuant (continuant, entity, independent_continuant, object) -> opticalisomer
+  [FP] continuant (continuant, entity, independent_continuant, object) -> organic compound
+  [FP] continuant (continuant, entity, independent_continuant, object) -> osmium
+  [FP] continuant (continuant, entity, independent_continuant, object) -> p-block element
+  [FP] continuant (continuant, entity, independent_continuant, object) -> period 3 element
+  [FP] continuant (continuant, entity, independent_continuant, object) -> period element
+  [FP] continuant (continuant, entity, independent_continuant, object) -> periodic table element
+  [FP] continuant (continuant, entity, independent_continuant, object) -> process_aggregate
+  [FP] continuant (continuant, entity, independent_continuant, object) -> processual_entity
+  [FP] continuant (continuant, entity, independent_continuant, object) -> promethium
+  [FP] continuant (continuant, entity, independent_continuant, object) -> r or s isomer
+  [FP] continuant (continuant, entity, independent_continuant, object) -> scandium
+  [FP] continuant (continuant, entity, independent_continuant, object) -> silver
+  [FP] continuant (continuant, entity, independent_continuant, object) -> stereoisomer
+  [FP] continuant (continuant, entity, independent_continuant, object) -> ununoctium
+  [FP] continuant (continuant, entity, independent_continuant, object) -> xenon
+  [FP] count -> hydrogen bond acceptor count
+  [FP] count -> moleculecomponentcount
+  [FP] count -> undefined stereo atom count
+  [FP] density -> electric flux density
+  [FP] density -> magnetic flux density
+  [FP] density -> specific volume
+  [FP] dependent_continuant -> hardness range
+  [FP] dependent_continuant -> hardness range lower bound
+  [FP] derivedunit -> amount of substance concentration
+  [FP] derivedunit -> angular velocity unit
+  [FP] derivedunit -> area density unit
+  [FP] derivedunit -> catalytic activity unit
+  [FP] derivedunit -> concentration unit
+  [FP] derivedunit -> conduction unit
+  [FP] derivedunit -> density unit
+  [FP] derivedunit -> dose equivalent unit
+  [FP] derivedunit -> electric current unit
+  [FP] derivedunit -> electric resistance unit
+  [FP] derivedunit -> electromagnetic radiation unit
+  [FP] derivedunit -> energy unit
+  [FP] derivedunit -> linear density unit
+  [FP] derivedunit -> luminous flux unit
+  [FP] derivedunit -> molality unit
+  [FP] derivedunit -> molar mass unit
+  [FP] derivedunit -> molecular mass unit
+  [FP] derivedunit -> moment of force unit
+  [FP] derivedunit -> radiation unit
+  [FP] derivedunit -> unit raised to power
+  [FP] derivedunit -> unit raised to power of negative one
+  [FP] derivedunit -> unit raised to power of negative two
+  [FP] derivedunit -> unit raised to power of one
+  [FP] derivedunit -> unit raised to power of three
+  [FP] element -> aluminium atom
+  [FP] element -> carbon group
+  [FP] element -> g-block element
+  [FP] element -> p-block element
+  [FP] element -> period 3 element
+  [FP] element -> period element
+  [FP] element -> periodic table element
+  [FP] element -> ununpentium atom
+  [FP] element -> ununseptium atom
+  [FP] element -> unununium atom
+  [FP] enantiomer -> r or s isomer
+  [FP] energy -> band gap
+  [FP] energy -> gibbs free energy
+  [FP] energy -> molar energy
+  [FP] energy -> molar entropy
+  [FP] entropy -> molar entropy
+  [FP] halogenatom -> astatine atom
+  [FP] halogenatom -> bromine
+  [FP] halogenatom -> ununoctium
+  [FP] halogenatom -> ununseptium atom
+  [FP] identifier -> chemical formula
+  [FP] identifier -> space group number
+  [FP] intensive property -> band gap
+  [FP] intensive property -> density
+  [FP] intensive property -> electric flux density
+  [FP] intensive property -> electric resistance
+  [FP] intensive property -> electronegativity
+  [FP] intensive property -> magnetic flux density
+  [FP] intensive property -> mass density
+  [FP] intensive property -> mulliken electronegativity
+  [FP] intensive property -> partition coefficient
+  [FP] intensive property -> pauling electronegativity
+  [FP] intensive property -> permittivity
+  [FP] intensive property -> specific volume
+  [FP] intensive property -> surface tension
+  [FP] intensive property -> temperature
+  [FP] length -> lattice parameter
+  [FP] material -> acyl compound
+  [FP] material -> aluminium atom
+  [FP] material -> amine
+  [FP] material -> anion
+  [FP] material -> aromatic
+  [FP] material -> beryllium
+  [FP] material -> binary compound
+  [FP] material -> bromine
+  [FP] material -> carbon allotrope
+  [FP] material -> carbon group
+  [FP] material -> chaoite
+  [FP] material -> chemical phase
+  [FP] material -> chemical substance
+  [FP] material -> complex
+  [FP] material -> compound
+  [FP] material -> darmstadtium
+  [FP] material -> element
+  [FP] material -> enantiomer
+  [FP] material -> fullerene
+  [FP] material -> g-block element
+  [FP] material -> glassy carbon
+  [FP] material -> hafnium
+  [FP] material -> homogeneous mixture
+  [FP] material -> imine
+  [FP] material -> ion
+  [FP] material -> ionic compound
+  [FP] material -> ketone
+  [FP] material -> magnesium
+  [FP] material -> metal complex
+  [FP] material -> metals
+  [FP] material -> mixture
+  [FP] material -> molybdenum
+  [FP] material -> opticalisomer
+  [FP] material -> organic compound
+  [FP] material -> osmium
+  [FP] material -> p-block element
+  [FP] material -> period 3 element
+  [FP] material -> period element
+  [FP] material -> periodic table element
+  [FP] material -> promethium
+  [FP] material -> r or s isomer
+  [FP] material -> scandium
+  [FP] material -> secondary amine group
+  [FP] material -> silver
+  [FP] material -> solution
+  [FP] material -> stereoisomer
+  [FP] material -> ununoctium
+  [FP] material -> ununpentium atom
+  [FP] material -> ununseptium atom
+  [FP] material -> unununium atom
+  [FP] material -> xenon
+  [FP] material category -> beryllium
+  [FP] material category -> ceramic material
+  [FP] material category -> darmstadtium
+  [FP] material category -> hafnium
+  [FP] material category -> magnesium
+  [FP] material category -> molybdenum
+  [FP] material category -> osmium
+  [FP] material category -> promethium
+  [FP] material category -> scandium
+  [FP] material category -> silver
+  [FP] measured property -> electronegativity
+  [FP] measured property -> mulliken electronegativity
+  [FP] measured property -> pauling electronegativity
+  [FP] metals -> beryllium
+  [FP] metals -> darmstadtium
+  [FP] metals -> hafnium
+  [FP] metals -> magnesium
+  [FP] metals -> molybdenum
+  [FP] metals -> osmium
+  [FP] metals -> promethium
+  [FP] metals -> scandium
+  [FP] metals -> silver
+  [FP] molar energy -> molar entropy
+  [FP] molar mass unit -> molecular mass unit
+  [FP] occurrent -> non polar addition reaction
+  [FP] occurrent -> process_aggregate
+  [FP] occurrent -> processual_entity
+  [FP] opticalisomer -> enantiomer
+  [FP] organic compound -> secondary amine group
+  [FP] p-block element -> aluminium atom
+  [FP] p-block element -> bromine
+  [FP] p-block element -> carbon group
+  [FP] p-block element -> xenon
+  [FP] period 3 element -> aluminium atom
+  [FP] period element -> aluminium atom
+  [FP] period element -> bromine
+  [FP] period element -> carbon group
+  [FP] period element -> g-block element
+  [FP] period element -> p-block element
+  [FP] period element -> xenon
+  [FP] periodic block -> aluminium atom
+  [FP] periodic block -> bromine
+  [FP] periodic block -> carbon group
+  [FP] periodic block -> xenon
+  [FP] periodic table element -> aluminium atom
+  [FP] periodic table element -> beryllium
+  [FP] periodic table element -> bromine
+  [FP] periodic table element -> carbon group
+  [FP] periodic table element -> darmstadtium
+  [FP] periodic table element -> hafnium
+  [FP] periodic table element -> magnesium
+  [FP] periodic table element -> molybdenum
+  [FP] periodic table element -> osmium
+  [FP] periodic table element -> promethium
+  [FP] periodic table element -> scandium
+  [FP] periodic table element -> silver
+  [FP] periodic table element -> ununoctium
+  [FP] periodic table element -> xenon
+  [FP] periplanar conformation -> anticlinal conformation
+  [FP] quality -> disposition
+  [FP] quality -> hardness range
+  [FP] quality -> hardness range lower bound
+  [FP] radiation unit -> electromagnetic radiation unit
+  [FP] radiation unit -> luminous flux unit
+  [FP] realizable_entity -> absorbed dose rate
+  [FP] realizable_entity -> acyclic
+  [FP] realizable_entity -> amount of substance concentration
+  [FP] realizable_entity -> angle
+  [FP] realizable_entity -> angular acceleration
+  [FP] realizable_entity -> area
+  [FP] realizable_entity -> aromatic
+  [FP] realizable_entity -> aromaticity
+  [FP] realizable_entity -> atom property
+  [FP] realizable_entity -> band gap
+  [FP] realizable_entity -> catalytic concentration
+  [FP] realizable_entity -> chemical quality
+  [FP] realizable_entity -> concentration
+  [FP] realizable_entity -> count
+  [FP] realizable_entity -> cyclicity
+  [FP] realizable_entity -> density
+  [FP] realizable_entity -> electric flux density
+  [FP] realizable_entity -> electric resistance
+  [FP] realizable_entity -> electronegativity
+  [FP] realizable_entity -> energy
+  [FP] realizable_entity -> entropy
+  [FP] realizable_entity -> exposure
+  [FP] realizable_entity -> flexural modulus
+  [FP] realizable_entity -> gibbs free energy
+  [FP] realizable_entity -> hardness range
+  [FP] realizable_entity -> hardness range lower bound
+  [FP] realizable_entity -> hydrogen bond acceptor count
+  [FP] realizable_entity -> intensive property
+  [FP] realizable_entity -> internal energy
+  [FP] realizable_entity -> lattice parameter
+  [FP] realizable_entity -> length
+  [FP] realizable_entity -> magnetic flux
+  [FP] realizable_entity -> magnetic flux density
+  [FP] realizable_entity -> mass density
+  [FP] realizable_entity -> measured property
+  [FP] realizable_entity -> molar energy
+  [FP] realizable_entity -> molar entropy
+  [FP] realizable_entity -> molecular geometry
+  [FP] realizable_entity -> molecular mass
+  [FP] realizable_entity -> molecularquality
+  [FP] realizable_entity -> moleculecomponentcount
+  [FP] realizable_entity -> mulliken electronegativity
+  [FP] realizable_entity -> non aromatic
+  [FP] realizable_entity -> partition coefficient
+  [FP] realizable_entity -> pauling electronegativity
+  [FP] realizable_entity -> permittivity
+  [FP] realizable_entity -> polar surface area
+  [FP] realizable_entity -> power
+  [FP] realizable_entity -> quality
+  [FP] realizable_entity -> solid angle
+  [FP] realizable_entity -> space group property
+  [FP] realizable_entity -> specific volume
+  [FP] realizable_entity -> surface tension
+  [FP] realizable_entity -> temperature
+  [FP] realizable_entity -> trigonal pyramidal molecular geometry
+  [FP] realizable_entity -> undefined stereo atom count
+  [FP] realizable_entity -> velocity
+  [FP] realizable_entity -> wavenumber
+  [FP] site -> chiral center
+  [FP] site -> molecular center
+  [FP] spatial_region -> area
+  [FP] spatial_region -> chiral center
+  [FP] spatial_region -> connected_spatiotemporal_region
+  [FP] spatial_region -> molecular center
+  [FP] spatial_region -> polar surface area
+  [FP] spatial_region -> site
+  [FP] spatiotemporal_region -> area
+  [FP] spatiotemporal_region -> chiral center
+  [FP] spatiotemporal_region -> molecular center
+  [FP] spatiotemporal_region -> polar surface area
+  [FP] spatiotemporal_region -> site
+  [FP] spatiotemporal_region -> spatial_region
+  [FP] spatiotemporal_region -> three_dimensional_region
+  [FP] stereoisomer -> opticalisomer
+  [FP] stereoisomer -> r or s isomer
+  [FP] unit -> amount of substance concentration
+  [FP] unit -> unit raised to power
+  [FP] unit -> unit raised to power of negative one
+  [FP] unit -> unit raised to power of negative two
+  [FP] unit -> unit raised to power of one
+  [FP] unit -> unit raised to power of three
+
+MISSED RELATIONS (False Negatives: 102):
+  [FN] aromaticity -> aromatic
+  [FN] aromaticity -> non aromatic
+  [FN] binary compound -> ionic compound
+  [FN] carbon group -> methyl group
+  [FN] chemical quality -> chemical class
+  [FN] chemical quality -> chemical formula
+  [FN] chemical quality -> chiral center
+  [FN] chemical quality -> molecular center
+  [FN] chemical quality -> molecular formula
+  [FN] connected_spatiotemporal_region -> spatiotemporal_interval
+  [FN] continuant -> carboxylic acid group
+  [FN] continuant -> chemical class
+  [FN] continuant -> chemical formula
+  [FN] continuant -> closed thermodynamic system
+  [FN] continuant -> general sulfinic acid group
+  [FN] continuant -> identifier
+  [FN] continuant -> independent_continuant
+  [FN] continuant -> methyl group
+  [FN] continuant -> molecular formula
+  [FN] continuant -> object
+  [FN] continuant -> organic group
+  [FN] continuant -> radiation
+  [FN] continuant -> source
+  [FN] continuant -> space group number
+  [FN] continuant -> sulfonic acid derivative group
+  [FN] continuant -> sulfonic acid group
+  [FN] continuant -> sulfoxide group
+  [FN] continuant -> thermodynamic system
+  [FN] continuant -> thiol group
+  [FN] cyclicity -> acyclic
+  [FN] dependent_continuant -> chemical class
+  [FN] dependent_continuant -> chemical formula
+  [FN] dependent_continuant -> chiral center
+  [FN] dependent_continuant -> identifier
+  [FN] dependent_continuant -> molecular center
+  [FN] dependent_continuant -> molecular formula
+  [FN] dependent_continuant -> radiation
+  [FN] dependent_continuant -> realizable_entity
+  [FN] dependent_continuant -> space group number
+  [FN] independent_continuant -> carboxylic acid group
+  [FN] independent_continuant -> general sulfinic acid group
+  [FN] independent_continuant -> methyl group
+  [FN] independent_continuant -> object
+  [FN] independent_continuant -> organic group
+  [FN] independent_continuant -> source
+  [FN] independent_continuant -> sulfonic acid derivative group
+  [FN] independent_continuant -> sulfonic acid group
+  [FN] independent_continuant -> sulfoxide group
+  [FN] independent_continuant -> thiol group
+  [FN] measured property -> acyclic
+  [FN] measured property -> aromatic
+  [FN] measured property -> aromaticity
+  [FN] measured property -> atom property
+  [FN] measured property -> cyclicity
+  [FN] measured property -> identifier
+  [FN] measured property -> molecular formula
+  [FN] measured property -> molecularquality
+  [FN] measured property -> non aromatic
+  [FN] measured property -> radiation
+  [FN] molar energy -> gibbs free energy
+  [FN] molecularquality -> acyclic
+  [FN] molecularquality -> aromatic
+  [FN] molecularquality -> aromaticity
+  [FN] molecularquality -> cyclicity
+  [FN] molecularquality -> hydrogen bond acceptor count
+  [FN] molecularquality -> identifier
+  [FN] molecularquality -> molecular formula
+  [FN] molecularquality -> molecular mass
+  [FN] molecularquality -> moleculecomponentcount
+  [FN] molecularquality -> non aromatic
+  [FN] molecularquality -> partition coefficient
+  [FN] molecularquality -> polar surface area
+  [FN] molecularquality -> undefined stereo atom count
+  [FN] moleculecomponentcount -> hydrogen bond acceptor count
+  [FN] object -> carboxylic acid group
+  [FN] object -> general sulfinic acid group
+  [FN] object -> methyl group
+  [FN] object -> organic group
+  [FN] object -> source
+  [FN] object -> sulfonic acid derivative group
+  [FN] object -> sulfonic acid group
+  [FN] object -> sulfoxide group
+  [FN] object -> thiol group
+  [FN] occurrent -> connected_spatiotemporal_region
+  [FN] occurrent -> spatiotemporal_region
+  [FN] organic group -> carbon group
+  [FN] periodic table element -> periodic block
+  [FN] quality -> chemical class
+  [FN] quality -> chemical formula
+  [FN] quality -> chiral center
+  [FN] quality -> identifier
+  [FN] quality -> molecular center
+  [FN] quality -> molecular formula
+  [FN] quality -> radiation
+  [FN] quality -> space group number
+  [FN] radiation -> absorbed dose rate
+  [FN] radiation -> exposure
+  [FN] space group property -> space group number
+  [FN] spatial_region -> closed thermodynamic system
+  [FN] spatial_region -> thermodynamic system
+  [FN] three_dimensional_region -> closed thermodynamic system
+  [FN] three_dimensional_region -> thermodynamic system

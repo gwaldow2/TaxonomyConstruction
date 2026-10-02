@@ -1,0 +1,121 @@
+==================================================
+=== Detailed Node Pair Analysis (Exploded Transitive Closure) ===
+Match Type Used: EXACT
+==================================================
+Precision: 0.7353 | Recall: 0.9036 | F1: 0.8108
+
+CORRECT PREDICTIONS (True Positives: 75 Pred edges covering 75 GT edges):
+  [TP] b complex vitamin -> inositol
+  [TP] cheese -> cheshire cheese
+  [TP] condiment -> blanc
+  [TP] condiment -> sauce
+  [TP] condiment -> white sauce
+  [TP] dairy product -> cheese
+  [TP] dairy product -> cheshire cheese
+  [TP] dairy product -> colostrum
+  [TP] dairy product -> milk
+  [TP] dairy product -> whole milk
+  [TP] feed -> cattle cake
+  [TP] food -> b complex vitamin
+  [TP] food -> blanc
+  [TP] food -> brown rice
+  [TP] food -> cattle cake
+  [TP] food -> cheese
+  [TP] food -> cheshire cheese
+  [TP] food -> colostrum
+  [TP] food -> condiment
+  [TP] food -> dairy product
+  [TP] food -> feed
+  [TP] food -> flavorer
+  [TP] food -> foodstuff
+  [TP] food -> grain
+  [TP] food -> ingredient
+  [TP] food -> inositol
+  [TP] food -> milk
+  [TP] food -> rice
+  [TP] food -> sauce
+  [TP] food -> starches
+  [TP] food -> vitamin
+  [TP] food -> water soluble vitamin
+  [TP] food -> white sauce
+  [TP] food -> whole milk
+  [TP] foodstuff -> blanc
+  [TP] foodstuff -> brown rice
+  [TP] foodstuff -> cheese
+  [TP] foodstuff -> cheshire cheese
+  [TP] foodstuff -> colostrum
+  [TP] foodstuff -> condiment
+  [TP] foodstuff -> dairy product
+  [TP] foodstuff -> flavorer
+  [TP] foodstuff -> grain
+  [TP] foodstuff -> ingredient
+  [TP] foodstuff -> milk
+  [TP] foodstuff -> rice
+  [TP] foodstuff -> sauce
+  [TP] foodstuff -> starches
+  [TP] foodstuff -> white sauce
+  [TP] foodstuff -> whole milk
+  [TP] grain -> brown rice
+  [TP] grain -> rice
+  [TP] ingredient -> blanc
+  [TP] ingredient -> condiment
+  [TP] ingredient -> flavorer
+  [TP] ingredient -> sauce
+  [TP] ingredient -> white sauce
+  [TP] milk -> colostrum
+  [TP] milk -> whole milk
+  [TP] nutriment -> b complex vitamin
+  [TP] nutriment -> colostrum
+  [TP] nutriment -> inositol
+  [TP] nutriment -> milk
+  [TP] nutriment -> vitamin
+  [TP] nutriment -> water soluble vitamin
+  [TP] nutriment -> whole milk
+  [TP] rice -> brown rice
+  [TP] sauce -> blanc
+  [TP] sauce -> white sauce
+  [TP] vitamin -> b complex vitamin
+  [TP] vitamin -> inositol
+  [TP] vitamin -> water soluble vitamin
+  [TP] water soluble vitamin -> b complex vitamin
+  [TP] water soluble vitamin -> inositol
+  [TP] white sauce -> blanc
+
+INCORRECT PREDICTIONS (False Positives: 27):
+  [FP] foodstuff -> b complex vitamin
+  [FP] foodstuff -> cattle cake
+  [FP] foodstuff -> feed
+  [FP] foodstuff -> inositol
+  [FP] foodstuff -> vitamin
+  [FP] foodstuff -> water soluble vitamin
+  [FP] ingredient -> b complex vitamin
+  [FP] ingredient -> inositol
+  [FP] ingredient -> vitamin
+  [FP] ingredient -> water soluble vitamin
+  [FP] nutriment -> blanc
+  [FP] nutriment -> brown rice
+  [FP] nutriment -> cattle cake
+  [FP] nutriment -> cheese
+  [FP] nutriment -> cheshire cheese
+  [FP] nutriment -> condiment
+  [FP] nutriment -> dairy product
+  [FP] nutriment -> feed
+  [FP] nutriment -> flavorer
+  [FP] nutriment -> food
+  [FP] nutriment -> foodstuff
+  [FP] nutriment -> grain
+  [FP] nutriment -> ingredient
+  [FP] nutriment -> rice
+  [FP] nutriment -> sauce
+  [FP] nutriment -> starches
+  [FP] nutriment -> white sauce
+
+MISSED RELATIONS (False Negatives: 8):
+  [FN] flavorer -> blanc
+  [FN] flavorer -> condiment
+  [FN] flavorer -> sauce
+  [FN] flavorer -> white sauce
+  [FN] food -> nutriment
+  [FN] food -> water
+  [FN] starches -> brown rice
+  [FN] starches -> rice

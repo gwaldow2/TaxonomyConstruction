@@ -1,0 +1,83 @@
+==================================================
+=== Detailed Node Pair Analysis (Exploded Transitive Closure) ===
+Match Type Used: EXACT
+==================================================
+Precision: 0.7170 | Recall: 0.6667 | F1: 0.6909
+
+CORRECT PREDICTIONS (True Positives: 38 Pred edges covering 38 GT edges):
+  [TP] analyte assay -> luteinizing hormone assay
+  [TP] assay -> analyte assay
+  [TP] assay -> dna methylation profiling assay
+  [TP] assay -> dna methylation profiling by array assay
+  [TP] assay -> dna methylation profiling by chip-chip assay
+  [TP] assay -> epigenetic modification assay
+  [TP] assay -> luteinizing hormone assay
+  [TP] assay -> organism detection assay
+  [TP] assay -> organism detection by salinity tolerance assay
+  [TP] chip-chip assay -> dna methylation profiling by chip-chip assay
+  [TP] continuant -> catheter
+  [TP] continuant -> chip spotting device
+  [TP] continuant -> device
+  [TP] continuant -> independent continuant
+  [TP] continuant -> material entity
+  [TP] continuant -> processed material
+  [TP] device -> catheter
+  [TP] device -> chip spotting device
+  [TP] dna methylation profiling assay -> dna methylation profiling by array assay
+  [TP] epigenetic modification assay -> dna methylation profiling assay
+  [TP] epigenetic modification assay -> dna methylation profiling by array assay
+  [TP] epigenetic modification assay -> dna methylation profiling by chip-chip assay
+  [TP] imaging assay -> magnetic resonance imaging assay
+  [TP] independent continuant -> catheter
+  [TP] independent continuant -> chip spotting device
+  [TP] independent continuant -> device
+  [TP] independent continuant -> material entity
+  [TP] independent continuant -> processed material
+  [TP] material entity -> catheter
+  [TP] material entity -> chip spotting device
+  [TP] material entity -> device
+  [TP] material entity -> processed material
+  [TP] network analysis -> network subgraph quality calculation
+  [TP] network analysis -> subgraph degree calculation
+  [TP] network subgraph quality calculation -> subgraph degree calculation
+  [TP] organism detection assay -> organism detection by salinity tolerance assay
+  [TP] performance status value specification -> eastern cooperative oncology group score value specification
+  [TP] processed material -> chip spotting device
+
+INCORRECT PREDICTIONS (False Positives: 15):
+  [FP] analyte assay -> chip-chip assay
+  [FP] analyte assay -> dna methylation profiling assay
+  [FP] analyte assay -> dna methylation profiling by array assay
+  [FP] analyte assay -> dna methylation profiling by chip-chip assay
+  [FP] analyte assay -> epigenetic modification assay
+  [FP] analyte assay -> imaging assay
+  [FP] analyte assay -> magnetic resonance imaging assay
+  [FP] analyte assay -> organism detection assay
+  [FP] analyte assay -> organism detection by salinity tolerance assay
+  [FP] assay -> chip-chip assay
+  [FP] assay -> imaging assay
+  [FP] assay -> magnetic resonance imaging assay
+  [FP] continuant -> planned process
+  [FP] dna methylation profiling assay -> dna methylation profiling by chip-chip assay
+  [FP] independent continuant -> planned process
+
+MISSED RELATIONS (False Negatives: 19):
+  [FN] data transformation -> network analysis
+  [FN] data transformation -> network subgraph quality calculation
+  [FN] data transformation -> subgraph degree calculation
+  [FN] planned process -> analyte assay
+  [FN] planned process -> assay
+  [FN] planned process -> data transformation
+  [FN] planned process -> dna methylation profiling assay
+  [FN] planned process -> dna methylation profiling by array assay
+  [FN] planned process -> dna methylation profiling by chip-chip assay
+  [FN] planned process -> epigenetic modification assay
+  [FN] planned process -> luteinizing hormone assay
+  [FN] planned process -> network analysis
+  [FN] planned process -> network subgraph quality calculation
+  [FN] planned process -> organism detection assay
+  [FN] planned process -> organism detection by salinity tolerance assay
+  [FN] planned process -> study intervention
+  [FN] planned process -> subgraph degree calculation
+  [FN] processed material -> catheter
+  [FN] processed material -> device

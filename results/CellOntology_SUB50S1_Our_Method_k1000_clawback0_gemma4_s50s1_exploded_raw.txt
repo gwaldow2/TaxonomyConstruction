@@ -1,0 +1,451 @@
+==================================================
+=== Detailed Node Pair Analysis (Exploded Raw Edges) ===
+Match Type Used: EXACT
+==================================================
+Precision: 0.1570 | Recall: 0.9067 | F1: 0.2677
+
+CORRECT PREDICTIONS (True Positives: 68 Pred edges covering 68 GT edges):
+  [TP] b cell -> b cell cd19-positive
+  [TP] blood vessel endothelial cell -> endothelial cell of artery
+  [TP] bone cell -> non-terminally differentiated osteoblast
+  [TP] cell -> electrically active cell
+  [TP] cell -> eukaryotic cell
+  [TP] cell -> hematopoietic cell
+  [TP] cell -> motile cell
+  [TP] cell -> nucleate cell
+  [TP] cell -> precursor cell
+  [TP] cell -> secretory cell
+  [TP] cell -> stuff accumulating cell
+  [TP] central nervous system neuron -> interneuron
+  [TP] connective tissue cell -> osteoblast
+  [TP] connective tissue cell -> stromal cell
+  [TP] electrically active cell -> electrically responsive cell
+  [TP] electrically active cell -> electrically signaling cell
+  [TP] electrically responsive cell -> neuron
+  [TP] electrically signaling cell -> neuron
+  [TP] endothelial cell -> endothelial cell of vascular tree
+  [TP] endothelial cell of vascular tree -> blood vessel endothelial cell
+  [TP] eukaryotic cell -> bone cell
+  [TP] eukaryotic cell -> connective tissue cell
+  [TP] eukaryotic cell -> endothelial cell
+  [TP] eukaryotic cell -> leucophore
+  [TP] eukaryotic cell -> leukocyte
+  [TP] eukaryotic cell -> myeloid cell
+  [TP] eukaryotic cell -> neural cell
+  [TP] eukaryotic cell -> phagocyte sensu vertebrata
+  [TP] eukaryotic cell -> single nucleate cell
+  [TP] eukaryotic cell -> xanthophore cell
+  [TP] fibroblast -> perichondrial fibroblast
+  [TP] gabaergic interneuron -> sn-vtr-hth gata3-tcf7l2 gaba gabaergic interneuron primate
+  [TP] gabaergic neuron -> gabaergic interneuron
+  [TP] hematopoietic cell -> leukocyte
+  [TP] hematopoietic cell -> myeloid cell
+  [TP] inhibitory interneuron -> gabaergic interneuron
+  [TP] interneuron -> inhibitory interneuron
+  [TP] leukocyte -> mononuclear leukocyte
+  [TP] leukocyte -> myeloid leukocyte
+  [TP] leukocyte -> professional antigen presenting cell
+  [TP] lymphocyte -> lymphocyte of b lineage
+  [TP] lymphocyte of b lineage -> b cell
+  [TP] lymphocyte of b lineage -> lymphocyte of b lineage cd19-positive
+  [TP] lymphocyte of b lineage cd19-positive -> b cell cd19-positive
+  [TP] macrophage -> tissue-resident macrophage
+  [TP] mononuclear leukocyte -> lymphocyte
+  [TP] mononuclear leukocyte -> mononuclear phagocyte
+  [TP] mononuclear phagocyte -> macrophage
+  [TP] motile cell -> phagocyte
+  [TP] myeloid cell -> myeloid leukocyte
+  [TP] myeloid leukocyte -> macrophage
+  [TP] neural cell -> neuron
+  [TP] neuron -> central nervous system neuron
+  [TP] neuron -> gabaergic neuron
+  [TP] nucleate cell -> leukocyte
+  [TP] nucleate cell -> single nucleate cell
+  [TP] osteoblast -> non-terminally differentiated osteoblast
+  [TP] phagocyte -> phagocyte sensu vertebrata
+  [TP] phagocyte sensu vertebrata -> mononuclear phagocyte
+  [TP] pigment cell -> leucophore
+  [TP] pigment cell -> xanthophore cell
+  [TP] precursor b cell -> fraction bc precursor b cell
+  [TP] precursor cell -> progenitor cell
+  [TP] professional antigen presenting cell -> macrophage
+  [TP] single nucleate cell -> mononuclear leukocyte
+  [TP] stromal cell -> fibroblast
+  [TP] thymic macrophage -> thymic cortical macrophage
+  [TP] tissue-resident macrophage -> thymic macrophage
+
+INCORRECT PREDICTIONS (False Positives: 365):
+  [FP] b cell -> fraction bc precursor b cell
+  [FP] b cell -> fraction d precursor b cell
+  [FP] b cell -> lymphocyte of b lineage
+  [FP] b cell -> lymphocyte of b lineage cd19-positive
+  [FP] b cell -> precursor b cell
+  [FP] b cell cd19-positive -> lymphocyte of b lineage cd19-positive
+  [FP] blood vessel endothelial cell -> endothelial cell of vascular tree
+  [FP] bone cell -> osteoblast
+  [FP] cell -> b cell
+  [FP] cell -> b cell cd19-positive
+  [FP] cell -> blood vessel endothelial cell
+  [FP] cell -> bone cell
+  [FP] cell -> central nervous system neuron
+  [FP] cell -> connective tissue cell
+  [FP] cell -> electrically responsive cell
+  [FP] cell -> electrically signaling cell
+  [FP] cell -> endothelial cell
+  [FP] cell -> endothelial cell of artery
+  [FP] cell -> endothelial cell of vascular tree
+  [FP] cell -> fibroblast
+  [FP] cell -> fraction bc precursor b cell
+  [FP] cell -> fraction d precursor b cell
+  [FP] cell -> gabaergic interneuron
+  [FP] cell -> gabaergic neuron
+  [FP] cell -> inhibitory interneuron
+  [FP] cell -> interneuron
+  [FP] cell -> leucophore
+  [FP] cell -> leukocyte
+  [FP] cell -> lymphocyte
+  [FP] cell -> lymphocyte of b lineage
+  [FP] cell -> lymphocyte of b lineage cd19-positive
+  [FP] cell -> macrophage
+  [FP] cell -> mononuclear leukocyte
+  [FP] cell -> mononuclear phagocyte
+  [FP] cell -> myeloid cell
+  [FP] cell -> myeloid leukocyte
+  [FP] cell -> neural cell
+  [FP] cell -> neuron
+  [FP] cell -> non-terminally differentiated osteoblast
+  [FP] cell -> osteoblast
+  [FP] cell -> perichondrial fibroblast
+  [FP] cell -> phagocyte
+  [FP] cell -> phagocyte sensu vertebrata
+  [FP] cell -> pigment cell
+  [FP] cell -> precursor b cell
+  [FP] cell -> professional antigen presenting cell
+  [FP] cell -> progenitor cell
+  [FP] cell -> single nucleate cell
+  [FP] cell -> sn-vtr-hth gata3-tcf7l2 gaba gabaergic interneuron primate
+  [FP] cell -> stromal cell
+  [FP] cell -> thymic cortical macrophage
+  [FP] cell -> thymic macrophage
+  [FP] cell -> tissue-resident macrophage
+  [FP] cell -> xanthophore cell
+  [FP] central nervous system neuron -> gabaergic interneuron
+  [FP] central nervous system neuron -> gabaergic neuron
+  [FP] central nervous system neuron -> inhibitory interneuron
+  [FP] central nervous system neuron -> sn-vtr-hth gata3-tcf7l2 gaba gabaergic interneuron primate
+  [FP] connective tissue cell -> blood vessel endothelial cell
+  [FP] connective tissue cell -> bone cell
+  [FP] connective tissue cell -> endothelial cell
+  [FP] connective tissue cell -> endothelial cell of vascular tree
+  [FP] connective tissue cell -> fibroblast
+  [FP] connective tissue cell -> macrophage
+  [FP] connective tissue cell -> non-terminally differentiated osteoblast
+  [FP] connective tissue cell -> perichondrial fibroblast
+  [FP] electrically active cell -> central nervous system neuron
+  [FP] electrically active cell -> gabaergic interneuron
+  [FP] electrically active cell -> gabaergic neuron
+  [FP] electrically active cell -> inhibitory interneuron
+  [FP] electrically active cell -> interneuron
+  [FP] electrically active cell -> neural cell
+  [FP] electrically active cell -> neuron
+  [FP] electrically active cell -> sn-vtr-hth gata3-tcf7l2 gaba gabaergic interneuron primate
+  [FP] electrically responsive cell -> central nervous system neuron
+  [FP] electrically responsive cell -> electrically active cell
+  [FP] electrically responsive cell -> electrically signaling cell
+  [FP] electrically responsive cell -> gabaergic interneuron
+  [FP] electrically responsive cell -> gabaergic neuron
+  [FP] electrically responsive cell -> inhibitory interneuron
+  [FP] electrically responsive cell -> interneuron
+  [FP] electrically responsive cell -> neural cell
+  [FP] electrically responsive cell -> sn-vtr-hth gata3-tcf7l2 gaba gabaergic interneuron primate
+  [FP] electrically signaling cell -> central nervous system neuron
+  [FP] electrically signaling cell -> electrically active cell
+  [FP] electrically signaling cell -> electrically responsive cell
+  [FP] electrically signaling cell -> gabaergic interneuron
+  [FP] electrically signaling cell -> gabaergic neuron
+  [FP] electrically signaling cell -> inhibitory interneuron
+  [FP] electrically signaling cell -> interneuron
+  [FP] electrically signaling cell -> neural cell
+  [FP] electrically signaling cell -> sn-vtr-hth gata3-tcf7l2 gaba gabaergic interneuron primate
+  [FP] endothelial cell -> blood vessel endothelial cell
+  [FP] endothelial cell -> endothelial cell of artery
+  [FP] endothelial cell of vascular tree -> endothelial cell of artery
+  [FP] eukaryotic cell -> b cell
+  [FP] eukaryotic cell -> b cell cd19-positive
+  [FP] eukaryotic cell -> blood vessel endothelial cell
+  [FP] eukaryotic cell -> central nervous system neuron
+  [FP] eukaryotic cell -> electrically active cell
+  [FP] eukaryotic cell -> electrically responsive cell
+  [FP] eukaryotic cell -> electrically signaling cell
+  [FP] eukaryotic cell -> endothelial cell of artery
+  [FP] eukaryotic cell -> endothelial cell of vascular tree
+  [FP] eukaryotic cell -> fibroblast
+  [FP] eukaryotic cell -> fraction bc precursor b cell
+  [FP] eukaryotic cell -> fraction d precursor b cell
+  [FP] eukaryotic cell -> gabaergic interneuron
+  [FP] eukaryotic cell -> gabaergic neuron
+  [FP] eukaryotic cell -> hematopoietic cell
+  [FP] eukaryotic cell -> inhibitory interneuron
+  [FP] eukaryotic cell -> interneuron
+  [FP] eukaryotic cell -> lymphocyte
+  [FP] eukaryotic cell -> lymphocyte of b lineage
+  [FP] eukaryotic cell -> lymphocyte of b lineage cd19-positive
+  [FP] eukaryotic cell -> macrophage
+  [FP] eukaryotic cell -> mononuclear leukocyte
+  [FP] eukaryotic cell -> mononuclear phagocyte
+  [FP] eukaryotic cell -> myeloid leukocyte
+  [FP] eukaryotic cell -> neuron
+  [FP] eukaryotic cell -> non-terminally differentiated osteoblast
+  [FP] eukaryotic cell -> nucleate cell
+  [FP] eukaryotic cell -> osteoblast
+  [FP] eukaryotic cell -> perichondrial fibroblast
+  [FP] eukaryotic cell -> phagocyte
+  [FP] eukaryotic cell -> pigment cell
+  [FP] eukaryotic cell -> precursor b cell
+  [FP] eukaryotic cell -> professional antigen presenting cell
+  [FP] eukaryotic cell -> secretory cell
+  [FP] eukaryotic cell -> sn-vtr-hth gata3-tcf7l2 gaba gabaergic interneuron primate
+  [FP] eukaryotic cell -> stromal cell
+  [FP] eukaryotic cell -> thymic cortical macrophage
+  [FP] eukaryotic cell -> thymic macrophage
+  [FP] eukaryotic cell -> tissue-resident macrophage
+  [FP] gabaergic neuron -> inhibitory interneuron
+  [FP] gabaergic neuron -> sn-vtr-hth gata3-tcf7l2 gaba gabaergic interneuron primate
+  [FP] hematopoietic cell -> b cell
+  [FP] hematopoietic cell -> b cell cd19-positive
+  [FP] hematopoietic cell -> fraction bc precursor b cell
+  [FP] hematopoietic cell -> fraction d precursor b cell
+  [FP] hematopoietic cell -> lymphocyte
+  [FP] hematopoietic cell -> lymphocyte of b lineage
+  [FP] hematopoietic cell -> lymphocyte of b lineage cd19-positive
+  [FP] hematopoietic cell -> macrophage
+  [FP] hematopoietic cell -> mononuclear leukocyte
+  [FP] hematopoietic cell -> mononuclear phagocyte
+  [FP] hematopoietic cell -> myeloid leukocyte
+  [FP] hematopoietic cell -> phagocyte
+  [FP] hematopoietic cell -> phagocyte sensu vertebrata
+  [FP] hematopoietic cell -> precursor b cell
+  [FP] hematopoietic cell -> professional antigen presenting cell
+  [FP] hematopoietic cell -> thymic cortical macrophage
+  [FP] hematopoietic cell -> thymic macrophage
+  [FP] hematopoietic cell -> tissue-resident macrophage
+  [FP] inhibitory interneuron -> sn-vtr-hth gata3-tcf7l2 gaba gabaergic interneuron primate
+  [FP] interneuron -> gabaergic interneuron
+  [FP] interneuron -> sn-vtr-hth gata3-tcf7l2 gaba gabaergic interneuron primate
+  [FP] leukocyte -> b cell
+  [FP] leukocyte -> b cell cd19-positive
+  [FP] leukocyte -> fraction bc precursor b cell
+  [FP] leukocyte -> fraction d precursor b cell
+  [FP] leukocyte -> lymphocyte
+  [FP] leukocyte -> lymphocyte of b lineage
+  [FP] leukocyte -> lymphocyte of b lineage cd19-positive
+  [FP] leukocyte -> macrophage
+  [FP] leukocyte -> mononuclear phagocyte
+  [FP] leukocyte -> myeloid cell
+  [FP] leukocyte -> phagocyte
+  [FP] leukocyte -> phagocyte sensu vertebrata
+  [FP] leukocyte -> precursor b cell
+  [FP] leukocyte -> thymic cortical macrophage
+  [FP] leukocyte -> thymic macrophage
+  [FP] leukocyte -> tissue-resident macrophage
+  [FP] lymphocyte -> b cell
+  [FP] lymphocyte -> b cell cd19-positive
+  [FP] lymphocyte -> fraction bc precursor b cell
+  [FP] lymphocyte -> fraction d precursor b cell
+  [FP] lymphocyte -> lymphocyte of b lineage cd19-positive
+  [FP] lymphocyte -> precursor b cell
+  [FP] lymphocyte of b lineage -> b cell cd19-positive
+  [FP] lymphocyte of b lineage -> fraction bc precursor b cell
+  [FP] lymphocyte of b lineage -> fraction d precursor b cell
+  [FP] lymphocyte of b lineage -> precursor b cell
+  [FP] macrophage -> thymic cortical macrophage
+  [FP] macrophage -> thymic macrophage
+  [FP] mononuclear leukocyte -> b cell
+  [FP] mononuclear leukocyte -> b cell cd19-positive
+  [FP] mononuclear leukocyte -> fraction bc precursor b cell
+  [FP] mononuclear leukocyte -> fraction d precursor b cell
+  [FP] mononuclear leukocyte -> lymphocyte of b lineage
+  [FP] mononuclear leukocyte -> lymphocyte of b lineage cd19-positive
+  [FP] mononuclear leukocyte -> macrophage
+  [FP] mononuclear leukocyte -> myeloid leukocyte
+  [FP] mononuclear leukocyte -> precursor b cell
+  [FP] mononuclear leukocyte -> thymic cortical macrophage
+  [FP] mononuclear leukocyte -> thymic macrophage
+  [FP] mononuclear leukocyte -> tissue-resident macrophage
+  [FP] mononuclear phagocyte -> thymic cortical macrophage
+  [FP] mononuclear phagocyte -> thymic macrophage
+  [FP] mononuclear phagocyte -> tissue-resident macrophage
+  [FP] motile cell -> macrophage
+  [FP] motile cell -> thymic macrophage
+  [FP] myeloid cell -> b cell
+  [FP] myeloid cell -> b cell cd19-positive
+  [FP] myeloid cell -> fraction bc precursor b cell
+  [FP] myeloid cell -> fraction d precursor b cell
+  [FP] myeloid cell -> leukocyte
+  [FP] myeloid cell -> lymphocyte
+  [FP] myeloid cell -> lymphocyte of b lineage
+  [FP] myeloid cell -> lymphocyte of b lineage cd19-positive
+  [FP] myeloid cell -> macrophage
+  [FP] myeloid cell -> mononuclear leukocyte
+  [FP] myeloid cell -> mononuclear phagocyte
+  [FP] myeloid cell -> phagocyte
+  [FP] myeloid cell -> phagocyte sensu vertebrata
+  [FP] myeloid cell -> precursor b cell
+  [FP] myeloid cell -> professional antigen presenting cell
+  [FP] myeloid cell -> thymic cortical macrophage
+  [FP] myeloid cell -> thymic macrophage
+  [FP] myeloid cell -> tissue-resident macrophage
+  [FP] myeloid leukocyte -> mononuclear phagocyte
+  [FP] myeloid leukocyte -> thymic cortical macrophage
+  [FP] myeloid leukocyte -> thymic macrophage
+  [FP] myeloid leukocyte -> tissue-resident macrophage
+  [FP] neural cell -> central nervous system neuron
+  [FP] neural cell -> electrically active cell
+  [FP] neural cell -> electrically responsive cell
+  [FP] neural cell -> electrically signaling cell
+  [FP] neural cell -> gabaergic interneuron
+  [FP] neural cell -> gabaergic neuron
+  [FP] neural cell -> inhibitory interneuron
+  [FP] neural cell -> interneuron
+  [FP] neural cell -> sn-vtr-hth gata3-tcf7l2 gaba gabaergic interneuron primate
+  [FP] neuron -> gabaergic interneuron
+  [FP] neuron -> inhibitory interneuron
+  [FP] neuron -> interneuron
+  [FP] neuron -> sn-vtr-hth gata3-tcf7l2 gaba gabaergic interneuron primate
+  [FP] nucleate cell -> b cell
+  [FP] nucleate cell -> b cell cd19-positive
+  [FP] nucleate cell -> blood vessel endothelial cell
+  [FP] nucleate cell -> bone cell
+  [FP] nucleate cell -> central nervous system neuron
+  [FP] nucleate cell -> connective tissue cell
+  [FP] nucleate cell -> electrically active cell
+  [FP] nucleate cell -> electrically responsive cell
+  [FP] nucleate cell -> electrically signaling cell
+  [FP] nucleate cell -> endothelial cell
+  [FP] nucleate cell -> endothelial cell of artery
+  [FP] nucleate cell -> endothelial cell of vascular tree
+  [FP] nucleate cell -> fibroblast
+  [FP] nucleate cell -> fraction bc precursor b cell
+  [FP] nucleate cell -> fraction d precursor b cell
+  [FP] nucleate cell -> gabaergic interneuron
+  [FP] nucleate cell -> gabaergic neuron
+  [FP] nucleate cell -> hematopoietic cell
+  [FP] nucleate cell -> inhibitory interneuron
+  [FP] nucleate cell -> interneuron
+  [FP] nucleate cell -> leucophore
+  [FP] nucleate cell -> lymphocyte
+  [FP] nucleate cell -> lymphocyte of b lineage
+  [FP] nucleate cell -> lymphocyte of b lineage cd19-positive
+  [FP] nucleate cell -> macrophage
+  [FP] nucleate cell -> mononuclear leukocyte
+  [FP] nucleate cell -> mononuclear phagocyte
+  [FP] nucleate cell -> myeloid cell
+  [FP] nucleate cell -> myeloid leukocyte
+  [FP] nucleate cell -> neural cell
+  [FP] nucleate cell -> neuron
+  [FP] nucleate cell -> non-terminally differentiated osteoblast
+  [FP] nucleate cell -> osteoblast
+  [FP] nucleate cell -> perichondrial fibroblast
+  [FP] nucleate cell -> phagocyte
+  [FP] nucleate cell -> phagocyte sensu vertebrata
+  [FP] nucleate cell -> pigment cell
+  [FP] nucleate cell -> precursor b cell
+  [FP] nucleate cell -> precursor cell
+  [FP] nucleate cell -> professional antigen presenting cell
+  [FP] nucleate cell -> progenitor cell
+  [FP] nucleate cell -> sn-vtr-hth gata3-tcf7l2 gaba gabaergic interneuron primate
+  [FP] nucleate cell -> stromal cell
+  [FP] nucleate cell -> thymic cortical macrophage
+  [FP] nucleate cell -> thymic macrophage
+  [FP] nucleate cell -> tissue-resident macrophage
+  [FP] nucleate cell -> xanthophore cell
+  [FP] phagocyte -> macrophage
+  [FP] phagocyte -> mononuclear phagocyte
+  [FP] phagocyte -> thymic cortical macrophage
+  [FP] phagocyte -> thymic macrophage
+  [FP] phagocyte -> tissue-resident macrophage
+  [FP] phagocyte sensu vertebrata -> macrophage
+  [FP] phagocyte sensu vertebrata -> thymic cortical macrophage
+  [FP] phagocyte sensu vertebrata -> thymic macrophage
+  [FP] phagocyte sensu vertebrata -> tissue-resident macrophage
+  [FP] precursor b cell -> fraction d precursor b cell
+  [FP] precursor cell -> fraction bc precursor b cell
+  [FP] precursor cell -> fraction d precursor b cell
+  [FP] precursor cell -> precursor b cell
+  [FP] professional antigen presenting cell -> b cell
+  [FP] professional antigen presenting cell -> b cell cd19-positive
+  [FP] professional antigen presenting cell -> lymphocyte of b lineage
+  [FP] professional antigen presenting cell -> lymphocyte of b lineage cd19-positive
+  [FP] professional antigen presenting cell -> mononuclear phagocyte
+  [FP] professional antigen presenting cell -> thymic cortical macrophage
+  [FP] professional antigen presenting cell -> thymic macrophage
+  [FP] professional antigen presenting cell -> tissue-resident macrophage
+  [FP] progenitor cell -> fraction bc precursor b cell
+  [FP] progenitor cell -> fraction d precursor b cell
+  [FP] progenitor cell -> precursor b cell
+  [FP] progenitor cell -> precursor cell
+  [FP] secretory cell -> osteoblast
+  [FP] secretory cell -> xanthophore cell
+  [FP] single nucleate cell -> b cell
+  [FP] single nucleate cell -> b cell cd19-positive
+  [FP] single nucleate cell -> blood vessel endothelial cell
+  [FP] single nucleate cell -> bone cell
+  [FP] single nucleate cell -> central nervous system neuron
+  [FP] single nucleate cell -> connective tissue cell
+  [FP] single nucleate cell -> electrically active cell
+  [FP] single nucleate cell -> electrically responsive cell
+  [FP] single nucleate cell -> electrically signaling cell
+  [FP] single nucleate cell -> endothelial cell
+  [FP] single nucleate cell -> endothelial cell of artery
+  [FP] single nucleate cell -> endothelial cell of vascular tree
+  [FP] single nucleate cell -> fibroblast
+  [FP] single nucleate cell -> fraction bc precursor b cell
+  [FP] single nucleate cell -> fraction d precursor b cell
+  [FP] single nucleate cell -> gabaergic interneuron
+  [FP] single nucleate cell -> gabaergic neuron
+  [FP] single nucleate cell -> hematopoietic cell
+  [FP] single nucleate cell -> inhibitory interneuron
+  [FP] single nucleate cell -> interneuron
+  [FP] single nucleate cell -> leucophore
+  [FP] single nucleate cell -> leukocyte
+  [FP] single nucleate cell -> lymphocyte
+  [FP] single nucleate cell -> lymphocyte of b lineage
+  [FP] single nucleate cell -> lymphocyte of b lineage cd19-positive
+  [FP] single nucleate cell -> macrophage
+  [FP] single nucleate cell -> mononuclear phagocyte
+  [FP] single nucleate cell -> myeloid cell
+  [FP] single nucleate cell -> neural cell
+  [FP] single nucleate cell -> neuron
+  [FP] single nucleate cell -> non-terminally differentiated osteoblast
+  [FP] single nucleate cell -> osteoblast
+  [FP] single nucleate cell -> perichondrial fibroblast
+  [FP] single nucleate cell -> phagocyte
+  [FP] single nucleate cell -> pigment cell
+  [FP] single nucleate cell -> precursor b cell
+  [FP] single nucleate cell -> precursor cell
+  [FP] single nucleate cell -> progenitor cell
+  [FP] single nucleate cell -> sn-vtr-hth gata3-tcf7l2 gaba gabaergic interneuron primate
+  [FP] single nucleate cell -> stromal cell
+  [FP] single nucleate cell -> thymic cortical macrophage
+  [FP] single nucleate cell -> thymic macrophage
+  [FP] single nucleate cell -> tissue-resident macrophage
+  [FP] single nucleate cell -> xanthophore cell
+  [FP] stromal cell -> blood vessel endothelial cell
+  [FP] stromal cell -> bone cell
+  [FP] stromal cell -> connective tissue cell
+  [FP] stromal cell -> endothelial cell
+  [FP] stromal cell -> endothelial cell of vascular tree
+  [FP] stromal cell -> macrophage
+  [FP] stromal cell -> non-terminally differentiated osteoblast
+  [FP] stromal cell -> osteoblast
+  [FP] stromal cell -> perichondrial fibroblast
+  [FP] tissue-resident macrophage -> thymic cortical macrophage
+
+MISSED RELATIONS (False Negatives: 7):
+  [FN] b cell cd19-positive -> precursor b cell
+  [FN] fraction bc precursor b cell -> fraction d precursor b cell
+  [FN] motile cell -> leukocyte
+  [FN] progenitor cell -> non-terminally differentiated osteoblast
+  [FN] secretory cell -> gabaergic neuron
+  [FN] stuff accumulating cell -> phagocyte
+  [FN] stuff accumulating cell -> pigment cell

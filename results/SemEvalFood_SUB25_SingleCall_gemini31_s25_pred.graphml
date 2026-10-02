@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d4" for="graph" attr.name="timestamp" attr.type="string"/>
+<key id="d3" for="graph" attr.name="scale" attr.type="string"/>
+<key id="d2" for="graph" attr.name="results_file" attr.type="string"/>
+<key id="d1" for="graph" attr.name="tag" attr.type="string"/>
+<key id="d0" for="graph" attr.name="model" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">gemini-3.1-pro-preview</data>
+<data key="d1">gemini31_s25</data>
+<data key="d2">results/scaling_gemini.json</data>
+<data key="d3">SUB25</data>
+<data key="d4">2026-09-30T17:44:42</data>
+<node id="alfalfa"/>
+<node id="eatage"/>
+<node id="home fries"/>
+<node id="steak sauce"/>
+<node id="flavorer"/>
+<node id="chow"/>
+<node id="meal"/>
+<node id="fodder"/>
+<node id="relish"/>
+<node id="fare"/>
+<node id="herb"/>
+<node id="dressing"/>
+<node id="foodstuff"/>
+<node id="tea"/>
+<node id="blue cheese dressing"/>
+<node id="ingredient"/>
+<node id="nutriment"/>
+<node id="sun tea"/>
+<node id="starches"/>
+<node id="potato"/>
+<node id="sauce"/>
+<node id="feed"/>
+<node id="food"/>
+<node id="oolong"/>
+<node id="condiment"/>
+<edge source="flavorer" target="condiment"/>
+<edge source="meal" target="chow"/>
+<edge source="meal" target="tea"/>
+<edge source="herb" target="alfalfa"/>
+<edge source="herb" target="potato"/>
+<edge source="dressing" target="blue cheese dressing"/>
+<edge source="foodstuff" target="starches"/>
+<edge source="tea" target="oolong"/>
+<edge source="tea" target="sun tea"/>
+<edge source="ingredient" target="flavorer"/>
+<edge source="nutriment" target="home fries"/>
+<edge source="sauce" target="dressing"/>
+<edge source="sauce" target="steak sauce"/>
+<edge source="feed" target="eatage"/>
+<edge source="feed" target="fodder"/>
+<edge source="food" target="fare"/>
+<edge source="food" target="feed"/>
+<edge source="food" target="foodstuff"/>
+<edge source="food" target="ingredient"/>
+<edge source="food" target="meal"/>
+<edge source="food" target="nutriment"/>
+<edge source="food" target="potato"/>
+<edge source="food" target="tea"/>
+<edge source="condiment" target="relish"/>
+<edge source="condiment" target="sauce"/>
+</graph></graphml>

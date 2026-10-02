@@ -1,0 +1,201 @@
+==================================================
+=== Detailed Node Pair Analysis (Exploded Transitive Closure) ===
+Match Type Used: EXACT
+==================================================
+Precision: 0.6000 | Recall: 0.6269 | F1: 0.6131
+
+CORRECT PREDICTIONS (True Positives: 84 Pred edges covering 84 GT edges):
+  [TP] albumin assay -> comprehensive metabolic panel venous blood albumin assay
+  [TP] assay -> analyte assay
+  [TP] assay -> blood assay
+  [TP] assay -> carboxyfluorescein succinimidyl ester staining assay
+  [TP] assay -> carboxyfluorescein succinimidyl ester staining assay measuring epitope specific proliferation of t cells
+  [TP] assay -> comprehensive metabolic panel venous blood albumin assay
+  [TP] assay -> insecticide resistance assay
+  [TP] assay -> insecticide resistance by detecting enzyme activity assay
+  [TP] assay -> insecticide resistance by detecting glutathione s-transferase activity assay
+  [TP] assay -> organism detection assay
+  [TP] assay -> parasite detection assay
+  [TP] assay -> polymerase chain reaction assay
+  [TP] assay -> proximity extension assay
+  [TP] assay -> venous blood thyroid stimulating hormone assay
+  [TP] assay array -> affymetrix rhesus macaque genome array
+  [TP] assay array -> dna microarray
+  [TP] assay array -> microarray
+  [TP] blood assay -> comprehensive metabolic panel venous blood albumin assay
+  [TP] blood assay -> venous blood thyroid stimulating hormone assay
+  [TP] carboxyfluorescein succinimidyl ester staining assay -> carboxyfluorescein succinimidyl ester staining assay measuring epitope specific proliferation of t cells
+  [TP] clinical history -> brother clinical history of cancer
+  [TP] clinical history -> family clinical history of cancer
+  [TP] container -> test tube
+  [TP] container -> vial
+  [TP] continuant -> container
+  [TP] continuant -> device
+  [TP] continuant -> filter paper
+  [TP] continuant -> independent continuant
+  [TP] continuant -> material entity
+  [TP] continuant -> material separation device
+  [TP] continuant -> measurement device
+  [TP] continuant -> multichannel pipette
+  [TP] continuant -> processed material
+  [TP] continuant -> test tube
+  [TP] continuant -> vial
+  [TP] device -> container
+  [TP] device -> material separation device
+  [TP] device -> measurement device
+  [TP] device -> multichannel pipette
+  [TP] device -> test tube
+  [TP] device -> vial
+  [TP] dna microarray -> affymetrix rhesus macaque genome array
+  [TP] family clinical history of cancer -> brother clinical history of cancer
+  [TP] function -> connection function
+  [TP] functional assessment of individual -> nose to finger assessment
+  [TP] independent continuant -> container
+  [TP] independent continuant -> device
+  [TP] independent continuant -> filter paper
+  [TP] independent continuant -> material entity
+  [TP] independent continuant -> material separation device
+  [TP] independent continuant -> measurement device
+  [TP] independent continuant -> multichannel pipette
+  [TP] independent continuant -> processed material
+  [TP] independent continuant -> test tube
+  [TP] independent continuant -> vial
+  [TP] insecticide resistance assay -> insecticide resistance by detecting enzyme activity assay
+  [TP] insecticide resistance assay -> insecticide resistance by detecting glutathione s-transferase activity assay
+  [TP] insecticide resistance by detecting enzyme activity assay -> insecticide resistance by detecting glutathione s-transferase activity assay
+  [TP] material entity -> processed material
+  [TP] material processing -> material component separation
+  [TP] microarray -> affymetrix rhesus macaque genome array
+  [TP] microarray -> dna microarray
+  [TP] organism detection assay -> parasite detection assay
+  [TP] organization -> organization of specimen collector
+  [TP] planned process -> analyte assay
+  [TP] planned process -> assay
+  [TP] planned process -> blood assay
+  [TP] planned process -> carboxyfluorescein succinimidyl ester staining assay
+  [TP] planned process -> carboxyfluorescein succinimidyl ester staining assay measuring epitope specific proliferation of t cells
+  [TP] planned process -> comprehensive metabolic panel venous blood albumin assay
+  [TP] planned process -> insecticide resistance assay
+  [TP] planned process -> insecticide resistance by detecting enzyme activity assay
+  [TP] planned process -> insecticide resistance by detecting glutathione s-transferase activity assay
+  [TP] planned process -> material component separation
+  [TP] planned process -> material processing
+  [TP] planned process -> organism detection assay
+  [TP] planned process -> parasite detection assay
+  [TP] planned process -> polymerase chain reaction assay
+  [TP] planned process -> proximity extension assay
+  [TP] planned process -> venous blood thyroid stimulating hormone assay
+  [TP] realizable entity -> adjuvant role
+  [TP] realizable entity -> role
+  [TP] role -> adjuvant role
+  [TP] thyroid stimulating hormone assay -> venous blood thyroid stimulating hormone assay
+
+INCORRECT PREDICTIONS (False Positives: 56):
+  [FP] analyte assay -> albumin assay
+  [FP] analyte assay -> blood assay
+  [FP] analyte assay -> comprehensive metabolic panel venous blood albumin assay
+  [FP] analyte assay -> thyroid stimulating hormone assay
+  [FP] analyte assay -> venous blood thyroid stimulating hormone assay
+  [FP] assay -> affymetrix rhesus macaque genome array
+  [FP] assay -> albumin assay
+  [FP] assay -> assay array
+  [FP] assay -> dna microarray
+  [FP] assay -> microarray
+  [FP] assay -> thyroid stimulating hormone assay
+  [FP] blood assay -> albumin assay
+  [FP] blood assay -> thyroid stimulating hormone assay
+  [FP] continuant -> organization
+  [FP] continuant -> organization of specimen collector
+  [FP] function -> functional assessment of individual
+  [FP] function -> nose to finger assessment
+  [FP] independent continuant -> organization
+  [FP] independent continuant -> organization of specimen collector
+  [FP] material component separation -> material separation device
+  [FP] material processing -> material separation device
+  [FP] planned process -> affymetrix rhesus macaque genome array
+  [FP] planned process -> albumin assay
+  [FP] planned process -> assay array
+  [FP] planned process -> dna microarray
+  [FP] planned process -> material separation device
+  [FP] planned process -> microarray
+  [FP] planned process -> thyroid stimulating hormone assay
+  [FP] realizable entity -> affymetrix rhesus macaque genome array
+  [FP] realizable entity -> albumin assay
+  [FP] realizable entity -> analyte assay
+  [FP] realizable entity -> assay
+  [FP] realizable entity -> assay array
+  [FP] realizable entity -> blood assay
+  [FP] realizable entity -> carboxyfluorescein succinimidyl ester staining assay
+  [FP] realizable entity -> carboxyfluorescein succinimidyl ester staining assay measuring epitope specific proliferation of t cells
+  [FP] realizable entity -> comprehensive metabolic panel venous blood albumin assay
+  [FP] realizable entity -> connection function
+  [FP] realizable entity -> dna microarray
+  [FP] realizable entity -> function
+  [FP] realizable entity -> functional assessment of individual
+  [FP] realizable entity -> insecticide resistance assay
+  [FP] realizable entity -> insecticide resistance by detecting enzyme activity assay
+  [FP] realizable entity -> insecticide resistance by detecting glutathione s-transferase activity assay
+  [FP] realizable entity -> material component separation
+  [FP] realizable entity -> material processing
+  [FP] realizable entity -> material separation device
+  [FP] realizable entity -> microarray
+  [FP] realizable entity -> nose to finger assessment
+  [FP] realizable entity -> organism detection assay
+  [FP] realizable entity -> parasite detection assay
+  [FP] realizable entity -> planned process
+  [FP] realizable entity -> polymerase chain reaction assay
+  [FP] realizable entity -> proximity extension assay
+  [FP] realizable entity -> thyroid stimulating hormone assay
+  [FP] realizable entity -> venous blood thyroid stimulating hormone assay
+
+MISSED RELATIONS (False Negatives: 50):
+  [FN] analyte assay -> proximity extension assay
+  [FN] continuant -> affymetrix rhesus macaque genome array
+  [FN] continuant -> assay array
+  [FN] continuant -> dna microarray
+  [FN] continuant -> microarray
+  [FN] device -> affymetrix rhesus macaque genome array
+  [FN] device -> assay array
+  [FN] device -> dna microarray
+  [FN] device -> filter paper
+  [FN] device -> microarray
+  [FN] independent continuant -> affymetrix rhesus macaque genome array
+  [FN] independent continuant -> assay array
+  [FN] independent continuant -> dna microarray
+  [FN] independent continuant -> microarray
+  [FN] material combination -> adding a material entity into a target
+  [FN] material component separation -> dna subtraction
+  [FN] material entity -> affymetrix rhesus macaque genome array
+  [FN] material entity -> assay array
+  [FN] material entity -> container
+  [FN] material entity -> device
+  [FN] material entity -> dna microarray
+  [FN] material entity -> filter paper
+  [FN] material entity -> material separation device
+  [FN] material entity -> measurement device
+  [FN] material entity -> microarray
+  [FN] material entity -> multichannel pipette
+  [FN] material entity -> test tube
+  [FN] material entity -> vial
+  [FN] material processing -> adding a material entity into a target
+  [FN] material processing -> dna subtraction
+  [FN] material processing -> material combination
+  [FN] material separation device -> filter paper
+  [FN] measurement device -> multichannel pipette
+  [FN] planned process -> adding a material entity into a target
+  [FN] planned process -> dna subtraction
+  [FN] planned process -> material combination
+  [FN] polymerase chain reaction assay -> proximity extension assay
+  [FN] processed material -> affymetrix rhesus macaque genome array
+  [FN] processed material -> assay array
+  [FN] processed material -> container
+  [FN] processed material -> device
+  [FN] processed material -> dna microarray
+  [FN] processed material -> filter paper
+  [FN] processed material -> material separation device
+  [FN] processed material -> measurement device
+  [FN] processed material -> microarray
+  [FN] processed material -> multichannel pipette
+  [FN] processed material -> test tube
+  [FN] processed material -> vial
+  [FN] vial -> test tube

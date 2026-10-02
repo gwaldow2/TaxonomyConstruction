@@ -1,0 +1,682 @@
+==================================================
+=== Detailed Node Pair Analysis (Condensed Transitive Closure) ===
+Match Type Used: SET_OVERLAP
+==================================================
+Precision: 0.5477 | Recall: 0.6612 | F1: 0.5991
+
+CORRECT PREDICTIONS (True Positives: 201 Pred edges covering 201 GT edges):
+  [TP] PRED: (accommodation -> apartment)
+        matches GT: (accommodation -> apartment)
+  [TP] PRED: (action -> achieveaction)
+        matches GT: (action -> achieveaction)
+  [TP] PRED: (action -> allocateaction)
+        matches GT: (action -> allocateaction)
+  [TP] PRED: (action -> applyaction)
+        matches GT: (action -> applyaction)
+  [TP] PRED: (action -> assignaction)
+        matches GT: (action -> assignaction)
+  [TP] PRED: (action -> authorizeaction)
+        matches GT: (action -> authorizeaction)
+  [TP] PRED: (action -> bookmarkaction)
+        matches GT: (action -> bookmarkaction)
+  [TP] PRED: (action -> borrowaction)
+        matches GT: (action -> borrowaction)
+  [TP] PRED: (action -> checkaction)
+        matches GT: (action -> checkaction)
+  [TP] PRED: (action -> consumeaction)
+        matches GT: (action -> consumeaction)
+  [TP] PRED: (action -> cookaction)
+        matches GT: (action -> cookaction)
+  [TP] PRED: (action -> createaction)
+        matches GT: (action -> createaction)
+  [TP] PRED: (action -> discoveraction)
+        matches GT: (action -> discoveraction)
+  [TP] PRED: (action -> drawaction)
+        matches GT: (action -> drawaction)
+  [TP] PRED: (action -> eataction)
+        matches GT: (action -> eataction)
+  [TP] PRED: (action -> findaction)
+        matches GT: (action -> findaction)
+  [TP] PRED: (action -> giveaction)
+        matches GT: (action -> giveaction)
+  [TP] PRED: (action -> installaction)
+        matches GT: (action -> installaction)
+  [TP] PRED: (action -> organizeaction)
+        matches GT: (action -> organizeaction)
+  [TP] PRED: (action -> performaction)
+        matches GT: (action -> performaction)
+  [TP] PRED: (action -> playaction)
+        matches GT: (action -> playaction)
+  [TP] PRED: (action -> takeaction)
+        matches GT: (action -> takeaction)
+  [TP] PRED: (action -> tieaction)
+        matches GT: (action -> tieaction)
+  [TP] PRED: (action -> trackaction)
+        matches GT: (action -> trackaction)
+  [TP] PRED: (action -> transferaction)
+        matches GT: (action -> transferaction)
+  [TP] PRED: (action -> winaction)
+        matches GT: (action -> winaction)
+  [TP] PRED: (article -> blogposting)
+        matches GT: (article -> blogposting)
+  [TP] PRED: (article -> techarticle)
+        matches GT: (article -> techarticle)
+  [TP] PRED: (audience -> businessaudience)
+        matches GT: (audience -> businessaudience)
+  [TP] PRED: (audience -> educationalaudience)
+        matches GT: (audience -> educationalaudience)
+  [TP] PRED: (audience -> peopleaudience)
+        matches GT: (audience -> peopleaudience)
+  [TP] PRED: (automotivebusiness -> autowash)
+        matches GT: (automotivebusiness -> autowash)
+  [TP] PRED: (automotivebusiness -> gasstation)
+        matches GT: (automotivebusiness -> gasstation)
+  [TP] PRED: (broadcastservice -> radiobroadcastservice)
+        matches GT: (broadcastservice -> radiobroadcastservice)
+  [TP] PRED: (civicstructure -> trainstation)
+        matches GT: (civicstructure -> trainstation)
+  [TP] PRED: (clip -> movieclip)
+        matches GT: (clip -> movieclip)
+  [TP] PRED: (collection (collection, itemlist) -> howtostep)
+        matches GT: (itemlist -> howtostep)
+  [TP] PRED: (creativework -> ampstory)
+        matches GT: (creativework -> ampstory)
+  [TP] PRED: (creativework -> article)
+        matches GT: (creativework -> article)
+  [TP] PRED: (creativework -> blogposting)
+        matches GT: (creativework -> blogposting)
+  [TP] PRED: (creativework -> conversation)
+        matches GT: (creativework -> conversation)
+  [TP] PRED: (creativework -> coverart)
+        matches GT: (creativework -> coverart)
+  [TP] PRED: (creativework -> creativeworkseries)
+        matches GT: (creativework -> creativeworkseries)
+  [TP] PRED: (creativework -> datacatalog)
+        matches GT: (creativework -> datacatalog)
+  [TP] PRED: (creativework -> manuscript)
+        matches GT: (creativework -> manuscript)
+  [TP] PRED: (creativework -> mediareviewitem)
+        matches GT: (creativework -> mediareviewitem)
+  [TP] PRED: (creativework -> movieseries)
+        matches GT: (creativework -> movieseries)
+  [TP] PRED: (creativework -> painting)
+        matches GT: (creativework -> painting)
+  [TP] PRED: (creativework -> publicationissue)
+        matches GT: (creativework -> publicationissue)
+  [TP] PRED: (creativework -> radioseries)
+        matches GT: (creativework -> radioseries)
+  [TP] PRED: (creativework -> sculpture)
+        matches GT: (creativework -> sculpture)
+  [TP] PRED: (creativework -> sheetmusic)
+        matches GT: (creativework -> sheetmusic)
+  [TP] PRED: (creativework -> shortstory)
+        matches GT: (creativework -> shortstory)
+  [TP] PRED: (creativework -> socialmediaposting)
+        matches GT: (creativework -> socialmediaposting)
+  [TP] PRED: (creativework -> techarticle)
+        matches GT: (creativework -> techarticle)
+  [TP] PRED: (creativework -> tvseason)
+        matches GT: (creativework -> tvseason)
+  [TP] PRED: (creativework -> tvseries)
+        matches GT: (creativework -> tvseries)
+  [TP] PRED: (creativework -> visualartwork)
+        matches GT: (creativework -> visualartwork)
+  [TP] PRED: (creativeworkseason -> podcastseason)
+        matches GT: (creativeworkseason -> podcastseason)
+  [TP] PRED: (creativeworkseason -> tvseason)
+        matches GT: (creativeworkseason -> tvseason)
+  [TP] PRED: (creativeworkseries -> movieseries)
+        matches GT: (creativeworkseries -> movieseries)
+  [TP] PRED: (creativeworkseries -> radioseries)
+        matches GT: (creativeworkseries -> radioseries)
+  [TP] PRED: (creativeworkseries -> tvseries)
+        matches GT: (creativeworkseries -> tvseries)
+  [TP] PRED: (datatype -> boolean)
+        matches GT: (datatype -> boolean)
+  [TP] PRED: (educationalorganization -> highschool)
+        matches GT: (educationalorganization -> highschool)
+  [TP] PRED: (enumeration -> adultorientedenumeration)
+        matches GT: (enumeration -> adultorientedenumeration)
+  [TP] PRED: (enumeration -> boardingpolicytype)
+        matches GT: (enumeration -> boardingpolicytype)
+  [TP] PRED: (enumeration -> certificationstatusenumeration)
+        matches GT: (enumeration -> certificationstatusenumeration)
+  [TP] PRED: (enumeration -> drugcostcategory)
+        matches GT: (enumeration -> drugcostcategory)
+  [TP] PRED: (enumeration -> governmentbenefitstype)
+        matches GT: (enumeration -> governmentbenefitstype)
+  [TP] PRED: (enumeration -> itemlistordertype)
+        matches GT: (enumeration -> itemlistordertype)
+  [TP] PRED: (enumeration -> measurementmethodenum)
+        matches GT: (enumeration -> measurementmethodenum)
+  [TP] PRED: (enumeration -> measurementtypeenumeration)
+        matches GT: (enumeration -> measurementtypeenumeration)
+  [TP] PRED: (enumeration -> medicalenumeration)
+        matches GT: (enumeration -> medicalenumeration)
+  [TP] PRED: (enumeration -> musicalbumproductiontype)
+        matches GT: (enumeration -> musicalbumproductiontype)
+  [TP] PRED: (enumeration -> musicreleaseformattype)
+        matches GT: (enumeration -> musicreleaseformattype)
+  [TP] PRED: (enumeration -> pricecomponenttypeenumeration)
+        matches GT: (enumeration -> pricecomponenttypeenumeration)
+  [TP] PRED: (enumeration -> sizegroupenumeration)
+        matches GT: (enumeration -> sizegroupenumeration)
+  [TP] PRED: (enumeration -> wearablemeasurementtypeenumeration)
+        matches GT: (enumeration -> wearablemeasurementtypeenumeration)
+  [TP] PRED: (event -> festival)
+        matches GT: (event -> festival)
+  [TP] PRED: (foodestablishment -> bakery)
+        matches GT: (foodestablishment -> bakery)
+  [TP] PRED: (governmentbuilding -> embassy)
+        matches GT: (governmentbuilding -> embassy)
+  [TP] PRED: (healthandbeautybusiness -> beautysalon)
+        matches GT: (healthandbeautybusiness -> beautysalon)
+  [TP] PRED: (homeandconstructionbusiness -> plumber)
+        matches GT: (homeandconstructionbusiness -> plumber)
+  [TP] PRED: (imageobject -> imageobjectsnapshot)
+        matches GT: (imageobject -> imageobjectsnapshot)
+  [TP] PRED: (intangible -> memberprogram)
+        matches GT: (intangible -> memberprogram)
+  [TP] PRED: (intangible -> reservation)
+        matches GT: (intangible -> reservation)
+  [TP] PRED: (intangible -> seat)
+        matches GT: (intangible -> seat)
+  [TP] PRED: (intangible -> speakablespecification)
+        matches GT: (intangible -> speakablespecification)
+  [TP] PRED: (intangible -> ticket)
+        matches GT: (intangible -> ticket)
+  [TP] PRED: (listitem -> howtostep)
+        matches GT: (listitem -> howtostep)
+  [TP] PRED: (localbusiness -> automotivebusiness)
+        matches GT: (localbusiness -> automotivebusiness)
+  [TP] PRED: (localbusiness -> autowash)
+        matches GT: (localbusiness -> autowash)
+  [TP] PRED: (localbusiness -> bakery)
+        matches GT: (localbusiness -> bakery)
+  [TP] PRED: (localbusiness -> beautysalon)
+        matches GT: (localbusiness -> beautysalon)
+  [TP] PRED: (localbusiness -> entertainmentbusiness)
+        matches GT: (localbusiness -> entertainmentbusiness)
+  [TP] PRED: (localbusiness -> exercisegym)
+        matches GT: (localbusiness -> exercisegym)
+  [TP] PRED: (localbusiness -> foodestablishment)
+        matches GT: (localbusiness -> foodestablishment)
+  [TP] PRED: (localbusiness -> gasstation)
+        matches GT: (localbusiness -> gasstation)
+  [TP] PRED: (localbusiness -> healthandbeautybusiness)
+        matches GT: (localbusiness -> healthandbeautybusiness)
+  [TP] PRED: (localbusiness -> hotel)
+        matches GT: (localbusiness -> hotel)
+  [TP] PRED: (localbusiness -> legalservice)
+        matches GT: (localbusiness -> legalservice)
+  [TP] PRED: (localbusiness -> lodgingbusiness)
+        matches GT: (localbusiness -> lodgingbusiness)
+  [TP] PRED: (localbusiness -> medicalbusiness)
+        matches GT: (localbusiness -> medicalbusiness)
+  [TP] PRED: (localbusiness -> medicalclinic)
+        matches GT: (localbusiness -> medicalclinic)
+  [TP] PRED: (localbusiness -> motel)
+        matches GT: (localbusiness -> motel)
+  [TP] PRED: (localbusiness -> physiciansoffice)
+        matches GT: (localbusiness -> physiciansoffice)
+  [TP] PRED: (localbusiness -> resort)
+        matches GT: (localbusiness -> resort)
+  [TP] PRED: (localbusiness -> sportsactivitylocation)
+        matches GT: (localbusiness -> sportsactivitylocation)
+  [TP] PRED: (localbusiness -> tenniscomplex)
+        matches GT: (localbusiness -> tenniscomplex)
+  [TP] PRED: (lodgingbusiness -> hotel)
+        matches GT: (lodgingbusiness -> hotel)
+  [TP] PRED: (lodgingbusiness -> motel)
+        matches GT: (lodgingbusiness -> motel)
+  [TP] PRED: (lodgingbusiness -> resort)
+        matches GT: (lodgingbusiness -> resort)
+  [TP] PRED: (measurementtypeenumeration -> wearablemeasurementtypeenumeration)
+        matches GT: (measurementtypeenumeration -> wearablemeasurementtypeenumeration)
+  [TP] PRED: (medicalbusiness -> medicalclinic)
+        matches GT: (medicalbusiness -> medicalclinic)
+  [TP] PRED: (medicalbusiness -> physiciansoffice)
+        matches GT: (medicalbusiness -> physiciansoffice)
+  [TP] PRED: (medicalentity -> approvedindication)
+        matches GT: (medicalentity -> approvedindication)
+  [TP] PRED: (medicalentity -> doseschedule)
+        matches GT: (medicalentity -> doseschedule)
+  [TP] PRED: (medicalentity -> medicalcode)
+        matches GT: (medicalentity -> medicalcode)
+  [TP] PRED: (medicalentity -> medicalindication)
+        matches GT: (medicalentity -> medicalindication)
+  [TP] PRED: (medicalentity -> medicalintangible)
+        matches GT: (medicalentity -> medicalintangible)
+  [TP] PRED: (medicalentity -> medicalprocedure)
+        matches GT: (medicalentity -> medicalprocedure)
+  [TP] PRED: (medicalentity -> medicaltherapy)
+        matches GT: (medicalentity -> medicaltherapy)
+  [TP] PRED: (medicalentity -> occupationaltherapy)
+        matches GT: (medicalentity -> occupationaltherapy)
+  [TP] PRED: (medicalentity -> surgicalprocedure)
+        matches GT: (medicalentity -> surgicalprocedure)
+  [TP] PRED: (medicalentity -> therapeuticprocedure)
+        matches GT: (medicalentity -> therapeuticprocedure)
+  [TP] PRED: (medicalindication -> approvedindication)
+        matches GT: (medicalindication -> approvedindication)
+  [TP] PRED: (medicalorganization -> medicalclinic)
+        matches GT: (medicalorganization -> medicalclinic)
+  [TP] PRED: (medicalorganization -> physiciansoffice)
+        matches GT: (medicalorganization -> physiciansoffice)
+  [TP] PRED: (medicalprocedure -> surgicalprocedure)
+        matches GT: (medicalprocedure -> surgicalprocedure)
+  [TP] PRED: (medicalprocedure -> therapeuticprocedure)
+        matches GT: (medicalprocedure -> therapeuticprocedure)
+  [TP] PRED: (medicaltherapy -> occupationaltherapy)
+        matches GT: (medicaltherapy -> occupationaltherapy)
+  [TP] PRED: (offer -> aggregateoffer)
+        matches GT: (offer -> aggregateoffer)
+  [TP] PRED: (organization -> airline)
+        matches GT: (organization -> airline)
+  [TP] PRED: (organization -> automotivebusiness)
+        matches GT: (organization -> automotivebusiness)
+  [TP] PRED: (organization -> autowash)
+        matches GT: (organization -> autowash)
+  [TP] PRED: (organization -> bakery)
+        matches GT: (organization -> bakery)
+  [TP] PRED: (organization -> beautysalon)
+        matches GT: (organization -> beautysalon)
+  [TP] PRED: (organization -> educationalorganization)
+        matches GT: (organization -> educationalorganization)
+  [TP] PRED: (organization -> entertainmentbusiness)
+        matches GT: (organization -> entertainmentbusiness)
+  [TP] PRED: (organization -> exercisegym)
+        matches GT: (organization -> exercisegym)
+  [TP] PRED: (organization -> foodestablishment)
+        matches GT: (organization -> foodestablishment)
+  [TP] PRED: (organization -> fundingagency)
+        matches GT: (organization -> fundingagency)
+  [TP] PRED: (organization -> gasstation)
+        matches GT: (organization -> gasstation)
+  [TP] PRED: (organization -> governmentoffice)
+        matches GT: (organization -> governmentoffice)
+  [TP] PRED: (organization -> healthandbeautybusiness)
+        matches GT: (organization -> healthandbeautybusiness)
+  [TP] PRED: (organization -> highschool)
+        matches GT: (organization -> highschool)
+  [TP] PRED: (organization -> hotel)
+        matches GT: (organization -> hotel)
+  [TP] PRED: (organization -> legalservice)
+        matches GT: (organization -> legalservice)
+  [TP] PRED: (organization -> localbusiness)
+        matches GT: (organization -> localbusiness)
+  [TP] PRED: (organization -> lodgingbusiness)
+        matches GT: (organization -> lodgingbusiness)
+  [TP] PRED: (organization -> medicalbusiness)
+        matches GT: (organization -> medicalbusiness)
+  [TP] PRED: (organization -> medicalclinic)
+        matches GT: (organization -> medicalclinic)
+  [TP] PRED: (organization -> medicalorganization)
+        matches GT: (organization -> medicalorganization)
+  [TP] PRED: (organization -> motel)
+        matches GT: (organization -> motel)
+  [TP] PRED: (organization -> onlinebusiness)
+        matches GT: (organization -> onlinebusiness)
+  [TP] PRED: (organization -> pharmacy)
+        matches GT: (organization -> pharmacy)
+  [TP] PRED: (organization -> physiciansoffice)
+        matches GT: (organization -> physiciansoffice)
+  [TP] PRED: (organization -> researchorganization)
+        matches GT: (organization -> researchorganization)
+  [TP] PRED: (organization -> resort)
+        matches GT: (organization -> resort)
+  [TP] PRED: (organization -> sportsactivitylocation)
+        matches GT: (organization -> sportsactivitylocation)
+  [TP] PRED: (organization -> televisionstation)
+        matches GT: (organization -> televisionstation)
+  [TP] PRED: (organization -> tenniscomplex)
+        matches GT: (organization -> tenniscomplex)
+  [TP] PRED: (paymentmethod -> paymentservice)
+        matches GT: (paymentmethod -> paymentservice)
+  [TP] PRED: (physician -> individualphysician)
+        matches GT: (physician -> individualphysician)
+  [TP] PRED: (place -> automotivebusiness)
+        matches GT: (place -> automotivebusiness)
+  [TP] PRED: (place -> autowash)
+        matches GT: (place -> autowash)
+  [TP] PRED: (place -> bakery)
+        matches GT: (place -> bakery)
+  [TP] PRED: (place -> beautysalon)
+        matches GT: (place -> beautysalon)
+  [TP] PRED: (place -> emergencyservice)
+        matches GT: (place -> emergencyservice)
+  [TP] PRED: (place -> entertainmentbusiness)
+        matches GT: (place -> entertainmentbusiness)
+  [TP] PRED: (place -> exercisegym)
+        matches GT: (place -> exercisegym)
+  [TP] PRED: (place -> foodestablishment)
+        matches GT: (place -> foodestablishment)
+  [TP] PRED: (place -> gasstation)
+        matches GT: (place -> gasstation)
+  [TP] PRED: (place -> governmentoffice)
+        matches GT: (place -> governmentoffice)
+  [TP] PRED: (place -> healthandbeautybusiness)
+        matches GT: (place -> healthandbeautybusiness)
+  [TP] PRED: (place -> hotel)
+        matches GT: (place -> hotel)
+  [TP] PRED: (place -> legalservice)
+        matches GT: (place -> legalservice)
+  [TP] PRED: (place -> localbusiness)
+        matches GT: (place -> localbusiness)
+  [TP] PRED: (place -> lodgingbusiness)
+        matches GT: (place -> lodgingbusiness)
+  [TP] PRED: (place -> medicalbusiness)
+        matches GT: (place -> medicalbusiness)
+  [TP] PRED: (place -> medicalclinic)
+        matches GT: (place -> medicalclinic)
+  [TP] PRED: (place -> motel)
+        matches GT: (place -> motel)
+  [TP] PRED: (place -> physiciansoffice)
+        matches GT: (place -> physiciansoffice)
+  [TP] PRED: (place -> resort)
+        matches GT: (place -> resort)
+  [TP] PRED: (place -> sportsactivitylocation)
+        matches GT: (place -> sportsactivitylocation)
+  [TP] PRED: (place -> tenniscomplex)
+        matches GT: (place -> tenniscomplex)
+  [TP] PRED: (role -> organizationrole)
+        matches GT: (role -> organizationrole)
+  [TP] PRED: (series -> creativeworkseries)
+        matches GT: (series -> creativeworkseries)
+  [TP] PRED: (series -> movieseries)
+        matches GT: (series -> movieseries)
+  [TP] PRED: (series -> radioseries)
+        matches GT: (series -> radioseries)
+  [TP] PRED: (series -> tvseries)
+        matches GT: (series -> tvseries)
+  [TP] PRED: (service -> broadcastservice)
+        matches GT: (service -> broadcastservice)
+  [TP] PRED: (service -> radiobroadcastservice)
+        matches GT: (service -> radiobroadcastservice)
+  [TP] PRED: (service -> taxiservice)
+        matches GT: (service -> taxiservice)
+  [TP] PRED: (sportsactivitylocation -> exercisegym)
+        matches GT: (sportsactivitylocation -> exercisegym)
+  [TP] PRED: (sportsactivitylocation -> tenniscomplex)
+        matches GT: (sportsactivitylocation -> tenniscomplex)
+  [TP] PRED: (store -> liquorstore)
+        matches GT: (store -> liquorstore)
+  [TP] PRED: (vehicle -> busorcoach)
+        matches GT: (vehicle -> busorcoach)
+  [TP] PRED: (videoobject -> videoobjectsnapshot)
+        matches GT: (videoobject -> videoobjectsnapshot)
+  [TP] PRED: (visualartwork -> coverart)
+        matches GT: (visualartwork -> coverart)
+
+INCORRECT PREDICTIONS (False Positives: 166):
+  [FP] accommodation -> hotel
+  [FP] accommodation -> motel
+  [FP] accommodation -> resort
+  [FP] action -> assessaction
+  [FP] action -> checkinaction
+  [FP] action -> chooseaction
+  [FP] action -> communicateaction
+  [FP] action -> interactaction
+  [FP] action -> likeaction
+  [FP] action -> reactaction
+  [FP] action -> reviewaction
+  [FP] broadcastservice -> radiochannel
+  [FP] broadcastservice -> televisionstation
+  [FP] civicstructure -> embassy
+  [FP] civicstructure -> governmentbuilding
+  [FP] civicstructure -> governmentoffice
+  [FP] collection (collection, itemlist) -> invoice
+  [FP] collection (collection, itemlist) -> listitem
+  [FP] creativework -> clip
+  [FP] creativework -> comicseries
+  [FP] creativework -> creativeworkseason
+  [FP] creativework -> game
+  [FP] creativework -> howtotip
+  [FP] creativework -> imageobject
+  [FP] creativework -> imageobjectsnapshot
+  [FP] creativework -> movieclip
+  [FP] creativework -> periodical
+  [FP] creativework -> podcastseason
+  [FP] creativework -> project
+  [FP] creativework -> review
+  [FP] creativework -> videoobject
+  [FP] creativework -> videoobjectsnapshot
+  [FP] creativeworkseries -> comicseries
+  [FP] creativeworkseries -> creativeworkseason
+  [FP] creativeworkseries -> podcastseason
+  [FP] creativeworkseries -> tvseason
+  [FP] datatype -> adultorientedenumeration
+  [FP] datatype -> boardingpolicytype
+  [FP] datatype -> certificationstatusenumeration
+  [FP] datatype -> drugcostcategory
+  [FP] datatype -> enumeration
+  [FP] datatype -> governmentbenefitstype
+  [FP] datatype -> itemlistordertype
+  [FP] datatype -> measurementmethodenum
+  [FP] datatype -> measurementtypeenumeration
+  [FP] datatype -> medicalcode
+  [FP] datatype -> medicalenumeration
+  [FP] datatype -> musicalbumproductiontype
+  [FP] datatype -> musicreleaseformattype
+  [FP] datatype -> pricecomponenttypeenumeration
+  [FP] datatype -> sizegroupenumeration
+  [FP] datatype -> sizesystemenumeration
+  [FP] datatype -> wearablemeasurementtypeenumeration
+  [FP] educationalorganization -> researchorganization
+  [FP] enumeration -> medicalcode
+  [FP] enumeration -> sizesystemenumeration
+  [FP] governmentbuilding -> governmentoffice
+  [FP] governmentoffice -> embassy
+  [FP] hotel -> motel
+  [FP] hotel -> resort
+  [FP] imageobject -> coverart
+  [FP] imageobject -> videoobjectsnapshot
+  [FP] intangible -> aggregateoffer
+  [FP] intangible -> event
+  [FP] intangible -> festival
+  [FP] intangible -> financialproduct
+  [FP] intangible -> medicalintangible
+  [FP] intangible -> medicalprocedure
+  [FP] intangible -> medicaltrialdesign
+  [FP] intangible -> offer
+  [FP] intangible -> product
+  [FP] intangible -> quantity
+  [FP] intangible -> surgicalprocedure
+  [FP] intangible -> therapeuticprocedure
+  [FP] localbusiness -> aquarium
+  [FP] localbusiness -> electrician
+  [FP] localbusiness -> homeandconstructionbusiness
+  [FP] localbusiness -> liquorstore
+  [FP] localbusiness -> onlinebusiness
+  [FP] localbusiness -> pharmacy
+  [FP] localbusiness -> plumber
+  [FP] localbusiness -> store
+  [FP] localbusiness -> taxiservice
+  [FP] localbusiness -> zoo
+  [FP] medicalbusiness -> pharmacy
+  [FP] medicalclinic -> physiciansoffice
+  [FP] medicalentity -> certificationstatusenumeration
+  [FP] medicalentity -> individualphysician
+  [FP] medicalentity -> infectiousagentclass
+  [FP] medicalentity -> medicalbusiness
+  [FP] medicalentity -> medicalclinic
+  [FP] medicalentity -> medicalcondition
+  [FP] medicalentity -> medicalenumeration
+  [FP] medicalentity -> medicalorganization
+  [FP] medicalentity -> medicalsign
+  [FP] medicalentity -> medicaltrialdesign
+  [FP] medicalentity -> medicinesystem
+  [FP] medicalentity -> observation
+  [FP] medicalentity -> pharmacy
+  [FP] medicalentity -> physicalactivitycategory
+  [FP] medicalentity -> physician
+  [FP] medicalentity -> physiciansoffice
+  [FP] medicalenumeration -> certificationstatusenumeration
+  [FP] medicalenumeration -> medicalcode
+  [FP] medicalintangible -> medicalprocedure
+  [FP] medicalintangible -> medicaltrialdesign
+  [FP] medicalintangible -> surgicalprocedure
+  [FP] medicalintangible -> therapeuticprocedure
+  [FP] medicalprocedure -> medicaltrialdesign
+  [FP] organization -> aquarium
+  [FP] organization -> broadcastservice
+  [FP] organization -> electrician
+  [FP] organization -> embassy
+  [FP] organization -> homeandconstructionbusiness
+  [FP] organization -> liquorstore
+  [FP] organization -> plumber
+  [FP] organization -> radiobroadcastservice
+  [FP] organization -> radiochannel
+  [FP] organization -> store
+  [FP] organization -> taxiservice
+  [FP] organization -> zoo
+  [FP] periodical -> publicationissue
+  [FP] place -> accommodation
+  [FP] place -> administrativearea
+  [FP] place -> apartment
+  [FP] place -> aquarium
+  [FP] place -> civicstructure
+  [FP] place -> electrician
+  [FP] place -> embassy
+  [FP] place -> governmentbuilding
+  [FP] place -> highschool
+  [FP] place -> homeandconstructionbusiness
+  [FP] place -> liquorstore
+  [FP] place -> medicalorganization
+  [FP] place -> onlinebusiness
+  [FP] place -> pharmacy
+  [FP] place -> plumber
+  [FP] place -> room
+  [FP] place -> store
+  [FP] place -> suite
+  [FP] place -> taxiservice
+  [FP] place -> trainstation
+  [FP] place -> zoo
+  [FP] product -> financialproduct
+  [FP] product -> seat
+  [FP] role -> individualphysician
+  [FP] role -> physician
+  [FP] role -> researcher
+  [FP] room -> suite
+  [FP] series -> comicseries
+  [FP] series -> creativeworkseason
+  [FP] series -> podcastseason
+  [FP] series -> tvseason
+  [FP] service -> emergencyservice
+  [FP] service -> legalservice
+  [FP] service -> paymentservice
+  [FP] service -> radiochannel
+  [FP] service -> televisionstation
+  [FP] store -> bakery
+  [FP] store -> gasstation
+  [FP] store -> pharmacy
+  [FP] therapeuticprocedure -> surgicalprocedure
+  [FP] videoobject -> clip
+  [FP] videoobject -> movieclip
+  [FP] visualartwork -> painting
+  [FP] visualartwork -> sculpture
+
+MISSED RELATIONS (False Negatives: 103):
+  [FN] accommodation -> room
+  [FN] accommodation -> suite
+  [FN] achieveaction -> tieaction
+  [FN] achieveaction -> winaction
+  [FN] allocateaction -> assignaction
+  [FN] allocateaction -> authorizeaction
+  [FN] article -> socialmediaposting
+  [FN] assessaction -> chooseaction
+  [FN] assessaction -> likeaction
+  [FN] assessaction -> reactaction
+  [FN] assessaction -> reviewaction
+  [FN] audience -> researcher
+  [FN] civicstructure -> aquarium
+  [FN] civicstructure -> educationalorganization
+  [FN] civicstructure -> highschool
+  [FN] civicstructure -> zoo
+  [FN] communicateaction -> checkinaction
+  [FN] consumeaction -> eataction
+  [FN] consumeaction -> installaction
+  [FN] createaction -> cookaction
+  [FN] createaction -> drawaction
+  [FN] creativework -> collection
+  [FN] creativework -> howtostep
+  [FN] datatype -> time
+  [FN] enumeration -> infectiousagentclass
+  [FN] enumeration -> medicaltrialdesign
+  [FN] enumeration -> medicinesystem
+  [FN] enumeration -> physicalactivitycategory
+  [FN] findaction -> checkaction
+  [FN] findaction -> discoveraction
+  [FN] findaction -> trackaction
+  [FN] homeandconstructionbusiness -> electrician
+  [FN] imageobject -> barcode
+  [FN] intangible -> audience
+  [FN] intangible -> broadcastservice
+  [FN] intangible -> businessaudience
+  [FN] intangible -> constraintnode
+  [FN] intangible -> creativeworkseries
+  [FN] intangible -> educationalaudience
+  [FN] intangible -> entrypoint
+  [FN] intangible -> howtostep
+  [FN] intangible -> howtotip
+  [FN] intangible -> invoice
+  [FN] intangible -> listitem
+  [FN] intangible -> movieseries
+  [FN] intangible -> observation
+  [FN] intangible -> peopleaudience
+  [FN] intangible -> radiobroadcastservice
+  [FN] intangible -> radioseries
+  [FN] intangible -> researcher
+  [FN] intangible -> series
+  [FN] intangible -> service
+  [FN] intangible -> taxiservice
+  [FN] intangible -> tvseries
+  [FN] interactaction -> checkinaction
+  [FN] interactaction -> communicateaction
+  [FN] listitem -> howtotip
+  [FN] localbusiness -> emergencyservice
+  [FN] localbusiness -> governmentoffice
+  [FN] localbusiness -> individualphysician
+  [FN] localbusiness -> physician
+  [FN] localbusiness -> televisionstation
+  [FN] medicalbusiness -> individualphysician
+  [FN] medicalbusiness -> physician
+  [FN] medicalenumeration -> drugcostcategory
+  [FN] medicalenumeration -> infectiousagentclass
+  [FN] medicalenumeration -> medicaltrialdesign
+  [FN] medicalenumeration -> medicinesystem
+  [FN] medicalintangible -> doseschedule
+  [FN] medicalintangible -> medicalcode
+  [FN] medicalorganization -> individualphysician
+  [FN] medicalorganization -> pharmacy
+  [FN] medicalorganization -> physician
+  [FN] medicalprocedure -> medicaltherapy
+  [FN] medicalprocedure -> occupationaltherapy
+  [FN] organization -> emergencyservice
+  [FN] organization -> fundingscheme
+  [FN] organization -> individualphysician
+  [FN] organization -> physician
+  [FN] organization -> project
+  [FN] organizeaction -> allocateaction
+  [FN] organizeaction -> applyaction
+  [FN] organizeaction -> assignaction
+  [FN] organizeaction -> authorizeaction
+  [FN] organizeaction -> bookmarkaction
+  [FN] periodical -> comicseries
+  [FN] physician -> physiciansoffice
+  [FN] place -> individualphysician
+  [FN] place -> physician
+  [FN] place -> televisionstation
+  [FN] playaction -> performaction
+  [FN] product -> busorcoach
+  [FN] product -> vehicle
+  [FN] project -> fundingagency
+  [FN] quantity -> energy
+  [FN] reactaction -> likeaction
+  [FN] review -> recommendation
+  [FN] socialmediaposting -> blogposting
+  [FN] therapeuticprocedure -> medicaltherapy
+  [FN] therapeuticprocedure -> occupationaltherapy
+  [FN] transferaction -> borrowaction
+  [FN] transferaction -> giveaction
+  [FN] transferaction -> takeaction

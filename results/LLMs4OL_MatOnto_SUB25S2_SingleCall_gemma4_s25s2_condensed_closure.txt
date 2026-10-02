@@ -1,0 +1,131 @@
+==================================================
+=== Detailed Node Pair Analysis (Condensed Transitive Closure) ===
+Match Type Used: SET_OVERLAP
+==================================================
+Precision: 0.8889 | Recall: 0.7273 | F1: 0.8000
+
+CORRECT PREDICTIONS (True Positives: 48 Pred edges covering 48 GT edges):
+  [TP] PRED: (atom -> bismuth atom)
+        matches GT: (atom -> bismuth atom)
+  [TP] PRED: (atom -> hassium atom)
+        matches GT: (atom -> hassium atom)
+  [TP] PRED: (atom -> radon atom)
+        matches GT: (atom -> radon atom)
+  [TP] PRED: (atom -> xenon atom)
+        matches GT: (atom -> xenon atom)
+  [TP] PRED: (chemical phase -> strange matter phase)
+        matches GT: (chemical phase -> strange matter phase)
+  [TP] PRED: (chemical phase -> uncommon chemical phase)
+        matches GT: (chemical phase -> uncommon chemical phase)
+  [TP] PRED: (continuant -> atom)
+        matches GT: (continuant -> atom)
+  [TP] PRED: (continuant -> bismuth atom)
+        matches GT: (continuant -> bismuth atom)
+  [TP] PRED: (continuant -> dependent_continuant)
+        matches GT: (continuant -> dependent_continuant)
+  [TP] PRED: (continuant -> hassium atom)
+        matches GT: (continuant -> hassium atom)
+  [TP] PRED: (continuant -> independent_continuant)
+        matches GT: (continuant -> independent_continuant)
+  [TP] PRED: (continuant -> measured property)
+        matches GT: (continuant -> measured property)
+  [TP] PRED: (continuant -> molecularquality)
+        matches GT: (continuant -> molecularquality)
+  [TP] PRED: (continuant -> moleculecomponentcount)
+        matches GT: (continuant -> moleculecomponentcount)
+  [TP] PRED: (continuant -> object)
+        matches GT: (continuant -> object)
+  [TP] PRED: (continuant -> permittivity)
+        matches GT: (continuant -> permittivity)
+  [TP] PRED: (continuant -> quality)
+        matches GT: (continuant -> quality)
+  [TP] PRED: (continuant -> radon atom)
+        matches GT: (continuant -> radon atom)
+  [TP] PRED: (continuant -> ultimate tensile strength)
+        matches GT: (continuant -> ultimate tensile strength)
+  [TP] PRED: (continuant -> undefined stereo bond count)
+        matches GT: (continuant -> undefined stereo bond count)
+  [TP] PRED: (continuant -> xenon atom)
+        matches GT: (continuant -> xenon atom)
+  [TP] PRED: (dependent_continuant -> measured property)
+        matches GT: (dependent_continuant -> measured property)
+  [TP] PRED: (dependent_continuant -> molecularquality)
+        matches GT: (dependent_continuant -> molecularquality)
+  [TP] PRED: (dependent_continuant -> moleculecomponentcount)
+        matches GT: (dependent_continuant -> moleculecomponentcount)
+  [TP] PRED: (dependent_continuant -> permittivity)
+        matches GT: (dependent_continuant -> permittivity)
+  [TP] PRED: (dependent_continuant -> quality)
+        matches GT: (dependent_continuant -> quality)
+  [TP] PRED: (dependent_continuant -> ultimate tensile strength)
+        matches GT: (dependent_continuant -> ultimate tensile strength)
+  [TP] PRED: (dependent_continuant -> undefined stereo bond count)
+        matches GT: (dependent_continuant -> undefined stereo bond count)
+  [TP] PRED: (independent_continuant -> atom)
+        matches GT: (independent_continuant -> atom)
+  [TP] PRED: (independent_continuant -> bismuth atom)
+        matches GT: (independent_continuant -> bismuth atom)
+  [TP] PRED: (independent_continuant -> hassium atom)
+        matches GT: (independent_continuant -> hassium atom)
+  [TP] PRED: (independent_continuant -> object)
+        matches GT: (independent_continuant -> object)
+  [TP] PRED: (independent_continuant -> radon atom)
+        matches GT: (independent_continuant -> radon atom)
+  [TP] PRED: (independent_continuant -> xenon atom)
+        matches GT: (independent_continuant -> xenon atom)
+  [TP] PRED: (measured property -> permittivity)
+        matches GT: (measured property -> permittivity)
+  [TP] PRED: (measured property -> ultimate tensile strength)
+        matches GT: (measured property -> ultimate tensile strength)
+  [TP] PRED: (object -> atom)
+        matches GT: (object -> atom)
+  [TP] PRED: (object -> bismuth atom)
+        matches GT: (object -> bismuth atom)
+  [TP] PRED: (object -> hassium atom)
+        matches GT: (object -> hassium atom)
+  [TP] PRED: (object -> radon atom)
+        matches GT: (object -> radon atom)
+  [TP] PRED: (object -> xenon atom)
+        matches GT: (object -> xenon atom)
+  [TP] PRED: (organic group -> aryl)
+        matches GT: (organic group -> aryl)
+  [TP] PRED: (quality -> measured property)
+        matches GT: (quality -> measured property)
+  [TP] PRED: (quality -> molecularquality)
+        matches GT: (quality -> molecularquality)
+  [TP] PRED: (quality -> permittivity)
+        matches GT: (quality -> permittivity)
+  [TP] PRED: (quality -> ultimate tensile strength)
+        matches GT: (quality -> ultimate tensile strength)
+  [TP] PRED: (uncommon chemical phase -> strange matter phase)
+        matches GT: (uncommon chemical phase -> strange matter phase)
+  [TP] PRED: (unit -> molar energy unit)
+        matches GT: (unit -> molar energy unit)
+
+INCORRECT PREDICTIONS (False Positives: 6):
+  [FP] carbon group -> aryl
+  [FP] carbon group -> organic group
+  [FP] continuant -> hardness range
+  [FP] dependent_continuant -> hardness range
+  [FP] measured property -> hardness range
+  [FP] quality -> hardness range
+
+MISSED RELATIONS (False Negatives: 18):
+  [FN] continuant -> aryl
+  [FN] continuant -> carbon group
+  [FN] continuant -> organic group
+  [FN] independent_continuant -> aryl
+  [FN] independent_continuant -> carbon group
+  [FN] independent_continuant -> organic group
+  [FN] measured property -> molecularquality
+  [FN] measured property -> moleculecomponentcount
+  [FN] measured property -> undefined stereo bond count
+  [FN] molecularquality -> moleculecomponentcount
+  [FN] molecularquality -> undefined stereo bond count
+  [FN] moleculecomponentcount -> undefined stereo bond count
+  [FN] object -> aryl
+  [FN] object -> carbon group
+  [FN] object -> organic group
+  [FN] organic group -> carbon group
+  [FN] quality -> moleculecomponentcount
+  [FN] quality -> undefined stereo bond count

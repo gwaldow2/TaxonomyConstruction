@@ -1,0 +1,64 @@
+==================================================
+=== Detailed Node Pair Analysis (Exploded Raw Edges) ===
+Match Type Used: EXACT
+==================================================
+Precision: 0.3404 | Recall: 0.7273 | F1: 0.4638
+
+CORRECT PREDICTIONS (True Positives: 16 Pred edges covering 16 GT edges):
+  [TP] action -> consumeaction
+  [TP] action -> organizeaction
+  [TP] foodestablishment -> fastfoodrestaurant
+  [TP] homeandconstructionbusiness -> electrician
+  [TP] listitem -> howtoitem
+  [TP] localbusiness -> foodestablishment
+  [TP] localbusiness -> medicalbusiness
+  [TP] medicalentity -> medicalprocedure
+  [TP] medicalprocedure -> palliativeprocedure
+  [TP] medicalprocedure -> therapeuticprocedure
+  [TP] medicaltherapy -> palliativeprocedure
+  [TP] organization -> localbusiness
+  [TP] organization -> medicalorganization
+  [TP] periodical -> comicseries
+  [TP] physician -> individualphysician
+  [TP] place -> localbusiness
+
+INCORRECT PREDICTIONS (False Positives: 31):
+  [FP] action -> bookmarkaction
+  [FP] action -> medicalprocedure
+  [FP] action -> medicaltherapy
+  [FP] action -> therapeuticprocedure
+  [FP] action -> watchaction
+  [FP] intangible -> howtoitem
+  [FP] localbusiness -> electrician
+  [FP] localbusiness -> fastfoodrestaurant
+  [FP] localbusiness -> homeandconstructionbusiness
+  [FP] localbusiness -> medicalorganization
+  [FP] medicalentity -> individualphysician
+  [FP] medicalentity -> medicalbusiness
+  [FP] medicalentity -> medicalorganization
+  [FP] medicalentity -> medicaltherapy
+  [FP] medicalentity -> palliativeprocedure
+  [FP] medicalentity -> physician
+  [FP] medicalentity -> therapeuticprocedure
+  [FP] medicalorganization -> medicalbusiness
+  [FP] medicalprocedure -> medicaltherapy
+  [FP] medicaltherapy -> medicalprocedure
+  [FP] medicaltherapy -> therapeuticprocedure
+  [FP] organization -> fastfoodrestaurant
+  [FP] organization -> foodestablishment
+  [FP] organization -> homeandconstructionbusiness
+  [FP] organization -> medicalbusiness
+  [FP] place -> fastfoodrestaurant
+  [FP] place -> foodestablishment
+  [FP] place -> homeandconstructionbusiness
+  [FP] place -> medicalbusiness
+  [FP] place -> medicalorganization
+  [FP] therapeuticprocedure -> palliativeprocedure
+
+MISSED RELATIONS (False Negatives: 6):
+  [FN] consumeaction -> watchaction
+  [FN] intangible -> listitem
+  [FN] medicalbusiness -> physician
+  [FN] medicalorganization -> physician
+  [FN] organizeaction -> bookmarkaction
+  [FN] therapeuticprocedure -> medicaltherapy

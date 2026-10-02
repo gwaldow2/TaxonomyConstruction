@@ -1,0 +1,79 @@
+==================================================
+=== Detailed Node Pair Analysis (Condensed Transitive Reduction) ===
+Match Type Used: SET_OVERLAP
+==================================================
+Precision: 0.7667 | Recall: 0.6053 | F1: 0.6765
+
+CORRECT PREDICTIONS (True Positives: 23 Pred edges covering 23 GT edges):
+  [TP] PRED: (blood vessel endothelial cell -> endothelial cell of artery)
+        matches GT: (blood vessel endothelial cell -> endothelial cell of artery)
+  [TP] PRED: (cell (cell, electrically active cell, electrically responsive cell, electrically signaling cell, eukaryotic cell) -> connective tissue cell (connective tissue cell, stromal cell))
+        matches GT: (eukaryotic cell -> connective tissue cell)
+  [TP] PRED: (cell (cell, electrically active cell, electrically responsive cell, electrically signaling cell, eukaryotic cell) -> endothelial cell)
+        matches GT: (eukaryotic cell -> endothelial cell)
+  [TP] PRED: (cell (cell, electrically active cell, electrically responsive cell, electrically signaling cell, eukaryotic cell) -> neural cell)
+        matches GT: (eukaryotic cell -> neural cell)
+  [TP] PRED: (cell (cell, electrically active cell, electrically responsive cell, electrically signaling cell, eukaryotic cell) -> precursor cell)
+        matches GT: (cell -> precursor cell)
+  [TP] PRED: (cell (cell, electrically active cell, electrically responsive cell, electrically signaling cell, eukaryotic cell) -> secretory cell)
+        matches GT: (cell -> secretory cell)
+  [TP] PRED: (cell (cell, electrically active cell, electrically responsive cell, electrically signaling cell, eukaryotic cell) -> stuff accumulating cell)
+        matches GT: (cell -> stuff accumulating cell)
+  [TP] PRED: (central nervous system neuron -> interneuron)
+        matches GT: (central nervous system neuron -> interneuron)
+  [TP] PRED: (connective tissue cell (connective tissue cell, stromal cell) -> fibroblast)
+        matches GT: (stromal cell -> fibroblast)
+  [TP] PRED: (endothelial cell -> endothelial cell of vascular tree)
+        matches GT: (endothelial cell -> endothelial cell of vascular tree)
+  [TP] PRED: (endothelial cell of vascular tree -> blood vessel endothelial cell)
+        matches GT: (endothelial cell of vascular tree -> blood vessel endothelial cell)
+  [TP] PRED: (fibroblast -> perichondrial fibroblast)
+        matches GT: (fibroblast -> perichondrial fibroblast)
+  [TP] PRED: (gabaergic interneuron -> sn-vtr-hth gata3-tcf7l2 gaba gabaergic interneuron primate)
+        matches GT: (gabaergic interneuron -> sn-vtr-hth gata3-tcf7l2 gaba gabaergic interneuron primate)
+  [TP] PRED: (inhibitory interneuron -> gabaergic interneuron)
+        matches GT: (inhibitory interneuron -> gabaergic interneuron)
+  [TP] PRED: (interneuron -> inhibitory interneuron)
+        matches GT: (interneuron -> inhibitory interneuron)
+  [TP] PRED: (neural cell -> neuron)
+        matches GT: (neural cell -> neuron)
+  [TP] PRED: (neuron -> central nervous system neuron)
+        matches GT: (neuron -> central nervous system neuron)
+  [TP] PRED: (osteoblast -> non-terminally differentiated osteoblast)
+        matches GT: (osteoblast -> non-terminally differentiated osteoblast)
+  [TP] PRED: (pigment cell -> leucophore)
+        matches GT: (pigment cell -> leucophore)
+  [TP] PRED: (pigment cell -> xanthophore cell)
+        matches GT: (pigment cell -> xanthophore cell)
+  [TP] PRED: (precursor cell -> progenitor cell)
+        matches GT: (precursor cell -> progenitor cell)
+  [TP] PRED: (progenitor cell -> non-terminally differentiated osteoblast)
+        matches GT: (progenitor cell -> non-terminally differentiated osteoblast)
+  [TP] PRED: (secretory cell -> gabaergic neuron)
+        matches GT: (secretory cell -> gabaergic neuron)
+
+INCORRECT PREDICTIONS (False Positives: 7):
+  [FP] bone cell -> osteoblast
+  [FP] cell (cell, electrically active cell, electrically responsive cell, electrically signaling cell, eukaryotic cell) -> pigment cell
+  [FP] central nervous system neuron -> gabaergic neuron
+  [FP] connective tissue cell (connective tissue cell, stromal cell) -> bone cell
+  [FP] gabaergic neuron -> inhibitory interneuron
+  [FP] secretory cell -> osteoblast
+  [FP] secretory cell -> xanthophore cell
+
+MISSED RELATIONS (False Negatives: 15):
+  [FN] bone cell -> non-terminally differentiated osteoblast
+  [FN] cell -> electrically active cell
+  [FN] cell -> eukaryotic cell
+  [FN] connective tissue cell -> osteoblast
+  [FN] connective tissue cell -> stromal cell
+  [FN] electrically active cell -> electrically responsive cell
+  [FN] electrically active cell -> electrically signaling cell
+  [FN] electrically responsive cell -> neuron
+  [FN] electrically signaling cell -> neuron
+  [FN] eukaryotic cell -> bone cell
+  [FN] eukaryotic cell -> leucophore
+  [FN] eukaryotic cell -> xanthophore cell
+  [FN] gabaergic neuron -> gabaergic interneuron
+  [FN] neuron -> gabaergic neuron
+  [FN] stuff accumulating cell -> pigment cell

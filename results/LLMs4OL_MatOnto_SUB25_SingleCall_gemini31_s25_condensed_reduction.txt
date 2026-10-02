@@ -1,0 +1,53 @@
+==================================================
+=== Detailed Node Pair Analysis (Condensed Transitive Reduction) ===
+Match Type Used: SET_OVERLAP
+==================================================
+Precision: 0.7273 | Recall: 0.8000 | F1: 0.7619
+
+CORRECT PREDICTIONS (True Positives: 16 Pred edges covering 16 GT edges):
+  [TP] PRED: (carbon allotrope -> chaoite)
+        matches GT: (carbon allotrope -> chaoite)
+  [TP] PRED: (continuant -> dependent_continuant)
+        matches GT: (continuant -> dependent_continuant)
+  [TP] PRED: (dependent_continuant -> quality)
+        matches GT: (dependent_continuant -> quality)
+  [TP] PRED: (element -> magnesium)
+        matches GT: (element -> magnesium)
+  [TP] PRED: (element -> molybdenum)
+        matches GT: (element -> molybdenum)
+  [TP] PRED: (element -> scandium)
+        matches GT: (element -> scandium)
+  [TP] PRED: (measured property -> concentration)
+        matches GT: (measured property -> concentration)
+  [TP] PRED: (measured property -> count)
+        matches GT: (measured property -> count)
+  [TP] PRED: (measured property -> density)
+        matches GT: (measured property -> density)
+  [TP] PRED: (quality -> chemical quality)
+        matches GT: (quality -> chemical quality)
+  [TP] PRED: (quality -> measured property)
+        matches GT: (quality -> measured property)
+  [TP] PRED: (radiation unit -> dose equivalent unit)
+        matches GT: (radiation unit -> dose equivalent unit)
+  [TP] PRED: (scaled unit -> peta scaled unit)
+        matches GT: (scaled unit -> peta scaled unit)
+  [TP] PRED: (scaled unit -> zepto scaled unit)
+        matches GT: (scaled unit -> zepto scaled unit)
+  [TP] PRED: (unit -> derivedunit)
+        matches GT: (unit -> derivedunit)
+  [TP] PRED: (unit -> molecular mass unit)
+        matches GT: (unit -> molecular mass unit)
+
+INCORRECT PREDICTIONS (False Positives: 6):
+  [FP] chemical class -> carbon allotrope
+  [FP] chemical class -> element
+  [FP] derivedunit -> conduction unit
+  [FP] derivedunit -> radiation unit
+  [FP] measured property -> hardness range
+  [FP] unit -> scaled unit
+
+MISSED RELATIONS (False Negatives: 4):
+  [FN] chemical quality -> chemical class
+  [FN] derivedunit -> scaled unit
+  [FN] unit -> conduction unit
+  [FN] unit -> radiation unit

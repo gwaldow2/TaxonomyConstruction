@@ -1,0 +1,88 @@
+==================================================
+=== Detailed Node Pair Analysis (Exploded Raw Edges) ===
+Match Type Used: EXACT
+==================================================
+Precision: 0.2763 | Recall: 0.9545 | F1: 0.4286
+
+CORRECT PREDICTIONS (True Positives: 21 Pred edges covering 21 GT edges):
+  [TP] assay -> carboxyfluorescein succinimidyl ester staining assay
+  [TP] assay -> insecticide resistance assay
+  [TP] assay -> organism detection assay
+  [TP] assay array -> microarray
+  [TP] carboxyfluorescein succinimidyl ester staining assay -> carboxyfluorescein succinimidyl ester staining assay measuring epitope specific proliferation of t cells
+  [TP] clinical history -> family clinical history of cancer
+  [TP] continuant -> independent continuant
+  [TP] device -> assay array
+  [TP] device -> material separation device
+  [TP] dna microarray -> affymetrix rhesus macaque genome array
+  [TP] family clinical history of cancer -> brother clinical history of cancer
+  [TP] function -> connection function
+  [TP] independent continuant -> material entity
+  [TP] insecticide resistance assay -> insecticide resistance by detecting enzyme activity assay
+  [TP] insecticide resistance by detecting enzyme activity assay -> insecticide resistance by detecting glutathione s-transferase activity assay
+  [TP] material entity -> processed material
+  [TP] material separation device -> filter paper
+  [TP] microarray -> dna microarray
+  [TP] organism detection assay -> parasite detection assay
+  [TP] organization -> organization of specimen collector
+  [TP] planned process -> assay
+
+INCORRECT PREDICTIONS (False Positives: 55):
+  [FP] assay -> affymetrix rhesus macaque genome array
+  [FP] assay -> assay array
+  [FP] assay -> carboxyfluorescein succinimidyl ester staining assay measuring epitope specific proliferation of t cells
+  [FP] assay -> dna microarray
+  [FP] assay -> insecticide resistance by detecting enzyme activity assay
+  [FP] assay -> insecticide resistance by detecting glutathione s-transferase activity assay
+  [FP] assay -> microarray
+  [FP] assay -> parasite detection assay
+  [FP] assay array -> affymetrix rhesus macaque genome array
+  [FP] assay array -> dna microarray
+  [FP] clinical history -> brother clinical history of cancer
+  [FP] continuant -> affymetrix rhesus macaque genome array
+  [FP] continuant -> assay array
+  [FP] continuant -> connection function
+  [FP] continuant -> device
+  [FP] continuant -> filter paper
+  [FP] continuant -> function
+  [FP] continuant -> material entity
+  [FP] continuant -> material separation device
+  [FP] continuant -> microarray
+  [FP] continuant -> organization
+  [FP] continuant -> processed material
+  [FP] device -> affymetrix rhesus macaque genome array
+  [FP] device -> dna microarray
+  [FP] device -> filter paper
+  [FP] device -> microarray
+  [FP] independent continuant -> affymetrix rhesus macaque genome array
+  [FP] independent continuant -> assay array
+  [FP] independent continuant -> connection function
+  [FP] independent continuant -> device
+  [FP] independent continuant -> filter paper
+  [FP] independent continuant -> material separation device
+  [FP] independent continuant -> microarray
+  [FP] independent continuant -> organization
+  [FP] independent continuant -> processed material
+  [FP] insecticide resistance assay -> insecticide resistance by detecting glutathione s-transferase activity assay
+  [FP] material entity -> affymetrix rhesus macaque genome array
+  [FP] material entity -> assay array
+  [FP] material entity -> device
+  [FP] material entity -> dna microarray
+  [FP] material entity -> filter paper
+  [FP] material entity -> material separation device
+  [FP] material entity -> microarray
+  [FP] microarray -> affymetrix rhesus macaque genome array
+  [FP] microarray -> assay array
+  [FP] organism detection assay -> insecticide resistance assay
+  [FP] planned process -> carboxyfluorescein succinimidyl ester staining assay
+  [FP] planned process -> carboxyfluorescein succinimidyl ester staining assay measuring epitope specific proliferation of t cells
+  [FP] planned process -> insecticide resistance assay
+  [FP] planned process -> insecticide resistance by detecting enzyme activity assay
+  [FP] planned process -> insecticide resistance by detecting glutathione s-transferase activity assay
+  [FP] planned process -> organism detection assay
+  [FP] planned process -> parasite detection assay
+  [FP] processed material -> affymetrix rhesus macaque genome array
+  [FP] processed material -> filter paper
+
+MISSED RELATIONS (False Negatives: 1):
+  [FN] processed material -> device

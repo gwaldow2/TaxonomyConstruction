@@ -1,0 +1,228 @@
+==================================================
+=== Detailed Node Pair Analysis (Condensed Transitive Closure) ===
+Match Type Used: SET_OVERLAP
+==================================================
+Precision: 0.5824 | Recall: 0.8454 | F1: 0.6897
+
+CORRECT PREDICTIONS (True Positives: 53 Pred edges covering 82 GT edges):
+  [TP] PRED: (bread -> bun)
+        matches GT: (bread -> bun)
+  [TP] PRED: (bread -> crescent roll)
+        matches GT: (bread -> crescent roll)
+  [TP] PRED: (bread -> honey bun)
+        matches GT: (bread -> honey bun)
+  [TP] PRED: (bread -> sweet roll)
+        matches GT: (bread -> sweet roll)
+  [TP] PRED: (bun -> honey bun)
+        matches GT: (bun -> honey bun)
+  [TP] PRED: (bun -> sweet roll)
+        matches GT: (bun -> sweet roll)
+  [TP] PRED: (chowder -> fish chowder)
+        matches GT: (chowder -> fish chowder)
+  [TP] PRED: (condiment (condiment, flavorer) -> onion salt)
+        matches GT: (flavorer -> onion salt)
+  [TP] PRED: (condiment (condiment, flavorer) -> pepper sauce)
+        matches GT: (condiment -> pepper sauce)
+  [TP] PRED: (condiment (condiment, flavorer) -> pepper sauce)
+        matches GT: (flavorer -> pepper sauce)
+  [TP] PRED: (condiment (condiment, flavorer) -> sauce)
+        matches GT: (condiment -> sauce)
+  [TP] PRED: (condiment (condiment, flavorer) -> sauce)
+        matches GT: (flavorer -> sauce)
+  [TP] PRED: (corn -> hominy)
+        matches GT: (corn -> hominy)
+  [TP] PRED: (dish -> chowder)
+        matches GT: (dish -> chowder)
+  [TP] PRED: (dish -> fish chowder)
+        matches GT: (dish -> fish chowder)
+  [TP] PRED: (dish -> soup)
+        matches GT: (dish -> soup)
+  [TP] PRED: (dough -> phyllo)
+        matches GT: (dough -> phyllo)
+  [TP] PRED: (dough -> puff paste)
+        matches GT: (dough -> puff paste)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> bread)
+        matches GT: (food -> bread)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> bread)
+        matches GT: (foodstuff -> bread)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> bun)
+        matches GT: (food -> bun)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> bun)
+        matches GT: (foodstuff -> bun)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> chowder)
+        matches GT: (food -> chowder)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> chowder)
+        matches GT: (nutriment -> chowder)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> concoction)
+        matches GT: (food -> concoction)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> concoction)
+        matches GT: (foodstuff -> concoction)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> condiment (condiment, flavorer))
+        matches GT: (food -> condiment)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> condiment (condiment, flavorer))
+        matches GT: (food -> flavorer)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> condiment (condiment, flavorer))
+        matches GT: (foodstuff -> condiment)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> condiment (condiment, flavorer))
+        matches GT: (foodstuff -> flavorer)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> corn)
+        matches GT: (food -> corn)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> corn)
+        matches GT: (foodstuff -> corn)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> crescent roll)
+        matches GT: (food -> crescent roll)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> crescent roll)
+        matches GT: (foodstuff -> crescent roll)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> dish)
+        matches GT: (food -> dish)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> dish)
+        matches GT: (nutriment -> dish)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> dough)
+        matches GT: (food -> dough)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> dough)
+        matches GT: (foodstuff -> dough)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> egg white)
+        matches GT: (food -> egg white)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> egg white)
+        matches GT: (foodstuff -> egg white)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> fish chowder)
+        matches GT: (food -> fish chowder)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> fish chowder)
+        matches GT: (nutriment -> fish chowder)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> grain)
+        matches GT: (food -> grain)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> grain)
+        matches GT: (foodstuff -> grain)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> hominy)
+        matches GT: (food -> hominy)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> hominy)
+        matches GT: (foodstuff -> hominy)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> honey bun)
+        matches GT: (food -> honey bun)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> honey bun)
+        matches GT: (foodstuff -> honey bun)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> ingredient)
+        matches GT: (food -> ingredient)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> ingredient)
+        matches GT: (foodstuff -> ingredient)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> onion salt)
+        matches GT: (food -> onion salt)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> onion salt)
+        matches GT: (foodstuff -> onion salt)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> pastry)
+        matches GT: (food -> pastry)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> pastry)
+        matches GT: (foodstuff -> pastry)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> pepper sauce)
+        matches GT: (food -> pepper sauce)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> pepper sauce)
+        matches GT: (foodstuff -> pepper sauce)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> phyllo)
+        matches GT: (food -> phyllo)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> phyllo)
+        matches GT: (foodstuff -> phyllo)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> puff paste)
+        matches GT: (food -> puff paste)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> puff paste)
+        matches GT: (foodstuff -> puff paste)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> sauce)
+        matches GT: (food -> sauce)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> sauce)
+        matches GT: (foodstuff -> sauce)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> soup)
+        matches GT: (food -> soup)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> soup)
+        matches GT: (nutriment -> soup)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> starches)
+        matches GT: (food -> starches)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> starches)
+        matches GT: (foodstuff -> starches)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> sweet roll)
+        matches GT: (food -> sweet roll)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> sweet roll)
+        matches GT: (foodstuff -> sweet roll)
+  [TP] PRED: (grain -> corn)
+        matches GT: (grain -> corn)
+  [TP] PRED: (grain -> hominy)
+        matches GT: (grain -> hominy)
+  [TP] PRED: (ingredient -> condiment (condiment, flavorer))
+        matches GT: (ingredient -> condiment)
+  [TP] PRED: (ingredient -> condiment (condiment, flavorer))
+        matches GT: (ingredient -> flavorer)
+  [TP] PRED: (ingredient -> egg white)
+        matches GT: (ingredient -> egg white)
+  [TP] PRED: (ingredient -> onion salt)
+        matches GT: (ingredient -> onion salt)
+  [TP] PRED: (ingredient -> pepper sauce)
+        matches GT: (ingredient -> pepper sauce)
+  [TP] PRED: (ingredient -> sauce)
+        matches GT: (ingredient -> sauce)
+  [TP] PRED: (pastry -> phyllo)
+        matches GT: (pastry -> phyllo)
+  [TP] PRED: (pastry -> puff paste)
+        matches GT: (pastry -> puff paste)
+  [TP] PRED: (sauce -> pepper sauce)
+        matches GT: (sauce -> pepper sauce)
+  [TP] PRED: (soup -> chowder)
+        matches GT: (soup -> chowder)
+  [TP] PRED: (soup -> fish chowder)
+        matches GT: (soup -> fish chowder)
+  [TP] PRED: (sweet roll -> honey bun)
+        matches GT: (sweet roll -> honey bun)
+
+INCORRECT PREDICTIONS (False Positives: 38):
+  [FP] concoction -> chowder
+  [FP] concoction -> condiment (condiment, flavorer)
+  [FP] concoction -> fish chowder
+  [FP] concoction -> onion salt
+  [FP] concoction -> pepper sauce
+  [FP] concoction -> sauce
+  [FP] concoction -> soup
+  [FP] dish -> bread
+  [FP] dish -> bun
+  [FP] dish -> concoction
+  [FP] dish -> condiment (condiment, flavorer)
+  [FP] dish -> crescent roll
+  [FP] dish -> honey bun
+  [FP] dish -> onion salt
+  [FP] dish -> pastry
+  [FP] dish -> pepper sauce
+  [FP] dish -> phyllo
+  [FP] dish -> puff paste
+  [FP] dish -> sauce
+  [FP] dish -> sweet roll
+  [FP] ingredient -> bread
+  [FP] ingredient -> bun
+  [FP] ingredient -> corn
+  [FP] ingredient -> crescent roll
+  [FP] ingredient -> dough
+  [FP] ingredient -> grain
+  [FP] ingredient -> hominy
+  [FP] ingredient -> honey bun
+  [FP] ingredient -> pastry
+  [FP] ingredient -> phyllo
+  [FP] ingredient -> puff paste
+  [FP] ingredient -> starches
+  [FP] ingredient -> sweet roll
+  [FP] pastry -> bun
+  [FP] pastry -> crescent roll
+  [FP] pastry -> honey bun
+  [FP] pastry -> sweet roll
+  [FP] starches -> hominy
+
+MISSED RELATIONS (False Negatives: 15):
+  [FN] bun -> crescent roll
+  [FN] concoction -> dough
+  [FN] concoction -> pastry
+  [FN] concoction -> phyllo
+  [FN] concoction -> puff paste
+  [FN] dough -> pastry
+  [FN] flavorer -> condiment
+  [FN] food -> foodstuff
+  [FN] food -> nutriment
+  [FN] puff paste -> phyllo
+  [FN] starches -> bread
+  [FN] starches -> bun
+  [FN] starches -> crescent roll
+  [FN] starches -> honey bun
+  [FN] starches -> sweet roll

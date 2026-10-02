@@ -1,0 +1,1366 @@
+==================================================
+=== Detailed Node Pair Analysis (Exploded Transitive Closure) ===
+Match Type Used: EXACT
+==================================================
+Precision: 0.9545 | Recall: 0.0466 | F1: 0.0889
+
+CORRECT PREDICTIONS (True Positives: 63 Pred edges covering 63 GT edges):
+  [TP] astrocyte -> astrocyte of the cerebral cortex
+  [TP] astrocyte -> astrocyte of the forebrain
+  [TP] astrocyte of the forebrain -> astrocyte of the cerebral cortex
+  [TP] b cell -> b cell cd19-positive
+  [TP] b cell -> be cell
+  [TP] b cell -> be1 cell
+  [TP] be cell -> be1 cell
+  [TP] brain macroglial cell -> astrocyte of the cerebral cortex
+  [TP] brain macroglial cell -> astrocyte of the forebrain
+  [TP] cell -> amacrine cell
+  [TP] cell -> brush border epithelial cell
+  [TP] cell -> cell in vitro
+  [TP] cell -> cell of skeletal muscle
+  [TP] cell -> connective tissue cell
+  [TP] cell -> electrically responsive cell
+  [TP] cell -> epithelial cell
+  [TP] cell -> eukaryotic cell
+  [TP] cell -> germ line cell
+  [TP] cell -> hematopoietic cell
+  [TP] cell -> kidney cell
+  [TP] cell -> motile cell
+  [TP] cell -> neuron associated cell
+  [TP] cell -> perivascular cell
+  [TP] cell -> phagocyte
+  [TP] cell -> precursor cell
+  [TP] cell -> retinal cell
+  [TP] cell -> secretory cell
+  [TP] cell -> splenocyte
+  [TP] cell -> strial basal cell
+  [TP] cell -> strial intermediate cell
+  [TP] cell -> stuff accumulating cell
+  [TP] cell -> supporting cell
+  [TP] cell -> trabecular meshwork cell
+  [TP] cerebral cortex glial cell -> astrocyte of the cerebral cortex
+  [TP] cerebral cortex neuron -> cerebral cortex gabaergic interneuron
+  [TP] cortical interneuron -> cerebral cortex gabaergic interneuron
+  [TP] duct epithelial cell -> branched duct epithelial cell
+  [TP] endothelial cell -> blood vessel endothelial cell
+  [TP] epithelial cell -> brush border epithelial cell
+  [TP] gabaergic interneuron -> cerebral cortex gabaergic interneuron
+  [TP] glial cell -> astrocyte of the cerebral cortex
+  [TP] glial cell -> cerebral cortex glial cell
+  [TP] interneuron -> amacrine cell
+  [TP] lymphocyte of b lineage -> b cell
+  [TP] lymphocyte of b lineage -> b cell cd19-positive
+  [TP] lymphocyte of b lineage -> be cell
+  [TP] lymphocyte of b lineage -> be1 cell
+  [TP] lymphocyte of b lineage cd19-positive -> b cell cd19-positive
+  [TP] macroglial cell -> astrocyte
+  [TP] macroglial cell -> astrocyte of the cerebral cortex
+  [TP] macroglial cell -> astrocyte of the forebrain
+  [TP] macroglial cell -> brain macroglial cell
+  [TP] neuron -> afferent neuron
+  [TP] neuron -> central nervous system neuron
+  [TP] neuron of the forebrain -> cerebral cortex gabaergic interneuron
+  [TP] neuron of the forebrain -> cerebral cortex neuron
+  [TP] peripheral nervous system neuron -> autonomic neuron
+  [TP] professional antigen presenting cell -> be cell
+  [TP] professional antigen presenting cell -> be1 cell
+  [TP] retinal cell -> amacrine cell
+  [TP] sensory epithelial cell -> auditory epithelial cell
+  [TP] steroid hormone secreting cell -> androgen secreting cell
+  [TP] t cell -> alpha-beta t cell
+
+INCORRECT PREDICTIONS (False Positives: 3):
+  [FP] inhibitory interneuron -> cartwheel cell
+  [FP] professional antigen presenting cell -> b cell
+  [FP] professional antigen presenting cell -> b cell cd19-positive
+
+MISSED RELATIONS (False Negatives: 1289):
+  [FN] afferent neuron -> intrinsic primary afferent neuron of myenteric plexus
+  [FN] afferent neuron -> peripheral sensory neuron
+  [FN] afferent neuron -> sensory neuron
+  [FN] alpha-beta t cell -> mature alpha-beta t cell
+  [FN] alpha-beta t cell -> mucosal-associated invariant t cell
+  [FN] amacrine cell -> wf4 amacrine cell
+  [FN] amacrine cell -> wide field retinal amacrine cell
+  [FN] astrocyte -> interlaminar astrocyte
+  [FN] astrocyte of the cerebral cortex -> interlaminar astrocyte
+  [FN] astrocyte of the forebrain -> interlaminar astrocyte
+  [FN] auditory epithelial cell -> strial basal cell
+  [FN] auditory epithelial cell -> strial intermediate cell
+  [FN] autonomic neuron -> enteric neuron
+  [FN] autonomic neuron -> intrinsic primary afferent neuron of myenteric plexus
+  [FN] autonomic neuron -> superior cervical ganglion cgrp neuron
+  [FN] autonomic neuron -> superior cervical ganglion thnpy neuron
+  [FN] autonomic neuron -> sympathetic neuron
+  [FN] autonomic neuron -> thoracic ganglion thnpy neuron
+  [FN] b cell -> large pre-b-ii cell
+  [FN] b cell -> mature b cell
+  [FN] b cell -> pre-b-ii cell
+  [FN] b cell -> prebcr-positive large pre-b-ii cell
+  [FN] b cell -> precursor b cell
+  [FN] b cell cd19-positive -> be cell
+  [FN] b cell cd19-positive -> be1 cell
+  [FN] b cell cd19-positive -> large pre-b-ii cell
+  [FN] b cell cd19-positive -> mature b cell
+  [FN] b cell cd19-positive -> pre-b-ii cell
+  [FN] b cell cd19-positive -> prebcr-positive large pre-b-ii cell
+  [FN] b cell cd19-positive -> precursor b cell
+  [FN] blood vessel endothelial cell -> endothelial cell of artery
+  [FN] blood vessel endothelial cell -> interlobulary artery endothelial cell
+  [FN] blood vessel endothelial cell -> schlemms canal endothelial cell
+  [FN] blood vessel endothelial cell -> vein endothelial cell
+  [FN] brain macroglial cell -> interlaminar astrocyte
+  [FN] branched duct epithelial cell -> cholangiocyte
+  [FN] branched duct epithelial cell -> large mucus secreting cholangiocyte
+  [FN] brush border epithelial cell -> enterocyte
+  [FN] brush border epithelial cell -> enterocyte of appendix
+  [FN] brush border epithelial cell -> enterocyte of epithelium of large intestine
+  [FN] cell -> afferent neuron
+  [FN] cell -> alpha-beta t cell
+  [FN] cell -> androgen secreting cell
+  [FN] cell -> astrocyte
+  [FN] cell -> astrocyte of the cerebral cortex
+  [FN] cell -> astrocyte of the forebrain
+  [FN] cell -> auditory epithelial cell
+  [FN] cell -> autonomic neuron
+  [FN] cell -> b cell
+  [FN] cell -> b cell cd19-positive
+  [FN] cell -> be cell
+  [FN] cell -> be1 cell
+  [FN] cell -> blood vessel endothelial cell
+  [FN] cell -> brain macroglial cell
+  [FN] cell -> branched duct epithelial cell
+  [FN] cell -> cartwheel cell
+  [FN] cell -> central nervous system neuron
+  [FN] cell -> cerebral cortex gabaergic interneuron
+  [FN] cell -> cerebral cortex glial cell
+  [FN] cell -> cerebral cortex neuron
+  [FN] cell -> chemoreceptor cell
+  [FN] cell -> cholangiocyte
+  [FN] cell -> columnarcuboidal epithelial cell
+  [FN] cell -> contractile cell
+  [FN] cell -> cortical interneuron
+  [FN] cell -> cultured cell
+  [FN] cell -> cycling myeloid cell
+  [FN] cell -> duct epithelial cell
+  [FN] cell -> ecto-epithelial cell
+  [FN] cell -> electrically active cell
+  [FN] cell -> electrically signaling cell
+  [FN] cell -> endo-epithelial cell
+  [FN] cell -> endocrine cell
+  [FN] cell -> endothelial cell
+  [FN] cell -> endothelial cell of artery
+  [FN] cell -> endothelial cell of vascular tree
+  [FN] cell -> enteric neuron
+  [FN] cell -> enterocyte
+  [FN] cell -> enterocyte of appendix
+  [FN] cell -> enterocyte of epithelium of large intestine
+  [FN] cell -> enteroendocrine cell
+  [FN] cell -> enteroglial cell
+  [FN] cell -> epididymis secretory cell
+  [FN] cell -> epithelial cell of alimentary canal
+  [FN] cell -> epithelial cell of appendix
+  [FN] cell -> epithelial cell of large intestine
+  [FN] cell -> epithelial cell of nephron
+  [FN] cell -> epithelial cell of stomach
+  [FN] cell -> epithelial cell of upper respiratory tract
+  [FN] cell -> epithelial melanocyte
+  [FN] cell -> experimentally modified cell in vitro
+  [FN] cell -> extracellular matrix secreting cell
+  [FN] cell -> fast muscle myoblast
+  [FN] cell -> fibroblast
+  [FN] cell -> gaba-gly neuron
+  [FN] cell -> gabaergic interneuron
+  [FN] cell -> gabaergic neuron
+  [FN] cell -> gamete-nursing cell
+  [FN] cell -> germ cell
+  [FN] cell -> germline-derived nurse cell
+  [FN] cell -> glial cell
+  [FN] cell -> glomerular cell
+  [FN] cell -> glomerular mesangial cell
+  [FN] cell -> glycinergic neuron
+  [FN] cell -> gut absorptive cell
+  [FN] cell -> inhibitory interneuron
+  [FN] cell -> interlaminar astrocyte
+  [FN] cell -> interlobular artery cell
+  [FN] cell -> interlobulary artery endothelial cell
+  [FN] cell -> interneuron
+  [FN] cell -> interstitial cell
+  [FN] cell -> intestinal enteroendocrine cell
+  [FN] cell -> intestinal epithelial cell
+  [FN] cell -> intrafusal muscle fiber
+  [FN] cell -> intrinsic primary afferent neuron of myenteric plexus
+  [FN] cell -> invertebrate nurse cell
+  [FN] cell -> juxtacanalicular tissue cell
+  [FN] cell -> kidney arterial blood vessel cell
+  [FN] cell -> kidney blood vessel cell
+  [FN] cell -> kidney corpuscule cell
+  [FN] cell -> kidney cortex artery cell
+  [FN] cell -> kidney cortical cell
+  [FN] cell -> kidney epithelial cell
+  [FN] cell -> kidney interstitial cell
+  [FN] cell -> kidney medulla cell
+  [FN] cell -> l56 non-martinotti sst gabaergic interneuron mmus
+  [FN] cell -> large mucus secreting cholangiocyte
+  [FN] cell -> large pre-b-ii cell
+  [FN] cell -> leukocyte
+  [FN] cell -> lymphocyte
+  [FN] cell -> lymphocyte of b lineage
+  [FN] cell -> lymphocyte of b lineage cd19-positive
+  [FN] cell -> macroglial cell
+  [FN] cell -> macrophage
+  [FN] cell -> male germ cell
+  [FN] cell -> mature alpha-beta t cell
+  [FN] cell -> mature b cell
+  [FN] cell -> mature t cell
+  [FN] cell -> melanocyte
+  [FN] cell -> mesangial cell
+  [FN] cell -> mesenchymal stem cell
+  [FN] cell -> mesenchymal stem cell of adipose tissue
+  [FN] cell -> mesenchymal stem cell of orbital adipose tissue
+  [FN] cell -> mesothelial fibroblast
+  [FN] cell -> mesothelial fibroblast of the leptomeninx
+  [FN] cell -> mononuclear leukocyte
+  [FN] cell -> mononuclear phagocyte
+  [FN] cell -> mucosal-associated invariant t cell
+  [FN] cell -> mucus secreting cell
+  [FN] cell -> multi fate stem cell
+  [FN] cell -> multinucleate cell
+  [FN] cell -> mural cell
+  [FN] cell -> muscle cell
+  [FN] cell -> muscle precursor cell
+  [FN] cell -> myeloid cell
+  [FN] cell -> myeloid leukocyte
+  [FN] cell -> myoblast
+  [FN] cell -> myotube
+  [FN] cell -> neural cell
+  [FN] cell -> neural crest derived neuron
+  [FN] cell -> neurecto-epithelial cell
+  [FN] cell -> neuron
+  [FN] cell -> neuron of the forebrain
+  [FN] cell -> non-striated muscle cell
+  [FN] cell -> nuclear chain fiber
+  [FN] cell -> nucleate cell
+  [FN] cell -> olfactory epithelial cell
+  [FN] cell -> peptide hormone secreting cell
+  [FN] cell -> pericyte
+  [FN] cell -> peripheral nervous system neuron
+  [FN] cell -> peripheral sensory neuron
+  [FN] cell -> phagocyte sensu vertebrata
+  [FN] cell -> pigment cell
+  [FN] cell -> polyploid cell
+  [FN] cell -> pre-b-ii cell
+  [FN] cell -> prebcr-positive large pre-b-ii cell
+  [FN] cell -> precursor b cell
+  [FN] cell -> professional antigen presenting cell
+  [FN] cell -> progenitor cell
+  [FN] cell -> renal cortical epithelial cell
+  [FN] cell -> renal interstitial pericyte
+  [FN] cell -> respiratory tract epithelial cell
+  [FN] cell -> schlemms canal endothelial cell
+  [FN] cell -> scolopale cell
+  [FN] cell -> secondary lymphoid organ macrophage
+  [FN] cell -> secretory epithelial cell
+  [FN] cell -> sensory epithelial cell
+  [FN] cell -> sensory neuron
+  [FN] cell -> sensory receptor cell
+  [FN] cell -> seromucus secreting cell
+  [FN] cell -> single nucleate cell
+  [FN] cell -> skeletal muscle fiber
+  [FN] cell -> skeletal muscle myoblast
+  [FN] cell -> smooth muscle cell
+  [FN] cell -> spermatid
+  [FN] cell -> sphincter associated smooth muscle cell
+  [FN] cell -> splenic macrophage
+  [FN] cell -> splenic metallophillic macrophage
+  [FN] cell -> stem cell
+  [FN] cell -> stem cell of gastric gland
+  [FN] cell -> steroid hormone secreting cell
+  [FN] cell -> striated muscle cell
+  [FN] cell -> stromal cell
+  [FN] cell -> superior cervical ganglion cgrp neuron
+  [FN] cell -> superior cervical ganglion thnpy neuron
+  [FN] cell -> supporting cell sensu nematoda and protostomia
+  [FN] cell -> sympathetic neuron
+  [FN] cell -> syncytial cell
+  [FN] cell -> t cell
+  [FN] cell -> thoracic ganglion thnpy neuron
+  [FN] cell -> tissue-resident macrophage
+  [FN] cell -> type l enteroendocrine cell
+  [FN] cell -> vascular leptomeningeal cell
+  [FN] cell -> vein endothelial cell
+  [FN] cell -> visceral muscle cell
+  [FN] cell -> vlmc nn vascular leptomeningeal cell mmus
+  [FN] cell -> wf4 amacrine cell
+  [FN] cell -> wide field retinal amacrine cell
+  [FN] cell in vitro -> cultured cell
+  [FN] cell in vitro -> experimentally modified cell in vitro
+  [FN] cell of skeletal muscle -> intrafusal muscle fiber
+  [FN] cell of skeletal muscle -> nuclear chain fiber
+  [FN] cell of skeletal muscle -> skeletal muscle fiber
+  [FN] central nervous system neuron -> amacrine cell
+  [FN] central nervous system neuron -> cartwheel cell
+  [FN] central nervous system neuron -> cerebral cortex gabaergic interneuron
+  [FN] central nervous system neuron -> cerebral cortex neuron
+  [FN] central nervous system neuron -> cortical interneuron
+  [FN] central nervous system neuron -> gabaergic interneuron
+  [FN] central nervous system neuron -> inhibitory interneuron
+  [FN] central nervous system neuron -> interneuron
+  [FN] central nervous system neuron -> l56 non-martinotti sst gabaergic interneuron mmus
+  [FN] central nervous system neuron -> neuron of the forebrain
+  [FN] central nervous system neuron -> wf4 amacrine cell
+  [FN] central nervous system neuron -> wide field retinal amacrine cell
+  [FN] cerebral cortex gabaergic interneuron -> l56 non-martinotti sst gabaergic interneuron mmus
+  [FN] cerebral cortex glial cell -> interlaminar astrocyte
+  [FN] cerebral cortex neuron -> cortical interneuron
+  [FN] cerebral cortex neuron -> l56 non-martinotti sst gabaergic interneuron mmus
+  [FN] chemoreceptor cell -> olfactory epithelial cell
+  [FN] cholangiocyte -> large mucus secreting cholangiocyte
+  [FN] columnarcuboidal epithelial cell -> brush border epithelial cell
+  [FN] columnarcuboidal epithelial cell -> enterocyte
+  [FN] columnarcuboidal epithelial cell -> enterocyte of appendix
+  [FN] columnarcuboidal epithelial cell -> enterocyte of epithelium of large intestine
+  [FN] columnarcuboidal epithelial cell -> neurecto-epithelial cell
+  [FN] columnarcuboidal epithelial cell -> olfactory epithelial cell
+  [FN] columnarcuboidal epithelial cell -> strial intermediate cell
+  [FN] connective tissue cell -> extracellular matrix secreting cell
+  [FN] connective tissue cell -> fibroblast
+  [FN] connective tissue cell -> glomerular mesangial cell
+  [FN] connective tissue cell -> juxtacanalicular tissue cell
+  [FN] connective tissue cell -> mesangial cell
+  [FN] connective tissue cell -> mesenchymal stem cell
+  [FN] connective tissue cell -> mesenchymal stem cell of adipose tissue
+  [FN] connective tissue cell -> mesenchymal stem cell of orbital adipose tissue
+  [FN] connective tissue cell -> mesothelial fibroblast
+  [FN] connective tissue cell -> mesothelial fibroblast of the leptomeninx
+  [FN] connective tissue cell -> pericyte
+  [FN] connective tissue cell -> renal interstitial pericyte
+  [FN] connective tissue cell -> stromal cell
+  [FN] connective tissue cell -> trabecular meshwork cell
+  [FN] connective tissue cell -> vascular leptomeningeal cell
+  [FN] connective tissue cell -> vlmc nn vascular leptomeningeal cell mmus
+  [FN] contractile cell -> glomerular mesangial cell
+  [FN] contractile cell -> intrafusal muscle fiber
+  [FN] contractile cell -> mesangial cell
+  [FN] contractile cell -> muscle cell
+  [FN] contractile cell -> myotube
+  [FN] contractile cell -> non-striated muscle cell
+  [FN] contractile cell -> nuclear chain fiber
+  [FN] contractile cell -> pericyte
+  [FN] contractile cell -> renal interstitial pericyte
+  [FN] contractile cell -> skeletal muscle fiber
+  [FN] contractile cell -> smooth muscle cell
+  [FN] contractile cell -> sphincter associated smooth muscle cell
+  [FN] contractile cell -> striated muscle cell
+  [FN] contractile cell -> visceral muscle cell
+  [FN] cortical interneuron -> l56 non-martinotti sst gabaergic interneuron mmus
+  [FN] duct epithelial cell -> cholangiocyte
+  [FN] duct epithelial cell -> epididymis secretory cell
+  [FN] duct epithelial cell -> large mucus secreting cholangiocyte
+  [FN] ecto-epithelial cell -> neurecto-epithelial cell
+  [FN] ecto-epithelial cell -> olfactory epithelial cell
+  [FN] ecto-epithelial cell -> strial intermediate cell
+  [FN] electrically active cell -> afferent neuron
+  [FN] electrically active cell -> amacrine cell
+  [FN] electrically active cell -> autonomic neuron
+  [FN] electrically active cell -> cartwheel cell
+  [FN] electrically active cell -> central nervous system neuron
+  [FN] electrically active cell -> cerebral cortex gabaergic interneuron
+  [FN] electrically active cell -> cerebral cortex neuron
+  [FN] electrically active cell -> cortical interneuron
+  [FN] electrically active cell -> electrically responsive cell
+  [FN] electrically active cell -> electrically signaling cell
+  [FN] electrically active cell -> enteric neuron
+  [FN] electrically active cell -> gaba-gly neuron
+  [FN] electrically active cell -> gabaergic interneuron
+  [FN] electrically active cell -> gabaergic neuron
+  [FN] electrically active cell -> glycinergic neuron
+  [FN] electrically active cell -> inhibitory interneuron
+  [FN] electrically active cell -> interneuron
+  [FN] electrically active cell -> intrafusal muscle fiber
+  [FN] electrically active cell -> intrinsic primary afferent neuron of myenteric plexus
+  [FN] electrically active cell -> l56 non-martinotti sst gabaergic interneuron mmus
+  [FN] electrically active cell -> muscle cell
+  [FN] electrically active cell -> myotube
+  [FN] electrically active cell -> neural crest derived neuron
+  [FN] electrically active cell -> neuron
+  [FN] electrically active cell -> neuron of the forebrain
+  [FN] electrically active cell -> non-striated muscle cell
+  [FN] electrically active cell -> nuclear chain fiber
+  [FN] electrically active cell -> peripheral nervous system neuron
+  [FN] electrically active cell -> peripheral sensory neuron
+  [FN] electrically active cell -> sensory neuron
+  [FN] electrically active cell -> skeletal muscle fiber
+  [FN] electrically active cell -> smooth muscle cell
+  [FN] electrically active cell -> sphincter associated smooth muscle cell
+  [FN] electrically active cell -> striated muscle cell
+  [FN] electrically active cell -> superior cervical ganglion cgrp neuron
+  [FN] electrically active cell -> superior cervical ganglion thnpy neuron
+  [FN] electrically active cell -> sympathetic neuron
+  [FN] electrically active cell -> thoracic ganglion thnpy neuron
+  [FN] electrically active cell -> visceral muscle cell
+  [FN] electrically active cell -> wf4 amacrine cell
+  [FN] electrically active cell -> wide field retinal amacrine cell
+  [FN] electrically responsive cell -> afferent neuron
+  [FN] electrically responsive cell -> amacrine cell
+  [FN] electrically responsive cell -> autonomic neuron
+  [FN] electrically responsive cell -> cartwheel cell
+  [FN] electrically responsive cell -> central nervous system neuron
+  [FN] electrically responsive cell -> cerebral cortex gabaergic interneuron
+  [FN] electrically responsive cell -> cerebral cortex neuron
+  [FN] electrically responsive cell -> cortical interneuron
+  [FN] electrically responsive cell -> enteric neuron
+  [FN] electrically responsive cell -> gaba-gly neuron
+  [FN] electrically responsive cell -> gabaergic interneuron
+  [FN] electrically responsive cell -> gabaergic neuron
+  [FN] electrically responsive cell -> glycinergic neuron
+  [FN] electrically responsive cell -> inhibitory interneuron
+  [FN] electrically responsive cell -> interneuron
+  [FN] electrically responsive cell -> intrafusal muscle fiber
+  [FN] electrically responsive cell -> intrinsic primary afferent neuron of myenteric plexus
+  [FN] electrically responsive cell -> l56 non-martinotti sst gabaergic interneuron mmus
+  [FN] electrically responsive cell -> muscle cell
+  [FN] electrically responsive cell -> myotube
+  [FN] electrically responsive cell -> neural crest derived neuron
+  [FN] electrically responsive cell -> neuron
+  [FN] electrically responsive cell -> neuron of the forebrain
+  [FN] electrically responsive cell -> non-striated muscle cell
+  [FN] electrically responsive cell -> nuclear chain fiber
+  [FN] electrically responsive cell -> peripheral nervous system neuron
+  [FN] electrically responsive cell -> peripheral sensory neuron
+  [FN] electrically responsive cell -> sensory neuron
+  [FN] electrically responsive cell -> skeletal muscle fiber
+  [FN] electrically responsive cell -> smooth muscle cell
+  [FN] electrically responsive cell -> sphincter associated smooth muscle cell
+  [FN] electrically responsive cell -> striated muscle cell
+  [FN] electrically responsive cell -> superior cervical ganglion cgrp neuron
+  [FN] electrically responsive cell -> superior cervical ganglion thnpy neuron
+  [FN] electrically responsive cell -> sympathetic neuron
+  [FN] electrically responsive cell -> thoracic ganglion thnpy neuron
+  [FN] electrically responsive cell -> visceral muscle cell
+  [FN] electrically responsive cell -> wf4 amacrine cell
+  [FN] electrically responsive cell -> wide field retinal amacrine cell
+  [FN] electrically signaling cell -> afferent neuron
+  [FN] electrically signaling cell -> amacrine cell
+  [FN] electrically signaling cell -> autonomic neuron
+  [FN] electrically signaling cell -> cartwheel cell
+  [FN] electrically signaling cell -> central nervous system neuron
+  [FN] electrically signaling cell -> cerebral cortex gabaergic interneuron
+  [FN] electrically signaling cell -> cerebral cortex neuron
+  [FN] electrically signaling cell -> cortical interneuron
+  [FN] electrically signaling cell -> enteric neuron
+  [FN] electrically signaling cell -> gaba-gly neuron
+  [FN] electrically signaling cell -> gabaergic interneuron
+  [FN] electrically signaling cell -> gabaergic neuron
+  [FN] electrically signaling cell -> glycinergic neuron
+  [FN] electrically signaling cell -> inhibitory interneuron
+  [FN] electrically signaling cell -> interneuron
+  [FN] electrically signaling cell -> intrinsic primary afferent neuron of myenteric plexus
+  [FN] electrically signaling cell -> l56 non-martinotti sst gabaergic interneuron mmus
+  [FN] electrically signaling cell -> neural crest derived neuron
+  [FN] electrically signaling cell -> neuron
+  [FN] electrically signaling cell -> neuron of the forebrain
+  [FN] electrically signaling cell -> peripheral nervous system neuron
+  [FN] electrically signaling cell -> peripheral sensory neuron
+  [FN] electrically signaling cell -> sensory neuron
+  [FN] electrically signaling cell -> superior cervical ganglion cgrp neuron
+  [FN] electrically signaling cell -> superior cervical ganglion thnpy neuron
+  [FN] electrically signaling cell -> sympathetic neuron
+  [FN] electrically signaling cell -> thoracic ganglion thnpy neuron
+  [FN] electrically signaling cell -> wf4 amacrine cell
+  [FN] electrically signaling cell -> wide field retinal amacrine cell
+  [FN] endo-epithelial cell -> enterocyte
+  [FN] endo-epithelial cell -> enterocyte of appendix
+  [FN] endo-epithelial cell -> enterocyte of epithelium of large intestine
+  [FN] endo-epithelial cell -> epithelial cell of alimentary canal
+  [FN] endo-epithelial cell -> epithelial cell of appendix
+  [FN] endo-epithelial cell -> epithelial cell of large intestine
+  [FN] endo-epithelial cell -> epithelial cell of stomach
+  [FN] endo-epithelial cell -> epithelial cell of upper respiratory tract
+  [FN] endo-epithelial cell -> intestinal enteroendocrine cell
+  [FN] endo-epithelial cell -> intestinal epithelial cell
+  [FN] endo-epithelial cell -> olfactory epithelial cell
+  [FN] endo-epithelial cell -> respiratory tract epithelial cell
+  [FN] endo-epithelial cell -> stem cell of gastric gland
+  [FN] endo-epithelial cell -> type l enteroendocrine cell
+  [FN] endocrine cell -> enteroendocrine cell
+  [FN] endocrine cell -> intestinal enteroendocrine cell
+  [FN] endocrine cell -> type l enteroendocrine cell
+  [FN] endothelial cell -> endothelial cell of artery
+  [FN] endothelial cell -> endothelial cell of vascular tree
+  [FN] endothelial cell -> interlobulary artery endothelial cell
+  [FN] endothelial cell -> schlemms canal endothelial cell
+  [FN] endothelial cell -> vein endothelial cell
+  [FN] endothelial cell of artery -> interlobulary artery endothelial cell
+  [FN] endothelial cell of vascular tree -> blood vessel endothelial cell
+  [FN] endothelial cell of vascular tree -> endothelial cell of artery
+  [FN] endothelial cell of vascular tree -> interlobulary artery endothelial cell
+  [FN] endothelial cell of vascular tree -> schlemms canal endothelial cell
+  [FN] endothelial cell of vascular tree -> vein endothelial cell
+  [FN] enteric neuron -> intrinsic primary afferent neuron of myenteric plexus
+  [FN] enterocyte -> enterocyte of appendix
+  [FN] enterocyte -> enterocyte of epithelium of large intestine
+  [FN] enterocyte of epithelium of large intestine -> enterocyte of appendix
+  [FN] enteroendocrine cell -> intestinal enteroendocrine cell
+  [FN] enteroendocrine cell -> type l enteroendocrine cell
+  [FN] epithelial cell -> auditory epithelial cell
+  [FN] epithelial cell -> branched duct epithelial cell
+  [FN] epithelial cell -> cholangiocyte
+  [FN] epithelial cell -> columnarcuboidal epithelial cell
+  [FN] epithelial cell -> duct epithelial cell
+  [FN] epithelial cell -> ecto-epithelial cell
+  [FN] epithelial cell -> endo-epithelial cell
+  [FN] epithelial cell -> enterocyte
+  [FN] epithelial cell -> enterocyte of appendix
+  [FN] epithelial cell -> enterocyte of epithelium of large intestine
+  [FN] epithelial cell -> enteroendocrine cell
+  [FN] epithelial cell -> epididymis secretory cell
+  [FN] epithelial cell -> epithelial cell of alimentary canal
+  [FN] epithelial cell -> epithelial cell of appendix
+  [FN] epithelial cell -> epithelial cell of large intestine
+  [FN] epithelial cell -> epithelial cell of nephron
+  [FN] epithelial cell -> epithelial cell of stomach
+  [FN] epithelial cell -> epithelial cell of upper respiratory tract
+  [FN] epithelial cell -> glomerular cell
+  [FN] epithelial cell -> glomerular mesangial cell
+  [FN] epithelial cell -> intestinal enteroendocrine cell
+  [FN] epithelial cell -> intestinal epithelial cell
+  [FN] epithelial cell -> kidney corpuscule cell
+  [FN] epithelial cell -> kidney epithelial cell
+  [FN] epithelial cell -> large mucus secreting cholangiocyte
+  [FN] epithelial cell -> neurecto-epithelial cell
+  [FN] epithelial cell -> olfactory epithelial cell
+  [FN] epithelial cell -> renal cortical epithelial cell
+  [FN] epithelial cell -> respiratory tract epithelial cell
+  [FN] epithelial cell -> secretory epithelial cell
+  [FN] epithelial cell -> sensory epithelial cell
+  [FN] epithelial cell -> stem cell of gastric gland
+  [FN] epithelial cell -> strial basal cell
+  [FN] epithelial cell -> strial intermediate cell
+  [FN] epithelial cell -> type l enteroendocrine cell
+  [FN] epithelial cell of alimentary canal -> enterocyte
+  [FN] epithelial cell of alimentary canal -> enterocyte of appendix
+  [FN] epithelial cell of alimentary canal -> enterocyte of epithelium of large intestine
+  [FN] epithelial cell of alimentary canal -> epithelial cell of appendix
+  [FN] epithelial cell of alimentary canal -> epithelial cell of large intestine
+  [FN] epithelial cell of alimentary canal -> epithelial cell of stomach
+  [FN] epithelial cell of alimentary canal -> intestinal enteroendocrine cell
+  [FN] epithelial cell of alimentary canal -> intestinal epithelial cell
+  [FN] epithelial cell of alimentary canal -> stem cell of gastric gland
+  [FN] epithelial cell of alimentary canal -> type l enteroendocrine cell
+  [FN] epithelial cell of appendix -> enterocyte of appendix
+  [FN] epithelial cell of large intestine -> enterocyte of appendix
+  [FN] epithelial cell of large intestine -> enterocyte of epithelium of large intestine
+  [FN] epithelial cell of large intestine -> epithelial cell of appendix
+  [FN] epithelial cell of nephron -> glomerular cell
+  [FN] epithelial cell of nephron -> glomerular mesangial cell
+  [FN] epithelial cell of nephron -> kidney corpuscule cell
+  [FN] epithelial cell of stomach -> stem cell of gastric gland
+  [FN] epithelial cell of upper respiratory tract -> olfactory epithelial cell
+  [FN] epithelial melanocyte -> strial intermediate cell
+  [FN] eukaryotic cell -> afferent neuron
+  [FN] eukaryotic cell -> alpha-beta t cell
+  [FN] eukaryotic cell -> amacrine cell
+  [FN] eukaryotic cell -> astrocyte
+  [FN] eukaryotic cell -> astrocyte of the cerebral cortex
+  [FN] eukaryotic cell -> astrocyte of the forebrain
+  [FN] eukaryotic cell -> auditory epithelial cell
+  [FN] eukaryotic cell -> autonomic neuron
+  [FN] eukaryotic cell -> b cell
+  [FN] eukaryotic cell -> b cell cd19-positive
+  [FN] eukaryotic cell -> be cell
+  [FN] eukaryotic cell -> be1 cell
+  [FN] eukaryotic cell -> blood vessel endothelial cell
+  [FN] eukaryotic cell -> brain macroglial cell
+  [FN] eukaryotic cell -> branched duct epithelial cell
+  [FN] eukaryotic cell -> brush border epithelial cell
+  [FN] eukaryotic cell -> cartwheel cell
+  [FN] eukaryotic cell -> cell of skeletal muscle
+  [FN] eukaryotic cell -> central nervous system neuron
+  [FN] eukaryotic cell -> cerebral cortex gabaergic interneuron
+  [FN] eukaryotic cell -> cerebral cortex glial cell
+  [FN] eukaryotic cell -> cerebral cortex neuron
+  [FN] eukaryotic cell -> chemoreceptor cell
+  [FN] eukaryotic cell -> cholangiocyte
+  [FN] eukaryotic cell -> columnarcuboidal epithelial cell
+  [FN] eukaryotic cell -> connective tissue cell
+  [FN] eukaryotic cell -> cortical interneuron
+  [FN] eukaryotic cell -> cycling myeloid cell
+  [FN] eukaryotic cell -> duct epithelial cell
+  [FN] eukaryotic cell -> ecto-epithelial cell
+  [FN] eukaryotic cell -> endo-epithelial cell
+  [FN] eukaryotic cell -> endocrine cell
+  [FN] eukaryotic cell -> endothelial cell
+  [FN] eukaryotic cell -> endothelial cell of artery
+  [FN] eukaryotic cell -> endothelial cell of vascular tree
+  [FN] eukaryotic cell -> enteric neuron
+  [FN] eukaryotic cell -> enterocyte
+  [FN] eukaryotic cell -> enterocyte of appendix
+  [FN] eukaryotic cell -> enterocyte of epithelium of large intestine
+  [FN] eukaryotic cell -> enteroendocrine cell
+  [FN] eukaryotic cell -> enteroglial cell
+  [FN] eukaryotic cell -> epididymis secretory cell
+  [FN] eukaryotic cell -> epithelial cell
+  [FN] eukaryotic cell -> epithelial cell of alimentary canal
+  [FN] eukaryotic cell -> epithelial cell of appendix
+  [FN] eukaryotic cell -> epithelial cell of large intestine
+  [FN] eukaryotic cell -> epithelial cell of nephron
+  [FN] eukaryotic cell -> epithelial cell of stomach
+  [FN] eukaryotic cell -> epithelial cell of upper respiratory tract
+  [FN] eukaryotic cell -> epithelial melanocyte
+  [FN] eukaryotic cell -> extracellular matrix secreting cell
+  [FN] eukaryotic cell -> fast muscle myoblast
+  [FN] eukaryotic cell -> fibroblast
+  [FN] eukaryotic cell -> gaba-gly neuron
+  [FN] eukaryotic cell -> gabaergic interneuron
+  [FN] eukaryotic cell -> gabaergic neuron
+  [FN] eukaryotic cell -> glial cell
+  [FN] eukaryotic cell -> glomerular cell
+  [FN] eukaryotic cell -> glomerular mesangial cell
+  [FN] eukaryotic cell -> glycinergic neuron
+  [FN] eukaryotic cell -> gut absorptive cell
+  [FN] eukaryotic cell -> inhibitory interneuron
+  [FN] eukaryotic cell -> interlaminar astrocyte
+  [FN] eukaryotic cell -> interlobular artery cell
+  [FN] eukaryotic cell -> interlobulary artery endothelial cell
+  [FN] eukaryotic cell -> interneuron
+  [FN] eukaryotic cell -> interstitial cell
+  [FN] eukaryotic cell -> intestinal enteroendocrine cell
+  [FN] eukaryotic cell -> intestinal epithelial cell
+  [FN] eukaryotic cell -> intrafusal muscle fiber
+  [FN] eukaryotic cell -> intrinsic primary afferent neuron of myenteric plexus
+  [FN] eukaryotic cell -> invertebrate nurse cell
+  [FN] eukaryotic cell -> juxtacanalicular tissue cell
+  [FN] eukaryotic cell -> kidney arterial blood vessel cell
+  [FN] eukaryotic cell -> kidney blood vessel cell
+  [FN] eukaryotic cell -> kidney cell
+  [FN] eukaryotic cell -> kidney corpuscule cell
+  [FN] eukaryotic cell -> kidney cortex artery cell
+  [FN] eukaryotic cell -> kidney cortical cell
+  [FN] eukaryotic cell -> kidney epithelial cell
+  [FN] eukaryotic cell -> kidney interstitial cell
+  [FN] eukaryotic cell -> kidney medulla cell
+  [FN] eukaryotic cell -> l56 non-martinotti sst gabaergic interneuron mmus
+  [FN] eukaryotic cell -> large mucus secreting cholangiocyte
+  [FN] eukaryotic cell -> large pre-b-ii cell
+  [FN] eukaryotic cell -> leukocyte
+  [FN] eukaryotic cell -> lymphocyte
+  [FN] eukaryotic cell -> lymphocyte of b lineage
+  [FN] eukaryotic cell -> lymphocyte of b lineage cd19-positive
+  [FN] eukaryotic cell -> macroglial cell
+  [FN] eukaryotic cell -> macrophage
+  [FN] eukaryotic cell -> mature alpha-beta t cell
+  [FN] eukaryotic cell -> mature b cell
+  [FN] eukaryotic cell -> mature t cell
+  [FN] eukaryotic cell -> melanocyte
+  [FN] eukaryotic cell -> mesangial cell
+  [FN] eukaryotic cell -> mesenchymal stem cell
+  [FN] eukaryotic cell -> mesenchymal stem cell of adipose tissue
+  [FN] eukaryotic cell -> mesenchymal stem cell of orbital adipose tissue
+  [FN] eukaryotic cell -> mesothelial fibroblast
+  [FN] eukaryotic cell -> mesothelial fibroblast of the leptomeninx
+  [FN] eukaryotic cell -> mononuclear leukocyte
+  [FN] eukaryotic cell -> mononuclear phagocyte
+  [FN] eukaryotic cell -> mucosal-associated invariant t cell
+  [FN] eukaryotic cell -> multinucleate cell
+  [FN] eukaryotic cell -> muscle cell
+  [FN] eukaryotic cell -> muscle precursor cell
+  [FN] eukaryotic cell -> myeloid cell
+  [FN] eukaryotic cell -> myeloid leukocyte
+  [FN] eukaryotic cell -> myoblast
+  [FN] eukaryotic cell -> myotube
+  [FN] eukaryotic cell -> neural cell
+  [FN] eukaryotic cell -> neural crest derived neuron
+  [FN] eukaryotic cell -> neurecto-epithelial cell
+  [FN] eukaryotic cell -> neuron
+  [FN] eukaryotic cell -> neuron associated cell
+  [FN] eukaryotic cell -> neuron of the forebrain
+  [FN] eukaryotic cell -> non-striated muscle cell
+  [FN] eukaryotic cell -> nuclear chain fiber
+  [FN] eukaryotic cell -> olfactory epithelial cell
+  [FN] eukaryotic cell -> pericyte
+  [FN] eukaryotic cell -> peripheral nervous system neuron
+  [FN] eukaryotic cell -> peripheral sensory neuron
+  [FN] eukaryotic cell -> phagocyte sensu vertebrata
+  [FN] eukaryotic cell -> pre-b-ii cell
+  [FN] eukaryotic cell -> prebcr-positive large pre-b-ii cell
+  [FN] eukaryotic cell -> precursor b cell
+  [FN] eukaryotic cell -> professional antigen presenting cell
+  [FN] eukaryotic cell -> renal cortical epithelial cell
+  [FN] eukaryotic cell -> renal interstitial pericyte
+  [FN] eukaryotic cell -> respiratory tract epithelial cell
+  [FN] eukaryotic cell -> retinal cell
+  [FN] eukaryotic cell -> schlemms canal endothelial cell
+  [FN] eukaryotic cell -> scolopale cell
+  [FN] eukaryotic cell -> secondary lymphoid organ macrophage
+  [FN] eukaryotic cell -> secretory epithelial cell
+  [FN] eukaryotic cell -> sensory epithelial cell
+  [FN] eukaryotic cell -> sensory neuron
+  [FN] eukaryotic cell -> sensory receptor cell
+  [FN] eukaryotic cell -> single nucleate cell
+  [FN] eukaryotic cell -> skeletal muscle fiber
+  [FN] eukaryotic cell -> skeletal muscle myoblast
+  [FN] eukaryotic cell -> smooth muscle cell
+  [FN] eukaryotic cell -> spermatid
+  [FN] eukaryotic cell -> sphincter associated smooth muscle cell
+  [FN] eukaryotic cell -> splenic macrophage
+  [FN] eukaryotic cell -> splenic metallophillic macrophage
+  [FN] eukaryotic cell -> splenocyte
+  [FN] eukaryotic cell -> stem cell of gastric gland
+  [FN] eukaryotic cell -> strial basal cell
+  [FN] eukaryotic cell -> strial intermediate cell
+  [FN] eukaryotic cell -> striated muscle cell
+  [FN] eukaryotic cell -> stromal cell
+  [FN] eukaryotic cell -> superior cervical ganglion cgrp neuron
+  [FN] eukaryotic cell -> superior cervical ganglion thnpy neuron
+  [FN] eukaryotic cell -> sympathetic neuron
+  [FN] eukaryotic cell -> syncytial cell
+  [FN] eukaryotic cell -> t cell
+  [FN] eukaryotic cell -> thoracic ganglion thnpy neuron
+  [FN] eukaryotic cell -> tissue-resident macrophage
+  [FN] eukaryotic cell -> trabecular meshwork cell
+  [FN] eukaryotic cell -> type l enteroendocrine cell
+  [FN] eukaryotic cell -> vascular leptomeningeal cell
+  [FN] eukaryotic cell -> vein endothelial cell
+  [FN] eukaryotic cell -> visceral muscle cell
+  [FN] eukaryotic cell -> vlmc nn vascular leptomeningeal cell mmus
+  [FN] eukaryotic cell -> wf4 amacrine cell
+  [FN] eukaryotic cell -> wide field retinal amacrine cell
+  [FN] experimentally modified cell in vitro -> cultured cell
+  [FN] extracellular matrix secreting cell -> juxtacanalicular tissue cell
+  [FN] fibroblast -> mesothelial fibroblast
+  [FN] fibroblast -> mesothelial fibroblast of the leptomeninx
+  [FN] fibroblast -> vascular leptomeningeal cell
+  [FN] fibroblast -> vlmc nn vascular leptomeningeal cell mmus
+  [FN] gaba-gly neuron -> cartwheel cell
+  [FN] gabaergic interneuron -> l56 non-martinotti sst gabaergic interneuron mmus
+  [FN] gabaergic neuron -> cartwheel cell
+  [FN] gabaergic neuron -> cerebral cortex gabaergic interneuron
+  [FN] gabaergic neuron -> gaba-gly neuron
+  [FN] gabaergic neuron -> gabaergic interneuron
+  [FN] gabaergic neuron -> l56 non-martinotti sst gabaergic interneuron mmus
+  [FN] gamete-nursing cell -> germline-derived nurse cell
+  [FN] gamete-nursing cell -> invertebrate nurse cell
+  [FN] germ cell -> male germ cell
+  [FN] germ cell -> spermatid
+  [FN] germ line cell -> germ cell
+  [FN] germ line cell -> germline-derived nurse cell
+  [FN] germ line cell -> invertebrate nurse cell
+  [FN] germ line cell -> male germ cell
+  [FN] germ line cell -> spermatid
+  [FN] germline-derived nurse cell -> invertebrate nurse cell
+  [FN] glial cell -> astrocyte
+  [FN] glial cell -> astrocyte of the forebrain
+  [FN] glial cell -> brain macroglial cell
+  [FN] glial cell -> enteroglial cell
+  [FN] glial cell -> interlaminar astrocyte
+  [FN] glial cell -> macroglial cell
+  [FN] glomerular cell -> glomerular mesangial cell
+  [FN] glycinergic neuron -> cartwheel cell
+  [FN] glycinergic neuron -> gaba-gly neuron
+  [FN] gut absorptive cell -> enterocyte
+  [FN] gut absorptive cell -> enterocyte of appendix
+  [FN] gut absorptive cell -> enterocyte of epithelium of large intestine
+  [FN] hematopoietic cell -> alpha-beta t cell
+  [FN] hematopoietic cell -> b cell
+  [FN] hematopoietic cell -> b cell cd19-positive
+  [FN] hematopoietic cell -> be cell
+  [FN] hematopoietic cell -> be1 cell
+  [FN] hematopoietic cell -> cycling myeloid cell
+  [FN] hematopoietic cell -> large pre-b-ii cell
+  [FN] hematopoietic cell -> leukocyte
+  [FN] hematopoietic cell -> lymphocyte
+  [FN] hematopoietic cell -> lymphocyte of b lineage
+  [FN] hematopoietic cell -> lymphocyte of b lineage cd19-positive
+  [FN] hematopoietic cell -> macrophage
+  [FN] hematopoietic cell -> mature alpha-beta t cell
+  [FN] hematopoietic cell -> mature b cell
+  [FN] hematopoietic cell -> mature t cell
+  [FN] hematopoietic cell -> mononuclear leukocyte
+  [FN] hematopoietic cell -> mononuclear phagocyte
+  [FN] hematopoietic cell -> mucosal-associated invariant t cell
+  [FN] hematopoietic cell -> myeloid cell
+  [FN] hematopoietic cell -> myeloid leukocyte
+  [FN] hematopoietic cell -> pre-b-ii cell
+  [FN] hematopoietic cell -> prebcr-positive large pre-b-ii cell
+  [FN] hematopoietic cell -> precursor b cell
+  [FN] hematopoietic cell -> professional antigen presenting cell
+  [FN] hematopoietic cell -> secondary lymphoid organ macrophage
+  [FN] hematopoietic cell -> splenic macrophage
+  [FN] hematopoietic cell -> splenic metallophillic macrophage
+  [FN] hematopoietic cell -> splenocyte
+  [FN] hematopoietic cell -> t cell
+  [FN] hematopoietic cell -> tissue-resident macrophage
+  [FN] inhibitory interneuron -> cerebral cortex gabaergic interneuron
+  [FN] inhibitory interneuron -> gabaergic interneuron
+  [FN] inhibitory interneuron -> l56 non-martinotti sst gabaergic interneuron mmus
+  [FN] interlobular artery cell -> interlobulary artery endothelial cell
+  [FN] interneuron -> cerebral cortex gabaergic interneuron
+  [FN] interneuron -> cortical interneuron
+  [FN] interneuron -> gabaergic interneuron
+  [FN] interneuron -> inhibitory interneuron
+  [FN] interneuron -> l56 non-martinotti sst gabaergic interneuron mmus
+  [FN] interneuron -> wf4 amacrine cell
+  [FN] interneuron -> wide field retinal amacrine cell
+  [FN] interstitial cell -> glomerular mesangial cell
+  [FN] interstitial cell -> kidney interstitial cell
+  [FN] interstitial cell -> mesangial cell
+  [FN] interstitial cell -> renal interstitial pericyte
+  [FN] intestinal enteroendocrine cell -> type l enteroendocrine cell
+  [FN] intestinal epithelial cell -> enterocyte
+  [FN] intestinal epithelial cell -> enterocyte of appendix
+  [FN] intestinal epithelial cell -> enterocyte of epithelium of large intestine
+  [FN] intestinal epithelial cell -> epithelial cell of appendix
+  [FN] intestinal epithelial cell -> epithelial cell of large intestine
+  [FN] intestinal epithelial cell -> intestinal enteroendocrine cell
+  [FN] intestinal epithelial cell -> type l enteroendocrine cell
+  [FN] intrafusal muscle fiber -> nuclear chain fiber
+  [FN] kidney arterial blood vessel cell -> interlobular artery cell
+  [FN] kidney arterial blood vessel cell -> interlobulary artery endothelial cell
+  [FN] kidney arterial blood vessel cell -> kidney cortex artery cell
+  [FN] kidney blood vessel cell -> interlobular artery cell
+  [FN] kidney blood vessel cell -> interlobulary artery endothelial cell
+  [FN] kidney blood vessel cell -> kidney arterial blood vessel cell
+  [FN] kidney blood vessel cell -> kidney cortex artery cell
+  [FN] kidney cell -> epithelial cell of nephron
+  [FN] kidney cell -> glomerular cell
+  [FN] kidney cell -> glomerular mesangial cell
+  [FN] kidney cell -> interlobular artery cell
+  [FN] kidney cell -> interlobulary artery endothelial cell
+  [FN] kidney cell -> kidney arterial blood vessel cell
+  [FN] kidney cell -> kidney blood vessel cell
+  [FN] kidney cell -> kidney corpuscule cell
+  [FN] kidney cell -> kidney cortex artery cell
+  [FN] kidney cell -> kidney cortical cell
+  [FN] kidney cell -> kidney epithelial cell
+  [FN] kidney cell -> kidney interstitial cell
+  [FN] kidney cell -> kidney medulla cell
+  [FN] kidney cell -> mesangial cell
+  [FN] kidney cell -> renal cortical epithelial cell
+  [FN] kidney cell -> renal interstitial pericyte
+  [FN] kidney corpuscule cell -> glomerular cell
+  [FN] kidney corpuscule cell -> glomerular mesangial cell
+  [FN] kidney cortex artery cell -> interlobular artery cell
+  [FN] kidney cortex artery cell -> interlobulary artery endothelial cell
+  [FN] kidney cortical cell -> glomerular cell
+  [FN] kidney cortical cell -> glomerular mesangial cell
+  [FN] kidney cortical cell -> interlobular artery cell
+  [FN] kidney cortical cell -> interlobulary artery endothelial cell
+  [FN] kidney cortical cell -> kidney corpuscule cell
+  [FN] kidney cortical cell -> kidney cortex artery cell
+  [FN] kidney cortical cell -> mesangial cell
+  [FN] kidney cortical cell -> renal cortical epithelial cell
+  [FN] kidney epithelial cell -> epithelial cell of nephron
+  [FN] kidney epithelial cell -> glomerular cell
+  [FN] kidney epithelial cell -> glomerular mesangial cell
+  [FN] kidney epithelial cell -> kidney corpuscule cell
+  [FN] kidney epithelial cell -> renal cortical epithelial cell
+  [FN] kidney interstitial cell -> glomerular mesangial cell
+  [FN] kidney interstitial cell -> mesangial cell
+  [FN] kidney interstitial cell -> renal interstitial pericyte
+  [FN] kidney medulla cell -> interlobular artery cell
+  [FN] kidney medulla cell -> interlobulary artery endothelial cell
+  [FN] kidney medulla cell -> kidney arterial blood vessel cell
+  [FN] kidney medulla cell -> kidney blood vessel cell
+  [FN] kidney medulla cell -> kidney cortex artery cell
+  [FN] large pre-b-ii cell -> prebcr-positive large pre-b-ii cell
+  [FN] leukocyte -> alpha-beta t cell
+  [FN] leukocyte -> b cell
+  [FN] leukocyte -> b cell cd19-positive
+  [FN] leukocyte -> be cell
+  [FN] leukocyte -> be1 cell
+  [FN] leukocyte -> large pre-b-ii cell
+  [FN] leukocyte -> lymphocyte
+  [FN] leukocyte -> lymphocyte of b lineage
+  [FN] leukocyte -> lymphocyte of b lineage cd19-positive
+  [FN] leukocyte -> macrophage
+  [FN] leukocyte -> mature alpha-beta t cell
+  [FN] leukocyte -> mature b cell
+  [FN] leukocyte -> mature t cell
+  [FN] leukocyte -> mononuclear leukocyte
+  [FN] leukocyte -> mononuclear phagocyte
+  [FN] leukocyte -> mucosal-associated invariant t cell
+  [FN] leukocyte -> myeloid leukocyte
+  [FN] leukocyte -> pre-b-ii cell
+  [FN] leukocyte -> prebcr-positive large pre-b-ii cell
+  [FN] leukocyte -> precursor b cell
+  [FN] leukocyte -> professional antigen presenting cell
+  [FN] leukocyte -> secondary lymphoid organ macrophage
+  [FN] leukocyte -> splenic macrophage
+  [FN] leukocyte -> splenic metallophillic macrophage
+  [FN] leukocyte -> splenocyte
+  [FN] leukocyte -> t cell
+  [FN] leukocyte -> tissue-resident macrophage
+  [FN] lymphocyte -> alpha-beta t cell
+  [FN] lymphocyte -> b cell
+  [FN] lymphocyte -> b cell cd19-positive
+  [FN] lymphocyte -> be cell
+  [FN] lymphocyte -> be1 cell
+  [FN] lymphocyte -> large pre-b-ii cell
+  [FN] lymphocyte -> lymphocyte of b lineage
+  [FN] lymphocyte -> lymphocyte of b lineage cd19-positive
+  [FN] lymphocyte -> mature alpha-beta t cell
+  [FN] lymphocyte -> mature b cell
+  [FN] lymphocyte -> mature t cell
+  [FN] lymphocyte -> mucosal-associated invariant t cell
+  [FN] lymphocyte -> pre-b-ii cell
+  [FN] lymphocyte -> prebcr-positive large pre-b-ii cell
+  [FN] lymphocyte -> precursor b cell
+  [FN] lymphocyte -> t cell
+  [FN] lymphocyte of b lineage -> large pre-b-ii cell
+  [FN] lymphocyte of b lineage -> lymphocyte of b lineage cd19-positive
+  [FN] lymphocyte of b lineage -> mature b cell
+  [FN] lymphocyte of b lineage -> pre-b-ii cell
+  [FN] lymphocyte of b lineage -> prebcr-positive large pre-b-ii cell
+  [FN] lymphocyte of b lineage -> precursor b cell
+  [FN] lymphocyte of b lineage cd19-positive -> be cell
+  [FN] lymphocyte of b lineage cd19-positive -> be1 cell
+  [FN] lymphocyte of b lineage cd19-positive -> large pre-b-ii cell
+  [FN] lymphocyte of b lineage cd19-positive -> mature b cell
+  [FN] lymphocyte of b lineage cd19-positive -> pre-b-ii cell
+  [FN] lymphocyte of b lineage cd19-positive -> prebcr-positive large pre-b-ii cell
+  [FN] lymphocyte of b lineage cd19-positive -> precursor b cell
+  [FN] macroglial cell -> interlaminar astrocyte
+  [FN] macrophage -> secondary lymphoid organ macrophage
+  [FN] macrophage -> splenic macrophage
+  [FN] macrophage -> splenic metallophillic macrophage
+  [FN] macrophage -> tissue-resident macrophage
+  [FN] male germ cell -> spermatid
+  [FN] mature alpha-beta t cell -> mucosal-associated invariant t cell
+  [FN] mature b cell -> be cell
+  [FN] mature b cell -> be1 cell
+  [FN] mature t cell -> mature alpha-beta t cell
+  [FN] mature t cell -> mucosal-associated invariant t cell
+  [FN] melanocyte -> epithelial melanocyte
+  [FN] melanocyte -> strial intermediate cell
+  [FN] mesangial cell -> glomerular mesangial cell
+  [FN] mesenchymal stem cell -> mesenchymal stem cell of adipose tissue
+  [FN] mesenchymal stem cell -> mesenchymal stem cell of orbital adipose tissue
+  [FN] mesenchymal stem cell of adipose tissue -> mesenchymal stem cell of orbital adipose tissue
+  [FN] mesothelial fibroblast -> mesothelial fibroblast of the leptomeninx
+  [FN] mesothelial fibroblast -> vascular leptomeningeal cell
+  [FN] mesothelial fibroblast -> vlmc nn vascular leptomeningeal cell mmus
+  [FN] mesothelial fibroblast of the leptomeninx -> vascular leptomeningeal cell
+  [FN] mesothelial fibroblast of the leptomeninx -> vlmc nn vascular leptomeningeal cell mmus
+  [FN] mononuclear leukocyte -> alpha-beta t cell
+  [FN] mononuclear leukocyte -> b cell
+  [FN] mononuclear leukocyte -> b cell cd19-positive
+  [FN] mononuclear leukocyte -> be cell
+  [FN] mononuclear leukocyte -> be1 cell
+  [FN] mononuclear leukocyte -> large pre-b-ii cell
+  [FN] mononuclear leukocyte -> lymphocyte
+  [FN] mononuclear leukocyte -> lymphocyte of b lineage
+  [FN] mononuclear leukocyte -> lymphocyte of b lineage cd19-positive
+  [FN] mononuclear leukocyte -> macrophage
+  [FN] mononuclear leukocyte -> mature alpha-beta t cell
+  [FN] mononuclear leukocyte -> mature b cell
+  [FN] mononuclear leukocyte -> mature t cell
+  [FN] mononuclear leukocyte -> mononuclear phagocyte
+  [FN] mononuclear leukocyte -> mucosal-associated invariant t cell
+  [FN] mononuclear leukocyte -> pre-b-ii cell
+  [FN] mononuclear leukocyte -> prebcr-positive large pre-b-ii cell
+  [FN] mononuclear leukocyte -> precursor b cell
+  [FN] mononuclear leukocyte -> secondary lymphoid organ macrophage
+  [FN] mononuclear leukocyte -> splenic macrophage
+  [FN] mononuclear leukocyte -> splenic metallophillic macrophage
+  [FN] mononuclear leukocyte -> t cell
+  [FN] mononuclear leukocyte -> tissue-resident macrophage
+  [FN] mononuclear phagocyte -> macrophage
+  [FN] mononuclear phagocyte -> secondary lymphoid organ macrophage
+  [FN] mononuclear phagocyte -> splenic macrophage
+  [FN] mononuclear phagocyte -> splenic metallophillic macrophage
+  [FN] mononuclear phagocyte -> tissue-resident macrophage
+  [FN] motile cell -> alpha-beta t cell
+  [FN] motile cell -> b cell
+  [FN] motile cell -> b cell cd19-positive
+  [FN] motile cell -> be cell
+  [FN] motile cell -> be1 cell
+  [FN] motile cell -> glomerular mesangial cell
+  [FN] motile cell -> large pre-b-ii cell
+  [FN] motile cell -> leukocyte
+  [FN] motile cell -> lymphocyte
+  [FN] motile cell -> lymphocyte of b lineage
+  [FN] motile cell -> lymphocyte of b lineage cd19-positive
+  [FN] motile cell -> macrophage
+  [FN] motile cell -> mature alpha-beta t cell
+  [FN] motile cell -> mature b cell
+  [FN] motile cell -> mature t cell
+  [FN] motile cell -> mononuclear leukocyte
+  [FN] motile cell -> mononuclear phagocyte
+  [FN] motile cell -> mucosal-associated invariant t cell
+  [FN] motile cell -> myeloid leukocyte
+  [FN] motile cell -> phagocyte
+  [FN] motile cell -> phagocyte sensu vertebrata
+  [FN] motile cell -> pre-b-ii cell
+  [FN] motile cell -> prebcr-positive large pre-b-ii cell
+  [FN] motile cell -> precursor b cell
+  [FN] motile cell -> professional antigen presenting cell
+  [FN] motile cell -> secondary lymphoid organ macrophage
+  [FN] motile cell -> splenic macrophage
+  [FN] motile cell -> splenic metallophillic macrophage
+  [FN] motile cell -> splenocyte
+  [FN] motile cell -> t cell
+  [FN] motile cell -> tissue-resident macrophage
+  [FN] mucus secreting cell -> large mucus secreting cholangiocyte
+  [FN] multi fate stem cell -> mesenchymal stem cell
+  [FN] multi fate stem cell -> mesenchymal stem cell of adipose tissue
+  [FN] multi fate stem cell -> mesenchymal stem cell of orbital adipose tissue
+  [FN] multi fate stem cell -> stem cell of gastric gland
+  [FN] multinucleate cell -> intrafusal muscle fiber
+  [FN] multinucleate cell -> myotube
+  [FN] multinucleate cell -> nuclear chain fiber
+  [FN] multinucleate cell -> skeletal muscle fiber
+  [FN] multinucleate cell -> syncytial cell
+  [FN] mural cell -> glomerular mesangial cell
+  [FN] mural cell -> mesangial cell
+  [FN] mural cell -> pericyte
+  [FN] mural cell -> renal interstitial pericyte
+  [FN] muscle cell -> intrafusal muscle fiber
+  [FN] muscle cell -> myotube
+  [FN] muscle cell -> non-striated muscle cell
+  [FN] muscle cell -> nuclear chain fiber
+  [FN] muscle cell -> skeletal muscle fiber
+  [FN] muscle cell -> smooth muscle cell
+  [FN] muscle cell -> sphincter associated smooth muscle cell
+  [FN] muscle cell -> striated muscle cell
+  [FN] muscle cell -> visceral muscle cell
+  [FN] muscle precursor cell -> fast muscle myoblast
+  [FN] muscle precursor cell -> myoblast
+  [FN] muscle precursor cell -> skeletal muscle myoblast
+  [FN] myeloid cell -> cycling myeloid cell
+  [FN] myeloid cell -> macrophage
+  [FN] myeloid cell -> myeloid leukocyte
+  [FN] myeloid cell -> secondary lymphoid organ macrophage
+  [FN] myeloid cell -> splenic macrophage
+  [FN] myeloid cell -> splenic metallophillic macrophage
+  [FN] myeloid cell -> tissue-resident macrophage
+  [FN] myeloid leukocyte -> macrophage
+  [FN] myeloid leukocyte -> secondary lymphoid organ macrophage
+  [FN] myeloid leukocyte -> splenic macrophage
+  [FN] myeloid leukocyte -> splenic metallophillic macrophage
+  [FN] myeloid leukocyte -> tissue-resident macrophage
+  [FN] myoblast -> fast muscle myoblast
+  [FN] myoblast -> skeletal muscle myoblast
+  [FN] myotube -> intrafusal muscle fiber
+  [FN] myotube -> nuclear chain fiber
+  [FN] myotube -> skeletal muscle fiber
+  [FN] neural cell -> afferent neuron
+  [FN] neural cell -> amacrine cell
+  [FN] neural cell -> astrocyte
+  [FN] neural cell -> astrocyte of the cerebral cortex
+  [FN] neural cell -> astrocyte of the forebrain
+  [FN] neural cell -> autonomic neuron
+  [FN] neural cell -> brain macroglial cell
+  [FN] neural cell -> cartwheel cell
+  [FN] neural cell -> central nervous system neuron
+  [FN] neural cell -> cerebral cortex gabaergic interneuron
+  [FN] neural cell -> cerebral cortex glial cell
+  [FN] neural cell -> cerebral cortex neuron
+  [FN] neural cell -> cortical interneuron
+  [FN] neural cell -> enteric neuron
+  [FN] neural cell -> enteroglial cell
+  [FN] neural cell -> gaba-gly neuron
+  [FN] neural cell -> gabaergic interneuron
+  [FN] neural cell -> gabaergic neuron
+  [FN] neural cell -> glial cell
+  [FN] neural cell -> glycinergic neuron
+  [FN] neural cell -> inhibitory interneuron
+  [FN] neural cell -> interlaminar astrocyte
+  [FN] neural cell -> interneuron
+  [FN] neural cell -> intrafusal muscle fiber
+  [FN] neural cell -> intrinsic primary afferent neuron of myenteric plexus
+  [FN] neural cell -> l56 non-martinotti sst gabaergic interneuron mmus
+  [FN] neural cell -> macroglial cell
+  [FN] neural cell -> mesothelial fibroblast of the leptomeninx
+  [FN] neural cell -> neural crest derived neuron
+  [FN] neural cell -> neuron
+  [FN] neural cell -> neuron associated cell
+  [FN] neural cell -> neuron of the forebrain
+  [FN] neural cell -> nuclear chain fiber
+  [FN] neural cell -> olfactory epithelial cell
+  [FN] neural cell -> peripheral nervous system neuron
+  [FN] neural cell -> peripheral sensory neuron
+  [FN] neural cell -> retinal cell
+  [FN] neural cell -> sensory neuron
+  [FN] neural cell -> superior cervical ganglion cgrp neuron
+  [FN] neural cell -> superior cervical ganglion thnpy neuron
+  [FN] neural cell -> sympathetic neuron
+  [FN] neural cell -> thoracic ganglion thnpy neuron
+  [FN] neural cell -> vascular leptomeningeal cell
+  [FN] neural cell -> vlmc nn vascular leptomeningeal cell mmus
+  [FN] neural cell -> wf4 amacrine cell
+  [FN] neural cell -> wide field retinal amacrine cell
+  [FN] neural crest derived neuron -> enteric neuron
+  [FN] neural crest derived neuron -> intrinsic primary afferent neuron of myenteric plexus
+  [FN] neurecto-epithelial cell -> olfactory epithelial cell
+  [FN] neurecto-epithelial cell -> strial intermediate cell
+  [FN] neuron -> amacrine cell
+  [FN] neuron -> autonomic neuron
+  [FN] neuron -> cartwheel cell
+  [FN] neuron -> cerebral cortex gabaergic interneuron
+  [FN] neuron -> cerebral cortex neuron
+  [FN] neuron -> cortical interneuron
+  [FN] neuron -> enteric neuron
+  [FN] neuron -> gaba-gly neuron
+  [FN] neuron -> gabaergic interneuron
+  [FN] neuron -> gabaergic neuron
+  [FN] neuron -> glycinergic neuron
+  [FN] neuron -> inhibitory interneuron
+  [FN] neuron -> interneuron
+  [FN] neuron -> intrinsic primary afferent neuron of myenteric plexus
+  [FN] neuron -> l56 non-martinotti sst gabaergic interneuron mmus
+  [FN] neuron -> neural crest derived neuron
+  [FN] neuron -> neuron of the forebrain
+  [FN] neuron -> peripheral nervous system neuron
+  [FN] neuron -> peripheral sensory neuron
+  [FN] neuron -> sensory neuron
+  [FN] neuron -> superior cervical ganglion cgrp neuron
+  [FN] neuron -> superior cervical ganglion thnpy neuron
+  [FN] neuron -> sympathetic neuron
+  [FN] neuron -> thoracic ganglion thnpy neuron
+  [FN] neuron -> wf4 amacrine cell
+  [FN] neuron -> wide field retinal amacrine cell
+  [FN] neuron associated cell -> astrocyte
+  [FN] neuron associated cell -> astrocyte of the cerebral cortex
+  [FN] neuron associated cell -> astrocyte of the forebrain
+  [FN] neuron associated cell -> brain macroglial cell
+  [FN] neuron associated cell -> cerebral cortex glial cell
+  [FN] neuron associated cell -> enteroglial cell
+  [FN] neuron associated cell -> glial cell
+  [FN] neuron associated cell -> interlaminar astrocyte
+  [FN] neuron associated cell -> macroglial cell
+  [FN] neuron of the forebrain -> cortical interneuron
+  [FN] neuron of the forebrain -> l56 non-martinotti sst gabaergic interneuron mmus
+  [FN] non-striated muscle cell -> smooth muscle cell
+  [FN] non-striated muscle cell -> sphincter associated smooth muscle cell
+  [FN] nucleate cell -> alpha-beta t cell
+  [FN] nucleate cell -> b cell
+  [FN] nucleate cell -> b cell cd19-positive
+  [FN] nucleate cell -> be cell
+  [FN] nucleate cell -> be1 cell
+  [FN] nucleate cell -> intrafusal muscle fiber
+  [FN] nucleate cell -> large pre-b-ii cell
+  [FN] nucleate cell -> leukocyte
+  [FN] nucleate cell -> lymphocyte
+  [FN] nucleate cell -> lymphocyte of b lineage
+  [FN] nucleate cell -> lymphocyte of b lineage cd19-positive
+  [FN] nucleate cell -> macrophage
+  [FN] nucleate cell -> mature alpha-beta t cell
+  [FN] nucleate cell -> mature b cell
+  [FN] nucleate cell -> mature t cell
+  [FN] nucleate cell -> mononuclear leukocyte
+  [FN] nucleate cell -> mononuclear phagocyte
+  [FN] nucleate cell -> mucosal-associated invariant t cell
+  [FN] nucleate cell -> multinucleate cell
+  [FN] nucleate cell -> myeloid leukocyte
+  [FN] nucleate cell -> myotube
+  [FN] nucleate cell -> nuclear chain fiber
+  [FN] nucleate cell -> pre-b-ii cell
+  [FN] nucleate cell -> prebcr-positive large pre-b-ii cell
+  [FN] nucleate cell -> precursor b cell
+  [FN] nucleate cell -> professional antigen presenting cell
+  [FN] nucleate cell -> secondary lymphoid organ macrophage
+  [FN] nucleate cell -> single nucleate cell
+  [FN] nucleate cell -> skeletal muscle fiber
+  [FN] nucleate cell -> splenic macrophage
+  [FN] nucleate cell -> splenic metallophillic macrophage
+  [FN] nucleate cell -> splenocyte
+  [FN] nucleate cell -> syncytial cell
+  [FN] nucleate cell -> t cell
+  [FN] nucleate cell -> tissue-resident macrophage
+  [FN] peptide hormone secreting cell -> type l enteroendocrine cell
+  [FN] pericyte -> glomerular mesangial cell
+  [FN] pericyte -> mesangial cell
+  [FN] pericyte -> renal interstitial pericyte
+  [FN] peripheral nervous system neuron -> enteric neuron
+  [FN] peripheral nervous system neuron -> intrinsic primary afferent neuron of myenteric plexus
+  [FN] peripheral nervous system neuron -> peripheral sensory neuron
+  [FN] peripheral nervous system neuron -> superior cervical ganglion cgrp neuron
+  [FN] peripheral nervous system neuron -> superior cervical ganglion thnpy neuron
+  [FN] peripheral nervous system neuron -> sympathetic neuron
+  [FN] peripheral nervous system neuron -> thoracic ganglion thnpy neuron
+  [FN] peripheral sensory neuron -> intrinsic primary afferent neuron of myenteric plexus
+  [FN] perivascular cell -> glomerular mesangial cell
+  [FN] perivascular cell -> mesangial cell
+  [FN] perivascular cell -> mural cell
+  [FN] perivascular cell -> pericyte
+  [FN] perivascular cell -> renal interstitial pericyte
+  [FN] phagocyte -> glomerular mesangial cell
+  [FN] phagocyte -> macrophage
+  [FN] phagocyte -> mononuclear phagocyte
+  [FN] phagocyte -> phagocyte sensu vertebrata
+  [FN] phagocyte -> secondary lymphoid organ macrophage
+  [FN] phagocyte -> splenic macrophage
+  [FN] phagocyte -> splenic metallophillic macrophage
+  [FN] phagocyte -> tissue-resident macrophage
+  [FN] phagocyte sensu vertebrata -> macrophage
+  [FN] phagocyte sensu vertebrata -> mononuclear phagocyte
+  [FN] phagocyte sensu vertebrata -> secondary lymphoid organ macrophage
+  [FN] phagocyte sensu vertebrata -> splenic macrophage
+  [FN] phagocyte sensu vertebrata -> splenic metallophillic macrophage
+  [FN] phagocyte sensu vertebrata -> tissue-resident macrophage
+  [FN] pigment cell -> epithelial melanocyte
+  [FN] pigment cell -> melanocyte
+  [FN] pigment cell -> strial intermediate cell
+  [FN] polyploid cell -> invertebrate nurse cell
+  [FN] pre-b-ii cell -> large pre-b-ii cell
+  [FN] pre-b-ii cell -> prebcr-positive large pre-b-ii cell
+  [FN] precursor b cell -> large pre-b-ii cell
+  [FN] precursor b cell -> pre-b-ii cell
+  [FN] precursor b cell -> prebcr-positive large pre-b-ii cell
+  [FN] precursor cell -> fast muscle myoblast
+  [FN] precursor cell -> mesenchymal stem cell
+  [FN] precursor cell -> mesenchymal stem cell of adipose tissue
+  [FN] precursor cell -> mesenchymal stem cell of orbital adipose tissue
+  [FN] precursor cell -> multi fate stem cell
+  [FN] precursor cell -> muscle precursor cell
+  [FN] precursor cell -> myoblast
+  [FN] precursor cell -> progenitor cell
+  [FN] precursor cell -> skeletal muscle myoblast
+  [FN] precursor cell -> stem cell
+  [FN] precursor cell -> stem cell of gastric gland
+  [FN] professional antigen presenting cell -> macrophage
+  [FN] professional antigen presenting cell -> mature b cell
+  [FN] professional antigen presenting cell -> secondary lymphoid organ macrophage
+  [FN] professional antigen presenting cell -> splenic macrophage
+  [FN] professional antigen presenting cell -> splenic metallophillic macrophage
+  [FN] professional antigen presenting cell -> tissue-resident macrophage
+  [FN] progenitor cell -> fast muscle myoblast
+  [FN] progenitor cell -> muscle precursor cell
+  [FN] progenitor cell -> myoblast
+  [FN] progenitor cell -> skeletal muscle myoblast
+  [FN] renal cortical epithelial cell -> glomerular cell
+  [FN] renal cortical epithelial cell -> glomerular mesangial cell
+  [FN] renal cortical epithelial cell -> kidney corpuscule cell
+  [FN] renal interstitial pericyte -> glomerular mesangial cell
+  [FN] renal interstitial pericyte -> mesangial cell
+  [FN] respiratory tract epithelial cell -> epithelial cell of upper respiratory tract
+  [FN] respiratory tract epithelial cell -> olfactory epithelial cell
+  [FN] retinal cell -> wf4 amacrine cell
+  [FN] retinal cell -> wide field retinal amacrine cell
+  [FN] secondary lymphoid organ macrophage -> splenic macrophage
+  [FN] secondary lymphoid organ macrophage -> splenic metallophillic macrophage
+  [FN] secretory cell -> androgen secreting cell
+  [FN] secretory cell -> cartwheel cell
+  [FN] secretory cell -> cerebral cortex gabaergic interneuron
+  [FN] secretory cell -> endocrine cell
+  [FN] secretory cell -> enteroendocrine cell
+  [FN] secretory cell -> epididymis secretory cell
+  [FN] secretory cell -> gaba-gly neuron
+  [FN] secretory cell -> gabaergic interneuron
+  [FN] secretory cell -> gabaergic neuron
+  [FN] secretory cell -> glycinergic neuron
+  [FN] secretory cell -> intestinal enteroendocrine cell
+  [FN] secretory cell -> juxtacanalicular tissue cell
+  [FN] secretory cell -> l56 non-martinotti sst gabaergic interneuron mmus
+  [FN] secretory cell -> large mucus secreting cholangiocyte
+  [FN] secretory cell -> mucus secreting cell
+  [FN] secretory cell -> peptide hormone secreting cell
+  [FN] secretory cell -> secretory epithelial cell
+  [FN] secretory cell -> seromucus secreting cell
+  [FN] secretory cell -> steroid hormone secreting cell
+  [FN] secretory cell -> type l enteroendocrine cell
+  [FN] secretory epithelial cell -> enteroendocrine cell
+  [FN] secretory epithelial cell -> epididymis secretory cell
+  [FN] secretory epithelial cell -> intestinal enteroendocrine cell
+  [FN] secretory epithelial cell -> large mucus secreting cholangiocyte
+  [FN] secretory epithelial cell -> type l enteroendocrine cell
+  [FN] sensory epithelial cell -> olfactory epithelial cell
+  [FN] sensory epithelial cell -> strial basal cell
+  [FN] sensory epithelial cell -> strial intermediate cell
+  [FN] sensory neuron -> intrinsic primary afferent neuron of myenteric plexus
+  [FN] sensory neuron -> peripheral sensory neuron
+  [FN] sensory receptor cell -> auditory epithelial cell
+  [FN] sensory receptor cell -> chemoreceptor cell
+  [FN] sensory receptor cell -> olfactory epithelial cell
+  [FN] sensory receptor cell -> sensory epithelial cell
+  [FN] sensory receptor cell -> strial basal cell
+  [FN] sensory receptor cell -> strial intermediate cell
+  [FN] seromucus secreting cell -> large mucus secreting cholangiocyte
+  [FN] seromucus secreting cell -> mucus secreting cell
+  [FN] single nucleate cell -> alpha-beta t cell
+  [FN] single nucleate cell -> b cell
+  [FN] single nucleate cell -> b cell cd19-positive
+  [FN] single nucleate cell -> be cell
+  [FN] single nucleate cell -> be1 cell
+  [FN] single nucleate cell -> large pre-b-ii cell
+  [FN] single nucleate cell -> lymphocyte
+  [FN] single nucleate cell -> lymphocyte of b lineage
+  [FN] single nucleate cell -> lymphocyte of b lineage cd19-positive
+  [FN] single nucleate cell -> macrophage
+  [FN] single nucleate cell -> mature alpha-beta t cell
+  [FN] single nucleate cell -> mature b cell
+  [FN] single nucleate cell -> mature t cell
+  [FN] single nucleate cell -> mononuclear leukocyte
+  [FN] single nucleate cell -> mononuclear phagocyte
+  [FN] single nucleate cell -> mucosal-associated invariant t cell
+  [FN] single nucleate cell -> pre-b-ii cell
+  [FN] single nucleate cell -> prebcr-positive large pre-b-ii cell
+  [FN] single nucleate cell -> precursor b cell
+  [FN] single nucleate cell -> secondary lymphoid organ macrophage
+  [FN] single nucleate cell -> splenic macrophage
+  [FN] single nucleate cell -> splenic metallophillic macrophage
+  [FN] single nucleate cell -> t cell
+  [FN] single nucleate cell -> tissue-resident macrophage
+  [FN] skeletal muscle fiber -> intrafusal muscle fiber
+  [FN] skeletal muscle fiber -> nuclear chain fiber
+  [FN] skeletal muscle myoblast -> fast muscle myoblast
+  [FN] smooth muscle cell -> sphincter associated smooth muscle cell
+  [FN] splenic macrophage -> splenic metallophillic macrophage
+  [FN] splenocyte -> splenic macrophage
+  [FN] splenocyte -> splenic metallophillic macrophage
+  [FN] stem cell -> mesenchymal stem cell
+  [FN] stem cell -> mesenchymal stem cell of adipose tissue
+  [FN] stem cell -> mesenchymal stem cell of orbital adipose tissue
+  [FN] stem cell -> multi fate stem cell
+  [FN] stem cell -> stem cell of gastric gland
+  [FN] striated muscle cell -> intrafusal muscle fiber
+  [FN] striated muscle cell -> myotube
+  [FN] striated muscle cell -> nuclear chain fiber
+  [FN] striated muscle cell -> skeletal muscle fiber
+  [FN] stromal cell -> extracellular matrix secreting cell
+  [FN] stromal cell -> fibroblast
+  [FN] stromal cell -> juxtacanalicular tissue cell
+  [FN] stromal cell -> mesothelial fibroblast
+  [FN] stromal cell -> mesothelial fibroblast of the leptomeninx
+  [FN] stromal cell -> vascular leptomeningeal cell
+  [FN] stromal cell -> vlmc nn vascular leptomeningeal cell mmus
+  [FN] stuff accumulating cell -> epithelial melanocyte
+  [FN] stuff accumulating cell -> glomerular mesangial cell
+  [FN] stuff accumulating cell -> macrophage
+  [FN] stuff accumulating cell -> melanocyte
+  [FN] stuff accumulating cell -> mononuclear phagocyte
+  [FN] stuff accumulating cell -> phagocyte
+  [FN] stuff accumulating cell -> phagocyte sensu vertebrata
+  [FN] stuff accumulating cell -> pigment cell
+  [FN] stuff accumulating cell -> secondary lymphoid organ macrophage
+  [FN] stuff accumulating cell -> splenic macrophage
+  [FN] stuff accumulating cell -> splenic metallophillic macrophage
+  [FN] stuff accumulating cell -> strial intermediate cell
+  [FN] stuff accumulating cell -> tissue-resident macrophage
+  [FN] supporting cell -> glomerular mesangial cell
+  [FN] supporting cell -> mesangial cell
+  [FN] supporting cell -> pericyte
+  [FN] supporting cell -> renal interstitial pericyte
+  [FN] supporting cell -> scolopale cell
+  [FN] supporting cell -> supporting cell sensu nematoda and protostomia
+  [FN] supporting cell sensu nematoda and protostomia -> scolopale cell
+  [FN] sympathetic neuron -> superior cervical ganglion cgrp neuron
+  [FN] sympathetic neuron -> superior cervical ganglion thnpy neuron
+  [FN] sympathetic neuron -> thoracic ganglion thnpy neuron
+  [FN] syncytial cell -> intrafusal muscle fiber
+  [FN] syncytial cell -> myotube
+  [FN] syncytial cell -> nuclear chain fiber
+  [FN] syncytial cell -> skeletal muscle fiber
+  [FN] t cell -> mature alpha-beta t cell
+  [FN] t cell -> mature t cell
+  [FN] t cell -> mucosal-associated invariant t cell
+  [FN] tissue-resident macrophage -> secondary lymphoid organ macrophage
+  [FN] tissue-resident macrophage -> splenic macrophage
+  [FN] tissue-resident macrophage -> splenic metallophillic macrophage
+  [FN] trabecular meshwork cell -> juxtacanalicular tissue cell
+  [FN] vascular leptomeningeal cell -> vlmc nn vascular leptomeningeal cell mmus
+  [FN] vein endothelial cell -> schlemms canal endothelial cell
+  [FN] visceral muscle cell -> smooth muscle cell
+  [FN] visceral muscle cell -> sphincter associated smooth muscle cell
+  [FN] wide field retinal amacrine cell -> wf4 amacrine cell

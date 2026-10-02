@@ -1,0 +1,108 @@
+==================================================
+=== Detailed Node Pair Analysis (Condensed Transitive Reduction) ===
+Match Type Used: SET_OVERLAP
+==================================================
+Precision: 0.6458 | Recall: 0.6327 | F1: 0.6392
+
+CORRECT PREDICTIONS (True Positives: 31 Pred edges covering 31 GT edges):
+  [TP] PRED: (bread -> bun)
+        matches GT: (bread -> bun)
+  [TP] PRED: (butter -> meuniere butter)
+        matches GT: (butter -> meuniere butter)
+  [TP] PRED: (candied citrus peel -> grapefruit peel)
+        matches GT: (candied citrus peel -> grapefruit peel)
+  [TP] PRED: (candied fruit -> candied citrus peel)
+        matches GT: (candied fruit -> candied citrus peel)
+  [TP] PRED: (chowder -> fish chowder)
+        matches GT: (chowder -> fish chowder)
+  [TP] PRED: (cocktail -> sidecar)
+        matches GT: (cocktail -> sidecar)
+  [TP] PRED: (condiment -> sauce)
+        matches GT: (condiment -> sauce)
+  [TP] PRED: (corn -> hominy)
+        matches GT: (corn -> hominy)
+  [TP] PRED: (course -> appetizer)
+        matches GT: (course -> appetizer)
+  [TP] PRED: (dairy product -> butter)
+        matches GT: (dairy product -> butter)
+  [TP] PRED: (dish -> scrapple)
+        matches GT: (dish -> scrapple)
+  [TP] PRED: (dish -> snack food)
+        matches GT: (dish -> snack food)
+  [TP] PRED: (dish -> soup)
+        matches GT: (dish -> soup)
+  [TP] PRED: (dough -> pastry)
+        matches GT: (dough -> pastry)
+  [TP] PRED: (dressing -> lorenzo dressing)
+        matches GT: (dressing -> lorenzo dressing)
+  [TP] PRED: (flavorer -> condiment)
+        matches GT: (flavorer -> condiment)
+  [TP] PRED: (food -> foodstuff)
+        matches GT: (food -> foodstuff)
+  [TP] PRED: (food -> nutriment)
+        matches GT: (food -> nutriment)
+  [TP] PRED: (foodstuff -> dairy product)
+        matches GT: (foodstuff -> dairy product)
+  [TP] PRED: (foodstuff -> grain)
+        matches GT: (foodstuff -> grain)
+  [TP] PRED: (foodstuff -> ingredient)
+        matches GT: (foodstuff -> ingredient)
+  [TP] PRED: (foodstuff -> starches)
+        matches GT: (foodstuff -> starches)
+  [TP] PRED: (grain -> corn)
+        matches GT: (grain -> corn)
+  [TP] PRED: (ingredient -> egg white)
+        matches GT: (ingredient -> egg white)
+  [TP] PRED: (ingredient -> flavorer)
+        matches GT: (ingredient -> flavorer)
+  [TP] PRED: (pastry -> puff paste)
+        matches GT: (pastry -> puff paste)
+  [TP] PRED: (sandwich -> open face sandwich)
+        matches GT: (sandwich -> open face sandwich)
+  [TP] PRED: (sauce -> dressing)
+        matches GT: (sauce -> dressing)
+  [TP] PRED: (soup -> chowder)
+        matches GT: (soup -> chowder)
+  [TP] PRED: (sweet -> confiture)
+        matches GT: (sweet -> confiture)
+  [TP] PRED: (sweet roll -> honey bun)
+        matches GT: (sweet roll -> honey bun)
+
+INCORRECT PREDICTIONS (False Positives: 17):
+  [FP] concoction -> cocktail
+  [FP] concoction -> sauce
+  [FP] condiment -> pepper sauce
+  [FP] condiment -> seasoned salt
+  [FP] dish -> course
+  [FP] dish -> sandwich
+  [FP] food -> bread
+  [FP] food -> dainty
+  [FP] food -> dish
+  [FP] ingredient -> sweet
+  [FP] pastry -> bun
+  [FP] pastry -> crescent roll
+  [FP] pastry -> phyllo
+  [FP] pastry -> sweet roll
+  [FP] seasoned salt -> onion salt
+  [FP] starches -> dough
+  [FP] sweet -> candied fruit
+
+MISSED RELATIONS (False Negatives: 18):
+  [FN] appetizer -> cocktail
+  [FN] bun -> crescent roll
+  [FN] bun -> sweet roll
+  [FN] commissariat -> larder
+  [FN] concoction -> dough
+  [FN] confiture -> candied fruit
+  [FN] dainty -> sweet
+  [FN] flavorer -> onion salt
+  [FN] flavorer -> seasoned salt
+  [FN] food -> commissariat
+  [FN] foodstuff -> concoction
+  [FN] nutriment -> course
+  [FN] nutriment -> dainty
+  [FN] nutriment -> dish
+  [FN] puff paste -> phyllo
+  [FN] sauce -> pepper sauce
+  [FN] snack food -> sandwich
+  [FN] starches -> bread

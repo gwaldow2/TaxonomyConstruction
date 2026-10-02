@@ -1,0 +1,57 @@
+==================================================
+=== Detailed Node Pair Analysis (Exploded Raw Edges) ===
+Match Type Used: EXACT
+==================================================
+Precision: 0.4091 | Recall: 0.9000 | F1: 0.5625
+
+CORRECT PREDICTIONS (True Positives: 18 Pred edges covering 18 GT edges):
+  [TP] carbon allotrope -> chaoite
+  [TP] continuant -> dependent_continuant
+  [TP] dependent_continuant -> quality
+  [TP] element -> magnesium
+  [TP] element -> molybdenum
+  [TP] element -> scandium
+  [TP] measured property -> concentration
+  [TP] measured property -> count
+  [TP] measured property -> density
+  [TP] quality -> chemical quality
+  [TP] quality -> measured property
+  [TP] radiation unit -> dose equivalent unit
+  [TP] scaled unit -> peta scaled unit
+  [TP] scaled unit -> zepto scaled unit
+  [TP] unit -> conduction unit
+  [TP] unit -> derivedunit
+  [TP] unit -> molecular mass unit
+  [TP] unit -> radiation unit
+
+INCORRECT PREDICTIONS (False Positives: 26):
+  [FP] continuant -> chemical quality
+  [FP] continuant -> concentration
+  [FP] continuant -> count
+  [FP] continuant -> density
+  [FP] continuant -> hardness range
+  [FP] continuant -> measured property
+  [FP] continuant -> molybdenum
+  [FP] continuant -> quality
+  [FP] dependent_continuant -> chemical quality
+  [FP] dependent_continuant -> concentration
+  [FP] dependent_continuant -> count
+  [FP] dependent_continuant -> density
+  [FP] dependent_continuant -> hardness range
+  [FP] dependent_continuant -> measured property
+  [FP] derivedunit -> conduction unit
+  [FP] derivedunit -> dose equivalent unit
+  [FP] derivedunit -> radiation unit
+  [FP] quality -> concentration
+  [FP] quality -> count
+  [FP] quality -> density
+  [FP] quality -> hardness range
+  [FP] unit -> count
+  [FP] unit -> dose equivalent unit
+  [FP] unit -> peta scaled unit
+  [FP] unit -> scaled unit
+  [FP] unit -> zepto scaled unit
+
+MISSED RELATIONS (False Negatives: 2):
+  [FN] chemical quality -> chemical class
+  [FN] derivedunit -> scaled unit

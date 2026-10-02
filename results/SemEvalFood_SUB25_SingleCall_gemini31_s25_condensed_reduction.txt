@@ -1,0 +1,61 @@
+==================================================
+=== Detailed Node Pair Analysis (Condensed Transitive Reduction) ===
+Match Type Used: SET_OVERLAP
+==================================================
+Precision: 0.6250 | Recall: 0.5769 | F1: 0.6000
+
+CORRECT PREDICTIONS (True Positives: 15 Pred edges covering 15 GT edges):
+  [TP] PRED: (condiment -> relish)
+        matches GT: (condiment -> relish)
+  [TP] PRED: (condiment -> sauce)
+        matches GT: (condiment -> sauce)
+  [TP] PRED: (dressing -> blue cheese dressing)
+        matches GT: (dressing -> blue cheese dressing)
+  [TP] PRED: (feed -> fodder)
+        matches GT: (feed -> fodder)
+  [TP] PRED: (flavorer -> condiment)
+        matches GT: (flavorer -> condiment)
+  [TP] PRED: (food -> fare)
+        matches GT: (food -> fare)
+  [TP] PRED: (food -> feed)
+        matches GT: (food -> feed)
+  [TP] PRED: (food -> foodstuff)
+        matches GT: (food -> foodstuff)
+  [TP] PRED: (food -> nutriment)
+        matches GT: (food -> nutriment)
+  [TP] PRED: (foodstuff -> starches)
+        matches GT: (foodstuff -> starches)
+  [TP] PRED: (ingredient -> flavorer)
+        matches GT: (ingredient -> flavorer)
+  [TP] PRED: (meal -> tea)
+        matches GT: (meal -> tea)
+  [TP] PRED: (sauce -> dressing)
+        matches GT: (sauce -> dressing)
+  [TP] PRED: (tea -> oolong)
+        matches GT: (tea -> oolong)
+  [TP] PRED: (tea -> sun tea)
+        matches GT: (tea -> sun tea)
+
+INCORRECT PREDICTIONS (False Positives: 9):
+  [FP] feed -> eatage
+  [FP] food -> ingredient
+  [FP] food -> meal
+  [FP] food -> potato
+  [FP] herb -> alfalfa
+  [FP] herb -> potato
+  [FP] meal -> chow
+  [FP] nutriment -> home fries
+  [FP] sauce -> steak sauce
+
+MISSED RELATIONS (False Negatives: 11):
+  [FN] condiment -> steak sauce
+  [FN] fare -> chow
+  [FN] flavorer -> herb
+  [FN] fodder -> alfalfa
+  [FN] fodder -> eatage
+  [FN] foodstuff -> ingredient
+  [FN] foodstuff -> meal
+  [FN] herb -> tea
+  [FN] nutriment -> meal
+  [FN] potato -> home fries
+  [FN] starches -> potato

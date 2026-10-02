@@ -1,0 +1,166 @@
+==================================================
+=== Detailed Node Pair Analysis (Condensed Transitive Closure) ===
+Match Type Used: SET_OVERLAP
+==================================================
+Precision: 0.7468 | Recall: 0.9853 | F1: 0.8497
+
+CORRECT PREDICTIONS (True Positives: 59 Pred edges covering 67 GT edges):
+  [TP] PRED: (baked goods -> applesauce cake)
+        matches GT: (baked goods -> applesauce cake)
+  [TP] PRED: (baked goods -> cake)
+        matches GT: (baked goods -> cake)
+  [TP] PRED: (berry -> raspberry)
+        matches GT: (berry -> raspberry)
+  [TP] PRED: (cake -> applesauce cake)
+        matches GT: (cake -> applesauce cake)
+  [TP] PRED: (course -> corn pudding)
+        matches GT: (course -> corn pudding)
+  [TP] PRED: (course -> dessert)
+        matches GT: (course -> dessert)
+  [TP] PRED: (course -> pudding)
+        matches GT: (course -> pudding)
+  [TP] PRED: (dessert -> corn pudding)
+        matches GT: (dessert -> corn pudding)
+  [TP] PRED: (dessert -> pudding)
+        matches GT: (dessert -> pudding)
+  [TP] PRED: (dish -> corn pudding)
+        matches GT: (dish -> corn pudding)
+  [TP] PRED: (dish -> gyro)
+        matches GT: (dish -> gyro)
+  [TP] PRED: (dish -> pudding)
+        matches GT: (dish -> pudding)
+  [TP] PRED: (dish -> sandwich)
+        matches GT: (dish -> sandwich)
+  [TP] PRED: (dish -> snack food)
+        matches GT: (dish -> snack food)
+  [TP] PRED: (edible fruit -> berry)
+        matches GT: (edible fruit -> berry)
+  [TP] PRED: (edible fruit -> raspberry)
+        matches GT: (edible fruit -> raspberry)
+  [TP] PRED: (flavorer -> herb)
+        matches GT: (flavorer -> herb)
+  [TP] PRED: (flavorer -> marjoram)
+        matches GT: (flavorer -> marjoram)
+  [TP] PRED: (food (food, nutriment) -> applesauce cake)
+        matches GT: (food -> applesauce cake)
+  [TP] PRED: (food (food, nutriment) -> baked goods)
+        matches GT: (food -> baked goods)
+  [TP] PRED: (food (food, nutriment) -> beef jerky)
+        matches GT: (food -> beef jerky)
+  [TP] PRED: (food (food, nutriment) -> berry)
+        matches GT: (food -> berry)
+  [TP] PRED: (food (food, nutriment) -> cake)
+        matches GT: (food -> cake)
+  [TP] PRED: (food (food, nutriment) -> corn pudding)
+        matches GT: (food -> corn pudding)
+  [TP] PRED: (food (food, nutriment) -> corn pudding)
+        matches GT: (nutriment -> corn pudding)
+  [TP] PRED: (food (food, nutriment) -> course)
+        matches GT: (food -> course)
+  [TP] PRED: (food (food, nutriment) -> course)
+        matches GT: (nutriment -> course)
+  [TP] PRED: (food (food, nutriment) -> dessert)
+        matches GT: (food -> dessert)
+  [TP] PRED: (food (food, nutriment) -> dessert)
+        matches GT: (nutriment -> dessert)
+  [TP] PRED: (food (food, nutriment) -> dish)
+        matches GT: (food -> dish)
+  [TP] PRED: (food (food, nutriment) -> dish)
+        matches GT: (nutriment -> dish)
+  [TP] PRED: (food (food, nutriment) -> edible fruit)
+        matches GT: (food -> edible fruit)
+  [TP] PRED: (food (food, nutriment) -> flavorer)
+        matches GT: (food -> flavorer)
+  [TP] PRED: (food (food, nutriment) -> foodstuff)
+        matches GT: (food -> foodstuff)
+  [TP] PRED: (food (food, nutriment) -> gyro)
+        matches GT: (food -> gyro)
+  [TP] PRED: (food (food, nutriment) -> gyro)
+        matches GT: (nutriment -> gyro)
+  [TP] PRED: (food (food, nutriment) -> herb)
+        matches GT: (food -> herb)
+  [TP] PRED: (food (food, nutriment) -> ingredient)
+        matches GT: (food -> ingredient)
+  [TP] PRED: (food (food, nutriment) -> jerky)
+        matches GT: (food -> jerky)
+  [TP] PRED: (food (food, nutriment) -> marjoram)
+        matches GT: (food -> marjoram)
+  [TP] PRED: (food (food, nutriment) -> meat)
+        matches GT: (food -> meat)
+  [TP] PRED: (food (food, nutriment) -> produce)
+        matches GT: (food -> produce)
+  [TP] PRED: (food (food, nutriment) -> pudding)
+        matches GT: (food -> pudding)
+  [TP] PRED: (food (food, nutriment) -> pudding)
+        matches GT: (nutriment -> pudding)
+  [TP] PRED: (food (food, nutriment) -> raspberry)
+        matches GT: (food -> raspberry)
+  [TP] PRED: (food (food, nutriment) -> sandwich)
+        matches GT: (food -> sandwich)
+  [TP] PRED: (food (food, nutriment) -> sandwich)
+        matches GT: (nutriment -> sandwich)
+  [TP] PRED: (food (food, nutriment) -> snack food)
+        matches GT: (food -> snack food)
+  [TP] PRED: (food (food, nutriment) -> snack food)
+        matches GT: (nutriment -> snack food)
+  [TP] PRED: (foodstuff -> flavorer)
+        matches GT: (foodstuff -> flavorer)
+  [TP] PRED: (foodstuff -> herb)
+        matches GT: (foodstuff -> herb)
+  [TP] PRED: (foodstuff -> ingredient)
+        matches GT: (foodstuff -> ingredient)
+  [TP] PRED: (foodstuff -> marjoram)
+        matches GT: (foodstuff -> marjoram)
+  [TP] PRED: (herb -> marjoram)
+        matches GT: (herb -> marjoram)
+  [TP] PRED: (ingredient -> flavorer)
+        matches GT: (ingredient -> flavorer)
+  [TP] PRED: (ingredient -> herb)
+        matches GT: (ingredient -> herb)
+  [TP] PRED: (ingredient -> marjoram)
+        matches GT: (ingredient -> marjoram)
+  [TP] PRED: (jerky -> beef jerky)
+        matches GT: (jerky -> beef jerky)
+  [TP] PRED: (meat -> beef jerky)
+        matches GT: (meat -> beef jerky)
+  [TP] PRED: (meat -> jerky)
+        matches GT: (meat -> jerky)
+  [TP] PRED: (produce -> berry)
+        matches GT: (produce -> berry)
+  [TP] PRED: (produce -> edible fruit)
+        matches GT: (produce -> edible fruit)
+  [TP] PRED: (produce -> raspberry)
+        matches GT: (produce -> raspberry)
+  [TP] PRED: (pudding -> corn pudding)
+        matches GT: (pudding -> corn pudding)
+  [TP] PRED: (sandwich -> gyro)
+        matches GT: (sandwich -> gyro)
+  [TP] PRED: (snack food -> gyro)
+        matches GT: (snack food -> gyro)
+  [TP] PRED: (snack food -> sandwich)
+        matches GT: (snack food -> sandwich)
+
+INCORRECT PREDICTIONS (False Positives: 20):
+  [FP] course -> applesauce cake
+  [FP] course -> cake
+  [FP] dessert -> applesauce cake
+  [FP] dessert -> cake
+  [FP] dish -> applesauce cake
+  [FP] dish -> beef jerky
+  [FP] dish -> cake
+  [FP] dish -> dessert
+  [FP] foodstuff -> applesauce cake
+  [FP] foodstuff -> baked goods
+  [FP] foodstuff -> beef jerky
+  [FP] foodstuff -> berry
+  [FP] foodstuff -> cake
+  [FP] foodstuff -> corn pudding
+  [FP] foodstuff -> edible fruit
+  [FP] foodstuff -> jerky
+  [FP] foodstuff -> meat
+  [FP] foodstuff -> produce
+  [FP] foodstuff -> raspberry
+  [FP] snack food -> beef jerky
+
+MISSED RELATIONS (False Negatives: 1):
+  [FN] food -> nutriment

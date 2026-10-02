@@ -1,0 +1,43 @@
+==================================================
+=== Detailed Node Pair Analysis (Exploded Raw Edges) ===
+Match Type Used: EXACT
+==================================================
+Precision: 0.5833 | Recall: 0.6364 | F1: 0.6087
+
+CORRECT PREDICTIONS (True Positives: 14 Pred edges covering 14 GT edges):
+  [TP] abscission zone -> floral organ abscission zone
+  [TP] cardinal part of multi-tissue plant structure -> cardinal organ part
+  [TP] flower -> pistillate flower
+  [TP] multi-tissue plant structure -> plant organ
+  [TP] phyllome -> sporophyll
+  [TP] plant anatomical entity -> plant structure
+  [TP] plant axis differentiation zone -> shoot internode differentiation zone
+  [TP] plant organ -> phyllome
+  [TP] plant structure -> multi-tissue plant structure
+  [TP] plant structure -> portion of plant tissue
+  [TP] portion of plant tissue -> portion of ground tissue
+  [TP] shoot internode differentiation zone -> branch internode differentiation zone
+  [TP] storage parenchyma -> tuber storage parenchyma
+  [TP] tuber axillary shoot -> subterranean tuber axillary shoot
+
+INCORRECT PREDICTIONS (False Positives: 10):
+  [FP] ear floret -> spikelet floret
+  [FP] flower -> ear floret
+  [FP] multi-tissue plant structure -> cardinal part of multi-tissue plant structure
+  [FP] plant organ -> flower
+  [FP] plant organ -> tuber axillary shoot
+  [FP] plant structure -> abscission zone
+  [FP] plant structure -> central endosperm
+  [FP] plant structure -> plant axis differentiation zone
+  [FP] plant structure -> reproductive shoot system
+  [FP] portion of ground tissue -> storage parenchyma
+
+MISSED RELATIONS (False Negatives: 8):
+  [FN] cardinal organ part -> plant axis differentiation zone
+  [FN] flower -> spikelet floret
+  [FN] pistillate flower -> ear floret
+  [FN] plant structure -> cardinal part of multi-tissue plant structure
+  [FN] portion of plant tissue -> abscission zone
+  [FN] portion of plant tissue -> central endosperm
+  [FN] reproductive shoot system -> flower
+  [FN] spikelet floret -> ear floret

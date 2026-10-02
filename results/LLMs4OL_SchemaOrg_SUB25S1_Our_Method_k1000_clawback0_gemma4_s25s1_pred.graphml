@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d4" for="graph" attr.name="timestamp" attr.type="string"/>
+<key id="d3" for="graph" attr.name="scale" attr.type="string"/>
+<key id="d2" for="graph" attr.name="results_file" attr.type="string"/>
+<key id="d1" for="graph" attr.name="tag" attr.type="string"/>
+<key id="d0" for="graph" attr.name="model" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">google/gemma-4-31b-it</data>
+<data key="d1">gemma4_s25s1</data>
+<data key="d2">results/scaling_gemma4.json</data>
+<data key="d3">SUB25S1</data>
+<data key="d4">2026-09-30T16:46:58</data>
+<node id="controlaction"/>
+<node id="suspendaction"/>
+<node id="action"/>
+<node id="episode"/>
+<node id="tvepisode"/>
+<node id="creativework (creativework, mediaobject)"/>
+<node id="datadownload"/>
+<node id="entertainmentbusiness"/>
+<node id="movietheater"/>
+<node id="localbusiness"/>
+<node id="organization"/>
+<node id="place"/>
+<node id="civicstructure"/>
+<node id="manuscript"/>
+<node id="intangible"/>
+<node id="governmentbuilding"/>
+<node id="broadcastchannel (broadcastchannel, televisionchannel)"/>
+<node id="emergencyservice"/>
+<node id="healthclub"/>
+<node id="sportsactivitylocation"/>
+<node id="enumeration"/>
+<node id="sizegroupenumeration"/>
+<edge source="controlaction" target="suspendaction"/>
+<edge source="action" target="suspendaction"/>
+<edge source="action" target="datadownload"/>
+<edge source="action" target="controlaction"/>
+<edge source="episode" target="tvepisode"/>
+<edge source="creativework (creativework, mediaobject)" target="tvepisode"/>
+<edge source="creativework (creativework, mediaobject)" target="manuscript"/>
+<edge source="creativework (creativework, mediaobject)" target="episode"/>
+<edge source="creativework (creativework, mediaobject)" target="broadcastchannel (broadcastchannel, televisionchannel)"/>
+<edge source="entertainmentbusiness" target="movietheater"/>
+<edge source="entertainmentbusiness" target="broadcastchannel (broadcastchannel, televisionchannel)"/>
+<edge source="entertainmentbusiness" target="healthclub"/>
+<edge source="localbusiness" target="movietheater"/>
+<edge source="localbusiness" target="entertainmentbusiness"/>
+<edge source="localbusiness" target="healthclub"/>
+<edge source="localbusiness" target="sportsactivitylocation"/>
+<edge source="localbusiness" target="emergencyservice"/>
+<edge source="organization" target="movietheater"/>
+<edge source="organization" target="broadcastchannel (broadcastchannel, televisionchannel)"/>
+<edge source="organization" target="entertainmentbusiness"/>
+<edge source="organization" target="localbusiness"/>
+<edge source="organization" target="emergencyservice"/>
+<edge source="organization" target="healthclub"/>
+<edge source="place" target="movietheater"/>
+<edge source="place" target="civicstructure"/>
+<edge source="place" target="localbusiness"/>
+<edge source="place" target="governmentbuilding"/>
+<edge source="place" target="sportsactivitylocation"/>
+<edge source="place" target="healthclub"/>
+<edge source="place" target="emergencyservice"/>
+<edge source="civicstructure" target="movietheater"/>
+<edge source="civicstructure" target="governmentbuilding"/>
+<edge source="intangible" target="manuscript"/>
+<edge source="intangible" target="broadcastchannel (broadcastchannel, televisionchannel)"/>
+<edge source="intangible" target="creativework (creativework, mediaobject)"/>
+<edge source="intangible" target="episode"/>
+<edge source="sportsactivitylocation" target="healthclub"/>
+<edge source="enumeration" target="sizegroupenumeration"/>
+</graph></graphml>

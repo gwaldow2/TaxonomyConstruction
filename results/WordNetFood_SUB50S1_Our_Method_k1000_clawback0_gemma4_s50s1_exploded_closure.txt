@@ -1,0 +1,386 @@
+==================================================
+=== Detailed Node Pair Analysis (Exploded Transitive Closure) ===
+Match Type Used: EXACT
+==================================================
+Precision: 0.4397 | Recall: 0.8500 | F1: 0.5795
+
+CORRECT PREDICTIONS (True Positives: 153 Pred edges covering 153 GT edges):
+  [TP] apple -> bramleys seedling
+  [TP] apple -> cooking apple
+  [TP] baked goods -> cake
+  [TP] baked goods -> cruller
+  [TP] baked goods -> friedcake
+  [TP] berry -> boysenberry
+  [TP] beverage -> black tea
+  [TP] beverage -> congou
+  [TP] beverage -> sarsaparilla
+  [TP] beverage -> soft drink
+  [TP] beverage -> tea
+  [TP] black tea -> congou
+  [TP] boiled egg -> hard-boiled egg
+  [TP] cake -> cruller
+  [TP] cake -> friedcake
+  [TP] candy -> easter egg
+  [TP] candy -> fudge
+  [TP] candy -> penuche
+  [TP] condiment -> chinese brown sauce
+  [TP] condiment -> sauce
+  [TP] confiture -> jam
+  [TP] confiture -> strawberry jam
+  [TP] conserve -> jam
+  [TP] conserve -> strawberry jam
+  [TP] cooking apple -> bramleys seedling
+  [TP] dish -> boiled egg
+  [TP] dish -> easter egg
+  [TP] dish -> hard-boiled egg
+  [TP] dish -> soup
+  [TP] edible fruit -> apple
+  [TP] edible fruit -> berry
+  [TP] edible fruit -> boysenberry
+  [TP] edible fruit -> bramleys seedling
+  [TP] edible fruit -> cooking apple
+  [TP] flavorer -> chinese brown sauce
+  [TP] flavorer -> condiment
+  [TP] flavorer -> sauce
+  [TP] food -> apple
+  [TP] food -> baked goods
+  [TP] food -> beef tongue
+  [TP] food -> berry
+  [TP] food -> beverage
+  [TP] food -> black tea
+  [TP] food -> boiled egg
+  [TP] food -> boysenberry
+  [TP] food -> bramleys seedling
+  [TP] food -> cake
+  [TP] food -> candy
+  [TP] food -> chinese brown sauce
+  [TP] food -> condiment
+  [TP] food -> confiture
+  [TP] food -> congou
+  [TP] food -> conserve
+  [TP] food -> cooking apple
+  [TP] food -> cruller
+  [TP] food -> dainty
+  [TP] food -> dish
+  [TP] food -> easter egg
+  [TP] food -> edible fruit
+  [TP] food -> flavorer
+  [TP] food -> foodstuff
+  [TP] food -> friedcake
+  [TP] food -> fudge
+  [TP] food -> hard-boiled egg
+  [TP] food -> herb
+  [TP] food -> ingredient
+  [TP] food -> jam
+  [TP] food -> julienne
+  [TP] food -> meal
+  [TP] food -> meat
+  [TP] food -> nutriment
+  [TP] food -> penuche
+  [TP] food -> saltwater fish
+  [TP] food -> sarsaparilla
+  [TP] food -> sauce
+  [TP] food -> sea bass
+  [TP] food -> seafood
+  [TP] food -> soft drink
+  [TP] food -> soup
+  [TP] food -> strawberry jam
+  [TP] food -> sweet
+  [TP] food -> tea
+  [TP] food -> tongue
+  [TP] food -> variety meat
+  [TP] food -> vegetable
+  [TP] foodstuff -> black tea
+  [TP] foodstuff -> chinese brown sauce
+  [TP] foodstuff -> condiment
+  [TP] foodstuff -> congou
+  [TP] foodstuff -> flavorer
+  [TP] foodstuff -> herb
+  [TP] foodstuff -> ingredient
+  [TP] foodstuff -> meal
+  [TP] foodstuff -> sauce
+  [TP] foodstuff -> tea
+  [TP] friedcake -> cruller
+  [TP] fudge -> penuche
+  [TP] ingredient -> black tea
+  [TP] ingredient -> chinese brown sauce
+  [TP] ingredient -> condiment
+  [TP] ingredient -> congou
+  [TP] ingredient -> flavorer
+  [TP] ingredient -> herb
+  [TP] ingredient -> sauce
+  [TP] ingredient -> tea
+  [TP] jam -> strawberry jam
+  [TP] meat -> beef tongue
+  [TP] meat -> tongue
+  [TP] meat -> variety meat
+  [TP] nutriment -> black tea
+  [TP] nutriment -> boiled egg
+  [TP] nutriment -> candy
+  [TP] nutriment -> confiture
+  [TP] nutriment -> congou
+  [TP] nutriment -> conserve
+  [TP] nutriment -> dainty
+  [TP] nutriment -> dish
+  [TP] nutriment -> easter egg
+  [TP] nutriment -> fudge
+  [TP] nutriment -> hard-boiled egg
+  [TP] nutriment -> jam
+  [TP] nutriment -> julienne
+  [TP] nutriment -> meal
+  [TP] nutriment -> penuche
+  [TP] nutriment -> soup
+  [TP] nutriment -> strawberry jam
+  [TP] nutriment -> sweet
+  [TP] nutriment -> tea
+  [TP] produce -> apple
+  [TP] produce -> berry
+  [TP] produce -> boysenberry
+  [TP] produce -> bramleys seedling
+  [TP] produce -> cooking apple
+  [TP] produce -> edible fruit
+  [TP] produce -> julienne
+  [TP] produce -> vegetable
+  [TP] saltwater fish -> sea bass
+  [TP] sauce -> chinese brown sauce
+  [TP] seafood -> saltwater fish
+  [TP] seafood -> sea bass
+  [TP] soft drink -> sarsaparilla
+  [TP] sweet -> candy
+  [TP] sweet -> confiture
+  [TP] sweet -> easter egg
+  [TP] sweet -> fudge
+  [TP] sweet -> jam
+  [TP] sweet -> penuche
+  [TP] sweet -> strawberry jam
+  [TP] tea -> black tea
+  [TP] tea -> congou
+  [TP] tongue -> beef tongue
+  [TP] variety meat -> beef tongue
+  [TP] variety meat -> tongue
+
+INCORRECT PREDICTIONS (False Positives: 195):
+  [FP] condiment -> condiment
+  [FP] condiment -> confiture
+  [FP] condiment -> conserve
+  [FP] condiment -> flavorer
+  [FP] condiment -> jam
+  [FP] condiment -> strawberry jam
+  [FP] confiture -> confiture
+  [FP] conserve -> confiture
+  [FP] dish -> baked goods
+  [FP] dish -> cake
+  [FP] dish -> confiture
+  [FP] dish -> cruller
+  [FP] dish -> dish
+  [FP] dish -> friedcake
+  [FP] dish -> jam
+  [FP] dish -> meal
+  [FP] dish -> strawberry jam
+  [FP] flavorer -> confiture
+  [FP] flavorer -> conserve
+  [FP] flavorer -> flavorer
+  [FP] flavorer -> jam
+  [FP] flavorer -> strawberry jam
+  [FP] food -> food
+  [FP] foodstuff -> apple
+  [FP] foodstuff -> baked goods
+  [FP] foodstuff -> beef tongue
+  [FP] foodstuff -> berry
+  [FP] foodstuff -> beverage
+  [FP] foodstuff -> boiled egg
+  [FP] foodstuff -> boysenberry
+  [FP] foodstuff -> bramleys seedling
+  [FP] foodstuff -> cake
+  [FP] foodstuff -> candy
+  [FP] foodstuff -> confiture
+  [FP] foodstuff -> conserve
+  [FP] foodstuff -> cooking apple
+  [FP] foodstuff -> cruller
+  [FP] foodstuff -> dainty
+  [FP] foodstuff -> dish
+  [FP] foodstuff -> easter egg
+  [FP] foodstuff -> edible fruit
+  [FP] foodstuff -> food
+  [FP] foodstuff -> foodstuff
+  [FP] foodstuff -> friedcake
+  [FP] foodstuff -> fudge
+  [FP] foodstuff -> hard-boiled egg
+  [FP] foodstuff -> jam
+  [FP] foodstuff -> julienne
+  [FP] foodstuff -> meat
+  [FP] foodstuff -> nutriment
+  [FP] foodstuff -> penuche
+  [FP] foodstuff -> saltwater fish
+  [FP] foodstuff -> sarsaparilla
+  [FP] foodstuff -> sea bass
+  [FP] foodstuff -> seafood
+  [FP] foodstuff -> soft drink
+  [FP] foodstuff -> soup
+  [FP] foodstuff -> strawberry jam
+  [FP] foodstuff -> sweet
+  [FP] foodstuff -> tongue
+  [FP] foodstuff -> variety meat
+  [FP] foodstuff -> vegetable
+  [FP] ingredient -> apple
+  [FP] ingredient -> baked goods
+  [FP] ingredient -> beef tongue
+  [FP] ingredient -> berry
+  [FP] ingredient -> beverage
+  [FP] ingredient -> boiled egg
+  [FP] ingredient -> boysenberry
+  [FP] ingredient -> bramleys seedling
+  [FP] ingredient -> cake
+  [FP] ingredient -> candy
+  [FP] ingredient -> confiture
+  [FP] ingredient -> conserve
+  [FP] ingredient -> cooking apple
+  [FP] ingredient -> cruller
+  [FP] ingredient -> dainty
+  [FP] ingredient -> dish
+  [FP] ingredient -> easter egg
+  [FP] ingredient -> edible fruit
+  [FP] ingredient -> food
+  [FP] ingredient -> foodstuff
+  [FP] ingredient -> friedcake
+  [FP] ingredient -> fudge
+  [FP] ingredient -> hard-boiled egg
+  [FP] ingredient -> ingredient
+  [FP] ingredient -> jam
+  [FP] ingredient -> julienne
+  [FP] ingredient -> meal
+  [FP] ingredient -> meat
+  [FP] ingredient -> nutriment
+  [FP] ingredient -> penuche
+  [FP] ingredient -> saltwater fish
+  [FP] ingredient -> sarsaparilla
+  [FP] ingredient -> sea bass
+  [FP] ingredient -> seafood
+  [FP] ingredient -> soft drink
+  [FP] ingredient -> soup
+  [FP] ingredient -> strawberry jam
+  [FP] ingredient -> sweet
+  [FP] ingredient -> tongue
+  [FP] ingredient -> variety meat
+  [FP] ingredient -> vegetable
+  [FP] jam -> confiture
+  [FP] jam -> jam
+  [FP] meal -> baked goods
+  [FP] meal -> boiled egg
+  [FP] meal -> cake
+  [FP] meal -> confiture
+  [FP] meal -> cruller
+  [FP] meal -> dish
+  [FP] meal -> easter egg
+  [FP] meal -> friedcake
+  [FP] meal -> hard-boiled egg
+  [FP] meal -> jam
+  [FP] meal -> meal
+  [FP] meal -> soup
+  [FP] meal -> strawberry jam
+  [FP] meat -> saltwater fish
+  [FP] meat -> sea bass
+  [FP] nutriment -> apple
+  [FP] nutriment -> baked goods
+  [FP] nutriment -> beef tongue
+  [FP] nutriment -> berry
+  [FP] nutriment -> beverage
+  [FP] nutriment -> boysenberry
+  [FP] nutriment -> bramleys seedling
+  [FP] nutriment -> cake
+  [FP] nutriment -> chinese brown sauce
+  [FP] nutriment -> condiment
+  [FP] nutriment -> cooking apple
+  [FP] nutriment -> cruller
+  [FP] nutriment -> edible fruit
+  [FP] nutriment -> flavorer
+  [FP] nutriment -> food
+  [FP] nutriment -> foodstuff
+  [FP] nutriment -> friedcake
+  [FP] nutriment -> herb
+  [FP] nutriment -> ingredient
+  [FP] nutriment -> meat
+  [FP] nutriment -> nutriment
+  [FP] nutriment -> saltwater fish
+  [FP] nutriment -> sarsaparilla
+  [FP] nutriment -> sauce
+  [FP] nutriment -> sea bass
+  [FP] nutriment -> seafood
+  [FP] nutriment -> soft drink
+  [FP] nutriment -> tongue
+  [FP] nutriment -> variety meat
+  [FP] nutriment -> vegetable
+  [FP] produce -> baked goods
+  [FP] produce -> beef tongue
+  [FP] produce -> beverage
+  [FP] produce -> black tea
+  [FP] produce -> boiled egg
+  [FP] produce -> cake
+  [FP] produce -> candy
+  [FP] produce -> chinese brown sauce
+  [FP] produce -> condiment
+  [FP] produce -> confiture
+  [FP] produce -> congou
+  [FP] produce -> conserve
+  [FP] produce -> cruller
+  [FP] produce -> dainty
+  [FP] produce -> dish
+  [FP] produce -> easter egg
+  [FP] produce -> flavorer
+  [FP] produce -> food
+  [FP] produce -> foodstuff
+  [FP] produce -> friedcake
+  [FP] produce -> fudge
+  [FP] produce -> hard-boiled egg
+  [FP] produce -> herb
+  [FP] produce -> ingredient
+  [FP] produce -> jam
+  [FP] produce -> meal
+  [FP] produce -> meat
+  [FP] produce -> nutriment
+  [FP] produce -> penuche
+  [FP] produce -> saltwater fish
+  [FP] produce -> sarsaparilla
+  [FP] produce -> sauce
+  [FP] produce -> sea bass
+  [FP] produce -> seafood
+  [FP] produce -> soft drink
+  [FP] produce -> soup
+  [FP] produce -> strawberry jam
+  [FP] produce -> sweet
+  [FP] produce -> tea
+  [FP] produce -> tongue
+  [FP] produce -> variety meat
+  [FP] sweet -> cake
+  [FP] sweet -> cruller
+  [FP] sweet -> friedcake
+  [FP] vegetable -> herb
+
+MISSED RELATIONS (False Negatives: 27):
+  [FN] boiled egg -> easter egg
+  [FN] confiture -> conserve
+  [FN] dainty -> candy
+  [FN] dainty -> confiture
+  [FN] dainty -> conserve
+  [FN] dainty -> easter egg
+  [FN] dainty -> fudge
+  [FN] dainty -> jam
+  [FN] dainty -> penuche
+  [FN] dainty -> strawberry jam
+  [FN] dainty -> sweet
+  [FN] dish -> julienne
+  [FN] flavorer -> black tea
+  [FN] flavorer -> congou
+  [FN] flavorer -> herb
+  [FN] flavorer -> tea
+  [FN] food -> produce
+  [FN] hard-boiled egg -> easter egg
+  [FN] herb -> black tea
+  [FN] herb -> congou
+  [FN] herb -> tea
+  [FN] meal -> black tea
+  [FN] meal -> congou
+  [FN] meal -> tea
+  [FN] soup -> julienne
+  [FN] sweet -> conserve
+  [FN] vegetable -> julienne

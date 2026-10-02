@@ -1,0 +1,376 @@
+==================================================
+=== Detailed Node Pair Analysis (Condensed Transitive Closure) ===
+Match Type Used: SET_OVERLAP
+==================================================
+Precision: 0.6667 | Recall: 0.8488 | F1: 0.7468
+
+CORRECT PREDICTIONS (True Positives: 94 Pred edges covering 146 GT edges):
+  [TP] PRED: (b complex vitamin -> inositol)
+        matches GT: (b complex vitamin -> inositol)
+  [TP] PRED: (bread -> bun)
+        matches GT: (bread -> bun)
+  [TP] PRED: (bread -> honey bun)
+        matches GT: (bread -> honey bun)
+  [TP] PRED: (bread -> sweet roll)
+        matches GT: (bread -> sweet roll)
+  [TP] PRED: (bun -> honey bun)
+        matches GT: (bun -> honey bun)
+  [TP] PRED: (bun -> sweet roll)
+        matches GT: (bun -> sweet roll)
+  [TP] PRED: (canned food -> canned meat)
+        matches GT: (canned food -> canned meat)
+  [TP] PRED: (cheese -> cheshire cheese)
+        matches GT: (cheese -> cheshire cheese)
+  [TP] PRED: (cheese -> parmesan)
+        matches GT: (cheese -> parmesan)
+  [TP] PRED: (condiment (condiment, flavorer) -> cheese spread)
+        matches GT: (condiment -> cheese spread)
+  [TP] PRED: (condiment (condiment, flavorer) -> cheese spread)
+        matches GT: (flavorer -> cheese spread)
+  [TP] PRED: (condiment (condiment, flavorer) -> sauce)
+        matches GT: (condiment -> sauce)
+  [TP] PRED: (condiment (condiment, flavorer) -> sauce)
+        matches GT: (flavorer -> sauce)
+  [TP] PRED: (condiment (condiment, flavorer) -> spread)
+        matches GT: (condiment -> spread)
+  [TP] PRED: (condiment (condiment, flavorer) -> spread)
+        matches GT: (flavorer -> spread)
+  [TP] PRED: (condiment (condiment, flavorer) -> white sauce)
+        matches GT: (condiment -> white sauce)
+  [TP] PRED: (condiment (condiment, flavorer) -> white sauce)
+        matches GT: (flavorer -> white sauce)
+  [TP] PRED: (course -> dessert)
+        matches GT: (course -> dessert)
+  [TP] PRED: (course -> frozen dessert)
+        matches GT: (course -> frozen dessert)
+  [TP] PRED: (course -> parfait)
+        matches GT: (course -> parfait)
+  [TP] PRED: (cream -> whipping cream)
+        matches GT: (cream -> whipping cream)
+  [TP] PRED: (dairy product -> cheese)
+        matches GT: (dairy product -> cheese)
+  [TP] PRED: (dairy product -> cheshire cheese)
+        matches GT: (dairy product -> cheshire cheese)
+  [TP] PRED: (dairy product -> colostrum)
+        matches GT: (dairy product -> colostrum)
+  [TP] PRED: (dairy product -> cream)
+        matches GT: (dairy product -> cream)
+  [TP] PRED: (dairy product -> milk)
+        matches GT: (dairy product -> milk)
+  [TP] PRED: (dairy product -> parmesan)
+        matches GT: (dairy product -> parmesan)
+  [TP] PRED: (dairy product -> whipping cream)
+        matches GT: (dairy product -> whipping cream)
+  [TP] PRED: (dairy product -> whole milk)
+        matches GT: (dairy product -> whole milk)
+  [TP] PRED: (dessert -> frozen dessert)
+        matches GT: (dessert -> frozen dessert)
+  [TP] PRED: (dessert -> parfait)
+        matches GT: (dessert -> parfait)
+  [TP] PRED: (dish (dish, food, foodstuff, nutriment) -> b complex vitamin)
+        matches GT: (food -> b complex vitamin)
+  [TP] PRED: (dish (dish, food, foodstuff, nutriment) -> b complex vitamin)
+        matches GT: (nutriment -> b complex vitamin)
+  [TP] PRED: (dish (dish, food, foodstuff, nutriment) -> bread)
+        matches GT: (food -> bread)
+  [TP] PRED: (dish (dish, food, foodstuff, nutriment) -> bread)
+        matches GT: (foodstuff -> bread)
+  [TP] PRED: (dish (dish, food, foodstuff, nutriment) -> brown rice)
+        matches GT: (food -> brown rice)
+  [TP] PRED: (dish (dish, food, foodstuff, nutriment) -> brown rice)
+        matches GT: (foodstuff -> brown rice)
+  [TP] PRED: (dish (dish, food, foodstuff, nutriment) -> bun)
+        matches GT: (food -> bun)
+  [TP] PRED: (dish (dish, food, foodstuff, nutriment) -> bun)
+        matches GT: (foodstuff -> bun)
+  [TP] PRED: (dish (dish, food, foodstuff, nutriment) -> canned food)
+        matches GT: (food -> canned food)
+  [TP] PRED: (dish (dish, food, foodstuff, nutriment) -> canned food)
+        matches GT: (foodstuff -> canned food)
+  [TP] PRED: (dish (dish, food, foodstuff, nutriment) -> canned meat)
+        matches GT: (food -> canned meat)
+  [TP] PRED: (dish (dish, food, foodstuff, nutriment) -> canned meat)
+        matches GT: (foodstuff -> canned meat)
+  [TP] PRED: (dish (dish, food, foodstuff, nutriment) -> cattle cake)
+        matches GT: (food -> cattle cake)
+  [TP] PRED: (dish (dish, food, foodstuff, nutriment) -> cheese spread)
+        matches GT: (food -> cheese spread)
+  [TP] PRED: (dish (dish, food, foodstuff, nutriment) -> cheese spread)
+        matches GT: (foodstuff -> cheese spread)
+  [TP] PRED: (dish (dish, food, foodstuff, nutriment) -> cheese)
+        matches GT: (food -> cheese)
+  [TP] PRED: (dish (dish, food, foodstuff, nutriment) -> cheese)
+        matches GT: (foodstuff -> cheese)
+  [TP] PRED: (dish (dish, food, foodstuff, nutriment) -> cheshire cheese)
+        matches GT: (food -> cheshire cheese)
+  [TP] PRED: (dish (dish, food, foodstuff, nutriment) -> cheshire cheese)
+        matches GT: (foodstuff -> cheshire cheese)
+  [TP] PRED: (dish (dish, food, foodstuff, nutriment) -> chili)
+        matches GT: (dish -> chili)
+  [TP] PRED: (dish (dish, food, foodstuff, nutriment) -> chili)
+        matches GT: (food -> chili)
+  [TP] PRED: (dish (dish, food, foodstuff, nutriment) -> chili)
+        matches GT: (nutriment -> chili)
+  [TP] PRED: (dish (dish, food, foodstuff, nutriment) -> colostrum)
+        matches GT: (food -> colostrum)
+  [TP] PRED: (dish (dish, food, foodstuff, nutriment) -> colostrum)
+        matches GT: (foodstuff -> colostrum)
+  [TP] PRED: (dish (dish, food, foodstuff, nutriment) -> colostrum)
+        matches GT: (nutriment -> colostrum)
+  [TP] PRED: (dish (dish, food, foodstuff, nutriment) -> condiment (condiment, flavorer))
+        matches GT: (food -> condiment)
+  [TP] PRED: (dish (dish, food, foodstuff, nutriment) -> condiment (condiment, flavorer))
+        matches GT: (food -> flavorer)
+  [TP] PRED: (dish (dish, food, foodstuff, nutriment) -> condiment (condiment, flavorer))
+        matches GT: (foodstuff -> condiment)
+  [TP] PRED: (dish (dish, food, foodstuff, nutriment) -> condiment (condiment, flavorer))
+        matches GT: (foodstuff -> flavorer)
+  [TP] PRED: (dish (dish, food, foodstuff, nutriment) -> corn chip)
+        matches GT: (dish -> corn chip)
+  [TP] PRED: (dish (dish, food, foodstuff, nutriment) -> corn chip)
+        matches GT: (food -> corn chip)
+  [TP] PRED: (dish (dish, food, foodstuff, nutriment) -> corn chip)
+        matches GT: (nutriment -> corn chip)
+  [TP] PRED: (dish (dish, food, foodstuff, nutriment) -> cream)
+        matches GT: (food -> cream)
+  [TP] PRED: (dish (dish, food, foodstuff, nutriment) -> cream)
+        matches GT: (foodstuff -> cream)
+  [TP] PRED: (dish (dish, food, foodstuff, nutriment) -> dairy product)
+        matches GT: (food -> dairy product)
+  [TP] PRED: (dish (dish, food, foodstuff, nutriment) -> dairy product)
+        matches GT: (foodstuff -> dairy product)
+  [TP] PRED: (dish (dish, food, foodstuff, nutriment) -> dessert)
+        matches GT: (food -> dessert)
+  [TP] PRED: (dish (dish, food, foodstuff, nutriment) -> dessert)
+        matches GT: (nutriment -> dessert)
+  [TP] PRED: (dish (dish, food, foodstuff, nutriment) -> enchilada)
+        matches GT: (dish -> enchilada)
+  [TP] PRED: (dish (dish, food, foodstuff, nutriment) -> enchilada)
+        matches GT: (food -> enchilada)
+  [TP] PRED: (dish (dish, food, foodstuff, nutriment) -> enchilada)
+        matches GT: (nutriment -> enchilada)
+  [TP] PRED: (dish (dish, food, foodstuff, nutriment) -> feed)
+        matches GT: (food -> feed)
+  [TP] PRED: (dish (dish, food, foodstuff, nutriment) -> frozen dessert)
+        matches GT: (food -> frozen dessert)
+  [TP] PRED: (dish (dish, food, foodstuff, nutriment) -> frozen dessert)
+        matches GT: (nutriment -> frozen dessert)
+  [TP] PRED: (dish (dish, food, foodstuff, nutriment) -> grain)
+        matches GT: (food -> grain)
+  [TP] PRED: (dish (dish, food, foodstuff, nutriment) -> grain)
+        matches GT: (foodstuff -> grain)
+  [TP] PRED: (dish (dish, food, foodstuff, nutriment) -> herb)
+        matches GT: (food -> herb)
+  [TP] PRED: (dish (dish, food, foodstuff, nutriment) -> herb)
+        matches GT: (foodstuff -> herb)
+  [TP] PRED: (dish (dish, food, foodstuff, nutriment) -> honey bun)
+        matches GT: (food -> honey bun)
+  [TP] PRED: (dish (dish, food, foodstuff, nutriment) -> honey bun)
+        matches GT: (foodstuff -> honey bun)
+  [TP] PRED: (dish (dish, food, foodstuff, nutriment) -> ingredient)
+        matches GT: (food -> ingredient)
+  [TP] PRED: (dish (dish, food, foodstuff, nutriment) -> ingredient)
+        matches GT: (foodstuff -> ingredient)
+  [TP] PRED: (dish (dish, food, foodstuff, nutriment) -> inositol)
+        matches GT: (food -> inositol)
+  [TP] PRED: (dish (dish, food, foodstuff, nutriment) -> inositol)
+        matches GT: (nutriment -> inositol)
+  [TP] PRED: (dish (dish, food, foodstuff, nutriment) -> milk)
+        matches GT: (food -> milk)
+  [TP] PRED: (dish (dish, food, foodstuff, nutriment) -> milk)
+        matches GT: (foodstuff -> milk)
+  [TP] PRED: (dish (dish, food, foodstuff, nutriment) -> milk)
+        matches GT: (nutriment -> milk)
+  [TP] PRED: (dish (dish, food, foodstuff, nutriment) -> parfait)
+        matches GT: (food -> parfait)
+  [TP] PRED: (dish (dish, food, foodstuff, nutriment) -> parfait)
+        matches GT: (nutriment -> parfait)
+  [TP] PRED: (dish (dish, food, foodstuff, nutriment) -> parmesan)
+        matches GT: (food -> parmesan)
+  [TP] PRED: (dish (dish, food, foodstuff, nutriment) -> parmesan)
+        matches GT: (foodstuff -> parmesan)
+  [TP] PRED: (dish (dish, food, foodstuff, nutriment) -> rice)
+        matches GT: (food -> rice)
+  [TP] PRED: (dish (dish, food, foodstuff, nutriment) -> rice)
+        matches GT: (foodstuff -> rice)
+  [TP] PRED: (dish (dish, food, foodstuff, nutriment) -> sauce)
+        matches GT: (food -> sauce)
+  [TP] PRED: (dish (dish, food, foodstuff, nutriment) -> sauce)
+        matches GT: (foodstuff -> sauce)
+  [TP] PRED: (dish (dish, food, foodstuff, nutriment) -> snack food)
+        matches GT: (dish -> snack food)
+  [TP] PRED: (dish (dish, food, foodstuff, nutriment) -> snack food)
+        matches GT: (food -> snack food)
+  [TP] PRED: (dish (dish, food, foodstuff, nutriment) -> snack food)
+        matches GT: (nutriment -> snack food)
+  [TP] PRED: (dish (dish, food, foodstuff, nutriment) -> spread)
+        matches GT: (food -> spread)
+  [TP] PRED: (dish (dish, food, foodstuff, nutriment) -> spread)
+        matches GT: (foodstuff -> spread)
+  [TP] PRED: (dish (dish, food, foodstuff, nutriment) -> starches)
+        matches GT: (food -> starches)
+  [TP] PRED: (dish (dish, food, foodstuff, nutriment) -> starches)
+        matches GT: (foodstuff -> starches)
+  [TP] PRED: (dish (dish, food, foodstuff, nutriment) -> sweet cicely)
+        matches GT: (food -> sweet cicely)
+  [TP] PRED: (dish (dish, food, foodstuff, nutriment) -> sweet cicely)
+        matches GT: (foodstuff -> sweet cicely)
+  [TP] PRED: (dish (dish, food, foodstuff, nutriment) -> sweet roll)
+        matches GT: (food -> sweet roll)
+  [TP] PRED: (dish (dish, food, foodstuff, nutriment) -> sweet roll)
+        matches GT: (foodstuff -> sweet roll)
+  [TP] PRED: (dish (dish, food, foodstuff, nutriment) -> vitamin)
+        matches GT: (food -> vitamin)
+  [TP] PRED: (dish (dish, food, foodstuff, nutriment) -> vitamin)
+        matches GT: (nutriment -> vitamin)
+  [TP] PRED: (dish (dish, food, foodstuff, nutriment) -> water soluble vitamin)
+        matches GT: (food -> water soluble vitamin)
+  [TP] PRED: (dish (dish, food, foodstuff, nutriment) -> water soluble vitamin)
+        matches GT: (nutriment -> water soluble vitamin)
+  [TP] PRED: (dish (dish, food, foodstuff, nutriment) -> water)
+        matches GT: (food -> water)
+  [TP] PRED: (dish (dish, food, foodstuff, nutriment) -> whipping cream)
+        matches GT: (food -> whipping cream)
+  [TP] PRED: (dish (dish, food, foodstuff, nutriment) -> whipping cream)
+        matches GT: (foodstuff -> whipping cream)
+  [TP] PRED: (dish (dish, food, foodstuff, nutriment) -> white sauce)
+        matches GT: (food -> white sauce)
+  [TP] PRED: (dish (dish, food, foodstuff, nutriment) -> white sauce)
+        matches GT: (foodstuff -> white sauce)
+  [TP] PRED: (dish (dish, food, foodstuff, nutriment) -> whole milk)
+        matches GT: (food -> whole milk)
+  [TP] PRED: (dish (dish, food, foodstuff, nutriment) -> whole milk)
+        matches GT: (foodstuff -> whole milk)
+  [TP] PRED: (dish (dish, food, foodstuff, nutriment) -> whole milk)
+        matches GT: (nutriment -> whole milk)
+  [TP] PRED: (feed -> cattle cake)
+        matches GT: (feed -> cattle cake)
+  [TP] PRED: (frozen dessert -> parfait)
+        matches GT: (frozen dessert -> parfait)
+  [TP] PRED: (grain -> brown rice)
+        matches GT: (grain -> brown rice)
+  [TP] PRED: (grain -> rice)
+        matches GT: (grain -> rice)
+  [TP] PRED: (herb -> sweet cicely)
+        matches GT: (herb -> sweet cicely)
+  [TP] PRED: (ingredient -> cheese spread)
+        matches GT: (ingredient -> cheese spread)
+  [TP] PRED: (ingredient -> condiment (condiment, flavorer))
+        matches GT: (ingredient -> condiment)
+  [TP] PRED: (ingredient -> condiment (condiment, flavorer))
+        matches GT: (ingredient -> flavorer)
+  [TP] PRED: (ingredient -> herb)
+        matches GT: (ingredient -> herb)
+  [TP] PRED: (ingredient -> sauce)
+        matches GT: (ingredient -> sauce)
+  [TP] PRED: (ingredient -> spread)
+        matches GT: (ingredient -> spread)
+  [TP] PRED: (ingredient -> sweet cicely)
+        matches GT: (ingredient -> sweet cicely)
+  [TP] PRED: (ingredient -> white sauce)
+        matches GT: (ingredient -> white sauce)
+  [TP] PRED: (milk -> colostrum)
+        matches GT: (milk -> colostrum)
+  [TP] PRED: (milk -> whole milk)
+        matches GT: (milk -> whole milk)
+  [TP] PRED: (rice -> brown rice)
+        matches GT: (rice -> brown rice)
+  [TP] PRED: (sauce -> white sauce)
+        matches GT: (sauce -> white sauce)
+  [TP] PRED: (snack food -> corn chip)
+        matches GT: (snack food -> corn chip)
+  [TP] PRED: (spread -> cheese spread)
+        matches GT: (spread -> cheese spread)
+  [TP] PRED: (starches -> brown rice)
+        matches GT: (starches -> brown rice)
+  [TP] PRED: (starches -> rice)
+        matches GT: (starches -> rice)
+  [TP] PRED: (sweet roll -> honey bun)
+        matches GT: (sweet roll -> honey bun)
+  [TP] PRED: (vitamin -> b complex vitamin)
+        matches GT: (vitamin -> b complex vitamin)
+  [TP] PRED: (vitamin -> inositol)
+        matches GT: (vitamin -> inositol)
+  [TP] PRED: (vitamin -> water soluble vitamin)
+        matches GT: (vitamin -> water soluble vitamin)
+  [TP] PRED: (water soluble vitamin -> b complex vitamin)
+        matches GT: (water soluble vitamin -> b complex vitamin)
+  [TP] PRED: (water soluble vitamin -> inositol)
+        matches GT: (water soluble vitamin -> inositol)
+
+INCORRECT PREDICTIONS (False Positives: 47):
+  [FP] cheese -> cheese spread
+  [FP] condiment (condiment, flavorer) -> cheese
+  [FP] condiment (condiment, flavorer) -> cheshire cheese
+  [FP] condiment (condiment, flavorer) -> parmesan
+  [FP] course -> honey bun
+  [FP] course -> sweet roll
+  [FP] dairy product -> cheese spread
+  [FP] dessert -> honey bun
+  [FP] dessert -> sweet roll
+  [FP] ingredient -> b complex vitamin
+  [FP] ingredient -> bread
+  [FP] ingredient -> brown rice
+  [FP] ingredient -> bun
+  [FP] ingredient -> canned food
+  [FP] ingredient -> canned meat
+  [FP] ingredient -> cattle cake
+  [FP] ingredient -> cheese
+  [FP] ingredient -> cheshire cheese
+  [FP] ingredient -> chili
+  [FP] ingredient -> colostrum
+  [FP] ingredient -> corn chip
+  [FP] ingredient -> cream
+  [FP] ingredient -> dairy product
+  [FP] ingredient -> grain
+  [FP] ingredient -> honey bun
+  [FP] ingredient -> inositol
+  [FP] ingredient -> milk
+  [FP] ingredient -> parmesan
+  [FP] ingredient -> rice
+  [FP] ingredient -> snack food
+  [FP] ingredient -> starches
+  [FP] ingredient -> sweet roll
+  [FP] ingredient -> vitamin
+  [FP] ingredient -> water soluble vitamin
+  [FP] ingredient -> whipping cream
+  [FP] ingredient -> whole milk
+  [FP] milk -> cream
+  [FP] milk -> whipping cream
+  [FP] snack food -> cheese
+  [FP] snack food -> cheese spread
+  [FP] snack food -> cheshire cheese
+  [FP] snack food -> honey bun
+  [FP] snack food -> parmesan
+  [FP] snack food -> sweet roll
+  [FP] spread -> cheese
+  [FP] spread -> cheshire cheese
+  [FP] spread -> parmesan
+
+MISSED RELATIONS (False Negatives: 26):
+  [FN] canned food -> fanny adams
+  [FN] canned meat -> fanny adams
+  [FN] condiment -> blanc
+  [FN] flavorer -> blanc
+  [FN] flavorer -> condiment
+  [FN] flavorer -> herb
+  [FN] flavorer -> sweet cicely
+  [FN] food -> blanc
+  [FN] food -> course
+  [FN] food -> dainty
+  [FN] food -> dish
+  [FN] food -> fanny adams
+  [FN] food -> foodstuff
+  [FN] food -> nutriment
+  [FN] foodstuff -> blanc
+  [FN] foodstuff -> fanny adams
+  [FN] ingredient -> blanc
+  [FN] nutriment -> course
+  [FN] nutriment -> dainty
+  [FN] nutriment -> dish
+  [FN] sauce -> blanc
+  [FN] starches -> bread
+  [FN] starches -> bun
+  [FN] starches -> honey bun
+  [FN] starches -> sweet roll
+  [FN] white sauce -> blanc

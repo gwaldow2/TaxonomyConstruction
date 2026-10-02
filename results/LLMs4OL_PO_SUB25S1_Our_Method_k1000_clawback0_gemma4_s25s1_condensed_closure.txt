@@ -1,0 +1,185 @@
+==================================================
+=== Detailed Node Pair Analysis (Condensed Transitive Closure) ===
+Match Type Used: SET_OVERLAP
+==================================================
+Precision: 0.6719 | Recall: 0.8889 | F1: 0.7653
+
+CORRECT PREDICTIONS (True Positives: 43 Pred edges covering 72 GT edges):
+  [TP] PRED: (cardinal organ part (cardinal organ part, cardinal part of multi-tissue plant structure) -> plant axis elongation zone)
+        matches GT: (cardinal organ part -> plant axis elongation zone)
+  [TP] PRED: (cardinal organ part (cardinal organ part, cardinal part of multi-tissue plant structure) -> plant axis elongation zone)
+        matches GT: (cardinal part of multi-tissue plant structure -> plant axis elongation zone)
+  [TP] PRED: (cardinal organ part (cardinal organ part, cardinal part of multi-tissue plant structure) -> primary root elongation zone)
+        matches GT: (cardinal organ part -> primary root elongation zone)
+  [TP] PRED: (cardinal organ part (cardinal organ part, cardinal part of multi-tissue plant structure) -> primary root elongation zone)
+        matches GT: (cardinal part of multi-tissue plant structure -> primary root elongation zone)
+  [TP] PRED: (cardinal organ part (cardinal organ part, cardinal part of multi-tissue plant structure) -> root elongation zone)
+        matches GT: (cardinal organ part -> root elongation zone)
+  [TP] PRED: (cardinal organ part (cardinal organ part, cardinal part of multi-tissue plant structure) -> root elongation zone)
+        matches GT: (cardinal part of multi-tissue plant structure -> root elongation zone)
+  [TP] PRED: (cardinal organ part (cardinal organ part, cardinal part of multi-tissue plant structure) -> shoot axis internode)
+        matches GT: (cardinal organ part -> shoot axis internode)
+  [TP] PRED: (cardinal organ part (cardinal organ part, cardinal part of multi-tissue plant structure) -> shoot axis internode)
+        matches GT: (cardinal part of multi-tissue plant structure -> shoot axis internode)
+  [TP] PRED: (leaf -> leaf tendril)
+        matches GT: (leaf -> leaf tendril)
+  [TP] PRED: (leaf -> vascular leaf)
+        matches GT: (leaf -> vascular leaf)
+  [TP] PRED: (multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant organ, plant structure) -> aerial tuber pith)
+        matches GT: (plant anatomical entity -> aerial tuber pith)
+  [TP] PRED: (multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant organ, plant structure) -> aerial tuber pith)
+        matches GT: (plant structure -> aerial tuber pith)
+  [TP] PRED: (multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant organ, plant structure) -> cardinal organ part (cardinal organ part, cardinal part of multi-tissue plant structure))
+        matches GT: (plant anatomical entity -> cardinal organ part)
+  [TP] PRED: (multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant organ, plant structure) -> cardinal organ part (cardinal organ part, cardinal part of multi-tissue plant structure))
+        matches GT: (plant anatomical entity -> cardinal part of multi-tissue plant structure)
+  [TP] PRED: (multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant organ, plant structure) -> cardinal organ part (cardinal organ part, cardinal part of multi-tissue plant structure))
+        matches GT: (plant structure -> cardinal organ part)
+  [TP] PRED: (multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant organ, plant structure) -> cardinal organ part (cardinal organ part, cardinal part of multi-tissue plant structure))
+        matches GT: (plant structure -> cardinal part of multi-tissue plant structure)
+  [TP] PRED: (multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant organ, plant structure) -> leaf tendril)
+        matches GT: (multi-tissue plant structure -> leaf tendril)
+  [TP] PRED: (multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant organ, plant structure) -> leaf tendril)
+        matches GT: (plant anatomical entity -> leaf tendril)
+  [TP] PRED: (multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant organ, plant structure) -> leaf tendril)
+        matches GT: (plant organ -> leaf tendril)
+  [TP] PRED: (multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant organ, plant structure) -> leaf tendril)
+        matches GT: (plant structure -> leaf tendril)
+  [TP] PRED: (multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant organ, plant structure) -> leaf)
+        matches GT: (multi-tissue plant structure -> leaf)
+  [TP] PRED: (multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant organ, plant structure) -> leaf)
+        matches GT: (plant anatomical entity -> leaf)
+  [TP] PRED: (multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant organ, plant structure) -> leaf)
+        matches GT: (plant organ -> leaf)
+  [TP] PRED: (multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant organ, plant structure) -> leaf)
+        matches GT: (plant structure -> leaf)
+  [TP] PRED: (multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant organ, plant structure) -> parenchyma)
+        matches GT: (plant anatomical entity -> parenchyma)
+  [TP] PRED: (multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant organ, plant structure) -> parenchyma)
+        matches GT: (plant structure -> parenchyma)
+  [TP] PRED: (multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant organ, plant structure) -> phyllome)
+        matches GT: (multi-tissue plant structure -> phyllome)
+  [TP] PRED: (multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant organ, plant structure) -> phyllome)
+        matches GT: (plant anatomical entity -> phyllome)
+  [TP] PRED: (multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant organ, plant structure) -> phyllome)
+        matches GT: (plant organ -> phyllome)
+  [TP] PRED: (multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant organ, plant structure) -> phyllome)
+        matches GT: (plant structure -> phyllome)
+  [TP] PRED: (multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant organ, plant structure) -> pith)
+        matches GT: (plant anatomical entity -> pith)
+  [TP] PRED: (multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant organ, plant structure) -> pith)
+        matches GT: (plant structure -> pith)
+  [TP] PRED: (multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant organ, plant structure) -> plant axis elongation zone)
+        matches GT: (plant anatomical entity -> plant axis elongation zone)
+  [TP] PRED: (multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant organ, plant structure) -> plant axis elongation zone)
+        matches GT: (plant structure -> plant axis elongation zone)
+  [TP] PRED: (multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant organ, plant structure) -> portion of ground tissue)
+        matches GT: (plant anatomical entity -> portion of ground tissue)
+  [TP] PRED: (multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant organ, plant structure) -> portion of ground tissue)
+        matches GT: (plant structure -> portion of ground tissue)
+  [TP] PRED: (multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant organ, plant structure) -> portion of plant tissue)
+        matches GT: (plant anatomical entity -> portion of plant tissue)
+  [TP] PRED: (multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant organ, plant structure) -> portion of plant tissue)
+        matches GT: (plant structure -> portion of plant tissue)
+  [TP] PRED: (multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant organ, plant structure) -> primary root elongation zone)
+        matches GT: (plant anatomical entity -> primary root elongation zone)
+  [TP] PRED: (multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant organ, plant structure) -> primary root elongation zone)
+        matches GT: (plant structure -> primary root elongation zone)
+  [TP] PRED: (multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant organ, plant structure) -> root elongation zone)
+        matches GT: (plant anatomical entity -> root elongation zone)
+  [TP] PRED: (multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant organ, plant structure) -> root elongation zone)
+        matches GT: (plant structure -> root elongation zone)
+  [TP] PRED: (multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant organ, plant structure) -> shoot axis internode)
+        matches GT: (plant anatomical entity -> shoot axis internode)
+  [TP] PRED: (multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant organ, plant structure) -> shoot axis internode)
+        matches GT: (plant structure -> shoot axis internode)
+  [TP] PRED: (multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant organ, plant structure) -> tuber pith)
+        matches GT: (plant anatomical entity -> tuber pith)
+  [TP] PRED: (multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant organ, plant structure) -> tuber pith)
+        matches GT: (plant structure -> tuber pith)
+  [TP] PRED: (multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant organ, plant structure) -> vascular leaf)
+        matches GT: (multi-tissue plant structure -> vascular leaf)
+  [TP] PRED: (multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant organ, plant structure) -> vascular leaf)
+        matches GT: (plant anatomical entity -> vascular leaf)
+  [TP] PRED: (multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant organ, plant structure) -> vascular leaf)
+        matches GT: (plant organ -> vascular leaf)
+  [TP] PRED: (multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant organ, plant structure) -> vascular leaf)
+        matches GT: (plant structure -> vascular leaf)
+  [TP] PRED: (parenchyma -> aerial tuber pith)
+        matches GT: (parenchyma -> aerial tuber pith)
+  [TP] PRED: (parenchyma -> pith)
+        matches GT: (parenchyma -> pith)
+  [TP] PRED: (parenchyma -> tuber pith)
+        matches GT: (parenchyma -> tuber pith)
+  [TP] PRED: (phyllome -> leaf tendril)
+        matches GT: (phyllome -> leaf tendril)
+  [TP] PRED: (phyllome -> leaf)
+        matches GT: (phyllome -> leaf)
+  [TP] PRED: (phyllome -> vascular leaf)
+        matches GT: (phyllome -> vascular leaf)
+  [TP] PRED: (pith -> aerial tuber pith)
+        matches GT: (pith -> aerial tuber pith)
+  [TP] PRED: (pith -> tuber pith)
+        matches GT: (pith -> tuber pith)
+  [TP] PRED: (plant axis elongation zone -> primary root elongation zone)
+        matches GT: (plant axis elongation zone -> primary root elongation zone)
+  [TP] PRED: (plant axis elongation zone -> root elongation zone)
+        matches GT: (plant axis elongation zone -> root elongation zone)
+  [TP] PRED: (portion of ground tissue -> aerial tuber pith)
+        matches GT: (portion of ground tissue -> aerial tuber pith)
+  [TP] PRED: (portion of ground tissue -> parenchyma)
+        matches GT: (portion of ground tissue -> parenchyma)
+  [TP] PRED: (portion of ground tissue -> pith)
+        matches GT: (portion of ground tissue -> pith)
+  [TP] PRED: (portion of ground tissue -> tuber pith)
+        matches GT: (portion of ground tissue -> tuber pith)
+  [TP] PRED: (portion of plant tissue -> aerial tuber pith)
+        matches GT: (portion of plant tissue -> aerial tuber pith)
+  [TP] PRED: (portion of plant tissue -> parenchyma)
+        matches GT: (portion of plant tissue -> parenchyma)
+  [TP] PRED: (portion of plant tissue -> pith)
+        matches GT: (portion of plant tissue -> pith)
+  [TP] PRED: (portion of plant tissue -> portion of ground tissue)
+        matches GT: (portion of plant tissue -> portion of ground tissue)
+  [TP] PRED: (portion of plant tissue -> tuber pith)
+        matches GT: (portion of plant tissue -> tuber pith)
+  [TP] PRED: (prickle -> root prickle)
+        matches GT: (prickle -> root prickle)
+  [TP] PRED: (root elongation zone -> primary root elongation zone)
+        matches GT: (root elongation zone -> primary root elongation zone)
+  [TP] PRED: (tuber pith -> aerial tuber pith)
+        matches GT: (tuber pith -> aerial tuber pith)
+
+INCORRECT PREDICTIONS (False Positives: 21):
+  [FP] cardinal organ part (cardinal organ part, cardinal part of multi-tissue plant structure) -> leaf apex
+  [FP] leaf -> leaf apex
+  [FP] multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant organ, plant structure) -> leaf apex
+  [FP] multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant organ, plant structure) -> prickle
+  [FP] multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant organ, plant structure) -> root prickle
+  [FP] multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant organ, plant structure) -> shoot system
+  [FP] phyllome -> leaf apex
+  [FP] portion of plant tissue -> leaf apex
+  [FP] portion of plant tissue -> leaf tendril
+  [FP] portion of plant tissue -> plant axis elongation zone
+  [FP] portion of plant tissue -> primary root elongation zone
+  [FP] portion of plant tissue -> root elongation zone
+  [FP] portion of plant tissue -> root prickle
+  [FP] portion of plant tissue -> shoot axis internode
+  [FP] shoot system -> aerial tuber pith
+  [FP] shoot system -> leaf
+  [FP] shoot system -> leaf apex
+  [FP] shoot system -> leaf tendril
+  [FP] shoot system -> phyllome
+  [FP] shoot system -> shoot axis internode
+  [FP] shoot system -> vascular leaf
+
+MISSED RELATIONS (False Negatives: 9):
+  [FN] cardinal part of multi-tissue plant structure -> cardinal organ part
+  [FN] multi-tissue plant structure -> plant organ
+  [FN] plant anatomical entity -> multi-tissue plant structure
+  [FN] plant anatomical entity -> plant organ
+  [FN] plant anatomical entity -> plant structure
+  [FN] plant structure -> multi-tissue plant structure
+  [FN] plant structure -> plant organ
+  [FN] shoot system -> po_0000055
+  [FN] vascular leaf -> leaf tendril

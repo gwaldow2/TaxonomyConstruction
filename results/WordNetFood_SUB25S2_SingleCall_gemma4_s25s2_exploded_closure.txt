@@ -1,0 +1,131 @@
+==================================================
+=== Detailed Node Pair Analysis (Exploded Transitive Closure) ===
+Match Type Used: EXACT
+==================================================
+Precision: 0.6607 | Recall: 0.9024 | F1: 0.7629
+
+CORRECT PREDICTIONS (True Positives: 74 Pred edges covering 74 GT edges):
+  [TP] baked goods -> baguet
+  [TP] baked goods -> bread
+  [TP] baked goods -> french bread
+  [TP] baked goods -> toast
+  [TP] baked goods -> white bread
+  [TP] baked goods -> zwieback
+  [TP] bread -> baguet
+  [TP] bread -> french bread
+  [TP] bread -> toast
+  [TP] bread -> white bread
+  [TP] bread -> zwieback
+  [TP] cheese -> parmesan
+  [TP] condiment -> chocolate sauce
+  [TP] condiment -> sauce
+  [TP] dairy product -> cheese
+  [TP] dairy product -> parmesan
+  [TP] dish -> bigos
+  [TP] dish -> stew
+  [TP] flavorer -> chocolate sauce
+  [TP] flavorer -> condiment
+  [TP] flavorer -> sauce
+  [TP] food -> baguet
+  [TP] food -> baked goods
+  [TP] food -> bigos
+  [TP] food -> bread
+  [TP] food -> cheese
+  [TP] food -> chocolate sauce
+  [TP] food -> condiment
+  [TP] food -> dairy product
+  [TP] food -> dish
+  [TP] food -> flavorer
+  [TP] food -> foodstuff
+  [TP] food -> french bread
+  [TP] food -> ingredient
+  [TP] food -> parmesan
+  [TP] food -> produce
+  [TP] food -> sauce
+  [TP] food -> solanaceous vegetable
+  [TP] food -> starches
+  [TP] food -> stew
+  [TP] food -> toast
+  [TP] food -> vegetable
+  [TP] food -> white bread
+  [TP] food -> zwieback
+  [TP] foodstuff -> baguet
+  [TP] foodstuff -> bread
+  [TP] foodstuff -> cheese
+  [TP] foodstuff -> chocolate sauce
+  [TP] foodstuff -> condiment
+  [TP] foodstuff -> dairy product
+  [TP] foodstuff -> flavorer
+  [TP] foodstuff -> french bread
+  [TP] foodstuff -> ingredient
+  [TP] foodstuff -> parmesan
+  [TP] foodstuff -> sauce
+  [TP] foodstuff -> starches
+  [TP] foodstuff -> toast
+  [TP] foodstuff -> white bread
+  [TP] foodstuff -> zwieback
+  [TP] french bread -> baguet
+  [TP] ingredient -> chocolate sauce
+  [TP] ingredient -> condiment
+  [TP] ingredient -> flavorer
+  [TP] ingredient -> sauce
+  [TP] nutriment -> bigos
+  [TP] nutriment -> dish
+  [TP] nutriment -> stew
+  [TP] produce -> solanaceous vegetable
+  [TP] produce -> vegetable
+  [TP] sauce -> chocolate sauce
+  [TP] stew -> bigos
+  [TP] vegetable -> solanaceous vegetable
+  [TP] white bread -> baguet
+  [TP] white bread -> french bread
+
+INCORRECT PREDICTIONS (False Positives: 38):
+  [FP] foodstuff -> baked goods
+  [FP] foodstuff -> bigos
+  [FP] foodstuff -> dish
+  [FP] foodstuff -> produce
+  [FP] foodstuff -> solanaceous vegetable
+  [FP] foodstuff -> stew
+  [FP] foodstuff -> vegetable
+  [FP] nutriment -> baguet
+  [FP] nutriment -> baked goods
+  [FP] nutriment -> bread
+  [FP] nutriment -> cheese
+  [FP] nutriment -> chocolate sauce
+  [FP] nutriment -> condiment
+  [FP] nutriment -> dairy product
+  [FP] nutriment -> flavorer
+  [FP] nutriment -> food
+  [FP] nutriment -> foodstuff
+  [FP] nutriment -> french bread
+  [FP] nutriment -> ingredient
+  [FP] nutriment -> parmesan
+  [FP] nutriment -> produce
+  [FP] nutriment -> sauce
+  [FP] nutriment -> solanaceous vegetable
+  [FP] nutriment -> starches
+  [FP] nutriment -> toast
+  [FP] nutriment -> vegetable
+  [FP] nutriment -> white bread
+  [FP] nutriment -> zwieback
+  [FP] produce -> baguet
+  [FP] produce -> baked goods
+  [FP] produce -> bread
+  [FP] produce -> cheese
+  [FP] produce -> dairy product
+  [FP] produce -> french bread
+  [FP] produce -> parmesan
+  [FP] produce -> toast
+  [FP] produce -> white bread
+  [FP] produce -> zwieback
+
+MISSED RELATIONS (False Negatives: 8):
+  [FN] food -> nutriment
+  [FN] starches -> baguet
+  [FN] starches -> bread
+  [FN] starches -> french bread
+  [FN] starches -> toast
+  [FN] starches -> white bread
+  [FN] starches -> zwieback
+  [FN] toast -> zwieback

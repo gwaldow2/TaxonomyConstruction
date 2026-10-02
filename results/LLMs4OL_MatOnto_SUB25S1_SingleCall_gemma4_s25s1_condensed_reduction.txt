@@ -1,0 +1,52 @@
+==================================================
+=== Detailed Node Pair Analysis (Condensed Transitive Reduction) ===
+Match Type Used: SET_OVERLAP
+==================================================
+Precision: 0.7000 | Recall: 0.6667 | F1: 0.6829
+
+CORRECT PREDICTIONS (True Positives: 14 Pred edges covering 14 GT edges):
+  [TP] PRED: (addition reaction -> polar addition reaction)
+        matches GT: (addition reaction -> polar addition reaction)
+  [TP] PRED: (atom -> californium atom)
+        matches GT: (atom -> californium atom)
+  [TP] PRED: (atom -> helium atom)
+        matches GT: (atom -> helium atom)
+  [TP] PRED: (atom -> ytterbium atom)
+        matches GT: (atom -> ytterbium atom)
+  [TP] PRED: (continuant -> dependent_continuant)
+        matches GT: (continuant -> dependent_continuant)
+  [TP] PRED: (continuant -> independent_continuant)
+        matches GT: (continuant -> independent_continuant)
+  [TP] PRED: (dependent_continuant -> quality)
+        matches GT: (dependent_continuant -> quality)
+  [TP] PRED: (independent_continuant -> object)
+        matches GT: (independent_continuant -> object)
+  [TP] PRED: (measured property -> specific energy)
+        matches GT: (measured property -> specific energy)
+  [TP] PRED: (object -> atom)
+        matches GT: (object -> atom)
+  [TP] PRED: (quality -> measured property)
+        matches GT: (quality -> measured property)
+  [TP] PRED: (spatial_region -> three_dimensional_region)
+        matches GT: (spatial_region -> three_dimensional_region)
+  [TP] PRED: (thermodynamic system -> open thermodynamic system)
+        matches GT: (thermodynamic system -> open thermodynamic system)
+  [TP] PRED: (unit -> molar energy unit)
+        matches GT: (unit -> molar energy unit)
+
+INCORRECT PREDICTIONS (False Positives: 6):
+  [FP] addition reaction -> nucleophilic addition reaction
+  [FP] dependent_continuant -> addition reaction
+  [FP] dependent_continuant -> chemical conformation
+  [FP] independent_continuant -> spatial_region
+  [FP] measured property -> illuminance
+  [FP] object -> thermodynamic system
+
+MISSED RELATIONS (False Negatives: 7):
+  [FN] chemical conformation -> wikipedia
+  [FN] continuant -> spatial_region
+  [FN] electromagnetic radation -> illuminance
+  [FN] element -> ununbium
+  [FN] measured property -> electromagnetic radation
+  [FN] polar addition reaction -> nucleophilic addition reaction
+  [FN] three_dimensional_region -> thermodynamic system

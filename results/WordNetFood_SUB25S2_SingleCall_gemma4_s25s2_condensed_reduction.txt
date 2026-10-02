@@ -1,0 +1,60 @@
+==================================================
+=== Detailed Node Pair Analysis (Condensed Transitive Reduction) ===
+Match Type Used: SET_OVERLAP
+==================================================
+Precision: 0.7500 | Recall: 0.7200 | F1: 0.7347
+
+CORRECT PREDICTIONS (True Positives: 18 Pred edges covering 18 GT edges):
+  [TP] PRED: (baked goods -> bread)
+        matches GT: (baked goods -> bread)
+  [TP] PRED: (bread -> toast)
+        matches GT: (bread -> toast)
+  [TP] PRED: (bread -> white bread)
+        matches GT: (bread -> white bread)
+  [TP] PRED: (cheese -> parmesan)
+        matches GT: (cheese -> parmesan)
+  [TP] PRED: (condiment -> sauce)
+        matches GT: (condiment -> sauce)
+  [TP] PRED: (dairy product -> cheese)
+        matches GT: (dairy product -> cheese)
+  [TP] PRED: (dish -> stew)
+        matches GT: (dish -> stew)
+  [TP] PRED: (flavorer -> condiment)
+        matches GT: (flavorer -> condiment)
+  [TP] PRED: (food -> foodstuff)
+        matches GT: (food -> foodstuff)
+  [TP] PRED: (foodstuff -> ingredient)
+        matches GT: (foodstuff -> ingredient)
+  [TP] PRED: (foodstuff -> starches)
+        matches GT: (foodstuff -> starches)
+  [TP] PRED: (french bread -> baguet)
+        matches GT: (french bread -> baguet)
+  [TP] PRED: (ingredient -> flavorer)
+        matches GT: (ingredient -> flavorer)
+  [TP] PRED: (produce -> vegetable)
+        matches GT: (produce -> vegetable)
+  [TP] PRED: (sauce -> chocolate sauce)
+        matches GT: (sauce -> chocolate sauce)
+  [TP] PRED: (stew -> bigos)
+        matches GT: (stew -> bigos)
+  [TP] PRED: (vegetable -> solanaceous vegetable)
+        matches GT: (vegetable -> solanaceous vegetable)
+  [TP] PRED: (white bread -> french bread)
+        matches GT: (white bread -> french bread)
+
+INCORRECT PREDICTIONS (False Positives: 6):
+  [FP] bread -> zwieback
+  [FP] foodstuff -> dish
+  [FP] foodstuff -> produce
+  [FP] nutriment -> food
+  [FP] produce -> baked goods
+  [FP] produce -> dairy product
+
+MISSED RELATIONS (False Negatives: 7):
+  [FN] food -> baked goods
+  [FN] food -> nutriment
+  [FN] food -> produce
+  [FN] foodstuff -> dairy product
+  [FN] nutriment -> dish
+  [FN] starches -> bread
+  [FN] toast -> zwieback

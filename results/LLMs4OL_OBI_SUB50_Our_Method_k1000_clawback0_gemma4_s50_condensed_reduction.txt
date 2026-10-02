@@ -1,0 +1,108 @@
+==================================================
+=== Detailed Node Pair Analysis (Condensed Transitive Reduction) ===
+Match Type Used: SET_OVERLAP
+==================================================
+Precision: 0.5849 | Recall: 0.7045 | F1: 0.6392
+
+CORRECT PREDICTIONS (True Positives: 31 Pred edges covering 31 GT edges):
+  [TP] PRED: (albumin assay -> comprehensive metabolic panel venous blood albumin assay)
+        matches GT: (albumin assay -> comprehensive metabolic panel venous blood albumin assay)
+  [TP] PRED: (analyte assay -> proximity extension assay)
+        matches GT: (analyte assay -> proximity extension assay)
+  [TP] PRED: (assay -> analyte assay)
+        matches GT: (assay -> analyte assay)
+  [TP] PRED: (assay array (assay array, microarray) -> dna microarray)
+        matches GT: (microarray -> dna microarray)
+  [TP] PRED: (carboxyfluorescein succinimidyl ester staining assay -> carboxyfluorescein succinimidyl ester staining assay measuring epitope specific proliferation of t cells)
+        matches GT: (carboxyfluorescein succinimidyl ester staining assay -> carboxyfluorescein succinimidyl ester staining assay measuring epitope specific proliferation of t cells)
+  [TP] PRED: (clinical history -> family clinical history of cancer)
+        matches GT: (clinical history -> family clinical history of cancer)
+  [TP] PRED: (container -> vial)
+        matches GT: (container -> vial)
+  [TP] PRED: (continuant -> independent continuant)
+        matches GT: (continuant -> independent continuant)
+  [TP] PRED: (device -> container)
+        matches GT: (device -> container)
+  [TP] PRED: (device -> material separation device)
+        matches GT: (device -> material separation device)
+  [TP] PRED: (device -> measurement device)
+        matches GT: (device -> measurement device)
+  [TP] PRED: (dna microarray -> affymetrix rhesus macaque genome array)
+        matches GT: (dna microarray -> affymetrix rhesus macaque genome array)
+  [TP] PRED: (family clinical history of cancer -> brother clinical history of cancer)
+        matches GT: (family clinical history of cancer -> brother clinical history of cancer)
+  [TP] PRED: (function -> connection function)
+        matches GT: (function -> connection function)
+  [TP] PRED: (functional assessment of individual -> nose to finger assessment)
+        matches GT: (functional assessment of individual -> nose to finger assessment)
+  [TP] PRED: (independent continuant -> material entity)
+        matches GT: (independent continuant -> material entity)
+  [TP] PRED: (insecticide resistance assay -> insecticide resistance by detecting enzyme activity assay)
+        matches GT: (insecticide resistance assay -> insecticide resistance by detecting enzyme activity assay)
+  [TP] PRED: (insecticide resistance by detecting enzyme activity assay -> insecticide resistance by detecting glutathione s-transferase activity assay)
+        matches GT: (insecticide resistance by detecting enzyme activity assay -> insecticide resistance by detecting glutathione s-transferase activity assay)
+  [TP] PRED: (material component separation -> dna subtraction)
+        matches GT: (material component separation -> dna subtraction)
+  [TP] PRED: (material entity -> processed material)
+        matches GT: (material entity -> processed material)
+  [TP] PRED: (material processing -> material combination)
+        matches GT: (material processing -> material combination)
+  [TP] PRED: (material processing -> material component separation)
+        matches GT: (material processing -> material component separation)
+  [TP] PRED: (material separation device -> filter paper)
+        matches GT: (material separation device -> filter paper)
+  [TP] PRED: (measurement device -> multichannel pipette)
+        matches GT: (measurement device -> multichannel pipette)
+  [TP] PRED: (organism detection assay -> parasite detection assay)
+        matches GT: (organism detection assay -> parasite detection assay)
+  [TP] PRED: (organization -> organization of specimen collector)
+        matches GT: (organization -> organization of specimen collector)
+  [TP] PRED: (planned process -> assay)
+        matches GT: (planned process -> assay)
+  [TP] PRED: (planned process -> material processing)
+        matches GT: (planned process -> material processing)
+  [TP] PRED: (realizable entity -> role)
+        matches GT: (realizable entity -> role)
+  [TP] PRED: (role -> adjuvant role)
+        matches GT: (role -> adjuvant role)
+  [TP] PRED: (thyroid stimulating hormone assay -> venous blood thyroid stimulating hormone assay)
+        matches GT: (thyroid stimulating hormone assay -> venous blood thyroid stimulating hormone assay)
+
+INCORRECT PREDICTIONS (False Positives: 22):
+  [FP] analyte assay -> blood assay
+  [FP] analyte assay -> carboxyfluorescein succinimidyl ester staining assay
+  [FP] analyte assay -> organism detection assay
+  [FP] analyte assay -> polymerase chain reaction assay
+  [FP] assay -> assay array (assay array, microarray)
+  [FP] blood assay -> albumin assay
+  [FP] blood assay -> thyroid stimulating hormone assay
+  [FP] container -> test tube
+  [FP] independent continuant -> organization
+  [FP] independent continuant -> realizable entity
+  [FP] material entity -> device
+  [FP] material entity -> material combination
+  [FP] material processing -> adding a material entity into a target
+  [FP] material separation device -> test tube
+  [FP] measurement device -> assay array (assay array, microarray)
+  [FP] measurement device -> test tube
+  [FP] organism detection assay -> insecticide resistance assay
+  [FP] planned process -> functional assessment of individual
+  [FP] processed material -> affymetrix rhesus macaque genome array
+  [FP] processed material -> filter paper
+  [FP] realizable entity -> function
+  [FP] realizable entity -> planned process
+
+MISSED RELATIONS (False Negatives: 13):
+  [FN] assay -> blood assay
+  [FN] assay -> carboxyfluorescein succinimidyl ester staining assay
+  [FN] assay -> insecticide resistance assay
+  [FN] assay -> organism detection assay
+  [FN] assay -> polymerase chain reaction assay
+  [FN] assay array -> microarray
+  [FN] blood assay -> comprehensive metabolic panel venous blood albumin assay
+  [FN] blood assay -> venous blood thyroid stimulating hormone assay
+  [FN] device -> assay array
+  [FN] material combination -> adding a material entity into a target
+  [FN] polymerase chain reaction assay -> proximity extension assay
+  [FN] processed material -> device
+  [FN] vial -> test tube

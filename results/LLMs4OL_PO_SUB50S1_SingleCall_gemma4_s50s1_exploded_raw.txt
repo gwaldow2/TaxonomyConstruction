@@ -1,0 +1,84 @@
+==================================================
+=== Detailed Node Pair Analysis (Exploded Raw Edges) ===
+Match Type Used: EXACT
+==================================================
+Precision: 0.5200 | Recall: 0.5306 | F1: 0.5253
+
+CORRECT PREDICTIONS (True Positives: 26 Pred edges covering 26 GT edges):
+  [TP] apical meristem -> shoot apical meristem
+  [TP] cultured plant cell -> leaf-derived cultured plant cell
+  [TP] ear meristem -> ear spikelet meristem
+  [TP] flower -> pistillate flower
+  [TP] in vitro plant structure -> cultured plant cell
+  [TP] inflorescence meristem -> inflorescence apical meristem
+  [TP] leaf -> vascular leaf
+  [TP] multi-tissue plant structure -> plant organ
+  [TP] phyllome -> leaf
+  [TP] pith -> tuber pith
+  [TP] plant anatomical entity -> plant structure
+  [TP] plant axis elongation zone -> root elongation zone
+  [TP] plant organ -> phyllome
+  [TP] plant structure -> in vitro plant structure
+  [TP] plant structure -> multi-tissue plant structure
+  [TP] plant structure -> plant cell
+  [TP] plant structure -> portion of plant tissue
+  [TP] portion of meristem tissue -> apical meristem
+  [TP] portion of plant tissue -> portion of ground tissue
+  [TP] portion of plant tissue -> portion of meristem tissue
+  [TP] portion of vascular tissue -> vascular system
+  [TP] prickle -> root prickle
+  [TP] root elongation zone -> primary root elongation zone
+  [TP] shoot apical meristem -> reproductive shoot apical meristem
+  [TP] tuber pith -> aerial tuber pith
+  [TP] vascular leaf -> leaf tendril
+
+INCORRECT PREDICTIONS (False Positives: 24):
+  [FP] cardinal organ part -> cardinal part of multi-tissue plant structure
+  [FP] ear floret -> spikelet floret
+  [FP] ear spikelet meristem -> spikelet meristem
+  [FP] inflorescence apical meristem -> ear meristem
+  [FP] leaf -> leaf apex
+  [FP] leaf -> leaf base
+  [FP] leaf -> leaf lamina vascular system
+  [FP] leaf -> leaf plate meristem
+  [FP] phyllome -> phyllome base
+  [FP] phyllome -> phyllome plate meristem
+  [FP] plant axis elongation zone -> shoot axis internode
+  [FP] plant cell -> parenchyma
+  [FP] plant organ -> flower
+  [FP] plant organ -> prickle
+  [FP] plant structure -> cardinal organ part
+  [FP] plant structure -> plant axis elongation zone
+  [FP] plant structure -> root elongation zone
+  [FP] plant structure -> shoot system
+  [FP] portion of ground tissue -> pith
+  [FP] portion of plant tissue -> portion of vascular tissue
+  [FP] shoot apical meristem -> inflorescence meristem
+  [FP] shoot system -> reproductive shoot system
+  [FP] shoot system -> shoot system meristem
+  [FP] spikelet floret -> upper floret of pedicellate spikelet of ear
+
+MISSED RELATIONS (False Negatives: 23):
+  [FN] cardinal organ part -> phyllome base
+  [FN] cardinal organ part -> plant axis elongation zone
+  [FN] cardinal organ part -> shoot axis internode
+  [FN] cardinal part of multi-tissue plant structure -> cardinal organ part
+  [FN] ear floret -> upper floret of pedicellate spikelet of ear
+  [FN] flower -> spikelet floret
+  [FN] inflorescence apical meristem -> spikelet meristem
+  [FN] parenchyma -> pith
+  [FN] phyllome base -> leaf base
+  [FN] phyllome plate meristem -> leaf plate meristem
+  [FN] pistillate flower -> ear floret
+  [FN] plant cell -> cultured plant cell
+  [FN] plant structure -> cardinal part of multi-tissue plant structure
+  [FN] portion of ground tissue -> parenchyma
+  [FN] portion of meristem tissue -> phyllome plate meristem
+  [FN] portion of meristem tissue -> shoot system meristem
+  [FN] reproductive shoot apical meristem -> inflorescence apical meristem
+  [FN] reproductive shoot system -> flower
+  [FN] shoot system -> po_0000055
+  [FN] shoot system meristem -> shoot apical meristem
+  [FN] spikelet floret -> ear floret
+  [FN] spikelet meristem -> ear spikelet meristem
+  [FN] vascular system -> leaf lamina vascular system

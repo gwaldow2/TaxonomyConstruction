@@ -1,0 +1,108 @@
+==================================================
+=== Detailed Node Pair Analysis (Condensed Transitive Reduction) ===
+Match Type Used: SET_OVERLAP
+==================================================
+Precision: 0.5091 | Recall: 0.6667 | F1: 0.5773
+
+CORRECT PREDICTIONS (True Positives: 28 Pred edges covering 28 GT edges):
+  [TP] PRED: (addition reaction -> polar addition reaction)
+        matches GT: (addition reaction -> polar addition reaction)
+  [TP] PRED: (atom -> californium atom)
+        matches GT: (atom -> californium atom)
+  [TP] PRED: (atom -> helium atom)
+        matches GT: (atom -> helium atom)
+  [TP] PRED: (atom -> lithium atom)
+        matches GT: (atom -> lithium atom)
+  [TP] PRED: (atom -> ytterbium atom)
+        matches GT: (atom -> ytterbium atom)
+  [TP] PRED: (continuant -> dependent_continuant)
+        matches GT: (continuant -> dependent_continuant)
+  [TP] PRED: (continuant -> independent_continuant)
+        matches GT: (continuant -> independent_continuant)
+  [TP] PRED: (dependent_continuant -> intensive property (intensive property, measured property, quality))
+        matches GT: (dependent_continuant -> quality)
+  [TP] PRED: (derivedunit -> scaled unit)
+        matches GT: (derivedunit -> scaled unit)
+  [TP] PRED: (electromagnetic radiation unit -> illuminance unit)
+        matches GT: (electromagnetic radiation unit -> illuminance unit)
+  [TP] PRED: (element -> erbium)
+        matches GT: (element -> erbium)
+  [TP] PRED: (element -> ununbium)
+        matches GT: (element -> ununbium)
+  [TP] PRED: (entity -> occurrent)
+        matches GT: (entity -> occurrent)
+  [TP] PRED: (independent_continuant -> object)
+        matches GT: (independent_continuant -> object)
+  [TP] PRED: (intensive property (intensive property, measured property, quality) -> concentration)
+        matches GT: (measured property -> concentration)
+  [TP] PRED: (intensive property (intensive property, measured property, quality) -> electric current)
+        matches GT: (measured property -> electric current)
+  [TP] PRED: (intensive property (intensive property, measured property, quality) -> flexural modulus)
+        matches GT: (intensive property -> flexural modulus)
+  [TP] PRED: (intensive property (intensive property, measured property, quality) -> specific energy)
+        matches GT: (measured property -> specific energy)
+  [TP] PRED: (object -> atom)
+        matches GT: (object -> atom)
+  [TP] PRED: (occurrent -> spatiotemporal_region)
+        matches GT: (occurrent -> spatiotemporal_region)
+  [TP] PRED: (polar addition reaction -> nucleophilic addition reaction)
+        matches GT: (polar addition reaction -> nucleophilic addition reaction)
+  [TP] PRED: (scaled unit -> centi scaled unit)
+        matches GT: (scaled unit -> centi scaled unit)
+  [TP] PRED: (scaled unit -> giga scaled unit)
+        matches GT: (scaled unit -> giga scaled unit)
+  [TP] PRED: (spatial_region -> three_dimensional_region)
+        matches GT: (spatial_region -> three_dimensional_region)
+  [TP] PRED: (spatial_region -> zero_dimensional_region)
+        matches GT: (spatial_region -> zero_dimensional_region)
+  [TP] PRED: (thermodynamic system -> open thermodynamic system)
+        matches GT: (thermodynamic system -> open thermodynamic system)
+  [TP] PRED: (unit -> derivedunit)
+        matches GT: (unit -> derivedunit)
+  [TP] PRED: (unit raised to power -> unit raised to power of negative three)
+        matches GT: (unit raised to power -> unit raised to power of negative three)
+
+INCORRECT PREDICTIONS (False Positives: 27):
+  [FP] atom -> erbium
+  [FP] atom -> ununbium
+  [FP] dependent_continuant -> addition reaction
+  [FP] dependent_continuant -> electromagnetic radation
+  [FP] dependent_continuant -> illuminance unit
+  [FP] dependent_continuant -> spatiotemporal_region
+  [FP] derivedunit -> electromagnetic radiation unit
+  [FP] entity -> continuant
+  [FP] independent_continuant -> electromagnetic radation
+  [FP] intensive property (intensive property, measured property, quality) -> chemical conformation
+  [FP] intensive property (intensive property, measured property, quality) -> illuminance
+  [FP] intensive property (intensive property, measured property, quality) -> luminous flux
+  [FP] intensive property (intensive property, measured property, quality) -> ph
+  [FP] object -> element
+  [FP] object -> material category
+  [FP] object -> spatial_region
+  [FP] object -> thermodynamic system
+  [FP] object -> unit
+  [FP] object -> wikipedia
+  [FP] occurrent -> addition reaction
+  [FP] occurrent -> electric current
+  [FP] occurrent -> electromagnetic radation
+  [FP] scaled unit -> molar energy unit
+  [FP] scaled unit -> unit raised to power
+  [FP] scaled unit -> velocity unit
+  [FP] spatial_region -> connected_spatiotemporal_region
+  [FP] spatiotemporal_region -> spatial_region
+
+MISSED RELATIONS (False Negatives: 14):
+  [FN] chemical conformation -> wikipedia
+  [FN] concentration -> ph
+  [FN] continuant -> spatial_region
+  [FN] electromagnetic radation -> illuminance
+  [FN] electromagnetic radation -> luminous flux
+  [FN] material category -> refactory
+  [FN] measured property -> electromagnetic radation
+  [FN] measured property -> intensive property
+  [FN] quality -> measured property
+  [FN] spatiotemporal_region -> connected_spatiotemporal_region
+  [FN] three_dimensional_region -> thermodynamic system
+  [FN] unit -> electromagnetic radiation unit
+  [FN] unit -> molar energy unit
+  [FN] unit -> velocity unit

@@ -1,0 +1,225 @@
+==================================================
+=== Detailed Node Pair Analysis (Exploded Transitive Closure) ===
+Match Type Used: EXACT
+==================================================
+Precision: 0.8012 | Recall: 0.7088 | F1: 0.7522
+
+CORRECT PREDICTIONS (True Positives: 129 Pred edges covering 129 GT edges):
+  [TP] bread -> bun
+  [TP] butter -> meuniere butter
+  [TP] candied citrus peel -> grapefruit peel
+  [TP] candied fruit -> candied citrus peel
+  [TP] candied fruit -> grapefruit peel
+  [TP] chowder -> fish chowder
+  [TP] cocktail -> sidecar
+  [TP] condiment -> dressing
+  [TP] condiment -> lorenzo dressing
+  [TP] condiment -> pepper sauce
+  [TP] condiment -> sauce
+  [TP] corn -> hominy
+  [TP] course -> appetizer
+  [TP] dairy product -> butter
+  [TP] dairy product -> meuniere butter
+  [TP] dish -> chowder
+  [TP] dish -> fish chowder
+  [TP] dish -> open face sandwich
+  [TP] dish -> sandwich
+  [TP] dish -> scrapple
+  [TP] dish -> snack food
+  [TP] dish -> soup
+  [TP] dough -> pastry
+  [TP] dough -> phyllo
+  [TP] dough -> puff paste
+  [TP] dressing -> lorenzo dressing
+  [TP] flavorer -> condiment
+  [TP] flavorer -> dressing
+  [TP] flavorer -> lorenzo dressing
+  [TP] flavorer -> onion salt
+  [TP] flavorer -> pepper sauce
+  [TP] flavorer -> sauce
+  [TP] flavorer -> seasoned salt
+  [TP] food -> appetizer
+  [TP] food -> bread
+  [TP] food -> bun
+  [TP] food -> butter
+  [TP] food -> candied citrus peel
+  [TP] food -> candied fruit
+  [TP] food -> chowder
+  [TP] food -> condiment
+  [TP] food -> confiture
+  [TP] food -> corn
+  [TP] food -> course
+  [TP] food -> crescent roll
+  [TP] food -> dainty
+  [TP] food -> dairy product
+  [TP] food -> dish
+  [TP] food -> dough
+  [TP] food -> dressing
+  [TP] food -> egg white
+  [TP] food -> fish chowder
+  [TP] food -> flavorer
+  [TP] food -> foodstuff
+  [TP] food -> grain
+  [TP] food -> grapefruit peel
+  [TP] food -> hominy
+  [TP] food -> honey bun
+  [TP] food -> ingredient
+  [TP] food -> lorenzo dressing
+  [TP] food -> meuniere butter
+  [TP] food -> nutriment
+  [TP] food -> onion salt
+  [TP] food -> open face sandwich
+  [TP] food -> pastry
+  [TP] food -> pepper sauce
+  [TP] food -> phyllo
+  [TP] food -> puff paste
+  [TP] food -> sandwich
+  [TP] food -> sauce
+  [TP] food -> scrapple
+  [TP] food -> seasoned salt
+  [TP] food -> snack food
+  [TP] food -> soup
+  [TP] food -> starches
+  [TP] food -> sweet
+  [TP] food -> sweet roll
+  [TP] foodstuff -> bun
+  [TP] foodstuff -> butter
+  [TP] foodstuff -> condiment
+  [TP] foodstuff -> corn
+  [TP] foodstuff -> crescent roll
+  [TP] foodstuff -> dairy product
+  [TP] foodstuff -> dough
+  [TP] foodstuff -> dressing
+  [TP] foodstuff -> egg white
+  [TP] foodstuff -> flavorer
+  [TP] foodstuff -> grain
+  [TP] foodstuff -> hominy
+  [TP] foodstuff -> honey bun
+  [TP] foodstuff -> ingredient
+  [TP] foodstuff -> lorenzo dressing
+  [TP] foodstuff -> meuniere butter
+  [TP] foodstuff -> onion salt
+  [TP] foodstuff -> pastry
+  [TP] foodstuff -> pepper sauce
+  [TP] foodstuff -> phyllo
+  [TP] foodstuff -> puff paste
+  [TP] foodstuff -> sauce
+  [TP] foodstuff -> seasoned salt
+  [TP] foodstuff -> starches
+  [TP] foodstuff -> sweet roll
+  [TP] grain -> corn
+  [TP] grain -> hominy
+  [TP] ingredient -> condiment
+  [TP] ingredient -> dressing
+  [TP] ingredient -> egg white
+  [TP] ingredient -> flavorer
+  [TP] ingredient -> lorenzo dressing
+  [TP] ingredient -> onion salt
+  [TP] ingredient -> pepper sauce
+  [TP] ingredient -> sauce
+  [TP] ingredient -> seasoned salt
+  [TP] pastry -> phyllo
+  [TP] pastry -> puff paste
+  [TP] sandwich -> open face sandwich
+  [TP] sauce -> dressing
+  [TP] sauce -> lorenzo dressing
+  [TP] soup -> chowder
+  [TP] soup -> fish chowder
+  [TP] starches -> bun
+  [TP] starches -> crescent roll
+  [TP] starches -> honey bun
+  [TP] starches -> sweet roll
+  [TP] sweet -> candied citrus peel
+  [TP] sweet -> candied fruit
+  [TP] sweet -> confiture
+  [TP] sweet -> grapefruit peel
+  [TP] sweet roll -> honey bun
+
+INCORRECT PREDICTIONS (False Positives: 32):
+  [FP] concoction -> cocktail
+  [FP] concoction -> dressing
+  [FP] concoction -> lorenzo dressing
+  [FP] concoction -> sauce
+  [FP] concoction -> sidecar
+  [FP] condiment -> onion salt
+  [FP] condiment -> seasoned salt
+  [FP] dish -> appetizer
+  [FP] dish -> course
+  [FP] dough -> bun
+  [FP] dough -> crescent roll
+  [FP] dough -> honey bun
+  [FP] dough -> sweet roll
+  [FP] foodstuff -> candied citrus peel
+  [FP] foodstuff -> candied fruit
+  [FP] foodstuff -> confiture
+  [FP] foodstuff -> grapefruit peel
+  [FP] foodstuff -> sweet
+  [FP] ingredient -> candied citrus peel
+  [FP] ingredient -> candied fruit
+  [FP] ingredient -> confiture
+  [FP] ingredient -> grapefruit peel
+  [FP] ingredient -> sweet
+  [FP] pastry -> bun
+  [FP] pastry -> crescent roll
+  [FP] pastry -> honey bun
+  [FP] pastry -> sweet roll
+  [FP] seasoned salt -> onion salt
+  [FP] starches -> dough
+  [FP] starches -> pastry
+  [FP] starches -> phyllo
+  [FP] starches -> puff paste
+
+MISSED RELATIONS (False Negatives: 53):
+  [FN] appetizer -> cocktail
+  [FN] appetizer -> sidecar
+  [FN] bread -> crescent roll
+  [FN] bread -> honey bun
+  [FN] bread -> sweet roll
+  [FN] bun -> crescent roll
+  [FN] bun -> honey bun
+  [FN] bun -> sweet roll
+  [FN] commissariat -> larder
+  [FN] concoction -> dough
+  [FN] concoction -> pastry
+  [FN] concoction -> phyllo
+  [FN] concoction -> puff paste
+  [FN] confiture -> candied citrus peel
+  [FN] confiture -> candied fruit
+  [FN] confiture -> grapefruit peel
+  [FN] course -> cocktail
+  [FN] course -> sidecar
+  [FN] dainty -> candied citrus peel
+  [FN] dainty -> candied fruit
+  [FN] dainty -> confiture
+  [FN] dainty -> grapefruit peel
+  [FN] dainty -> sweet
+  [FN] food -> cocktail
+  [FN] food -> commissariat
+  [FN] food -> concoction
+  [FN] food -> larder
+  [FN] food -> sidecar
+  [FN] foodstuff -> bread
+  [FN] foodstuff -> concoction
+  [FN] nutriment -> appetizer
+  [FN] nutriment -> candied citrus peel
+  [FN] nutriment -> candied fruit
+  [FN] nutriment -> chowder
+  [FN] nutriment -> cocktail
+  [FN] nutriment -> confiture
+  [FN] nutriment -> course
+  [FN] nutriment -> dainty
+  [FN] nutriment -> dish
+  [FN] nutriment -> fish chowder
+  [FN] nutriment -> grapefruit peel
+  [FN] nutriment -> open face sandwich
+  [FN] nutriment -> sandwich
+  [FN] nutriment -> scrapple
+  [FN] nutriment -> sidecar
+  [FN] nutriment -> snack food
+  [FN] nutriment -> soup
+  [FN] nutriment -> sweet
+  [FN] puff paste -> phyllo
+  [FN] sauce -> pepper sauce
+  [FN] snack food -> open face sandwich
+  [FN] snack food -> sandwich
+  [FN] starches -> bread

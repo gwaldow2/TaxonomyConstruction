@@ -1,0 +1,167 @@
+==================================================
+=== Detailed Node Pair Analysis (Condensed Transitive Closure) ===
+Match Type Used: SET_OVERLAP
+==================================================
+Precision: 0.6119 | Recall: 0.9403 | F1: 0.7414
+
+CORRECT PREDICTIONS (True Positives: 41 Pred edges covering 63 GT edges):
+  [TP] PRED: (cardinal organ part (cardinal organ part, cardinal part of multi-tissue plant structure) -> petiole distal end)
+        matches GT: (cardinal organ part -> petiole distal end)
+  [TP] PRED: (cardinal organ part (cardinal organ part, cardinal part of multi-tissue plant structure) -> petiole distal end)
+        matches GT: (cardinal part of multi-tissue plant structure -> petiole distal end)
+  [TP] PRED: (cardinal organ part (cardinal organ part, cardinal part of multi-tissue plant structure) -> phyllome base)
+        matches GT: (cardinal organ part -> phyllome base)
+  [TP] PRED: (cardinal organ part (cardinal organ part, cardinal part of multi-tissue plant structure) -> phyllome base)
+        matches GT: (cardinal part of multi-tissue plant structure -> phyllome base)
+  [TP] PRED: (cardinal organ part (cardinal organ part, cardinal part of multi-tissue plant structure) -> sepal base)
+        matches GT: (cardinal organ part -> sepal base)
+  [TP] PRED: (cardinal organ part (cardinal organ part, cardinal part of multi-tissue plant structure) -> sepal base)
+        matches GT: (cardinal part of multi-tissue plant structure -> sepal base)
+  [TP] PRED: (ground tissue cell -> chlorenchyma cell)
+        matches GT: (ground tissue cell -> chlorenchyma cell)
+  [TP] PRED: (ground tissue cell -> parenchyma cell)
+        matches GT: (ground tissue cell -> parenchyma cell)
+  [TP] PRED: (higher order inflorescence axis -> tassel inflorescence branch)
+        matches GT: (higher order inflorescence axis -> tassel inflorescence branch)
+  [TP] PRED: (inflorescence axis -> higher order inflorescence axis)
+        matches GT: (inflorescence axis -> higher order inflorescence axis)
+  [TP] PRED: (inflorescence axis -> tassel inflorescence branch)
+        matches GT: (inflorescence axis -> tassel inflorescence branch)
+  [TP] PRED: (multi-tissue plant structure (multi-tissue plant structure, plant organ) -> bracteole)
+        matches GT: (multi-tissue plant structure -> bracteole)
+  [TP] PRED: (multi-tissue plant structure (multi-tissue plant structure, plant organ) -> bracteole)
+        matches GT: (plant organ -> bracteole)
+  [TP] PRED: (multi-tissue plant structure (multi-tissue plant structure, plant organ) -> phyllome)
+        matches GT: (multi-tissue plant structure -> phyllome)
+  [TP] PRED: (multi-tissue plant structure (multi-tissue plant structure, plant organ) -> phyllome)
+        matches GT: (plant organ -> phyllome)
+  [TP] PRED: (multi-tissue plant structure (multi-tissue plant structure, plant organ) -> prophyll)
+        matches GT: (multi-tissue plant structure -> prophyll)
+  [TP] PRED: (multi-tissue plant structure (multi-tissue plant structure, plant organ) -> prophyll)
+        matches GT: (plant organ -> prophyll)
+  [TP] PRED: (native plant cell -> chlorenchyma cell)
+        matches GT: (native plant cell -> chlorenchyma cell)
+  [TP] PRED: (native plant cell -> ground tissue cell)
+        matches GT: (native plant cell -> ground tissue cell)
+  [TP] PRED: (native plant cell -> parenchyma cell)
+        matches GT: (native plant cell -> parenchyma cell)
+  [TP] PRED: (parenchyma cell -> chlorenchyma cell)
+        matches GT: (parenchyma cell -> chlorenchyma cell)
+  [TP] PRED: (phyllome -> bracteole)
+        matches GT: (phyllome -> bracteole)
+  [TP] PRED: (phyllome -> prophyll)
+        matches GT: (phyllome -> prophyll)
+  [TP] PRED: (phyllome base -> sepal base)
+        matches GT: (phyllome base -> sepal base)
+  [TP] PRED: (plant anatomical entity (plant anatomical entity, plant structure) -> bracteole)
+        matches GT: (plant anatomical entity -> bracteole)
+  [TP] PRED: (plant anatomical entity (plant anatomical entity, plant structure) -> bracteole)
+        matches GT: (plant structure -> bracteole)
+  [TP] PRED: (plant anatomical entity (plant anatomical entity, plant structure) -> cardinal organ part (cardinal organ part, cardinal part of multi-tissue plant structure))
+        matches GT: (plant anatomical entity -> cardinal organ part)
+  [TP] PRED: (plant anatomical entity (plant anatomical entity, plant structure) -> cardinal organ part (cardinal organ part, cardinal part of multi-tissue plant structure))
+        matches GT: (plant anatomical entity -> cardinal part of multi-tissue plant structure)
+  [TP] PRED: (plant anatomical entity (plant anatomical entity, plant structure) -> cardinal organ part (cardinal organ part, cardinal part of multi-tissue plant structure))
+        matches GT: (plant structure -> cardinal organ part)
+  [TP] PRED: (plant anatomical entity (plant anatomical entity, plant structure) -> cardinal organ part (cardinal organ part, cardinal part of multi-tissue plant structure))
+        matches GT: (plant structure -> cardinal part of multi-tissue plant structure)
+  [TP] PRED: (plant anatomical entity (plant anatomical entity, plant structure) -> meristem l3 layer)
+        matches GT: (plant anatomical entity -> meristem l3 layer)
+  [TP] PRED: (plant anatomical entity (plant anatomical entity, plant structure) -> meristem l3 layer)
+        matches GT: (plant structure -> meristem l3 layer)
+  [TP] PRED: (plant anatomical entity (plant anatomical entity, plant structure) -> multi-tissue plant structure (multi-tissue plant structure, plant organ))
+        matches GT: (plant anatomical entity -> multi-tissue plant structure)
+  [TP] PRED: (plant anatomical entity (plant anatomical entity, plant structure) -> multi-tissue plant structure (multi-tissue plant structure, plant organ))
+        matches GT: (plant anatomical entity -> plant organ)
+  [TP] PRED: (plant anatomical entity (plant anatomical entity, plant structure) -> multi-tissue plant structure (multi-tissue plant structure, plant organ))
+        matches GT: (plant structure -> multi-tissue plant structure)
+  [TP] PRED: (plant anatomical entity (plant anatomical entity, plant structure) -> multi-tissue plant structure (multi-tissue plant structure, plant organ))
+        matches GT: (plant structure -> plant organ)
+  [TP] PRED: (plant anatomical entity (plant anatomical entity, plant structure) -> petiole distal end)
+        matches GT: (plant anatomical entity -> petiole distal end)
+  [TP] PRED: (plant anatomical entity (plant anatomical entity, plant structure) -> petiole distal end)
+        matches GT: (plant structure -> petiole distal end)
+  [TP] PRED: (plant anatomical entity (plant anatomical entity, plant structure) -> phyllome base)
+        matches GT: (plant anatomical entity -> phyllome base)
+  [TP] PRED: (plant anatomical entity (plant anatomical entity, plant structure) -> phyllome base)
+        matches GT: (plant structure -> phyllome base)
+  [TP] PRED: (plant anatomical entity (plant anatomical entity, plant structure) -> phyllome)
+        matches GT: (plant anatomical entity -> phyllome)
+  [TP] PRED: (plant anatomical entity (plant anatomical entity, plant structure) -> phyllome)
+        matches GT: (plant structure -> phyllome)
+  [TP] PRED: (plant anatomical entity (plant anatomical entity, plant structure) -> portion of meristem tissue)
+        matches GT: (plant anatomical entity -> portion of meristem tissue)
+  [TP] PRED: (plant anatomical entity (plant anatomical entity, plant structure) -> portion of meristem tissue)
+        matches GT: (plant structure -> portion of meristem tissue)
+  [TP] PRED: (plant anatomical entity (plant anatomical entity, plant structure) -> portion of plant tissue)
+        matches GT: (plant anatomical entity -> portion of plant tissue)
+  [TP] PRED: (plant anatomical entity (plant anatomical entity, plant structure) -> portion of plant tissue)
+        matches GT: (plant structure -> portion of plant tissue)
+  [TP] PRED: (plant anatomical entity (plant anatomical entity, plant structure) -> prophyll)
+        matches GT: (plant anatomical entity -> prophyll)
+  [TP] PRED: (plant anatomical entity (plant anatomical entity, plant structure) -> prophyll)
+        matches GT: (plant structure -> prophyll)
+  [TP] PRED: (plant anatomical entity (plant anatomical entity, plant structure) -> sepal base)
+        matches GT: (plant anatomical entity -> sepal base)
+  [TP] PRED: (plant anatomical entity (plant anatomical entity, plant structure) -> sepal base)
+        matches GT: (plant structure -> sepal base)
+  [TP] PRED: (plant anatomical entity (plant anatomical entity, plant structure) -> tmema)
+        matches GT: (plant anatomical entity -> tmema)
+  [TP] PRED: (plant anatomical entity (plant anatomical entity, plant structure) -> tmema)
+        matches GT: (plant structure -> tmema)
+  [TP] PRED: (plant axis -> higher order inflorescence axis)
+        matches GT: (plant axis -> higher order inflorescence axis)
+  [TP] PRED: (plant axis -> inflorescence axis)
+        matches GT: (plant axis -> inflorescence axis)
+  [TP] PRED: (plant axis -> shoot axis)
+        matches GT: (plant axis -> shoot axis)
+  [TP] PRED: (plant axis -> tassel inflorescence branch)
+        matches GT: (plant axis -> tassel inflorescence branch)
+  [TP] PRED: (portion of meristem tissue -> meristem l3 layer)
+        matches GT: (portion of meristem tissue -> meristem l3 layer)
+  [TP] PRED: (portion of plant tissue -> meristem l3 layer)
+        matches GT: (portion of plant tissue -> meristem l3 layer)
+  [TP] PRED: (portion of plant tissue -> portion of meristem tissue)
+        matches GT: (portion of plant tissue -> portion of meristem tissue)
+  [TP] PRED: (portion of plant tissue -> tmema)
+        matches GT: (portion of plant tissue -> tmema)
+  [TP] PRED: (shoot axis -> higher order inflorescence axis)
+        matches GT: (shoot axis -> higher order inflorescence axis)
+  [TP] PRED: (shoot axis -> inflorescence axis)
+        matches GT: (shoot axis -> inflorescence axis)
+  [TP] PRED: (shoot axis -> tassel inflorescence branch)
+        matches GT: (shoot axis -> tassel inflorescence branch)
+
+INCORRECT PREDICTIONS (False Positives: 26):
+  [FP] cardinal organ part (cardinal organ part, cardinal part of multi-tissue plant structure) -> higher order inflorescence axis
+  [FP] cardinal organ part (cardinal organ part, cardinal part of multi-tissue plant structure) -> inflorescence axis
+  [FP] cardinal organ part (cardinal organ part, cardinal part of multi-tissue plant structure) -> plant axis
+  [FP] cardinal organ part (cardinal organ part, cardinal part of multi-tissue plant structure) -> shoot axis
+  [FP] cardinal organ part (cardinal organ part, cardinal part of multi-tissue plant structure) -> tassel inflorescence branch
+  [FP] multi-tissue plant structure (multi-tissue plant structure, plant organ) -> higher order inflorescence axis
+  [FP] multi-tissue plant structure (multi-tissue plant structure, plant organ) -> inflorescence axis
+  [FP] multi-tissue plant structure (multi-tissue plant structure, plant organ) -> phyllome base
+  [FP] multi-tissue plant structure (multi-tissue plant structure, plant organ) -> plant axis
+  [FP] multi-tissue plant structure (multi-tissue plant structure, plant organ) -> sepal base
+  [FP] multi-tissue plant structure (multi-tissue plant structure, plant organ) -> shoot axis
+  [FP] multi-tissue plant structure (multi-tissue plant structure, plant organ) -> tassel inflorescence branch
+  [FP] plant anatomical entity (plant anatomical entity, plant structure) -> chlorenchyma cell
+  [FP] plant anatomical entity (plant anatomical entity, plant structure) -> ground tissue cell
+  [FP] plant anatomical entity (plant anatomical entity, plant structure) -> higher order inflorescence axis
+  [FP] plant anatomical entity (plant anatomical entity, plant structure) -> inflorescence axis
+  [FP] plant anatomical entity (plant anatomical entity, plant structure) -> native plant cell
+  [FP] plant anatomical entity (plant anatomical entity, plant structure) -> parenchyma cell
+  [FP] plant anatomical entity (plant anatomical entity, plant structure) -> plant axis
+  [FP] plant anatomical entity (plant anatomical entity, plant structure) -> shoot axis
+  [FP] plant anatomical entity (plant anatomical entity, plant structure) -> tassel inflorescence branch
+  [FP] portion of meristem tissue -> tmema
+  [FP] portion of plant tissue -> chlorenchyma cell
+  [FP] portion of plant tissue -> ground tissue cell
+  [FP] portion of plant tissue -> native plant cell
+  [FP] portion of plant tissue -> parenchyma cell
+
+MISSED RELATIONS (False Negatives: 4):
+  [FN] cardinal part of multi-tissue plant structure -> cardinal organ part
+  [FN] multi-tissue plant structure -> plant organ
+  [FN] plant anatomical entity -> plant structure
+  [FN] prophyll -> bracteole

@@ -1,0 +1,39 @@
+==================================================
+=== Detailed Node Pair Analysis (Exploded Raw Edges) ===
+Match Type Used: EXACT
+==================================================
+Precision: 0.8750 | Recall: 0.8400 | F1: 0.8571
+
+CORRECT PREDICTIONS (True Positives: 21 Pred edges covering 21 GT edges):
+  [TP] baked goods -> cake
+  [TP] berry -> raspberry
+  [TP] cake -> applesauce cake
+  [TP] course -> dessert
+  [TP] dessert -> pudding
+  [TP] dish -> snack food
+  [TP] edible fruit -> berry
+  [TP] flavorer -> herb
+  [TP] food -> baked goods
+  [TP] food -> foodstuff
+  [TP] food -> meat
+  [TP] food -> produce
+  [TP] foodstuff -> ingredient
+  [TP] herb -> marjoram
+  [TP] ingredient -> flavorer
+  [TP] jerky -> beef jerky
+  [TP] meat -> jerky
+  [TP] produce -> edible fruit
+  [TP] pudding -> corn pudding
+  [TP] sandwich -> gyro
+  [TP] snack food -> sandwich
+
+INCORRECT PREDICTIONS (False Positives: 3):
+  [FP] dish -> dessert
+  [FP] food -> dish
+  [FP] nutriment -> food
+
+MISSED RELATIONS (False Negatives: 4):
+  [FN] dish -> pudding
+  [FN] food -> nutriment
+  [FN] nutriment -> course
+  [FN] nutriment -> dish

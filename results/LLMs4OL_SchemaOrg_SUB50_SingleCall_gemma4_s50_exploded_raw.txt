@@ -1,0 +1,72 @@
+==================================================
+=== Detailed Node Pair Analysis (Exploded Raw Edges) ===
+Match Type Used: EXACT
+==================================================
+Precision: 0.5476 | Recall: 0.5476 | F1: 0.5476
+
+CORRECT PREDICTIONS (True Positives: 23 Pred edges covering 23 GT edges):
+  [TP] action -> createaction
+  [TP] action -> organizeaction
+  [TP] action -> transferaction
+  [TP] article -> techarticle
+  [TP] audience -> peopleaudience
+  [TP] creativework -> article
+  [TP] creativework -> creativeworkseries
+  [TP] creativework -> howtostep
+  [TP] creativework -> shortstory
+  [TP] creativeworkseries -> movieseries
+  [TP] enumeration -> adultorientedenumeration
+  [TP] enumeration -> governmentbenefitstype
+  [TP] enumeration -> measurementmethodenum
+  [TP] foodestablishment -> bakery
+  [TP] intangible -> service
+  [TP] localbusiness -> entertainmentbusiness
+  [TP] localbusiness -> foodestablishment
+  [TP] localbusiness -> lodgingbusiness
+  [TP] lodgingbusiness -> motel
+  [TP] medicalentity -> medicalintangible
+  [TP] organization -> researchorganization
+  [TP] place -> localbusiness
+  [TP] series -> creativeworkseries
+
+INCORRECT PREDICTIONS (False Positives: 19):
+  [FP] action -> allocateaction
+  [FP] action -> assignaction
+  [FP] action -> cookaction
+  [FP] action -> takeaction
+  [FP] creativework -> comicseries
+  [FP] creativework -> imageobject
+  [FP] creativework -> periodical
+  [FP] creativework -> series
+  [FP] creativeworkseries -> comicseries
+  [FP] datatype -> enumeration
+  [FP] intangible -> creativework
+  [FP] intangible -> datatype
+  [FP] intangible -> medicalintangible
+  [FP] intangible -> offer
+  [FP] listitem -> itemlist
+  [FP] localbusiness -> exercisegym
+  [FP] medicalentity -> medicalcode
+  [FP] organization -> entertainmentbusiness
+  [FP] place -> sportsactivitylocation
+
+MISSED RELATIONS (False Negatives: 19):
+  [FN] allocateaction -> assignaction
+  [FN] createaction -> cookaction
+  [FN] creativework -> ampstory
+  [FN] datatype -> time
+  [FN] enumeration -> physicalactivitycategory
+  [FN] intangible -> audience
+  [FN] intangible -> listitem
+  [FN] intangible -> series
+  [FN] intangible -> ticket
+  [FN] itemlist -> howtostep
+  [FN] listitem -> howtostep
+  [FN] localbusiness -> sportsactivitylocation
+  [FN] medicalintangible -> medicalcode
+  [FN] organization -> localbusiness
+  [FN] organizeaction -> allocateaction
+  [FN] periodical -> comicseries
+  [FN] service -> broadcastservice
+  [FN] sportsactivitylocation -> exercisegym
+  [FN] transferaction -> takeaction

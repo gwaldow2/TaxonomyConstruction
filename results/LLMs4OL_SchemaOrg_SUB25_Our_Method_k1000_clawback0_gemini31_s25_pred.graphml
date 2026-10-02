@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d4" for="graph" attr.name="timestamp" attr.type="string"/>
+<key id="d3" for="graph" attr.name="scale" attr.type="string"/>
+<key id="d2" for="graph" attr.name="results_file" attr.type="string"/>
+<key id="d1" for="graph" attr.name="tag" attr.type="string"/>
+<key id="d0" for="graph" attr.name="model" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">gemini-3.1-pro-preview</data>
+<data key="d1">gemini31_s25</data>
+<data key="d2">results/scaling_gemini.json</data>
+<data key="d3">SUB25</data>
+<data key="d4">2026-09-30T17:44:42</data>
+<node id="intangible"/>
+<node id="itemlist"/>
+<node id="enumeration"/>
+<node id="listitem"/>
+<node id="peopleaudience"/>
+<node id="adultorientedenumeration"/>
+<node id="service"/>
+<node id="series"/>
+<node id="creativeworkseries"/>
+<node id="howtostep"/>
+<node id="audience"/>
+<node id="broadcastservice"/>
+<node id="governmentbenefitstype"/>
+<node id="movieseries"/>
+<node id="offer"/>
+<node id="place"/>
+<node id="bakery"/>
+<node id="entertainmentbusiness"/>
+<node id="foodestablishment"/>
+<node id="localbusiness"/>
+<node id="organization"/>
+<node id="datatype"/>
+<node id="time"/>
+<node id="creativework"/>
+<node id="researchorganization"/>
+<edge source="intangible" target="itemlist"/>
+<edge source="intangible" target="enumeration"/>
+<edge source="intangible" target="listitem"/>
+<edge source="intangible" target="peopleaudience"/>
+<edge source="intangible" target="adultorientedenumeration"/>
+<edge source="intangible" target="service"/>
+<edge source="intangible" target="series"/>
+<edge source="intangible" target="creativeworkseries"/>
+<edge source="intangible" target="howtostep"/>
+<edge source="intangible" target="audience"/>
+<edge source="intangible" target="broadcastservice"/>
+<edge source="intangible" target="governmentbenefitstype"/>
+<edge source="intangible" target="movieseries"/>
+<edge source="intangible" target="offer"/>
+<edge source="itemlist" target="howtostep"/>
+<edge source="enumeration" target="adultorientedenumeration"/>
+<edge source="enumeration" target="governmentbenefitstype"/>
+<edge source="listitem" target="howtostep"/>
+<edge source="service" target="broadcastservice"/>
+<edge source="series" target="creativeworkseries"/>
+<edge source="series" target="movieseries"/>
+<edge source="creativeworkseries" target="movieseries"/>
+<edge source="audience" target="peopleaudience"/>
+<edge source="place" target="bakery"/>
+<edge source="place" target="entertainmentbusiness"/>
+<edge source="place" target="foodestablishment"/>
+<edge source="place" target="localbusiness"/>
+<edge source="foodestablishment" target="bakery"/>
+<edge source="localbusiness" target="entertainmentbusiness"/>
+<edge source="localbusiness" target="bakery"/>
+<edge source="localbusiness" target="foodestablishment"/>
+<edge source="organization" target="entertainmentbusiness"/>
+<edge source="organization" target="bakery"/>
+<edge source="organization" target="localbusiness"/>
+<edge source="organization" target="foodestablishment"/>
+<edge source="organization" target="researchorganization"/>
+<edge source="datatype" target="time"/>
+<edge source="creativework" target="creativeworkseries"/>
+<edge source="creativework" target="howtostep"/>
+<edge source="creativework" target="movieseries"/>
+</graph></graphml>

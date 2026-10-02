@@ -1,0 +1,122 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d4" for="graph" attr.name="timestamp" attr.type="string"/>
+<key id="d3" for="graph" attr.name="scale" attr.type="string"/>
+<key id="d2" for="graph" attr.name="results_file" attr.type="string"/>
+<key id="d1" for="graph" attr.name="tag" attr.type="string"/>
+<key id="d0" for="graph" attr.name="model" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">gemini-3.1-pro-preview</data>
+<data key="d1">gemini31_s25</data>
+<data key="d2">results/scaling_gemini.json</data>
+<data key="d3">SUB25</data>
+<data key="d4">2026-09-30T17:44:42</data>
+<node id="assay"/>
+<node id="insecticide resistance by detecting enzyme activity assay"/>
+<node id="organism detection assay"/>
+<node id="carboxyfluorescein succinimidyl ester staining assay"/>
+<node id="insecticide resistance by detecting glutathione s-transferase activity assay"/>
+<node id="carboxyfluorescein succinimidyl ester staining assay measuring epitope specific proliferation of t cells"/>
+<node id="insecticide resistance assay"/>
+<node id="planned process"/>
+<node id="parasite detection assay"/>
+<node id="clinical history"/>
+<node id="brother clinical history of cancer"/>
+<node id="family clinical history of cancer"/>
+<node id="material separation device"/>
+<node id="filter paper"/>
+<node id="independent continuant"/>
+<node id="material entity"/>
+<node id="continuant"/>
+<node id="processed material"/>
+<node id="device"/>
+<node id="affymetrix rhesus macaque genome array"/>
+<node id="assay array"/>
+<node id="dna microarray"/>
+<node id="microarray"/>
+<node id="organization"/>
+<node id="organization of specimen collector"/>
+<node id="function"/>
+<node id="connection function"/>
+<edge source="assay" target="insecticide resistance by detecting enzyme activity assay"/>
+<edge source="assay" target="organism detection assay"/>
+<edge source="assay" target="carboxyfluorescein succinimidyl ester staining assay"/>
+<edge source="assay" target="insecticide resistance by detecting glutathione s-transferase activity assay"/>
+<edge source="assay" target="carboxyfluorescein succinimidyl ester staining assay measuring epitope specific proliferation of t cells"/>
+<edge source="assay" target="insecticide resistance assay"/>
+<edge source="assay" target="parasite detection assay"/>
+<edge source="insecticide resistance by detecting enzyme activity assay" target="insecticide resistance by detecting glutathione s-transferase activity assay"/>
+<edge source="organism detection assay" target="parasite detection assay"/>
+<edge source="carboxyfluorescein succinimidyl ester staining assay" target="carboxyfluorescein succinimidyl ester staining assay measuring epitope specific proliferation of t cells"/>
+<edge source="insecticide resistance assay" target="insecticide resistance by detecting enzyme activity assay"/>
+<edge source="insecticide resistance assay" target="insecticide resistance by detecting glutathione s-transferase activity assay"/>
+<edge source="planned process" target="assay"/>
+<edge source="planned process" target="insecticide resistance by detecting enzyme activity assay"/>
+<edge source="planned process" target="organism detection assay"/>
+<edge source="planned process" target="carboxyfluorescein succinimidyl ester staining assay"/>
+<edge source="planned process" target="insecticide resistance by detecting glutathione s-transferase activity assay"/>
+<edge source="planned process" target="carboxyfluorescein succinimidyl ester staining assay measuring epitope specific proliferation of t cells"/>
+<edge source="planned process" target="insecticide resistance assay"/>
+<edge source="planned process" target="parasite detection assay"/>
+<edge source="clinical history" target="brother clinical history of cancer"/>
+<edge source="clinical history" target="family clinical history of cancer"/>
+<edge source="family clinical history of cancer" target="brother clinical history of cancer"/>
+<edge source="material separation device" target="filter paper"/>
+<edge source="independent continuant" target="material separation device"/>
+<edge source="independent continuant" target="affymetrix rhesus macaque genome array"/>
+<edge source="independent continuant" target="assay array"/>
+<edge source="independent continuant" target="device"/>
+<edge source="independent continuant" target="dna microarray"/>
+<edge source="independent continuant" target="filter paper"/>
+<edge source="independent continuant" target="material entity"/>
+<edge source="independent continuant" target="microarray"/>
+<edge source="independent continuant" target="organization"/>
+<edge source="independent continuant" target="organization of specimen collector"/>
+<edge source="independent continuant" target="processed material"/>
+<edge source="material entity" target="material separation device"/>
+<edge source="material entity" target="assay array"/>
+<edge source="material entity" target="affymetrix rhesus macaque genome array"/>
+<edge source="material entity" target="device"/>
+<edge source="material entity" target="dna microarray"/>
+<edge source="material entity" target="filter paper"/>
+<edge source="material entity" target="microarray"/>
+<edge source="material entity" target="organization"/>
+<edge source="material entity" target="organization of specimen collector"/>
+<edge source="material entity" target="processed material"/>
+<edge source="continuant" target="material separation device"/>
+<edge source="continuant" target="independent continuant"/>
+<edge source="continuant" target="assay array"/>
+<edge source="continuant" target="material entity"/>
+<edge source="continuant" target="brother clinical history of cancer"/>
+<edge source="continuant" target="function"/>
+<edge source="continuant" target="clinical history"/>
+<edge source="continuant" target="family clinical history of cancer"/>
+<edge source="continuant" target="microarray"/>
+<edge source="continuant" target="processed material"/>
+<edge source="continuant" target="connection function"/>
+<edge source="continuant" target="organization of specimen collector"/>
+<edge source="continuant" target="dna microarray"/>
+<edge source="continuant" target="device"/>
+<edge source="continuant" target="affymetrix rhesus macaque genome array"/>
+<edge source="continuant" target="filter paper"/>
+<edge source="continuant" target="organization"/>
+<edge source="processed material" target="material separation device"/>
+<edge source="processed material" target="assay array"/>
+<edge source="processed material" target="microarray"/>
+<edge source="processed material" target="dna microarray"/>
+<edge source="processed material" target="device"/>
+<edge source="processed material" target="affymetrix rhesus macaque genome array"/>
+<edge source="processed material" target="filter paper"/>
+<edge source="device" target="material separation device"/>
+<edge source="device" target="assay array"/>
+<edge source="device" target="microarray"/>
+<edge source="device" target="dna microarray"/>
+<edge source="device" target="affymetrix rhesus macaque genome array"/>
+<edge source="device" target="filter paper"/>
+<edge source="assay array" target="microarray"/>
+<edge source="assay array" target="dna microarray"/>
+<edge source="assay array" target="affymetrix rhesus macaque genome array"/>
+<edge source="dna microarray" target="affymetrix rhesus macaque genome array"/>
+<edge source="microarray" target="affymetrix rhesus macaque genome array"/>
+<edge source="microarray" target="dna microarray"/>
+<edge source="organization" target="organization of specimen collector"/>
+<edge source="function" target="connection function"/>
+</graph></graphml>

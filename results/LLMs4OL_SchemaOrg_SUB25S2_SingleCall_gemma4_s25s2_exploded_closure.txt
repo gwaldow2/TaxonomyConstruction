@@ -1,0 +1,69 @@
+==================================================
+=== Detailed Node Pair Analysis (Exploded Transitive Closure) ===
+Match Type Used: EXACT
+==================================================
+Precision: 0.6905 | Recall: 0.6444 | F1: 0.6667
+
+CORRECT PREDICTIONS (True Positives: 29 Pred edges covering 29 GT edges):
+  [TP] action -> bookmarkaction
+  [TP] action -> consumeaction
+  [TP] action -> organizeaction
+  [TP] action -> watchaction
+  [TP] foodestablishment -> fastfoodrestaurant
+  [TP] homeandconstructionbusiness -> electrician
+  [TP] intangible -> howtoitem
+  [TP] intangible -> listitem
+  [TP] localbusiness -> fastfoodrestaurant
+  [TP] localbusiness -> foodestablishment
+  [TP] localbusiness -> individualphysician
+  [TP] localbusiness -> medicalbusiness
+  [TP] medicalbusiness -> individualphysician
+  [TP] medicalentity -> medicalprocedure
+  [TP] medicalentity -> medicaltherapy
+  [TP] medicalentity -> palliativeprocedure
+  [TP] medicalentity -> therapeuticprocedure
+  [TP] medicalprocedure -> palliativeprocedure
+  [TP] medicalprocedure -> therapeuticprocedure
+  [TP] medicaltherapy -> palliativeprocedure
+  [TP] organization -> medicalorganization
+  [TP] periodical -> comicseries
+  [TP] physician -> individualphysician
+  [TP] place -> fastfoodrestaurant
+  [TP] place -> foodestablishment
+  [TP] place -> individualphysician
+  [TP] place -> localbusiness
+  [TP] place -> medicalbusiness
+  [TP] therapeuticprocedure -> palliativeprocedure
+
+INCORRECT PREDICTIONS (False Positives: 13):
+  [FP] intangible -> comicseries
+  [FP] intangible -> periodical
+  [FP] localbusiness -> electrician
+  [FP] localbusiness -> homeandconstructionbusiness
+  [FP] localbusiness -> medicalorganization
+  [FP] medicalbusiness -> medicalorganization
+  [FP] medicalentity -> individualphysician
+  [FP] medicalentity -> medicalorganization
+  [FP] medicalentity -> physician
+  [FP] medicaltherapy -> therapeuticprocedure
+  [FP] place -> electrician
+  [FP] place -> homeandconstructionbusiness
+  [FP] place -> medicalorganization
+
+MISSED RELATIONS (False Negatives: 16):
+  [FN] consumeaction -> watchaction
+  [FN] listitem -> howtoitem
+  [FN] localbusiness -> physician
+  [FN] medicalbusiness -> physician
+  [FN] medicalorganization -> individualphysician
+  [FN] medicalorganization -> physician
+  [FN] medicalprocedure -> medicaltherapy
+  [FN] organization -> fastfoodrestaurant
+  [FN] organization -> foodestablishment
+  [FN] organization -> individualphysician
+  [FN] organization -> localbusiness
+  [FN] organization -> medicalbusiness
+  [FN] organization -> physician
+  [FN] organizeaction -> bookmarkaction
+  [FN] place -> physician
+  [FN] therapeuticprocedure -> medicaltherapy

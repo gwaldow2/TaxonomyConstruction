@@ -1,0 +1,99 @@
+==================================================
+=== Detailed Node Pair Analysis (Condensed Transitive Closure) ===
+Match Type Used: SET_OVERLAP
+==================================================
+Precision: 0.5660 | Recall: 0.8571 | F1: 0.6818
+
+CORRECT PREDICTIONS (True Positives: 30 Pred edges covering 30 GT edges):
+  [TP] PRED: (audience -> peopleaudience)
+        matches GT: (audience -> peopleaudience)
+  [TP] PRED: (creativework -> creativeworkseries)
+        matches GT: (creativework -> creativeworkseries)
+  [TP] PRED: (creativework -> howtostep)
+        matches GT: (creativework -> howtostep)
+  [TP] PRED: (creativework -> movieseries)
+        matches GT: (creativework -> movieseries)
+  [TP] PRED: (creativeworkseries -> movieseries)
+        matches GT: (creativeworkseries -> movieseries)
+  [TP] PRED: (datatype -> time)
+        matches GT: (datatype -> time)
+  [TP] PRED: (enumeration -> adultorientedenumeration)
+        matches GT: (enumeration -> adultorientedenumeration)
+  [TP] PRED: (enumeration -> governmentbenefitstype)
+        matches GT: (enumeration -> governmentbenefitstype)
+  [TP] PRED: (foodestablishment -> bakery)
+        matches GT: (foodestablishment -> bakery)
+  [TP] PRED: (intangible -> broadcastservice)
+        matches GT: (intangible -> broadcastservice)
+  [TP] PRED: (intangible -> creativeworkseries)
+        matches GT: (intangible -> creativeworkseries)
+  [TP] PRED: (intangible -> howtostep)
+        matches GT: (intangible -> howtostep)
+  [TP] PRED: (intangible -> movieseries)
+        matches GT: (intangible -> movieseries)
+  [TP] PRED: (intangible -> series)
+        matches GT: (intangible -> series)
+  [TP] PRED: (listitem -> howtostep)
+        matches GT: (listitem -> howtostep)
+  [TP] PRED: (localbusiness -> bakery)
+        matches GT: (localbusiness -> bakery)
+  [TP] PRED: (localbusiness -> entertainmentbusiness)
+        matches GT: (localbusiness -> entertainmentbusiness)
+  [TP] PRED: (localbusiness -> foodestablishment)
+        matches GT: (localbusiness -> foodestablishment)
+  [TP] PRED: (organization -> bakery)
+        matches GT: (organization -> bakery)
+  [TP] PRED: (organization -> entertainmentbusiness)
+        matches GT: (organization -> entertainmentbusiness)
+  [TP] PRED: (organization -> foodestablishment)
+        matches GT: (organization -> foodestablishment)
+  [TP] PRED: (organization -> localbusiness)
+        matches GT: (organization -> localbusiness)
+  [TP] PRED: (organization -> researchorganization)
+        matches GT: (organization -> researchorganization)
+  [TP] PRED: (place -> bakery)
+        matches GT: (place -> bakery)
+  [TP] PRED: (place -> entertainmentbusiness)
+        matches GT: (place -> entertainmentbusiness)
+  [TP] PRED: (place -> foodestablishment)
+        matches GT: (place -> foodestablishment)
+  [TP] PRED: (place -> localbusiness)
+        matches GT: (place -> localbusiness)
+  [TP] PRED: (series -> creativeworkseries)
+        matches GT: (series -> creativeworkseries)
+  [TP] PRED: (series -> movieseries)
+        matches GT: (series -> movieseries)
+  [TP] PRED: (service -> broadcastservice)
+        matches GT: (service -> broadcastservice)
+
+INCORRECT PREDICTIONS (False Positives: 23):
+  [FP] creativework -> adultorientedenumeration
+  [FP] creativework -> enumeration
+  [FP] creativework -> governmentbenefitstype
+  [FP] creativework -> itemlist
+  [FP] creativework -> series
+  [FP] datatype -> adultorientedenumeration
+  [FP] datatype -> enumeration
+  [FP] datatype -> governmentbenefitstype
+  [FP] datatype -> itemlist
+  [FP] entertainmentbusiness -> broadcastservice
+  [FP] enumeration -> itemlist
+  [FP] intangible -> adultorientedenumeration
+  [FP] intangible -> creativework
+  [FP] intangible -> enumeration
+  [FP] intangible -> governmentbenefitstype
+  [FP] intangible -> itemlist
+  [FP] intangible -> time
+  [FP] itemlist -> adultorientedenumeration
+  [FP] localbusiness -> broadcastservice
+  [FP] organization -> broadcastservice
+  [FP] place -> broadcastservice
+  [FP] service -> entertainmentbusiness
+  [FP] service -> offer
+
+MISSED RELATIONS (False Negatives: 5):
+  [FN] intangible -> audience
+  [FN] intangible -> listitem
+  [FN] intangible -> peopleaudience
+  [FN] intangible -> service
+  [FN] itemlist -> howtostep

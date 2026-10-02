@@ -1,0 +1,105 @@
+==================================================
+=== Detailed Node Pair Analysis (Condensed Transitive Reduction) ===
+Match Type Used: SET_OVERLAP
+==================================================
+Precision: 0.5581 | Recall: 0.4706 | F1: 0.5106
+
+CORRECT PREDICTIONS (True Positives: 24 Pred edges covering 24 GT edges):
+  [TP] PRED: (appetizer -> antipasto)
+        matches GT: (appetizer -> antipasto)
+  [TP] PRED: (b complex vitamin -> niacin)
+        matches GT: (b complex vitamin -> niacin)
+  [TP] PRED: (b complex vitamin -> vitamin b2)
+        matches GT: (b complex vitamin -> vitamin b2)
+  [TP] PRED: (cocktail -> gin and it)
+        matches GT: (cocktail -> gin and it)
+  [TP] PRED: (condiment -> relish)
+        matches GT: (condiment -> relish)
+  [TP] PRED: (condiment -> sauce)
+        matches GT: (condiment -> sauce)
+  [TP] PRED: (diet -> diabetic diet)
+        matches GT: (diet -> diabetic diet)
+  [TP] PRED: (dressing -> blue cheese dressing)
+        matches GT: (dressing -> blue cheese dressing)
+  [TP] PRED: (dressing -> mayonnaise)
+        matches GT: (dressing -> mayonnaise)
+  [TP] PRED: (food -> fare)
+        matches GT: (food -> fare)
+  [TP] PRED: (food -> feed)
+        matches GT: (food -> feed)
+  [TP] PRED: (food -> foodstuff)
+        matches GT: (food -> foodstuff)
+  [TP] PRED: (food -> nutriment)
+        matches GT: (food -> nutriment)
+  [TP] PRED: (grain -> buckwheat)
+        matches GT: (grain -> buckwheat)
+  [TP] PRED: (ingredient -> flavorer)
+        matches GT: (ingredient -> flavorer)
+  [TP] PRED: (mayonnaise -> green mayonnaise)
+        matches GT: (mayonnaise -> green mayonnaise)
+  [TP] PRED: (meatball -> porcupine ball)
+        matches GT: (meatball -> porcupine ball)
+  [TP] PRED: (potato -> home fries)
+        matches GT: (potato -> home fries)
+  [TP] PRED: (potato -> mashed potato)
+        matches GT: (potato -> mashed potato)
+  [TP] PRED: (starches -> potato)
+        matches GT: (starches -> potato)
+  [TP] PRED: (tea -> oolong)
+        matches GT: (tea -> oolong)
+  [TP] PRED: (tea -> sun tea)
+        matches GT: (tea -> sun tea)
+  [TP] PRED: (vitamin -> water soluble vitamin)
+        matches GT: (vitamin -> water soluble vitamin)
+  [TP] PRED: (water soluble vitamin -> b complex vitamin)
+        matches GT: (water soluble vitamin -> b complex vitamin)
+
+INCORRECT PREDICTIONS (False Positives: 19):
+  [FP] condiment -> dressing
+  [FP] dish -> appetizer
+  [FP] dish -> entree
+  [FP] food -> chow
+  [FP] food -> cocktail
+  [FP] food -> dish
+  [FP] food -> eatage
+  [FP] food -> fodder
+  [FP] food -> grain
+  [FP] food -> herb
+  [FP] food -> ingredient
+  [FP] food -> meatball
+  [FP] food -> starches
+  [FP] food -> tea
+  [FP] grain -> alfalfa
+  [FP] herb -> garlic
+  [FP] ingredient -> condiment
+  [FP] meal -> course
+  [FP] sauce -> steak sauce
+
+MISSED RELATIONS (False Negatives: 27):
+  [FN] appetizer -> cocktail
+  [FN] condiment -> steak sauce
+  [FN] course -> appetizer
+  [FN] course -> entree
+  [FN] dainty -> sweet
+  [FN] dish -> meatball
+  [FN] fare -> chow
+  [FN] fare -> diet
+  [FN] feed -> fodder
+  [FN] flavorer -> condiment
+  [FN] flavorer -> garlic
+  [FN] flavorer -> herb
+  [FN] fodder -> alfalfa
+  [FN] fodder -> eatage
+  [FN] foodstuff -> grain
+  [FN] foodstuff -> ingredient
+  [FN] foodstuff -> meal
+  [FN] foodstuff -> starches
+  [FN] herb -> tea
+  [FN] meal -> tea
+  [FN] nutriment -> course
+  [FN] nutriment -> dainty
+  [FN] nutriment -> dish
+  [FN] nutriment -> meal
+  [FN] nutriment -> vitamin
+  [FN] sauce -> dressing
+  [FN] sweet -> center

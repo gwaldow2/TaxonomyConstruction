@@ -1,0 +1,134 @@
+==================================================
+=== Detailed Node Pair Analysis (Exploded Raw Edges) ===
+Match Type Used: EXACT
+==================================================
+Precision: 0.2149 | Recall: 0.9286 | F1: 0.3490
+
+CORRECT PREDICTIONS (True Positives: 26 Pred edges covering 26 GT edges):
+  [TP] b complex vitamin -> inositol
+  [TP] cheese -> cheshire cheese
+  [TP] condiment -> sauce
+  [TP] dairy product -> cheese
+  [TP] dairy product -> milk
+  [TP] feed -> cattle cake
+  [TP] flavorer -> condiment
+  [TP] food -> feed
+  [TP] food -> foodstuff
+  [TP] food -> nutriment
+  [TP] food -> water
+  [TP] foodstuff -> dairy product
+  [TP] foodstuff -> grain
+  [TP] foodstuff -> ingredient
+  [TP] foodstuff -> milk
+  [TP] foodstuff -> starches
+  [TP] grain -> rice
+  [TP] ingredient -> flavorer
+  [TP] milk -> colostrum
+  [TP] milk -> whole milk
+  [TP] nutriment -> milk
+  [TP] nutriment -> vitamin
+  [TP] rice -> brown rice
+  [TP] sauce -> white sauce
+  [TP] vitamin -> water soluble vitamin
+  [TP] water soluble vitamin -> b complex vitamin
+
+INCORRECT PREDICTIONS (False Positives: 95):
+  [FP] condiment -> flavorer
+  [FP] condiment -> white sauce
+  [FP] dairy product -> cheshire cheese
+  [FP] dairy product -> colostrum
+  [FP] dairy product -> whole milk
+  [FP] flavorer -> sauce
+  [FP] flavorer -> white sauce
+  [FP] food -> b complex vitamin
+  [FP] food -> brown rice
+  [FP] food -> cattle cake
+  [FP] food -> cheese
+  [FP] food -> cheshire cheese
+  [FP] food -> colostrum
+  [FP] food -> condiment
+  [FP] food -> dairy product
+  [FP] food -> flavorer
+  [FP] food -> grain
+  [FP] food -> ingredient
+  [FP] food -> inositol
+  [FP] food -> milk
+  [FP] food -> rice
+  [FP] food -> sauce
+  [FP] food -> starches
+  [FP] food -> vitamin
+  [FP] food -> water soluble vitamin
+  [FP] food -> white sauce
+  [FP] food -> whole milk
+  [FP] foodstuff -> b complex vitamin
+  [FP] foodstuff -> brown rice
+  [FP] foodstuff -> cattle cake
+  [FP] foodstuff -> cheese
+  [FP] foodstuff -> cheshire cheese
+  [FP] foodstuff -> colostrum
+  [FP] foodstuff -> condiment
+  [FP] foodstuff -> feed
+  [FP] foodstuff -> flavorer
+  [FP] foodstuff -> food
+  [FP] foodstuff -> inositol
+  [FP] foodstuff -> nutriment
+  [FP] foodstuff -> rice
+  [FP] foodstuff -> sauce
+  [FP] foodstuff -> vitamin
+  [FP] foodstuff -> water
+  [FP] foodstuff -> water soluble vitamin
+  [FP] foodstuff -> white sauce
+  [FP] foodstuff -> whole milk
+  [FP] grain -> brown rice
+  [FP] ingredient -> b complex vitamin
+  [FP] ingredient -> brown rice
+  [FP] ingredient -> cattle cake
+  [FP] ingredient -> cheese
+  [FP] ingredient -> cheshire cheese
+  [FP] ingredient -> colostrum
+  [FP] ingredient -> condiment
+  [FP] ingredient -> dairy product
+  [FP] ingredient -> feed
+  [FP] ingredient -> food
+  [FP] ingredient -> foodstuff
+  [FP] ingredient -> grain
+  [FP] ingredient -> inositol
+  [FP] ingredient -> milk
+  [FP] ingredient -> nutriment
+  [FP] ingredient -> rice
+  [FP] ingredient -> sauce
+  [FP] ingredient -> starches
+  [FP] ingredient -> vitamin
+  [FP] ingredient -> water
+  [FP] ingredient -> water soluble vitamin
+  [FP] ingredient -> white sauce
+  [FP] ingredient -> whole milk
+  [FP] nutriment -> b complex vitamin
+  [FP] nutriment -> brown rice
+  [FP] nutriment -> cattle cake
+  [FP] nutriment -> cheese
+  [FP] nutriment -> cheshire cheese
+  [FP] nutriment -> colostrum
+  [FP] nutriment -> condiment
+  [FP] nutriment -> dairy product
+  [FP] nutriment -> feed
+  [FP] nutriment -> flavorer
+  [FP] nutriment -> food
+  [FP] nutriment -> foodstuff
+  [FP] nutriment -> grain
+  [FP] nutriment -> ingredient
+  [FP] nutriment -> inositol
+  [FP] nutriment -> rice
+  [FP] nutriment -> sauce
+  [FP] nutriment -> starches
+  [FP] nutriment -> water
+  [FP] nutriment -> water soluble vitamin
+  [FP] nutriment -> white sauce
+  [FP] nutriment -> whole milk
+  [FP] vitamin -> b complex vitamin
+  [FP] vitamin -> inositol
+  [FP] water soluble vitamin -> inositol
+
+MISSED RELATIONS (False Negatives: 2):
+  [FN] starches -> rice
+  [FN] white sauce -> blanc

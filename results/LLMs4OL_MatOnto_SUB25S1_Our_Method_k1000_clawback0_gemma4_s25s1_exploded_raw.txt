@@ -1,0 +1,83 @@
+==================================================
+=== Detailed Node Pair Analysis (Exploded Raw Edges) ===
+Match Type Used: EXACT
+==================================================
+Precision: 0.2609 | Recall: 0.8571 | F1: 0.4000
+
+CORRECT PREDICTIONS (True Positives: 18 Pred edges covering 18 GT edges):
+  [TP] addition reaction -> polar addition reaction
+  [TP] atom -> californium atom
+  [TP] atom -> helium atom
+  [TP] atom -> ytterbium atom
+  [TP] continuant -> dependent_continuant
+  [TP] continuant -> independent_continuant
+  [TP] continuant -> spatial_region
+  [TP] dependent_continuant -> quality
+  [TP] element -> ununbium
+  [TP] independent_continuant -> object
+  [TP] measured property -> specific energy
+  [TP] object -> atom
+  [TP] polar addition reaction -> nucleophilic addition reaction
+  [TP] quality -> measured property
+  [TP] spatial_region -> three_dimensional_region
+  [TP] thermodynamic system -> open thermodynamic system
+  [TP] three_dimensional_region -> thermodynamic system
+  [TP] unit -> molar energy unit
+
+INCORRECT PREDICTIONS (False Positives: 51):
+  [FP] addition reaction -> nucleophilic addition reaction
+  [FP] atom -> ununbium
+  [FP] continuant -> atom
+  [FP] continuant -> californium atom
+  [FP] continuant -> chemical conformation
+  [FP] continuant -> electromagnetic radation
+  [FP] continuant -> element
+  [FP] continuant -> helium atom
+  [FP] continuant -> object
+  [FP] continuant -> open thermodynamic system
+  [FP] continuant -> quality
+  [FP] continuant -> thermodynamic system
+  [FP] continuant -> three_dimensional_region
+  [FP] continuant -> ununbium
+  [FP] continuant -> wikipedia
+  [FP] continuant -> ytterbium atom
+  [FP] dependent_continuant -> chemical conformation
+  [FP] dependent_continuant -> electromagnetic radation
+  [FP] dependent_continuant -> measured property
+  [FP] dependent_continuant -> open thermodynamic system
+  [FP] dependent_continuant -> spatial_region
+  [FP] dependent_continuant -> thermodynamic system
+  [FP] dependent_continuant -> three_dimensional_region
+  [FP] independent_continuant -> atom
+  [FP] independent_continuant -> californium atom
+  [FP] independent_continuant -> helium atom
+  [FP] independent_continuant -> open thermodynamic system
+  [FP] independent_continuant -> spatial_region
+  [FP] independent_continuant -> three_dimensional_region
+  [FP] independent_continuant -> ununbium
+  [FP] independent_continuant -> ytterbium atom
+  [FP] measured property -> illuminance
+  [FP] object -> californium atom
+  [FP] object -> helium atom
+  [FP] object -> independent_continuant
+  [FP] object -> open thermodynamic system
+  [FP] object -> spatial_region
+  [FP] object -> three_dimensional_region
+  [FP] object -> ununbium
+  [FP] object -> ytterbium atom
+  [FP] quality -> chemical conformation
+  [FP] quality -> electromagnetic radation
+  [FP] quality -> illuminance
+  [FP] quality -> specific energy
+  [FP] spatial_region -> open thermodynamic system
+  [FP] spatial_region -> thermodynamic system
+  [FP] thermodynamic system -> californium atom
+  [FP] thermodynamic system -> helium atom
+  [FP] thermodynamic system -> ytterbium atom
+  [FP] three_dimensional_region -> open thermodynamic system
+  [FP] three_dimensional_region -> spatial_region
+
+MISSED RELATIONS (False Negatives: 3):
+  [FN] chemical conformation -> wikipedia
+  [FN] electromagnetic radation -> illuminance
+  [FN] measured property -> electromagnetic radation

@@ -1,0 +1,42 @@
+==================================================
+=== Detailed Node Pair Analysis (Exploded Raw Edges) ===
+Match Type Used: EXACT
+==================================================
+Precision: 0.7391 | Recall: 0.6800 | F1: 0.7083
+
+CORRECT PREDICTIONS (True Positives: 17 Pred edges covering 17 GT edges):
+  [TP] berry -> boysenberry
+  [TP] beverage -> soft drink
+  [TP] boiled egg -> hard-boiled egg
+  [TP] candy -> fudge
+  [TP] edible fruit -> berry
+  [TP] food -> beverage
+  [TP] food -> meat
+  [TP] food -> produce
+  [TP] fudge -> penuche
+  [TP] meat -> variety meat
+  [TP] produce -> edible fruit
+  [TP] saltwater fish -> sea bass
+  [TP] seafood -> saltwater fish
+  [TP] soft drink -> sarsaparilla
+  [TP] sweet -> candy
+  [TP] tongue -> beef tongue
+  [TP] variety meat -> tongue
+
+INCORRECT PREDICTIONS (False Positives: 6):
+  [FP] boiled egg -> easter egg
+  [FP] food -> boiled egg
+  [FP] food -> dish
+  [FP] food -> sweet
+  [FP] meat -> seafood
+  [FP] nutriment -> food
+
+MISSED RELATIONS (False Negatives: 8):
+  [FN] candy -> easter egg
+  [FN] dainty -> sweet
+  [FN] dish -> boiled egg
+  [FN] food -> nutriment
+  [FN] food -> seafood
+  [FN] hard-boiled egg -> easter egg
+  [FN] nutriment -> dainty
+  [FN] nutriment -> dish

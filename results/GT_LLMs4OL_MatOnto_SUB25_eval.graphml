@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d7" for="graph" attr.name="generated" attr.type="string"/>
+<key id="d6" for="graph" attr.name="generator" attr.type="string"/>
+<key id="d5" for="graph" attr.name="source_edges" attr.type="string"/>
+<key id="d4" for="graph" attr.name="source_nodes" attr.type="string"/>
+<key id="d3" for="graph" attr.name="source_file" attr.type="string"/>
+<key id="d2" for="graph" attr.name="seed" attr.type="string"/>
+<key id="d1" for="graph" attr.name="target_nodes" attr.type="string"/>
+<key id="d0" for="graph" attr.name="scale" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">SUB25</data>
+<data key="d1">25</data>
+<data key="d2">42</data>
+<data key="d3">LLMs4OL_MatOnto_FULL.graphml</data>
+<data key="d4">542</data>
+<data key="d5">552</data>
+<data key="d6">scale_benchmarks.py</data>
+<data key="d7">2026-09-30T16:24:53</data>
+<node id="chemical class"/>
+<node id="chaoite"/>
+<node id="dose equivalent unit"/>
+<node id="density"/>
+<node id="molecular mass unit"/>
+<node id="unit"/>
+<node id="dependent_continuant"/>
+<node id="continuant"/>
+<node id="hardness range"/>
+<node id="chemical quality"/>
+<node id="element"/>
+<node id="radiation unit"/>
+<node id="carbon allotrope"/>
+<node id="count"/>
+<node id="derivedunit"/>
+<node id="magnesium"/>
+<node id="scaled unit"/>
+<node id="scandium"/>
+<node id="quality"/>
+<node id="conduction unit"/>
+<node id="peta scaled unit"/>
+<node id="molybdenum"/>
+<node id="measured property"/>
+<node id="zepto scaled unit"/>
+<node id="concentration"/>
+<edge source="unit" target="derivedunit"/>
+<edge source="unit" target="conduction unit"/>
+<edge source="unit" target="molecular mass unit"/>
+<edge source="unit" target="radiation unit"/>
+<edge source="dependent_continuant" target="quality"/>
+<edge source="continuant" target="dependent_continuant"/>
+<edge source="chemical quality" target="chemical class"/>
+<edge source="element" target="molybdenum"/>
+<edge source="element" target="scandium"/>
+<edge source="element" target="magnesium"/>
+<edge source="radiation unit" target="dose equivalent unit"/>
+<edge source="carbon allotrope" target="chaoite"/>
+<edge source="derivedunit" target="scaled unit"/>
+<edge source="scaled unit" target="peta scaled unit"/>
+<edge source="scaled unit" target="zepto scaled unit"/>
+<edge source="quality" target="measured property"/>
+<edge source="quality" target="chemical quality"/>
+<edge source="measured property" target="density"/>
+<edge source="measured property" target="concentration"/>
+<edge source="measured property" target="count"/>
+</graph></graphml>

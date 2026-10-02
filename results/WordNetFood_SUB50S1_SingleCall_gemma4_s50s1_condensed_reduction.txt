@@ -1,0 +1,113 @@
+==================================================
+=== Detailed Node Pair Analysis (Condensed Transitive Reduction) ===
+Match Type Used: SET_OVERLAP
+==================================================
+Precision: 0.6458 | Recall: 0.5741 | F1: 0.6078
+
+CORRECT PREDICTIONS (True Positives: 31 Pred edges covering 31 GT edges):
+  [TP] PRED: (apple -> cooking apple)
+        matches GT: (apple -> cooking apple)
+  [TP] PRED: (baked goods -> cake)
+        matches GT: (baked goods -> cake)
+  [TP] PRED: (berry -> boysenberry)
+        matches GT: (berry -> boysenberry)
+  [TP] PRED: (beverage -> soft drink)
+        matches GT: (beverage -> soft drink)
+  [TP] PRED: (beverage -> tea)
+        matches GT: (beverage -> tea)
+  [TP] PRED: (black tea -> congou)
+        matches GT: (black tea -> congou)
+  [TP] PRED: (boiled egg -> hard-boiled egg)
+        matches GT: (boiled egg -> hard-boiled egg)
+  [TP] PRED: (candy -> fudge)
+        matches GT: (candy -> fudge)
+  [TP] PRED: (condiment -> sauce)
+        matches GT: (condiment -> sauce)
+  [TP] PRED: (confiture -> conserve)
+        matches GT: (confiture -> conserve)
+  [TP] PRED: (cooking apple -> bramleys seedling)
+        matches GT: (cooking apple -> bramleys seedling)
+  [TP] PRED: (dish -> soup)
+        matches GT: (dish -> soup)
+  [TP] PRED: (edible fruit -> apple)
+        matches GT: (edible fruit -> apple)
+  [TP] PRED: (edible fruit -> berry)
+        matches GT: (edible fruit -> berry)
+  [TP] PRED: (food -> baked goods)
+        matches GT: (food -> baked goods)
+  [TP] PRED: (food -> beverage)
+        matches GT: (food -> beverage)
+  [TP] PRED: (food -> produce)
+        matches GT: (food -> produce)
+  [TP] PRED: (ingredient -> flavorer)
+        matches GT: (ingredient -> flavorer)
+  [TP] PRED: (jam -> strawberry jam)
+        matches GT: (jam -> strawberry jam)
+  [TP] PRED: (meat -> variety meat)
+        matches GT: (meat -> variety meat)
+  [TP] PRED: (produce -> edible fruit)
+        matches GT: (produce -> edible fruit)
+  [TP] PRED: (produce -> vegetable)
+        matches GT: (produce -> vegetable)
+  [TP] PRED: (saltwater fish -> sea bass)
+        matches GT: (saltwater fish -> sea bass)
+  [TP] PRED: (sauce -> chinese brown sauce)
+        matches GT: (sauce -> chinese brown sauce)
+  [TP] PRED: (seafood -> saltwater fish)
+        matches GT: (seafood -> saltwater fish)
+  [TP] PRED: (soft drink -> sarsaparilla)
+        matches GT: (soft drink -> sarsaparilla)
+  [TP] PRED: (sweet -> candy)
+        matches GT: (sweet -> candy)
+  [TP] PRED: (sweet -> confiture)
+        matches GT: (sweet -> confiture)
+  [TP] PRED: (tea -> black tea)
+        matches GT: (tea -> black tea)
+  [TP] PRED: (tongue -> beef tongue)
+        matches GT: (tongue -> beef tongue)
+  [TP] PRED: (variety meat -> tongue)
+        matches GT: (variety meat -> tongue)
+
+INCORRECT PREDICTIONS (False Positives: 17):
+  [FP] baked goods -> cruller
+  [FP] baked goods -> friedcake
+  [FP] boiled egg -> easter egg
+  [FP] candy -> penuche
+  [FP] confiture -> jam
+  [FP] dish -> meal
+  [FP] food -> boiled egg
+  [FP] food -> dish
+  [FP] food -> ingredient
+  [FP] food -> sweet
+  [FP] foodstuff -> food
+  [FP] ingredient -> condiment
+  [FP] meat -> seafood
+  [FP] nutriment -> food
+  [FP] produce -> herb
+  [FP] produce -> meat
+  [FP] sweet -> dainty
+
+MISSED RELATIONS (False Negatives: 23):
+  [FN] cake -> friedcake
+  [FN] candy -> easter egg
+  [FN] conserve -> jam
+  [FN] dainty -> sweet
+  [FN] dish -> boiled egg
+  [FN] flavorer -> condiment
+  [FN] flavorer -> herb
+  [FN] food -> foodstuff
+  [FN] food -> meat
+  [FN] food -> nutriment
+  [FN] food -> seafood
+  [FN] foodstuff -> ingredient
+  [FN] foodstuff -> meal
+  [FN] friedcake -> cruller
+  [FN] fudge -> penuche
+  [FN] hard-boiled egg -> easter egg
+  [FN] herb -> tea
+  [FN] meal -> tea
+  [FN] nutriment -> dainty
+  [FN] nutriment -> dish
+  [FN] nutriment -> meal
+  [FN] soup -> julienne
+  [FN] vegetable -> julienne

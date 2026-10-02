@@ -1,0 +1,119 @@
+==================================================
+=== Detailed Node Pair Analysis (Condensed Transitive Reduction) ===
+Match Type Used: SET_OVERLAP
+==================================================
+Precision: 0.7857 | Recall: 0.8462 | F1: 0.8148
+
+CORRECT PREDICTIONS (True Positives: 44 Pred edges covering 44 GT edges):
+  [TP] PRED: (alcohol -> koumiss)
+        matches GT: (alcohol -> koumiss)
+  [TP] PRED: (baked goods -> bread)
+        matches GT: (baked goods -> bread)
+  [TP] PRED: (baked goods -> cake)
+        matches GT: (baked goods -> cake)
+  [TP] PRED: (berry -> raspberry)
+        matches GT: (berry -> raspberry)
+  [TP] PRED: (beverage -> alcohol)
+        matches GT: (beverage -> alcohol)
+  [TP] PRED: (bread -> bun)
+        matches GT: (bread -> bun)
+  [TP] PRED: (bun -> sweet roll)
+        matches GT: (bun -> sweet roll)
+  [TP] PRED: (cake -> applesauce cake)
+        matches GT: (cake -> applesauce cake)
+  [TP] PRED: (chocolate -> chocolate candy)
+        matches GT: (chocolate -> chocolate candy)
+  [TP] PRED: (citrus -> orange)
+        matches GT: (citrus -> orange)
+  [TP] PRED: (course -> dessert)
+        matches GT: (course -> dessert)
+  [TP] PRED: (dessert -> pudding)
+        matches GT: (dessert -> pudding)
+  [TP] PRED: (dish -> chicken paprika)
+        matches GT: (dish -> chicken paprika)
+  [TP] PRED: (dish -> scampi)
+        matches GT: (dish -> scampi)
+  [TP] PRED: (dish -> snack food)
+        matches GT: (dish -> snack food)
+  [TP] PRED: (edible fruit -> berry)
+        matches GT: (edible fruit -> berry)
+  [TP] PRED: (edible fruit -> citrus)
+        matches GT: (edible fruit -> citrus)
+  [TP] PRED: (flavorer -> herb)
+        matches GT: (flavorer -> herb)
+  [TP] PRED: (food (food, nutriment) -> course)
+        matches GT: (nutriment -> course)
+  [TP] PRED: (food (food, nutriment) -> dish)
+        matches GT: (nutriment -> dish)
+  [TP] PRED: (food (food, nutriment) -> foodstuff)
+        matches GT: (food -> foodstuff)
+  [TP] PRED: (foodstuff -> ingredient)
+        matches GT: (foodstuff -> ingredient)
+  [TP] PRED: (foodstuff -> starches)
+        matches GT: (foodstuff -> starches)
+  [TP] PRED: (greens -> salad green)
+        matches GT: (greens -> salad green)
+  [TP] PRED: (herb -> marjoram)
+        matches GT: (herb -> marjoram)
+  [TP] PRED: (ingredient -> flavorer)
+        matches GT: (ingredient -> flavorer)
+  [TP] PRED: (jerky -> beef jerky)
+        matches GT: (jerky -> beef jerky)
+  [TP] PRED: (legume -> pea)
+        matches GT: (legume -> pea)
+  [TP] PRED: (lettuce -> cos)
+        matches GT: (lettuce -> cos)
+  [TP] PRED: (meat -> jerky)
+        matches GT: (meat -> jerky)
+  [TP] PRED: (meat -> pork)
+        matches GT: (meat -> pork)
+  [TP] PRED: (orange -> sweet orange)
+        matches GT: (orange -> sweet orange)
+  [TP] PRED: (pea -> marrowfat pea)
+        matches GT: (pea -> marrowfat pea)
+  [TP] PRED: (produce -> edible fruit)
+        matches GT: (produce -> edible fruit)
+  [TP] PRED: (produce -> vegetable)
+        matches GT: (produce -> vegetable)
+  [TP] PRED: (pudding -> corn pudding)
+        matches GT: (pudding -> corn pudding)
+  [TP] PRED: (salad green -> lettuce)
+        matches GT: (salad green -> lettuce)
+  [TP] PRED: (sandwich -> gyro)
+        matches GT: (sandwich -> gyro)
+  [TP] PRED: (snack food -> sandwich)
+        matches GT: (snack food -> sandwich)
+  [TP] PRED: (starches -> bread)
+        matches GT: (starches -> bread)
+  [TP] PRED: (sweet orange -> navel orange)
+        matches GT: (sweet orange -> navel orange)
+  [TP] PRED: (sweet roll -> bear claw)
+        matches GT: (sweet roll -> bear claw)
+  [TP] PRED: (vegetable -> greens)
+        matches GT: (vegetable -> greens)
+  [TP] PRED: (vegetable -> legume)
+        matches GT: (vegetable -> legume)
+
+INCORRECT PREDICTIONS (False Positives: 12):
+  [FP] dessert -> applesauce cake
+  [FP] dish -> dessert
+  [FP] dish -> soul food
+  [FP] flavorer -> chocolate
+  [FP] foodstuff -> baked goods
+  [FP] foodstuff -> beverage
+  [FP] foodstuff -> meat
+  [FP] foodstuff -> produce
+  [FP] foodstuff -> snack food
+  [FP] foodstuff -> soul food
+  [FP] herb -> legume
+  [FP] herb -> lettuce
+
+MISSED RELATIONS (False Negatives: 8):
+  [FN] dish -> pudding
+  [FN] food -> baked goods
+  [FN] food -> beverage
+  [FN] food -> chocolate
+  [FN] food -> meat
+  [FN] food -> nutriment
+  [FN] food -> produce
+  [FN] food -> soul food

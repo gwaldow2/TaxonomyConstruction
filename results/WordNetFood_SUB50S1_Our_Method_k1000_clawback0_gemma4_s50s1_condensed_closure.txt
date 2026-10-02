@@ -1,0 +1,388 @@
+==================================================
+=== Detailed Node Pair Analysis (Condensed Transitive Closure) ===
+Match Type Used: SET_OVERLAP
+==================================================
+Precision: 0.6753 | Recall: 0.8167 | F1: 0.7393
+
+CORRECT PREDICTIONS (True Positives: 104 Pred edges covering 147 GT edges):
+  [TP] PRED: (apple -> bramleys seedling)
+        matches GT: (apple -> bramleys seedling)
+  [TP] PRED: (apple -> cooking apple)
+        matches GT: (apple -> cooking apple)
+  [TP] PRED: (baked goods -> cake)
+        matches GT: (baked goods -> cake)
+  [TP] PRED: (baked goods -> cruller)
+        matches GT: (baked goods -> cruller)
+  [TP] PRED: (baked goods -> friedcake)
+        matches GT: (baked goods -> friedcake)
+  [TP] PRED: (berry -> boysenberry)
+        matches GT: (berry -> boysenberry)
+  [TP] PRED: (beverage -> black tea)
+        matches GT: (beverage -> black tea)
+  [TP] PRED: (beverage -> congou)
+        matches GT: (beverage -> congou)
+  [TP] PRED: (beverage -> sarsaparilla)
+        matches GT: (beverage -> sarsaparilla)
+  [TP] PRED: (beverage -> soft drink)
+        matches GT: (beverage -> soft drink)
+  [TP] PRED: (beverage -> tea)
+        matches GT: (beverage -> tea)
+  [TP] PRED: (black tea -> congou)
+        matches GT: (black tea -> congou)
+  [TP] PRED: (boiled egg -> hard-boiled egg)
+        matches GT: (boiled egg -> hard-boiled egg)
+  [TP] PRED: (cake -> cruller)
+        matches GT: (cake -> cruller)
+  [TP] PRED: (cake -> friedcake)
+        matches GT: (cake -> friedcake)
+  [TP] PRED: (candy -> easter egg)
+        matches GT: (candy -> easter egg)
+  [TP] PRED: (candy -> fudge)
+        matches GT: (candy -> fudge)
+  [TP] PRED: (candy -> penuche)
+        matches GT: (candy -> penuche)
+  [TP] PRED: (condiment (condiment, flavorer) -> chinese brown sauce)
+        matches GT: (condiment -> chinese brown sauce)
+  [TP] PRED: (condiment (condiment, flavorer) -> chinese brown sauce)
+        matches GT: (flavorer -> chinese brown sauce)
+  [TP] PRED: (condiment (condiment, flavorer) -> sauce)
+        matches GT: (condiment -> sauce)
+  [TP] PRED: (condiment (condiment, flavorer) -> sauce)
+        matches GT: (flavorer -> sauce)
+  [TP] PRED: (confiture (confiture, jam) -> strawberry jam)
+        matches GT: (confiture -> strawberry jam)
+  [TP] PRED: (confiture (confiture, jam) -> strawberry jam)
+        matches GT: (jam -> strawberry jam)
+  [TP] PRED: (conserve -> confiture (confiture, jam))
+        matches GT: (conserve -> jam)
+  [TP] PRED: (conserve -> strawberry jam)
+        matches GT: (conserve -> strawberry jam)
+  [TP] PRED: (cooking apple -> bramleys seedling)
+        matches GT: (cooking apple -> bramleys seedling)
+  [TP] PRED: (dish (dish, meal) -> boiled egg)
+        matches GT: (dish -> boiled egg)
+  [TP] PRED: (dish (dish, meal) -> easter egg)
+        matches GT: (dish -> easter egg)
+  [TP] PRED: (dish (dish, meal) -> hard-boiled egg)
+        matches GT: (dish -> hard-boiled egg)
+  [TP] PRED: (dish (dish, meal) -> soup)
+        matches GT: (dish -> soup)
+  [TP] PRED: (edible fruit -> apple)
+        matches GT: (edible fruit -> apple)
+  [TP] PRED: (edible fruit -> berry)
+        matches GT: (edible fruit -> berry)
+  [TP] PRED: (edible fruit -> boysenberry)
+        matches GT: (edible fruit -> boysenberry)
+  [TP] PRED: (edible fruit -> bramleys seedling)
+        matches GT: (edible fruit -> bramleys seedling)
+  [TP] PRED: (edible fruit -> cooking apple)
+        matches GT: (edible fruit -> cooking apple)
+  [TP] PRED: (food (food, foodstuff, ingredient, nutriment) -> apple)
+        matches GT: (food -> apple)
+  [TP] PRED: (food (food, foodstuff, ingredient, nutriment) -> baked goods)
+        matches GT: (food -> baked goods)
+  [TP] PRED: (food (food, foodstuff, ingredient, nutriment) -> beef tongue)
+        matches GT: (food -> beef tongue)
+  [TP] PRED: (food (food, foodstuff, ingredient, nutriment) -> berry)
+        matches GT: (food -> berry)
+  [TP] PRED: (food (food, foodstuff, ingredient, nutriment) -> beverage)
+        matches GT: (food -> beverage)
+  [TP] PRED: (food (food, foodstuff, ingredient, nutriment) -> black tea)
+        matches GT: (food -> black tea)
+  [TP] PRED: (food (food, foodstuff, ingredient, nutriment) -> black tea)
+        matches GT: (foodstuff -> black tea)
+  [TP] PRED: (food (food, foodstuff, ingredient, nutriment) -> black tea)
+        matches GT: (ingredient -> black tea)
+  [TP] PRED: (food (food, foodstuff, ingredient, nutriment) -> black tea)
+        matches GT: (nutriment -> black tea)
+  [TP] PRED: (food (food, foodstuff, ingredient, nutriment) -> boiled egg)
+        matches GT: (food -> boiled egg)
+  [TP] PRED: (food (food, foodstuff, ingredient, nutriment) -> boiled egg)
+        matches GT: (nutriment -> boiled egg)
+  [TP] PRED: (food (food, foodstuff, ingredient, nutriment) -> boysenberry)
+        matches GT: (food -> boysenberry)
+  [TP] PRED: (food (food, foodstuff, ingredient, nutriment) -> bramleys seedling)
+        matches GT: (food -> bramleys seedling)
+  [TP] PRED: (food (food, foodstuff, ingredient, nutriment) -> cake)
+        matches GT: (food -> cake)
+  [TP] PRED: (food (food, foodstuff, ingredient, nutriment) -> candy)
+        matches GT: (food -> candy)
+  [TP] PRED: (food (food, foodstuff, ingredient, nutriment) -> candy)
+        matches GT: (nutriment -> candy)
+  [TP] PRED: (food (food, foodstuff, ingredient, nutriment) -> chinese brown sauce)
+        matches GT: (food -> chinese brown sauce)
+  [TP] PRED: (food (food, foodstuff, ingredient, nutriment) -> chinese brown sauce)
+        matches GT: (foodstuff -> chinese brown sauce)
+  [TP] PRED: (food (food, foodstuff, ingredient, nutriment) -> chinese brown sauce)
+        matches GT: (ingredient -> chinese brown sauce)
+  [TP] PRED: (food (food, foodstuff, ingredient, nutriment) -> condiment (condiment, flavorer))
+        matches GT: (food -> condiment)
+  [TP] PRED: (food (food, foodstuff, ingredient, nutriment) -> condiment (condiment, flavorer))
+        matches GT: (food -> flavorer)
+  [TP] PRED: (food (food, foodstuff, ingredient, nutriment) -> condiment (condiment, flavorer))
+        matches GT: (foodstuff -> condiment)
+  [TP] PRED: (food (food, foodstuff, ingredient, nutriment) -> condiment (condiment, flavorer))
+        matches GT: (foodstuff -> flavorer)
+  [TP] PRED: (food (food, foodstuff, ingredient, nutriment) -> condiment (condiment, flavorer))
+        matches GT: (ingredient -> condiment)
+  [TP] PRED: (food (food, foodstuff, ingredient, nutriment) -> condiment (condiment, flavorer))
+        matches GT: (ingredient -> flavorer)
+  [TP] PRED: (food (food, foodstuff, ingredient, nutriment) -> confiture (confiture, jam))
+        matches GT: (food -> confiture)
+  [TP] PRED: (food (food, foodstuff, ingredient, nutriment) -> confiture (confiture, jam))
+        matches GT: (food -> jam)
+  [TP] PRED: (food (food, foodstuff, ingredient, nutriment) -> confiture (confiture, jam))
+        matches GT: (nutriment -> confiture)
+  [TP] PRED: (food (food, foodstuff, ingredient, nutriment) -> confiture (confiture, jam))
+        matches GT: (nutriment -> jam)
+  [TP] PRED: (food (food, foodstuff, ingredient, nutriment) -> congou)
+        matches GT: (food -> congou)
+  [TP] PRED: (food (food, foodstuff, ingredient, nutriment) -> congou)
+        matches GT: (foodstuff -> congou)
+  [TP] PRED: (food (food, foodstuff, ingredient, nutriment) -> congou)
+        matches GT: (ingredient -> congou)
+  [TP] PRED: (food (food, foodstuff, ingredient, nutriment) -> congou)
+        matches GT: (nutriment -> congou)
+  [TP] PRED: (food (food, foodstuff, ingredient, nutriment) -> conserve)
+        matches GT: (food -> conserve)
+  [TP] PRED: (food (food, foodstuff, ingredient, nutriment) -> conserve)
+        matches GT: (nutriment -> conserve)
+  [TP] PRED: (food (food, foodstuff, ingredient, nutriment) -> cooking apple)
+        matches GT: (food -> cooking apple)
+  [TP] PRED: (food (food, foodstuff, ingredient, nutriment) -> cruller)
+        matches GT: (food -> cruller)
+  [TP] PRED: (food (food, foodstuff, ingredient, nutriment) -> dainty)
+        matches GT: (food -> dainty)
+  [TP] PRED: (food (food, foodstuff, ingredient, nutriment) -> dainty)
+        matches GT: (nutriment -> dainty)
+  [TP] PRED: (food (food, foodstuff, ingredient, nutriment) -> dish (dish, meal))
+        matches GT: (food -> dish)
+  [TP] PRED: (food (food, foodstuff, ingredient, nutriment) -> dish (dish, meal))
+        matches GT: (food -> meal)
+  [TP] PRED: (food (food, foodstuff, ingredient, nutriment) -> dish (dish, meal))
+        matches GT: (foodstuff -> meal)
+  [TP] PRED: (food (food, foodstuff, ingredient, nutriment) -> dish (dish, meal))
+        matches GT: (nutriment -> dish)
+  [TP] PRED: (food (food, foodstuff, ingredient, nutriment) -> dish (dish, meal))
+        matches GT: (nutriment -> meal)
+  [TP] PRED: (food (food, foodstuff, ingredient, nutriment) -> easter egg)
+        matches GT: (food -> easter egg)
+  [TP] PRED: (food (food, foodstuff, ingredient, nutriment) -> easter egg)
+        matches GT: (nutriment -> easter egg)
+  [TP] PRED: (food (food, foodstuff, ingredient, nutriment) -> edible fruit)
+        matches GT: (food -> edible fruit)
+  [TP] PRED: (food (food, foodstuff, ingredient, nutriment) -> friedcake)
+        matches GT: (food -> friedcake)
+  [TP] PRED: (food (food, foodstuff, ingredient, nutriment) -> fudge)
+        matches GT: (food -> fudge)
+  [TP] PRED: (food (food, foodstuff, ingredient, nutriment) -> fudge)
+        matches GT: (nutriment -> fudge)
+  [TP] PRED: (food (food, foodstuff, ingredient, nutriment) -> hard-boiled egg)
+        matches GT: (food -> hard-boiled egg)
+  [TP] PRED: (food (food, foodstuff, ingredient, nutriment) -> hard-boiled egg)
+        matches GT: (nutriment -> hard-boiled egg)
+  [TP] PRED: (food (food, foodstuff, ingredient, nutriment) -> herb)
+        matches GT: (food -> herb)
+  [TP] PRED: (food (food, foodstuff, ingredient, nutriment) -> herb)
+        matches GT: (foodstuff -> herb)
+  [TP] PRED: (food (food, foodstuff, ingredient, nutriment) -> herb)
+        matches GT: (ingredient -> herb)
+  [TP] PRED: (food (food, foodstuff, ingredient, nutriment) -> julienne)
+        matches GT: (food -> julienne)
+  [TP] PRED: (food (food, foodstuff, ingredient, nutriment) -> julienne)
+        matches GT: (nutriment -> julienne)
+  [TP] PRED: (food (food, foodstuff, ingredient, nutriment) -> meat)
+        matches GT: (food -> meat)
+  [TP] PRED: (food (food, foodstuff, ingredient, nutriment) -> penuche)
+        matches GT: (food -> penuche)
+  [TP] PRED: (food (food, foodstuff, ingredient, nutriment) -> penuche)
+        matches GT: (nutriment -> penuche)
+  [TP] PRED: (food (food, foodstuff, ingredient, nutriment) -> saltwater fish)
+        matches GT: (food -> saltwater fish)
+  [TP] PRED: (food (food, foodstuff, ingredient, nutriment) -> sarsaparilla)
+        matches GT: (food -> sarsaparilla)
+  [TP] PRED: (food (food, foodstuff, ingredient, nutriment) -> sauce)
+        matches GT: (food -> sauce)
+  [TP] PRED: (food (food, foodstuff, ingredient, nutriment) -> sauce)
+        matches GT: (foodstuff -> sauce)
+  [TP] PRED: (food (food, foodstuff, ingredient, nutriment) -> sauce)
+        matches GT: (ingredient -> sauce)
+  [TP] PRED: (food (food, foodstuff, ingredient, nutriment) -> sea bass)
+        matches GT: (food -> sea bass)
+  [TP] PRED: (food (food, foodstuff, ingredient, nutriment) -> seafood)
+        matches GT: (food -> seafood)
+  [TP] PRED: (food (food, foodstuff, ingredient, nutriment) -> soft drink)
+        matches GT: (food -> soft drink)
+  [TP] PRED: (food (food, foodstuff, ingredient, nutriment) -> soup)
+        matches GT: (food -> soup)
+  [TP] PRED: (food (food, foodstuff, ingredient, nutriment) -> soup)
+        matches GT: (nutriment -> soup)
+  [TP] PRED: (food (food, foodstuff, ingredient, nutriment) -> strawberry jam)
+        matches GT: (food -> strawberry jam)
+  [TP] PRED: (food (food, foodstuff, ingredient, nutriment) -> strawberry jam)
+        matches GT: (nutriment -> strawberry jam)
+  [TP] PRED: (food (food, foodstuff, ingredient, nutriment) -> sweet)
+        matches GT: (food -> sweet)
+  [TP] PRED: (food (food, foodstuff, ingredient, nutriment) -> sweet)
+        matches GT: (nutriment -> sweet)
+  [TP] PRED: (food (food, foodstuff, ingredient, nutriment) -> tea)
+        matches GT: (food -> tea)
+  [TP] PRED: (food (food, foodstuff, ingredient, nutriment) -> tea)
+        matches GT: (foodstuff -> tea)
+  [TP] PRED: (food (food, foodstuff, ingredient, nutriment) -> tea)
+        matches GT: (ingredient -> tea)
+  [TP] PRED: (food (food, foodstuff, ingredient, nutriment) -> tea)
+        matches GT: (nutriment -> tea)
+  [TP] PRED: (food (food, foodstuff, ingredient, nutriment) -> tongue)
+        matches GT: (food -> tongue)
+  [TP] PRED: (food (food, foodstuff, ingredient, nutriment) -> variety meat)
+        matches GT: (food -> variety meat)
+  [TP] PRED: (food (food, foodstuff, ingredient, nutriment) -> vegetable)
+        matches GT: (food -> vegetable)
+  [TP] PRED: (friedcake -> cruller)
+        matches GT: (friedcake -> cruller)
+  [TP] PRED: (fudge -> penuche)
+        matches GT: (fudge -> penuche)
+  [TP] PRED: (meat -> beef tongue)
+        matches GT: (meat -> beef tongue)
+  [TP] PRED: (meat -> tongue)
+        matches GT: (meat -> tongue)
+  [TP] PRED: (meat -> variety meat)
+        matches GT: (meat -> variety meat)
+  [TP] PRED: (produce -> apple)
+        matches GT: (produce -> apple)
+  [TP] PRED: (produce -> berry)
+        matches GT: (produce -> berry)
+  [TP] PRED: (produce -> boysenberry)
+        matches GT: (produce -> boysenberry)
+  [TP] PRED: (produce -> bramleys seedling)
+        matches GT: (produce -> bramleys seedling)
+  [TP] PRED: (produce -> cooking apple)
+        matches GT: (produce -> cooking apple)
+  [TP] PRED: (produce -> edible fruit)
+        matches GT: (produce -> edible fruit)
+  [TP] PRED: (produce -> julienne)
+        matches GT: (produce -> julienne)
+  [TP] PRED: (produce -> vegetable)
+        matches GT: (produce -> vegetable)
+  [TP] PRED: (saltwater fish -> sea bass)
+        matches GT: (saltwater fish -> sea bass)
+  [TP] PRED: (sauce -> chinese brown sauce)
+        matches GT: (sauce -> chinese brown sauce)
+  [TP] PRED: (seafood -> saltwater fish)
+        matches GT: (seafood -> saltwater fish)
+  [TP] PRED: (seafood -> sea bass)
+        matches GT: (seafood -> sea bass)
+  [TP] PRED: (soft drink -> sarsaparilla)
+        matches GT: (soft drink -> sarsaparilla)
+  [TP] PRED: (sweet -> candy)
+        matches GT: (sweet -> candy)
+  [TP] PRED: (sweet -> confiture (confiture, jam))
+        matches GT: (sweet -> confiture)
+  [TP] PRED: (sweet -> confiture (confiture, jam))
+        matches GT: (sweet -> jam)
+  [TP] PRED: (sweet -> easter egg)
+        matches GT: (sweet -> easter egg)
+  [TP] PRED: (sweet -> fudge)
+        matches GT: (sweet -> fudge)
+  [TP] PRED: (sweet -> penuche)
+        matches GT: (sweet -> penuche)
+  [TP] PRED: (sweet -> strawberry jam)
+        matches GT: (sweet -> strawberry jam)
+  [TP] PRED: (tea -> black tea)
+        matches GT: (tea -> black tea)
+  [TP] PRED: (tea -> congou)
+        matches GT: (tea -> congou)
+  [TP] PRED: (tongue -> beef tongue)
+        matches GT: (tongue -> beef tongue)
+  [TP] PRED: (variety meat -> beef tongue)
+        matches GT: (variety meat -> beef tongue)
+  [TP] PRED: (variety meat -> tongue)
+        matches GT: (variety meat -> tongue)
+
+INCORRECT PREDICTIONS (False Positives: 50):
+  [FP] condiment (condiment, flavorer) -> confiture (confiture, jam)
+  [FP] condiment (condiment, flavorer) -> conserve
+  [FP] condiment (condiment, flavorer) -> strawberry jam
+  [FP] dish (dish, meal) -> baked goods
+  [FP] dish (dish, meal) -> cake
+  [FP] dish (dish, meal) -> confiture (confiture, jam)
+  [FP] dish (dish, meal) -> cruller
+  [FP] dish (dish, meal) -> friedcake
+  [FP] dish (dish, meal) -> strawberry jam
+  [FP] meat -> saltwater fish
+  [FP] meat -> sea bass
+  [FP] produce -> baked goods
+  [FP] produce -> beef tongue
+  [FP] produce -> beverage
+  [FP] produce -> black tea
+  [FP] produce -> boiled egg
+  [FP] produce -> cake
+  [FP] produce -> candy
+  [FP] produce -> chinese brown sauce
+  [FP] produce -> condiment (condiment, flavorer)
+  [FP] produce -> confiture (confiture, jam)
+  [FP] produce -> congou
+  [FP] produce -> conserve
+  [FP] produce -> cruller
+  [FP] produce -> dainty
+  [FP] produce -> dish (dish, meal)
+  [FP] produce -> easter egg
+  [FP] produce -> food (food, foodstuff, ingredient, nutriment)
+  [FP] produce -> friedcake
+  [FP] produce -> fudge
+  [FP] produce -> hard-boiled egg
+  [FP] produce -> herb
+  [FP] produce -> meat
+  [FP] produce -> penuche
+  [FP] produce -> saltwater fish
+  [FP] produce -> sarsaparilla
+  [FP] produce -> sauce
+  [FP] produce -> sea bass
+  [FP] produce -> seafood
+  [FP] produce -> soft drink
+  [FP] produce -> soup
+  [FP] produce -> strawberry jam
+  [FP] produce -> sweet
+  [FP] produce -> tea
+  [FP] produce -> tongue
+  [FP] produce -> variety meat
+  [FP] sweet -> cake
+  [FP] sweet -> cruller
+  [FP] sweet -> friedcake
+  [FP] vegetable -> herb
+
+MISSED RELATIONS (False Negatives: 33):
+  [FN] boiled egg -> easter egg
+  [FN] confiture -> conserve
+  [FN] confiture -> jam
+  [FN] dainty -> candy
+  [FN] dainty -> confiture
+  [FN] dainty -> conserve
+  [FN] dainty -> easter egg
+  [FN] dainty -> fudge
+  [FN] dainty -> jam
+  [FN] dainty -> penuche
+  [FN] dainty -> strawberry jam
+  [FN] dainty -> sweet
+  [FN] dish -> julienne
+  [FN] flavorer -> black tea
+  [FN] flavorer -> condiment
+  [FN] flavorer -> congou
+  [FN] flavorer -> herb
+  [FN] flavorer -> tea
+  [FN] food -> foodstuff
+  [FN] food -> ingredient
+  [FN] food -> nutriment
+  [FN] food -> produce
+  [FN] foodstuff -> ingredient
+  [FN] hard-boiled egg -> easter egg
+  [FN] herb -> black tea
+  [FN] herb -> congou
+  [FN] herb -> tea
+  [FN] meal -> black tea
+  [FN] meal -> congou
+  [FN] meal -> tea
+  [FN] soup -> julienne
+  [FN] sweet -> conserve
+  [FN] vegetable -> julienne

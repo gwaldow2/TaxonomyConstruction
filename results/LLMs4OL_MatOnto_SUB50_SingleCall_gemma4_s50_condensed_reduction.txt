@@ -1,0 +1,102 @@
+==================================================
+=== Detailed Node Pair Analysis (Condensed Transitive Reduction) ===
+Match Type Used: SET_OVERLAP
+==================================================
+Precision: 0.6667 | Recall: 0.7442 | F1: 0.7033
+
+CORRECT PREDICTIONS (True Positives: 32 Pred edges covering 32 GT edges):
+  [TP] PRED: (atom -> curium atom)
+        matches GT: (atom -> curium atom)
+  [TP] PRED: (atom -> potassium atom)
+        matches GT: (atom -> potassium atom)
+  [TP] PRED: (carbon allotrope -> chaoite)
+        matches GT: (carbon allotrope -> chaoite)
+  [TP] PRED: (concentration -> amount of substance concentration)
+        matches GT: (concentration -> amount of substance concentration)
+  [TP] PRED: (continuant -> dependent_continuant)
+        matches GT: (continuant -> dependent_continuant)
+  [TP] PRED: (continuant -> independent_continuant)
+        matches GT: (continuant -> independent_continuant)
+  [TP] PRED: (cyclicity -> acyclic)
+        matches GT: (cyclicity -> acyclic)
+  [TP] PRED: (dependent_continuant -> quality)
+        matches GT: (dependent_continuant -> quality)
+  [TP] PRED: (electronegativity -> pauling electronegativity)
+        matches GT: (electronegativity -> pauling electronegativity)
+  [TP] PRED: (element -> magnesium)
+        matches GT: (element -> magnesium)
+  [TP] PRED: (element -> molybdenum)
+        matches GT: (element -> molybdenum)
+  [TP] PRED: (element -> scandium)
+        matches GT: (element -> scandium)
+  [TP] PRED: (independent_continuant -> object)
+        matches GT: (independent_continuant -> object)
+  [TP] PRED: (independent_continuant -> site)
+        matches GT: (independent_continuant -> site)
+  [TP] PRED: (ion -> anion)
+        matches GT: (ion -> anion)
+  [TP] PRED: (measured property -> density)
+        matches GT: (measured property -> density)
+  [TP] PRED: (measured property -> electric resistance)
+        matches GT: (measured property -> electric resistance)
+  [TP] PRED: (measured property -> temperature)
+        matches GT: (measured property -> temperature)
+  [TP] PRED: (object -> atom)
+        matches GT: (object -> atom)
+  [TP] PRED: (organic group -> general sulfinic acid group)
+        matches GT: (organic group -> general sulfinic acid group)
+  [TP] PRED: (quality -> chemical quality)
+        matches GT: (quality -> chemical quality)
+  [TP] PRED: (quality -> measured property)
+        matches GT: (quality -> measured property)
+  [TP] PRED: (scaled unit -> peta scaled unit)
+        matches GT: (scaled unit -> peta scaled unit)
+  [TP] PRED: (scaled unit -> zepto scaled unit)
+        matches GT: (scaled unit -> zepto scaled unit)
+  [TP] PRED: (unit -> conduction unit)
+        matches GT: (unit -> conduction unit)
+  [TP] PRED: (unit -> derivedunit)
+        matches GT: (unit -> derivedunit)
+  [TP] PRED: (unit -> electric resistance unit)
+        matches GT: (unit -> electric resistance unit)
+  [TP] PRED: (unit -> electromagnetic radiation unit)
+        matches GT: (unit -> electromagnetic radiation unit)
+  [TP] PRED: (unit -> molecular mass unit)
+        matches GT: (unit -> molecular mass unit)
+  [TP] PRED: (unit -> moment of force unit)
+        matches GT: (unit -> moment of force unit)
+  [TP] PRED: (unit -> radiation unit)
+        matches GT: (unit -> radiation unit)
+  [TP] PRED: (unit raised to power -> unit raised to power of three)
+        matches GT: (unit raised to power -> unit raised to power of three)
+
+INCORRECT PREDICTIONS (False Positives: 16):
+  [FP] atom -> element
+  [FP] chemical class -> carbon allotrope
+  [FP] chemical class -> organic group
+  [FP] chemical quality -> cyclicity
+  [FP] dependent_continuant -> concentration
+  [FP] derivedunit -> unit raised to power
+  [FP] independent_continuant -> chemical class
+  [FP] independent_continuant -> ion
+  [FP] measured property -> electronegativity
+  [FP] measured property -> hardness range
+  [FP] quality -> molecularquality
+  [FP] quality -> opticalisomer
+  [FP] unit -> count
+  [FP] unit -> dose equivalent unit
+  [FP] unit -> luminous flux unit
+  [FP] unit -> scaled unit
+
+MISSED RELATIONS (False Negatives: 11):
+  [FN] chemical quality -> chemical class
+  [FN] chemical quality -> electronegativity
+  [FN] derivedunit -> scaled unit
+  [FN] electromagnetic radiation unit -> luminous flux unit
+  [FN] measured property -> angular acceleration
+  [FN] measured property -> concentration
+  [FN] measured property -> count
+  [FN] measured property -> molecularquality
+  [FN] molecularquality -> cyclicity
+  [FN] object -> organic group
+  [FN] radiation unit -> dose equivalent unit

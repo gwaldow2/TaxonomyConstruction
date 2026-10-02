@@ -1,0 +1,52 @@
+==================================================
+=== Detailed Node Pair Analysis (Condensed Transitive Reduction) ===
+Match Type Used: SET_OVERLAP
+==================================================
+Precision: 0.8000 | Recall: 0.7619 | F1: 0.7805
+
+CORRECT PREDICTIONS (True Positives: 16 Pred edges covering 16 GT edges):
+  [TP] PRED: (atom -> bismuth atom)
+        matches GT: (atom -> bismuth atom)
+  [TP] PRED: (atom -> hassium atom)
+        matches GT: (atom -> hassium atom)
+  [TP] PRED: (atom -> radon atom)
+        matches GT: (atom -> radon atom)
+  [TP] PRED: (atom -> xenon atom)
+        matches GT: (atom -> xenon atom)
+  [TP] PRED: (chemical phase -> uncommon chemical phase)
+        matches GT: (chemical phase -> uncommon chemical phase)
+  [TP] PRED: (continuant (continuant, independent_continuant, object) -> atom)
+        matches GT: (object -> atom)
+  [TP] PRED: (continuant (continuant, independent_continuant, object) -> dependent_continuant)
+        matches GT: (continuant -> dependent_continuant)
+  [TP] PRED: (dependent_continuant -> measured property (measured property, quality))
+        matches GT: (dependent_continuant -> quality)
+  [TP] PRED: (measured property (measured property, quality) -> molecularquality)
+        matches GT: (measured property -> molecularquality)
+  [TP] PRED: (measured property (measured property, quality) -> ultimate tensile strength)
+        matches GT: (measured property -> ultimate tensile strength)
+  [TP] PRED: (molecularquality -> moleculecomponentcount)
+        matches GT: (molecularquality -> moleculecomponentcount)
+  [TP] PRED: (moleculecomponentcount -> undefined stereo bond count)
+        matches GT: (moleculecomponentcount -> undefined stereo bond count)
+  [TP] PRED: (organic group -> aryl)
+        matches GT: (organic group -> aryl)
+  [TP] PRED: (organic group -> carbon group)
+        matches GT: (organic group -> carbon group)
+  [TP] PRED: (uncommon chemical phase -> strange matter phase)
+        matches GT: (uncommon chemical phase -> strange matter phase)
+  [TP] PRED: (unit -> molar energy unit)
+        matches GT: (unit -> molar energy unit)
+
+INCORRECT PREDICTIONS (False Positives: 4):
+  [FP] continuant (continuant, independent_continuant, object) -> chemical phase
+  [FP] dependent_continuant -> organic group
+  [FP] molecularquality -> hardness range
+  [FP] molecularquality -> permittivity
+
+MISSED RELATIONS (False Negatives: 5):
+  [FN] continuant -> independent_continuant
+  [FN] independent_continuant -> object
+  [FN] measured property -> permittivity
+  [FN] object -> organic group
+  [FN] quality -> measured property

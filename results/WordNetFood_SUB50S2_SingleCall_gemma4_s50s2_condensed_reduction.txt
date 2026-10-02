@@ -1,0 +1,110 @@
+==================================================
+=== Detailed Node Pair Analysis (Condensed Transitive Reduction) ===
+Match Type Used: SET_OVERLAP
+==================================================
+Precision: 0.5957 | Recall: 0.5385 | F1: 0.5657
+
+CORRECT PREDICTIONS (True Positives: 28 Pred edges covering 28 GT edges):
+  [TP] PRED: (alcohol -> mixed drink)
+        matches GT: (alcohol -> mixed drink)
+  [TP] PRED: (baked goods -> bread)
+        matches GT: (baked goods -> bread)
+  [TP] PRED: (baked goods -> pastry)
+        matches GT: (baked goods -> pastry)
+  [TP] PRED: (beverage -> alcohol)
+        matches GT: (beverage -> alcohol)
+  [TP] PRED: (bread -> toast)
+        matches GT: (bread -> toast)
+  [TP] PRED: (bread -> white bread)
+        matches GT: (bread -> white bread)
+  [TP] PRED: (butter -> clarified butter)
+        matches GT: (butter -> clarified butter)
+  [TP] PRED: (cheese -> parmesan)
+        matches GT: (cheese -> parmesan)
+  [TP] PRED: (condiment -> sauce)
+        matches GT: (condiment -> sauce)
+  [TP] PRED: (condiment -> vinegar)
+        matches GT: (condiment -> vinegar)
+  [TP] PRED: (dairy product -> butter)
+        matches GT: (dairy product -> butter)
+  [TP] PRED: (dairy product -> cheese)
+        matches GT: (dairy product -> cheese)
+  [TP] PRED: (dish -> pudding)
+        matches GT: (dish -> pudding)
+  [TP] PRED: (dish -> snack food)
+        matches GT: (dish -> snack food)
+  [TP] PRED: (dish -> stew)
+        matches GT: (dish -> stew)
+  [TP] PRED: (food -> produce)
+        matches GT: (food -> produce)
+  [TP] PRED: (french bread -> baguet)
+        matches GT: (french bread -> baguet)
+  [TP] PRED: (greens -> french sorrel)
+        matches GT: (greens -> french sorrel)
+  [TP] PRED: (mixed drink -> highball)
+        matches GT: (mixed drink -> highball)
+  [TP] PRED: (pastry -> patty shell)
+        matches GT: (pastry -> patty shell)
+  [TP] PRED: (produce -> vegetable)
+        matches GT: (produce -> vegetable)
+  [TP] PRED: (pudding -> carrot pudding)
+        matches GT: (pudding -> carrot pudding)
+  [TP] PRED: (sauce -> chocolate sauce)
+        matches GT: (sauce -> chocolate sauce)
+  [TP] PRED: (sling -> brandy sling)
+        matches GT: (sling -> brandy sling)
+  [TP] PRED: (stew -> bigos)
+        matches GT: (stew -> bigos)
+  [TP] PRED: (stew -> fricassee)
+        matches GT: (stew -> fricassee)
+  [TP] PRED: (vegetable -> greens)
+        matches GT: (vegetable -> greens)
+  [TP] PRED: (vegetable -> solanaceous vegetable)
+        matches GT: (vegetable -> solanaceous vegetable)
+
+INCORRECT PREDICTIONS (False Positives: 19):
+  [FP] beverage -> concoction
+  [FP] bread -> french bread
+  [FP] bread -> zwieback
+  [FP] dish -> baked goods
+  [FP] dish -> course
+  [FP] dish -> dessert
+  [FP] dish -> sandwich
+  [FP] food -> condiment
+  [FP] food -> dairy product
+  [FP] food -> dish
+  [FP] food -> dough
+  [FP] food -> flavorer
+  [FP] food -> starches
+  [FP] foodstuff -> beverage
+  [FP] foodstuff -> food
+  [FP] ingredient -> foodstuff
+  [FP] mixed drink -> sling
+  [FP] nutriment -> ingredient
+  [FP] stew -> turkey stew
+
+MISSED RELATIONS (False Negatives: 24):
+  [FN] concoction -> dough
+  [FN] course -> dessert
+  [FN] dessert -> pudding
+  [FN] dish -> lobster thermidor
+  [FN] dough -> pastry
+  [FN] flavorer -> condiment
+  [FN] food -> baked goods
+  [FN] food -> beverage
+  [FN] food -> foodstuff
+  [FN] food -> nutriment
+  [FN] foodstuff -> concoction
+  [FN] foodstuff -> dairy product
+  [FN] foodstuff -> ingredient
+  [FN] foodstuff -> starches
+  [FN] fricassee -> turkey stew
+  [FN] highball -> sling
+  [FN] ingredient -> flavorer
+  [FN] nutriment -> course
+  [FN] nutriment -> dish
+  [FN] sandwich -> bomber
+  [FN] snack food -> sandwich
+  [FN] starches -> bread
+  [FN] toast -> zwieback
+  [FN] white bread -> french bread

@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d4" for="graph" attr.name="timestamp" attr.type="string"/>
+<key id="d3" for="graph" attr.name="scale" attr.type="string"/>
+<key id="d2" for="graph" attr.name="results_file" attr.type="string"/>
+<key id="d1" for="graph" attr.name="tag" attr.type="string"/>
+<key id="d0" for="graph" attr.name="model" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">google/gemma-4-31b-it</data>
+<data key="d1">gemma4_s25s1</data>
+<data key="d2">results/scaling_gemma4.json</data>
+<data key="d3">SUB25S1</data>
+<data key="d4">2026-09-30T16:46:58</data>
+<node id="bun"/>
+<node id="corn"/>
+<node id="chowder"/>
+<node id="starches"/>
+<node id="phyllo"/>
+<node id="fish chowder"/>
+<node id="hominy"/>
+<node id="soup"/>
+<node id="bread"/>
+<node id="condiment"/>
+<node id="crescent roll"/>
+<node id="honey bun"/>
+<node id="flavorer"/>
+<node id="foodstuff"/>
+<node id="pepper sauce"/>
+<node id="puff paste"/>
+<node id="nutriment"/>
+<node id="food"/>
+<node id="pastry"/>
+<node id="concoction"/>
+<node id="grain"/>
+<node id="dish"/>
+<node id="sauce"/>
+<node id="sweet roll"/>
+<node id="ingredient"/>
+<node id="dough"/>
+<node id="egg white"/>
+<node id="onion salt"/>
+<edge source="bun" target="honey bun"/>
+<edge source="corn" target="hominy"/>
+<edge source="chowder" target="fish chowder"/>
+<edge source="starches" target="grain"/>
+<edge source="soup" target="chowder"/>
+<edge source="bread" target="bun"/>
+<edge source="bread" target="sweet roll"/>
+<edge source="bread" target="crescent roll"/>
+<edge source="condiment" target="flavorer"/>
+<edge source="flavorer" target="sauce"/>
+<edge source="flavorer" target="onion salt"/>
+<edge source="foodstuff" target="nutriment"/>
+<edge source="nutriment" target="dish"/>
+<edge source="nutriment" target="ingredient"/>
+<edge source="food" target="foodstuff"/>
+<edge source="pastry" target="puff paste"/>
+<edge source="pastry" target="phyllo"/>
+<edge source="concoction" target="condiment"/>
+<edge source="grain" target="corn"/>
+<edge source="dish" target="soup"/>
+<edge source="sauce" target="pepper sauce"/>
+<edge source="ingredient" target="concoction"/>
+<edge source="ingredient" target="starches"/>
+<edge source="ingredient" target="dough"/>
+<edge source="ingredient" target="egg white"/>
+<edge source="dough" target="bread"/>
+<edge source="dough" target="pastry"/>
+</graph></graphml>

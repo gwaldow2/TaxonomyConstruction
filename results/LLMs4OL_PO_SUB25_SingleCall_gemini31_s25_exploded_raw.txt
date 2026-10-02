@@ -1,0 +1,38 @@
+==================================================
+=== Detailed Node Pair Analysis (Exploded Raw Edges) ===
+Match Type Used: EXACT
+==================================================
+Precision: 0.7917 | Recall: 0.8636 | F1: 0.8261
+
+CORRECT PREDICTIONS (True Positives: 19 Pred edges covering 19 GT edges):
+  [TP] abscission zone -> floral organ abscission zone
+  [TP] cardinal part of multi-tissue plant structure -> cardinal organ part
+  [TP] flower -> pistillate flower
+  [TP] flower -> spikelet floret
+  [TP] multi-tissue plant structure -> plant organ
+  [TP] phyllome -> sporophyll
+  [TP] plant anatomical entity -> plant structure
+  [TP] plant axis differentiation zone -> shoot internode differentiation zone
+  [TP] plant organ -> phyllome
+  [TP] plant structure -> cardinal part of multi-tissue plant structure
+  [TP] plant structure -> multi-tissue plant structure
+  [TP] plant structure -> portion of plant tissue
+  [TP] portion of plant tissue -> central endosperm
+  [TP] portion of plant tissue -> portion of ground tissue
+  [TP] reproductive shoot system -> flower
+  [TP] shoot internode differentiation zone -> branch internode differentiation zone
+  [TP] spikelet floret -> ear floret
+  [TP] storage parenchyma -> tuber storage parenchyma
+  [TP] tuber axillary shoot -> subterranean tuber axillary shoot
+
+INCORRECT PREDICTIONS (False Positives: 5):
+  [FP] cardinal organ part -> abscission zone
+  [FP] cardinal part of multi-tissue plant structure -> plant axis differentiation zone
+  [FP] multi-tissue plant structure -> reproductive shoot system
+  [FP] multi-tissue plant structure -> tuber axillary shoot
+  [FP] portion of ground tissue -> storage parenchyma
+
+MISSED RELATIONS (False Negatives: 3):
+  [FN] cardinal organ part -> plant axis differentiation zone
+  [FN] pistillate flower -> ear floret
+  [FN] portion of plant tissue -> abscission zone

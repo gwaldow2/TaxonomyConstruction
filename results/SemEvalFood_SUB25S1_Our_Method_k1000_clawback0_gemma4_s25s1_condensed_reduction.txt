@@ -1,0 +1,70 @@
+==================================================
+=== Detailed Node Pair Analysis (Condensed Transitive Reduction) ===
+Match Type Used: SET_OVERLAP
+==================================================
+Precision: 0.4688 | Recall: 0.5556 | F1: 0.5085
+
+CORRECT PREDICTIONS (True Positives: 15 Pred edges covering 15 GT edges):
+  [TP] PRED: (bread -> bun)
+        matches GT: (bread -> bun)
+  [TP] PRED: (bun -> sweet roll)
+        matches GT: (bun -> sweet roll)
+  [TP] PRED: (chowder -> fish chowder)
+        matches GT: (chowder -> fish chowder)
+  [TP] PRED: (condiment (condiment, flavorer) -> onion salt)
+        matches GT: (flavorer -> onion salt)
+  [TP] PRED: (condiment (condiment, flavorer) -> sauce)
+        matches GT: (condiment -> sauce)
+  [TP] PRED: (corn -> hominy)
+        matches GT: (corn -> hominy)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> dish)
+        matches GT: (nutriment -> dish)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> ingredient)
+        matches GT: (foodstuff -> ingredient)
+  [TP] PRED: (grain -> corn)
+        matches GT: (grain -> corn)
+  [TP] PRED: (ingredient -> condiment (condiment, flavorer))
+        matches GT: (ingredient -> flavorer)
+  [TP] PRED: (ingredient -> egg white)
+        matches GT: (ingredient -> egg white)
+  [TP] PRED: (pastry -> puff paste)
+        matches GT: (pastry -> puff paste)
+  [TP] PRED: (sauce -> pepper sauce)
+        matches GT: (sauce -> pepper sauce)
+  [TP] PRED: (soup -> chowder)
+        matches GT: (soup -> chowder)
+  [TP] PRED: (sweet roll -> honey bun)
+        matches GT: (sweet roll -> honey bun)
+
+INCORRECT PREDICTIONS (False Positives: 17):
+  [FP] bread -> crescent roll
+  [FP] concoction -> condiment (condiment, flavorer)
+  [FP] concoction -> soup
+  [FP] dish -> bread
+  [FP] dish -> concoction
+  [FP] dish -> pastry
+  [FP] dough -> phyllo
+  [FP] dough -> puff paste
+  [FP] ingredient -> bread
+  [FP] ingredient -> dough
+  [FP] ingredient -> grain
+  [FP] ingredient -> pastry
+  [FP] ingredient -> starches
+  [FP] pastry -> bun
+  [FP] pastry -> crescent roll
+  [FP] pastry -> phyllo
+  [FP] starches -> hominy
+
+MISSED RELATIONS (False Negatives: 12):
+  [FN] bun -> crescent roll
+  [FN] concoction -> dough
+  [FN] dish -> soup
+  [FN] dough -> pastry
+  [FN] flavorer -> condiment
+  [FN] food -> foodstuff
+  [FN] food -> nutriment
+  [FN] foodstuff -> concoction
+  [FN] foodstuff -> grain
+  [FN] foodstuff -> starches
+  [FN] puff paste -> phyllo
+  [FN] starches -> bread

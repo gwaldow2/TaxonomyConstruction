@@ -1,0 +1,78 @@
+==================================================
+=== Detailed Node Pair Analysis (Exploded Transitive Closure) ===
+Match Type Used: EXACT
+==================================================
+Precision: 0.8413 | Recall: 0.9298 | F1: 0.8833
+
+CORRECT PREDICTIONS (True Positives: 53 Pred edges covering 53 GT edges):
+  [TP] analyte assay -> luteinizing hormone assay
+  [TP] assay -> analyte assay
+  [TP] assay -> dna methylation profiling assay
+  [TP] assay -> dna methylation profiling by array assay
+  [TP] assay -> dna methylation profiling by chip-chip assay
+  [TP] assay -> epigenetic modification assay
+  [TP] assay -> luteinizing hormone assay
+  [TP] assay -> organism detection assay
+  [TP] assay -> organism detection by salinity tolerance assay
+  [TP] continuant -> catheter
+  [TP] continuant -> chip spotting device
+  [TP] continuant -> device
+  [TP] continuant -> independent continuant
+  [TP] continuant -> material entity
+  [TP] continuant -> processed material
+  [TP] data transformation -> network analysis
+  [TP] data transformation -> network subgraph quality calculation
+  [TP] data transformation -> subgraph degree calculation
+  [TP] device -> catheter
+  [TP] device -> chip spotting device
+  [TP] dna methylation profiling assay -> dna methylation profiling by array assay
+  [TP] epigenetic modification assay -> dna methylation profiling assay
+  [TP] epigenetic modification assay -> dna methylation profiling by array assay
+  [TP] epigenetic modification assay -> dna methylation profiling by chip-chip assay
+  [TP] imaging assay -> magnetic resonance imaging assay
+  [TP] independent continuant -> catheter
+  [TP] independent continuant -> chip spotting device
+  [TP] independent continuant -> device
+  [TP] independent continuant -> material entity
+  [TP] independent continuant -> processed material
+  [TP] material entity -> catheter
+  [TP] material entity -> chip spotting device
+  [TP] material entity -> device
+  [TP] material entity -> processed material
+  [TP] network analysis -> network subgraph quality calculation
+  [TP] network analysis -> subgraph degree calculation
+  [TP] network subgraph quality calculation -> subgraph degree calculation
+  [TP] organism detection assay -> organism detection by salinity tolerance assay
+  [TP] performance status value specification -> eastern cooperative oncology group score value specification
+  [TP] planned process -> analyte assay
+  [TP] planned process -> assay
+  [TP] planned process -> data transformation
+  [TP] planned process -> dna methylation profiling assay
+  [TP] planned process -> dna methylation profiling by array assay
+  [TP] planned process -> dna methylation profiling by chip-chip assay
+  [TP] planned process -> epigenetic modification assay
+  [TP] planned process -> luteinizing hormone assay
+  [TP] planned process -> network analysis
+  [TP] planned process -> network subgraph quality calculation
+  [TP] planned process -> organism detection assay
+  [TP] planned process -> organism detection by salinity tolerance assay
+  [TP] planned process -> study intervention
+  [TP] planned process -> subgraph degree calculation
+
+INCORRECT PREDICTIONS (False Positives: 10):
+  [FP] assay -> chip-chip assay
+  [FP] assay -> imaging assay
+  [FP] assay -> magnetic resonance imaging assay
+  [FP] dna methylation profiling assay -> chip-chip assay
+  [FP] dna methylation profiling assay -> dna methylation profiling by chip-chip assay
+  [FP] dna methylation profiling by chip-chip assay -> chip-chip assay
+  [FP] epigenetic modification assay -> chip-chip assay
+  [FP] planned process -> chip-chip assay
+  [FP] planned process -> imaging assay
+  [FP] planned process -> magnetic resonance imaging assay
+
+MISSED RELATIONS (False Negatives: 4):
+  [FN] chip-chip assay -> dna methylation profiling by chip-chip assay
+  [FN] processed material -> catheter
+  [FN] processed material -> chip spotting device
+  [FN] processed material -> device

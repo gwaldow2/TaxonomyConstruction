@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d7" for="graph" attr.name="generated" attr.type="string"/>
+<key id="d6" for="graph" attr.name="generator" attr.type="string"/>
+<key id="d5" for="graph" attr.name="source_edges" attr.type="string"/>
+<key id="d4" for="graph" attr.name="source_nodes" attr.type="string"/>
+<key id="d3" for="graph" attr.name="source_file" attr.type="string"/>
+<key id="d2" for="graph" attr.name="seed" attr.type="string"/>
+<key id="d1" for="graph" attr.name="target_nodes" attr.type="string"/>
+<key id="d0" for="graph" attr.name="scale" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">SUB25S1</data>
+<data key="d1">25</data>
+<data key="d2">1</data>
+<data key="d3">LLMs4OL_SchemaOrg_FULL.graphml</data>
+<data key="d4">546</data>
+<data key="d5">581</data>
+<data key="d6">scale_benchmarks.py</data>
+<data key="d7">2026-09-30T16:27:43</data>
+<node id="suspendaction"/>
+<node id="tvepisode"/>
+<node id="datadownload"/>
+<node id="movietheater"/>
+<node id="manuscript"/>
+<node id="civicstructure"/>
+<node id="televisionchannel"/>
+<node id="carusagetype"/>
+<node id="organization"/>
+<node id="entertainmentbusiness"/>
+<node id="localbusiness"/>
+<node id="controlaction"/>
+<node id="action"/>
+<node id="governmentbuilding"/>
+<node id="enumeration"/>
+<node id="sizegroupenumeration"/>
+<node id="creativework"/>
+<node id="collection"/>
+<node id="sportsactivitylocation"/>
+<node id="healthclub"/>
+<node id="place"/>
+<node id="emergencyservice"/>
+<node id="episode"/>
+<node id="mediaobject"/>
+<node id="broadcastchannel"/>
+<node id="intangible"/>
+<edge source="civicstructure" target="movietheater"/>
+<edge source="organization" target="localbusiness"/>
+<edge source="entertainmentbusiness" target="movietheater"/>
+<edge source="localbusiness" target="entertainmentbusiness"/>
+<edge source="localbusiness" target="sportsactivitylocation"/>
+<edge source="localbusiness" target="emergencyservice"/>
+<edge source="controlaction" target="suspendaction"/>
+<edge source="action" target="controlaction"/>
+<edge source="enumeration" target="carusagetype"/>
+<edge source="enumeration" target="sizegroupenumeration"/>
+<edge source="creativework" target="manuscript"/>
+<edge source="creativework" target="collection"/>
+<edge source="sportsactivitylocation" target="healthclub"/>
+<edge source="place" target="localbusiness"/>
+<edge source="episode" target="tvepisode"/>
+<edge source="mediaobject" target="datadownload"/>
+<edge source="broadcastchannel" target="televisionchannel"/>
+<edge source="intangible" target="broadcastchannel"/>
+</graph></graphml>

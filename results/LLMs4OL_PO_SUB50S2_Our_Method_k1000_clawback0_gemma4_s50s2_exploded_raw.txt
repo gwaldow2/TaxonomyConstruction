@@ -1,0 +1,313 @@
+==================================================
+=== Detailed Node Pair Analysis (Exploded Raw Edges) ===
+Match Type Used: EXACT
+==================================================
+Precision: 0.1342 | Recall: 0.9091 | F1: 0.2339
+
+CORRECT PREDICTIONS (True Positives: 40 Pred edges covering 40 GT edges):
+  [TP] bract -> inflorescence bract
+  [TP] cardinal organ part -> leaf sheath
+  [TP] cardinal organ part -> petiole distal end
+  [TP] cardinal organ part -> phyllome base
+  [TP] cardinal part of multi-tissue plant structure -> cardinal organ part
+  [TP] embryo sac cell -> embryo sac central cell
+  [TP] exarch protoxylem -> root system exarch protoxylem
+  [TP] gametophyte meristematic apical cell -> thallus meristematic apical cell
+  [TP] glume -> lower glume
+  [TP] ground tissue cell -> parenchyma cell
+  [TP] higher order inflorescence axis -> tassel inflorescence branch
+  [TP] inflorescence axis -> higher order inflorescence axis
+  [TP] lower glume -> lower glume of tassel spikelet
+  [TP] lower glume of tassel spikelet -> lower glume of pedicellate spikelet of tassel
+  [TP] meristematic apical cell -> gametophyte meristematic apical cell
+  [TP] multi-tissue plant structure -> plant organ
+  [TP] parenchyma -> petiole parenchyma
+  [TP] parenchyma cell -> chlorenchyma cell
+  [TP] phyllome -> bract
+  [TP] phyllome -> prophyll
+  [TP] phyllome base -> sepal base
+  [TP] plant anatomical entity -> plant structure
+  [TP] plant axis -> shoot axis
+  [TP] plant organ -> phyllome
+  [TP] plant structure -> cardinal part of multi-tissue plant structure
+  [TP] plant structure -> multi-tissue plant structure
+  [TP] plant structure -> portion of plant tissue
+  [TP] portion of ground tissue -> parenchyma
+  [TP] portion of meristem tissue -> meristem l3 layer
+  [TP] portion of plant tissue -> portion of ground tissue
+  [TP] portion of plant tissue -> portion of meristem tissue
+  [TP] portion of plant tissue -> tmema
+  [TP] portion of vascular tissue -> xylem
+  [TP] primary xylem -> protoxylem
+  [TP] procambium -> shoot procambium
+  [TP] protoxylem -> exarch protoxylem
+  [TP] shoot axis -> inflorescence axis
+  [TP] shoot procambium -> leaf procambium
+  [TP] tuber axillary shoot -> subterranean tuber axillary shoot
+  [TP] xylem -> primary xylem
+
+INCORRECT PREDICTIONS (False Positives: 258):
+  [FP] bract -> bracteole
+  [FP] bract -> glume
+  [FP] bract -> lower glume
+  [FP] bract -> lower glume of pedicellate spikelet of tassel
+  [FP] bract -> lower glume of tassel spikelet
+  [FP] bract -> prophyll
+  [FP] cardinal organ part -> cardinal part of multi-tissue plant structure
+  [FP] cardinal organ part -> higher order inflorescence axis
+  [FP] cardinal organ part -> inflorescence axis
+  [FP] cardinal organ part -> lower glume
+  [FP] cardinal organ part -> lower glume of pedicellate spikelet of tassel
+  [FP] cardinal organ part -> lower glume of tassel spikelet
+  [FP] cardinal organ part -> sepal base
+  [FP] cardinal organ part -> subterranean tuber axillary shoot
+  [FP] cardinal organ part -> tassel inflorescence branch
+  [FP] cardinal organ part -> tuber axillary shoot
+  [FP] cardinal part of multi-tissue plant structure -> higher order inflorescence axis
+  [FP] cardinal part of multi-tissue plant structure -> inflorescence axis
+  [FP] cardinal part of multi-tissue plant structure -> leaf sheath
+  [FP] cardinal part of multi-tissue plant structure -> lower glume
+  [FP] cardinal part of multi-tissue plant structure -> lower glume of pedicellate spikelet of tassel
+  [FP] cardinal part of multi-tissue plant structure -> lower glume of tassel spikelet
+  [FP] cardinal part of multi-tissue plant structure -> petiole distal end
+  [FP] cardinal part of multi-tissue plant structure -> phyllome base
+  [FP] cardinal part of multi-tissue plant structure -> sepal base
+  [FP] cardinal part of multi-tissue plant structure -> subterranean tuber axillary shoot
+  [FP] cardinal part of multi-tissue plant structure -> tassel inflorescence branch
+  [FP] cardinal part of multi-tissue plant structure -> tuber axillary shoot
+  [FP] exarch protoxylem -> pentarch protoxylem
+  [FP] glume -> lower glume of pedicellate spikelet of tassel
+  [FP] glume -> lower glume of tassel spikelet
+  [FP] ground tissue cell -> chlorenchyma cell
+  [FP] inflorescence axis -> tassel inflorescence branch
+  [FP] lower glume -> lower glume of pedicellate spikelet of tassel
+  [FP] meristematic apical cell -> thallus meristematic apical cell
+  [FP] multi-tissue plant structure -> bract
+  [FP] multi-tissue plant structure -> bracteole
+  [FP] multi-tissue plant structure -> glume
+  [FP] multi-tissue plant structure -> higher order inflorescence axis
+  [FP] multi-tissue plant structure -> inflorescence axis
+  [FP] multi-tissue plant structure -> inflorescence bract
+  [FP] multi-tissue plant structure -> leaf sheath
+  [FP] multi-tissue plant structure -> lower glume
+  [FP] multi-tissue plant structure -> lower glume of pedicellate spikelet of tassel
+  [FP] multi-tissue plant structure -> lower glume of tassel spikelet
+  [FP] multi-tissue plant structure -> phyllome
+  [FP] multi-tissue plant structure -> plant axis
+  [FP] multi-tissue plant structure -> prophyll
+  [FP] multi-tissue plant structure -> shoot axis
+  [FP] multi-tissue plant structure -> subterranean tuber axillary shoot
+  [FP] multi-tissue plant structure -> tassel inflorescence branch
+  [FP] multi-tissue plant structure -> tuber axillary shoot
+  [FP] native plant cell -> chlorenchyma cell
+  [FP] native plant cell -> embryo sac cell
+  [FP] parenchyma cell -> embryo sac central cell
+  [FP] parenchyma cell -> petiole parenchyma
+  [FP] phyllome -> bracteole
+  [FP] phyllome -> glume
+  [FP] phyllome -> inflorescence bract
+  [FP] phyllome -> leaf sheath
+  [FP] phyllome -> lower glume
+  [FP] phyllome -> lower glume of pedicellate spikelet of tassel
+  [FP] phyllome -> lower glume of tassel spikelet
+  [FP] phyllome base -> leaf sheath
+  [FP] plant anatomical entity -> bract
+  [FP] plant anatomical entity -> bracteole
+  [FP] plant anatomical entity -> cardinal organ part
+  [FP] plant anatomical entity -> cardinal part of multi-tissue plant structure
+  [FP] plant anatomical entity -> chlorenchyma cell
+  [FP] plant anatomical entity -> embryo sac cell
+  [FP] plant anatomical entity -> embryo sac central cell
+  [FP] plant anatomical entity -> exarch protoxylem
+  [FP] plant anatomical entity -> gametophyte meristematic apical cell
+  [FP] plant anatomical entity -> glume
+  [FP] plant anatomical entity -> ground tissue cell
+  [FP] plant anatomical entity -> higher order inflorescence axis
+  [FP] plant anatomical entity -> inflorescence axis
+  [FP] plant anatomical entity -> inflorescence bract
+  [FP] plant anatomical entity -> leaf procambium
+  [FP] plant anatomical entity -> leaf sheath
+  [FP] plant anatomical entity -> lower glume
+  [FP] plant anatomical entity -> lower glume of pedicellate spikelet of tassel
+  [FP] plant anatomical entity -> lower glume of tassel spikelet
+  [FP] plant anatomical entity -> meristem l3 layer
+  [FP] plant anatomical entity -> meristematic apical cell
+  [FP] plant anatomical entity -> multi-tissue plant structure
+  [FP] plant anatomical entity -> native plant cell
+  [FP] plant anatomical entity -> parenchyma
+  [FP] plant anatomical entity -> parenchyma cell
+  [FP] plant anatomical entity -> pentarch protoxylem
+  [FP] plant anatomical entity -> petiole distal end
+  [FP] plant anatomical entity -> petiole parenchyma
+  [FP] plant anatomical entity -> phyllome
+  [FP] plant anatomical entity -> phyllome base
+  [FP] plant anatomical entity -> plant axis
+  [FP] plant anatomical entity -> plant organ
+  [FP] plant anatomical entity -> portion of ground tissue
+  [FP] plant anatomical entity -> portion of meristem tissue
+  [FP] plant anatomical entity -> portion of plant tissue
+  [FP] plant anatomical entity -> portion of vascular tissue
+  [FP] plant anatomical entity -> primary xylem
+  [FP] plant anatomical entity -> procambium
+  [FP] plant anatomical entity -> prophyll
+  [FP] plant anatomical entity -> protoxylem
+  [FP] plant anatomical entity -> root system exarch protoxylem
+  [FP] plant anatomical entity -> sepal base
+  [FP] plant anatomical entity -> shoot axis
+  [FP] plant anatomical entity -> shoot procambium
+  [FP] plant anatomical entity -> subterranean tuber axillary shoot
+  [FP] plant anatomical entity -> tassel inflorescence branch
+  [FP] plant anatomical entity -> thallus meristematic apical cell
+  [FP] plant anatomical entity -> tmema
+  [FP] plant anatomical entity -> tuber axillary shoot
+  [FP] plant anatomical entity -> xylem
+  [FP] plant axis -> higher order inflorescence axis
+  [FP] plant axis -> inflorescence axis
+  [FP] plant axis -> subterranean tuber axillary shoot
+  [FP] plant axis -> tassel inflorescence branch
+  [FP] plant axis -> tuber axillary shoot
+  [FP] plant organ -> bract
+  [FP] plant organ -> bracteole
+  [FP] plant organ -> glume
+  [FP] plant organ -> higher order inflorescence axis
+  [FP] plant organ -> inflorescence axis
+  [FP] plant organ -> inflorescence bract
+  [FP] plant organ -> leaf sheath
+  [FP] plant organ -> lower glume
+  [FP] plant organ -> lower glume of pedicellate spikelet of tassel
+  [FP] plant organ -> lower glume of tassel spikelet
+  [FP] plant organ -> multi-tissue plant structure
+  [FP] plant organ -> plant axis
+  [FP] plant organ -> prophyll
+  [FP] plant organ -> shoot axis
+  [FP] plant organ -> subterranean tuber axillary shoot
+  [FP] plant organ -> tassel inflorescence branch
+  [FP] plant organ -> tuber axillary shoot
+  [FP] plant structure -> bract
+  [FP] plant structure -> bracteole
+  [FP] plant structure -> cardinal organ part
+  [FP] plant structure -> chlorenchyma cell
+  [FP] plant structure -> embryo sac cell
+  [FP] plant structure -> embryo sac central cell
+  [FP] plant structure -> exarch protoxylem
+  [FP] plant structure -> gametophyte meristematic apical cell
+  [FP] plant structure -> glume
+  [FP] plant structure -> ground tissue cell
+  [FP] plant structure -> higher order inflorescence axis
+  [FP] plant structure -> inflorescence axis
+  [FP] plant structure -> inflorescence bract
+  [FP] plant structure -> leaf procambium
+  [FP] plant structure -> leaf sheath
+  [FP] plant structure -> lower glume
+  [FP] plant structure -> lower glume of pedicellate spikelet of tassel
+  [FP] plant structure -> lower glume of tassel spikelet
+  [FP] plant structure -> meristem l3 layer
+  [FP] plant structure -> meristematic apical cell
+  [FP] plant structure -> native plant cell
+  [FP] plant structure -> parenchyma
+  [FP] plant structure -> parenchyma cell
+  [FP] plant structure -> pentarch protoxylem
+  [FP] plant structure -> petiole distal end
+  [FP] plant structure -> petiole parenchyma
+  [FP] plant structure -> phyllome
+  [FP] plant structure -> phyllome base
+  [FP] plant structure -> plant anatomical entity
+  [FP] plant structure -> plant axis
+  [FP] plant structure -> plant organ
+  [FP] plant structure -> portion of ground tissue
+  [FP] plant structure -> portion of meristem tissue
+  [FP] plant structure -> portion of vascular tissue
+  [FP] plant structure -> primary xylem
+  [FP] plant structure -> procambium
+  [FP] plant structure -> prophyll
+  [FP] plant structure -> protoxylem
+  [FP] plant structure -> root system exarch protoxylem
+  [FP] plant structure -> sepal base
+  [FP] plant structure -> shoot axis
+  [FP] plant structure -> shoot procambium
+  [FP] plant structure -> subterranean tuber axillary shoot
+  [FP] plant structure -> tassel inflorescence branch
+  [FP] plant structure -> thallus meristematic apical cell
+  [FP] plant structure -> tmema
+  [FP] plant structure -> tuber axillary shoot
+  [FP] plant structure -> xylem
+  [FP] portion of ground tissue -> petiole parenchyma
+  [FP] portion of meristem tissue -> gametophyte meristematic apical cell
+  [FP] portion of meristem tissue -> leaf procambium
+  [FP] portion of meristem tissue -> meristematic apical cell
+  [FP] portion of meristem tissue -> procambium
+  [FP] portion of meristem tissue -> shoot procambium
+  [FP] portion of meristem tissue -> thallus meristematic apical cell
+  [FP] portion of plant tissue -> bract
+  [FP] portion of plant tissue -> bracteole
+  [FP] portion of plant tissue -> chlorenchyma cell
+  [FP] portion of plant tissue -> embryo sac cell
+  [FP] portion of plant tissue -> embryo sac central cell
+  [FP] portion of plant tissue -> exarch protoxylem
+  [FP] portion of plant tissue -> gametophyte meristematic apical cell
+  [FP] portion of plant tissue -> glume
+  [FP] portion of plant tissue -> ground tissue cell
+  [FP] portion of plant tissue -> higher order inflorescence axis
+  [FP] portion of plant tissue -> inflorescence axis
+  [FP] portion of plant tissue -> inflorescence bract
+  [FP] portion of plant tissue -> leaf procambium
+  [FP] portion of plant tissue -> leaf sheath
+  [FP] portion of plant tissue -> lower glume
+  [FP] portion of plant tissue -> lower glume of pedicellate spikelet of tassel
+  [FP] portion of plant tissue -> lower glume of tassel spikelet
+  [FP] portion of plant tissue -> meristem l3 layer
+  [FP] portion of plant tissue -> meristematic apical cell
+  [FP] portion of plant tissue -> multi-tissue plant structure
+  [FP] portion of plant tissue -> native plant cell
+  [FP] portion of plant tissue -> parenchyma
+  [FP] portion of plant tissue -> parenchyma cell
+  [FP] portion of plant tissue -> pentarch protoxylem
+  [FP] portion of plant tissue -> petiole distal end
+  [FP] portion of plant tissue -> petiole parenchyma
+  [FP] portion of plant tissue -> phyllome
+  [FP] portion of plant tissue -> phyllome base
+  [FP] portion of plant tissue -> plant axis
+  [FP] portion of plant tissue -> plant organ
+  [FP] portion of plant tissue -> portion of vascular tissue
+  [FP] portion of plant tissue -> primary xylem
+  [FP] portion of plant tissue -> procambium
+  [FP] portion of plant tissue -> prophyll
+  [FP] portion of plant tissue -> protoxylem
+  [FP] portion of plant tissue -> root system exarch protoxylem
+  [FP] portion of plant tissue -> sepal base
+  [FP] portion of plant tissue -> shoot axis
+  [FP] portion of plant tissue -> shoot procambium
+  [FP] portion of plant tissue -> subterranean tuber axillary shoot
+  [FP] portion of plant tissue -> tassel inflorescence branch
+  [FP] portion of plant tissue -> thallus meristematic apical cell
+  [FP] portion of plant tissue -> tuber axillary shoot
+  [FP] portion of plant tissue -> xylem
+  [FP] portion of vascular tissue -> exarch protoxylem
+  [FP] portion of vascular tissue -> leaf procambium
+  [FP] portion of vascular tissue -> pentarch protoxylem
+  [FP] portion of vascular tissue -> primary xylem
+  [FP] portion of vascular tissue -> procambium
+  [FP] portion of vascular tissue -> protoxylem
+  [FP] portion of vascular tissue -> root system exarch protoxylem
+  [FP] portion of vascular tissue -> shoot procambium
+  [FP] primary xylem -> exarch protoxylem
+  [FP] primary xylem -> pentarch protoxylem
+  [FP] primary xylem -> root system exarch protoxylem
+  [FP] procambium -> leaf procambium
+  [FP] protoxylem -> pentarch protoxylem
+  [FP] protoxylem -> root system exarch protoxylem
+  [FP] shoot axis -> higher order inflorescence axis
+  [FP] shoot axis -> subterranean tuber axillary shoot
+  [FP] shoot axis -> tassel inflorescence branch
+  [FP] shoot axis -> tuber axillary shoot
+  [FP] subterranean tuber axillary shoot -> tuber axillary shoot
+  [FP] xylem -> exarch protoxylem
+  [FP] xylem -> pentarch protoxylem
+  [FP] xylem -> protoxylem
+  [FP] xylem -> root system exarch protoxylem
+
+MISSED RELATIONS (False Negatives: 4):
+  [FN] inflorescence bract -> glume
+  [FN] native plant cell -> ground tissue cell
+  [FN] prophyll -> bracteole
+  [FN] root system exarch protoxylem -> pentarch protoxylem

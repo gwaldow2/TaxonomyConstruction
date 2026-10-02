@@ -1,0 +1,57 @@
+==================================================
+=== Detailed Node Pair Analysis (Exploded Transitive Closure) ===
+Match Type Used: EXACT
+==================================================
+Precision: 0.6765 | Recall: 0.6571 | F1: 0.6667
+
+CORRECT PREDICTIONS (True Positives: 23 Pred edges covering 23 GT edges):
+  [TP] audience -> peopleaudience
+  [TP] creativework -> creativeworkseries
+  [TP] creativework -> howtostep
+  [TP] creativework -> movieseries
+  [TP] creativeworkseries -> movieseries
+  [TP] enumeration -> adultorientedenumeration
+  [TP] enumeration -> governmentbenefitstype
+  [TP] intangible -> broadcastservice
+  [TP] intangible -> creativeworkseries
+  [TP] intangible -> howtostep
+  [TP] intangible -> movieseries
+  [TP] intangible -> series
+  [TP] intangible -> service
+  [TP] localbusiness -> bakery
+  [TP] localbusiness -> entertainmentbusiness
+  [TP] localbusiness -> foodestablishment
+  [TP] organization -> bakery
+  [TP] organization -> entertainmentbusiness
+  [TP] organization -> foodestablishment
+  [TP] organization -> localbusiness
+  [TP] organization -> researchorganization
+  [TP] series -> movieseries
+  [TP] service -> broadcastservice
+
+INCORRECT PREDICTIONS (False Positives: 11):
+  [FP] creativework -> series
+  [FP] creativeworkseries -> series
+  [FP] datatype -> adultorientedenumeration
+  [FP] intangible -> adultorientedenumeration
+  [FP] intangible -> creativework
+  [FP] intangible -> datatype
+  [FP] intangible -> enumeration
+  [FP] intangible -> governmentbenefitstype
+  [FP] itemlist -> listitem
+  [FP] itemlist -> movieseries
+  [FP] itemlist -> series
+
+MISSED RELATIONS (False Negatives: 12):
+  [FN] datatype -> time
+  [FN] foodestablishment -> bakery
+  [FN] intangible -> audience
+  [FN] intangible -> listitem
+  [FN] intangible -> peopleaudience
+  [FN] itemlist -> howtostep
+  [FN] listitem -> howtostep
+  [FN] place -> bakery
+  [FN] place -> entertainmentbusiness
+  [FN] place -> foodestablishment
+  [FN] place -> localbusiness
+  [FN] series -> creativeworkseries

@@ -1,0 +1,99 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d4" for="graph" attr.name="timestamp" attr.type="string"/>
+<key id="d3" for="graph" attr.name="scale" attr.type="string"/>
+<key id="d2" for="graph" attr.name="results_file" attr.type="string"/>
+<key id="d1" for="graph" attr.name="tag" attr.type="string"/>
+<key id="d0" for="graph" attr.name="model" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">google/gemma-4-31b-it</data>
+<data key="d1">gemma4_s25s2</data>
+<data key="d2">results/scaling_gemma4.json</data>
+<data key="d3">SUB25S2</data>
+<data key="d4">2026-09-30T16:51:14</data>
+<node id="plant anatomical entity (plant anatomical entity, plant structure)"/>
+<node id="native plant cell"/>
+<node id="parenchyma cell"/>
+<node id="chlorenchyma cell"/>
+<node id="ground tissue cell"/>
+<node id="shoot axis"/>
+<node id="inflorescence axis"/>
+<node id="plant axis"/>
+<node id="multi-tissue plant structure (multi-tissue plant structure, plant organ)"/>
+<node id="tassel inflorescence branch"/>
+<node id="higher order inflorescence axis"/>
+<node id="cardinal organ part (cardinal organ part, cardinal part of multi-tissue plant structure)"/>
+<node id="phyllome base"/>
+<node id="petiole distal end"/>
+<node id="sepal base"/>
+<node id="portion of plant tissue"/>
+<node id="phyllome"/>
+<node id="prophyll"/>
+<node id="bracteole"/>
+<node id="portion of meristem tissue"/>
+<node id="meristem l3 layer"/>
+<node id="tmema"/>
+<edge source="plant anatomical entity (plant anatomical entity, plant structure)" target="native plant cell"/>
+<edge source="plant anatomical entity (plant anatomical entity, plant structure)" target="inflorescence axis"/>
+<edge source="plant anatomical entity (plant anatomical entity, plant structure)" target="cardinal organ part (cardinal organ part, cardinal part of multi-tissue plant structure)"/>
+<edge source="plant anatomical entity (plant anatomical entity, plant structure)" target="tassel inflorescence branch"/>
+<edge source="plant anatomical entity (plant anatomical entity, plant structure)" target="shoot axis"/>
+<edge source="plant anatomical entity (plant anatomical entity, plant structure)" target="parenchyma cell"/>
+<edge source="plant anatomical entity (plant anatomical entity, plant structure)" target="plant axis"/>
+<edge source="plant anatomical entity (plant anatomical entity, plant structure)" target="multi-tissue plant structure (multi-tissue plant structure, plant organ)"/>
+<edge source="plant anatomical entity (plant anatomical entity, plant structure)" target="higher order inflorescence axis"/>
+<edge source="plant anatomical entity (plant anatomical entity, plant structure)" target="phyllome"/>
+<edge source="plant anatomical entity (plant anatomical entity, plant structure)" target="portion of meristem tissue"/>
+<edge source="plant anatomical entity (plant anatomical entity, plant structure)" target="chlorenchyma cell"/>
+<edge source="plant anatomical entity (plant anatomical entity, plant structure)" target="phyllome base"/>
+<edge source="plant anatomical entity (plant anatomical entity, plant structure)" target="meristem l3 layer"/>
+<edge source="plant anatomical entity (plant anatomical entity, plant structure)" target="petiole distal end"/>
+<edge source="plant anatomical entity (plant anatomical entity, plant structure)" target="tmema"/>
+<edge source="plant anatomical entity (plant anatomical entity, plant structure)" target="portion of plant tissue"/>
+<edge source="plant anatomical entity (plant anatomical entity, plant structure)" target="prophyll"/>
+<edge source="plant anatomical entity (plant anatomical entity, plant structure)" target="sepal base"/>
+<edge source="plant anatomical entity (plant anatomical entity, plant structure)" target="ground tissue cell"/>
+<edge source="plant anatomical entity (plant anatomical entity, plant structure)" target="bracteole"/>
+<edge source="native plant cell" target="parenchyma cell"/>
+<edge source="native plant cell" target="chlorenchyma cell"/>
+<edge source="native plant cell" target="ground tissue cell"/>
+<edge source="parenchyma cell" target="chlorenchyma cell"/>
+<edge source="ground tissue cell" target="parenchyma cell"/>
+<edge source="ground tissue cell" target="chlorenchyma cell"/>
+<edge source="shoot axis" target="inflorescence axis"/>
+<edge source="shoot axis" target="tassel inflorescence branch"/>
+<edge source="shoot axis" target="higher order inflorescence axis"/>
+<edge source="inflorescence axis" target="tassel inflorescence branch"/>
+<edge source="inflorescence axis" target="higher order inflorescence axis"/>
+<edge source="plant axis" target="inflorescence axis"/>
+<edge source="plant axis" target="tassel inflorescence branch"/>
+<edge source="plant axis" target="shoot axis"/>
+<edge source="plant axis" target="higher order inflorescence axis"/>
+<edge source="multi-tissue plant structure (multi-tissue plant structure, plant organ)" target="inflorescence axis"/>
+<edge source="multi-tissue plant structure (multi-tissue plant structure, plant organ)" target="tassel inflorescence branch"/>
+<edge source="multi-tissue plant structure (multi-tissue plant structure, plant organ)" target="shoot axis"/>
+<edge source="multi-tissue plant structure (multi-tissue plant structure, plant organ)" target="plant axis"/>
+<edge source="multi-tissue plant structure (multi-tissue plant structure, plant organ)" target="higher order inflorescence axis"/>
+<edge source="multi-tissue plant structure (multi-tissue plant structure, plant organ)" target="phyllome"/>
+<edge source="multi-tissue plant structure (multi-tissue plant structure, plant organ)" target="prophyll"/>
+<edge source="multi-tissue plant structure (multi-tissue plant structure, plant organ)" target="bracteole"/>
+<edge source="multi-tissue plant structure (multi-tissue plant structure, plant organ)" target="phyllome base"/>
+<edge source="higher order inflorescence axis" target="tassel inflorescence branch"/>
+<edge source="cardinal organ part (cardinal organ part, cardinal part of multi-tissue plant structure)" target="inflorescence axis"/>
+<edge source="cardinal organ part (cardinal organ part, cardinal part of multi-tissue plant structure)" target="tassel inflorescence branch"/>
+<edge source="cardinal organ part (cardinal organ part, cardinal part of multi-tissue plant structure)" target="shoot axis"/>
+<edge source="cardinal organ part (cardinal organ part, cardinal part of multi-tissue plant structure)" target="plant axis"/>
+<edge source="cardinal organ part (cardinal organ part, cardinal part of multi-tissue plant structure)" target="higher order inflorescence axis"/>
+<edge source="cardinal organ part (cardinal organ part, cardinal part of multi-tissue plant structure)" target="phyllome base"/>
+<edge source="cardinal organ part (cardinal organ part, cardinal part of multi-tissue plant structure)" target="petiole distal end"/>
+<edge source="cardinal organ part (cardinal organ part, cardinal part of multi-tissue plant structure)" target="sepal base"/>
+<edge source="phyllome base" target="sepal base"/>
+<edge source="portion of plant tissue" target="parenchyma cell"/>
+<edge source="portion of plant tissue" target="portion of meristem tissue"/>
+<edge source="portion of plant tissue" target="meristem l3 layer"/>
+<edge source="portion of plant tissue" target="native plant cell"/>
+<edge source="portion of plant tissue" target="chlorenchyma cell"/>
+<edge source="portion of plant tissue" target="ground tissue cell"/>
+<edge source="phyllome" target="prophyll"/>
+<edge source="phyllome" target="bracteole"/>
+<edge source="portion of meristem tissue" target="meristem l3 layer"/>
+<edge source="portion of meristem tissue" target="tmema"/>
+</graph></graphml>

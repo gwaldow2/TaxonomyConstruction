@@ -1,0 +1,66 @@
+==================================================
+=== Detailed Node Pair Analysis (Exploded Raw Edges) ===
+Match Type Used: EXACT
+==================================================
+Precision: 0.2885 | Recall: 0.8333 | F1: 0.4286
+
+CORRECT PREDICTIONS (True Positives: 15 Pred edges covering 15 GT edges):
+  [TP] action -> controlaction
+  [TP] broadcastchannel -> televisionchannel
+  [TP] civicstructure -> movietheater
+  [TP] controlaction -> suspendaction
+  [TP] creativework -> manuscript
+  [TP] entertainmentbusiness -> movietheater
+  [TP] enumeration -> sizegroupenumeration
+  [TP] episode -> tvepisode
+  [TP] intangible -> broadcastchannel
+  [TP] localbusiness -> emergencyservice
+  [TP] localbusiness -> entertainmentbusiness
+  [TP] localbusiness -> sportsactivitylocation
+  [TP] organization -> localbusiness
+  [TP] place -> localbusiness
+  [TP] sportsactivitylocation -> healthclub
+
+INCORRECT PREDICTIONS (False Positives: 37):
+  [FP] action -> datadownload
+  [FP] action -> suspendaction
+  [FP] civicstructure -> governmentbuilding
+  [FP] creativework -> broadcastchannel
+  [FP] creativework -> episode
+  [FP] creativework -> mediaobject
+  [FP] creativework -> televisionchannel
+  [FP] creativework -> tvepisode
+  [FP] entertainmentbusiness -> broadcastchannel
+  [FP] entertainmentbusiness -> healthclub
+  [FP] entertainmentbusiness -> televisionchannel
+  [FP] intangible -> creativework
+  [FP] intangible -> episode
+  [FP] intangible -> manuscript
+  [FP] intangible -> mediaobject
+  [FP] intangible -> televisionchannel
+  [FP] localbusiness -> healthclub
+  [FP] localbusiness -> movietheater
+  [FP] mediaobject -> broadcastchannel
+  [FP] mediaobject -> creativework
+  [FP] mediaobject -> episode
+  [FP] mediaobject -> manuscript
+  [FP] mediaobject -> televisionchannel
+  [FP] mediaobject -> tvepisode
+  [FP] organization -> broadcastchannel
+  [FP] organization -> emergencyservice
+  [FP] organization -> entertainmentbusiness
+  [FP] organization -> healthclub
+  [FP] organization -> movietheater
+  [FP] organization -> televisionchannel
+  [FP] place -> civicstructure
+  [FP] place -> emergencyservice
+  [FP] place -> governmentbuilding
+  [FP] place -> healthclub
+  [FP] place -> movietheater
+  [FP] place -> sportsactivitylocation
+  [FP] televisionchannel -> broadcastchannel
+
+MISSED RELATIONS (False Negatives: 3):
+  [FN] creativework -> collection
+  [FN] enumeration -> carusagetype
+  [FN] mediaobject -> datadownload

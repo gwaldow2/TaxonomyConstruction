@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d4" for="graph" attr.name="timestamp" attr.type="string"/>
+<key id="d3" for="graph" attr.name="scale" attr.type="string"/>
+<key id="d2" for="graph" attr.name="results_file" attr.type="string"/>
+<key id="d1" for="graph" attr.name="tag" attr.type="string"/>
+<key id="d0" for="graph" attr.name="model" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">google/gemma-4-31b-it</data>
+<data key="d1">gemma4_s25s1</data>
+<data key="d2">results/scaling_gemma4.json</data>
+<data key="d3">SUB25S1</data>
+<data key="d4">2026-09-30T16:46:58</data>
+<node id="neural cell"/>
+<node id="non-terminally differentiated osteoblast"/>
+<node id="endothelial cell of vascular tree"/>
+<node id="central nervous system neuron"/>
+<node id="gabaergic interneuron"/>
+<node id="eukaryotic cell"/>
+<node id="connective tissue cell"/>
+<node id="inhibitory interneuron"/>
+<node id="electrically active cell"/>
+<node id="electrically signaling cell"/>
+<node id="endothelial cell"/>
+<node id="interneuron"/>
+<node id="perichondrial fibroblast"/>
+<node id="neuron"/>
+<node id="cell"/>
+<node id="xanthophore cell"/>
+<node id="electrically responsive cell"/>
+<node id="osteoblast"/>
+<node id="gabaergic neuron"/>
+<node id="stuff accumulating cell"/>
+<node id="sn-vtr-hth gata3-tcf7l2 gaba gabaergic interneuron primate"/>
+<node id="endothelial cell of artery"/>
+<node id="bone cell"/>
+<node id="precursor cell"/>
+<node id="secretory cell"/>
+<node id="pigment cell"/>
+<node id="leucophore"/>
+<node id="blood vessel endothelial cell"/>
+<node id="progenitor cell"/>
+<node id="stromal cell"/>
+<node id="fibroblast"/>
+<edge source="neural cell" target="neuron"/>
+<edge source="endothelial cell of vascular tree" target="endothelial cell of artery"/>
+<edge source="gabaergic interneuron" target="gabaergic neuron"/>
+<edge source="gabaergic interneuron" target="sn-vtr-hth gata3-tcf7l2 gaba gabaergic interneuron primate"/>
+<edge source="eukaryotic cell" target="neural cell"/>
+<edge source="eukaryotic cell" target="connective tissue cell"/>
+<edge source="eukaryotic cell" target="electrically responsive cell"/>
+<edge source="eukaryotic cell" target="endothelial cell"/>
+<edge source="eukaryotic cell" target="pigment cell"/>
+<edge source="eukaryotic cell" target="precursor cell"/>
+<edge source="eukaryotic cell" target="secretory cell"/>
+<edge source="eukaryotic cell" target="stuff accumulating cell"/>
+<edge source="connective tissue cell" target="bone cell"/>
+<edge source="connective tissue cell" target="stromal cell"/>
+<edge source="inhibitory interneuron" target="gabaergic interneuron"/>
+<edge source="electrically active cell" target="electrically signaling cell"/>
+<edge source="endothelial cell" target="blood vessel endothelial cell"/>
+<edge source="interneuron" target="inhibitory interneuron"/>
+<edge source="neuron" target="electrically active cell"/>
+<edge source="neuron" target="interneuron"/>
+<edge source="cell" target="eukaryotic cell"/>
+<edge source="osteoblast" target="non-terminally differentiated osteoblast"/>
+<edge source="gabaergic neuron" target="central nervous system neuron"/>
+<edge source="bone cell" target="osteoblast"/>
+<edge source="precursor cell" target="progenitor cell"/>
+<edge source="pigment cell" target="xanthophore cell"/>
+<edge source="pigment cell" target="leucophore"/>
+<edge source="blood vessel endothelial cell" target="endothelial cell of vascular tree"/>
+<edge source="stromal cell" target="fibroblast"/>
+<edge source="fibroblast" target="perichondrial fibroblast"/>
+</graph></graphml>

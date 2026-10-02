@@ -1,0 +1,544 @@
+==================================================
+=== Detailed Node Pair Analysis (Condensed Transitive Reduction) ===
+Match Type Used: SET_OVERLAP
+==================================================
+Precision: 0.5645 | Recall: 0.4912 | F1: 0.5253
+
+CORRECT PREDICTIONS (True Positives: 140 Pred edges covering 140 GT edges):
+  [TP] PRED: (alpha-beta t cell -> mature alpha-beta t cell)
+        matches GT: (alpha-beta t cell -> mature alpha-beta t cell)
+  [TP] PRED: (amacrine cell -> wide field retinal amacrine cell)
+        matches GT: (amacrine cell -> wide field retinal amacrine cell)
+  [TP] PRED: (astrocyte -> astrocyte of the forebrain)
+        matches GT: (astrocyte -> astrocyte of the forebrain)
+  [TP] PRED: (astrocyte of the forebrain -> astrocyte of the cerebral cortex)
+        matches GT: (astrocyte of the forebrain -> astrocyte of the cerebral cortex)
+  [TP] PRED: (autonomic neuron -> enteric neuron)
+        matches GT: (autonomic neuron -> enteric neuron)
+  [TP] PRED: (b cell -> b cell cd19-positive (b cell cd19-positive, lymphocyte of b lineage cd19-positive))
+        matches GT: (b cell -> b cell cd19-positive)
+  [TP] PRED: (be cell -> be1 cell)
+        matches GT: (be cell -> be1 cell)
+  [TP] PRED: (blood vessel endothelial cell -> vein endothelial cell)
+        matches GT: (blood vessel endothelial cell -> vein endothelial cell)
+  [TP] PRED: (brain macroglial cell -> astrocyte of the forebrain)
+        matches GT: (brain macroglial cell -> astrocyte of the forebrain)
+  [TP] PRED: (cell -> cell in vitro)
+        matches GT: (cell -> cell in vitro)
+  [TP] PRED: (cell -> contractile cell)
+        matches GT: (cell -> contractile cell)
+  [TP] PRED: (cell -> eukaryotic cell)
+        matches GT: (cell -> eukaryotic cell)
+  [TP] PRED: (cell -> germ line cell)
+        matches GT: (cell -> germ line cell)
+  [TP] PRED: (cell -> hematopoietic cell)
+        matches GT: (cell -> hematopoietic cell)
+  [TP] PRED: (cell -> motile cell)
+        matches GT: (cell -> motile cell)
+  [TP] PRED: (cell -> nucleate cell)
+        matches GT: (cell -> nucleate cell)
+  [TP] PRED: (cell -> secretory cell)
+        matches GT: (cell -> secretory cell)
+  [TP] PRED: (cell -> stuff accumulating cell)
+        matches GT: (cell -> stuff accumulating cell)
+  [TP] PRED: (cell of skeletal muscle -> skeletal muscle fiber)
+        matches GT: (cell of skeletal muscle -> skeletal muscle fiber)
+  [TP] PRED: (central nervous system neuron -> neuron of the forebrain)
+        matches GT: (central nervous system neuron -> neuron of the forebrain)
+  [TP] PRED: (cerebral cortex gabaergic interneuron -> l56 non-martinotti sst gabaergic interneuron mmus)
+        matches GT: (cerebral cortex gabaergic interneuron -> l56 non-martinotti sst gabaergic interneuron mmus)
+  [TP] PRED: (cerebral cortex neuron -> cortical interneuron)
+        matches GT: (cerebral cortex neuron -> cortical interneuron)
+  [TP] PRED: (cholangiocyte -> large mucus secreting cholangiocyte)
+        matches GT: (cholangiocyte -> large mucus secreting cholangiocyte)
+  [TP] PRED: (connective tissue cell -> mesenchymal stem cell)
+        matches GT: (connective tissue cell -> mesenchymal stem cell)
+  [TP] PRED: (connective tissue cell -> stromal cell)
+        matches GT: (connective tissue cell -> stromal cell)
+  [TP] PRED: (contractile cell -> muscle cell)
+        matches GT: (contractile cell -> muscle cell)
+  [TP] PRED: (cortical interneuron -> cerebral cortex gabaergic interneuron)
+        matches GT: (cortical interneuron -> cerebral cortex gabaergic interneuron)
+  [TP] PRED: (duct epithelial cell -> branched duct epithelial cell)
+        matches GT: (duct epithelial cell -> branched duct epithelial cell)
+  [TP] PRED: (ecto-epithelial cell -> neurecto-epithelial cell)
+        matches GT: (ecto-epithelial cell -> neurecto-epithelial cell)
+  [TP] PRED: (endocrine cell -> enteroendocrine cell)
+        matches GT: (endocrine cell -> enteroendocrine cell)
+  [TP] PRED: (endothelial cell of artery -> interlobulary artery endothelial cell)
+        matches GT: (endothelial cell of artery -> interlobulary artery endothelial cell)
+  [TP] PRED: (enteric neuron -> intrinsic primary afferent neuron of myenteric plexus)
+        matches GT: (enteric neuron -> intrinsic primary afferent neuron of myenteric plexus)
+  [TP] PRED: (enterocyte -> enterocyte of epithelium of large intestine)
+        matches GT: (enterocyte -> enterocyte of epithelium of large intestine)
+  [TP] PRED: (enteroendocrine cell -> intestinal enteroendocrine cell)
+        matches GT: (enteroendocrine cell -> intestinal enteroendocrine cell)
+  [TP] PRED: (epithelial cell -> columnarcuboidal epithelial cell)
+        matches GT: (epithelial cell -> columnarcuboidal epithelial cell)
+  [TP] PRED: (epithelial cell -> duct epithelial cell)
+        matches GT: (epithelial cell -> duct epithelial cell)
+  [TP] PRED: (epithelial cell -> ecto-epithelial cell)
+        matches GT: (epithelial cell -> ecto-epithelial cell)
+  [TP] PRED: (epithelial cell -> endo-epithelial cell)
+        matches GT: (epithelial cell -> endo-epithelial cell)
+  [TP] PRED: (epithelial cell -> secretory epithelial cell)
+        matches GT: (epithelial cell -> secretory epithelial cell)
+  [TP] PRED: (epithelial cell -> sensory epithelial cell)
+        matches GT: (epithelial cell -> sensory epithelial cell)
+  [TP] PRED: (epithelial cell of alimentary canal -> epithelial cell of stomach)
+        matches GT: (epithelial cell of alimentary canal -> epithelial cell of stomach)
+  [TP] PRED: (epithelial cell of appendix -> enterocyte of appendix)
+        matches GT: (epithelial cell of appendix -> enterocyte of appendix)
+  [TP] PRED: (epithelial cell of large intestine -> enterocyte of epithelium of large intestine)
+        matches GT: (epithelial cell of large intestine -> enterocyte of epithelium of large intestine)
+  [TP] PRED: (epithelial cell of large intestine -> epithelial cell of appendix)
+        matches GT: (epithelial cell of large intestine -> epithelial cell of appendix)
+  [TP] PRED: (epithelial cell of stomach -> stem cell of gastric gland)
+        matches GT: (epithelial cell of stomach -> stem cell of gastric gland)
+  [TP] PRED: (eukaryotic cell -> gut absorptive cell)
+        matches GT: (eukaryotic cell -> gut absorptive cell)
+  [TP] PRED: (fibroblast -> mesothelial fibroblast)
+        matches GT: (fibroblast -> mesothelial fibroblast)
+  [TP] PRED: (gabaergic neuron -> gaba-gly neuron)
+        matches GT: (gabaergic neuron -> gaba-gly neuron)
+  [TP] PRED: (gabaergic neuron -> gabaergic interneuron)
+        matches GT: (gabaergic neuron -> gabaergic interneuron)
+  [TP] PRED: (gamete-nursing cell -> germline-derived nurse cell)
+        matches GT: (gamete-nursing cell -> germline-derived nurse cell)
+  [TP] PRED: (germ cell -> male germ cell)
+        matches GT: (germ cell -> male germ cell)
+  [TP] PRED: (germ line cell -> germ cell)
+        matches GT: (germ line cell -> germ cell)
+  [TP] PRED: (germ line cell -> germline-derived nurse cell)
+        matches GT: (germ line cell -> germline-derived nurse cell)
+  [TP] PRED: (glial cell -> enteroglial cell)
+        matches GT: (glial cell -> enteroglial cell)
+  [TP] PRED: (glial cell -> macroglial cell)
+        matches GT: (glial cell -> macroglial cell)
+  [TP] PRED: (glycinergic neuron -> gaba-gly neuron)
+        matches GT: (glycinergic neuron -> gaba-gly neuron)
+  [TP] PRED: (gut absorptive cell -> enterocyte)
+        matches GT: (gut absorptive cell -> enterocyte)
+  [TP] PRED: (hematopoietic cell -> leukocyte)
+        matches GT: (hematopoietic cell -> leukocyte)
+  [TP] PRED: (interneuron -> inhibitory interneuron)
+        matches GT: (interneuron -> inhibitory interneuron)
+  [TP] PRED: (interstitial cell -> kidney interstitial cell)
+        matches GT: (interstitial cell -> kidney interstitial cell)
+  [TP] PRED: (intestinal enteroendocrine cell -> type l enteroendocrine cell)
+        matches GT: (intestinal enteroendocrine cell -> type l enteroendocrine cell)
+  [TP] PRED: (intestinal epithelial cell -> enterocyte)
+        matches GT: (intestinal epithelial cell -> enterocyte)
+  [TP] PRED: (intestinal epithelial cell -> intestinal enteroendocrine cell)
+        matches GT: (intestinal epithelial cell -> intestinal enteroendocrine cell)
+  [TP] PRED: (kidney arterial blood vessel cell -> kidney cortex artery cell)
+        matches GT: (kidney arterial blood vessel cell -> kidney cortex artery cell)
+  [TP] PRED: (kidney blood vessel cell -> kidney arterial blood vessel cell)
+        matches GT: (kidney blood vessel cell -> kidney arterial blood vessel cell)
+  [TP] PRED: (kidney cell -> kidney cortical cell)
+        matches GT: (kidney cell -> kidney cortical cell)
+  [TP] PRED: (kidney cell -> kidney epithelial cell)
+        matches GT: (kidney cell -> kidney epithelial cell)
+  [TP] PRED: (kidney cell -> kidney interstitial cell)
+        matches GT: (kidney cell -> kidney interstitial cell)
+  [TP] PRED: (kidney cell -> kidney medulla cell)
+        matches GT: (kidney cell -> kidney medulla cell)
+  [TP] PRED: (kidney cortex artery cell -> interlobular artery cell)
+        matches GT: (kidney cortex artery cell -> interlobular artery cell)
+  [TP] PRED: (kidney cortical cell -> renal cortical epithelial cell)
+        matches GT: (kidney cortical cell -> renal cortical epithelial cell)
+  [TP] PRED: (kidney epithelial cell -> epithelial cell of nephron)
+        matches GT: (kidney epithelial cell -> epithelial cell of nephron)
+  [TP] PRED: (kidney epithelial cell -> renal cortical epithelial cell)
+        matches GT: (kidney epithelial cell -> renal cortical epithelial cell)
+  [TP] PRED: (kidney interstitial cell -> renal interstitial pericyte)
+        matches GT: (kidney interstitial cell -> renal interstitial pericyte)
+  [TP] PRED: (large pre-b-ii cell -> prebcr-positive large pre-b-ii cell)
+        matches GT: (large pre-b-ii cell -> prebcr-positive large pre-b-ii cell)
+  [TP] PRED: (leukocyte -> myeloid cell (myeloid cell, myeloid leukocyte))
+        matches GT: (leukocyte -> myeloid leukocyte)
+  [TP] PRED: (leukocyte -> professional antigen presenting cell)
+        matches GT: (leukocyte -> professional antigen presenting cell)
+  [TP] PRED: (lymphocyte -> lymphocyte of b lineage)
+        matches GT: (lymphocyte -> lymphocyte of b lineage)
+  [TP] PRED: (lymphocyte -> t cell)
+        matches GT: (lymphocyte -> t cell)
+  [TP] PRED: (lymphocyte of b lineage -> b cell)
+        matches GT: (lymphocyte of b lineage -> b cell)
+  [TP] PRED: (macroglial cell -> brain macroglial cell)
+        matches GT: (macroglial cell -> brain macroglial cell)
+  [TP] PRED: (macrophage -> tissue-resident macrophage)
+        matches GT: (macrophage -> tissue-resident macrophage)
+  [TP] PRED: (male germ cell -> spermatid)
+        matches GT: (male germ cell -> spermatid)
+  [TP] PRED: (mature t cell -> mature alpha-beta t cell)
+        matches GT: (mature t cell -> mature alpha-beta t cell)
+  [TP] PRED: (melanocyte -> epithelial melanocyte)
+        matches GT: (melanocyte -> epithelial melanocyte)
+  [TP] PRED: (mesangial cell -> glomerular mesangial cell)
+        matches GT: (mesangial cell -> glomerular mesangial cell)
+  [TP] PRED: (mesenchymal stem cell -> mesenchymal stem cell of adipose tissue)
+        matches GT: (mesenchymal stem cell -> mesenchymal stem cell of adipose tissue)
+  [TP] PRED: (mesenchymal stem cell of adipose tissue -> mesenchymal stem cell of orbital adipose tissue)
+        matches GT: (mesenchymal stem cell of adipose tissue -> mesenchymal stem cell of orbital adipose tissue)
+  [TP] PRED: (mesothelial fibroblast -> mesothelial fibroblast of the leptomeninx)
+        matches GT: (mesothelial fibroblast -> mesothelial fibroblast of the leptomeninx)
+  [TP] PRED: (mononuclear leukocyte (mononuclear leukocyte, mononuclear phagocyte) -> macrophage)
+        matches GT: (mononuclear phagocyte -> macrophage)
+  [TP] PRED: (mucus secreting cell -> large mucus secreting cholangiocyte)
+        matches GT: (mucus secreting cell -> large mucus secreting cholangiocyte)
+  [TP] PRED: (mural cell -> pericyte)
+        matches GT: (mural cell -> pericyte)
+  [TP] PRED: (muscle cell -> non-striated muscle cell)
+        matches GT: (muscle cell -> non-striated muscle cell)
+  [TP] PRED: (muscle cell -> striated muscle cell)
+        matches GT: (muscle cell -> striated muscle cell)
+  [TP] PRED: (muscle precursor cell -> myoblast)
+        matches GT: (muscle precursor cell -> myoblast)
+  [TP] PRED: (myeloid cell (myeloid cell, myeloid leukocyte) -> cycling myeloid cell)
+        matches GT: (myeloid cell -> cycling myeloid cell)
+  [TP] PRED: (myoblast -> skeletal muscle myoblast)
+        matches GT: (myoblast -> skeletal muscle myoblast)
+  [TP] PRED: (neural cell -> neuron associated cell)
+        matches GT: (neural cell -> neuron associated cell)
+  [TP] PRED: (neural cell -> neuron)
+        matches GT: (neural cell -> neuron)
+  [TP] PRED: (neural cell -> retinal cell)
+        matches GT: (neural cell -> retinal cell)
+  [TP] PRED: (neuron -> central nervous system neuron)
+        matches GT: (neuron -> central nervous system neuron)
+  [TP] PRED: (neuron -> gabaergic neuron)
+        matches GT: (neuron -> gabaergic neuron)
+  [TP] PRED: (neuron -> glycinergic neuron)
+        matches GT: (neuron -> glycinergic neuron)
+  [TP] PRED: (neuron -> neural crest derived neuron)
+        matches GT: (neuron -> neural crest derived neuron)
+  [TP] PRED: (neuron -> peripheral nervous system neuron)
+        matches GT: (neuron -> peripheral nervous system neuron)
+  [TP] PRED: (neuron associated cell -> glial cell)
+        matches GT: (neuron associated cell -> glial cell)
+  [TP] PRED: (neuron of the forebrain -> cerebral cortex neuron)
+        matches GT: (neuron of the forebrain -> cerebral cortex neuron)
+  [TP] PRED: (non-striated muscle cell -> smooth muscle cell)
+        matches GT: (non-striated muscle cell -> smooth muscle cell)
+  [TP] PRED: (nucleate cell -> multinucleate cell)
+        matches GT: (nucleate cell -> multinucleate cell)
+  [TP] PRED: (nucleate cell -> single nucleate cell)
+        matches GT: (nucleate cell -> single nucleate cell)
+  [TP] PRED: (pericyte -> renal interstitial pericyte)
+        matches GT: (pericyte -> renal interstitial pericyte)
+  [TP] PRED: (phagocyte -> phagocyte sensu vertebrata)
+        matches GT: (phagocyte -> phagocyte sensu vertebrata)
+  [TP] PRED: (phagocyte sensu vertebrata -> mononuclear leukocyte (mononuclear leukocyte, mononuclear phagocyte))
+        matches GT: (phagocyte sensu vertebrata -> mononuclear phagocyte)
+  [TP] PRED: (pigment cell -> melanocyte)
+        matches GT: (pigment cell -> melanocyte)
+  [TP] PRED: (pre-b-ii cell -> large pre-b-ii cell)
+        matches GT: (pre-b-ii cell -> large pre-b-ii cell)
+  [TP] PRED: (precursor b cell -> pre-b-ii cell)
+        matches GT: (precursor b cell -> pre-b-ii cell)
+  [TP] PRED: (precursor cell -> progenitor cell)
+        matches GT: (precursor cell -> progenitor cell)
+  [TP] PRED: (professional antigen presenting cell -> macrophage)
+        matches GT: (professional antigen presenting cell -> macrophage)
+  [TP] PRED: (progenitor cell -> muscle precursor cell)
+        matches GT: (progenitor cell -> muscle precursor cell)
+  [TP] PRED: (respiratory tract epithelial cell -> epithelial cell of upper respiratory tract)
+        matches GT: (respiratory tract epithelial cell -> epithelial cell of upper respiratory tract)
+  [TP] PRED: (retinal cell -> amacrine cell)
+        matches GT: (retinal cell -> amacrine cell)
+  [TP] PRED: (secondary lymphoid organ macrophage -> splenic macrophage)
+        matches GT: (secondary lymphoid organ macrophage -> splenic macrophage)
+  [TP] PRED: (secretory cell -> endocrine cell)
+        matches GT: (secretory cell -> endocrine cell)
+  [TP] PRED: (secretory cell -> secretory epithelial cell)
+        matches GT: (secretory cell -> secretory epithelial cell)
+  [TP] PRED: (sensory epithelial cell -> olfactory epithelial cell)
+        matches GT: (sensory epithelial cell -> olfactory epithelial cell)
+  [TP] PRED: (sensory neuron -> peripheral sensory neuron)
+        matches GT: (sensory neuron -> peripheral sensory neuron)
+  [TP] PRED: (sensory receptor cell -> sensory epithelial cell)
+        matches GT: (sensory receptor cell -> sensory epithelial cell)
+  [TP] PRED: (skeletal muscle fiber -> intrafusal muscle fiber)
+        matches GT: (skeletal muscle fiber -> intrafusal muscle fiber)
+  [TP] PRED: (skeletal muscle myoblast -> fast muscle myoblast)
+        matches GT: (skeletal muscle myoblast -> fast muscle myoblast)
+  [TP] PRED: (smooth muscle cell -> sphincter associated smooth muscle cell)
+        matches GT: (smooth muscle cell -> sphincter associated smooth muscle cell)
+  [TP] PRED: (splenic macrophage -> splenic metallophillic macrophage)
+        matches GT: (splenic macrophage -> splenic metallophillic macrophage)
+  [TP] PRED: (stem cell -> multi fate stem cell)
+        matches GT: (stem cell -> multi fate stem cell)
+  [TP] PRED: (steroid hormone secreting cell -> androgen secreting cell)
+        matches GT: (steroid hormone secreting cell -> androgen secreting cell)
+  [TP] PRED: (supporting cell -> supporting cell sensu nematoda and protostomia)
+        matches GT: (supporting cell -> supporting cell sensu nematoda and protostomia)
+  [TP] PRED: (sympathetic neuron -> superior cervical ganglion thnpy neuron)
+        matches GT: (sympathetic neuron -> superior cervical ganglion thnpy neuron)
+  [TP] PRED: (t cell -> alpha-beta t cell)
+        matches GT: (t cell -> alpha-beta t cell)
+  [TP] PRED: (t cell -> mature t cell)
+        matches GT: (t cell -> mature t cell)
+  [TP] PRED: (trabecular meshwork cell -> juxtacanalicular tissue cell)
+        matches GT: (trabecular meshwork cell -> juxtacanalicular tissue cell)
+  [TP] PRED: (vascular leptomeningeal cell -> vlmc nn vascular leptomeningeal cell mmus)
+        matches GT: (vascular leptomeningeal cell -> vlmc nn vascular leptomeningeal cell mmus)
+  [TP] PRED: (wide field retinal amacrine cell -> wf4 amacrine cell)
+        matches GT: (wide field retinal amacrine cell -> wf4 amacrine cell)
+
+INCORRECT PREDICTIONS (False Positives: 108):
+  [FP] amacrine cell -> cartwheel cell
+  [FP] astrocyte -> interlaminar astrocyte
+  [FP] b cell -> mature b cell
+  [FP] b cell -> pre-b-ii cell
+  [FP] blood vessel endothelial cell -> endothelial cell of vascular tree
+  [FP] blood vessel endothelial cell -> interlobulary artery endothelial cell
+  [FP] cell -> be cell
+  [FP] cell -> connective tissue cell
+  [FP] cell -> electrically responsive cell
+  [FP] cell -> electrically signaling cell
+  [FP] cell -> endothelial cell
+  [FP] cell -> epithelial cell
+  [FP] cell -> extracellular matrix secreting cell
+  [FP] cell -> mesangial cell
+  [FP] cell -> mural cell
+  [FP] cell -> neural cell
+  [FP] cell -> nuclear chain fiber
+  [FP] cell -> phagocyte
+  [FP] cell -> pigment cell
+  [FP] cell -> sensory receptor cell
+  [FP] cell -> splenocyte
+  [FP] cell -> strial basal cell
+  [FP] cell -> syncytial cell
+  [FP] cell -> trabecular meshwork cell
+  [FP] cell -> vascular leptomeningeal cell
+  [FP] cell in vitro -> cultured cell
+  [FP] cell of skeletal muscle -> skeletal muscle myoblast
+  [FP] cerebral cortex glial cell -> astrocyte
+  [FP] connective tissue cell -> fibroblast
+  [FP] connective tissue cell -> interstitial cell
+  [FP] cultured cell -> experimentally modified cell in vitro
+  [FP] endocrine cell -> peptide hormone secreting cell
+  [FP] endocrine cell -> steroid hormone secreting cell
+  [FP] endothelial cell -> blood vessel endothelial cell
+  [FP] endothelial cell -> endothelial cell of artery
+  [FP] endothelial cell -> schlemms canal endothelial cell
+  [FP] enterocyte -> enterocyte of appendix
+  [FP] epithelial cell -> auditory epithelial cell
+  [FP] epithelial cell -> brush border epithelial cell
+  [FP] epithelial cell -> cholangiocyte
+  [FP] epithelial cell -> enteroendocrine cell
+  [FP] epithelial cell -> epididymis secretory cell
+  [FP] epithelial cell -> epithelial cell of alimentary canal
+  [FP] epithelial cell -> epithelial cell of large intestine
+  [FP] epithelial cell -> epithelial cell of nephron
+  [FP] epithelial cell -> epithelial melanocyte
+  [FP] epithelial cell -> gut absorptive cell
+  [FP] epithelial cell -> intestinal epithelial cell
+  [FP] epithelial cell -> renal cortical epithelial cell
+  [FP] epithelial cell -> respiratory tract epithelial cell
+  [FP] epithelial cell -> strial intermediate cell
+  [FP] epithelial cell of alimentary canal -> enterocyte
+  [FP] epithelial cell of alimentary canal -> epithelial cell of appendix
+  [FP] eukaryotic cell -> cartwheel cell
+  [FP] eukaryotic cell -> epididymis secretory cell
+  [FP] eukaryotic cell -> precursor cell
+  [FP] gabaergic interneuron -> cortical interneuron
+  [FP] gamete-nursing cell -> invertebrate nurse cell
+  [FP] glomerular cell (glomerular cell, kidney corpuscule cell) -> mesangial cell
+  [FP] inhibitory interneuron -> amacrine cell
+  [FP] inhibitory interneuron -> cortical interneuron
+  [FP] interneuron -> gabaergic interneuron
+  [FP] intestinal epithelial cell -> epithelial cell of appendix
+  [FP] kidney cell -> glomerular cell (glomerular cell, kidney corpuscule cell)
+  [FP] kidney cell -> kidney blood vessel cell
+  [FP] leukocyte -> lymphocyte
+  [FP] leukocyte -> phagocyte sensu vertebrata
+  [FP] lymphocyte of b lineage -> precursor b cell
+  [FP] macroglial cell -> cerebral cortex glial cell
+  [FP] macrophage -> secondary lymphoid organ macrophage
+  [FP] mucus secreting cell -> seromucus secreting cell
+  [FP] multinucleate cell -> myotube
+  [FP] multinucleate cell -> polyploid cell
+  [FP] multinucleate cell -> skeletal muscle fiber
+  [FP] mural cell -> smooth muscle cell
+  [FP] muscle cell -> cell of skeletal muscle
+  [FP] muscle cell -> myoblast
+  [FP] muscle cell -> myotube
+  [FP] myeloid cell (myeloid cell, myeloid leukocyte) -> mononuclear leukocyte (mononuclear leukocyte, mononuclear phagocyte)
+  [FP] neuron -> autonomic neuron
+  [FP] neuron -> interneuron
+  [FP] non-striated muscle cell -> visceral muscle cell
+  [FP] nucleate cell -> cholangiocyte
+  [FP] nucleate cell -> spermatid
+  [FP] nucleate cell -> supporting cell
+  [FP] nucleate cell -> visceral muscle cell
+  [FP] peptide hormone secreting cell -> androgen secreting cell
+  [FP] peripheral nervous system neuron -> sensory neuron
+  [FP] peripheral nervous system neuron -> superior cervical ganglion cgrp neuron
+  [FP] peripheral nervous system neuron -> sympathetic neuron
+  [FP] peripheral nervous system neuron -> thoracic ganglion thnpy neuron
+  [FP] perivascular cell -> pericyte
+  [FP] precursor cell -> precursor b cell
+  [FP] professional antigen presenting cell -> b cell
+  [FP] progenitor cell -> stem cell
+  [FP] secretory cell -> epididymis secretory cell
+  [FP] secretory cell -> mucus secreting cell
+  [FP] sensory epithelial cell -> chemoreceptor cell
+  [FP] sensory neuron -> afferent neuron
+  [FP] sensory neuron -> intrinsic primary afferent neuron of myenteric plexus
+  [FP] stem cell -> mesenchymal stem cell
+  [FP] stem cell -> stem cell of gastric gland
+  [FP] striated muscle cell -> skeletal muscle fiber
+  [FP] stromal cell -> perivascular cell
+  [FP] supporting cell -> scolopale cell
+  [FP] syncytial cell -> skeletal muscle fiber
+  [FP] t cell -> mucosal-associated invariant t cell
+  [FP] tissue-resident macrophage -> splenic macrophage
+
+MISSED RELATIONS (False Negatives: 145):
+  [FN] afferent neuron -> sensory neuron
+  [FN] astrocyte of the cerebral cortex -> interlaminar astrocyte
+  [FN] auditory epithelial cell -> strial basal cell
+  [FN] auditory epithelial cell -> strial intermediate cell
+  [FN] autonomic neuron -> sympathetic neuron
+  [FN] b cell cd19-positive -> mature b cell
+  [FN] b cell cd19-positive -> precursor b cell
+  [FN] blood vessel endothelial cell -> endothelial cell of artery
+  [FN] branched duct epithelial cell -> cholangiocyte
+  [FN] brush border epithelial cell -> enterocyte
+  [FN] cell -> electrically active cell
+  [FN] cell -> gamete-nursing cell
+  [FN] cell -> perivascular cell
+  [FN] cell -> polyploid cell
+  [FN] cell -> precursor cell
+  [FN] cell -> supporting cell
+  [FN] cell in vitro -> experimentally modified cell in vitro
+  [FN] central nervous system neuron -> cartwheel cell
+  [FN] central nervous system neuron -> interneuron
+  [FN] cerebral cortex glial cell -> astrocyte of the cerebral cortex
+  [FN] chemoreceptor cell -> olfactory epithelial cell
+  [FN] columnarcuboidal epithelial cell -> brush border epithelial cell
+  [FN] columnarcuboidal epithelial cell -> neurecto-epithelial cell
+  [FN] connective tissue cell -> pericyte
+  [FN] connective tissue cell -> trabecular meshwork cell
+  [FN] contractile cell -> pericyte
+  [FN] duct epithelial cell -> epididymis secretory cell
+  [FN] electrically active cell -> electrically responsive cell
+  [FN] electrically active cell -> electrically signaling cell
+  [FN] electrically responsive cell -> muscle cell
+  [FN] electrically responsive cell -> neuron
+  [FN] electrically signaling cell -> neuron
+  [FN] endo-epithelial cell -> epithelial cell of alimentary canal
+  [FN] endo-epithelial cell -> respiratory tract epithelial cell
+  [FN] endothelial cell -> endothelial cell of vascular tree
+  [FN] endothelial cell of vascular tree -> blood vessel endothelial cell
+  [FN] enterocyte of epithelium of large intestine -> enterocyte of appendix
+  [FN] epithelial cell -> kidney epithelial cell
+  [FN] epithelial cell of alimentary canal -> intestinal epithelial cell
+  [FN] epithelial cell of nephron -> kidney corpuscule cell
+  [FN] epithelial cell of upper respiratory tract -> olfactory epithelial cell
+  [FN] epithelial melanocyte -> strial intermediate cell
+  [FN] eukaryotic cell -> cell of skeletal muscle
+  [FN] eukaryotic cell -> connective tissue cell
+  [FN] eukaryotic cell -> endocrine cell
+  [FN] eukaryotic cell -> endothelial cell
+  [FN] eukaryotic cell -> epithelial cell
+  [FN] eukaryotic cell -> interstitial cell
+  [FN] eukaryotic cell -> invertebrate nurse cell
+  [FN] eukaryotic cell -> kidney cell
+  [FN] eukaryotic cell -> leukocyte
+  [FN] eukaryotic cell -> melanocyte
+  [FN] eukaryotic cell -> multinucleate cell
+  [FN] eukaryotic cell -> muscle cell
+  [FN] eukaryotic cell -> muscle precursor cell
+  [FN] eukaryotic cell -> myeloid cell
+  [FN] eukaryotic cell -> neural cell
+  [FN] eukaryotic cell -> phagocyte sensu vertebrata
+  [FN] eukaryotic cell -> scolopale cell
+  [FN] eukaryotic cell -> sensory receptor cell
+  [FN] eukaryotic cell -> single nucleate cell
+  [FN] eukaryotic cell -> spermatid
+  [FN] experimentally modified cell in vitro -> cultured cell
+  [FN] extracellular matrix secreting cell -> juxtacanalicular tissue cell
+  [FN] gaba-gly neuron -> cartwheel cell
+  [FN] gabaergic interneuron -> cerebral cortex gabaergic interneuron
+  [FN] germline-derived nurse cell -> invertebrate nurse cell
+  [FN] glial cell -> cerebral cortex glial cell
+  [FN] glomerular cell -> glomerular mesangial cell
+  [FN] hematopoietic cell -> myeloid cell
+  [FN] inhibitory interneuron -> gabaergic interneuron
+  [FN] interlobular artery cell -> interlobulary artery endothelial cell
+  [FN] interneuron -> amacrine cell
+  [FN] interneuron -> cortical interneuron
+  [FN] intestinal epithelial cell -> epithelial cell of large intestine
+  [FN] intrafusal muscle fiber -> nuclear chain fiber
+  [FN] kidney corpuscule cell -> glomerular cell
+  [FN] kidney cortical cell -> kidney cortex artery cell
+  [FN] kidney cortical cell -> mesangial cell
+  [FN] kidney medulla cell -> kidney blood vessel cell
+  [FN] leukocyte -> mononuclear leukocyte
+  [FN] leukocyte -> splenocyte
+  [FN] lymphocyte of b lineage -> lymphocyte of b lineage cd19-positive
+  [FN] lymphocyte of b lineage cd19-positive -> b cell cd19-positive
+  [FN] macroglial cell -> astrocyte
+  [FN] mature alpha-beta t cell -> mucosal-associated invariant t cell
+  [FN] mature b cell -> be cell
+  [FN] mesothelial fibroblast of the leptomeninx -> vascular leptomeningeal cell
+  [FN] mononuclear leukocyte -> lymphocyte
+  [FN] mononuclear leukocyte -> mononuclear phagocyte
+  [FN] motile cell -> leukocyte
+  [FN] motile cell -> phagocyte
+  [FN] multi fate stem cell -> mesenchymal stem cell
+  [FN] multi fate stem cell -> stem cell of gastric gland
+  [FN] multinucleate cell -> syncytial cell
+  [FN] muscle cell -> visceral muscle cell
+  [FN] myeloid cell -> myeloid leukocyte
+  [FN] myeloid leukocyte -> macrophage
+  [FN] myotube -> skeletal muscle fiber
+  [FN] neural cell -> intrafusal muscle fiber
+  [FN] neural cell -> mesothelial fibroblast of the leptomeninx
+  [FN] neural cell -> olfactory epithelial cell
+  [FN] neural crest derived neuron -> enteric neuron
+  [FN] neurecto-epithelial cell -> olfactory epithelial cell
+  [FN] neurecto-epithelial cell -> strial intermediate cell
+  [FN] neuron -> afferent neuron
+  [FN] nucleate cell -> leukocyte
+  [FN] peptide hormone secreting cell -> type l enteroendocrine cell
+  [FN] peripheral nervous system neuron -> autonomic neuron
+  [FN] peripheral nervous system neuron -> peripheral sensory neuron
+  [FN] peripheral sensory neuron -> intrinsic primary afferent neuron of myenteric plexus
+  [FN] perivascular cell -> mural cell
+  [FN] phagocyte -> glomerular mesangial cell
+  [FN] polyploid cell -> invertebrate nurse cell
+  [FN] precursor cell -> stem cell
+  [FN] professional antigen presenting cell -> mature b cell
+  [FN] renal cortical epithelial cell -> kidney corpuscule cell
+  [FN] renal interstitial pericyte -> mesangial cell
+  [FN] secretory cell -> gabaergic neuron
+  [FN] secretory cell -> glycinergic neuron
+  [FN] secretory cell -> juxtacanalicular tissue cell
+  [FN] secretory cell -> peptide hormone secreting cell
+  [FN] secretory cell -> seromucus secreting cell
+  [FN] secretory cell -> steroid hormone secreting cell
+  [FN] secretory epithelial cell -> enteroendocrine cell
+  [FN] secretory epithelial cell -> epididymis secretory cell
+  [FN] secretory epithelial cell -> large mucus secreting cholangiocyte
+  [FN] sensory epithelial cell -> auditory epithelial cell
+  [FN] sensory receptor cell -> chemoreceptor cell
+  [FN] seromucus secreting cell -> mucus secreting cell
+  [FN] single nucleate cell -> mononuclear leukocyte
+  [FN] splenocyte -> splenic macrophage
+  [FN] striated muscle cell -> myotube
+  [FN] stromal cell -> extracellular matrix secreting cell
+  [FN] stromal cell -> fibroblast
+  [FN] stuff accumulating cell -> phagocyte
+  [FN] stuff accumulating cell -> pigment cell
+  [FN] supporting cell -> pericyte
+  [FN] supporting cell sensu nematoda and protostomia -> scolopale cell
+  [FN] sympathetic neuron -> superior cervical ganglion cgrp neuron
+  [FN] sympathetic neuron -> thoracic ganglion thnpy neuron
+  [FN] syncytial cell -> myotube
+  [FN] tissue-resident macrophage -> secondary lymphoid organ macrophage
+  [FN] vein endothelial cell -> schlemms canal endothelial cell
+  [FN] visceral muscle cell -> smooth muscle cell

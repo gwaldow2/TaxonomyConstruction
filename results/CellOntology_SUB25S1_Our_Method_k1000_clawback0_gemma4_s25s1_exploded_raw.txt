@@ -1,0 +1,219 @@
+==================================================
+=== Detailed Node Pair Analysis (Exploded Raw Edges) ===
+Match Type Used: EXACT
+==================================================
+Precision: 0.1787 | Recall: 0.9737 | F1: 0.3020
+
+CORRECT PREDICTIONS (True Positives: 37 Pred edges covering 37 GT edges):
+  [TP] blood vessel endothelial cell -> endothelial cell of artery
+  [TP] bone cell -> non-terminally differentiated osteoblast
+  [TP] cell -> electrically active cell
+  [TP] cell -> eukaryotic cell
+  [TP] cell -> precursor cell
+  [TP] cell -> secretory cell
+  [TP] cell -> stuff accumulating cell
+  [TP] central nervous system neuron -> interneuron
+  [TP] connective tissue cell -> osteoblast
+  [TP] connective tissue cell -> stromal cell
+  [TP] electrically active cell -> electrically responsive cell
+  [TP] electrically active cell -> electrically signaling cell
+  [TP] electrically responsive cell -> neuron
+  [TP] electrically signaling cell -> neuron
+  [TP] endothelial cell -> endothelial cell of vascular tree
+  [TP] endothelial cell of vascular tree -> blood vessel endothelial cell
+  [TP] eukaryotic cell -> bone cell
+  [TP] eukaryotic cell -> connective tissue cell
+  [TP] eukaryotic cell -> endothelial cell
+  [TP] eukaryotic cell -> leucophore
+  [TP] eukaryotic cell -> neural cell
+  [TP] eukaryotic cell -> xanthophore cell
+  [TP] fibroblast -> perichondrial fibroblast
+  [TP] gabaergic interneuron -> sn-vtr-hth gata3-tcf7l2 gaba gabaergic interneuron primate
+  [TP] gabaergic neuron -> gabaergic interneuron
+  [TP] inhibitory interneuron -> gabaergic interneuron
+  [TP] interneuron -> inhibitory interneuron
+  [TP] neural cell -> neuron
+  [TP] neuron -> central nervous system neuron
+  [TP] neuron -> gabaergic neuron
+  [TP] osteoblast -> non-terminally differentiated osteoblast
+  [TP] pigment cell -> leucophore
+  [TP] pigment cell -> xanthophore cell
+  [TP] precursor cell -> progenitor cell
+  [TP] progenitor cell -> non-terminally differentiated osteoblast
+  [TP] secretory cell -> gabaergic neuron
+  [TP] stromal cell -> fibroblast
+
+INCORRECT PREDICTIONS (False Positives: 170):
+  [FP] bone cell -> osteoblast
+  [FP] cell -> blood vessel endothelial cell
+  [FP] cell -> bone cell
+  [FP] cell -> central nervous system neuron
+  [FP] cell -> connective tissue cell
+  [FP] cell -> electrically responsive cell
+  [FP] cell -> electrically signaling cell
+  [FP] cell -> endothelial cell
+  [FP] cell -> endothelial cell of artery
+  [FP] cell -> endothelial cell of vascular tree
+  [FP] cell -> fibroblast
+  [FP] cell -> gabaergic interneuron
+  [FP] cell -> gabaergic neuron
+  [FP] cell -> inhibitory interneuron
+  [FP] cell -> interneuron
+  [FP] cell -> leucophore
+  [FP] cell -> neural cell
+  [FP] cell -> neuron
+  [FP] cell -> non-terminally differentiated osteoblast
+  [FP] cell -> osteoblast
+  [FP] cell -> perichondrial fibroblast
+  [FP] cell -> pigment cell
+  [FP] cell -> progenitor cell
+  [FP] cell -> sn-vtr-hth gata3-tcf7l2 gaba gabaergic interneuron primate
+  [FP] cell -> stromal cell
+  [FP] cell -> xanthophore cell
+  [FP] central nervous system neuron -> gabaergic interneuron
+  [FP] central nervous system neuron -> gabaergic neuron
+  [FP] central nervous system neuron -> inhibitory interneuron
+  [FP] central nervous system neuron -> sn-vtr-hth gata3-tcf7l2 gaba gabaergic interneuron primate
+  [FP] connective tissue cell -> bone cell
+  [FP] connective tissue cell -> fibroblast
+  [FP] connective tissue cell -> non-terminally differentiated osteoblast
+  [FP] connective tissue cell -> perichondrial fibroblast
+  [FP] electrically active cell -> blood vessel endothelial cell
+  [FP] electrically active cell -> bone cell
+  [FP] electrically active cell -> cell
+  [FP] electrically active cell -> central nervous system neuron
+  [FP] electrically active cell -> connective tissue cell
+  [FP] electrically active cell -> endothelial cell
+  [FP] electrically active cell -> endothelial cell of artery
+  [FP] electrically active cell -> endothelial cell of vascular tree
+  [FP] electrically active cell -> eukaryotic cell
+  [FP] electrically active cell -> fibroblast
+  [FP] electrically active cell -> gabaergic interneuron
+  [FP] electrically active cell -> gabaergic neuron
+  [FP] electrically active cell -> inhibitory interneuron
+  [FP] electrically active cell -> interneuron
+  [FP] electrically active cell -> leucophore
+  [FP] electrically active cell -> neural cell
+  [FP] electrically active cell -> neuron
+  [FP] electrically active cell -> non-terminally differentiated osteoblast
+  [FP] electrically active cell -> osteoblast
+  [FP] electrically active cell -> perichondrial fibroblast
+  [FP] electrically active cell -> pigment cell
+  [FP] electrically active cell -> precursor cell
+  [FP] electrically active cell -> progenitor cell
+  [FP] electrically active cell -> secretory cell
+  [FP] electrically active cell -> sn-vtr-hth gata3-tcf7l2 gaba gabaergic interneuron primate
+  [FP] electrically active cell -> stromal cell
+  [FP] electrically active cell -> stuff accumulating cell
+  [FP] electrically active cell -> xanthophore cell
+  [FP] electrically responsive cell -> blood vessel endothelial cell
+  [FP] electrically responsive cell -> bone cell
+  [FP] electrically responsive cell -> cell
+  [FP] electrically responsive cell -> central nervous system neuron
+  [FP] electrically responsive cell -> connective tissue cell
+  [FP] electrically responsive cell -> electrically active cell
+  [FP] electrically responsive cell -> electrically signaling cell
+  [FP] electrically responsive cell -> endothelial cell
+  [FP] electrically responsive cell -> endothelial cell of artery
+  [FP] electrically responsive cell -> endothelial cell of vascular tree
+  [FP] electrically responsive cell -> eukaryotic cell
+  [FP] electrically responsive cell -> fibroblast
+  [FP] electrically responsive cell -> gabaergic interneuron
+  [FP] electrically responsive cell -> gabaergic neuron
+  [FP] electrically responsive cell -> inhibitory interneuron
+  [FP] electrically responsive cell -> interneuron
+  [FP] electrically responsive cell -> leucophore
+  [FP] electrically responsive cell -> neural cell
+  [FP] electrically responsive cell -> non-terminally differentiated osteoblast
+  [FP] electrically responsive cell -> osteoblast
+  [FP] electrically responsive cell -> perichondrial fibroblast
+  [FP] electrically responsive cell -> pigment cell
+  [FP] electrically responsive cell -> precursor cell
+  [FP] electrically responsive cell -> progenitor cell
+  [FP] electrically responsive cell -> secretory cell
+  [FP] electrically responsive cell -> sn-vtr-hth gata3-tcf7l2 gaba gabaergic interneuron primate
+  [FP] electrically responsive cell -> stromal cell
+  [FP] electrically responsive cell -> stuff accumulating cell
+  [FP] electrically responsive cell -> xanthophore cell
+  [FP] electrically signaling cell -> blood vessel endothelial cell
+  [FP] electrically signaling cell -> bone cell
+  [FP] electrically signaling cell -> cell
+  [FP] electrically signaling cell -> central nervous system neuron
+  [FP] electrically signaling cell -> connective tissue cell
+  [FP] electrically signaling cell -> electrically active cell
+  [FP] electrically signaling cell -> electrically responsive cell
+  [FP] electrically signaling cell -> endothelial cell
+  [FP] electrically signaling cell -> endothelial cell of artery
+  [FP] electrically signaling cell -> endothelial cell of vascular tree
+  [FP] electrically signaling cell -> eukaryotic cell
+  [FP] electrically signaling cell -> fibroblast
+  [FP] electrically signaling cell -> gabaergic interneuron
+  [FP] electrically signaling cell -> gabaergic neuron
+  [FP] electrically signaling cell -> inhibitory interneuron
+  [FP] electrically signaling cell -> interneuron
+  [FP] electrically signaling cell -> leucophore
+  [FP] electrically signaling cell -> neural cell
+  [FP] electrically signaling cell -> non-terminally differentiated osteoblast
+  [FP] electrically signaling cell -> osteoblast
+  [FP] electrically signaling cell -> perichondrial fibroblast
+  [FP] electrically signaling cell -> pigment cell
+  [FP] electrically signaling cell -> precursor cell
+  [FP] electrically signaling cell -> progenitor cell
+  [FP] electrically signaling cell -> secretory cell
+  [FP] electrically signaling cell -> sn-vtr-hth gata3-tcf7l2 gaba gabaergic interneuron primate
+  [FP] electrically signaling cell -> stromal cell
+  [FP] electrically signaling cell -> stuff accumulating cell
+  [FP] electrically signaling cell -> xanthophore cell
+  [FP] endothelial cell -> blood vessel endothelial cell
+  [FP] endothelial cell -> endothelial cell of artery
+  [FP] endothelial cell of vascular tree -> endothelial cell of artery
+  [FP] eukaryotic cell -> blood vessel endothelial cell
+  [FP] eukaryotic cell -> cell
+  [FP] eukaryotic cell -> central nervous system neuron
+  [FP] eukaryotic cell -> electrically active cell
+  [FP] eukaryotic cell -> electrically responsive cell
+  [FP] eukaryotic cell -> electrically signaling cell
+  [FP] eukaryotic cell -> endothelial cell of artery
+  [FP] eukaryotic cell -> endothelial cell of vascular tree
+  [FP] eukaryotic cell -> fibroblast
+  [FP] eukaryotic cell -> gabaergic interneuron
+  [FP] eukaryotic cell -> gabaergic neuron
+  [FP] eukaryotic cell -> inhibitory interneuron
+  [FP] eukaryotic cell -> interneuron
+  [FP] eukaryotic cell -> neuron
+  [FP] eukaryotic cell -> non-terminally differentiated osteoblast
+  [FP] eukaryotic cell -> osteoblast
+  [FP] eukaryotic cell -> perichondrial fibroblast
+  [FP] eukaryotic cell -> pigment cell
+  [FP] eukaryotic cell -> precursor cell
+  [FP] eukaryotic cell -> progenitor cell
+  [FP] eukaryotic cell -> secretory cell
+  [FP] eukaryotic cell -> sn-vtr-hth gata3-tcf7l2 gaba gabaergic interneuron primate
+  [FP] eukaryotic cell -> stromal cell
+  [FP] eukaryotic cell -> stuff accumulating cell
+  [FP] gabaergic neuron -> inhibitory interneuron
+  [FP] gabaergic neuron -> sn-vtr-hth gata3-tcf7l2 gaba gabaergic interneuron primate
+  [FP] inhibitory interneuron -> sn-vtr-hth gata3-tcf7l2 gaba gabaergic interneuron primate
+  [FP] interneuron -> gabaergic interneuron
+  [FP] interneuron -> sn-vtr-hth gata3-tcf7l2 gaba gabaergic interneuron primate
+  [FP] neural cell -> central nervous system neuron
+  [FP] neural cell -> gabaergic interneuron
+  [FP] neural cell -> gabaergic neuron
+  [FP] neural cell -> inhibitory interneuron
+  [FP] neural cell -> interneuron
+  [FP] neural cell -> sn-vtr-hth gata3-tcf7l2 gaba gabaergic interneuron primate
+  [FP] neuron -> gabaergic interneuron
+  [FP] neuron -> inhibitory interneuron
+  [FP] neuron -> interneuron
+  [FP] neuron -> sn-vtr-hth gata3-tcf7l2 gaba gabaergic interneuron primate
+  [FP] precursor cell -> non-terminally differentiated osteoblast
+  [FP] secretory cell -> osteoblast
+  [FP] secretory cell -> xanthophore cell
+  [FP] stromal cell -> bone cell
+  [FP] stromal cell -> connective tissue cell
+  [FP] stromal cell -> non-terminally differentiated osteoblast
+  [FP] stromal cell -> osteoblast
+  [FP] stromal cell -> perichondrial fibroblast
+
+MISSED RELATIONS (False Negatives: 1):
+  [FN] stuff accumulating cell -> pigment cell

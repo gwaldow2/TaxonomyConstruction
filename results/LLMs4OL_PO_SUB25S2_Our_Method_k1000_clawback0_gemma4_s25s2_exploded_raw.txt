@@ -1,0 +1,126 @@
+==================================================
+=== Detailed Node Pair Analysis (Exploded Raw Edges) ===
+Match Type Used: EXACT
+==================================================
+Precision: 0.1770 | Recall: 0.9091 | F1: 0.2963
+
+CORRECT PREDICTIONS (True Positives: 20 Pred edges covering 20 GT edges):
+  [TP] cardinal organ part -> petiole distal end
+  [TP] cardinal organ part -> phyllome base
+  [TP] cardinal part of multi-tissue plant structure -> cardinal organ part
+  [TP] ground tissue cell -> parenchyma cell
+  [TP] higher order inflorescence axis -> tassel inflorescence branch
+  [TP] inflorescence axis -> higher order inflorescence axis
+  [TP] multi-tissue plant structure -> plant organ
+  [TP] native plant cell -> ground tissue cell
+  [TP] parenchyma cell -> chlorenchyma cell
+  [TP] phyllome -> prophyll
+  [TP] phyllome base -> sepal base
+  [TP] plant anatomical entity -> plant structure
+  [TP] plant axis -> shoot axis
+  [TP] plant organ -> phyllome
+  [TP] plant structure -> cardinal part of multi-tissue plant structure
+  [TP] plant structure -> multi-tissue plant structure
+  [TP] plant structure -> portion of plant tissue
+  [TP] portion of meristem tissue -> meristem l3 layer
+  [TP] portion of plant tissue -> portion of meristem tissue
+  [TP] shoot axis -> inflorescence axis
+
+INCORRECT PREDICTIONS (False Positives: 93):
+  [FP] cardinal organ part -> cardinal part of multi-tissue plant structure
+  [FP] cardinal organ part -> higher order inflorescence axis
+  [FP] cardinal organ part -> inflorescence axis
+  [FP] cardinal organ part -> plant axis
+  [FP] cardinal organ part -> sepal base
+  [FP] cardinal organ part -> shoot axis
+  [FP] cardinal organ part -> tassel inflorescence branch
+  [FP] cardinal part of multi-tissue plant structure -> higher order inflorescence axis
+  [FP] cardinal part of multi-tissue plant structure -> inflorescence axis
+  [FP] cardinal part of multi-tissue plant structure -> petiole distal end
+  [FP] cardinal part of multi-tissue plant structure -> phyllome base
+  [FP] cardinal part of multi-tissue plant structure -> plant axis
+  [FP] cardinal part of multi-tissue plant structure -> sepal base
+  [FP] cardinal part of multi-tissue plant structure -> shoot axis
+  [FP] cardinal part of multi-tissue plant structure -> tassel inflorescence branch
+  [FP] ground tissue cell -> chlorenchyma cell
+  [FP] inflorescence axis -> tassel inflorescence branch
+  [FP] multi-tissue plant structure -> bracteole
+  [FP] multi-tissue plant structure -> higher order inflorescence axis
+  [FP] multi-tissue plant structure -> inflorescence axis
+  [FP] multi-tissue plant structure -> phyllome
+  [FP] multi-tissue plant structure -> phyllome base
+  [FP] multi-tissue plant structure -> plant axis
+  [FP] multi-tissue plant structure -> prophyll
+  [FP] multi-tissue plant structure -> shoot axis
+  [FP] multi-tissue plant structure -> tassel inflorescence branch
+  [FP] native plant cell -> chlorenchyma cell
+  [FP] native plant cell -> parenchyma cell
+  [FP] phyllome -> bracteole
+  [FP] plant anatomical entity -> bracteole
+  [FP] plant anatomical entity -> cardinal organ part
+  [FP] plant anatomical entity -> cardinal part of multi-tissue plant structure
+  [FP] plant anatomical entity -> chlorenchyma cell
+  [FP] plant anatomical entity -> ground tissue cell
+  [FP] plant anatomical entity -> higher order inflorescence axis
+  [FP] plant anatomical entity -> inflorescence axis
+  [FP] plant anatomical entity -> meristem l3 layer
+  [FP] plant anatomical entity -> multi-tissue plant structure
+  [FP] plant anatomical entity -> native plant cell
+  [FP] plant anatomical entity -> parenchyma cell
+  [FP] plant anatomical entity -> petiole distal end
+  [FP] plant anatomical entity -> phyllome
+  [FP] plant anatomical entity -> phyllome base
+  [FP] plant anatomical entity -> plant axis
+  [FP] plant anatomical entity -> plant organ
+  [FP] plant anatomical entity -> portion of meristem tissue
+  [FP] plant anatomical entity -> portion of plant tissue
+  [FP] plant anatomical entity -> prophyll
+  [FP] plant anatomical entity -> sepal base
+  [FP] plant anatomical entity -> shoot axis
+  [FP] plant anatomical entity -> tassel inflorescence branch
+  [FP] plant anatomical entity -> tmema
+  [FP] plant axis -> higher order inflorescence axis
+  [FP] plant axis -> inflorescence axis
+  [FP] plant axis -> tassel inflorescence branch
+  [FP] plant organ -> bracteole
+  [FP] plant organ -> higher order inflorescence axis
+  [FP] plant organ -> inflorescence axis
+  [FP] plant organ -> multi-tissue plant structure
+  [FP] plant organ -> phyllome base
+  [FP] plant organ -> plant axis
+  [FP] plant organ -> prophyll
+  [FP] plant organ -> shoot axis
+  [FP] plant organ -> tassel inflorescence branch
+  [FP] plant structure -> bracteole
+  [FP] plant structure -> cardinal organ part
+  [FP] plant structure -> chlorenchyma cell
+  [FP] plant structure -> ground tissue cell
+  [FP] plant structure -> higher order inflorescence axis
+  [FP] plant structure -> inflorescence axis
+  [FP] plant structure -> meristem l3 layer
+  [FP] plant structure -> native plant cell
+  [FP] plant structure -> parenchyma cell
+  [FP] plant structure -> petiole distal end
+  [FP] plant structure -> phyllome
+  [FP] plant structure -> phyllome base
+  [FP] plant structure -> plant anatomical entity
+  [FP] plant structure -> plant axis
+  [FP] plant structure -> plant organ
+  [FP] plant structure -> portion of meristem tissue
+  [FP] plant structure -> prophyll
+  [FP] plant structure -> sepal base
+  [FP] plant structure -> shoot axis
+  [FP] plant structure -> tassel inflorescence branch
+  [FP] plant structure -> tmema
+  [FP] portion of meristem tissue -> tmema
+  [FP] portion of plant tissue -> chlorenchyma cell
+  [FP] portion of plant tissue -> ground tissue cell
+  [FP] portion of plant tissue -> meristem l3 layer
+  [FP] portion of plant tissue -> native plant cell
+  [FP] portion of plant tissue -> parenchyma cell
+  [FP] shoot axis -> higher order inflorescence axis
+  [FP] shoot axis -> tassel inflorescence branch
+
+MISSED RELATIONS (False Negatives: 2):
+  [FN] portion of plant tissue -> tmema
+  [FN] prophyll -> bracteole

@@ -1,0 +1,51 @@
+==================================================
+=== Detailed Node Pair Analysis (Condensed Transitive Reduction) ===
+Match Type Used: SET_OVERLAP
+==================================================
+Precision: 0.4091 | Recall: 0.5000 | F1: 0.4500
+
+CORRECT PREDICTIONS (True Positives: 9 Pred edges covering 9 GT edges):
+  [TP] PRED: (action -> controlaction)
+        matches GT: (action -> controlaction)
+  [TP] PRED: (broadcastchannel -> televisionchannel)
+        matches GT: (broadcastchannel -> televisionchannel)
+  [TP] PRED: (creativework -> manuscript)
+        matches GT: (creativework -> manuscript)
+  [TP] PRED: (entertainmentbusiness -> movietheater)
+        matches GT: (entertainmentbusiness -> movietheater)
+  [TP] PRED: (enumeration -> carusagetype)
+        matches GT: (enumeration -> carusagetype)
+  [TP] PRED: (enumeration -> sizegroupenumeration)
+        matches GT: (enumeration -> sizegroupenumeration)
+  [TP] PRED: (episode -> tvepisode)
+        matches GT: (episode -> tvepisode)
+  [TP] PRED: (localbusiness -> entertainmentbusiness)
+        matches GT: (localbusiness -> entertainmentbusiness)
+  [TP] PRED: (place -> localbusiness)
+        matches GT: (place -> localbusiness)
+
+INCORRECT PREDICTIONS (False Positives: 13):
+  [FP] action -> suspendaction
+  [FP] civicstructure -> governmentbuilding
+  [FP] collection -> datadownload
+  [FP] creativework -> episode
+  [FP] creativework -> mediaobject
+  [FP] intangible -> action
+  [FP] intangible -> creativework
+  [FP] intangible -> enumeration
+  [FP] localbusiness -> healthclub
+  [FP] mediaobject -> broadcastchannel
+  [FP] organization -> emergencyservice
+  [FP] place -> civicstructure
+  [FP] place -> sportsactivitylocation
+
+MISSED RELATIONS (False Negatives: 9):
+  [FN] civicstructure -> movietheater
+  [FN] controlaction -> suspendaction
+  [FN] creativework -> collection
+  [FN] intangible -> broadcastchannel
+  [FN] localbusiness -> emergencyservice
+  [FN] localbusiness -> sportsactivitylocation
+  [FN] mediaobject -> datadownload
+  [FN] organization -> localbusiness
+  [FN] sportsactivitylocation -> healthclub

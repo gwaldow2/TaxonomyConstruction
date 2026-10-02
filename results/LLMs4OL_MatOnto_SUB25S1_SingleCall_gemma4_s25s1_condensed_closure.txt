@@ -1,0 +1,119 @@
+==================================================
+=== Detailed Node Pair Analysis (Condensed Transitive Closure) ===
+Match Type Used: SET_OVERLAP
+==================================================
+Precision: 0.7455 | Recall: 0.7736 | F1: 0.7593
+
+CORRECT PREDICTIONS (True Positives: 41 Pred edges covering 41 GT edges):
+  [TP] PRED: (addition reaction -> nucleophilic addition reaction)
+        matches GT: (addition reaction -> nucleophilic addition reaction)
+  [TP] PRED: (addition reaction -> polar addition reaction)
+        matches GT: (addition reaction -> polar addition reaction)
+  [TP] PRED: (atom -> californium atom)
+        matches GT: (atom -> californium atom)
+  [TP] PRED: (atom -> helium atom)
+        matches GT: (atom -> helium atom)
+  [TP] PRED: (atom -> ytterbium atom)
+        matches GT: (atom -> ytterbium atom)
+  [TP] PRED: (continuant -> atom)
+        matches GT: (continuant -> atom)
+  [TP] PRED: (continuant -> californium atom)
+        matches GT: (continuant -> californium atom)
+  [TP] PRED: (continuant -> dependent_continuant)
+        matches GT: (continuant -> dependent_continuant)
+  [TP] PRED: (continuant -> helium atom)
+        matches GT: (continuant -> helium atom)
+  [TP] PRED: (continuant -> illuminance)
+        matches GT: (continuant -> illuminance)
+  [TP] PRED: (continuant -> independent_continuant)
+        matches GT: (continuant -> independent_continuant)
+  [TP] PRED: (continuant -> measured property)
+        matches GT: (continuant -> measured property)
+  [TP] PRED: (continuant -> object)
+        matches GT: (continuant -> object)
+  [TP] PRED: (continuant -> open thermodynamic system)
+        matches GT: (continuant -> open thermodynamic system)
+  [TP] PRED: (continuant -> quality)
+        matches GT: (continuant -> quality)
+  [TP] PRED: (continuant -> spatial_region)
+        matches GT: (continuant -> spatial_region)
+  [TP] PRED: (continuant -> specific energy)
+        matches GT: (continuant -> specific energy)
+  [TP] PRED: (continuant -> thermodynamic system)
+        matches GT: (continuant -> thermodynamic system)
+  [TP] PRED: (continuant -> three_dimensional_region)
+        matches GT: (continuant -> three_dimensional_region)
+  [TP] PRED: (continuant -> ytterbium atom)
+        matches GT: (continuant -> ytterbium atom)
+  [TP] PRED: (dependent_continuant -> illuminance)
+        matches GT: (dependent_continuant -> illuminance)
+  [TP] PRED: (dependent_continuant -> measured property)
+        matches GT: (dependent_continuant -> measured property)
+  [TP] PRED: (dependent_continuant -> quality)
+        matches GT: (dependent_continuant -> quality)
+  [TP] PRED: (dependent_continuant -> specific energy)
+        matches GT: (dependent_continuant -> specific energy)
+  [TP] PRED: (independent_continuant -> atom)
+        matches GT: (independent_continuant -> atom)
+  [TP] PRED: (independent_continuant -> californium atom)
+        matches GT: (independent_continuant -> californium atom)
+  [TP] PRED: (independent_continuant -> helium atom)
+        matches GT: (independent_continuant -> helium atom)
+  [TP] PRED: (independent_continuant -> object)
+        matches GT: (independent_continuant -> object)
+  [TP] PRED: (independent_continuant -> ytterbium atom)
+        matches GT: (independent_continuant -> ytterbium atom)
+  [TP] PRED: (measured property -> illuminance)
+        matches GT: (measured property -> illuminance)
+  [TP] PRED: (measured property -> specific energy)
+        matches GT: (measured property -> specific energy)
+  [TP] PRED: (object -> atom)
+        matches GT: (object -> atom)
+  [TP] PRED: (object -> californium atom)
+        matches GT: (object -> californium atom)
+  [TP] PRED: (object -> helium atom)
+        matches GT: (object -> helium atom)
+  [TP] PRED: (object -> ytterbium atom)
+        matches GT: (object -> ytterbium atom)
+  [TP] PRED: (quality -> illuminance)
+        matches GT: (quality -> illuminance)
+  [TP] PRED: (quality -> measured property)
+        matches GT: (quality -> measured property)
+  [TP] PRED: (quality -> specific energy)
+        matches GT: (quality -> specific energy)
+  [TP] PRED: (spatial_region -> three_dimensional_region)
+        matches GT: (spatial_region -> three_dimensional_region)
+  [TP] PRED: (thermodynamic system -> open thermodynamic system)
+        matches GT: (thermodynamic system -> open thermodynamic system)
+  [TP] PRED: (unit -> molar energy unit)
+        matches GT: (unit -> molar energy unit)
+
+INCORRECT PREDICTIONS (False Positives: 14):
+  [FP] continuant -> addition reaction
+  [FP] continuant -> chemical conformation
+  [FP] continuant -> nucleophilic addition reaction
+  [FP] continuant -> polar addition reaction
+  [FP] dependent_continuant -> addition reaction
+  [FP] dependent_continuant -> chemical conformation
+  [FP] dependent_continuant -> nucleophilic addition reaction
+  [FP] dependent_continuant -> polar addition reaction
+  [FP] independent_continuant -> open thermodynamic system
+  [FP] independent_continuant -> spatial_region
+  [FP] independent_continuant -> thermodynamic system
+  [FP] independent_continuant -> three_dimensional_region
+  [FP] object -> open thermodynamic system
+  [FP] object -> thermodynamic system
+
+MISSED RELATIONS (False Negatives: 12):
+  [FN] chemical conformation -> wikipedia
+  [FN] continuant -> electromagnetic radation
+  [FN] dependent_continuant -> electromagnetic radation
+  [FN] electromagnetic radation -> illuminance
+  [FN] element -> ununbium
+  [FN] measured property -> electromagnetic radation
+  [FN] polar addition reaction -> nucleophilic addition reaction
+  [FN] quality -> electromagnetic radation
+  [FN] spatial_region -> open thermodynamic system
+  [FN] spatial_region -> thermodynamic system
+  [FN] three_dimensional_region -> open thermodynamic system
+  [FN] three_dimensional_region -> thermodynamic system

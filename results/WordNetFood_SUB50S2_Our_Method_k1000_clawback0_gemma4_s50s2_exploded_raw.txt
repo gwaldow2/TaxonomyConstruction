@@ -1,0 +1,357 @@
+==================================================
+=== Detailed Node Pair Analysis (Exploded Raw Edges) ===
+Match Type Used: EXACT
+==================================================
+Precision: 0.1462 | Recall: 0.9259 | F1: 0.2525
+
+CORRECT PREDICTIONS (True Positives: 50 Pred edges covering 50 GT edges):
+  [TP] alcohol -> mixed drink
+  [TP] baked goods -> bread
+  [TP] baked goods -> pastry
+  [TP] beverage -> alcohol
+  [TP] bread -> toast
+  [TP] bread -> white bread
+  [TP] butter -> clarified butter
+  [TP] cheese -> parmesan
+  [TP] condiment -> sauce
+  [TP] condiment -> vinegar
+  [TP] course -> dessert
+  [TP] dairy product -> butter
+  [TP] dairy product -> cheese
+  [TP] dessert -> pudding
+  [TP] dish -> lobster thermidor
+  [TP] dish -> pudding
+  [TP] dish -> snack food
+  [TP] dish -> stew
+  [TP] dough -> pastry
+  [TP] flavorer -> condiment
+  [TP] food -> baked goods
+  [TP] food -> beverage
+  [TP] food -> butter
+  [TP] food -> cheese
+  [TP] food -> foodstuff
+  [TP] food -> nutriment
+  [TP] food -> produce
+  [TP] foodstuff -> concoction
+  [TP] foodstuff -> dairy product
+  [TP] foodstuff -> ingredient
+  [TP] foodstuff -> starches
+  [TP] french bread -> baguet
+  [TP] greens -> french sorrel
+  [TP] highball -> sling
+  [TP] ingredient -> flavorer
+  [TP] mixed drink -> highball
+  [TP] nutriment -> dish
+  [TP] pastry -> patty shell
+  [TP] produce -> vegetable
+  [TP] pudding -> carrot pudding
+  [TP] sauce -> chocolate sauce
+  [TP] sling -> brandy sling
+  [TP] snack food -> sandwich
+  [TP] starches -> bread
+  [TP] stew -> bigos
+  [TP] stew -> fricassee
+  [TP] toast -> zwieback
+  [TP] vegetable -> greens
+  [TP] vegetable -> solanaceous vegetable
+  [TP] white bread -> french bread
+
+INCORRECT PREDICTIONS (False Positives: 292):
+  [FP] alcohol -> brandy sling
+  [FP] alcohol -> highball
+  [FP] alcohol -> sling
+  [FP] baked goods -> baguet
+  [FP] baked goods -> french bread
+  [FP] baked goods -> patty shell
+  [FP] baked goods -> toast
+  [FP] baked goods -> white bread
+  [FP] baked goods -> zwieback
+  [FP] beverage -> brandy sling
+  [FP] beverage -> highball
+  [FP] beverage -> mixed drink
+  [FP] beverage -> sling
+  [FP] bread -> baguet
+  [FP] bread -> french bread
+  [FP] bread -> zwieback
+  [FP] concoction -> alcohol
+  [FP] concoction -> baguet
+  [FP] concoction -> baked goods
+  [FP] concoction -> beverage
+  [FP] concoction -> bigos
+  [FP] concoction -> brandy sling
+  [FP] concoction -> carrot pudding
+  [FP] concoction -> chocolate sauce
+  [FP] concoction -> dessert
+  [FP] concoction -> dish
+  [FP] concoction -> french bread
+  [FP] concoction -> fricassee
+  [FP] concoction -> highball
+  [FP] concoction -> lobster thermidor
+  [FP] concoction -> mixed drink
+  [FP] concoction -> pastry
+  [FP] concoction -> patty shell
+  [FP] concoction -> pudding
+  [FP] concoction -> sandwich
+  [FP] concoction -> sauce
+  [FP] concoction -> sling
+  [FP] concoction -> snack food
+  [FP] concoction -> stew
+  [FP] concoction -> toast
+  [FP] concoction -> turkey stew
+  [FP] concoction -> vinegar
+  [FP] concoction -> zwieback
+  [FP] condiment -> butter
+  [FP] condiment -> chocolate sauce
+  [FP] condiment -> clarified butter
+  [FP] condiment -> concoction
+  [FP] condiment -> dish
+  [FP] condiment -> flavorer
+  [FP] condiment -> parmesan
+  [FP] dairy product -> clarified butter
+  [FP] dairy product -> parmesan
+  [FP] dessert -> carrot pudding
+  [FP] dessert -> pastry
+  [FP] dish -> alcohol
+  [FP] dish -> baguet
+  [FP] dish -> baked goods
+  [FP] dish -> beverage
+  [FP] dish -> bigos
+  [FP] dish -> brandy sling
+  [FP] dish -> carrot pudding
+  [FP] dish -> chocolate sauce
+  [FP] dish -> concoction
+  [FP] dish -> dessert
+  [FP] dish -> french bread
+  [FP] dish -> fricassee
+  [FP] dish -> highball
+  [FP] dish -> mixed drink
+  [FP] dish -> pastry
+  [FP] dish -> patty shell
+  [FP] dish -> sandwich
+  [FP] dish -> sauce
+  [FP] dish -> sling
+  [FP] dish -> toast
+  [FP] dish -> turkey stew
+  [FP] dish -> vinegar
+  [FP] dish -> zwieback
+  [FP] dough -> baguet
+  [FP] dough -> bread
+  [FP] dough -> french bread
+  [FP] dough -> patty shell
+  [FP] dough -> white bread
+  [FP] flavorer -> butter
+  [FP] flavorer -> chocolate sauce
+  [FP] flavorer -> clarified butter
+  [FP] flavorer -> concoction
+  [FP] flavorer -> dish
+  [FP] flavorer -> parmesan
+  [FP] flavorer -> sauce
+  [FP] flavorer -> vinegar
+  [FP] food -> alcohol
+  [FP] food -> baguet
+  [FP] food -> bigos
+  [FP] food -> brandy sling
+  [FP] food -> bread
+  [FP] food -> carrot pudding
+  [FP] food -> chocolate sauce
+  [FP] food -> clarified butter
+  [FP] food -> concoction
+  [FP] food -> condiment
+  [FP] food -> dairy product
+  [FP] food -> dessert
+  [FP] food -> dish
+  [FP] food -> dough
+  [FP] food -> flavorer
+  [FP] food -> french bread
+  [FP] food -> french sorrel
+  [FP] food -> fricassee
+  [FP] food -> greens
+  [FP] food -> highball
+  [FP] food -> ingredient
+  [FP] food -> lobster thermidor
+  [FP] food -> mixed drink
+  [FP] food -> parmesan
+  [FP] food -> pastry
+  [FP] food -> patty shell
+  [FP] food -> pudding
+  [FP] food -> sandwich
+  [FP] food -> sauce
+  [FP] food -> snack food
+  [FP] food -> solanaceous vegetable
+  [FP] food -> starches
+  [FP] food -> stew
+  [FP] food -> toast
+  [FP] food -> turkey stew
+  [FP] food -> vegetable
+  [FP] food -> vinegar
+  [FP] food -> white bread
+  [FP] food -> zwieback
+  [FP] foodstuff -> alcohol
+  [FP] foodstuff -> baguet
+  [FP] foodstuff -> baked goods
+  [FP] foodstuff -> beverage
+  [FP] foodstuff -> bigos
+  [FP] foodstuff -> brandy sling
+  [FP] foodstuff -> bread
+  [FP] foodstuff -> butter
+  [FP] foodstuff -> carrot pudding
+  [FP] foodstuff -> cheese
+  [FP] foodstuff -> chocolate sauce
+  [FP] foodstuff -> clarified butter
+  [FP] foodstuff -> condiment
+  [FP] foodstuff -> dessert
+  [FP] foodstuff -> dish
+  [FP] foodstuff -> dough
+  [FP] foodstuff -> flavorer
+  [FP] foodstuff -> food
+  [FP] foodstuff -> french bread
+  [FP] foodstuff -> french sorrel
+  [FP] foodstuff -> fricassee
+  [FP] foodstuff -> greens
+  [FP] foodstuff -> highball
+  [FP] foodstuff -> lobster thermidor
+  [FP] foodstuff -> mixed drink
+  [FP] foodstuff -> nutriment
+  [FP] foodstuff -> parmesan
+  [FP] foodstuff -> pastry
+  [FP] foodstuff -> patty shell
+  [FP] foodstuff -> produce
+  [FP] foodstuff -> pudding
+  [FP] foodstuff -> sandwich
+  [FP] foodstuff -> sauce
+  [FP] foodstuff -> snack food
+  [FP] foodstuff -> solanaceous vegetable
+  [FP] foodstuff -> stew
+  [FP] foodstuff -> toast
+  [FP] foodstuff -> turkey stew
+  [FP] foodstuff -> vegetable
+  [FP] foodstuff -> vinegar
+  [FP] foodstuff -> white bread
+  [FP] foodstuff -> zwieback
+  [FP] highball -> brandy sling
+  [FP] ingredient -> alcohol
+  [FP] ingredient -> baguet
+  [FP] ingredient -> baked goods
+  [FP] ingredient -> bread
+  [FP] ingredient -> butter
+  [FP] ingredient -> cheese
+  [FP] ingredient -> chocolate sauce
+  [FP] ingredient -> clarified butter
+  [FP] ingredient -> concoction
+  [FP] ingredient -> condiment
+  [FP] ingredient -> dairy product
+  [FP] ingredient -> dish
+  [FP] ingredient -> dough
+  [FP] ingredient -> french bread
+  [FP] ingredient -> french sorrel
+  [FP] ingredient -> greens
+  [FP] ingredient -> parmesan
+  [FP] ingredient -> pastry
+  [FP] ingredient -> patty shell
+  [FP] ingredient -> sauce
+  [FP] ingredient -> solanaceous vegetable
+  [FP] ingredient -> starches
+  [FP] ingredient -> toast
+  [FP] ingredient -> vinegar
+  [FP] ingredient -> white bread
+  [FP] ingredient -> zwieback
+  [FP] mixed drink -> bomber
+  [FP] mixed drink -> brandy sling
+  [FP] mixed drink -> sling
+  [FP] nutriment -> alcohol
+  [FP] nutriment -> baguet
+  [FP] nutriment -> baked goods
+  [FP] nutriment -> beverage
+  [FP] nutriment -> bigos
+  [FP] nutriment -> brandy sling
+  [FP] nutriment -> bread
+  [FP] nutriment -> butter
+  [FP] nutriment -> carrot pudding
+  [FP] nutriment -> cheese
+  [FP] nutriment -> chocolate sauce
+  [FP] nutriment -> clarified butter
+  [FP] nutriment -> concoction
+  [FP] nutriment -> condiment
+  [FP] nutriment -> dairy product
+  [FP] nutriment -> dessert
+  [FP] nutriment -> dough
+  [FP] nutriment -> flavorer
+  [FP] nutriment -> food
+  [FP] nutriment -> foodstuff
+  [FP] nutriment -> french bread
+  [FP] nutriment -> french sorrel
+  [FP] nutriment -> fricassee
+  [FP] nutriment -> greens
+  [FP] nutriment -> highball
+  [FP] nutriment -> ingredient
+  [FP] nutriment -> lobster thermidor
+  [FP] nutriment -> mixed drink
+  [FP] nutriment -> parmesan
+  [FP] nutriment -> pastry
+  [FP] nutriment -> patty shell
+  [FP] nutriment -> produce
+  [FP] nutriment -> pudding
+  [FP] nutriment -> sandwich
+  [FP] nutriment -> sauce
+  [FP] nutriment -> snack food
+  [FP] nutriment -> solanaceous vegetable
+  [FP] nutriment -> starches
+  [FP] nutriment -> stew
+  [FP] nutriment -> toast
+  [FP] nutriment -> turkey stew
+  [FP] nutriment -> vegetable
+  [FP] nutriment -> vinegar
+  [FP] nutriment -> white bread
+  [FP] nutriment -> zwieback
+  [FP] produce -> french sorrel
+  [FP] produce -> greens
+  [FP] produce -> ingredient
+  [FP] produce -> solanaceous vegetable
+  [FP] sauce -> alcohol
+  [FP] sauce -> baguet
+  [FP] sauce -> baked goods
+  [FP] sauce -> beverage
+  [FP] sauce -> bigos
+  [FP] sauce -> brandy sling
+  [FP] sauce -> carrot pudding
+  [FP] sauce -> concoction
+  [FP] sauce -> dessert
+  [FP] sauce -> dish
+  [FP] sauce -> french bread
+  [FP] sauce -> fricassee
+  [FP] sauce -> highball
+  [FP] sauce -> lobster thermidor
+  [FP] sauce -> mixed drink
+  [FP] sauce -> pastry
+  [FP] sauce -> patty shell
+  [FP] sauce -> pudding
+  [FP] sauce -> sandwich
+  [FP] sauce -> sling
+  [FP] sauce -> snack food
+  [FP] sauce -> stew
+  [FP] sauce -> toast
+  [FP] sauce -> turkey stew
+  [FP] sauce -> vinegar
+  [FP] sauce -> zwieback
+  [FP] snack food -> baguet
+  [FP] snack food -> baked goods
+  [FP] snack food -> pastry
+  [FP] snack food -> toast
+  [FP] snack food -> zwieback
+  [FP] starches -> baguet
+  [FP] starches -> french bread
+  [FP] starches -> patty shell
+  [FP] starches -> toast
+  [FP] starches -> white bread
+  [FP] starches -> zwieback
+  [FP] stew -> turkey stew
+  [FP] vegetable -> french sorrel
+  [FP] vegetable -> ingredient
+  [FP] vegetable -> produce
+  [FP] white bread -> baguet
+
+MISSED RELATIONS (False Negatives: 4):
+  [FN] concoction -> dough
+  [FN] fricassee -> turkey stew
+  [FN] nutriment -> course
+  [FN] sandwich -> bomber

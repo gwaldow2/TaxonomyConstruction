@@ -1,0 +1,45 @@
+==================================================
+=== Detailed Node Pair Analysis (Exploded Raw Edges) ===
+Match Type Used: EXACT
+==================================================
+Precision: 0.5200 | Recall: 0.5909 | F1: 0.5532
+
+CORRECT PREDICTIONS (True Positives: 13 Pred edges covering 13 GT edges):
+  [TP] action -> consumeaction
+  [TP] action -> organizeaction
+  [TP] foodestablishment -> fastfoodrestaurant
+  [TP] homeandconstructionbusiness -> electrician
+  [TP] intangible -> listitem
+  [TP] localbusiness -> foodestablishment
+  [TP] localbusiness -> medicalbusiness
+  [TP] medicalentity -> medicalprocedure
+  [TP] medicalprocedure -> therapeuticprocedure
+  [TP] organization -> medicalorganization
+  [TP] periodical -> comicseries
+  [TP] physician -> individualphysician
+  [TP] place -> localbusiness
+
+INCORRECT PREDICTIONS (False Positives: 12):
+  [FP] action -> bookmarkaction
+  [FP] action -> watchaction
+  [FP] intangible -> howtoitem
+  [FP] intangible -> periodical
+  [FP] localbusiness -> homeandconstructionbusiness
+  [FP] medicalbusiness -> individualphysician
+  [FP] medicalbusiness -> medicalorganization
+  [FP] medicalentity -> medicalorganization
+  [FP] medicalentity -> medicaltherapy
+  [FP] medicalentity -> physician
+  [FP] medicaltherapy -> therapeuticprocedure
+  [FP] therapeuticprocedure -> palliativeprocedure
+
+MISSED RELATIONS (False Negatives: 9):
+  [FN] consumeaction -> watchaction
+  [FN] listitem -> howtoitem
+  [FN] medicalbusiness -> physician
+  [FN] medicalorganization -> physician
+  [FN] medicalprocedure -> palliativeprocedure
+  [FN] medicaltherapy -> palliativeprocedure
+  [FN] organization -> localbusiness
+  [FN] organizeaction -> bookmarkaction
+  [FN] therapeuticprocedure -> medicaltherapy

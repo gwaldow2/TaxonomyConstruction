@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d8" for="node" attr.name="is_virtual" attr.type="boolean"/>
+<key id="d7" for="graph" attr.name="generated" attr.type="string"/>
+<key id="d6" for="graph" attr.name="generator" attr.type="string"/>
+<key id="d5" for="graph" attr.name="source_edges" attr.type="string"/>
+<key id="d4" for="graph" attr.name="source_nodes" attr.type="string"/>
+<key id="d3" for="graph" attr.name="source_file" attr.type="string"/>
+<key id="d2" for="graph" attr.name="seed" attr.type="string"/>
+<key id="d1" for="graph" attr.name="target_nodes" attr.type="string"/>
+<key id="d0" for="graph" attr.name="scale" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">SUB25</data>
+<data key="d1">25</data>
+<data key="d2">42</data>
+<data key="d3">LLMs4OL_PROCO_FULL.graphml</data>
+<data key="d4">518</data>
+<data key="d5">584</data>
+<data key="d6">scale_benchmarks.py</data>
+<data key="d7">2026-09-30T16:24:53</data>
+<node id="sequential centrifugation"/>
+<node id="lewis acid"/>
+<node id="process"/>
+<node id="chemical role"/>
+<node id="nitrogen molecular entity"/>
+<node id="centrifugation"/>
+<node id="material processing"/>
+<node id="role"/>
+<node id="acid"/>
+<node id="afrl_0000085"/>
+<node id="imidic acid"/>
+<node id="chromatography"/>
+<node id="acceptor"/>
+<node id="pnictogen molecular entity"/>
+<node id="in-silico modeling"/>
+<node id="occurrent"/>
+<node id="application"/>
+<node id="mcase mutagen prediction"/>
+<node id="unit operation in chemical processing"/>
+<node id="displacement chromatography"/>
+<node id="reagent"/>
+<node id="entity"/>
+<node id="planned process"/>
+<node id="electrophilic reagent"/>
+<node id="supercritical fluid method"/>
+<node id="virtual_root">
+  <data key="d8">True</data>
+</node>
+<edge source="lewis acid" target="electrophilic reagent"/>
+<edge source="process" target="planned process"/>
+<edge source="chemical role" target="acceptor"/>
+<edge source="chemical role" target="acid"/>
+<edge source="nitrogen molecular entity" target="imidic acid"/>
+<edge source="centrifugation" target="sequential centrifugation"/>
+<edge source="material processing" target="supercritical fluid method"/>
+<edge source="role" target="afrl_0000085"/>
+<edge source="role" target="application"/>
+<edge source="role" target="chemical role"/>
+<edge source="acid" target="lewis acid"/>
+<edge source="chromatography" target="displacement chromatography"/>
+<edge source="acceptor" target="lewis acid"/>
+<edge source="pnictogen molecular entity" target="nitrogen molecular entity"/>
+<edge source="in-silico modeling" target="mcase mutagen prediction"/>
+<edge source="occurrent" target="process"/>
+<edge source="application" target="reagent"/>
+<edge source="unit operation in chemical processing" target="supercritical fluid method"/>
+<edge source="reagent" target="electrophilic reagent"/>
+<edge source="entity" target="occurrent"/>
+<edge source="planned process" target="in-silico modeling"/>
+<edge source="planned process" target="unit operation in chemical processing"/>
+<edge source="planned process" target="material processing"/>
+<edge source="virtual_root" target="centrifugation"/>
+<edge source="virtual_root" target="role"/>
+<edge source="virtual_root" target="chromatography"/>
+<edge source="virtual_root" target="pnictogen molecular entity"/>
+<edge source="virtual_root" target="entity"/>
+</graph></graphml>

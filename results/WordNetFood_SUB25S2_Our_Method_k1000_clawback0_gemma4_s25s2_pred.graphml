@@ -1,0 +1,85 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d4" for="graph" attr.name="timestamp" attr.type="string"/>
+<key id="d3" for="graph" attr.name="scale" attr.type="string"/>
+<key id="d2" for="graph" attr.name="results_file" attr.type="string"/>
+<key id="d1" for="graph" attr.name="tag" attr.type="string"/>
+<key id="d0" for="graph" attr.name="model" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">google/gemma-4-31b-it</data>
+<data key="d1">gemma4_s25s2</data>
+<data key="d2">results/scaling_gemma4.json</data>
+<data key="d3">SUB25S2</data>
+<data key="d4">2026-09-30T16:51:14</data>
+<node id="baked goods"/>
+<node id="toast"/>
+<node id="starches"/>
+<node id="zwieback"/>
+<node id="bread"/>
+<node id="food (food, foodstuff, ingredient, nutriment)"/>
+<node id="dish"/>
+<node id="white bread"/>
+<node id="french bread"/>
+<node id="baguet"/>
+<node id="cheese"/>
+<node id="parmesan"/>
+<node id="dairy product"/>
+<node id="produce (produce, vegetable)"/>
+<node id="solanaceous vegetable"/>
+<node id="bigos"/>
+<node id="stew"/>
+<node id="condiment (condiment, flavorer)"/>
+<node id="chocolate sauce"/>
+<node id="sauce"/>
+<edge source="baked goods" target="toast"/>
+<edge source="baked goods" target="white bread"/>
+<edge source="baked goods" target="zwieback"/>
+<edge source="baked goods" target="french bread"/>
+<edge source="baked goods" target="bread"/>
+<edge source="baked goods" target="baguet"/>
+<edge source="toast" target="zwieback"/>
+<edge source="starches" target="toast"/>
+<edge source="starches" target="white bread"/>
+<edge source="starches" target="zwieback"/>
+<edge source="starches" target="french bread"/>
+<edge source="starches" target="bread"/>
+<edge source="starches" target="baguet"/>
+<edge source="bread" target="toast"/>
+<edge source="bread" target="white bread"/>
+<edge source="bread" target="zwieback"/>
+<edge source="bread" target="french bread"/>
+<edge source="bread" target="baguet"/>
+<edge source="food (food, foodstuff, ingredient, nutriment)" target="toast"/>
+<edge source="food (food, foodstuff, ingredient, nutriment)" target="baked goods"/>
+<edge source="food (food, foodstuff, ingredient, nutriment)" target="starches"/>
+<edge source="food (food, foodstuff, ingredient, nutriment)" target="parmesan"/>
+<edge source="food (food, foodstuff, ingredient, nutriment)" target="white bread"/>
+<edge source="food (food, foodstuff, ingredient, nutriment)" target="zwieback"/>
+<edge source="food (food, foodstuff, ingredient, nutriment)" target="solanaceous vegetable"/>
+<edge source="food (food, foodstuff, ingredient, nutriment)" target="dairy product"/>
+<edge source="food (food, foodstuff, ingredient, nutriment)" target="french bread"/>
+<edge source="food (food, foodstuff, ingredient, nutriment)" target="bigos"/>
+<edge source="food (food, foodstuff, ingredient, nutriment)" target="bread"/>
+<edge source="food (food, foodstuff, ingredient, nutriment)" target="condiment (condiment, flavorer)"/>
+<edge source="food (food, foodstuff, ingredient, nutriment)" target="cheese"/>
+<edge source="food (food, foodstuff, ingredient, nutriment)" target="chocolate sauce"/>
+<edge source="food (food, foodstuff, ingredient, nutriment)" target="baguet"/>
+<edge source="food (food, foodstuff, ingredient, nutriment)" target="produce (produce, vegetable)"/>
+<edge source="food (food, foodstuff, ingredient, nutriment)" target="dish"/>
+<edge source="food (food, foodstuff, ingredient, nutriment)" target="sauce"/>
+<edge source="food (food, foodstuff, ingredient, nutriment)" target="stew"/>
+<edge source="dish" target="toast"/>
+<edge source="dish" target="baked goods"/>
+<edge source="dish" target="zwieback"/>
+<edge source="dish" target="bigos"/>
+<edge source="dish" target="stew"/>
+<edge source="white bread" target="french bread"/>
+<edge source="white bread" target="baguet"/>
+<edge source="french bread" target="baguet"/>
+<edge source="cheese" target="parmesan"/>
+<edge source="dairy product" target="parmesan"/>
+<edge source="dairy product" target="cheese"/>
+<edge source="produce (produce, vegetable)" target="solanaceous vegetable"/>
+<edge source="stew" target="bigos"/>
+<edge source="condiment (condiment, flavorer)" target="chocolate sauce"/>
+<edge source="condiment (condiment, flavorer)" target="sauce"/>
+<edge source="sauce" target="chocolate sauce"/>
+</graph></graphml>

@@ -1,0 +1,54 @@
+==================================================
+=== Detailed Node Pair Analysis (Condensed Transitive Reduction) ===
+Match Type Used: SET_OVERLAP
+==================================================
+Precision: 0.5455 | Recall: 0.5714 | F1: 0.5581
+
+CORRECT PREDICTIONS (True Positives: 12 Pred edges covering 12 GT edges):
+  [TP] PRED: (action -> consumeaction)
+        matches GT: (action -> consumeaction)
+  [TP] PRED: (action -> organizeaction)
+        matches GT: (action -> organizeaction)
+  [TP] PRED: (foodestablishment -> fastfoodrestaurant)
+        matches GT: (foodestablishment -> fastfoodrestaurant)
+  [TP] PRED: (homeandconstructionbusiness -> electrician)
+        matches GT: (homeandconstructionbusiness -> electrician)
+  [TP] PRED: (listitem -> howtoitem)
+        matches GT: (listitem -> howtoitem)
+  [TP] PRED: (localbusiness -> foodestablishment)
+        matches GT: (localbusiness -> foodestablishment)
+  [TP] PRED: (medicalentity -> medicalprocedure (medicalprocedure, medicaltherapy))
+        matches GT: (medicalentity -> medicalprocedure)
+  [TP] PRED: (medicalprocedure (medicalprocedure, medicaltherapy) -> therapeuticprocedure)
+        matches GT: (medicalprocedure -> therapeuticprocedure)
+  [TP] PRED: (organization -> localbusiness)
+        matches GT: (organization -> localbusiness)
+  [TP] PRED: (periodical -> comicseries)
+        matches GT: (periodical -> comicseries)
+  [TP] PRED: (physician -> individualphysician)
+        matches GT: (physician -> individualphysician)
+  [TP] PRED: (place -> localbusiness)
+        matches GT: (place -> localbusiness)
+
+INCORRECT PREDICTIONS (False Positives: 10):
+  [FP] action -> bookmarkaction
+  [FP] action -> medicalprocedure (medicalprocedure, medicaltherapy)
+  [FP] action -> watchaction
+  [FP] intangible -> howtoitem
+  [FP] localbusiness -> homeandconstructionbusiness
+  [FP] localbusiness -> medicalorganization
+  [FP] medicalentity -> medicalorganization
+  [FP] medicalentity -> physician
+  [FP] medicalorganization -> medicalbusiness
+  [FP] therapeuticprocedure -> palliativeprocedure
+
+MISSED RELATIONS (False Negatives: 9):
+  [FN] consumeaction -> watchaction
+  [FN] intangible -> listitem
+  [FN] localbusiness -> medicalbusiness
+  [FN] medicalbusiness -> physician
+  [FN] medicalorganization -> physician
+  [FN] medicaltherapy -> palliativeprocedure
+  [FN] organization -> medicalorganization
+  [FN] organizeaction -> bookmarkaction
+  [FN] therapeuticprocedure -> medicaltherapy

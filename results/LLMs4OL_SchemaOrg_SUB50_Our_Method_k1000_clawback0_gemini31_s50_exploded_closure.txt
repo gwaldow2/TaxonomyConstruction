@@ -1,0 +1,102 @@
+==================================================
+=== Detailed Node Pair Analysis (Exploded Transitive Closure) ===
+Match Type Used: EXACT
+==================================================
+Precision: 0.8111 | Recall: 1.0000 | F1: 0.8957
+
+CORRECT PREDICTIONS (True Positives: 73 Pred edges covering 73 GT edges):
+  [TP] action -> allocateaction
+  [TP] action -> assignaction
+  [TP] action -> cookaction
+  [TP] action -> createaction
+  [TP] action -> organizeaction
+  [TP] action -> takeaction
+  [TP] action -> transferaction
+  [TP] allocateaction -> assignaction
+  [TP] article -> techarticle
+  [TP] audience -> peopleaudience
+  [TP] createaction -> cookaction
+  [TP] creativework -> ampstory
+  [TP] creativework -> article
+  [TP] creativework -> creativeworkseries
+  [TP] creativework -> howtostep
+  [TP] creativework -> movieseries
+  [TP] creativework -> shortstory
+  [TP] creativework -> techarticle
+  [TP] creativeworkseries -> movieseries
+  [TP] datatype -> time
+  [TP] enumeration -> adultorientedenumeration
+  [TP] enumeration -> governmentbenefitstype
+  [TP] enumeration -> measurementmethodenum
+  [TP] enumeration -> physicalactivitycategory
+  [TP] foodestablishment -> bakery
+  [TP] intangible -> audience
+  [TP] intangible -> broadcastservice
+  [TP] intangible -> creativeworkseries
+  [TP] intangible -> howtostep
+  [TP] intangible -> listitem
+  [TP] intangible -> movieseries
+  [TP] intangible -> peopleaudience
+  [TP] intangible -> series
+  [TP] intangible -> service
+  [TP] intangible -> ticket
+  [TP] itemlist -> howtostep
+  [TP] listitem -> howtostep
+  [TP] localbusiness -> bakery
+  [TP] localbusiness -> entertainmentbusiness
+  [TP] localbusiness -> exercisegym
+  [TP] localbusiness -> foodestablishment
+  [TP] localbusiness -> lodgingbusiness
+  [TP] localbusiness -> motel
+  [TP] localbusiness -> sportsactivitylocation
+  [TP] lodgingbusiness -> motel
+  [TP] medicalentity -> medicalcode
+  [TP] medicalentity -> medicalintangible
+  [TP] medicalintangible -> medicalcode
+  [TP] organization -> bakery
+  [TP] organization -> entertainmentbusiness
+  [TP] organization -> exercisegym
+  [TP] organization -> foodestablishment
+  [TP] organization -> localbusiness
+  [TP] organization -> lodgingbusiness
+  [TP] organization -> motel
+  [TP] organization -> researchorganization
+  [TP] organization -> sportsactivitylocation
+  [TP] organizeaction -> allocateaction
+  [TP] organizeaction -> assignaction
+  [TP] periodical -> comicseries
+  [TP] place -> bakery
+  [TP] place -> entertainmentbusiness
+  [TP] place -> exercisegym
+  [TP] place -> foodestablishment
+  [TP] place -> localbusiness
+  [TP] place -> lodgingbusiness
+  [TP] place -> motel
+  [TP] place -> sportsactivitylocation
+  [TP] series -> creativeworkseries
+  [TP] series -> movieseries
+  [TP] service -> broadcastservice
+  [TP] sportsactivitylocation -> exercisegym
+  [TP] transferaction -> takeaction
+
+INCORRECT PREDICTIONS (False Positives: 17):
+  [FP] article -> ampstory
+  [FP] creativework -> comicseries
+  [FP] creativework -> imageobject
+  [FP] creativework -> periodical
+  [FP] creativeworkseries -> comicseries
+  [FP] creativeworkseries -> periodical
+  [FP] intangible -> adultorientedenumeration
+  [FP] intangible -> comicseries
+  [FP] intangible -> enumeration
+  [FP] intangible -> governmentbenefitstype
+  [FP] intangible -> itemlist
+  [FP] intangible -> measurementmethodenum
+  [FP] intangible -> offer
+  [FP] intangible -> periodical
+  [FP] intangible -> physicalactivitycategory
+  [FP] series -> comicseries
+  [FP] series -> periodical
+
+MISSED RELATIONS (False Negatives: 0):
+  None. (Perfect Recall!)

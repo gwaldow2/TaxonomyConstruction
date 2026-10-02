@@ -1,0 +1,62 @@
+==================================================
+=== Detailed Node Pair Analysis (Condensed Transitive Reduction) ===
+Match Type Used: SET_OVERLAP
+==================================================
+Precision: 0.8333 | Recall: 0.7407 | F1: 0.7843
+
+CORRECT PREDICTIONS (True Positives: 20 Pred edges covering 20 GT edges):
+  [TP] PRED: (b complex vitamin -> inositol)
+        matches GT: (b complex vitamin -> inositol)
+  [TP] PRED: (cheese -> cheshire cheese)
+        matches GT: (cheese -> cheshire cheese)
+  [TP] PRED: (condiment -> sauce)
+        matches GT: (condiment -> sauce)
+  [TP] PRED: (dairy product -> cheese)
+        matches GT: (dairy product -> cheese)
+  [TP] PRED: (dairy product -> milk)
+        matches GT: (dairy product -> milk)
+  [TP] PRED: (feed -> cattle cake)
+        matches GT: (feed -> cattle cake)
+  [TP] PRED: (food -> foodstuff)
+        matches GT: (food -> foodstuff)
+  [TP] PRED: (foodstuff -> dairy product)
+        matches GT: (foodstuff -> dairy product)
+  [TP] PRED: (foodstuff -> grain)
+        matches GT: (foodstuff -> grain)
+  [TP] PRED: (foodstuff -> ingredient)
+        matches GT: (foodstuff -> ingredient)
+  [TP] PRED: (foodstuff -> starches)
+        matches GT: (foodstuff -> starches)
+  [TP] PRED: (grain -> rice)
+        matches GT: (grain -> rice)
+  [TP] PRED: (ingredient -> flavorer)
+        matches GT: (ingredient -> flavorer)
+  [TP] PRED: (milk -> colostrum)
+        matches GT: (milk -> colostrum)
+  [TP] PRED: (milk -> whole milk)
+        matches GT: (milk -> whole milk)
+  [TP] PRED: (rice -> brown rice)
+        matches GT: (rice -> brown rice)
+  [TP] PRED: (sauce -> white sauce)
+        matches GT: (sauce -> white sauce)
+  [TP] PRED: (vitamin -> water soluble vitamin)
+        matches GT: (vitamin -> water soluble vitamin)
+  [TP] PRED: (water soluble vitamin -> b complex vitamin)
+        matches GT: (water soluble vitamin -> b complex vitamin)
+  [TP] PRED: (white sauce -> blanc)
+        matches GT: (white sauce -> blanc)
+
+INCORRECT PREDICTIONS (False Positives: 4):
+  [FP] foodstuff -> feed
+  [FP] ingredient -> condiment
+  [FP] ingredient -> vitamin
+  [FP] nutriment -> food
+
+MISSED RELATIONS (False Negatives: 7):
+  [FN] flavorer -> condiment
+  [FN] food -> feed
+  [FN] food -> nutriment
+  [FN] food -> water
+  [FN] nutriment -> milk
+  [FN] nutriment -> vitamin
+  [FN] starches -> rice

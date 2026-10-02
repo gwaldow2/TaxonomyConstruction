@@ -1,0 +1,65 @@
+==================================================
+=== Detailed Node Pair Analysis (Condensed Transitive Reduction) ===
+Match Type Used: SET_OVERLAP
+==================================================
+Precision: 0.4815 | Recall: 0.4815 | F1: 0.4815
+
+CORRECT PREDICTIONS (True Positives: 13 Pred edges covering 13 GT edges):
+  [TP] PRED: (bread -> bun)
+        matches GT: (bread -> bun)
+  [TP] PRED: (chowder -> fish chowder)
+        matches GT: (chowder -> fish chowder)
+  [TP] PRED: (corn -> hominy)
+        matches GT: (corn -> hominy)
+  [TP] PRED: (dish -> soup)
+        matches GT: (dish -> soup)
+  [TP] PRED: (dough -> pastry)
+        matches GT: (dough -> pastry)
+  [TP] PRED: (flavorer -> onion salt)
+        matches GT: (flavorer -> onion salt)
+  [TP] PRED: (food -> foodstuff)
+        matches GT: (food -> foodstuff)
+  [TP] PRED: (grain -> corn)
+        matches GT: (grain -> corn)
+  [TP] PRED: (ingredient -> egg white)
+        matches GT: (ingredient -> egg white)
+  [TP] PRED: (nutriment -> dish)
+        matches GT: (nutriment -> dish)
+  [TP] PRED: (pastry -> puff paste)
+        matches GT: (pastry -> puff paste)
+  [TP] PRED: (sauce -> pepper sauce)
+        matches GT: (sauce -> pepper sauce)
+  [TP] PRED: (soup -> chowder)
+        matches GT: (soup -> chowder)
+
+INCORRECT PREDICTIONS (False Positives: 14):
+  [FP] bread -> crescent roll
+  [FP] bread -> sweet roll
+  [FP] bun -> honey bun
+  [FP] concoction -> condiment
+  [FP] condiment -> flavorer
+  [FP] dough -> bread
+  [FP] flavorer -> sauce
+  [FP] foodstuff -> nutriment
+  [FP] ingredient -> concoction
+  [FP] ingredient -> dough
+  [FP] ingredient -> starches
+  [FP] nutriment -> ingredient
+  [FP] pastry -> phyllo
+  [FP] starches -> grain
+
+MISSED RELATIONS (False Negatives: 14):
+  [FN] bun -> crescent roll
+  [FN] bun -> sweet roll
+  [FN] concoction -> dough
+  [FN] condiment -> sauce
+  [FN] flavorer -> condiment
+  [FN] food -> nutriment
+  [FN] foodstuff -> concoction
+  [FN] foodstuff -> grain
+  [FN] foodstuff -> ingredient
+  [FN] foodstuff -> starches
+  [FN] ingredient -> flavorer
+  [FN] puff paste -> phyllo
+  [FN] starches -> bread
+  [FN] sweet roll -> honey bun

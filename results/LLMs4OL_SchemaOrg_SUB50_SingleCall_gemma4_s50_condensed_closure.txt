@@ -1,0 +1,155 @@
+==================================================
+=== Detailed Node Pair Analysis (Condensed Transitive Closure) ===
+Match Type Used: SET_OVERLAP
+==================================================
+Precision: 0.6479 | Recall: 0.6301 | F1: 0.6389
+
+CORRECT PREDICTIONS (True Positives: 46 Pred edges covering 46 GT edges):
+  [TP] PRED: (action -> allocateaction)
+        matches GT: (action -> allocateaction)
+  [TP] PRED: (action -> assignaction)
+        matches GT: (action -> assignaction)
+  [TP] PRED: (action -> cookaction)
+        matches GT: (action -> cookaction)
+  [TP] PRED: (action -> createaction)
+        matches GT: (action -> createaction)
+  [TP] PRED: (action -> organizeaction)
+        matches GT: (action -> organizeaction)
+  [TP] PRED: (action -> takeaction)
+        matches GT: (action -> takeaction)
+  [TP] PRED: (action -> transferaction)
+        matches GT: (action -> transferaction)
+  [TP] PRED: (article -> techarticle)
+        matches GT: (article -> techarticle)
+  [TP] PRED: (audience -> peopleaudience)
+        matches GT: (audience -> peopleaudience)
+  [TP] PRED: (creativework -> article)
+        matches GT: (creativework -> article)
+  [TP] PRED: (creativework -> creativeworkseries)
+        matches GT: (creativework -> creativeworkseries)
+  [TP] PRED: (creativework -> howtostep)
+        matches GT: (creativework -> howtostep)
+  [TP] PRED: (creativework -> movieseries)
+        matches GT: (creativework -> movieseries)
+  [TP] PRED: (creativework -> shortstory)
+        matches GT: (creativework -> shortstory)
+  [TP] PRED: (creativework -> techarticle)
+        matches GT: (creativework -> techarticle)
+  [TP] PRED: (creativeworkseries -> movieseries)
+        matches GT: (creativeworkseries -> movieseries)
+  [TP] PRED: (enumeration -> adultorientedenumeration)
+        matches GT: (enumeration -> adultorientedenumeration)
+  [TP] PRED: (enumeration -> governmentbenefitstype)
+        matches GT: (enumeration -> governmentbenefitstype)
+  [TP] PRED: (enumeration -> measurementmethodenum)
+        matches GT: (enumeration -> measurementmethodenum)
+  [TP] PRED: (foodestablishment -> bakery)
+        matches GT: (foodestablishment -> bakery)
+  [TP] PRED: (intangible -> creativeworkseries)
+        matches GT: (intangible -> creativeworkseries)
+  [TP] PRED: (intangible -> howtostep)
+        matches GT: (intangible -> howtostep)
+  [TP] PRED: (intangible -> movieseries)
+        matches GT: (intangible -> movieseries)
+  [TP] PRED: (intangible -> series)
+        matches GT: (intangible -> series)
+  [TP] PRED: (intangible -> service)
+        matches GT: (intangible -> service)
+  [TP] PRED: (localbusiness -> bakery)
+        matches GT: (localbusiness -> bakery)
+  [TP] PRED: (localbusiness -> entertainmentbusiness)
+        matches GT: (localbusiness -> entertainmentbusiness)
+  [TP] PRED: (localbusiness -> exercisegym)
+        matches GT: (localbusiness -> exercisegym)
+  [TP] PRED: (localbusiness -> foodestablishment)
+        matches GT: (localbusiness -> foodestablishment)
+  [TP] PRED: (localbusiness -> lodgingbusiness)
+        matches GT: (localbusiness -> lodgingbusiness)
+  [TP] PRED: (localbusiness -> motel)
+        matches GT: (localbusiness -> motel)
+  [TP] PRED: (lodgingbusiness -> motel)
+        matches GT: (lodgingbusiness -> motel)
+  [TP] PRED: (medicalentity -> medicalcode)
+        matches GT: (medicalentity -> medicalcode)
+  [TP] PRED: (medicalentity -> medicalintangible)
+        matches GT: (medicalentity -> medicalintangible)
+  [TP] PRED: (organization -> entertainmentbusiness)
+        matches GT: (organization -> entertainmentbusiness)
+  [TP] PRED: (organization -> researchorganization)
+        matches GT: (organization -> researchorganization)
+  [TP] PRED: (place -> bakery)
+        matches GT: (place -> bakery)
+  [TP] PRED: (place -> entertainmentbusiness)
+        matches GT: (place -> entertainmentbusiness)
+  [TP] PRED: (place -> exercisegym)
+        matches GT: (place -> exercisegym)
+  [TP] PRED: (place -> foodestablishment)
+        matches GT: (place -> foodestablishment)
+  [TP] PRED: (place -> localbusiness)
+        matches GT: (place -> localbusiness)
+  [TP] PRED: (place -> lodgingbusiness)
+        matches GT: (place -> lodgingbusiness)
+  [TP] PRED: (place -> motel)
+        matches GT: (place -> motel)
+  [TP] PRED: (place -> sportsactivitylocation)
+        matches GT: (place -> sportsactivitylocation)
+  [TP] PRED: (series -> creativeworkseries)
+        matches GT: (series -> creativeworkseries)
+  [TP] PRED: (series -> movieseries)
+        matches GT: (series -> movieseries)
+
+INCORRECT PREDICTIONS (False Positives: 25):
+  [FP] creativework -> comicseries
+  [FP] creativework -> imageobject
+  [FP] creativework -> periodical
+  [FP] creativework -> series
+  [FP] creativeworkseries -> comicseries
+  [FP] datatype -> adultorientedenumeration
+  [FP] datatype -> enumeration
+  [FP] datatype -> governmentbenefitstype
+  [FP] datatype -> measurementmethodenum
+  [FP] intangible -> adultorientedenumeration
+  [FP] intangible -> article
+  [FP] intangible -> comicseries
+  [FP] intangible -> creativework
+  [FP] intangible -> datatype
+  [FP] intangible -> enumeration
+  [FP] intangible -> governmentbenefitstype
+  [FP] intangible -> imageobject
+  [FP] intangible -> measurementmethodenum
+  [FP] intangible -> medicalintangible
+  [FP] intangible -> offer
+  [FP] intangible -> periodical
+  [FP] intangible -> shortstory
+  [FP] intangible -> techarticle
+  [FP] listitem -> itemlist
+  [FP] series -> comicseries
+
+MISSED RELATIONS (False Negatives: 27):
+  [FN] allocateaction -> assignaction
+  [FN] createaction -> cookaction
+  [FN] creativework -> ampstory
+  [FN] datatype -> time
+  [FN] enumeration -> physicalactivitycategory
+  [FN] intangible -> audience
+  [FN] intangible -> broadcastservice
+  [FN] intangible -> listitem
+  [FN] intangible -> peopleaudience
+  [FN] intangible -> ticket
+  [FN] itemlist -> howtostep
+  [FN] listitem -> howtostep
+  [FN] localbusiness -> sportsactivitylocation
+  [FN] medicalintangible -> medicalcode
+  [FN] organization -> bakery
+  [FN] organization -> exercisegym
+  [FN] organization -> foodestablishment
+  [FN] organization -> localbusiness
+  [FN] organization -> lodgingbusiness
+  [FN] organization -> motel
+  [FN] organization -> sportsactivitylocation
+  [FN] organizeaction -> allocateaction
+  [FN] organizeaction -> assignaction
+  [FN] periodical -> comicseries
+  [FN] service -> broadcastservice
+  [FN] sportsactivitylocation -> exercisegym
+  [FN] transferaction -> takeaction

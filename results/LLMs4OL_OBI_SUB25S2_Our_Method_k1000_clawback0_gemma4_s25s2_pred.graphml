@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d4" for="graph" attr.name="timestamp" attr.type="string"/>
+<key id="d3" for="graph" attr.name="scale" attr.type="string"/>
+<key id="d2" for="graph" attr.name="results_file" attr.type="string"/>
+<key id="d1" for="graph" attr.name="tag" attr.type="string"/>
+<key id="d0" for="graph" attr.name="model" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">google/gemma-4-31b-it</data>
+<data key="d1">gemma4_s25s2</data>
+<data key="d2">results/scaling_gemma4.json</data>
+<data key="d3">SUB25S2</data>
+<data key="d4">2026-09-30T16:51:14</data>
+<node id="performance status value specification"/>
+<node id="eastern cooperative oncology group score value specification"/>
+<node id="assay"/>
+<node id="epigenetic modification assay"/>
+<node id="analyte assay"/>
+<node id="dna methylation profiling assay"/>
+<node id="dna methylation profiling by chip-chip assay"/>
+<node id="dna methylation profiling by array assay"/>
+<node id="chip-chip assay"/>
+<node id="magnetic resonance imaging assay"/>
+<node id="organism detection assay"/>
+<node id="organism detection by salinity tolerance assay"/>
+<node id="imaging assay"/>
+<node id="luteinizing hormone assay"/>
+<node id="device"/>
+<node id="catheter"/>
+<node id="material entity"/>
+<node id="independent continuant"/>
+<node id="continuant"/>
+<node id="chip spotting device"/>
+<node id="processed material"/>
+<node id="planned process"/>
+<node id="network analysis"/>
+<node id="network subgraph quality calculation"/>
+<node id="subgraph degree calculation"/>
+<edge source="performance status value specification" target="eastern cooperative oncology group score value specification"/>
+<edge source="assay" target="epigenetic modification assay"/>
+<edge source="assay" target="dna methylation profiling by chip-chip assay"/>
+<edge source="assay" target="dna methylation profiling by array assay"/>
+<edge source="assay" target="magnetic resonance imaging assay"/>
+<edge source="assay" target="chip-chip assay"/>
+<edge source="assay" target="organism detection assay"/>
+<edge source="assay" target="organism detection by salinity tolerance assay"/>
+<edge source="assay" target="imaging assay"/>
+<edge source="assay" target="luteinizing hormone assay"/>
+<edge source="assay" target="dna methylation profiling assay"/>
+<edge source="assay" target="analyte assay"/>
+<edge source="epigenetic modification assay" target="dna methylation profiling assay"/>
+<edge source="epigenetic modification assay" target="dna methylation profiling by chip-chip assay"/>
+<edge source="epigenetic modification assay" target="dna methylation profiling by array assay"/>
+<edge source="analyte assay" target="epigenetic modification assay"/>
+<edge source="analyte assay" target="dna methylation profiling by chip-chip assay"/>
+<edge source="analyte assay" target="dna methylation profiling by array assay"/>
+<edge source="analyte assay" target="magnetic resonance imaging assay"/>
+<edge source="analyte assay" target="chip-chip assay"/>
+<edge source="analyte assay" target="organism detection assay"/>
+<edge source="analyte assay" target="organism detection by salinity tolerance assay"/>
+<edge source="analyte assay" target="luteinizing hormone assay"/>
+<edge source="analyte assay" target="dna methylation profiling assay"/>
+<edge source="analyte assay" target="imaging assay"/>
+<edge source="dna methylation profiling assay" target="dna methylation profiling by chip-chip assay"/>
+<edge source="dna methylation profiling assay" target="dna methylation profiling by array assay"/>
+<edge source="chip-chip assay" target="dna methylation profiling by chip-chip assay"/>
+<edge source="organism detection assay" target="organism detection by salinity tolerance assay"/>
+<edge source="imaging assay" target="magnetic resonance imaging assay"/>
+<edge source="device" target="catheter"/>
+<edge source="device" target="chip spotting device"/>
+<edge source="material entity" target="catheter"/>
+<edge source="material entity" target="device"/>
+<edge source="material entity" target="chip spotting device"/>
+<edge source="material entity" target="processed material"/>
+<edge source="independent continuant" target="catheter"/>
+<edge source="independent continuant" target="device"/>
+<edge source="independent continuant" target="material entity"/>
+<edge source="independent continuant" target="planned process"/>
+<edge source="independent continuant" target="chip spotting device"/>
+<edge source="independent continuant" target="processed material"/>
+<edge source="continuant" target="catheter"/>
+<edge source="continuant" target="device"/>
+<edge source="continuant" target="material entity"/>
+<edge source="continuant" target="planned process"/>
+<edge source="continuant" target="chip spotting device"/>
+<edge source="continuant" target="independent continuant"/>
+<edge source="continuant" target="processed material"/>
+<edge source="processed material" target="chip spotting device"/>
+<edge source="network analysis" target="network subgraph quality calculation"/>
+<edge source="network analysis" target="subgraph degree calculation"/>
+<edge source="network subgraph quality calculation" target="subgraph degree calculation"/>
+</graph></graphml>

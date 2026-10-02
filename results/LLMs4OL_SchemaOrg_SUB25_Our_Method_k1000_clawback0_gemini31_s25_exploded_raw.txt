@@ -1,0 +1,52 @@
+==================================================
+=== Detailed Node Pair Analysis (Exploded Raw Edges) ===
+Match Type Used: EXACT
+==================================================
+Precision: 0.5250 | Recall: 1.0000 | F1: 0.6885
+
+CORRECT PREDICTIONS (True Positives: 21 Pred edges covering 21 GT edges):
+  [TP] audience -> peopleaudience
+  [TP] creativework -> creativeworkseries
+  [TP] creativework -> howtostep
+  [TP] creativeworkseries -> movieseries
+  [TP] datatype -> time
+  [TP] enumeration -> adultorientedenumeration
+  [TP] enumeration -> governmentbenefitstype
+  [TP] foodestablishment -> bakery
+  [TP] intangible -> audience
+  [TP] intangible -> listitem
+  [TP] intangible -> series
+  [TP] intangible -> service
+  [TP] itemlist -> howtostep
+  [TP] listitem -> howtostep
+  [TP] localbusiness -> entertainmentbusiness
+  [TP] localbusiness -> foodestablishment
+  [TP] organization -> localbusiness
+  [TP] organization -> researchorganization
+  [TP] place -> localbusiness
+  [TP] series -> creativeworkseries
+  [TP] service -> broadcastservice
+
+INCORRECT PREDICTIONS (False Positives: 19):
+  [FP] creativework -> movieseries
+  [FP] intangible -> adultorientedenumeration
+  [FP] intangible -> broadcastservice
+  [FP] intangible -> creativeworkseries
+  [FP] intangible -> enumeration
+  [FP] intangible -> governmentbenefitstype
+  [FP] intangible -> howtostep
+  [FP] intangible -> itemlist
+  [FP] intangible -> movieseries
+  [FP] intangible -> offer
+  [FP] intangible -> peopleaudience
+  [FP] localbusiness -> bakery
+  [FP] organization -> bakery
+  [FP] organization -> entertainmentbusiness
+  [FP] organization -> foodestablishment
+  [FP] place -> bakery
+  [FP] place -> entertainmentbusiness
+  [FP] place -> foodestablishment
+  [FP] series -> movieseries
+
+MISSED RELATIONS (False Negatives: 0):
+  None. (Perfect Recall!)

@@ -1,0 +1,161 @@
+==================================================
+=== Detailed Node Pair Analysis (Exploded Transitive Closure) ===
+Match Type Used: EXACT
+==================================================
+Precision: 0.5503 | Recall: 1.0000 | F1: 0.7100
+
+CORRECT PREDICTIONS (True Positives: 82 Pred edges covering 82 GT edges):
+  [TP] baked goods -> baguet
+  [TP] baked goods -> bread
+  [TP] baked goods -> french bread
+  [TP] baked goods -> toast
+  [TP] baked goods -> white bread
+  [TP] baked goods -> zwieback
+  [TP] bread -> baguet
+  [TP] bread -> french bread
+  [TP] bread -> toast
+  [TP] bread -> white bread
+  [TP] bread -> zwieback
+  [TP] cheese -> parmesan
+  [TP] condiment -> chocolate sauce
+  [TP] condiment -> sauce
+  [TP] dairy product -> cheese
+  [TP] dairy product -> parmesan
+  [TP] dish -> bigos
+  [TP] dish -> stew
+  [TP] flavorer -> chocolate sauce
+  [TP] flavorer -> condiment
+  [TP] flavorer -> sauce
+  [TP] food -> baguet
+  [TP] food -> baked goods
+  [TP] food -> bigos
+  [TP] food -> bread
+  [TP] food -> cheese
+  [TP] food -> chocolate sauce
+  [TP] food -> condiment
+  [TP] food -> dairy product
+  [TP] food -> dish
+  [TP] food -> flavorer
+  [TP] food -> foodstuff
+  [TP] food -> french bread
+  [TP] food -> ingredient
+  [TP] food -> nutriment
+  [TP] food -> parmesan
+  [TP] food -> produce
+  [TP] food -> sauce
+  [TP] food -> solanaceous vegetable
+  [TP] food -> starches
+  [TP] food -> stew
+  [TP] food -> toast
+  [TP] food -> vegetable
+  [TP] food -> white bread
+  [TP] food -> zwieback
+  [TP] foodstuff -> baguet
+  [TP] foodstuff -> bread
+  [TP] foodstuff -> cheese
+  [TP] foodstuff -> chocolate sauce
+  [TP] foodstuff -> condiment
+  [TP] foodstuff -> dairy product
+  [TP] foodstuff -> flavorer
+  [TP] foodstuff -> french bread
+  [TP] foodstuff -> ingredient
+  [TP] foodstuff -> parmesan
+  [TP] foodstuff -> sauce
+  [TP] foodstuff -> starches
+  [TP] foodstuff -> toast
+  [TP] foodstuff -> white bread
+  [TP] foodstuff -> zwieback
+  [TP] french bread -> baguet
+  [TP] ingredient -> chocolate sauce
+  [TP] ingredient -> condiment
+  [TP] ingredient -> flavorer
+  [TP] ingredient -> sauce
+  [TP] nutriment -> bigos
+  [TP] nutriment -> dish
+  [TP] nutriment -> stew
+  [TP] produce -> solanaceous vegetable
+  [TP] produce -> vegetable
+  [TP] sauce -> chocolate sauce
+  [TP] starches -> baguet
+  [TP] starches -> bread
+  [TP] starches -> french bread
+  [TP] starches -> toast
+  [TP] starches -> white bread
+  [TP] starches -> zwieback
+  [TP] stew -> bigos
+  [TP] toast -> zwieback
+  [TP] vegetable -> solanaceous vegetable
+  [TP] white bread -> baguet
+  [TP] white bread -> french bread
+
+INCORRECT PREDICTIONS (False Positives: 67):
+  [FP] condiment -> condiment
+  [FP] condiment -> flavorer
+  [FP] dish -> baguet
+  [FP] dish -> baked goods
+  [FP] dish -> bread
+  [FP] dish -> french bread
+  [FP] dish -> toast
+  [FP] dish -> white bread
+  [FP] dish -> zwieback
+  [FP] flavorer -> flavorer
+  [FP] food -> food
+  [FP] foodstuff -> baked goods
+  [FP] foodstuff -> bigos
+  [FP] foodstuff -> dish
+  [FP] foodstuff -> food
+  [FP] foodstuff -> foodstuff
+  [FP] foodstuff -> nutriment
+  [FP] foodstuff -> produce
+  [FP] foodstuff -> solanaceous vegetable
+  [FP] foodstuff -> stew
+  [FP] foodstuff -> vegetable
+  [FP] ingredient -> baguet
+  [FP] ingredient -> baked goods
+  [FP] ingredient -> bigos
+  [FP] ingredient -> bread
+  [FP] ingredient -> cheese
+  [FP] ingredient -> dairy product
+  [FP] ingredient -> dish
+  [FP] ingredient -> food
+  [FP] ingredient -> foodstuff
+  [FP] ingredient -> french bread
+  [FP] ingredient -> ingredient
+  [FP] ingredient -> nutriment
+  [FP] ingredient -> parmesan
+  [FP] ingredient -> produce
+  [FP] ingredient -> solanaceous vegetable
+  [FP] ingredient -> starches
+  [FP] ingredient -> stew
+  [FP] ingredient -> toast
+  [FP] ingredient -> vegetable
+  [FP] ingredient -> white bread
+  [FP] ingredient -> zwieback
+  [FP] nutriment -> baguet
+  [FP] nutriment -> baked goods
+  [FP] nutriment -> bread
+  [FP] nutriment -> cheese
+  [FP] nutriment -> chocolate sauce
+  [FP] nutriment -> condiment
+  [FP] nutriment -> dairy product
+  [FP] nutriment -> flavorer
+  [FP] nutriment -> food
+  [FP] nutriment -> foodstuff
+  [FP] nutriment -> french bread
+  [FP] nutriment -> ingredient
+  [FP] nutriment -> nutriment
+  [FP] nutriment -> parmesan
+  [FP] nutriment -> produce
+  [FP] nutriment -> sauce
+  [FP] nutriment -> solanaceous vegetable
+  [FP] nutriment -> starches
+  [FP] nutriment -> toast
+  [FP] nutriment -> vegetable
+  [FP] nutriment -> white bread
+  [FP] nutriment -> zwieback
+  [FP] produce -> produce
+  [FP] vegetable -> produce
+  [FP] vegetable -> vegetable
+
+MISSED RELATIONS (False Negatives: 0):
+  None. (Perfect Recall!)

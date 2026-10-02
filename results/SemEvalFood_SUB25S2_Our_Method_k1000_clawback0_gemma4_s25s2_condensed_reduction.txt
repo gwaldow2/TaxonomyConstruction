@@ -1,0 +1,59 @@
+==================================================
+=== Detailed Node Pair Analysis (Condensed Transitive Reduction) ===
+Match Type Used: SET_OVERLAP
+==================================================
+Precision: 1.0000 | Recall: 0.7407 | F1: 0.8511
+
+CORRECT PREDICTIONS (True Positives: 20 Pred edges covering 20 GT edges):
+  [TP] PRED: (b complex vitamin -> inositol)
+        matches GT: (b complex vitamin -> inositol)
+  [TP] PRED: (cheese -> cheshire cheese)
+        matches GT: (cheese -> cheshire cheese)
+  [TP] PRED: (condiment (condiment, flavorer) -> sauce)
+        matches GT: (condiment -> sauce)
+  [TP] PRED: (dairy product -> cheese)
+        matches GT: (dairy product -> cheese)
+  [TP] PRED: (dairy product -> milk)
+        matches GT: (dairy product -> milk)
+  [TP] PRED: (feed -> cattle cake)
+        matches GT: (feed -> cattle cake)
+  [TP] PRED: (food (food, foodstuff, ingredient, nutriment) -> condiment (condiment, flavorer))
+        matches GT: (ingredient -> flavorer)
+  [TP] PRED: (food (food, foodstuff, ingredient, nutriment) -> dairy product)
+        matches GT: (foodstuff -> dairy product)
+  [TP] PRED: (food (food, foodstuff, ingredient, nutriment) -> feed)
+        matches GT: (food -> feed)
+  [TP] PRED: (food (food, foodstuff, ingredient, nutriment) -> grain)
+        matches GT: (foodstuff -> grain)
+  [TP] PRED: (food (food, foodstuff, ingredient, nutriment) -> starches)
+        matches GT: (foodstuff -> starches)
+  [TP] PRED: (food (food, foodstuff, ingredient, nutriment) -> vitamin)
+        matches GT: (nutriment -> vitamin)
+  [TP] PRED: (food (food, foodstuff, ingredient, nutriment) -> water)
+        matches GT: (food -> water)
+  [TP] PRED: (grain -> rice)
+        matches GT: (grain -> rice)
+  [TP] PRED: (milk -> colostrum)
+        matches GT: (milk -> colostrum)
+  [TP] PRED: (milk -> whole milk)
+        matches GT: (milk -> whole milk)
+  [TP] PRED: (rice -> brown rice)
+        matches GT: (rice -> brown rice)
+  [TP] PRED: (sauce -> white sauce)
+        matches GT: (sauce -> white sauce)
+  [TP] PRED: (vitamin -> water soluble vitamin)
+        matches GT: (vitamin -> water soluble vitamin)
+  [TP] PRED: (water soluble vitamin -> b complex vitamin)
+        matches GT: (water soluble vitamin -> b complex vitamin)
+
+INCORRECT PREDICTIONS (False Positives: 0):
+  None. (Perfect Precision!)
+
+MISSED RELATIONS (False Negatives: 7):
+  [FN] flavorer -> condiment
+  [FN] food -> foodstuff
+  [FN] food -> nutriment
+  [FN] foodstuff -> ingredient
+  [FN] nutriment -> milk
+  [FN] starches -> rice
+  [FN] white sauce -> blanc

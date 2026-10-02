@@ -1,0 +1,112 @@
+==================================================
+=== Detailed Node Pair Analysis (Condensed Transitive Closure) ===
+Match Type Used: SET_OVERLAP
+==================================================
+Precision: 0.6415 | Recall: 0.7083 | F1: 0.6733
+
+CORRECT PREDICTIONS (True Positives: 34 Pred edges covering 34 GT edges):
+  [TP] PRED: (analyte assay -> 96-well neutralization assay)
+        matches GT: (analyte assay -> 96-well neutralization assay)
+  [TP] PRED: (analyte assay -> serum neutralization of viral infectivity assay)
+        matches GT: (analyte assay -> serum neutralization of viral infectivity assay)
+  [TP] PRED: (assay -> 96-well neutralization assay)
+        matches GT: (assay -> 96-well neutralization assay)
+  [TP] PRED: (assay -> analyte assay)
+        matches GT: (assay -> analyte assay)
+  [TP] PRED: (assay -> blood assay)
+        matches GT: (assay -> blood assay)
+  [TP] PRED: (assay -> serum neutralization of viral infectivity assay)
+        matches GT: (assay -> serum neutralization of viral infectivity assay)
+  [TP] PRED: (assay measuring biological activity resulting from t cell epitopemhctcr binding -> assay measuring epitope specific cytokine production by t cells)
+        matches GT: (assay measuring biological activity resulting from t cell epitopemhctcr binding -> assay measuring epitope specific cytokine production by t cells)
+  [TP] PRED: (assay measuring biological activity resulting from t cell epitopemhctcr binding -> assay measuring epitope specific ip-10 production by t cells)
+        matches GT: (assay measuring biological activity resulting from t cell epitopemhctcr binding -> assay measuring epitope specific ip-10 production by t cells)
+  [TP] PRED: (assay measuring biological activity resulting from t cell epitopemhctcr binding -> intracellular cytokine staining assay measuring epitope specific ip-10 production by t cells)
+        matches GT: (assay measuring biological activity resulting from t cell epitopemhctcr binding -> intracellular cytokine staining assay measuring epitope specific ip-10 production by t cells)
+  [TP] PRED: (assay measuring epitope specific cytokine production by t cells -> assay measuring epitope specific ip-10 production by t cells)
+        matches GT: (assay measuring epitope specific cytokine production by t cells -> assay measuring epitope specific ip-10 production by t cells)
+  [TP] PRED: (assay measuring epitope specific cytokine production by t cells -> intracellular cytokine staining assay measuring epitope specific ip-10 production by t cells)
+        matches GT: (assay measuring epitope specific cytokine production by t cells -> intracellular cytokine staining assay measuring epitope specific ip-10 production by t cells)
+  [TP] PRED: (assay measuring epitope specific ip-10 production by t cells -> intracellular cytokine staining assay measuring epitope specific ip-10 production by t cells)
+        matches GT: (assay measuring epitope specific ip-10 production by t cells -> intracellular cytokine staining assay measuring epitope specific ip-10 production by t cells)
+  [TP] PRED: (blood assay -> 96-well neutralization assay)
+        matches GT: (blood assay -> 96-well neutralization assay)
+  [TP] PRED: (blood assay -> serum neutralization of viral infectivity assay)
+        matches GT: (blood assay -> serum neutralization of viral infectivity assay)
+  [TP] PRED: (data item -> feces assay datum)
+        matches GT: (data item -> feces assay datum)
+  [TP] PRED: (data transformation -> sequence analysis data transformation)
+        matches GT: (data transformation -> sequence analysis data transformation)
+  [TP] PRED: (data transformation -> sequence library data demultiplexing)
+        matches GT: (data transformation -> sequence library data demultiplexing)
+  [TP] PRED: (filtration -> water filtration)
+        matches GT: (filtration -> water filtration)
+  [TP] PRED: (function -> record function)
+        matches GT: (function -> record function)
+  [TP] PRED: (material component separation -> filtration)
+        matches GT: (material component separation -> filtration)
+  [TP] PRED: (material component separation -> water filtration)
+        matches GT: (material component separation -> water filtration)
+  [TP] PRED: (material processing -> filtration)
+        matches GT: (material processing -> filtration)
+  [TP] PRED: (material processing -> material component separation)
+        matches GT: (material processing -> material component separation)
+  [TP] PRED: (material processing -> water filtration)
+        matches GT: (material processing -> water filtration)
+  [TP] PRED: (sequence analysis data transformation -> sequence library data demultiplexing)
+        matches GT: (sequence analysis data transformation -> sequence library data demultiplexing)
+  [TP] PRED: (serum neutralization of viral infectivity assay -> 96-well neutralization assay)
+        matches GT: (serum neutralization of viral infectivity assay -> 96-well neutralization assay)
+  [TP] PRED: (specimen identifier -> specimen identifier assigned by specimen repository)
+        matches GT: (specimen identifier -> specimen identifier assigned by specimen repository)
+  [TP] PRED: (symbol -> centrally registered identifier symbol)
+        matches GT: (symbol -> centrally registered identifier symbol)
+  [TP] PRED: (symbol -> specimen identifier assigned by specimen repository)
+        matches GT: (symbol -> specimen identifier assigned by specimen repository)
+  [TP] PRED: (symbol -> specimen identifier)
+        matches GT: (symbol -> specimen identifier)
+  [TP] PRED: (t cell epitope assay -> assay measuring biological activity resulting from t cell epitopemhctcr binding)
+        matches GT: (t cell epitope assay -> assay measuring biological activity resulting from t cell epitopemhctcr binding)
+  [TP] PRED: (t cell epitope assay -> assay measuring epitope specific cytokine production by t cells)
+        matches GT: (t cell epitope assay -> assay measuring epitope specific cytokine production by t cells)
+  [TP] PRED: (t cell epitope assay -> assay measuring epitope specific ip-10 production by t cells)
+        matches GT: (t cell epitope assay -> assay measuring epitope specific ip-10 production by t cells)
+  [TP] PRED: (t cell epitope assay -> intracellular cytokine staining assay measuring epitope specific ip-10 production by t cells)
+        matches GT: (t cell epitope assay -> intracellular cytokine staining assay measuring epitope specific ip-10 production by t cells)
+
+INCORRECT PREDICTIONS (False Positives: 19):
+  [FP] analyte assay -> assay measuring biological activity resulting from t cell epitopemhctcr binding
+  [FP] analyte assay -> assay measuring epitope specific cytokine production by t cells
+  [FP] analyte assay -> assay measuring epitope specific ip-10 production by t cells
+  [FP] analyte assay -> blood assay
+  [FP] analyte assay -> intracellular cytokine staining assay measuring epitope specific ip-10 production by t cells
+  [FP] analyte assay -> t cell epitope assay
+  [FP] assay -> assay measuring biological activity resulting from t cell epitopemhctcr binding
+  [FP] assay -> assay measuring epitope specific cytokine production by t cells
+  [FP] assay -> assay measuring epitope specific ip-10 production by t cells
+  [FP] assay -> intracellular cytokine staining assay measuring epitope specific ip-10 production by t cells
+  [FP] assay -> t cell epitope assay
+  [FP] blood assay -> assay measuring epitope specific cytokine production by t cells
+  [FP] blood assay -> assay measuring epitope specific ip-10 production by t cells
+  [FP] blood assay -> intracellular cytokine staining assay measuring epitope specific ip-10 production by t cells
+  [FP] data item -> centrally registered identifier symbol
+  [FP] data item -> specimen identifier
+  [FP] data item -> specimen identifier assigned by specimen repository
+  [FP] data item -> symbol
+  [FP] specimen identifier -> centrally registered identifier symbol
+
+MISSED RELATIONS (False Negatives: 14):
+  [FN] centrally registered identifier symbol -> specimen identifier
+  [FN] centrally registered identifier symbol -> specimen identifier assigned by specimen repository
+  [FN] planned process -> 96-well neutralization assay
+  [FN] planned process -> analyte assay
+  [FN] planned process -> assay
+  [FN] planned process -> blood assay
+  [FN] planned process -> data transformation
+  [FN] planned process -> filtration
+  [FN] planned process -> material component separation
+  [FN] planned process -> material processing
+  [FN] planned process -> sequence analysis data transformation
+  [FN] planned process -> sequence library data demultiplexing
+  [FN] planned process -> serum neutralization of viral infectivity assay
+  [FN] planned process -> water filtration

@@ -1,0 +1,66 @@
+==================================================
+=== Detailed Node Pair Analysis (Exploded Raw Edges) ===
+Match Type Used: EXACT
+==================================================
+Precision: 0.7755 | Recall: 0.8636 | F1: 0.8172
+
+CORRECT PREDICTIONS (True Positives: 38 Pred edges covering 38 GT edges):
+  [TP] albumin assay -> comprehensive metabolic panel venous blood albumin assay
+  [TP] assay -> analyte assay
+  [TP] assay -> blood assay
+  [TP] assay -> carboxyfluorescein succinimidyl ester staining assay
+  [TP] assay -> insecticide resistance assay
+  [TP] assay -> organism detection assay
+  [TP] assay -> polymerase chain reaction assay
+  [TP] assay array -> microarray
+  [TP] blood assay -> comprehensive metabolic panel venous blood albumin assay
+  [TP] blood assay -> venous blood thyroid stimulating hormone assay
+  [TP] carboxyfluorescein succinimidyl ester staining assay -> carboxyfluorescein succinimidyl ester staining assay measuring epitope specific proliferation of t cells
+  [TP] clinical history -> family clinical history of cancer
+  [TP] container -> vial
+  [TP] continuant -> independent continuant
+  [TP] device -> assay array
+  [TP] device -> container
+  [TP] device -> material separation device
+  [TP] device -> measurement device
+  [TP] dna microarray -> affymetrix rhesus macaque genome array
+  [TP] family clinical history of cancer -> brother clinical history of cancer
+  [TP] function -> connection function
+  [TP] functional assessment of individual -> nose to finger assessment
+  [TP] independent continuant -> material entity
+  [TP] insecticide resistance assay -> insecticide resistance by detecting enzyme activity assay
+  [TP] insecticide resistance by detecting enzyme activity assay -> insecticide resistance by detecting glutathione s-transferase activity assay
+  [TP] material combination -> adding a material entity into a target
+  [TP] material component separation -> dna subtraction
+  [TP] material entity -> processed material
+  [TP] material processing -> material combination
+  [TP] material processing -> material component separation
+  [TP] microarray -> dna microarray
+  [TP] organism detection assay -> parasite detection assay
+  [TP] organization -> organization of specimen collector
+  [TP] planned process -> assay
+  [TP] planned process -> material processing
+  [TP] realizable entity -> role
+  [TP] role -> adjuvant role
+  [TP] thyroid stimulating hormone assay -> venous blood thyroid stimulating hormone assay
+
+INCORRECT PREDICTIONS (False Positives: 11):
+  [FP] analyte assay -> albumin assay
+  [FP] analyte assay -> thyroid stimulating hormone assay
+  [FP] assay -> proximity extension assay
+  [FP] container -> test tube
+  [FP] continuant -> realizable entity
+  [FP] device -> multichannel pipette
+  [FP] material entity -> device
+  [FP] material entity -> organization
+  [FP] planned process -> functional assessment of individual
+  [FP] processed material -> filter paper
+  [FP] realizable entity -> function
+
+MISSED RELATIONS (False Negatives: 6):
+  [FN] analyte assay -> proximity extension assay
+  [FN] material separation device -> filter paper
+  [FN] measurement device -> multichannel pipette
+  [FN] polymerase chain reaction assay -> proximity extension assay
+  [FN] processed material -> device
+  [FN] vial -> test tube

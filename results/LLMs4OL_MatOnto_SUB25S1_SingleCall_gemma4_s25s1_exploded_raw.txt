@@ -1,0 +1,38 @@
+==================================================
+=== Detailed Node Pair Analysis (Exploded Raw Edges) ===
+Match Type Used: EXACT
+==================================================
+Precision: 0.7000 | Recall: 0.6667 | F1: 0.6829
+
+CORRECT PREDICTIONS (True Positives: 14 Pred edges covering 14 GT edges):
+  [TP] addition reaction -> polar addition reaction
+  [TP] atom -> californium atom
+  [TP] atom -> helium atom
+  [TP] atom -> ytterbium atom
+  [TP] continuant -> dependent_continuant
+  [TP] continuant -> independent_continuant
+  [TP] dependent_continuant -> quality
+  [TP] independent_continuant -> object
+  [TP] measured property -> specific energy
+  [TP] object -> atom
+  [TP] quality -> measured property
+  [TP] spatial_region -> three_dimensional_region
+  [TP] thermodynamic system -> open thermodynamic system
+  [TP] unit -> molar energy unit
+
+INCORRECT PREDICTIONS (False Positives: 6):
+  [FP] addition reaction -> nucleophilic addition reaction
+  [FP] dependent_continuant -> addition reaction
+  [FP] dependent_continuant -> chemical conformation
+  [FP] independent_continuant -> spatial_region
+  [FP] measured property -> illuminance
+  [FP] object -> thermodynamic system
+
+MISSED RELATIONS (False Negatives: 7):
+  [FN] chemical conformation -> wikipedia
+  [FN] continuant -> spatial_region
+  [FN] electromagnetic radation -> illuminance
+  [FN] element -> ununbium
+  [FN] measured property -> electromagnetic radation
+  [FN] polar addition reaction -> nucleophilic addition reaction
+  [FN] three_dimensional_region -> thermodynamic system

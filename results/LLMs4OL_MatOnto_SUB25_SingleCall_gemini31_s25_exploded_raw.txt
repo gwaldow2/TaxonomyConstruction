@@ -1,0 +1,37 @@
+==================================================
+=== Detailed Node Pair Analysis (Exploded Raw Edges) ===
+Match Type Used: EXACT
+==================================================
+Precision: 0.7273 | Recall: 0.8000 | F1: 0.7619
+
+CORRECT PREDICTIONS (True Positives: 16 Pred edges covering 16 GT edges):
+  [TP] carbon allotrope -> chaoite
+  [TP] continuant -> dependent_continuant
+  [TP] dependent_continuant -> quality
+  [TP] element -> magnesium
+  [TP] element -> molybdenum
+  [TP] element -> scandium
+  [TP] measured property -> concentration
+  [TP] measured property -> count
+  [TP] measured property -> density
+  [TP] quality -> chemical quality
+  [TP] quality -> measured property
+  [TP] radiation unit -> dose equivalent unit
+  [TP] scaled unit -> peta scaled unit
+  [TP] scaled unit -> zepto scaled unit
+  [TP] unit -> derivedunit
+  [TP] unit -> molecular mass unit
+
+INCORRECT PREDICTIONS (False Positives: 6):
+  [FP] chemical class -> carbon allotrope
+  [FP] chemical class -> element
+  [FP] derivedunit -> conduction unit
+  [FP] derivedunit -> radiation unit
+  [FP] measured property -> hardness range
+  [FP] unit -> scaled unit
+
+MISSED RELATIONS (False Negatives: 4):
+  [FN] chemical quality -> chemical class
+  [FN] derivedunit -> scaled unit
+  [FN] unit -> conduction unit
+  [FN] unit -> radiation unit

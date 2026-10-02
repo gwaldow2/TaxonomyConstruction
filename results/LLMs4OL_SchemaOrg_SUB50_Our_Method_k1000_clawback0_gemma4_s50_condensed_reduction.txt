@@ -1,0 +1,100 @@
+==================================================
+=== Detailed Node Pair Analysis (Condensed Transitive Reduction) ===
+Match Type Used: SET_OVERLAP
+==================================================
+Precision: 0.4255 | Recall: 0.4762 | F1: 0.4494
+
+CORRECT PREDICTIONS (True Positives: 20 Pred edges covering 20 GT edges):
+  [TP] PRED: (article -> techarticle)
+        matches GT: (article -> techarticle)
+  [TP] PRED: (audience -> peopleaudience)
+        matches GT: (audience -> peopleaudience)
+  [TP] PRED: (createaction -> cookaction)
+        matches GT: (createaction -> cookaction)
+  [TP] PRED: (creativework -> creativeworkseries)
+        matches GT: (creativework -> creativeworkseries)
+  [TP] PRED: (creativework -> shortstory)
+        matches GT: (creativework -> shortstory)
+  [TP] PRED: (enumeration -> adultorientedenumeration)
+        matches GT: (enumeration -> adultorientedenumeration)
+  [TP] PRED: (enumeration -> measurementmethodenum)
+        matches GT: (enumeration -> measurementmethodenum)
+  [TP] PRED: (foodestablishment -> bakery)
+        matches GT: (foodestablishment -> bakery)
+  [TP] PRED: (listitem -> howtostep)
+        matches GT: (listitem -> howtostep)
+  [TP] PRED: (localbusiness -> entertainmentbusiness)
+        matches GT: (localbusiness -> entertainmentbusiness)
+  [TP] PRED: (localbusiness -> foodestablishment)
+        matches GT: (localbusiness -> foodestablishment)
+  [TP] PRED: (localbusiness -> lodgingbusiness)
+        matches GT: (localbusiness -> lodgingbusiness)
+  [TP] PRED: (localbusiness -> sportsactivitylocation)
+        matches GT: (localbusiness -> sportsactivitylocation)
+  [TP] PRED: (lodgingbusiness -> motel)
+        matches GT: (lodgingbusiness -> motel)
+  [TP] PRED: (medicalentity -> medicalintangible)
+        matches GT: (medicalentity -> medicalintangible)
+  [TP] PRED: (medicalintangible -> medicalcode)
+        matches GT: (medicalintangible -> medicalcode)
+  [TP] PRED: (organization -> localbusiness)
+        matches GT: (organization -> localbusiness)
+  [TP] PRED: (periodical (periodical, series) -> comicseries)
+        matches GT: (periodical -> comicseries)
+  [TP] PRED: (place -> localbusiness)
+        matches GT: (place -> localbusiness)
+  [TP] PRED: (sportsactivitylocation -> exercisegym)
+        matches GT: (sportsactivitylocation -> exercisegym)
+
+INCORRECT PREDICTIONS (False Positives: 27):
+  [FP] action -> takeaction
+  [FP] article -> ampstory
+  [FP] creativework -> imageobject
+  [FP] creativeworkseries -> periodical (periodical, series)
+  [FP] datatype -> enumeration
+  [FP] datatype -> medicalcode
+  [FP] entertainmentbusiness -> broadcastservice
+  [FP] enumeration -> itemlist
+  [FP] intangible -> broadcastservice
+  [FP] intangible -> creativework
+  [FP] intangible -> medicalintangible
+  [FP] intangible -> offer
+  [FP] intangible -> time
+  [FP] localbusiness -> researchorganization
+  [FP] medicalintangible -> measurementmethodenum
+  [FP] offer -> ticket
+  [FP] periodical (periodical, series) -> article
+  [FP] periodical (periodical, series) -> movieseries
+  [FP] service -> entertainmentbusiness
+  [FP] service -> lodgingbusiness
+  [FP] service -> offer
+  [FP] shortstory -> ampstory
+  [FP] takeaction -> allocateaction
+  [FP] takeaction -> assignaction
+  [FP] takeaction -> createaction
+  [FP] takeaction -> organizeaction
+  [FP] takeaction -> transferaction
+
+MISSED RELATIONS (False Negatives: 22):
+  [FN] action -> createaction
+  [FN] action -> organizeaction
+  [FN] action -> transferaction
+  [FN] allocateaction -> assignaction
+  [FN] creativework -> ampstory
+  [FN] creativework -> article
+  [FN] creativework -> howtostep
+  [FN] creativeworkseries -> movieseries
+  [FN] datatype -> time
+  [FN] enumeration -> governmentbenefitstype
+  [FN] enumeration -> physicalactivitycategory
+  [FN] intangible -> audience
+  [FN] intangible -> listitem
+  [FN] intangible -> series
+  [FN] intangible -> service
+  [FN] intangible -> ticket
+  [FN] itemlist -> howtostep
+  [FN] organization -> researchorganization
+  [FN] organizeaction -> allocateaction
+  [FN] series -> creativeworkseries
+  [FN] service -> broadcastservice
+  [FN] transferaction -> takeaction

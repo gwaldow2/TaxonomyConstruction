@@ -1,0 +1,282 @@
+==================================================
+=== Detailed Node Pair Analysis (Exploded Transitive Closure) ===
+Match Type Used: EXACT
+==================================================
+Precision: 0.3731 | Recall: 0.8981 | F1: 0.5272
+
+CORRECT PREDICTIONS (True Positives: 97 Pred edges covering 97 GT edges):
+  [TP] addition reaction -> nucleophilic addition reaction
+  [TP] addition reaction -> polar addition reaction
+  [TP] atom -> californium atom
+  [TP] atom -> helium atom
+  [TP] atom -> lithium atom
+  [TP] atom -> ytterbium atom
+  [TP] continuant -> atom
+  [TP] continuant -> californium atom
+  [TP] continuant -> concentration
+  [TP] continuant -> dependent_continuant
+  [TP] continuant -> electric current
+  [TP] continuant -> electromagnetic radation
+  [TP] continuant -> flexural modulus
+  [TP] continuant -> helium atom
+  [TP] continuant -> illuminance
+  [TP] continuant -> independent_continuant
+  [TP] continuant -> intensive property
+  [TP] continuant -> lithium atom
+  [TP] continuant -> luminous flux
+  [TP] continuant -> measured property
+  [TP] continuant -> object
+  [TP] continuant -> open thermodynamic system
+  [TP] continuant -> ph
+  [TP] continuant -> quality
+  [TP] continuant -> spatial_region
+  [TP] continuant -> specific energy
+  [TP] continuant -> thermodynamic system
+  [TP] continuant -> three_dimensional_region
+  [TP] continuant -> ytterbium atom
+  [TP] continuant -> zero_dimensional_region
+  [TP] dependent_continuant -> concentration
+  [TP] dependent_continuant -> electric current
+  [TP] dependent_continuant -> electromagnetic radation
+  [TP] dependent_continuant -> flexural modulus
+  [TP] dependent_continuant -> illuminance
+  [TP] dependent_continuant -> intensive property
+  [TP] dependent_continuant -> luminous flux
+  [TP] dependent_continuant -> measured property
+  [TP] dependent_continuant -> ph
+  [TP] dependent_continuant -> quality
+  [TP] dependent_continuant -> specific energy
+  [TP] derivedunit -> centi scaled unit
+  [TP] derivedunit -> giga scaled unit
+  [TP] derivedunit -> scaled unit
+  [TP] electromagnetic radiation unit -> illuminance unit
+  [TP] element -> erbium
+  [TP] element -> ununbium
+  [TP] entity -> connected_spatiotemporal_region
+  [TP] entity -> occurrent
+  [TP] entity -> spatiotemporal_region
+  [TP] independent_continuant -> atom
+  [TP] independent_continuant -> californium atom
+  [TP] independent_continuant -> helium atom
+  [TP] independent_continuant -> lithium atom
+  [TP] independent_continuant -> object
+  [TP] independent_continuant -> ytterbium atom
+  [TP] intensive property -> flexural modulus
+  [TP] measured property -> concentration
+  [TP] measured property -> electric current
+  [TP] measured property -> flexural modulus
+  [TP] measured property -> illuminance
+  [TP] measured property -> intensive property
+  [TP] measured property -> luminous flux
+  [TP] measured property -> ph
+  [TP] measured property -> specific energy
+  [TP] object -> atom
+  [TP] object -> californium atom
+  [TP] object -> helium atom
+  [TP] object -> lithium atom
+  [TP] object -> ytterbium atom
+  [TP] occurrent -> connected_spatiotemporal_region
+  [TP] occurrent -> spatiotemporal_region
+  [TP] polar addition reaction -> nucleophilic addition reaction
+  [TP] quality -> concentration
+  [TP] quality -> electric current
+  [TP] quality -> flexural modulus
+  [TP] quality -> illuminance
+  [TP] quality -> intensive property
+  [TP] quality -> luminous flux
+  [TP] quality -> measured property
+  [TP] quality -> ph
+  [TP] quality -> specific energy
+  [TP] scaled unit -> centi scaled unit
+  [TP] scaled unit -> giga scaled unit
+  [TP] spatial_region -> three_dimensional_region
+  [TP] spatial_region -> zero_dimensional_region
+  [TP] spatiotemporal_region -> connected_spatiotemporal_region
+  [TP] thermodynamic system -> open thermodynamic system
+  [TP] unit -> centi scaled unit
+  [TP] unit -> derivedunit
+  [TP] unit -> electromagnetic radiation unit
+  [TP] unit -> giga scaled unit
+  [TP] unit -> illuminance unit
+  [TP] unit -> molar energy unit
+  [TP] unit -> scaled unit
+  [TP] unit -> velocity unit
+  [TP] unit raised to power -> unit raised to power of negative three
+
+INCORRECT PREDICTIONS (False Positives: 163):
+  [FP] atom -> erbium
+  [FP] atom -> ununbium
+  [FP] continuant -> addition reaction
+  [FP] continuant -> centi scaled unit
+  [FP] continuant -> chemical conformation
+  [FP] continuant -> connected_spatiotemporal_region
+  [FP] continuant -> derivedunit
+  [FP] continuant -> electromagnetic radiation unit
+  [FP] continuant -> element
+  [FP] continuant -> erbium
+  [FP] continuant -> giga scaled unit
+  [FP] continuant -> illuminance unit
+  [FP] continuant -> material category
+  [FP] continuant -> molar energy unit
+  [FP] continuant -> nucleophilic addition reaction
+  [FP] continuant -> polar addition reaction
+  [FP] continuant -> scaled unit
+  [FP] continuant -> spatiotemporal_region
+  [FP] continuant -> unit
+  [FP] continuant -> unit raised to power
+  [FP] continuant -> unit raised to power of negative three
+  [FP] continuant -> ununbium
+  [FP] continuant -> velocity unit
+  [FP] continuant -> wikipedia
+  [FP] dependent_continuant -> addition reaction
+  [FP] dependent_continuant -> chemical conformation
+  [FP] dependent_continuant -> connected_spatiotemporal_region
+  [FP] dependent_continuant -> illuminance unit
+  [FP] dependent_continuant -> nucleophilic addition reaction
+  [FP] dependent_continuant -> polar addition reaction
+  [FP] dependent_continuant -> spatial_region
+  [FP] dependent_continuant -> spatiotemporal_region
+  [FP] dependent_continuant -> three_dimensional_region
+  [FP] dependent_continuant -> zero_dimensional_region
+  [FP] derivedunit -> electromagnetic radiation unit
+  [FP] derivedunit -> illuminance unit
+  [FP] derivedunit -> molar energy unit
+  [FP] derivedunit -> unit raised to power
+  [FP] derivedunit -> unit raised to power of negative three
+  [FP] derivedunit -> velocity unit
+  [FP] entity -> addition reaction
+  [FP] entity -> atom
+  [FP] entity -> californium atom
+  [FP] entity -> centi scaled unit
+  [FP] entity -> chemical conformation
+  [FP] entity -> concentration
+  [FP] entity -> continuant
+  [FP] entity -> dependent_continuant
+  [FP] entity -> derivedunit
+  [FP] entity -> electric current
+  [FP] entity -> electromagnetic radation
+  [FP] entity -> electromagnetic radiation unit
+  [FP] entity -> element
+  [FP] entity -> erbium
+  [FP] entity -> flexural modulus
+  [FP] entity -> giga scaled unit
+  [FP] entity -> helium atom
+  [FP] entity -> illuminance
+  [FP] entity -> illuminance unit
+  [FP] entity -> independent_continuant
+  [FP] entity -> intensive property
+  [FP] entity -> lithium atom
+  [FP] entity -> luminous flux
+  [FP] entity -> material category
+  [FP] entity -> measured property
+  [FP] entity -> molar energy unit
+  [FP] entity -> nucleophilic addition reaction
+  [FP] entity -> object
+  [FP] entity -> open thermodynamic system
+  [FP] entity -> ph
+  [FP] entity -> polar addition reaction
+  [FP] entity -> quality
+  [FP] entity -> scaled unit
+  [FP] entity -> spatial_region
+  [FP] entity -> specific energy
+  [FP] entity -> thermodynamic system
+  [FP] entity -> three_dimensional_region
+  [FP] entity -> unit
+  [FP] entity -> unit raised to power
+  [FP] entity -> unit raised to power of negative three
+  [FP] entity -> ununbium
+  [FP] entity -> velocity unit
+  [FP] entity -> wikipedia
+  [FP] entity -> ytterbium atom
+  [FP] entity -> zero_dimensional_region
+  [FP] independent_continuant -> centi scaled unit
+  [FP] independent_continuant -> connected_spatiotemporal_region
+  [FP] independent_continuant -> derivedunit
+  [FP] independent_continuant -> electromagnetic radation
+  [FP] independent_continuant -> electromagnetic radiation unit
+  [FP] independent_continuant -> element
+  [FP] independent_continuant -> erbium
+  [FP] independent_continuant -> giga scaled unit
+  [FP] independent_continuant -> illuminance unit
+  [FP] independent_continuant -> material category
+  [FP] independent_continuant -> molar energy unit
+  [FP] independent_continuant -> open thermodynamic system
+  [FP] independent_continuant -> scaled unit
+  [FP] independent_continuant -> spatial_region
+  [FP] independent_continuant -> thermodynamic system
+  [FP] independent_continuant -> three_dimensional_region
+  [FP] independent_continuant -> unit
+  [FP] independent_continuant -> unit raised to power
+  [FP] independent_continuant -> unit raised to power of negative three
+  [FP] independent_continuant -> ununbium
+  [FP] independent_continuant -> velocity unit
+  [FP] independent_continuant -> wikipedia
+  [FP] independent_continuant -> zero_dimensional_region
+  [FP] intensive property -> chemical conformation
+  [FP] intensive property -> concentration
+  [FP] intensive property -> electric current
+  [FP] intensive property -> illuminance
+  [FP] intensive property -> intensive property
+  [FP] intensive property -> luminous flux
+  [FP] intensive property -> measured property
+  [FP] intensive property -> ph
+  [FP] intensive property -> quality
+  [FP] intensive property -> specific energy
+  [FP] measured property -> chemical conformation
+  [FP] measured property -> measured property
+  [FP] measured property -> quality
+  [FP] object -> centi scaled unit
+  [FP] object -> connected_spatiotemporal_region
+  [FP] object -> derivedunit
+  [FP] object -> electromagnetic radiation unit
+  [FP] object -> element
+  [FP] object -> erbium
+  [FP] object -> giga scaled unit
+  [FP] object -> illuminance unit
+  [FP] object -> material category
+  [FP] object -> molar energy unit
+  [FP] object -> open thermodynamic system
+  [FP] object -> scaled unit
+  [FP] object -> spatial_region
+  [FP] object -> thermodynamic system
+  [FP] object -> three_dimensional_region
+  [FP] object -> unit
+  [FP] object -> unit raised to power
+  [FP] object -> unit raised to power of negative three
+  [FP] object -> ununbium
+  [FP] object -> velocity unit
+  [FP] object -> wikipedia
+  [FP] object -> zero_dimensional_region
+  [FP] occurrent -> addition reaction
+  [FP] occurrent -> electric current
+  [FP] occurrent -> electromagnetic radation
+  [FP] occurrent -> nucleophilic addition reaction
+  [FP] occurrent -> polar addition reaction
+  [FP] occurrent -> spatial_region
+  [FP] occurrent -> three_dimensional_region
+  [FP] occurrent -> zero_dimensional_region
+  [FP] quality -> chemical conformation
+  [FP] quality -> quality
+  [FP] scaled unit -> molar energy unit
+  [FP] scaled unit -> unit raised to power
+  [FP] scaled unit -> unit raised to power of negative three
+  [FP] scaled unit -> velocity unit
+  [FP] spatial_region -> connected_spatiotemporal_region
+  [FP] spatiotemporal_region -> spatial_region
+  [FP] spatiotemporal_region -> three_dimensional_region
+  [FP] spatiotemporal_region -> zero_dimensional_region
+  [FP] unit -> unit raised to power
+  [FP] unit -> unit raised to power of negative three
+
+MISSED RELATIONS (False Negatives: 11):
+  [FN] chemical conformation -> wikipedia
+  [FN] concentration -> ph
+  [FN] electromagnetic radation -> illuminance
+  [FN] electromagnetic radation -> luminous flux
+  [FN] material category -> refactory
+  [FN] measured property -> electromagnetic radation
+  [FN] quality -> electromagnetic radation
+  [FN] spatial_region -> open thermodynamic system
+  [FN] spatial_region -> thermodynamic system
+  [FN] three_dimensional_region -> open thermodynamic system
+  [FN] three_dimensional_region -> thermodynamic system

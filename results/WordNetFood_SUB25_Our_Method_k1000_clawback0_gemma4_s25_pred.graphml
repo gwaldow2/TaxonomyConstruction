@@ -1,0 +1,83 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d4" for="graph" attr.name="timestamp" attr.type="string"/>
+<key id="d3" for="graph" attr.name="scale" attr.type="string"/>
+<key id="d2" for="graph" attr.name="results_file" attr.type="string"/>
+<key id="d1" for="graph" attr.name="tag" attr.type="string"/>
+<key id="d0" for="graph" attr.name="model" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">google/gemma-4-31b-it</data>
+<data key="d1">gemma4_s25</data>
+<data key="d2">results/scaling_gemma4.json</data>
+<data key="d3">SUB25</data>
+<data key="d4">2026-09-30T16:34:01</data>
+<node id="berry"/>
+<node id="raspberry"/>
+<node id="edible fruit"/>
+<node id="produce"/>
+<node id="dish (dish, food, foodstuff, ingredient, nutriment)"/>
+<node id="snack food"/>
+<node id="beef jerky"/>
+<node id="jerky"/>
+<node id="flavorer"/>
+<node id="herb"/>
+<node id="marjoram"/>
+<node id="meat"/>
+<node id="baked goods"/>
+<node id="dessert"/>
+<node id="applesauce cake"/>
+<node id="cake"/>
+<node id="pudding"/>
+<node id="corn pudding"/>
+<node id="gyro"/>
+<node id="sandwich"/>
+<edge source="berry" target="raspberry"/>
+<edge source="edible fruit" target="berry"/>
+<edge source="edible fruit" target="raspberry"/>
+<edge source="produce" target="berry"/>
+<edge source="produce" target="raspberry"/>
+<edge source="produce" target="edible fruit"/>
+<edge source="produce" target="herb"/>
+<edge source="produce" target="marjoram"/>
+<edge source="dish (dish, food, foodstuff, ingredient, nutriment)" target="berry"/>
+<edge source="dish (dish, food, foodstuff, ingredient, nutriment)" target="snack food"/>
+<edge source="dish (dish, food, foodstuff, ingredient, nutriment)" target="raspberry"/>
+<edge source="dish (dish, food, foodstuff, ingredient, nutriment)" target="produce"/>
+<edge source="dish (dish, food, foodstuff, ingredient, nutriment)" target="beef jerky"/>
+<edge source="dish (dish, food, foodstuff, ingredient, nutriment)" target="baked goods"/>
+<edge source="dish (dish, food, foodstuff, ingredient, nutriment)" target="flavorer"/>
+<edge source="dish (dish, food, foodstuff, ingredient, nutriment)" target="edible fruit"/>
+<edge source="dish (dish, food, foodstuff, ingredient, nutriment)" target="corn pudding"/>
+<edge source="dish (dish, food, foodstuff, ingredient, nutriment)" target="gyro"/>
+<edge source="dish (dish, food, foodstuff, ingredient, nutriment)" target="herb"/>
+<edge source="dish (dish, food, foodstuff, ingredient, nutriment)" target="marjoram"/>
+<edge source="dish (dish, food, foodstuff, ingredient, nutriment)" target="applesauce cake"/>
+<edge source="dish (dish, food, foodstuff, ingredient, nutriment)" target="pudding"/>
+<edge source="dish (dish, food, foodstuff, ingredient, nutriment)" target="dessert"/>
+<edge source="dish (dish, food, foodstuff, ingredient, nutriment)" target="cake"/>
+<edge source="dish (dish, food, foodstuff, ingredient, nutriment)" target="jerky"/>
+<edge source="dish (dish, food, foodstuff, ingredient, nutriment)" target="sandwich"/>
+<edge source="dish (dish, food, foodstuff, ingredient, nutriment)" target="meat"/>
+<edge source="snack food" target="beef jerky"/>
+<edge source="snack food" target="jerky"/>
+<edge source="snack food" target="raspberry"/>
+<edge source="snack food" target="baked goods"/>
+<edge source="snack food" target="pudding"/>
+<edge source="snack food" target="cake"/>
+<edge source="snack food" target="sandwich"/>
+<edge source="jerky" target="beef jerky"/>
+<edge source="flavorer" target="raspberry"/>
+<edge source="flavorer" target="herb"/>
+<edge source="flavorer" target="marjoram"/>
+<edge source="herb" target="marjoram"/>
+<edge source="meat" target="beef jerky"/>
+<edge source="meat" target="jerky"/>
+<edge source="baked goods" target="applesauce cake"/>
+<edge source="baked goods" target="cake"/>
+<edge source="dessert" target="baked goods"/>
+<edge source="dessert" target="corn pudding"/>
+<edge source="dessert" target="applesauce cake"/>
+<edge source="dessert" target="pudding"/>
+<edge source="dessert" target="cake"/>
+<edge source="cake" target="applesauce cake"/>
+<edge source="pudding" target="corn pudding"/>
+<edge source="sandwich" target="gyro"/>
+</graph></graphml>

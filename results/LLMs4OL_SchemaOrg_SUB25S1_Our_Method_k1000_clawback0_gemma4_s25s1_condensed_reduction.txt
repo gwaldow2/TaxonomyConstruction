@@ -1,0 +1,50 @@
+==================================================
+=== Detailed Node Pair Analysis (Condensed Transitive Reduction) ===
+Match Type Used: SET_OVERLAP
+==================================================
+Precision: 0.6190 | Recall: 0.7222 | F1: 0.6667
+
+CORRECT PREDICTIONS (True Positives: 13 Pred edges covering 13 GT edges):
+  [TP] PRED: (action -> controlaction)
+        matches GT: (action -> controlaction)
+  [TP] PRED: (civicstructure -> movietheater)
+        matches GT: (civicstructure -> movietheater)
+  [TP] PRED: (controlaction -> suspendaction)
+        matches GT: (controlaction -> suspendaction)
+  [TP] PRED: (creativework (creativework, mediaobject) -> manuscript)
+        matches GT: (creativework -> manuscript)
+  [TP] PRED: (entertainmentbusiness -> movietheater)
+        matches GT: (entertainmentbusiness -> movietheater)
+  [TP] PRED: (enumeration -> sizegroupenumeration)
+        matches GT: (enumeration -> sizegroupenumeration)
+  [TP] PRED: (episode -> tvepisode)
+        matches GT: (episode -> tvepisode)
+  [TP] PRED: (localbusiness -> emergencyservice)
+        matches GT: (localbusiness -> emergencyservice)
+  [TP] PRED: (localbusiness -> entertainmentbusiness)
+        matches GT: (localbusiness -> entertainmentbusiness)
+  [TP] PRED: (localbusiness -> sportsactivitylocation)
+        matches GT: (localbusiness -> sportsactivitylocation)
+  [TP] PRED: (organization -> localbusiness)
+        matches GT: (organization -> localbusiness)
+  [TP] PRED: (place -> localbusiness)
+        matches GT: (place -> localbusiness)
+  [TP] PRED: (sportsactivitylocation -> healthclub)
+        matches GT: (sportsactivitylocation -> healthclub)
+
+INCORRECT PREDICTIONS (False Positives: 8):
+  [FP] action -> datadownload
+  [FP] civicstructure -> governmentbuilding
+  [FP] creativework (creativework, mediaobject) -> broadcastchannel (broadcastchannel, televisionchannel)
+  [FP] creativework (creativework, mediaobject) -> episode
+  [FP] entertainmentbusiness -> broadcastchannel (broadcastchannel, televisionchannel)
+  [FP] entertainmentbusiness -> healthclub
+  [FP] intangible -> creativework (creativework, mediaobject)
+  [FP] place -> civicstructure
+
+MISSED RELATIONS (False Negatives: 5):
+  [FN] broadcastchannel -> televisionchannel
+  [FN] creativework -> collection
+  [FN] enumeration -> carusagetype
+  [FN] intangible -> broadcastchannel
+  [FN] mediaobject -> datadownload

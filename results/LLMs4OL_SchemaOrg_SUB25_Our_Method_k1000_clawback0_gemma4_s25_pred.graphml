@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d4" for="graph" attr.name="timestamp" attr.type="string"/>
+<key id="d3" for="graph" attr.name="scale" attr.type="string"/>
+<key id="d2" for="graph" attr.name="results_file" attr.type="string"/>
+<key id="d1" for="graph" attr.name="tag" attr.type="string"/>
+<key id="d0" for="graph" attr.name="model" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">google/gemma-4-31b-it</data>
+<data key="d1">gemma4_s25</data>
+<data key="d2">results/scaling_gemma4.json</data>
+<data key="d3">SUB25</data>
+<data key="d4">2026-09-30T16:34:01</data>
+<node id="enumeration"/>
+<node id="itemlist"/>
+<node id="adultorientedenumeration"/>
+<node id="place"/>
+<node id="bakery"/>
+<node id="localbusiness"/>
+<node id="foodestablishment"/>
+<node id="entertainmentbusiness"/>
+<node id="organization"/>
+<node id="service"/>
+<node id="broadcastservice"/>
+<node id="governmentbenefitstype"/>
+<node id="listitem"/>
+<node id="howtostep"/>
+<node id="intangible"/>
+<node id="time"/>
+<node id="datatype"/>
+<node id="audience"/>
+<node id="peopleaudience"/>
+<node id="creativework"/>
+<node id="series"/>
+<node id="creativeworkseries"/>
+<node id="movieseries"/>
+<node id="researchorganization"/>
+<node id="offer"/>
+<edge source="enumeration" target="itemlist"/>
+<edge source="enumeration" target="adultorientedenumeration"/>
+<edge source="enumeration" target="governmentbenefitstype"/>
+<edge source="itemlist" target="adultorientedenumeration"/>
+<edge source="place" target="bakery"/>
+<edge source="place" target="localbusiness"/>
+<edge source="place" target="foodestablishment"/>
+<edge source="localbusiness" target="entertainmentbusiness"/>
+<edge source="localbusiness" target="bakery"/>
+<edge source="localbusiness" target="foodestablishment"/>
+<edge source="foodestablishment" target="bakery"/>
+<edge source="entertainmentbusiness" target="broadcastservice"/>
+<edge source="organization" target="entertainmentbusiness"/>
+<edge source="organization" target="bakery"/>
+<edge source="organization" target="localbusiness"/>
+<edge source="organization" target="foodestablishment"/>
+<edge source="organization" target="researchorganization"/>
+<edge source="organization" target="broadcastservice"/>
+<edge source="service" target="entertainmentbusiness"/>
+<edge source="service" target="broadcastservice"/>
+<edge source="service" target="offer"/>
+<edge source="listitem" target="howtostep"/>
+<edge source="intangible" target="time"/>
+<edge source="intangible" target="creativework"/>
+<edge source="intangible" target="broadcastservice"/>
+<edge source="datatype" target="time"/>
+<edge source="datatype" target="enumeration"/>
+<edge source="datatype" target="adultorientedenumeration"/>
+<edge source="audience" target="peopleaudience"/>
+<edge source="creativework" target="itemlist"/>
+<edge source="creativework" target="enumeration"/>
+<edge source="creativework" target="adultorientedenumeration"/>
+<edge source="creativework" target="series"/>
+<edge source="creativework" target="creativeworkseries"/>
+<edge source="creativework" target="movieseries"/>
+<edge source="creativework" target="howtostep"/>
+<edge source="series" target="creativeworkseries"/>
+<edge source="series" target="movieseries"/>
+<edge source="creativeworkseries" target="movieseries"/>
+</graph></graphml>

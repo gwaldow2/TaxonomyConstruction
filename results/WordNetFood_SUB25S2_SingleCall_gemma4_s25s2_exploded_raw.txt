@@ -1,0 +1,43 @@
+==================================================
+=== Detailed Node Pair Analysis (Exploded Raw Edges) ===
+Match Type Used: EXACT
+==================================================
+Precision: 0.7500 | Recall: 0.6923 | F1: 0.7200
+
+CORRECT PREDICTIONS (True Positives: 18 Pred edges covering 18 GT edges):
+  [TP] baked goods -> bread
+  [TP] bread -> toast
+  [TP] bread -> white bread
+  [TP] cheese -> parmesan
+  [TP] condiment -> sauce
+  [TP] dairy product -> cheese
+  [TP] dish -> stew
+  [TP] flavorer -> condiment
+  [TP] food -> foodstuff
+  [TP] foodstuff -> ingredient
+  [TP] foodstuff -> starches
+  [TP] french bread -> baguet
+  [TP] ingredient -> flavorer
+  [TP] produce -> vegetable
+  [TP] sauce -> chocolate sauce
+  [TP] stew -> bigos
+  [TP] vegetable -> solanaceous vegetable
+  [TP] white bread -> french bread
+
+INCORRECT PREDICTIONS (False Positives: 6):
+  [FP] bread -> zwieback
+  [FP] foodstuff -> dish
+  [FP] foodstuff -> produce
+  [FP] nutriment -> food
+  [FP] produce -> baked goods
+  [FP] produce -> dairy product
+
+MISSED RELATIONS (False Negatives: 8):
+  [FN] food -> baked goods
+  [FN] food -> cheese
+  [FN] food -> nutriment
+  [FN] food -> produce
+  [FN] foodstuff -> dairy product
+  [FN] nutriment -> dish
+  [FN] starches -> bread
+  [FN] toast -> zwieback

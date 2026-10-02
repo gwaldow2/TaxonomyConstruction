@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d4" for="graph" attr.name="timestamp" attr.type="string"/>
+<key id="d3" for="graph" attr.name="scale" attr.type="string"/>
+<key id="d2" for="graph" attr.name="results_file" attr.type="string"/>
+<key id="d1" for="graph" attr.name="tag" attr.type="string"/>
+<key id="d0" for="graph" attr.name="model" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">google/gemma-4-31b-it</data>
+<data key="d1">gemma4_s25s1</data>
+<data key="d2">results/scaling_gemma4.json</data>
+<data key="d3">SUB25S1</data>
+<data key="d4">2026-09-30T16:46:58</data>
+<node id="quality"/>
+<node id="polar addition reaction"/>
+<node id="ununbium"/>
+<node id="illuminance"/>
+<node id="helium atom"/>
+<node id="molar energy unit"/>
+<node id="object"/>
+<node id="californium atom"/>
+<node id="thermodynamic system"/>
+<node id="element"/>
+<node id="ytterbium atom"/>
+<node id="wikipedia"/>
+<node id="atom"/>
+<node id="nucleophilic addition reaction"/>
+<node id="electromagnetic radation"/>
+<node id="unit"/>
+<node id="spatial_region"/>
+<node id="specific energy"/>
+<node id="open thermodynamic system"/>
+<node id="addition reaction"/>
+<node id="dependent_continuant"/>
+<node id="three_dimensional_region"/>
+<node id="continuant"/>
+<node id="independent_continuant"/>
+<node id="chemical conformation"/>
+<node id="measured property"/>
+<edge source="quality" target="measured property"/>
+<edge source="object" target="atom"/>
+<edge source="object" target="thermodynamic system"/>
+<edge source="thermodynamic system" target="open thermodynamic system"/>
+<edge source="atom" target="californium atom"/>
+<edge source="atom" target="helium atom"/>
+<edge source="atom" target="ytterbium atom"/>
+<edge source="unit" target="molar energy unit"/>
+<edge source="spatial_region" target="three_dimensional_region"/>
+<edge source="addition reaction" target="nucleophilic addition reaction"/>
+<edge source="addition reaction" target="polar addition reaction"/>
+<edge source="dependent_continuant" target="quality"/>
+<edge source="dependent_continuant" target="chemical conformation"/>
+<edge source="dependent_continuant" target="addition reaction"/>
+<edge source="continuant" target="dependent_continuant"/>
+<edge source="continuant" target="independent_continuant"/>
+<edge source="independent_continuant" target="object"/>
+<edge source="independent_continuant" target="spatial_region"/>
+<edge source="measured property" target="illuminance"/>
+<edge source="measured property" target="specific energy"/>
+</graph></graphml>

@@ -1,0 +1,144 @@
+==================================================
+=== Detailed Node Pair Analysis (Condensed Transitive Reduction) ===
+Match Type Used: SET_OVERLAP
+==================================================
+Precision: 0.5741 | Recall: 0.4667 | F1: 0.5148
+
+CORRECT PREDICTIONS (True Positives: 31 Pred edges covering 35 GT edges):
+  [TP] PRED: (b cell (b cell, lymphocyte of b lineage) -> b cell cd19-positive (b cell cd19-positive, lymphocyte of b lineage cd19-positive))
+        matches GT: (b cell -> b cell cd19-positive)
+  [TP] PRED: (b cell (b cell, lymphocyte of b lineage) -> b cell cd19-positive (b cell cd19-positive, lymphocyte of b lineage cd19-positive))
+        matches GT: (lymphocyte of b lineage -> lymphocyte of b lineage cd19-positive)
+  [TP] PRED: (blood vessel endothelial cell (blood vessel endothelial cell, endothelial cell of vascular tree) -> endothelial cell of artery)
+        matches GT: (blood vessel endothelial cell -> endothelial cell of artery)
+  [TP] PRED: (cell -> eukaryotic cell)
+        matches GT: (cell -> eukaryotic cell)
+  [TP] PRED: (cell -> motile cell)
+        matches GT: (cell -> motile cell)
+  [TP] PRED: (cell -> stuff accumulating cell)
+        matches GT: (cell -> stuff accumulating cell)
+  [TP] PRED: (central nervous system neuron -> interneuron)
+        matches GT: (central nervous system neuron -> interneuron)
+  [TP] PRED: (connective tissue cell (connective tissue cell, stromal cell) -> fibroblast)
+        matches GT: (stromal cell -> fibroblast)
+  [TP] PRED: (electrically active cell (electrically active cell, electrically responsive cell, electrically signaling cell, neural cell) -> neuron)
+        matches GT: (electrically responsive cell -> neuron)
+  [TP] PRED: (electrically active cell (electrically active cell, electrically responsive cell, electrically signaling cell, neural cell) -> neuron)
+        matches GT: (electrically signaling cell -> neuron)
+  [TP] PRED: (electrically active cell (electrically active cell, electrically responsive cell, electrically signaling cell, neural cell) -> neuron)
+        matches GT: (neural cell -> neuron)
+  [TP] PRED: (endothelial cell -> blood vessel endothelial cell (blood vessel endothelial cell, endothelial cell of vascular tree))
+        matches GT: (endothelial cell -> endothelial cell of vascular tree)
+  [TP] PRED: (fibroblast -> perichondrial fibroblast)
+        matches GT: (fibroblast -> perichondrial fibroblast)
+  [TP] PRED: (gabaergic interneuron -> sn-vtr-hth gata3-tcf7l2 gaba gabaergic interneuron primate)
+        matches GT: (gabaergic interneuron -> sn-vtr-hth gata3-tcf7l2 gaba gabaergic interneuron primate)
+  [TP] PRED: (hematopoietic cell -> leukocyte (leukocyte, myeloid cell))
+        matches GT: (hematopoietic cell -> leukocyte)
+  [TP] PRED: (hematopoietic cell -> leukocyte (leukocyte, myeloid cell))
+        matches GT: (hematopoietic cell -> myeloid cell)
+  [TP] PRED: (inhibitory interneuron -> gabaergic interneuron)
+        matches GT: (inhibitory interneuron -> gabaergic interneuron)
+  [TP] PRED: (interneuron -> inhibitory interneuron)
+        matches GT: (interneuron -> inhibitory interneuron)
+  [TP] PRED: (leukocyte (leukocyte, myeloid cell) -> mononuclear leukocyte)
+        matches GT: (leukocyte -> mononuclear leukocyte)
+  [TP] PRED: (leukocyte (leukocyte, myeloid cell) -> professional antigen presenting cell)
+        matches GT: (leukocyte -> professional antigen presenting cell)
+  [TP] PRED: (lymphocyte -> b cell (b cell, lymphocyte of b lineage))
+        matches GT: (lymphocyte -> lymphocyte of b lineage)
+  [TP] PRED: (macrophage -> tissue-resident macrophage)
+        matches GT: (macrophage -> tissue-resident macrophage)
+  [TP] PRED: (mononuclear leukocyte -> lymphocyte)
+        matches GT: (mononuclear leukocyte -> lymphocyte)
+  [TP] PRED: (mononuclear phagocyte -> macrophage)
+        matches GT: (mononuclear phagocyte -> macrophage)
+  [TP] PRED: (motile cell -> phagocyte)
+        matches GT: (motile cell -> phagocyte)
+  [TP] PRED: (neuron -> central nervous system neuron)
+        matches GT: (neuron -> central nervous system neuron)
+  [TP] PRED: (nucleate cell -> single nucleate cell)
+        matches GT: (nucleate cell -> single nucleate cell)
+  [TP] PRED: (osteoblast -> non-terminally differentiated osteoblast)
+        matches GT: (osteoblast -> non-terminally differentiated osteoblast)
+  [TP] PRED: (phagocyte -> phagocyte sensu vertebrata)
+        matches GT: (phagocyte -> phagocyte sensu vertebrata)
+  [TP] PRED: (phagocyte sensu vertebrata -> mononuclear phagocyte)
+        matches GT: (phagocyte sensu vertebrata -> mononuclear phagocyte)
+  [TP] PRED: (pigment cell -> leucophore)
+        matches GT: (pigment cell -> leucophore)
+  [TP] PRED: (pigment cell -> xanthophore cell)
+        matches GT: (pigment cell -> xanthophore cell)
+  [TP] PRED: (precursor b cell -> fraction bc precursor b cell)
+        matches GT: (precursor b cell -> fraction bc precursor b cell)
+  [TP] PRED: (thymic macrophage -> thymic cortical macrophage)
+        matches GT: (thymic macrophage -> thymic cortical macrophage)
+  [TP] PRED: (tissue-resident macrophage -> thymic macrophage)
+        matches GT: (tissue-resident macrophage -> thymic macrophage)
+
+INCORRECT PREDICTIONS (False Positives: 23):
+  [FP] b cell (b cell, lymphocyte of b lineage) -> precursor b cell
+  [FP] bone cell -> osteoblast
+  [FP] central nervous system neuron -> gabaergic neuron
+  [FP] connective tissue cell (connective tissue cell, stromal cell) -> bone cell
+  [FP] connective tissue cell (connective tissue cell, stromal cell) -> endothelial cell
+  [FP] connective tissue cell (connective tissue cell, stromal cell) -> macrophage
+  [FP] eukaryotic cell -> nucleate cell
+  [FP] eukaryotic cell -> secretory cell
+  [FP] gabaergic neuron -> inhibitory interneuron
+  [FP] leukocyte (leukocyte, myeloid cell) -> phagocyte
+  [FP] mononuclear leukocyte -> myeloid leukocyte
+  [FP] myeloid leukocyte -> mononuclear phagocyte
+  [FP] precursor b cell -> fraction d precursor b cell
+  [FP] precursor cell (precursor cell, progenitor cell) -> precursor b cell
+  [FP] professional antigen presenting cell -> b cell (b cell, lymphocyte of b lineage)
+  [FP] professional antigen presenting cell -> mononuclear phagocyte
+  [FP] secretory cell -> osteoblast
+  [FP] secretory cell -> xanthophore cell
+  [FP] single nucleate cell -> connective tissue cell (connective tissue cell, stromal cell)
+  [FP] single nucleate cell -> electrically active cell (electrically active cell, electrically responsive cell, electrically signaling cell, neural cell)
+  [FP] single nucleate cell -> hematopoietic cell
+  [FP] single nucleate cell -> pigment cell
+  [FP] single nucleate cell -> precursor cell (precursor cell, progenitor cell)
+
+MISSED RELATIONS (False Negatives: 40):
+  [FN] b cell cd19-positive -> precursor b cell
+  [FN] bone cell -> non-terminally differentiated osteoblast
+  [FN] cell -> electrically active cell
+  [FN] cell -> hematopoietic cell
+  [FN] cell -> nucleate cell
+  [FN] cell -> precursor cell
+  [FN] cell -> secretory cell
+  [FN] connective tissue cell -> osteoblast
+  [FN] connective tissue cell -> stromal cell
+  [FN] electrically active cell -> electrically responsive cell
+  [FN] electrically active cell -> electrically signaling cell
+  [FN] endothelial cell of vascular tree -> blood vessel endothelial cell
+  [FN] eukaryotic cell -> bone cell
+  [FN] eukaryotic cell -> connective tissue cell
+  [FN] eukaryotic cell -> endothelial cell
+  [FN] eukaryotic cell -> leucophore
+  [FN] eukaryotic cell -> leukocyte
+  [FN] eukaryotic cell -> myeloid cell
+  [FN] eukaryotic cell -> neural cell
+  [FN] eukaryotic cell -> phagocyte sensu vertebrata
+  [FN] eukaryotic cell -> single nucleate cell
+  [FN] eukaryotic cell -> xanthophore cell
+  [FN] fraction bc precursor b cell -> fraction d precursor b cell
+  [FN] gabaergic neuron -> gabaergic interneuron
+  [FN] leukocyte -> myeloid leukocyte
+  [FN] lymphocyte of b lineage -> b cell
+  [FN] lymphocyte of b lineage cd19-positive -> b cell cd19-positive
+  [FN] mononuclear leukocyte -> mononuclear phagocyte
+  [FN] motile cell -> leukocyte
+  [FN] myeloid cell -> myeloid leukocyte
+  [FN] myeloid leukocyte -> macrophage
+  [FN] neuron -> gabaergic neuron
+  [FN] nucleate cell -> leukocyte
+  [FN] precursor cell -> progenitor cell
+  [FN] professional antigen presenting cell -> macrophage
+  [FN] progenitor cell -> non-terminally differentiated osteoblast
+  [FN] secretory cell -> gabaergic neuron
+  [FN] single nucleate cell -> mononuclear leukocyte
+  [FN] stuff accumulating cell -> phagocyte
+  [FN] stuff accumulating cell -> pigment cell

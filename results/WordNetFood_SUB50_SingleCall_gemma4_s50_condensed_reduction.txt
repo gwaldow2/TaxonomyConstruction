@@ -1,0 +1,112 @@
+==================================================
+=== Detailed Node Pair Analysis (Condensed Transitive Reduction) ===
+Match Type Used: SET_OVERLAP
+==================================================
+Precision: 0.5714 | Recall: 0.5385 | F1: 0.5545
+
+CORRECT PREDICTIONS (True Positives: 28 Pred edges covering 28 GT edges):
+  [TP] PRED: (baked goods -> bread)
+        matches GT: (baked goods -> bread)
+  [TP] PRED: (baked goods -> cake)
+        matches GT: (baked goods -> cake)
+  [TP] PRED: (berry -> raspberry)
+        matches GT: (berry -> raspberry)
+  [TP] PRED: (beverage -> alcohol)
+        matches GT: (beverage -> alcohol)
+  [TP] PRED: (bread -> bun)
+        matches GT: (bread -> bun)
+  [TP] PRED: (cake -> applesauce cake)
+        matches GT: (cake -> applesauce cake)
+  [TP] PRED: (chocolate -> chocolate candy)
+        matches GT: (chocolate -> chocolate candy)
+  [TP] PRED: (citrus -> orange)
+        matches GT: (citrus -> orange)
+  [TP] PRED: (dessert -> pudding)
+        matches GT: (dessert -> pudding)
+  [TP] PRED: (dish -> chicken paprika)
+        matches GT: (dish -> chicken paprika)
+  [TP] PRED: (dish -> scampi)
+        matches GT: (dish -> scampi)
+  [TP] PRED: (edible fruit -> berry)
+        matches GT: (edible fruit -> berry)
+  [TP] PRED: (edible fruit -> citrus)
+        matches GT: (edible fruit -> citrus)
+  [TP] PRED: (food -> beverage)
+        matches GT: (food -> beverage)
+  [TP] PRED: (herb -> marjoram)
+        matches GT: (herb -> marjoram)
+  [TP] PRED: (ingredient -> flavorer)
+        matches GT: (ingredient -> flavorer)
+  [TP] PRED: (jerky -> beef jerky)
+        matches GT: (jerky -> beef jerky)
+  [TP] PRED: (legume -> pea)
+        matches GT: (legume -> pea)
+  [TP] PRED: (lettuce -> cos)
+        matches GT: (lettuce -> cos)
+  [TP] PRED: (meat -> jerky)
+        matches GT: (meat -> jerky)
+  [TP] PRED: (meat -> pork)
+        matches GT: (meat -> pork)
+  [TP] PRED: (orange -> sweet orange)
+        matches GT: (orange -> sweet orange)
+  [TP] PRED: (pea -> marrowfat pea)
+        matches GT: (pea -> marrowfat pea)
+  [TP] PRED: (produce -> edible fruit)
+        matches GT: (produce -> edible fruit)
+  [TP] PRED: (produce -> vegetable)
+        matches GT: (produce -> vegetable)
+  [TP] PRED: (pudding -> corn pudding)
+        matches GT: (pudding -> corn pudding)
+  [TP] PRED: (vegetable -> greens)
+        matches GT: (vegetable -> greens)
+  [TP] PRED: (vegetable -> legume)
+        matches GT: (vegetable -> legume)
+
+INCORRECT PREDICTIONS (False Positives: 21):
+  [FP] beverage -> koumiss
+  [FP] bread -> sweet roll
+  [FP] dessert -> baked goods
+  [FP] dish -> course
+  [FP] dish -> dessert
+  [FP] dish -> gyro
+  [FP] dish -> sandwich
+  [FP] dish -> soul food
+  [FP] flavorer -> chocolate
+  [FP] food -> dish
+  [FP] food -> ingredient
+  [FP] food -> snack food
+  [FP] foodstuff -> food
+  [FP] greens -> lettuce
+  [FP] ingredient -> herb
+  [FP] ingredient -> meat
+  [FP] ingredient -> produce
+  [FP] ingredient -> starches
+  [FP] lettuce -> salad green
+  [FP] nutriment -> food
+  [FP] orange -> navel orange
+
+MISSED RELATIONS (False Negatives: 24):
+  [FN] alcohol -> koumiss
+  [FN] bun -> sweet roll
+  [FN] course -> dessert
+  [FN] dish -> pudding
+  [FN] dish -> snack food
+  [FN] flavorer -> herb
+  [FN] food -> baked goods
+  [FN] food -> chocolate
+  [FN] food -> foodstuff
+  [FN] food -> meat
+  [FN] food -> nutriment
+  [FN] food -> produce
+  [FN] food -> soul food
+  [FN] foodstuff -> ingredient
+  [FN] foodstuff -> starches
+  [FN] greens -> salad green
+  [FN] nutriment -> course
+  [FN] nutriment -> dish
+  [FN] salad green -> lettuce
+  [FN] sandwich -> gyro
+  [FN] snack food -> sandwich
+  [FN] starches -> bread
+  [FN] sweet orange -> navel orange
+  [FN] sweet roll -> bear claw

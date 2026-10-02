@@ -1,0 +1,55 @@
+==================================================
+=== Detailed Node Pair Analysis (Condensed Transitive Reduction) ===
+Match Type Used: SET_OVERLAP
+==================================================
+Precision: 0.8696 | Recall: 0.9524 | F1: 0.9091
+
+CORRECT PREDICTIONS (True Positives: 20 Pred edges covering 20 GT edges):
+  [TP] PRED: (audience -> peopleaudience)
+        matches GT: (audience -> peopleaudience)
+  [TP] PRED: (creativework -> creativeworkseries)
+        matches GT: (creativework -> creativeworkseries)
+  [TP] PRED: (creativework -> howtostep)
+        matches GT: (creativework -> howtostep)
+  [TP] PRED: (creativeworkseries -> movieseries)
+        matches GT: (creativeworkseries -> movieseries)
+  [TP] PRED: (datatype -> time)
+        matches GT: (datatype -> time)
+  [TP] PRED: (enumeration -> adultorientedenumeration)
+        matches GT: (enumeration -> adultorientedenumeration)
+  [TP] PRED: (enumeration -> governmentbenefitstype)
+        matches GT: (enumeration -> governmentbenefitstype)
+  [TP] PRED: (foodestablishment -> bakery)
+        matches GT: (foodestablishment -> bakery)
+  [TP] PRED: (intangible -> audience)
+        matches GT: (intangible -> audience)
+  [TP] PRED: (intangible -> listitem)
+        matches GT: (intangible -> listitem)
+  [TP] PRED: (intangible -> series)
+        matches GT: (intangible -> series)
+  [TP] PRED: (intangible -> service)
+        matches GT: (intangible -> service)
+  [TP] PRED: (listitem -> howtostep)
+        matches GT: (listitem -> howtostep)
+  [TP] PRED: (localbusiness -> entertainmentbusiness)
+        matches GT: (localbusiness -> entertainmentbusiness)
+  [TP] PRED: (localbusiness -> foodestablishment)
+        matches GT: (localbusiness -> foodestablishment)
+  [TP] PRED: (organization -> localbusiness)
+        matches GT: (organization -> localbusiness)
+  [TP] PRED: (organization -> researchorganization)
+        matches GT: (organization -> researchorganization)
+  [TP] PRED: (place -> localbusiness)
+        matches GT: (place -> localbusiness)
+  [TP] PRED: (series -> creativeworkseries)
+        matches GT: (series -> creativeworkseries)
+  [TP] PRED: (service -> broadcastservice)
+        matches GT: (service -> broadcastservice)
+
+INCORRECT PREDICTIONS (False Positives: 3):
+  [FP] intangible -> enumeration
+  [FP] intangible -> itemlist
+  [FP] intangible -> offer
+
+MISSED RELATIONS (False Negatives: 1):
+  [FN] itemlist -> howtostep

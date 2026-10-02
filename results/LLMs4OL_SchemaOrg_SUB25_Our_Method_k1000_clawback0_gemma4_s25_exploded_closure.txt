@@ -1,0 +1,69 @@
+==================================================
+=== Detailed Node Pair Analysis (Exploded Transitive Closure) ===
+Match Type Used: EXACT
+==================================================
+Precision: 0.5660 | Recall: 0.8571 | F1: 0.6818
+
+CORRECT PREDICTIONS (True Positives: 30 Pred edges covering 30 GT edges):
+  [TP] audience -> peopleaudience
+  [TP] creativework -> creativeworkseries
+  [TP] creativework -> howtostep
+  [TP] creativework -> movieseries
+  [TP] creativeworkseries -> movieseries
+  [TP] datatype -> time
+  [TP] enumeration -> adultorientedenumeration
+  [TP] enumeration -> governmentbenefitstype
+  [TP] foodestablishment -> bakery
+  [TP] intangible -> broadcastservice
+  [TP] intangible -> creativeworkseries
+  [TP] intangible -> howtostep
+  [TP] intangible -> movieseries
+  [TP] intangible -> series
+  [TP] listitem -> howtostep
+  [TP] localbusiness -> bakery
+  [TP] localbusiness -> entertainmentbusiness
+  [TP] localbusiness -> foodestablishment
+  [TP] organization -> bakery
+  [TP] organization -> entertainmentbusiness
+  [TP] organization -> foodestablishment
+  [TP] organization -> localbusiness
+  [TP] organization -> researchorganization
+  [TP] place -> bakery
+  [TP] place -> entertainmentbusiness
+  [TP] place -> foodestablishment
+  [TP] place -> localbusiness
+  [TP] series -> creativeworkseries
+  [TP] series -> movieseries
+  [TP] service -> broadcastservice
+
+INCORRECT PREDICTIONS (False Positives: 23):
+  [FP] creativework -> adultorientedenumeration
+  [FP] creativework -> enumeration
+  [FP] creativework -> governmentbenefitstype
+  [FP] creativework -> itemlist
+  [FP] creativework -> series
+  [FP] datatype -> adultorientedenumeration
+  [FP] datatype -> enumeration
+  [FP] datatype -> governmentbenefitstype
+  [FP] datatype -> itemlist
+  [FP] entertainmentbusiness -> broadcastservice
+  [FP] enumeration -> itemlist
+  [FP] intangible -> adultorientedenumeration
+  [FP] intangible -> creativework
+  [FP] intangible -> enumeration
+  [FP] intangible -> governmentbenefitstype
+  [FP] intangible -> itemlist
+  [FP] intangible -> time
+  [FP] itemlist -> adultorientedenumeration
+  [FP] localbusiness -> broadcastservice
+  [FP] organization -> broadcastservice
+  [FP] place -> broadcastservice
+  [FP] service -> entertainmentbusiness
+  [FP] service -> offer
+
+MISSED RELATIONS (False Negatives: 5):
+  [FN] intangible -> audience
+  [FN] intangible -> listitem
+  [FN] intangible -> peopleaudience
+  [FN] intangible -> service
+  [FN] itemlist -> howtostep

@@ -1,0 +1,206 @@
+==================================================
+=== Detailed Node Pair Analysis (Exploded Transitive Closure) ===
+Match Type Used: EXACT
+==================================================
+Precision: 0.5549 | Recall: 0.8860 | F1: 0.6824
+
+CORRECT PREDICTIONS (True Positives: 101 Pred edges covering 101 GT edges):
+  [TP] atom -> curium atom
+  [TP] atom -> potassium atom
+  [TP] carbon allotrope -> chaoite
+  [TP] chemical quality -> electronegativity
+  [TP] chemical quality -> pauling electronegativity
+  [TP] concentration -> amount of substance concentration
+  [TP] continuant -> amount of substance concentration
+  [TP] continuant -> angular acceleration
+  [TP] continuant -> atom
+  [TP] continuant -> chemical quality
+  [TP] continuant -> concentration
+  [TP] continuant -> count
+  [TP] continuant -> curium atom
+  [TP] continuant -> cyclicity
+  [TP] continuant -> density
+  [TP] continuant -> dependent_continuant
+  [TP] continuant -> electric resistance
+  [TP] continuant -> electronegativity
+  [TP] continuant -> general sulfinic acid group
+  [TP] continuant -> independent_continuant
+  [TP] continuant -> measured property
+  [TP] continuant -> molecularquality
+  [TP] continuant -> object
+  [TP] continuant -> organic group
+  [TP] continuant -> pauling electronegativity
+  [TP] continuant -> potassium atom
+  [TP] continuant -> quality
+  [TP] continuant -> site
+  [TP] continuant -> temperature
+  [TP] dependent_continuant -> amount of substance concentration
+  [TP] dependent_continuant -> angular acceleration
+  [TP] dependent_continuant -> chemical quality
+  [TP] dependent_continuant -> concentration
+  [TP] dependent_continuant -> count
+  [TP] dependent_continuant -> cyclicity
+  [TP] dependent_continuant -> density
+  [TP] dependent_continuant -> electric resistance
+  [TP] dependent_continuant -> electronegativity
+  [TP] dependent_continuant -> measured property
+  [TP] dependent_continuant -> molecularquality
+  [TP] dependent_continuant -> pauling electronegativity
+  [TP] dependent_continuant -> quality
+  [TP] dependent_continuant -> temperature
+  [TP] derivedunit -> peta scaled unit
+  [TP] derivedunit -> scaled unit
+  [TP] derivedunit -> zepto scaled unit
+  [TP] electromagnetic radiation unit -> luminous flux unit
+  [TP] electronegativity -> pauling electronegativity
+  [TP] element -> magnesium
+  [TP] element -> molybdenum
+  [TP] element -> scandium
+  [TP] independent_continuant -> atom
+  [TP] independent_continuant -> curium atom
+  [TP] independent_continuant -> general sulfinic acid group
+  [TP] independent_continuant -> object
+  [TP] independent_continuant -> organic group
+  [TP] independent_continuant -> potassium atom
+  [TP] ion -> anion
+  [TP] measured property -> amount of substance concentration
+  [TP] measured property -> angular acceleration
+  [TP] measured property -> concentration
+  [TP] measured property -> count
+  [TP] measured property -> cyclicity
+  [TP] measured property -> density
+  [TP] measured property -> electric resistance
+  [TP] measured property -> temperature
+  [TP] object -> atom
+  [TP] object -> curium atom
+  [TP] object -> general sulfinic acid group
+  [TP] object -> organic group
+  [TP] object -> potassium atom
+  [TP] organic group -> general sulfinic acid group
+  [TP] quality -> amount of substance concentration
+  [TP] quality -> angular acceleration
+  [TP] quality -> chemical quality
+  [TP] quality -> concentration
+  [TP] quality -> count
+  [TP] quality -> cyclicity
+  [TP] quality -> density
+  [TP] quality -> electric resistance
+  [TP] quality -> electronegativity
+  [TP] quality -> measured property
+  [TP] quality -> molecularquality
+  [TP] quality -> pauling electronegativity
+  [TP] quality -> temperature
+  [TP] radiation unit -> dose equivalent unit
+  [TP] scaled unit -> peta scaled unit
+  [TP] scaled unit -> zepto scaled unit
+  [TP] unit -> conduction unit
+  [TP] unit -> derivedunit
+  [TP] unit -> dose equivalent unit
+  [TP] unit -> electric resistance unit
+  [TP] unit -> electromagnetic radiation unit
+  [TP] unit -> luminous flux unit
+  [TP] unit -> molecular mass unit
+  [TP] unit -> moment of force unit
+  [TP] unit -> peta scaled unit
+  [TP] unit -> radiation unit
+  [TP] unit -> scaled unit
+  [TP] unit -> zepto scaled unit
+  [TP] unit raised to power -> unit raised to power of three
+
+INCORRECT PREDICTIONS (False Positives: 81):
+  [FP] chemical class -> general sulfinic acid group
+  [FP] chemical class -> organic group
+  [FP] chemical quality -> cyclicity
+  [FP] chemical quality -> molecularquality
+  [FP] continuant -> anion
+  [FP] continuant -> carbon allotrope
+  [FP] continuant -> chaoite
+  [FP] continuant -> element
+  [FP] continuant -> hardness range
+  [FP] continuant -> ion
+  [FP] continuant -> magnesium
+  [FP] continuant -> molybdenum
+  [FP] continuant -> opticalisomer
+  [FP] continuant -> scandium
+  [FP] continuant -> zepto scaled unit
+  [FP] dependent_continuant -> anion
+  [FP] dependent_continuant -> atom
+  [FP] dependent_continuant -> carbon allotrope
+  [FP] dependent_continuant -> chaoite
+  [FP] dependent_continuant -> curium atom
+  [FP] dependent_continuant -> element
+  [FP] dependent_continuant -> general sulfinic acid group
+  [FP] dependent_continuant -> hardness range
+  [FP] dependent_continuant -> independent_continuant
+  [FP] dependent_continuant -> ion
+  [FP] dependent_continuant -> magnesium
+  [FP] dependent_continuant -> molybdenum
+  [FP] dependent_continuant -> object
+  [FP] dependent_continuant -> opticalisomer
+  [FP] dependent_continuant -> organic group
+  [FP] dependent_continuant -> potassium atom
+  [FP] dependent_continuant -> scandium
+  [FP] dependent_continuant -> site
+  [FP] dependent_continuant -> zepto scaled unit
+  [FP] derivedunit -> conduction unit
+  [FP] derivedunit -> dose equivalent unit
+  [FP] derivedunit -> electric resistance unit
+  [FP] derivedunit -> electromagnetic radiation unit
+  [FP] derivedunit -> luminous flux unit
+  [FP] derivedunit -> molecular mass unit
+  [FP] derivedunit -> moment of force unit
+  [FP] derivedunit -> radiation unit
+  [FP] derivedunit -> unit raised to power
+  [FP] derivedunit -> unit raised to power of three
+  [FP] element -> anion
+  [FP] element -> atom
+  [FP] element -> chaoite
+  [FP] element -> curium atom
+  [FP] element -> ion
+  [FP] element -> potassium atom
+  [FP] independent_continuant -> anion
+  [FP] independent_continuant -> carbon allotrope
+  [FP] independent_continuant -> chaoite
+  [FP] independent_continuant -> element
+  [FP] independent_continuant -> independent_continuant
+  [FP] independent_continuant -> ion
+  [FP] independent_continuant -> magnesium
+  [FP] independent_continuant -> molybdenum
+  [FP] independent_continuant -> opticalisomer
+  [FP] independent_continuant -> scandium
+  [FP] independent_continuant -> zepto scaled unit
+  [FP] measured property -> electronegativity
+  [FP] measured property -> hardness range
+  [FP] measured property -> pauling electronegativity
+  [FP] object -> anion
+  [FP] object -> carbon allotrope
+  [FP] object -> chaoite
+  [FP] object -> element
+  [FP] object -> independent_continuant
+  [FP] object -> ion
+  [FP] object -> magnesium
+  [FP] object -> molybdenum
+  [FP] object -> object
+  [FP] object -> opticalisomer
+  [FP] object -> scandium
+  [FP] object -> zepto scaled unit
+  [FP] quality -> hardness range
+  [FP] radiation unit -> electromagnetic radiation unit
+  [FP] radiation unit -> luminous flux unit
+  [FP] unit -> unit raised to power
+  [FP] unit -> unit raised to power of three
+
+MISSED RELATIONS (False Negatives: 13):
+  [FN] chemical quality -> chemical class
+  [FN] continuant -> acyclic
+  [FN] continuant -> chemical class
+  [FN] cyclicity -> acyclic
+  [FN] dependent_continuant -> acyclic
+  [FN] dependent_continuant -> chemical class
+  [FN] independent_continuant -> site
+  [FN] measured property -> acyclic
+  [FN] measured property -> molecularquality
+  [FN] molecularquality -> acyclic
+  [FN] molecularquality -> cyclicity
+  [FN] quality -> acyclic
+  [FN] quality -> chemical class

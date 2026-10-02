@@ -1,0 +1,59 @@
+==================================================
+=== Detailed Node Pair Analysis (Condensed Transitive Reduction) ===
+Match Type Used: SET_OVERLAP
+==================================================
+Precision: 0.5185 | Recall: 0.6667 | F1: 0.5833
+
+CORRECT PREDICTIONS (True Positives: 14 Pred edges covering 14 GT edges):
+  [TP] PRED: (cardinal organ part (cardinal organ part, cardinal part of multi-tissue plant structure) -> plant axis elongation zone)
+        matches GT: (cardinal organ part -> plant axis elongation zone)
+  [TP] PRED: (cardinal organ part (cardinal organ part, cardinal part of multi-tissue plant structure) -> shoot axis internode)
+        matches GT: (cardinal organ part -> shoot axis internode)
+  [TP] PRED: (leaf -> vascular leaf)
+        matches GT: (leaf -> vascular leaf)
+  [TP] PRED: (multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant organ, plant structure) -> cardinal organ part (cardinal organ part, cardinal part of multi-tissue plant structure))
+        matches GT: (plant structure -> cardinal part of multi-tissue plant structure)
+  [TP] PRED: (multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant organ, plant structure) -> portion of plant tissue)
+        matches GT: (plant structure -> portion of plant tissue)
+  [TP] PRED: (parenchyma -> pith)
+        matches GT: (parenchyma -> pith)
+  [TP] PRED: (phyllome -> leaf)
+        matches GT: (phyllome -> leaf)
+  [TP] PRED: (pith -> tuber pith)
+        matches GT: (pith -> tuber pith)
+  [TP] PRED: (plant axis elongation zone -> root elongation zone)
+        matches GT: (plant axis elongation zone -> root elongation zone)
+  [TP] PRED: (portion of ground tissue -> parenchyma)
+        matches GT: (portion of ground tissue -> parenchyma)
+  [TP] PRED: (portion of plant tissue -> portion of ground tissue)
+        matches GT: (portion of plant tissue -> portion of ground tissue)
+  [TP] PRED: (prickle -> root prickle)
+        matches GT: (prickle -> root prickle)
+  [TP] PRED: (root elongation zone -> primary root elongation zone)
+        matches GT: (root elongation zone -> primary root elongation zone)
+  [TP] PRED: (tuber pith -> aerial tuber pith)
+        matches GT: (tuber pith -> aerial tuber pith)
+
+INCORRECT PREDICTIONS (False Positives: 13):
+  [FP] cardinal organ part (cardinal organ part, cardinal part of multi-tissue plant structure) -> leaf apex
+  [FP] leaf -> leaf apex
+  [FP] leaf -> leaf tendril
+  [FP] multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant organ, plant structure) -> prickle
+  [FP] multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant organ, plant structure) -> shoot system
+  [FP] portion of plant tissue -> leaf apex
+  [FP] portion of plant tissue -> leaf tendril
+  [FP] portion of plant tissue -> plant axis elongation zone
+  [FP] portion of plant tissue -> root prickle
+  [FP] portion of plant tissue -> shoot axis internode
+  [FP] shoot system -> aerial tuber pith
+  [FP] shoot system -> phyllome
+  [FP] shoot system -> shoot axis internode
+
+MISSED RELATIONS (False Negatives: 7):
+  [FN] cardinal part of multi-tissue plant structure -> cardinal organ part
+  [FN] multi-tissue plant structure -> plant organ
+  [FN] plant anatomical entity -> plant structure
+  [FN] plant organ -> phyllome
+  [FN] plant structure -> multi-tissue plant structure
+  [FN] shoot system -> po_0000055
+  [FN] vascular leaf -> leaf tendril

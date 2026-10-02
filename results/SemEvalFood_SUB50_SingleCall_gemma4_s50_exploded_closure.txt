@@ -1,0 +1,199 @@
+==================================================
+=== Detailed Node Pair Analysis (Exploded Transitive Closure) ===
+Match Type Used: EXACT
+==================================================
+Precision: 0.9176 | Recall: 0.4309 | F1: 0.5865
+
+CORRECT PREDICTIONS (True Positives: 78 Pred edges covering 78 GT edges):
+  [TP] appetizer -> antipasto
+  [TP] b complex vitamin -> niacin
+  [TP] b complex vitamin -> vitamin b2
+  [TP] cocktail -> gin and it
+  [TP] condiment -> blue cheese dressing
+  [TP] condiment -> dressing
+  [TP] condiment -> green mayonnaise
+  [TP] condiment -> mayonnaise
+  [TP] condiment -> relish
+  [TP] condiment -> sauce
+  [TP] condiment -> steak sauce
+  [TP] diet -> diabetic diet
+  [TP] dressing -> blue cheese dressing
+  [TP] dressing -> green mayonnaise
+  [TP] dressing -> mayonnaise
+  [TP] food -> alfalfa
+  [TP] food -> antipasto
+  [TP] food -> appetizer
+  [TP] food -> blue cheese dressing
+  [TP] food -> buckwheat
+  [TP] food -> chow
+  [TP] food -> cocktail
+  [TP] food -> condiment
+  [TP] food -> dish
+  [TP] food -> dressing
+  [TP] food -> eatage
+  [TP] food -> entree
+  [TP] food -> fare
+  [TP] food -> feed
+  [TP] food -> flavorer
+  [TP] food -> fodder
+  [TP] food -> foodstuff
+  [TP] food -> garlic
+  [TP] food -> gin and it
+  [TP] food -> grain
+  [TP] food -> green mayonnaise
+  [TP] food -> herb
+  [TP] food -> home fries
+  [TP] food -> ingredient
+  [TP] food -> mashed potato
+  [TP] food -> mayonnaise
+  [TP] food -> meatball
+  [TP] food -> nutriment
+  [TP] food -> oolong
+  [TP] food -> porcupine ball
+  [TP] food -> potato
+  [TP] food -> relish
+  [TP] food -> sauce
+  [TP] food -> starches
+  [TP] food -> steak sauce
+  [TP] food -> sun tea
+  [TP] food -> tea
+  [TP] grain -> buckwheat
+  [TP] ingredient -> blue cheese dressing
+  [TP] ingredient -> condiment
+  [TP] ingredient -> dressing
+  [TP] ingredient -> flavorer
+  [TP] ingredient -> green mayonnaise
+  [TP] ingredient -> mayonnaise
+  [TP] ingredient -> relish
+  [TP] ingredient -> sauce
+  [TP] ingredient -> steak sauce
+  [TP] mayonnaise -> green mayonnaise
+  [TP] meatball -> porcupine ball
+  [TP] potato -> home fries
+  [TP] potato -> mashed potato
+  [TP] starches -> home fries
+  [TP] starches -> mashed potato
+  [TP] starches -> potato
+  [TP] tea -> oolong
+  [TP] tea -> sun tea
+  [TP] vitamin -> b complex vitamin
+  [TP] vitamin -> niacin
+  [TP] vitamin -> vitamin b2
+  [TP] vitamin -> water soluble vitamin
+  [TP] water soluble vitamin -> b complex vitamin
+  [TP] water soluble vitamin -> niacin
+  [TP] water soluble vitamin -> vitamin b2
+
+INCORRECT PREDICTIONS (False Positives: 7):
+  [FP] dish -> antipasto
+  [FP] dish -> appetizer
+  [FP] dish -> entree
+  [FP] grain -> alfalfa
+  [FP] herb -> garlic
+  [FP] meal -> course
+  [FP] sauce -> steak sauce
+
+MISSED RELATIONS (False Negatives: 103):
+  [FN] appetizer -> cocktail
+  [FN] appetizer -> gin and it
+  [FN] course -> antipasto
+  [FN] course -> appetizer
+  [FN] course -> cocktail
+  [FN] course -> entree
+  [FN] course -> gin and it
+  [FN] dainty -> center
+  [FN] dainty -> sweet
+  [FN] dish -> meatball
+  [FN] dish -> porcupine ball
+  [FN] fare -> chow
+  [FN] fare -> diabetic diet
+  [FN] fare -> diet
+  [FN] feed -> alfalfa
+  [FN] feed -> eatage
+  [FN] feed -> fodder
+  [FN] flavorer -> blue cheese dressing
+  [FN] flavorer -> condiment
+  [FN] flavorer -> dressing
+  [FN] flavorer -> garlic
+  [FN] flavorer -> green mayonnaise
+  [FN] flavorer -> herb
+  [FN] flavorer -> mayonnaise
+  [FN] flavorer -> oolong
+  [FN] flavorer -> relish
+  [FN] flavorer -> sauce
+  [FN] flavorer -> steak sauce
+  [FN] flavorer -> sun tea
+  [FN] flavorer -> tea
+  [FN] fodder -> alfalfa
+  [FN] fodder -> eatage
+  [FN] food -> b complex vitamin
+  [FN] food -> center
+  [FN] food -> course
+  [FN] food -> dainty
+  [FN] food -> diabetic diet
+  [FN] food -> diet
+  [FN] food -> meal
+  [FN] food -> niacin
+  [FN] food -> sweet
+  [FN] food -> vitamin
+  [FN] food -> vitamin b2
+  [FN] food -> water soluble vitamin
+  [FN] foodstuff -> blue cheese dressing
+  [FN] foodstuff -> buckwheat
+  [FN] foodstuff -> condiment
+  [FN] foodstuff -> dressing
+  [FN] foodstuff -> flavorer
+  [FN] foodstuff -> garlic
+  [FN] foodstuff -> grain
+  [FN] foodstuff -> green mayonnaise
+  [FN] foodstuff -> herb
+  [FN] foodstuff -> home fries
+  [FN] foodstuff -> ingredient
+  [FN] foodstuff -> mashed potato
+  [FN] foodstuff -> mayonnaise
+  [FN] foodstuff -> meal
+  [FN] foodstuff -> oolong
+  [FN] foodstuff -> potato
+  [FN] foodstuff -> relish
+  [FN] foodstuff -> sauce
+  [FN] foodstuff -> starches
+  [FN] foodstuff -> steak sauce
+  [FN] foodstuff -> sun tea
+  [FN] foodstuff -> tea
+  [FN] herb -> oolong
+  [FN] herb -> sun tea
+  [FN] herb -> tea
+  [FN] ingredient -> garlic
+  [FN] ingredient -> herb
+  [FN] ingredient -> oolong
+  [FN] ingredient -> sun tea
+  [FN] ingredient -> tea
+  [FN] meal -> oolong
+  [FN] meal -> sun tea
+  [FN] meal -> tea
+  [FN] nutriment -> antipasto
+  [FN] nutriment -> appetizer
+  [FN] nutriment -> b complex vitamin
+  [FN] nutriment -> center
+  [FN] nutriment -> cocktail
+  [FN] nutriment -> course
+  [FN] nutriment -> dainty
+  [FN] nutriment -> dish
+  [FN] nutriment -> entree
+  [FN] nutriment -> gin and it
+  [FN] nutriment -> meal
+  [FN] nutriment -> meatball
+  [FN] nutriment -> niacin
+  [FN] nutriment -> oolong
+  [FN] nutriment -> porcupine ball
+  [FN] nutriment -> sun tea
+  [FN] nutriment -> sweet
+  [FN] nutriment -> tea
+  [FN] nutriment -> vitamin
+  [FN] nutriment -> vitamin b2
+  [FN] nutriment -> water soluble vitamin
+  [FN] sauce -> blue cheese dressing
+  [FN] sauce -> dressing
+  [FN] sauce -> green mayonnaise
+  [FN] sauce -> mayonnaise
+  [FN] sweet -> center

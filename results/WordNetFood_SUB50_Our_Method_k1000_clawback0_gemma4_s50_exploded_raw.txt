@@ -1,0 +1,330 @@
+==================================================
+=== Detailed Node Pair Analysis (Exploded Raw Edges) ===
+Match Type Used: EXACT
+==================================================
+Precision: 0.1551 | Recall: 0.9423 | F1: 0.2663
+
+CORRECT PREDICTIONS (True Positives: 49 Pred edges covering 49 GT edges):
+  [TP] alcohol -> koumiss
+  [TP] baked goods -> bread
+  [TP] baked goods -> cake
+  [TP] berry -> raspberry
+  [TP] beverage -> alcohol
+  [TP] bread -> bun
+  [TP] bun -> sweet roll
+  [TP] cake -> applesauce cake
+  [TP] chocolate -> chocolate candy
+  [TP] citrus -> orange
+  [TP] dessert -> pudding
+  [TP] dish -> chicken paprika
+  [TP] dish -> pudding
+  [TP] dish -> scampi
+  [TP] edible fruit -> berry
+  [TP] edible fruit -> citrus
+  [TP] flavorer -> herb
+  [TP] food -> baked goods
+  [TP] food -> beverage
+  [TP] food -> chocolate
+  [TP] food -> foodstuff
+  [TP] food -> meat
+  [TP] food -> nutriment
+  [TP] food -> produce
+  [TP] food -> soul food
+  [TP] foodstuff -> ingredient
+  [TP] foodstuff -> starches
+  [TP] greens -> salad green
+  [TP] herb -> marjoram
+  [TP] ingredient -> flavorer
+  [TP] jerky -> beef jerky
+  [TP] legume -> pea
+  [TP] lettuce -> cos
+  [TP] meat -> jerky
+  [TP] meat -> pork
+  [TP] nutriment -> dish
+  [TP] orange -> sweet orange
+  [TP] pea -> marrowfat pea
+  [TP] produce -> edible fruit
+  [TP] produce -> vegetable
+  [TP] pudding -> corn pudding
+  [TP] salad green -> lettuce
+  [TP] sandwich -> gyro
+  [TP] snack food -> sandwich
+  [TP] starches -> bread
+  [TP] sweet orange -> navel orange
+  [TP] sweet roll -> bear claw
+  [TP] vegetable -> greens
+  [TP] vegetable -> legume
+
+INCORRECT PREDICTIONS (False Positives: 267):
+  [FP] applesauce cake -> cake
+  [FP] baked goods -> applesauce cake
+  [FP] baked goods -> bear claw
+  [FP] baked goods -> bun
+  [FP] baked goods -> corn pudding
+  [FP] baked goods -> sweet roll
+  [FP] berry -> pea
+  [FP] beverage -> koumiss
+  [FP] bread -> bear claw
+  [FP] bread -> sweet roll
+  [FP] citrus -> navel orange
+  [FP] citrus -> sweet orange
+  [FP] dessert -> applesauce cake
+  [FP] dessert -> baked goods
+  [FP] dessert -> bear claw
+  [FP] dessert -> cake
+  [FP] dessert -> chocolate
+  [FP] dessert -> chocolate candy
+  [FP] dessert -> corn pudding
+  [FP] dessert -> sweet roll
+  [FP] dish -> applesauce cake
+  [FP] dish -> baked goods
+  [FP] dish -> bear claw
+  [FP] dish -> beef jerky
+  [FP] dish -> bread
+  [FP] dish -> bun
+  [FP] dish -> cake
+  [FP] dish -> corn pudding
+  [FP] dish -> dessert
+  [FP] dish -> gyro
+  [FP] dish -> jerky
+  [FP] dish -> koumiss
+  [FP] dish -> sandwich
+  [FP] dish -> soul food
+  [FP] dish -> sweet roll
+  [FP] edible fruit -> navel orange
+  [FP] edible fruit -> orange
+  [FP] edible fruit -> pea
+  [FP] edible fruit -> raspberry
+  [FP] edible fruit -> sweet orange
+  [FP] flavorer -> marjoram
+  [FP] food -> alcohol
+  [FP] food -> applesauce cake
+  [FP] food -> bear claw
+  [FP] food -> beef jerky
+  [FP] food -> berry
+  [FP] food -> bread
+  [FP] food -> bun
+  [FP] food -> cake
+  [FP] food -> chicken paprika
+  [FP] food -> chocolate candy
+  [FP] food -> citrus
+  [FP] food -> corn pudding
+  [FP] food -> cos
+  [FP] food -> dessert
+  [FP] food -> dish
+  [FP] food -> edible fruit
+  [FP] food -> flavorer
+  [FP] food -> greens
+  [FP] food -> gyro
+  [FP] food -> herb
+  [FP] food -> ingredient
+  [FP] food -> jerky
+  [FP] food -> koumiss
+  [FP] food -> legume
+  [FP] food -> lettuce
+  [FP] food -> marjoram
+  [FP] food -> marrowfat pea
+  [FP] food -> navel orange
+  [FP] food -> orange
+  [FP] food -> pea
+  [FP] food -> pork
+  [FP] food -> pudding
+  [FP] food -> raspberry
+  [FP] food -> salad green
+  [FP] food -> sandwich
+  [FP] food -> scampi
+  [FP] food -> snack food
+  [FP] food -> starches
+  [FP] food -> sweet orange
+  [FP] food -> sweet roll
+  [FP] food -> vegetable
+  [FP] foodstuff -> alcohol
+  [FP] foodstuff -> applesauce cake
+  [FP] foodstuff -> baked goods
+  [FP] foodstuff -> bear claw
+  [FP] foodstuff -> beef jerky
+  [FP] foodstuff -> berry
+  [FP] foodstuff -> beverage
+  [FP] foodstuff -> bread
+  [FP] foodstuff -> bun
+  [FP] foodstuff -> cake
+  [FP] foodstuff -> chicken paprika
+  [FP] foodstuff -> chocolate
+  [FP] foodstuff -> chocolate candy
+  [FP] foodstuff -> citrus
+  [FP] foodstuff -> corn pudding
+  [FP] foodstuff -> cos
+  [FP] foodstuff -> dessert
+  [FP] foodstuff -> dish
+  [FP] foodstuff -> edible fruit
+  [FP] foodstuff -> flavorer
+  [FP] foodstuff -> food
+  [FP] foodstuff -> greens
+  [FP] foodstuff -> gyro
+  [FP] foodstuff -> herb
+  [FP] foodstuff -> jerky
+  [FP] foodstuff -> koumiss
+  [FP] foodstuff -> legume
+  [FP] foodstuff -> lettuce
+  [FP] foodstuff -> marjoram
+  [FP] foodstuff -> marrowfat pea
+  [FP] foodstuff -> meat
+  [FP] foodstuff -> navel orange
+  [FP] foodstuff -> nutriment
+  [FP] foodstuff -> orange
+  [FP] foodstuff -> pea
+  [FP] foodstuff -> pork
+  [FP] foodstuff -> produce
+  [FP] foodstuff -> pudding
+  [FP] foodstuff -> raspberry
+  [FP] foodstuff -> salad green
+  [FP] foodstuff -> sandwich
+  [FP] foodstuff -> scampi
+  [FP] foodstuff -> snack food
+  [FP] foodstuff -> soul food
+  [FP] foodstuff -> sweet orange
+  [FP] foodstuff -> sweet roll
+  [FP] foodstuff -> vegetable
+  [FP] greens -> cos
+  [FP] greens -> lettuce
+  [FP] gyro -> sandwich
+  [FP] ingredient -> alcohol
+  [FP] ingredient -> applesauce cake
+  [FP] ingredient -> baked goods
+  [FP] ingredient -> bear claw
+  [FP] ingredient -> beef jerky
+  [FP] ingredient -> berry
+  [FP] ingredient -> beverage
+  [FP] ingredient -> bread
+  [FP] ingredient -> bun
+  [FP] ingredient -> cake
+  [FP] ingredient -> chicken paprika
+  [FP] ingredient -> chocolate
+  [FP] ingredient -> chocolate candy
+  [FP] ingredient -> citrus
+  [FP] ingredient -> corn pudding
+  [FP] ingredient -> cos
+  [FP] ingredient -> dessert
+  [FP] ingredient -> dish
+  [FP] ingredient -> edible fruit
+  [FP] ingredient -> food
+  [FP] ingredient -> foodstuff
+  [FP] ingredient -> greens
+  [FP] ingredient -> gyro
+  [FP] ingredient -> herb
+  [FP] ingredient -> jerky
+  [FP] ingredient -> koumiss
+  [FP] ingredient -> legume
+  [FP] ingredient -> lettuce
+  [FP] ingredient -> marjoram
+  [FP] ingredient -> marrowfat pea
+  [FP] ingredient -> meat
+  [FP] ingredient -> navel orange
+  [FP] ingredient -> nutriment
+  [FP] ingredient -> orange
+  [FP] ingredient -> pea
+  [FP] ingredient -> pork
+  [FP] ingredient -> produce
+  [FP] ingredient -> pudding
+  [FP] ingredient -> raspberry
+  [FP] ingredient -> salad green
+  [FP] ingredient -> sandwich
+  [FP] ingredient -> scampi
+  [FP] ingredient -> snack food
+  [FP] ingredient -> soul food
+  [FP] ingredient -> starches
+  [FP] ingredient -> sweet orange
+  [FP] ingredient -> sweet roll
+  [FP] ingredient -> vegetable
+  [FP] legume -> marrowfat pea
+  [FP] meat -> beef jerky
+  [FP] nutriment -> alcohol
+  [FP] nutriment -> applesauce cake
+  [FP] nutriment -> baked goods
+  [FP] nutriment -> bear claw
+  [FP] nutriment -> beef jerky
+  [FP] nutriment -> berry
+  [FP] nutriment -> beverage
+  [FP] nutriment -> bread
+  [FP] nutriment -> bun
+  [FP] nutriment -> cake
+  [FP] nutriment -> chicken paprika
+  [FP] nutriment -> chocolate
+  [FP] nutriment -> chocolate candy
+  [FP] nutriment -> citrus
+  [FP] nutriment -> corn pudding
+  [FP] nutriment -> cos
+  [FP] nutriment -> dessert
+  [FP] nutriment -> edible fruit
+  [FP] nutriment -> flavorer
+  [FP] nutriment -> food
+  [FP] nutriment -> foodstuff
+  [FP] nutriment -> greens
+  [FP] nutriment -> gyro
+  [FP] nutriment -> herb
+  [FP] nutriment -> ingredient
+  [FP] nutriment -> jerky
+  [FP] nutriment -> koumiss
+  [FP] nutriment -> legume
+  [FP] nutriment -> lettuce
+  [FP] nutriment -> marjoram
+  [FP] nutriment -> marrowfat pea
+  [FP] nutriment -> meat
+  [FP] nutriment -> navel orange
+  [FP] nutriment -> orange
+  [FP] nutriment -> pea
+  [FP] nutriment -> pork
+  [FP] nutriment -> produce
+  [FP] nutriment -> pudding
+  [FP] nutriment -> raspberry
+  [FP] nutriment -> salad green
+  [FP] nutriment -> sandwich
+  [FP] nutriment -> scampi
+  [FP] nutriment -> snack food
+  [FP] nutriment -> soul food
+  [FP] nutriment -> starches
+  [FP] nutriment -> sweet orange
+  [FP] nutriment -> sweet roll
+  [FP] nutriment -> vegetable
+  [FP] orange -> navel orange
+  [FP] produce -> berry
+  [FP] produce -> citrus
+  [FP] produce -> cos
+  [FP] produce -> greens
+  [FP] produce -> herb
+  [FP] produce -> legume
+  [FP] produce -> lettuce
+  [FP] produce -> marjoram
+  [FP] produce -> marrowfat pea
+  [FP] produce -> navel orange
+  [FP] produce -> orange
+  [FP] produce -> pea
+  [FP] produce -> raspberry
+  [FP] produce -> salad green
+  [FP] produce -> sweet orange
+  [FP] salad green -> cos
+  [FP] snack food -> applesauce cake
+  [FP] snack food -> baked goods
+  [FP] snack food -> beef jerky
+  [FP] snack food -> cake
+  [FP] snack food -> chocolate
+  [FP] snack food -> chocolate candy
+  [FP] snack food -> gyro
+  [FP] snack food -> jerky
+  [FP] snack food -> pudding
+  [FP] snack food -> sweet roll
+  [FP] soul food -> corn pudding
+  [FP] soul food -> pudding
+  [FP] starches -> marrowfat pea
+  [FP] starches -> sweet roll
+  [FP] vegetable -> cos
+  [FP] vegetable -> herb
+  [FP] vegetable -> lettuce
+  [FP] vegetable -> marrowfat pea
+  [FP] vegetable -> pea
+  [FP] vegetable -> salad green
+
+MISSED RELATIONS (False Negatives: 3):
+  [FN] course -> dessert
+  [FN] dish -> snack food
+  [FN] nutriment -> course

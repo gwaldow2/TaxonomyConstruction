@@ -1,0 +1,60 @@
+==================================================
+=== Detailed Node Pair Analysis (Condensed Transitive Reduction) ===
+Match Type Used: SET_OVERLAP
+==================================================
+Precision: 0.5556 | Recall: 0.6818 | F1: 0.6122
+
+CORRECT PREDICTIONS (True Positives: 15 Pred edges covering 15 GT edges):
+  [TP] PRED: (abscission zone -> floral organ abscission zone)
+        matches GT: (abscission zone -> floral organ abscission zone)
+  [TP] PRED: (cardinal organ part (cardinal organ part, cardinal part of multi-tissue plant structure) -> plant axis differentiation zone)
+        matches GT: (cardinal organ part -> plant axis differentiation zone)
+  [TP] PRED: (flower -> pistillate flower)
+        matches GT: (flower -> pistillate flower)
+  [TP] PRED: (flower -> spikelet floret)
+        matches GT: (flower -> spikelet floret)
+  [TP] PRED: (phyllome -> sporophyll)
+        matches GT: (phyllome -> sporophyll)
+  [TP] PRED: (plant anatomical entity (plant anatomical entity, plant structure) -> cardinal organ part (cardinal organ part, cardinal part of multi-tissue plant structure))
+        matches GT: (plant structure -> cardinal part of multi-tissue plant structure)
+  [TP] PRED: (plant anatomical entity (plant anatomical entity, plant structure) -> portion of plant tissue)
+        matches GT: (plant structure -> portion of plant tissue)
+  [TP] PRED: (plant axis differentiation zone -> shoot internode differentiation zone)
+        matches GT: (plant axis differentiation zone -> shoot internode differentiation zone)
+  [TP] PRED: (portion of plant tissue -> abscission zone)
+        matches GT: (portion of plant tissue -> abscission zone)
+  [TP] PRED: (portion of plant tissue -> central endosperm)
+        matches GT: (portion of plant tissue -> central endosperm)
+  [TP] PRED: (portion of plant tissue -> portion of ground tissue)
+        matches GT: (portion of plant tissue -> portion of ground tissue)
+  [TP] PRED: (reproductive shoot system -> flower)
+        matches GT: (reproductive shoot system -> flower)
+  [TP] PRED: (shoot internode differentiation zone -> branch internode differentiation zone)
+        matches GT: (shoot internode differentiation zone -> branch internode differentiation zone)
+  [TP] PRED: (spikelet floret -> ear floret)
+        matches GT: (spikelet floret -> ear floret)
+  [TP] PRED: (storage parenchyma -> tuber storage parenchyma)
+        matches GT: (storage parenchyma -> tuber storage parenchyma)
+
+INCORRECT PREDICTIONS (False Positives: 12):
+  [FP] cardinal organ part (cardinal organ part, cardinal part of multi-tissue plant structure) -> abscission zone
+  [FP] multi-tissue plant structure -> abscission zone
+  [FP] multi-tissue plant structure -> central endosperm
+  [FP] multi-tissue plant structure -> phyllome
+  [FP] multi-tissue plant structure -> plant axis differentiation zone
+  [FP] multi-tissue plant structure -> reproductive shoot system
+  [FP] multi-tissue plant structure -> subterranean tuber axillary shoot (subterranean tuber axillary shoot, tuber axillary shoot)
+  [FP] plant anatomical entity (plant anatomical entity, plant structure) -> plant organ
+  [FP] plant organ -> multi-tissue plant structure
+  [FP] plant organ -> storage parenchyma
+  [FP] portion of ground tissue -> storage parenchyma
+  [FP] portion of plant tissue -> plant axis differentiation zone
+
+MISSED RELATIONS (False Negatives: 7):
+  [FN] cardinal part of multi-tissue plant structure -> cardinal organ part
+  [FN] multi-tissue plant structure -> plant organ
+  [FN] pistillate flower -> ear floret
+  [FN] plant anatomical entity -> plant structure
+  [FN] plant organ -> phyllome
+  [FN] plant structure -> multi-tissue plant structure
+  [FN] tuber axillary shoot -> subterranean tuber axillary shoot

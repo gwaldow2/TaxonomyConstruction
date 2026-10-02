@@ -1,0 +1,59 @@
+==================================================
+=== Detailed Node Pair Analysis (Condensed Transitive Reduction) ===
+Match Type Used: SET_OVERLAP
+==================================================
+Precision: 0.5652 | Recall: 0.5200 | F1: 0.5417
+
+CORRECT PREDICTIONS (True Positives: 13 Pred edges covering 13 GT edges):
+  [TP] PRED: (baked goods -> cake)
+        matches GT: (baked goods -> cake)
+  [TP] PRED: (berry -> raspberry)
+        matches GT: (berry -> raspberry)
+  [TP] PRED: (cake -> applesauce cake)
+        matches GT: (cake -> applesauce cake)
+  [TP] PRED: (dessert -> pudding)
+        matches GT: (dessert -> pudding)
+  [TP] PRED: (edible fruit -> berry)
+        matches GT: (edible fruit -> berry)
+  [TP] PRED: (food -> meat)
+        matches GT: (food -> meat)
+  [TP] PRED: (food -> produce)
+        matches GT: (food -> produce)
+  [TP] PRED: (herb -> marjoram)
+        matches GT: (herb -> marjoram)
+  [TP] PRED: (ingredient -> flavorer)
+        matches GT: (ingredient -> flavorer)
+  [TP] PRED: (jerky -> beef jerky)
+        matches GT: (jerky -> beef jerky)
+  [TP] PRED: (meat -> jerky)
+        matches GT: (meat -> jerky)
+  [TP] PRED: (produce -> edible fruit)
+        matches GT: (produce -> edible fruit)
+  [TP] PRED: (pudding -> corn pudding)
+        matches GT: (pudding -> corn pudding)
+
+INCORRECT PREDICTIONS (False Positives: 10):
+  [FP] dessert -> cake
+  [FP] dish -> dessert
+  [FP] dish -> gyro
+  [FP] dish -> sandwich
+  [FP] food -> dish
+  [FP] food -> ingredient
+  [FP] food -> snack food
+  [FP] foodstuff -> food
+  [FP] nutriment -> food
+  [FP] produce -> herb
+
+MISSED RELATIONS (False Negatives: 12):
+  [FN] course -> dessert
+  [FN] dish -> pudding
+  [FN] dish -> snack food
+  [FN] flavorer -> herb
+  [FN] food -> baked goods
+  [FN] food -> foodstuff
+  [FN] food -> nutriment
+  [FN] foodstuff -> ingredient
+  [FN] nutriment -> course
+  [FN] nutriment -> dish
+  [FN] sandwich -> gyro
+  [FN] snack food -> sandwich

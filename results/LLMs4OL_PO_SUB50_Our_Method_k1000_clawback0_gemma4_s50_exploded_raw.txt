@@ -1,0 +1,340 @@
+==================================================
+=== Detailed Node Pair Analysis (Exploded Raw Edges) ===
+Match Type Used: EXACT
+==================================================
+Precision: 0.1455 | Recall: 0.8868 | F1: 0.2500
+
+CORRECT PREDICTIONS (True Positives: 47 Pred edges covering 47 GT edges):
+  [TP] abscission zone -> floral organ abscission zone
+  [TP] cardinal organ part -> plant axis differentiation zone
+  [TP] cardinal part of multi-tissue plant structure -> cardinal organ part
+  [TP] carpel epidermis -> style epidermis
+  [TP] chlorenchyma cell -> mesophyll cell
+  [TP] flower -> pistillate flower
+  [TP] flower -> spikelet floret
+  [TP] ground tissue cell -> parenchyma cell
+  [TP] lateral root cap -> lateral root cap of primary root
+  [TP] leaf adaxial epidermis -> leaf lamina adaxial epidermis
+  [TP] leaf epidermis -> leaf adaxial epidermis
+  [TP] leaf epidermis -> leaf lamina epidermis
+  [TP] leaf lamina epidermis -> leaf lamina adaxial epidermis
+  [TP] native plant cell -> ground tissue cell
+  [TP] native plant cell -> plant gamete
+  [TP] parenchyma -> root parenchyma
+  [TP] parenchyma cell -> chlorenchyma cell
+  [TP] phyllome -> sporophyll
+  [TP] phyllome epidermis -> carpel epidermis
+  [TP] phyllome epidermis -> leaf epidermis
+  [TP] plant anatomical entity -> plant structure
+  [TP] plant axis differentiation zone -> shoot internode differentiation zone
+  [TP] plant epidermis -> shoot system epidermis
+  [TP] plant gamete -> plant sperm cell
+  [TP] plant organ -> phyllome
+  [TP] plant structure -> cardinal part of multi-tissue plant structure
+  [TP] plant structure -> multi-tissue plant structure
+  [TP] plant structure -> portion of plant tissue
+  [TP] portion of ground tissue -> parenchyma
+  [TP] portion of plant tissue -> abscission zone
+  [TP] portion of plant tissue -> central endosperm
+  [TP] portion of plant tissue -> plant epidermis
+  [TP] portion of plant tissue -> portion of ground tissue
+  [TP] reproductive bud -> strobilus bud
+  [TP] reproductive bud -> terminal reproductive bud
+  [TP] reproductive shoot system -> flower
+  [TP] reproductive shoot system -> reproductive bud
+  [TP] shoot internode differentiation zone -> branch internode differentiation zone
+  [TP] shoot system epidermis -> phyllome epidermis
+  [TP] spikelet floret -> ear floret
+  [TP] stem elongation stage -> se05 five nodes or internodes visible stage
+  [TP] stem elongation stage -> se07 seven nodes or internodes visible stage
+  [TP] storage parenchyma -> tuber storage parenchyma
+  [TP] strobilus bud -> terminal strobilus bud
+  [TP] terminal bud -> terminal reproductive bud
+  [TP] terminal reproductive bud -> terminal strobilus bud
+  [TP] tuber axillary shoot -> subterranean tuber axillary shoot
+
+INCORRECT PREDICTIONS (False Positives: 276):
+  [FP] cardinal organ part -> axil
+  [FP] cardinal organ part -> branch internode differentiation zone
+  [FP] cardinal organ part -> cardinal part of multi-tissue plant structure
+  [FP] cardinal organ part -> central endosperm
+  [FP] cardinal organ part -> ear floret
+  [FP] cardinal organ part -> floral organ abscission zone
+  [FP] cardinal organ part -> lateral root cap
+  [FP] cardinal organ part -> lateral root cap of primary root
+  [FP] cardinal organ part -> shoot internode differentiation zone
+  [FP] cardinal organ part -> sporophyll
+  [FP] cardinal organ part -> strobilus bud
+  [FP] cardinal organ part -> subterranean tuber axillary shoot
+  [FP] cardinal organ part -> terminal bud
+  [FP] cardinal organ part -> terminal reproductive bud
+  [FP] cardinal organ part -> terminal strobilus bud
+  [FP] cardinal organ part -> tuber axillary shoot
+  [FP] cardinal part of multi-tissue plant structure -> axil
+  [FP] cardinal part of multi-tissue plant structure -> branch internode differentiation zone
+  [FP] cardinal part of multi-tissue plant structure -> central endosperm
+  [FP] cardinal part of multi-tissue plant structure -> ear floret
+  [FP] cardinal part of multi-tissue plant structure -> floral organ abscission zone
+  [FP] cardinal part of multi-tissue plant structure -> lateral root cap
+  [FP] cardinal part of multi-tissue plant structure -> lateral root cap of primary root
+  [FP] cardinal part of multi-tissue plant structure -> plant axis differentiation zone
+  [FP] cardinal part of multi-tissue plant structure -> shoot internode differentiation zone
+  [FP] cardinal part of multi-tissue plant structure -> sporophyll
+  [FP] cardinal part of multi-tissue plant structure -> strobilus bud
+  [FP] cardinal part of multi-tissue plant structure -> subterranean tuber axillary shoot
+  [FP] cardinal part of multi-tissue plant structure -> terminal bud
+  [FP] cardinal part of multi-tissue plant structure -> terminal reproductive bud
+  [FP] cardinal part of multi-tissue plant structure -> terminal strobilus bud
+  [FP] cardinal part of multi-tissue plant structure -> tuber axillary shoot
+  [FP] flower -> ear floret
+  [FP] ground tissue cell -> chlorenchyma cell
+  [FP] ground tissue cell -> mesophyll cell
+  [FP] ground tissue cell -> root parenchyma
+  [FP] ground tissue cell -> storage parenchyma
+  [FP] lateral root cap of primary root -> lateral root cap
+  [FP] leaf epidermis -> leaf lamina adaxial epidermis
+  [FP] leaf lamina adaxial epidermis -> leaf adaxial epidermis
+  [FP] leaf lamina epidermis -> leaf adaxial epidermis
+  [FP] multi-tissue plant structure -> abscission zone
+  [FP] multi-tissue plant structure -> branch internode differentiation zone
+  [FP] multi-tissue plant structure -> central endosperm
+  [FP] multi-tissue plant structure -> ear floret
+  [FP] multi-tissue plant structure -> floral organ abscission zone
+  [FP] multi-tissue plant structure -> flower
+  [FP] multi-tissue plant structure -> lateral root cap
+  [FP] multi-tissue plant structure -> lateral root cap of primary root
+  [FP] multi-tissue plant structure -> phyllome
+  [FP] multi-tissue plant structure -> pistillate flower
+  [FP] multi-tissue plant structure -> plant axis differentiation zone
+  [FP] multi-tissue plant structure -> reproductive bud
+  [FP] multi-tissue plant structure -> reproductive shoot system
+  [FP] multi-tissue plant structure -> shoot system
+  [FP] multi-tissue plant structure -> spikelet floret
+  [FP] multi-tissue plant structure -> sporophyll
+  [FP] multi-tissue plant structure -> strobilus bud
+  [FP] multi-tissue plant structure -> subterranean tuber axillary shoot
+  [FP] multi-tissue plant structure -> terminal bud
+  [FP] multi-tissue plant structure -> terminal reproductive bud
+  [FP] multi-tissue plant structure -> terminal strobilus bud
+  [FP] multi-tissue plant structure -> tuber axillary shoot
+  [FP] native plant cell -> chlorenchyma cell
+  [FP] native plant cell -> mesophyll cell
+  [FP] native plant cell -> parenchyma cell
+  [FP] native plant cell -> plant sperm cell
+  [FP] parenchyma -> storage parenchyma
+  [FP] parenchyma -> tuber storage parenchyma
+  [FP] parenchyma cell -> mesophyll cell
+  [FP] parenchyma cell -> root parenchyma
+  [FP] parenchyma cell -> storage parenchyma
+  [FP] parenchyma cell -> tuber storage parenchyma
+  [FP] phyllome epidermis -> leaf adaxial epidermis
+  [FP] phyllome epidermis -> leaf lamina adaxial epidermis
+  [FP] phyllome epidermis -> leaf lamina epidermis
+  [FP] phyllome epidermis -> style epidermis
+  [FP] plant anatomical entity -> abscission zone
+  [FP] plant anatomical entity -> axil
+  [FP] plant anatomical entity -> branch internode differentiation zone
+  [FP] plant anatomical entity -> cardinal organ part
+  [FP] plant anatomical entity -> cardinal part of multi-tissue plant structure
+  [FP] plant anatomical entity -> carpel epidermis
+  [FP] plant anatomical entity -> central endosperm
+  [FP] plant anatomical entity -> chlorenchyma cell
+  [FP] plant anatomical entity -> ear floret
+  [FP] plant anatomical entity -> floral organ abscission zone
+  [FP] plant anatomical entity -> flower
+  [FP] plant anatomical entity -> ground tissue cell
+  [FP] plant anatomical entity -> lateral root cap
+  [FP] plant anatomical entity -> lateral root cap of primary root
+  [FP] plant anatomical entity -> leaf adaxial epidermis
+  [FP] plant anatomical entity -> leaf epidermis
+  [FP] plant anatomical entity -> leaf lamina adaxial epidermis
+  [FP] plant anatomical entity -> leaf lamina epidermis
+  [FP] plant anatomical entity -> mesophyll cell
+  [FP] plant anatomical entity -> multi-tissue plant structure
+  [FP] plant anatomical entity -> native plant cell
+  [FP] plant anatomical entity -> parenchyma
+  [FP] plant anatomical entity -> parenchyma cell
+  [FP] plant anatomical entity -> phyllome
+  [FP] plant anatomical entity -> phyllome epidermis
+  [FP] plant anatomical entity -> pistillate flower
+  [FP] plant anatomical entity -> plant axis differentiation zone
+  [FP] plant anatomical entity -> plant epidermis
+  [FP] plant anatomical entity -> plant gamete
+  [FP] plant anatomical entity -> plant organ
+  [FP] plant anatomical entity -> plant sperm cell
+  [FP] plant anatomical entity -> portion of ground tissue
+  [FP] plant anatomical entity -> portion of plant tissue
+  [FP] plant anatomical entity -> reproductive bud
+  [FP] plant anatomical entity -> reproductive shoot system
+  [FP] plant anatomical entity -> root parenchyma
+  [FP] plant anatomical entity -> se05 five nodes or internodes visible stage
+  [FP] plant anatomical entity -> shoot internode differentiation zone
+  [FP] plant anatomical entity -> shoot system
+  [FP] plant anatomical entity -> shoot system epidermis
+  [FP] plant anatomical entity -> spikelet floret
+  [FP] plant anatomical entity -> sporophyll
+  [FP] plant anatomical entity -> storage parenchyma
+  [FP] plant anatomical entity -> strobilus bud
+  [FP] plant anatomical entity -> style epidermis
+  [FP] plant anatomical entity -> subterranean tuber axillary shoot
+  [FP] plant anatomical entity -> terminal bud
+  [FP] plant anatomical entity -> terminal reproductive bud
+  [FP] plant anatomical entity -> terminal strobilus bud
+  [FP] plant anatomical entity -> tuber axillary shoot
+  [FP] plant anatomical entity -> tuber storage parenchyma
+  [FP] plant axis differentiation zone -> branch internode differentiation zone
+  [FP] plant epidermis -> carpel epidermis
+  [FP] plant epidermis -> leaf adaxial epidermis
+  [FP] plant epidermis -> leaf epidermis
+  [FP] plant epidermis -> leaf lamina adaxial epidermis
+  [FP] plant epidermis -> leaf lamina epidermis
+  [FP] plant epidermis -> phyllome epidermis
+  [FP] plant epidermis -> style epidermis
+  [FP] plant organ -> abscission zone
+  [FP] plant organ -> axil
+  [FP] plant organ -> central endosperm
+  [FP] plant organ -> ear floret
+  [FP] plant organ -> floral organ abscission zone
+  [FP] plant organ -> flower
+  [FP] plant organ -> lateral root cap
+  [FP] plant organ -> lateral root cap of primary root
+  [FP] plant organ -> leaf epidermis
+  [FP] plant organ -> multi-tissue plant structure
+  [FP] plant organ -> pistillate flower
+  [FP] plant organ -> reproductive bud
+  [FP] plant organ -> reproductive shoot system
+  [FP] plant organ -> root parenchyma
+  [FP] plant organ -> spikelet floret
+  [FP] plant organ -> sporophyll
+  [FP] plant organ -> storage parenchyma
+  [FP] plant organ -> strobilus bud
+  [FP] plant organ -> subterranean tuber axillary shoot
+  [FP] plant organ -> terminal bud
+  [FP] plant organ -> terminal reproductive bud
+  [FP] plant organ -> terminal strobilus bud
+  [FP] plant organ -> tuber axillary shoot
+  [FP] plant organ -> tuber storage parenchyma
+  [FP] plant structure -> abscission zone
+  [FP] plant structure -> axil
+  [FP] plant structure -> branch internode differentiation zone
+  [FP] plant structure -> cardinal organ part
+  [FP] plant structure -> carpel epidermis
+  [FP] plant structure -> central endosperm
+  [FP] plant structure -> chlorenchyma cell
+  [FP] plant structure -> ear floret
+  [FP] plant structure -> floral organ abscission zone
+  [FP] plant structure -> flower
+  [FP] plant structure -> ground tissue cell
+  [FP] plant structure -> lateral root cap
+  [FP] plant structure -> lateral root cap of primary root
+  [FP] plant structure -> leaf adaxial epidermis
+  [FP] plant structure -> leaf epidermis
+  [FP] plant structure -> leaf lamina adaxial epidermis
+  [FP] plant structure -> leaf lamina epidermis
+  [FP] plant structure -> mesophyll cell
+  [FP] plant structure -> native plant cell
+  [FP] plant structure -> parenchyma
+  [FP] plant structure -> parenchyma cell
+  [FP] plant structure -> phyllome
+  [FP] plant structure -> phyllome epidermis
+  [FP] plant structure -> pistillate flower
+  [FP] plant structure -> plant anatomical entity
+  [FP] plant structure -> plant axis differentiation zone
+  [FP] plant structure -> plant epidermis
+  [FP] plant structure -> plant gamete
+  [FP] plant structure -> plant organ
+  [FP] plant structure -> plant sperm cell
+  [FP] plant structure -> portion of ground tissue
+  [FP] plant structure -> reproductive bud
+  [FP] plant structure -> reproductive shoot system
+  [FP] plant structure -> root parenchyma
+  [FP] plant structure -> se05 five nodes or internodes visible stage
+  [FP] plant structure -> shoot internode differentiation zone
+  [FP] plant structure -> shoot system
+  [FP] plant structure -> shoot system epidermis
+  [FP] plant structure -> spikelet floret
+  [FP] plant structure -> sporophyll
+  [FP] plant structure -> storage parenchyma
+  [FP] plant structure -> strobilus bud
+  [FP] plant structure -> style epidermis
+  [FP] plant structure -> subterranean tuber axillary shoot
+  [FP] plant structure -> terminal bud
+  [FP] plant structure -> terminal reproductive bud
+  [FP] plant structure -> terminal strobilus bud
+  [FP] plant structure -> tuber axillary shoot
+  [FP] plant structure -> tuber storage parenchyma
+  [FP] portion of ground tissue -> root parenchyma
+  [FP] portion of ground tissue -> storage parenchyma
+  [FP] portion of ground tissue -> tuber storage parenchyma
+  [FP] portion of plant tissue -> axil
+  [FP] portion of plant tissue -> branch internode differentiation zone
+  [FP] portion of plant tissue -> cardinal organ part
+  [FP] portion of plant tissue -> cardinal part of multi-tissue plant structure
+  [FP] portion of plant tissue -> carpel epidermis
+  [FP] portion of plant tissue -> chlorenchyma cell
+  [FP] portion of plant tissue -> ear floret
+  [FP] portion of plant tissue -> floral organ abscission zone
+  [FP] portion of plant tissue -> flower
+  [FP] portion of plant tissue -> ground tissue cell
+  [FP] portion of plant tissue -> lateral root cap
+  [FP] portion of plant tissue -> lateral root cap of primary root
+  [FP] portion of plant tissue -> leaf adaxial epidermis
+  [FP] portion of plant tissue -> leaf epidermis
+  [FP] portion of plant tissue -> leaf lamina adaxial epidermis
+  [FP] portion of plant tissue -> leaf lamina epidermis
+  [FP] portion of plant tissue -> mesophyll cell
+  [FP] portion of plant tissue -> multi-tissue plant structure
+  [FP] portion of plant tissue -> parenchyma
+  [FP] portion of plant tissue -> parenchyma cell
+  [FP] portion of plant tissue -> phyllome
+  [FP] portion of plant tissue -> phyllome epidermis
+  [FP] portion of plant tissue -> pistillate flower
+  [FP] portion of plant tissue -> plant axis differentiation zone
+  [FP] portion of plant tissue -> plant organ
+  [FP] portion of plant tissue -> reproductive bud
+  [FP] portion of plant tissue -> reproductive shoot system
+  [FP] portion of plant tissue -> root parenchyma
+  [FP] portion of plant tissue -> shoot internode differentiation zone
+  [FP] portion of plant tissue -> shoot system
+  [FP] portion of plant tissue -> shoot system epidermis
+  [FP] portion of plant tissue -> spikelet floret
+  [FP] portion of plant tissue -> sporophyll
+  [FP] portion of plant tissue -> storage parenchyma
+  [FP] portion of plant tissue -> strobilus bud
+  [FP] portion of plant tissue -> style epidermis
+  [FP] portion of plant tissue -> subterranean tuber axillary shoot
+  [FP] portion of plant tissue -> terminal bud
+  [FP] portion of plant tissue -> terminal reproductive bud
+  [FP] portion of plant tissue -> terminal strobilus bud
+  [FP] portion of plant tissue -> tuber axillary shoot
+  [FP] portion of plant tissue -> tuber storage parenchyma
+  [FP] reproductive bud -> terminal strobilus bud
+  [FP] reproductive shoot system -> strobilus bud
+  [FP] reproductive shoot system -> terminal reproductive bud
+  [FP] reproductive shoot system -> terminal strobilus bud
+  [FP] root parenchyma -> storage parenchyma
+  [FP] root parenchyma -> tuber storage parenchyma
+  [FP] shoot system -> reproductive shoot system
+  [FP] shoot system -> subterranean tuber axillary shoot
+  [FP] shoot system -> tuber axillary shoot
+  [FP] shoot system epidermis -> carpel epidermis
+  [FP] shoot system epidermis -> leaf adaxial epidermis
+  [FP] shoot system epidermis -> leaf epidermis
+  [FP] shoot system epidermis -> leaf lamina adaxial epidermis
+  [FP] shoot system epidermis -> leaf lamina epidermis
+  [FP] shoot system epidermis -> style epidermis
+  [FP] storage parenchyma -> root parenchyma
+  [FP] style epidermis -> carpel epidermis
+  [FP] subterranean tuber axillary shoot -> tuber axillary shoot
+  [FP] terminal bud -> strobilus bud
+  [FP] terminal bud -> terminal strobilus bud
+  [FP] terminal reproductive bud -> strobilus bud
+  [FP] terminal strobilus bud -> strobilus bud
+
+MISSED RELATIONS (False Negatives: 6):
+  [FN] multi-tissue plant structure -> plant organ
+  [FN] pistillate flower -> ear floret
+  [FN] po_0000055 -> reproductive bud
+  [FN] po_0000055 -> terminal bud
+  [FN] root parenchyma -> lateral root cap
+  [FN] shoot system -> po_0000055

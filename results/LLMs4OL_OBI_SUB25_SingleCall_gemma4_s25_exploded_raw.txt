@@ -1,0 +1,37 @@
+==================================================
+=== Detailed Node Pair Analysis (Exploded Raw Edges) ===
+Match Type Used: EXACT
+==================================================
+Precision: 0.8261 | Recall: 0.8636 | F1: 0.8444
+
+CORRECT PREDICTIONS (True Positives: 19 Pred edges covering 19 GT edges):
+  [TP] assay -> carboxyfluorescein succinimidyl ester staining assay
+  [TP] assay -> insecticide resistance assay
+  [TP] assay -> organism detection assay
+  [TP] assay array -> microarray
+  [TP] carboxyfluorescein succinimidyl ester staining assay -> carboxyfluorescein succinimidyl ester staining assay measuring epitope specific proliferation of t cells
+  [TP] clinical history -> family clinical history of cancer
+  [TP] continuant -> independent continuant
+  [TP] device -> material separation device
+  [TP] dna microarray -> affymetrix rhesus macaque genome array
+  [TP] family clinical history of cancer -> brother clinical history of cancer
+  [TP] function -> connection function
+  [TP] independent continuant -> material entity
+  [TP] insecticide resistance assay -> insecticide resistance by detecting enzyme activity assay
+  [TP] insecticide resistance by detecting enzyme activity assay -> insecticide resistance by detecting glutathione s-transferase activity assay
+  [TP] material entity -> processed material
+  [TP] microarray -> dna microarray
+  [TP] organism detection assay -> parasite detection assay
+  [TP] organization -> organization of specimen collector
+  [TP] planned process -> assay
+
+INCORRECT PREDICTIONS (False Positives: 4):
+  [FP] assay -> assay array
+  [FP] continuant -> function
+  [FP] device -> filter paper
+  [FP] independent continuant -> device
+
+MISSED RELATIONS (False Negatives: 3):
+  [FN] device -> assay array
+  [FN] material separation device -> filter paper
+  [FN] processed material -> device

@@ -1,0 +1,65 @@
+==================================================
+=== Detailed Node Pair Analysis (Exploded Transitive Closure) ===
+Match Type Used: EXACT
+==================================================
+Precision: 0.4634 | Recall: 0.5938 | F1: 0.5205
+
+CORRECT PREDICTIONS (True Positives: 19 Pred edges covering 19 GT edges):
+  [TP] action -> controlaction
+  [TP] action -> suspendaction
+  [TP] broadcastchannel -> televisionchannel
+  [TP] creativework -> manuscript
+  [TP] entertainmentbusiness -> movietheater
+  [TP] enumeration -> carusagetype
+  [TP] enumeration -> sizegroupenumeration
+  [TP] episode -> tvepisode
+  [TP] intangible -> broadcastchannel
+  [TP] intangible -> televisionchannel
+  [TP] localbusiness -> entertainmentbusiness
+  [TP] localbusiness -> healthclub
+  [TP] localbusiness -> movietheater
+  [TP] organization -> emergencyservice
+  [TP] place -> entertainmentbusiness
+  [TP] place -> healthclub
+  [TP] place -> localbusiness
+  [TP] place -> movietheater
+  [TP] place -> sportsactivitylocation
+
+INCORRECT PREDICTIONS (False Positives: 22):
+  [FP] civicstructure -> governmentbuilding
+  [FP] collection -> datadownload
+  [FP] creativework -> broadcastchannel
+  [FP] creativework -> episode
+  [FP] creativework -> mediaobject
+  [FP] creativework -> televisionchannel
+  [FP] creativework -> tvepisode
+  [FP] intangible -> action
+  [FP] intangible -> carusagetype
+  [FP] intangible -> controlaction
+  [FP] intangible -> creativework
+  [FP] intangible -> enumeration
+  [FP] intangible -> episode
+  [FP] intangible -> manuscript
+  [FP] intangible -> mediaobject
+  [FP] intangible -> sizegroupenumeration
+  [FP] intangible -> suspendaction
+  [FP] intangible -> tvepisode
+  [FP] mediaobject -> broadcastchannel
+  [FP] mediaobject -> televisionchannel
+  [FP] place -> civicstructure
+  [FP] place -> governmentbuilding
+
+MISSED RELATIONS (False Negatives: 13):
+  [FN] civicstructure -> movietheater
+  [FN] controlaction -> suspendaction
+  [FN] creativework -> collection
+  [FN] localbusiness -> emergencyservice
+  [FN] localbusiness -> sportsactivitylocation
+  [FN] mediaobject -> datadownload
+  [FN] organization -> entertainmentbusiness
+  [FN] organization -> healthclub
+  [FN] organization -> localbusiness
+  [FN] organization -> movietheater
+  [FN] organization -> sportsactivitylocation
+  [FN] place -> emergencyservice
+  [FN] sportsactivitylocation -> healthclub

@@ -1,0 +1,123 @@
+==================================================
+=== Detailed Node Pair Analysis (Exploded Transitive Closure) ===
+Match Type Used: EXACT
+==================================================
+Precision: 0.5946 | Recall: 1.0000 | F1: 0.7458
+
+CORRECT PREDICTIONS (True Positives: 66 Pred edges covering 66 GT edges):
+  [TP] atom -> bismuth atom
+  [TP] atom -> hassium atom
+  [TP] atom -> radon atom
+  [TP] atom -> xenon atom
+  [TP] chemical phase -> strange matter phase
+  [TP] chemical phase -> uncommon chemical phase
+  [TP] continuant -> aryl
+  [TP] continuant -> atom
+  [TP] continuant -> bismuth atom
+  [TP] continuant -> carbon group
+  [TP] continuant -> dependent_continuant
+  [TP] continuant -> hassium atom
+  [TP] continuant -> independent_continuant
+  [TP] continuant -> measured property
+  [TP] continuant -> molecularquality
+  [TP] continuant -> moleculecomponentcount
+  [TP] continuant -> object
+  [TP] continuant -> organic group
+  [TP] continuant -> permittivity
+  [TP] continuant -> quality
+  [TP] continuant -> radon atom
+  [TP] continuant -> ultimate tensile strength
+  [TP] continuant -> undefined stereo bond count
+  [TP] continuant -> xenon atom
+  [TP] dependent_continuant -> measured property
+  [TP] dependent_continuant -> molecularquality
+  [TP] dependent_continuant -> moleculecomponentcount
+  [TP] dependent_continuant -> permittivity
+  [TP] dependent_continuant -> quality
+  [TP] dependent_continuant -> ultimate tensile strength
+  [TP] dependent_continuant -> undefined stereo bond count
+  [TP] independent_continuant -> aryl
+  [TP] independent_continuant -> atom
+  [TP] independent_continuant -> bismuth atom
+  [TP] independent_continuant -> carbon group
+  [TP] independent_continuant -> hassium atom
+  [TP] independent_continuant -> object
+  [TP] independent_continuant -> organic group
+  [TP] independent_continuant -> radon atom
+  [TP] independent_continuant -> xenon atom
+  [TP] measured property -> molecularquality
+  [TP] measured property -> moleculecomponentcount
+  [TP] measured property -> permittivity
+  [TP] measured property -> ultimate tensile strength
+  [TP] measured property -> undefined stereo bond count
+  [TP] molecularquality -> moleculecomponentcount
+  [TP] molecularquality -> undefined stereo bond count
+  [TP] moleculecomponentcount -> undefined stereo bond count
+  [TP] object -> aryl
+  [TP] object -> atom
+  [TP] object -> bismuth atom
+  [TP] object -> carbon group
+  [TP] object -> hassium atom
+  [TP] object -> organic group
+  [TP] object -> radon atom
+  [TP] object -> xenon atom
+  [TP] organic group -> aryl
+  [TP] organic group -> carbon group
+  [TP] quality -> measured property
+  [TP] quality -> molecularquality
+  [TP] quality -> moleculecomponentcount
+  [TP] quality -> permittivity
+  [TP] quality -> ultimate tensile strength
+  [TP] quality -> undefined stereo bond count
+  [TP] uncommon chemical phase -> strange matter phase
+  [TP] unit -> molar energy unit
+
+INCORRECT PREDICTIONS (False Positives: 45):
+  [FP] continuant -> chemical phase
+  [FP] continuant -> continuant
+  [FP] continuant -> hardness range
+  [FP] continuant -> strange matter phase
+  [FP] continuant -> uncommon chemical phase
+  [FP] dependent_continuant -> aryl
+  [FP] dependent_continuant -> carbon group
+  [FP] dependent_continuant -> hardness range
+  [FP] dependent_continuant -> organic group
+  [FP] independent_continuant -> chemical phase
+  [FP] independent_continuant -> continuant
+  [FP] independent_continuant -> dependent_continuant
+  [FP] independent_continuant -> hardness range
+  [FP] independent_continuant -> independent_continuant
+  [FP] independent_continuant -> measured property
+  [FP] independent_continuant -> molecularquality
+  [FP] independent_continuant -> moleculecomponentcount
+  [FP] independent_continuant -> permittivity
+  [FP] independent_continuant -> quality
+  [FP] independent_continuant -> strange matter phase
+  [FP] independent_continuant -> ultimate tensile strength
+  [FP] independent_continuant -> uncommon chemical phase
+  [FP] independent_continuant -> undefined stereo bond count
+  [FP] measured property -> hardness range
+  [FP] measured property -> measured property
+  [FP] measured property -> quality
+  [FP] molecularquality -> hardness range
+  [FP] molecularquality -> permittivity
+  [FP] object -> chemical phase
+  [FP] object -> continuant
+  [FP] object -> dependent_continuant
+  [FP] object -> hardness range
+  [FP] object -> independent_continuant
+  [FP] object -> measured property
+  [FP] object -> molecularquality
+  [FP] object -> moleculecomponentcount
+  [FP] object -> object
+  [FP] object -> permittivity
+  [FP] object -> quality
+  [FP] object -> strange matter phase
+  [FP] object -> ultimate tensile strength
+  [FP] object -> uncommon chemical phase
+  [FP] object -> undefined stereo bond count
+  [FP] quality -> hardness range
+  [FP] quality -> quality
+
+MISSED RELATIONS (False Negatives: 0):
+  None. (Perfect Recall!)

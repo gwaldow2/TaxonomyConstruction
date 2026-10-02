@@ -1,0 +1,69 @@
+==================================================
+=== Detailed Node Pair Analysis (Exploded Raw Edges) ===
+Match Type Used: EXACT
+==================================================
+Precision: 0.8846 | Recall: 0.8846 | F1: 0.8846
+
+CORRECT PREDICTIONS (True Positives: 46 Pred edges covering 46 GT edges):
+  [TP] alcohol -> koumiss
+  [TP] baked goods -> bread
+  [TP] baked goods -> cake
+  [TP] berry -> raspberry
+  [TP] beverage -> alcohol
+  [TP] bread -> bun
+  [TP] bun -> sweet roll
+  [TP] cake -> applesauce cake
+  [TP] citrus -> orange
+  [TP] course -> dessert
+  [TP] dessert -> pudding
+  [TP] dish -> chicken paprika
+  [TP] dish -> scampi
+  [TP] edible fruit -> berry
+  [TP] edible fruit -> citrus
+  [TP] flavorer -> herb
+  [TP] food -> baked goods
+  [TP] food -> beverage
+  [TP] food -> chocolate
+  [TP] food -> foodstuff
+  [TP] food -> meat
+  [TP] food -> nutriment
+  [TP] food -> produce
+  [TP] food -> soul food
+  [TP] foodstuff -> ingredient
+  [TP] greens -> salad green
+  [TP] herb -> marjoram
+  [TP] ingredient -> flavorer
+  [TP] jerky -> beef jerky
+  [TP] legume -> pea
+  [TP] lettuce -> cos
+  [TP] meat -> jerky
+  [TP] meat -> pork
+  [TP] nutriment -> course
+  [TP] orange -> sweet orange
+  [TP] pea -> marrowfat pea
+  [TP] produce -> edible fruit
+  [TP] produce -> vegetable
+  [TP] pudding -> corn pudding
+  [TP] salad green -> lettuce
+  [TP] sandwich -> gyro
+  [TP] snack food -> sandwich
+  [TP] sweet orange -> navel orange
+  [TP] sweet roll -> bear claw
+  [TP] vegetable -> greens
+  [TP] vegetable -> legume
+
+INCORRECT PREDICTIONS (False Positives: 6):
+  [FP] beverage -> chocolate
+  [FP] flavorer -> chocolate
+  [FP] food -> dish
+  [FP] food -> snack food
+  [FP] food -> starches
+  [FP] snack food -> chocolate candy
+
+MISSED RELATIONS (False Negatives: 6):
+  [FN] chocolate -> chocolate candy
+  [FN] dish -> pudding
+  [FN] dish -> snack food
+  [FN] foodstuff -> starches
+  [FN] nutriment -> dish
+  [FN] starches -> bread

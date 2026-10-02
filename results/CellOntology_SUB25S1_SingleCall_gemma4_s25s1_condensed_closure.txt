@@ -1,0 +1,248 @@
+==================================================
+=== Detailed Node Pair Analysis (Condensed Transitive Closure) ===
+Match Type Used: SET_OVERLAP
+==================================================
+Precision: 0.8018 | Recall: 0.7063 | F1: 0.7511
+
+CORRECT PREDICTIONS (True Positives: 89 Pred edges covering 89 GT edges):
+  [TP] PRED: (blood vessel endothelial cell -> endothelial cell of artery)
+        matches GT: (blood vessel endothelial cell -> endothelial cell of artery)
+  [TP] PRED: (bone cell -> non-terminally differentiated osteoblast)
+        matches GT: (bone cell -> non-terminally differentiated osteoblast)
+  [TP] PRED: (cell -> blood vessel endothelial cell)
+        matches GT: (cell -> blood vessel endothelial cell)
+  [TP] PRED: (cell -> bone cell)
+        matches GT: (cell -> bone cell)
+  [TP] PRED: (cell -> central nervous system neuron)
+        matches GT: (cell -> central nervous system neuron)
+  [TP] PRED: (cell -> connective tissue cell)
+        matches GT: (cell -> connective tissue cell)
+  [TP] PRED: (cell -> electrically active cell)
+        matches GT: (cell -> electrically active cell)
+  [TP] PRED: (cell -> electrically responsive cell)
+        matches GT: (cell -> electrically responsive cell)
+  [TP] PRED: (cell -> electrically signaling cell)
+        matches GT: (cell -> electrically signaling cell)
+  [TP] PRED: (cell -> endothelial cell of artery)
+        matches GT: (cell -> endothelial cell of artery)
+  [TP] PRED: (cell -> endothelial cell of vascular tree)
+        matches GT: (cell -> endothelial cell of vascular tree)
+  [TP] PRED: (cell -> endothelial cell)
+        matches GT: (cell -> endothelial cell)
+  [TP] PRED: (cell -> eukaryotic cell)
+        matches GT: (cell -> eukaryotic cell)
+  [TP] PRED: (cell -> fibroblast)
+        matches GT: (cell -> fibroblast)
+  [TP] PRED: (cell -> gabaergic interneuron)
+        matches GT: (cell -> gabaergic interneuron)
+  [TP] PRED: (cell -> gabaergic neuron)
+        matches GT: (cell -> gabaergic neuron)
+  [TP] PRED: (cell -> inhibitory interneuron)
+        matches GT: (cell -> inhibitory interneuron)
+  [TP] PRED: (cell -> interneuron)
+        matches GT: (cell -> interneuron)
+  [TP] PRED: (cell -> leucophore)
+        matches GT: (cell -> leucophore)
+  [TP] PRED: (cell -> neural cell)
+        matches GT: (cell -> neural cell)
+  [TP] PRED: (cell -> neuron)
+        matches GT: (cell -> neuron)
+  [TP] PRED: (cell -> non-terminally differentiated osteoblast)
+        matches GT: (cell -> non-terminally differentiated osteoblast)
+  [TP] PRED: (cell -> osteoblast)
+        matches GT: (cell -> osteoblast)
+  [TP] PRED: (cell -> perichondrial fibroblast)
+        matches GT: (cell -> perichondrial fibroblast)
+  [TP] PRED: (cell -> pigment cell)
+        matches GT: (cell -> pigment cell)
+  [TP] PRED: (cell -> precursor cell)
+        matches GT: (cell -> precursor cell)
+  [TP] PRED: (cell -> progenitor cell)
+        matches GT: (cell -> progenitor cell)
+  [TP] PRED: (cell -> secretory cell)
+        matches GT: (cell -> secretory cell)
+  [TP] PRED: (cell -> sn-vtr-hth gata3-tcf7l2 gaba gabaergic interneuron primate)
+        matches GT: (cell -> sn-vtr-hth gata3-tcf7l2 gaba gabaergic interneuron primate)
+  [TP] PRED: (cell -> stromal cell)
+        matches GT: (cell -> stromal cell)
+  [TP] PRED: (cell -> stuff accumulating cell)
+        matches GT: (cell -> stuff accumulating cell)
+  [TP] PRED: (cell -> xanthophore cell)
+        matches GT: (cell -> xanthophore cell)
+  [TP] PRED: (connective tissue cell -> fibroblast)
+        matches GT: (connective tissue cell -> fibroblast)
+  [TP] PRED: (connective tissue cell -> non-terminally differentiated osteoblast)
+        matches GT: (connective tissue cell -> non-terminally differentiated osteoblast)
+  [TP] PRED: (connective tissue cell -> osteoblast)
+        matches GT: (connective tissue cell -> osteoblast)
+  [TP] PRED: (connective tissue cell -> perichondrial fibroblast)
+        matches GT: (connective tissue cell -> perichondrial fibroblast)
+  [TP] PRED: (connective tissue cell -> stromal cell)
+        matches GT: (connective tissue cell -> stromal cell)
+  [TP] PRED: (electrically active cell -> electrically signaling cell)
+        matches GT: (electrically active cell -> electrically signaling cell)
+  [TP] PRED: (endothelial cell -> blood vessel endothelial cell)
+        matches GT: (endothelial cell -> blood vessel endothelial cell)
+  [TP] PRED: (endothelial cell -> endothelial cell of artery)
+        matches GT: (endothelial cell -> endothelial cell of artery)
+  [TP] PRED: (endothelial cell -> endothelial cell of vascular tree)
+        matches GT: (endothelial cell -> endothelial cell of vascular tree)
+  [TP] PRED: (endothelial cell of vascular tree -> endothelial cell of artery)
+        matches GT: (endothelial cell of vascular tree -> endothelial cell of artery)
+  [TP] PRED: (eukaryotic cell -> blood vessel endothelial cell)
+        matches GT: (eukaryotic cell -> blood vessel endothelial cell)
+  [TP] PRED: (eukaryotic cell -> bone cell)
+        matches GT: (eukaryotic cell -> bone cell)
+  [TP] PRED: (eukaryotic cell -> central nervous system neuron)
+        matches GT: (eukaryotic cell -> central nervous system neuron)
+  [TP] PRED: (eukaryotic cell -> connective tissue cell)
+        matches GT: (eukaryotic cell -> connective tissue cell)
+  [TP] PRED: (eukaryotic cell -> endothelial cell of artery)
+        matches GT: (eukaryotic cell -> endothelial cell of artery)
+  [TP] PRED: (eukaryotic cell -> endothelial cell of vascular tree)
+        matches GT: (eukaryotic cell -> endothelial cell of vascular tree)
+  [TP] PRED: (eukaryotic cell -> endothelial cell)
+        matches GT: (eukaryotic cell -> endothelial cell)
+  [TP] PRED: (eukaryotic cell -> fibroblast)
+        matches GT: (eukaryotic cell -> fibroblast)
+  [TP] PRED: (eukaryotic cell -> gabaergic interneuron)
+        matches GT: (eukaryotic cell -> gabaergic interneuron)
+  [TP] PRED: (eukaryotic cell -> gabaergic neuron)
+        matches GT: (eukaryotic cell -> gabaergic neuron)
+  [TP] PRED: (eukaryotic cell -> inhibitory interneuron)
+        matches GT: (eukaryotic cell -> inhibitory interneuron)
+  [TP] PRED: (eukaryotic cell -> interneuron)
+        matches GT: (eukaryotic cell -> interneuron)
+  [TP] PRED: (eukaryotic cell -> leucophore)
+        matches GT: (eukaryotic cell -> leucophore)
+  [TP] PRED: (eukaryotic cell -> neural cell)
+        matches GT: (eukaryotic cell -> neural cell)
+  [TP] PRED: (eukaryotic cell -> neuron)
+        matches GT: (eukaryotic cell -> neuron)
+  [TP] PRED: (eukaryotic cell -> non-terminally differentiated osteoblast)
+        matches GT: (eukaryotic cell -> non-terminally differentiated osteoblast)
+  [TP] PRED: (eukaryotic cell -> osteoblast)
+        matches GT: (eukaryotic cell -> osteoblast)
+  [TP] PRED: (eukaryotic cell -> perichondrial fibroblast)
+        matches GT: (eukaryotic cell -> perichondrial fibroblast)
+  [TP] PRED: (eukaryotic cell -> sn-vtr-hth gata3-tcf7l2 gaba gabaergic interneuron primate)
+        matches GT: (eukaryotic cell -> sn-vtr-hth gata3-tcf7l2 gaba gabaergic interneuron primate)
+  [TP] PRED: (eukaryotic cell -> stromal cell)
+        matches GT: (eukaryotic cell -> stromal cell)
+  [TP] PRED: (eukaryotic cell -> xanthophore cell)
+        matches GT: (eukaryotic cell -> xanthophore cell)
+  [TP] PRED: (fibroblast -> perichondrial fibroblast)
+        matches GT: (fibroblast -> perichondrial fibroblast)
+  [TP] PRED: (gabaergic interneuron -> sn-vtr-hth gata3-tcf7l2 gaba gabaergic interneuron primate)
+        matches GT: (gabaergic interneuron -> sn-vtr-hth gata3-tcf7l2 gaba gabaergic interneuron primate)
+  [TP] PRED: (inhibitory interneuron -> gabaergic interneuron)
+        matches GT: (inhibitory interneuron -> gabaergic interneuron)
+  [TP] PRED: (inhibitory interneuron -> sn-vtr-hth gata3-tcf7l2 gaba gabaergic interneuron primate)
+        matches GT: (inhibitory interneuron -> sn-vtr-hth gata3-tcf7l2 gaba gabaergic interneuron primate)
+  [TP] PRED: (interneuron -> gabaergic interneuron)
+        matches GT: (interneuron -> gabaergic interneuron)
+  [TP] PRED: (interneuron -> inhibitory interneuron)
+        matches GT: (interneuron -> inhibitory interneuron)
+  [TP] PRED: (interneuron -> sn-vtr-hth gata3-tcf7l2 gaba gabaergic interneuron primate)
+        matches GT: (interneuron -> sn-vtr-hth gata3-tcf7l2 gaba gabaergic interneuron primate)
+  [TP] PRED: (neural cell -> central nervous system neuron)
+        matches GT: (neural cell -> central nervous system neuron)
+  [TP] PRED: (neural cell -> gabaergic interneuron)
+        matches GT: (neural cell -> gabaergic interneuron)
+  [TP] PRED: (neural cell -> gabaergic neuron)
+        matches GT: (neural cell -> gabaergic neuron)
+  [TP] PRED: (neural cell -> inhibitory interneuron)
+        matches GT: (neural cell -> inhibitory interneuron)
+  [TP] PRED: (neural cell -> interneuron)
+        matches GT: (neural cell -> interneuron)
+  [TP] PRED: (neural cell -> neuron)
+        matches GT: (neural cell -> neuron)
+  [TP] PRED: (neural cell -> sn-vtr-hth gata3-tcf7l2 gaba gabaergic interneuron primate)
+        matches GT: (neural cell -> sn-vtr-hth gata3-tcf7l2 gaba gabaergic interneuron primate)
+  [TP] PRED: (neuron -> central nervous system neuron)
+        matches GT: (neuron -> central nervous system neuron)
+  [TP] PRED: (neuron -> gabaergic interneuron)
+        matches GT: (neuron -> gabaergic interneuron)
+  [TP] PRED: (neuron -> gabaergic neuron)
+        matches GT: (neuron -> gabaergic neuron)
+  [TP] PRED: (neuron -> inhibitory interneuron)
+        matches GT: (neuron -> inhibitory interneuron)
+  [TP] PRED: (neuron -> interneuron)
+        matches GT: (neuron -> interneuron)
+  [TP] PRED: (neuron -> sn-vtr-hth gata3-tcf7l2 gaba gabaergic interneuron primate)
+        matches GT: (neuron -> sn-vtr-hth gata3-tcf7l2 gaba gabaergic interneuron primate)
+  [TP] PRED: (osteoblast -> non-terminally differentiated osteoblast)
+        matches GT: (osteoblast -> non-terminally differentiated osteoblast)
+  [TP] PRED: (pigment cell -> leucophore)
+        matches GT: (pigment cell -> leucophore)
+  [TP] PRED: (pigment cell -> xanthophore cell)
+        matches GT: (pigment cell -> xanthophore cell)
+  [TP] PRED: (precursor cell -> progenitor cell)
+        matches GT: (precursor cell -> progenitor cell)
+  [TP] PRED: (stromal cell -> fibroblast)
+        matches GT: (stromal cell -> fibroblast)
+  [TP] PRED: (stromal cell -> perichondrial fibroblast)
+        matches GT: (stromal cell -> perichondrial fibroblast)
+
+INCORRECT PREDICTIONS (False Positives: 22):
+  [FP] blood vessel endothelial cell -> endothelial cell of vascular tree
+  [FP] bone cell -> osteoblast
+  [FP] connective tissue cell -> bone cell
+  [FP] eukaryotic cell -> electrically active cell
+  [FP] eukaryotic cell -> electrically responsive cell
+  [FP] eukaryotic cell -> electrically signaling cell
+  [FP] eukaryotic cell -> pigment cell
+  [FP] eukaryotic cell -> precursor cell
+  [FP] eukaryotic cell -> progenitor cell
+  [FP] eukaryotic cell -> secretory cell
+  [FP] eukaryotic cell -> stuff accumulating cell
+  [FP] gabaergic interneuron -> central nervous system neuron
+  [FP] gabaergic interneuron -> gabaergic neuron
+  [FP] gabaergic neuron -> central nervous system neuron
+  [FP] inhibitory interneuron -> central nervous system neuron
+  [FP] inhibitory interneuron -> gabaergic neuron
+  [FP] interneuron -> central nervous system neuron
+  [FP] interneuron -> gabaergic neuron
+  [FP] neural cell -> electrically active cell
+  [FP] neural cell -> electrically signaling cell
+  [FP] neuron -> electrically active cell
+  [FP] neuron -> electrically signaling cell
+
+MISSED RELATIONS (False Negatives: 37):
+  [FN] central nervous system neuron -> gabaergic interneuron
+  [FN] central nervous system neuron -> inhibitory interneuron
+  [FN] central nervous system neuron -> interneuron
+  [FN] central nervous system neuron -> sn-vtr-hth gata3-tcf7l2 gaba gabaergic interneuron primate
+  [FN] electrically active cell -> central nervous system neuron
+  [FN] electrically active cell -> electrically responsive cell
+  [FN] electrically active cell -> gabaergic interneuron
+  [FN] electrically active cell -> gabaergic neuron
+  [FN] electrically active cell -> inhibitory interneuron
+  [FN] electrically active cell -> interneuron
+  [FN] electrically active cell -> neuron
+  [FN] electrically active cell -> sn-vtr-hth gata3-tcf7l2 gaba gabaergic interneuron primate
+  [FN] electrically responsive cell -> central nervous system neuron
+  [FN] electrically responsive cell -> gabaergic interneuron
+  [FN] electrically responsive cell -> gabaergic neuron
+  [FN] electrically responsive cell -> inhibitory interneuron
+  [FN] electrically responsive cell -> interneuron
+  [FN] electrically responsive cell -> neuron
+  [FN] electrically responsive cell -> sn-vtr-hth gata3-tcf7l2 gaba gabaergic interneuron primate
+  [FN] electrically signaling cell -> central nervous system neuron
+  [FN] electrically signaling cell -> gabaergic interneuron
+  [FN] electrically signaling cell -> gabaergic neuron
+  [FN] electrically signaling cell -> inhibitory interneuron
+  [FN] electrically signaling cell -> interneuron
+  [FN] electrically signaling cell -> neuron
+  [FN] electrically signaling cell -> sn-vtr-hth gata3-tcf7l2 gaba gabaergic interneuron primate
+  [FN] endothelial cell of vascular tree -> blood vessel endothelial cell
+  [FN] gabaergic neuron -> gabaergic interneuron
+  [FN] gabaergic neuron -> sn-vtr-hth gata3-tcf7l2 gaba gabaergic interneuron primate
+  [FN] precursor cell -> non-terminally differentiated osteoblast
+  [FN] progenitor cell -> non-terminally differentiated osteoblast
+  [FN] secretory cell -> gabaergic interneuron
+  [FN] secretory cell -> gabaergic neuron
+  [FN] secretory cell -> sn-vtr-hth gata3-tcf7l2 gaba gabaergic interneuron primate
+  [FN] stuff accumulating cell -> leucophore
+  [FN] stuff accumulating cell -> pigment cell
+  [FN] stuff accumulating cell -> xanthophore cell

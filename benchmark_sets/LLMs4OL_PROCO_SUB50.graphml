@@ -1,0 +1,131 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d8" for="node" attr.name="is_virtual" attr.type="boolean"/>
+<key id="d7" for="graph" attr.name="generated" attr.type="string"/>
+<key id="d6" for="graph" attr.name="generator" attr.type="string"/>
+<key id="d5" for="graph" attr.name="source_edges" attr.type="string"/>
+<key id="d4" for="graph" attr.name="source_nodes" attr.type="string"/>
+<key id="d3" for="graph" attr.name="source_file" attr.type="string"/>
+<key id="d2" for="graph" attr.name="seed" attr.type="string"/>
+<key id="d1" for="graph" attr.name="target_nodes" attr.type="string"/>
+<key id="d0" for="graph" attr.name="scale" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">SUB50</data>
+<data key="d1">50</data>
+<data key="d2">42</data>
+<data key="d3">LLMs4OL_PROCO_FULL.graphml</data>
+<data key="d4">518</data>
+<data key="d5">584</data>
+<data key="d6">scale_benchmarks.py</data>
+<data key="d7">2026-09-30T16:24:53</data>
+<node id="chelator"/>
+<node id="ligand"/>
+<node id="afrl_0000344"/>
+<node id="sequential centrifugation"/>
+<node id="baryon"/>
+<node id="ionothermal synthesis"/>
+<node id="lewis acid"/>
+<node id="wet grinding"/>
+<node id="process"/>
+<node id="chemical role"/>
+<node id="molecular_function"/>
+<node id="ketone"/>
+<node id="nitrogen molecular entity"/>
+<node id="centrifugation"/>
+<node id="point group symmetry"/>
+<node id="bacterial metabolite"/>
+<node id="material processing"/>
+<node id="afrl_0000364"/>
+<node id="supercritical fluid method"/>
+<node id="metabolite"/>
+<node id="process chemistry filing"/>
+<node id="synthesis method"/>
+<node id="acid"/>
+<node id="afrl_0000085"/>
+<node id="imidic acid"/>
+<node id="fermentation"/>
+<node id="chromatography"/>
+<node id="acceptor"/>
+<node id="dialkyl ketone"/>
+<node id="afp_0003620"/>
+<node id="pnictogen molecular entity"/>
+<node id="in-silico modeling"/>
+<node id="occurrent"/>
+<node id="application"/>
+<node id="mcase mutagen prediction"/>
+<node id="bolaamphiphile"/>
+<node id="unit operation in chemical processing"/>
+<node id="copper chelator"/>
+<node id="displacement chromatography"/>
+<node id="grinding"/>
+<node id="reagent"/>
+<node id="solvent"/>
+<node id="mycoplasma genitalium metabolite"/>
+<node id="entity"/>
+<node id="afrl_0000216"/>
+<node id="surfactant"/>
+<node id="planned process"/>
+<node id="hadron"/>
+<node id="electrophilic reagent"/>
+<node id="role"/>
+<node id="prokaryotic metabolite"/>
+<node id="virtual_root">
+  <data key="d8">True</data>
+</node>
+<edge source="chelator" target="copper chelator"/>
+<edge source="ligand" target="chelator"/>
+<edge source="afrl_0000344" target="afrl_0000364"/>
+<edge source="afrl_0000344" target="afrl_0000216"/>
+<edge source="lewis acid" target="electrophilic reagent"/>
+<edge source="process" target="afp_0003620"/>
+<edge source="process" target="molecular_function"/>
+<edge source="process" target="planned process"/>
+<edge source="chemical role" target="acceptor"/>
+<edge source="chemical role" target="acid"/>
+<edge source="chemical role" target="ligand"/>
+<edge source="chemical role" target="solvent"/>
+<edge source="ketone" target="dialkyl ketone"/>
+<edge source="nitrogen molecular entity" target="imidic acid"/>
+<edge source="centrifugation" target="sequential centrifugation"/>
+<edge source="bacterial metabolite" target="mycoplasma genitalium metabolite"/>
+<edge source="material processing" target="grinding"/>
+<edge source="material processing" target="fermentation"/>
+<edge source="material processing" target="supercritical fluid method"/>
+<edge source="material processing" target="synthesis method"/>
+<edge source="metabolite" target="prokaryotic metabolite"/>
+<edge source="synthesis method" target="ionothermal synthesis"/>
+<edge source="acid" target="lewis acid"/>
+<edge source="afrl_0000085" target="afrl_0000216"/>
+<edge source="chromatography" target="displacement chromatography"/>
+<edge source="acceptor" target="lewis acid"/>
+<edge source="pnictogen molecular entity" target="nitrogen molecular entity"/>
+<edge source="in-silico modeling" target="mcase mutagen prediction"/>
+<edge source="occurrent" target="process"/>
+<edge source="application" target="solvent"/>
+<edge source="application" target="reagent"/>
+<edge source="unit operation in chemical processing" target="grinding"/>
+<edge source="unit operation in chemical processing" target="supercritical fluid method"/>
+<edge source="grinding" target="wet grinding"/>
+<edge source="reagent" target="electrophilic reagent"/>
+<edge source="entity" target="occurrent"/>
+<edge source="surfactant" target="bolaamphiphile"/>
+<edge source="planned process" target="fermentation"/>
+<edge source="planned process" target="in-silico modeling"/>
+<edge source="planned process" target="unit operation in chemical processing"/>
+<edge source="planned process" target="process chemistry filing"/>
+<edge source="planned process" target="material processing"/>
+<edge source="hadron" target="baryon"/>
+<edge source="role" target="afrl_0000085"/>
+<edge source="role" target="application"/>
+<edge source="role" target="chemical role"/>
+<edge source="role" target="afrl_0000344"/>
+<edge source="prokaryotic metabolite" target="bacterial metabolite"/>
+<edge source="virtual_root" target="ketone"/>
+<edge source="virtual_root" target="centrifugation"/>
+<edge source="virtual_root" target="point group symmetry"/>
+<edge source="virtual_root" target="metabolite"/>
+<edge source="virtual_root" target="chromatography"/>
+<edge source="virtual_root" target="pnictogen molecular entity"/>
+<edge source="virtual_root" target="entity"/>
+<edge source="virtual_root" target="surfactant"/>
+<edge source="virtual_root" target="hadron"/>
+<edge source="virtual_root" target="role"/>
+</graph></graphml>

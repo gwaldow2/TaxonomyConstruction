@@ -1,0 +1,40 @@
+==================================================
+=== Detailed Node Pair Analysis (Exploded Raw Edges) ===
+Match Type Used: EXACT
+==================================================
+Precision: 0.7083 | Recall: 0.7727 | F1: 0.7391
+
+CORRECT PREDICTIONS (True Positives: 17 Pred edges covering 17 GT edges):
+  [TP] cardinal part of multi-tissue plant structure -> cardinal organ part
+  [TP] ground tissue cell -> parenchyma cell
+  [TP] higher order inflorescence axis -> tassel inflorescence branch
+  [TP] inflorescence axis -> higher order inflorescence axis
+  [TP] multi-tissue plant structure -> plant organ
+  [TP] native plant cell -> ground tissue cell
+  [TP] parenchyma cell -> chlorenchyma cell
+  [TP] phyllome -> prophyll
+  [TP] phyllome base -> sepal base
+  [TP] plant anatomical entity -> plant structure
+  [TP] plant axis -> shoot axis
+  [TP] plant organ -> phyllome
+  [TP] plant structure -> multi-tissue plant structure
+  [TP] plant structure -> portion of plant tissue
+  [TP] portion of meristem tissue -> meristem l3 layer
+  [TP] portion of plant tissue -> portion of meristem tissue
+  [TP] shoot axis -> inflorescence axis
+
+INCORRECT PREDICTIONS (False Positives: 7):
+  [FP] cardinal organ part -> tmema
+  [FP] multi-tissue plant structure -> cardinal part of multi-tissue plant structure
+  [FP] phyllome -> bracteole
+  [FP] phyllome base -> petiole distal end
+  [FP] plant organ -> plant axis
+  [FP] plant structure -> phyllome base
+  [FP] portion of plant tissue -> native plant cell
+
+MISSED RELATIONS (False Negatives: 5):
+  [FN] cardinal organ part -> petiole distal end
+  [FN] cardinal organ part -> phyllome base
+  [FN] plant structure -> cardinal part of multi-tissue plant structure
+  [FN] portion of plant tissue -> tmema
+  [FN] prophyll -> bracteole

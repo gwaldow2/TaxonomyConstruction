@@ -1,0 +1,121 @@
+==================================================
+=== Detailed Node Pair Analysis (Condensed Transitive Reduction) ===
+Match Type Used: SET_OVERLAP
+==================================================
+Precision: 0.6949 | Recall: 0.8039 | F1: 0.7455
+
+CORRECT PREDICTIONS (True Positives: 41 Pred edges covering 41 GT edges):
+  [TP] PRED: (appetizer -> antipasto)
+        matches GT: (appetizer -> antipasto)
+  [TP] PRED: (appetizer -> cocktail)
+        matches GT: (appetizer -> cocktail)
+  [TP] PRED: (b complex vitamin -> niacin)
+        matches GT: (b complex vitamin -> niacin)
+  [TP] PRED: (b complex vitamin -> vitamin b2)
+        matches GT: (b complex vitamin -> vitamin b2)
+  [TP] PRED: (cocktail -> gin and it)
+        matches GT: (cocktail -> gin and it)
+  [TP] PRED: (condiment -> relish)
+        matches GT: (condiment -> relish)
+  [TP] PRED: (condiment -> sauce)
+        matches GT: (condiment -> sauce)
+  [TP] PRED: (course -> appetizer)
+        matches GT: (course -> appetizer)
+  [TP] PRED: (course -> entree)
+        matches GT: (course -> entree)
+  [TP] PRED: (dainty -> sweet)
+        matches GT: (dainty -> sweet)
+  [TP] PRED: (diet -> diabetic diet)
+        matches GT: (diet -> diabetic diet)
+  [TP] PRED: (dish -> meatball)
+        matches GT: (dish -> meatball)
+  [TP] PRED: (dressing -> blue cheese dressing)
+        matches GT: (dressing -> blue cheese dressing)
+  [TP] PRED: (dressing -> mayonnaise)
+        matches GT: (dressing -> mayonnaise)
+  [TP] PRED: (fare -> chow)
+        matches GT: (fare -> chow)
+  [TP] PRED: (fare -> diet)
+        matches GT: (fare -> diet)
+  [TP] PRED: (feed -> fodder)
+        matches GT: (feed -> fodder)
+  [TP] PRED: (flavorer -> condiment)
+        matches GT: (flavorer -> condiment)
+  [TP] PRED: (flavorer -> herb)
+        matches GT: (flavorer -> herb)
+  [TP] PRED: (food -> nutriment)
+        matches GT: (food -> nutriment)
+  [TP] PRED: (foodstuff -> grain)
+        matches GT: (foodstuff -> grain)
+  [TP] PRED: (foodstuff -> ingredient)
+        matches GT: (foodstuff -> ingredient)
+  [TP] PRED: (foodstuff -> meal)
+        matches GT: (foodstuff -> meal)
+  [TP] PRED: (foodstuff -> starches)
+        matches GT: (foodstuff -> starches)
+  [TP] PRED: (grain -> buckwheat)
+        matches GT: (grain -> buckwheat)
+  [TP] PRED: (ingredient -> flavorer)
+        matches GT: (ingredient -> flavorer)
+  [TP] PRED: (mayonnaise -> green mayonnaise)
+        matches GT: (mayonnaise -> green mayonnaise)
+  [TP] PRED: (meal -> tea)
+        matches GT: (meal -> tea)
+  [TP] PRED: (meatball -> porcupine ball)
+        matches GT: (meatball -> porcupine ball)
+  [TP] PRED: (nutriment -> course)
+        matches GT: (nutriment -> course)
+  [TP] PRED: (nutriment -> dish)
+        matches GT: (nutriment -> dish)
+  [TP] PRED: (nutriment -> vitamin)
+        matches GT: (nutriment -> vitamin)
+  [TP] PRED: (potato -> home fries)
+        matches GT: (potato -> home fries)
+  [TP] PRED: (potato -> mashed potato)
+        matches GT: (potato -> mashed potato)
+  [TP] PRED: (sauce -> dressing)
+        matches GT: (sauce -> dressing)
+  [TP] PRED: (starches -> potato)
+        matches GT: (starches -> potato)
+  [TP] PRED: (sweet -> center)
+        matches GT: (sweet -> center)
+  [TP] PRED: (tea -> oolong)
+        matches GT: (tea -> oolong)
+  [TP] PRED: (tea -> sun tea)
+        matches GT: (tea -> sun tea)
+  [TP] PRED: (vitamin -> water soluble vitamin)
+        matches GT: (vitamin -> water soluble vitamin)
+  [TP] PRED: (water soluble vitamin -> b complex vitamin)
+        matches GT: (water soluble vitamin -> b complex vitamin)
+
+INCORRECT PREDICTIONS (False Positives: 18):
+  [FP] course -> sweet
+  [FP] dish -> appetizer
+  [FP] dish -> dainty
+  [FP] dish -> entree
+  [FP] dish -> home fries
+  [FP] dish -> mashed potato
+  [FP] eatage -> alfalfa
+  [FP] fare -> tea
+  [FP] feed -> eatage
+  [FP] herb -> alfalfa
+  [FP] herb -> buckwheat
+  [FP] herb -> garlic
+  [FP] herb -> potato
+  [FP] meal -> appetizer
+  [FP] meal -> feed
+  [FP] nutriment -> fare
+  [FP] nutriment -> foodstuff
+  [FP] sauce -> steak sauce
+
+MISSED RELATIONS (False Negatives: 10):
+  [FN] condiment -> steak sauce
+  [FN] flavorer -> garlic
+  [FN] fodder -> alfalfa
+  [FN] fodder -> eatage
+  [FN] food -> fare
+  [FN] food -> feed
+  [FN] food -> foodstuff
+  [FN] herb -> tea
+  [FN] nutriment -> dainty
+  [FN] nutriment -> meal

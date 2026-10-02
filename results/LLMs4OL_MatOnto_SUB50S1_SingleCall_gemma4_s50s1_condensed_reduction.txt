@@ -1,0 +1,93 @@
+==================================================
+=== Detailed Node Pair Analysis (Condensed Transitive Reduction) ===
+Match Type Used: SET_OVERLAP
+==================================================
+Precision: 0.5250 | Recall: 0.5000 | F1: 0.5122
+
+CORRECT PREDICTIONS (True Positives: 21 Pred edges covering 21 GT edges):
+  [TP] PRED: (addition reaction -> polar addition reaction)
+        matches GT: (addition reaction -> polar addition reaction)
+  [TP] PRED: (atom -> californium atom)
+        matches GT: (atom -> californium atom)
+  [TP] PRED: (atom -> helium atom)
+        matches GT: (atom -> helium atom)
+  [TP] PRED: (atom -> lithium atom)
+        matches GT: (atom -> lithium atom)
+  [TP] PRED: (atom -> ytterbium atom)
+        matches GT: (atom -> ytterbium atom)
+  [TP] PRED: (continuant -> dependent_continuant)
+        matches GT: (continuant -> dependent_continuant)
+  [TP] PRED: (continuant -> independent_continuant)
+        matches GT: (continuant -> independent_continuant)
+  [TP] PRED: (dependent_continuant -> quality)
+        matches GT: (dependent_continuant -> quality)
+  [TP] PRED: (entity -> occurrent)
+        matches GT: (entity -> occurrent)
+  [TP] PRED: (independent_continuant -> object)
+        matches GT: (independent_continuant -> object)
+  [TP] PRED: (measured property -> concentration)
+        matches GT: (measured property -> concentration)
+  [TP] PRED: (measured property -> specific energy)
+        matches GT: (measured property -> specific energy)
+  [TP] PRED: (object -> atom)
+        matches GT: (object -> atom)
+  [TP] PRED: (scaled unit -> centi scaled unit)
+        matches GT: (scaled unit -> centi scaled unit)
+  [TP] PRED: (scaled unit -> giga scaled unit)
+        matches GT: (scaled unit -> giga scaled unit)
+  [TP] PRED: (spatial_region -> three_dimensional_region)
+        matches GT: (spatial_region -> three_dimensional_region)
+  [TP] PRED: (spatial_region -> zero_dimensional_region)
+        matches GT: (spatial_region -> zero_dimensional_region)
+  [TP] PRED: (spatiotemporal_region -> connected_spatiotemporal_region)
+        matches GT: (spatiotemporal_region -> connected_spatiotemporal_region)
+  [TP] PRED: (thermodynamic system -> open thermodynamic system)
+        matches GT: (thermodynamic system -> open thermodynamic system)
+  [TP] PRED: (unit -> derivedunit)
+        matches GT: (unit -> derivedunit)
+  [TP] PRED: (unit raised to power -> unit raised to power of negative three)
+        matches GT: (unit raised to power -> unit raised to power of negative three)
+
+INCORRECT PREDICTIONS (False Positives: 19):
+  [FP] addition reaction -> nucleophilic addition reaction
+  [FP] derivedunit -> electromagnetic radiation unit
+  [FP] derivedunit -> illuminance unit
+  [FP] derivedunit -> molar energy unit
+  [FP] derivedunit -> velocity unit
+  [FP] entity -> continuant
+  [FP] entity -> thermodynamic system
+  [FP] entity -> unit
+  [FP] independent_continuant -> spatial_region
+  [FP] intensive property -> measured property
+  [FP] measured property -> flexural modulus
+  [FP] measured property -> illuminance
+  [FP] measured property -> luminous flux
+  [FP] measured property -> ph
+  [FP] occurrent -> addition reaction
+  [FP] quality -> intensive property
+  [FP] spatial_region -> spatiotemporal_region
+  [FP] unit -> scaled unit
+  [FP] unit -> unit raised to power
+
+MISSED RELATIONS (False Negatives: 21):
+  [FN] chemical conformation -> wikipedia
+  [FN] concentration -> ph
+  [FN] continuant -> spatial_region
+  [FN] derivedunit -> scaled unit
+  [FN] electromagnetic radation -> illuminance
+  [FN] electromagnetic radation -> luminous flux
+  [FN] electromagnetic radiation unit -> illuminance unit
+  [FN] element -> erbium
+  [FN] element -> ununbium
+  [FN] intensive property -> flexural modulus
+  [FN] material category -> refactory
+  [FN] measured property -> electric current
+  [FN] measured property -> electromagnetic radation
+  [FN] measured property -> intensive property
+  [FN] occurrent -> spatiotemporal_region
+  [FN] polar addition reaction -> nucleophilic addition reaction
+  [FN] quality -> measured property
+  [FN] three_dimensional_region -> thermodynamic system
+  [FN] unit -> electromagnetic radiation unit
+  [FN] unit -> molar energy unit
+  [FN] unit -> velocity unit

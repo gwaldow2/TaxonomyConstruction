@@ -1,0 +1,52 @@
+==================================================
+=== Detailed Node Pair Analysis (Exploded Transitive Closure) ===
+Match Type Used: EXACT
+==================================================
+Precision: 0.8750 | Recall: 1.0000 | F1: 0.9333
+
+CORRECT PREDICTIONS (True Positives: 35 Pred edges covering 35 GT edges):
+  [TP] audience -> peopleaudience
+  [TP] creativework -> creativeworkseries
+  [TP] creativework -> howtostep
+  [TP] creativework -> movieseries
+  [TP] creativeworkseries -> movieseries
+  [TP] datatype -> time
+  [TP] enumeration -> adultorientedenumeration
+  [TP] enumeration -> governmentbenefitstype
+  [TP] foodestablishment -> bakery
+  [TP] intangible -> audience
+  [TP] intangible -> broadcastservice
+  [TP] intangible -> creativeworkseries
+  [TP] intangible -> howtostep
+  [TP] intangible -> listitem
+  [TP] intangible -> movieseries
+  [TP] intangible -> peopleaudience
+  [TP] intangible -> series
+  [TP] intangible -> service
+  [TP] itemlist -> howtostep
+  [TP] listitem -> howtostep
+  [TP] localbusiness -> bakery
+  [TP] localbusiness -> entertainmentbusiness
+  [TP] localbusiness -> foodestablishment
+  [TP] organization -> bakery
+  [TP] organization -> entertainmentbusiness
+  [TP] organization -> foodestablishment
+  [TP] organization -> localbusiness
+  [TP] organization -> researchorganization
+  [TP] place -> bakery
+  [TP] place -> entertainmentbusiness
+  [TP] place -> foodestablishment
+  [TP] place -> localbusiness
+  [TP] series -> creativeworkseries
+  [TP] series -> movieseries
+  [TP] service -> broadcastservice
+
+INCORRECT PREDICTIONS (False Positives: 5):
+  [FP] intangible -> adultorientedenumeration
+  [FP] intangible -> enumeration
+  [FP] intangible -> governmentbenefitstype
+  [FP] intangible -> itemlist
+  [FP] intangible -> offer
+
+MISSED RELATIONS (False Negatives: 0):
+  None. (Perfect Recall!)

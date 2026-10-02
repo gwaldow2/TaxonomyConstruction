@@ -1,0 +1,55 @@
+==================================================
+=== Detailed Node Pair Analysis (Exploded Raw Edges) ===
+Match Type Used: EXACT
+==================================================
+Precision: 0.4103 | Recall: 0.7619 | F1: 0.5333
+
+CORRECT PREDICTIONS (True Positives: 16 Pred edges covering 16 GT edges):
+  [TP] audience -> peopleaudience
+  [TP] creativework -> creativeworkseries
+  [TP] creativework -> howtostep
+  [TP] creativeworkseries -> movieseries
+  [TP] datatype -> time
+  [TP] enumeration -> adultorientedenumeration
+  [TP] enumeration -> governmentbenefitstype
+  [TP] foodestablishment -> bakery
+  [TP] listitem -> howtostep
+  [TP] localbusiness -> entertainmentbusiness
+  [TP] localbusiness -> foodestablishment
+  [TP] organization -> localbusiness
+  [TP] organization -> researchorganization
+  [TP] place -> localbusiness
+  [TP] series -> creativeworkseries
+  [TP] service -> broadcastservice
+
+INCORRECT PREDICTIONS (False Positives: 23):
+  [FP] creativework -> adultorientedenumeration
+  [FP] creativework -> enumeration
+  [FP] creativework -> itemlist
+  [FP] creativework -> movieseries
+  [FP] creativework -> series
+  [FP] datatype -> adultorientedenumeration
+  [FP] datatype -> enumeration
+  [FP] entertainmentbusiness -> broadcastservice
+  [FP] enumeration -> itemlist
+  [FP] intangible -> broadcastservice
+  [FP] intangible -> creativework
+  [FP] intangible -> time
+  [FP] itemlist -> adultorientedenumeration
+  [FP] localbusiness -> bakery
+  [FP] organization -> bakery
+  [FP] organization -> broadcastservice
+  [FP] organization -> entertainmentbusiness
+  [FP] organization -> foodestablishment
+  [FP] place -> bakery
+  [FP] place -> foodestablishment
+  [FP] series -> movieseries
+  [FP] service -> entertainmentbusiness
+  [FP] service -> offer
+
+MISSED RELATIONS (False Negatives: 5):
+  [FN] intangible -> audience
+  [FN] intangible -> listitem
+  [FN] intangible -> series
+  [FN] intangible -> service
+  [FN] itemlist -> howtostep

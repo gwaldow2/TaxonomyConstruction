@@ -1,0 +1,77 @@
+==================================================
+=== Detailed Node Pair Analysis (Exploded Transitive Closure) ===
+Match Type Used: EXACT
+==================================================
+Precision: 0.4603 | Recall: 0.9062 | F1: 0.6105
+
+CORRECT PREDICTIONS (True Positives: 29 Pred edges covering 29 GT edges):
+  [TP] action -> controlaction
+  [TP] action -> suspendaction
+  [TP] broadcastchannel -> televisionchannel
+  [TP] civicstructure -> movietheater
+  [TP] controlaction -> suspendaction
+  [TP] creativework -> manuscript
+  [TP] entertainmentbusiness -> movietheater
+  [TP] enumeration -> sizegroupenumeration
+  [TP] episode -> tvepisode
+  [TP] intangible -> broadcastchannel
+  [TP] intangible -> televisionchannel
+  [TP] localbusiness -> emergencyservice
+  [TP] localbusiness -> entertainmentbusiness
+  [TP] localbusiness -> healthclub
+  [TP] localbusiness -> movietheater
+  [TP] localbusiness -> sportsactivitylocation
+  [TP] organization -> emergencyservice
+  [TP] organization -> entertainmentbusiness
+  [TP] organization -> healthclub
+  [TP] organization -> localbusiness
+  [TP] organization -> movietheater
+  [TP] organization -> sportsactivitylocation
+  [TP] place -> emergencyservice
+  [TP] place -> entertainmentbusiness
+  [TP] place -> healthclub
+  [TP] place -> localbusiness
+  [TP] place -> movietheater
+  [TP] place -> sportsactivitylocation
+  [TP] sportsactivitylocation -> healthclub
+
+INCORRECT PREDICTIONS (False Positives: 34):
+  [FP] action -> datadownload
+  [FP] broadcastchannel -> broadcastchannel
+  [FP] civicstructure -> governmentbuilding
+  [FP] creativework -> broadcastchannel
+  [FP] creativework -> creativework
+  [FP] creativework -> episode
+  [FP] creativework -> mediaobject
+  [FP] creativework -> televisionchannel
+  [FP] creativework -> tvepisode
+  [FP] entertainmentbusiness -> broadcastchannel
+  [FP] entertainmentbusiness -> healthclub
+  [FP] entertainmentbusiness -> televisionchannel
+  [FP] intangible -> creativework
+  [FP] intangible -> episode
+  [FP] intangible -> manuscript
+  [FP] intangible -> mediaobject
+  [FP] intangible -> tvepisode
+  [FP] localbusiness -> broadcastchannel
+  [FP] localbusiness -> televisionchannel
+  [FP] mediaobject -> broadcastchannel
+  [FP] mediaobject -> creativework
+  [FP] mediaobject -> episode
+  [FP] mediaobject -> manuscript
+  [FP] mediaobject -> mediaobject
+  [FP] mediaobject -> televisionchannel
+  [FP] mediaobject -> tvepisode
+  [FP] organization -> broadcastchannel
+  [FP] organization -> televisionchannel
+  [FP] place -> broadcastchannel
+  [FP] place -> civicstructure
+  [FP] place -> governmentbuilding
+  [FP] place -> televisionchannel
+  [FP] televisionchannel -> broadcastchannel
+  [FP] televisionchannel -> televisionchannel
+
+MISSED RELATIONS (False Negatives: 3):
+  [FN] creativework -> collection
+  [FN] enumeration -> carusagetype
+  [FN] mediaobject -> datadownload

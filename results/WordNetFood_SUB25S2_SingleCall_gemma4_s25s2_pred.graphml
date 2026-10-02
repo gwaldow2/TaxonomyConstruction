@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d4" for="graph" attr.name="timestamp" attr.type="string"/>
+<key id="d3" for="graph" attr.name="scale" attr.type="string"/>
+<key id="d2" for="graph" attr.name="results_file" attr.type="string"/>
+<key id="d1" for="graph" attr.name="tag" attr.type="string"/>
+<key id="d0" for="graph" attr.name="model" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">google/gemma-4-31b-it</data>
+<data key="d1">gemma4_s25s2</data>
+<data key="d2">results/scaling_gemma4.json</data>
+<data key="d3">SUB25S2</data>
+<data key="d4">2026-09-30T16:51:14</data>
+<node id="toast"/>
+<node id="baked goods"/>
+<node id="starches"/>
+<node id="parmesan"/>
+<node id="white bread"/>
+<node id="zwieback"/>
+<node id="solanaceous vegetable"/>
+<node id="dairy product"/>
+<node id="french bread"/>
+<node id="bigos"/>
+<node id="bread"/>
+<node id="condiment"/>
+<node id="cheese"/>
+<node id="chocolate sauce"/>
+<node id="flavorer"/>
+<node id="foodstuff"/>
+<node id="nutriment"/>
+<node id="baguet"/>
+<node id="food"/>
+<node id="vegetable"/>
+<node id="dish"/>
+<node id="sauce"/>
+<node id="ingredient"/>
+<node id="produce"/>
+<node id="stew"/>
+<edge source="baked goods" target="bread"/>
+<edge source="white bread" target="french bread"/>
+<edge source="dairy product" target="cheese"/>
+<edge source="french bread" target="baguet"/>
+<edge source="bread" target="white bread"/>
+<edge source="bread" target="toast"/>
+<edge source="bread" target="zwieback"/>
+<edge source="condiment" target="sauce"/>
+<edge source="cheese" target="parmesan"/>
+<edge source="flavorer" target="condiment"/>
+<edge source="foodstuff" target="produce"/>
+<edge source="foodstuff" target="dish"/>
+<edge source="foodstuff" target="ingredient"/>
+<edge source="foodstuff" target="starches"/>
+<edge source="nutriment" target="food"/>
+<edge source="food" target="foodstuff"/>
+<edge source="vegetable" target="solanaceous vegetable"/>
+<edge source="dish" target="stew"/>
+<edge source="sauce" target="chocolate sauce"/>
+<edge source="ingredient" target="flavorer"/>
+<edge source="produce" target="baked goods"/>
+<edge source="produce" target="dairy product"/>
+<edge source="produce" target="vegetable"/>
+<edge source="stew" target="bigos"/>
+</graph></graphml>

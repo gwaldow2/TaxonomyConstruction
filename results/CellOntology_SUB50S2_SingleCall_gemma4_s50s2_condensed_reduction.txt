@@ -1,0 +1,130 @@
+==================================================
+=== Detailed Node Pair Analysis (Condensed Transitive Reduction) ===
+Match Type Used: SET_OVERLAP
+==================================================
+Precision: 0.6226 | Recall: 0.5000 | F1: 0.5546
+
+CORRECT PREDICTIONS (True Positives: 33 Pred edges covering 33 GT edges):
+  [TP] PRED: (autonomic neuron -> parasympathetic neuron)
+        matches GT: (autonomic neuron -> parasympathetic neuron)
+  [TP] PRED: (cell -> eukaryotic cell)
+        matches GT: (cell -> eukaryotic cell)
+  [TP] PRED: (central nervous system neuron -> neuron of the forebrain)
+        matches GT: (central nervous system neuron -> neuron of the forebrain)
+  [TP] PRED: (ecto-epithelial cell -> neurecto-epithelial cell)
+        matches GT: (ecto-epithelial cell -> neurecto-epithelial cell)
+  [TP] PRED: (electrically active cell -> electrically signaling cell)
+        matches GT: (electrically active cell -> electrically signaling cell)
+  [TP] PRED: (epithelial cell -> columnarcuboidal epithelial cell)
+        matches GT: (epithelial cell -> columnarcuboidal epithelial cell)
+  [TP] PRED: (epithelial cell -> secretory epithelial cell)
+        matches GT: (epithelial cell -> secretory epithelial cell)
+  [TP] PRED: (eukaryotic cell -> epithelial cell)
+        matches GT: (eukaryotic cell -> epithelial cell)
+  [TP] PRED: (eukaryotic cell -> neural cell)
+        matches GT: (eukaryotic cell -> neural cell)
+  [TP] PRED: (gabaergic neuron -> internal globus pallidus core projecting neuron)
+        matches GT: (gabaergic neuron -> internal globus pallidus core projecting neuron)
+  [TP] PRED: (glial cell -> enteroglial cell)
+        matches GT: (glial cell -> enteroglial cell)
+  [TP] PRED: (internal globus pallidus core projecting neuron -> gpi core neuron primate)
+        matches GT: (internal globus pallidus core projecting neuron -> gpi core neuron primate)
+  [TP] PRED: (neural cell -> neuron associated cell)
+        matches GT: (neural cell -> neuron associated cell)
+  [TP] PRED: (neural cell -> neuron)
+        matches GT: (neural cell -> neuron)
+  [TP] PRED: (neuroblast sensu vertebrata -> neural crest derived neuroblast)
+        matches GT: (neuroblast sensu vertebrata -> neural crest derived neuroblast)
+  [TP] PRED: (neuron -> central nervous system neuron)
+        matches GT: (neuron -> central nervous system neuron)
+  [TP] PRED: (neuron -> peripheral nervous system neuron)
+        matches GT: (neuron -> peripheral nervous system neuron)
+  [TP] PRED: (neuron -> retinal ganglion cell)
+        matches GT: (neuron -> retinal ganglion cell)
+  [TP] PRED: (parasympathetic neuron -> lower airway ganglion chatvip neuron)
+        matches GT: (parasympathetic neuron -> lower airway ganglion chatvip neuron)
+  [TP] PRED: (peripheral nervous system neuron -> autonomic neuron)
+        matches GT: (peripheral nervous system neuron -> autonomic neuron)
+  [TP] PRED: (precursor cell -> progenitor cell)
+        matches GT: (precursor cell -> progenitor cell)
+  [TP] PRED: (progenitor cell -> neuroblast sensu vertebrata)
+        matches GT: (progenitor cell -> neuroblast sensu vertebrata)
+  [TP] PRED: (respiratory tract goblet cell -> tracheobronchial goblet cell)
+        matches GT: (respiratory tract goblet cell -> tracheobronchial goblet cell)
+  [TP] PRED: (respiratory tract secretory epithelial cell -> respiratory tract goblet cell)
+        matches GT: (respiratory tract secretory epithelial cell -> respiratory tract goblet cell)
+  [TP] PRED: (retinal ganglion cell -> retinal ganglion cell c)
+        matches GT: (retinal ganglion cell -> retinal ganglion cell c)
+  [TP] PRED: (retinal ganglion cell c -> retinal ganglion cell c outer)
+        matches GT: (retinal ganglion cell c -> retinal ganglion cell c outer)
+  [TP] PRED: (secondary lens fiber -> non-nucleated secondary lens fiber)
+        matches GT: (secondary lens fiber -> non-nucleated secondary lens fiber)
+  [TP] PRED: (secretory epithelial cell -> goblet cell)
+        matches GT: (secretory epithelial cell -> goblet cell)
+  [TP] PRED: (secretory epithelial cell -> respiratory tract secretory epithelial cell)
+        matches GT: (secretory epithelial cell -> respiratory tract secretory epithelial cell)
+  [TP] PRED: (stuff accumulating cell -> crystallin accumulating cell)
+        matches GT: (stuff accumulating cell -> crystallin accumulating cell)
+  [TP] PRED: (supporting cell -> supporting cell of carotid body)
+        matches GT: (supporting cell -> supporting cell of carotid body)
+  [TP] PRED: (tracheobronchial goblet cell -> bronchial goblet cell)
+        matches GT: (tracheobronchial goblet cell -> bronchial goblet cell)
+  [TP] PRED: (vertebrate lens cell -> lens fiber cell)
+        matches GT: (vertebrate lens cell -> lens fiber cell)
+
+INCORRECT PREDICTIONS (False Positives: 20):
+  [FP] ecto-epithelial cell -> endo-epithelial cell
+  [FP] electrically signaling cell -> electrically responsive cell
+  [FP] epithelial cell -> respiratory tract epithelial cell
+  [FP] epithelial cell of lower respiratory tract -> bronchial epithelial cell
+  [FP] epithelial cell of tracheobronchial tree -> epithelial cell of lower respiratory tract
+  [FP] eukaryotic cell -> ecto-epithelial cell
+  [FP] eukaryotic cell -> precursor cell
+  [FP] eukaryotic cell -> vertebrate lens cell
+  [FP] glial cell -> type 1 submucosal plexus glia
+  [FP] goblet cell -> bronchial goblet cell
+  [FP] lens fiber cell -> crystallin accumulating cell
+  [FP] mucus secreting cell -> seromucus secreting cell
+  [FP] neural cell -> glial cell
+  [FP] neuron -> electrically active cell
+  [FP] neuron associated cell -> supporting cell
+  [FP] neuron of the forebrain -> gabaergic neuron
+  [FP] respiratory tract epithelial cell -> epithelial cell of tracheobronchial tree
+  [FP] secretory cell -> mucus secreting cell
+  [FP] seromucus secreting cell -> goblet cell
+  [FP] vertebrate lens cell -> secondary lens fiber
+
+MISSED RELATIONS (False Negatives: 33):
+  [FN] bronchial epithelial cell -> bronchial goblet cell
+  [FN] cell -> electrically active cell
+  [FN] cell -> precursor cell
+  [FN] cell -> secretory cell
+  [FN] cell -> stuff accumulating cell
+  [FN] cell -> supporting cell
+  [FN] columnarcuboidal epithelial cell -> neurecto-epithelial cell
+  [FN] crystallin accumulating cell -> vertebrate lens cell
+  [FN] electrically active cell -> electrically responsive cell
+  [FN] electrically responsive cell -> neuron
+  [FN] electrically signaling cell -> neuron
+  [FN] endo-epithelial cell -> respiratory tract epithelial cell
+  [FN] enteroglial cell -> type 1 submucosal plexus glia
+  [FN] epithelial cell -> ecto-epithelial cell
+  [FN] epithelial cell -> endo-epithelial cell
+  [FN] epithelial cell -> vertebrate lens cell
+  [FN] epithelial cell of lower respiratory tract -> epithelial cell of tracheobronchial tree
+  [FN] epithelial cell of tracheobronchial tree -> bronchial epithelial cell
+  [FN] epithelial cell of tracheobronchial tree -> tracheobronchial goblet cell
+  [FN] eukaryotic cell -> neuroblast sensu vertebrata
+  [FN] goblet cell -> respiratory tract goblet cell
+  [FN] lens fiber cell -> secondary lens fiber
+  [FN] mucus secreting cell -> goblet cell
+  [FN] neurecto-epithelial cell -> supporting cell of carotid body
+  [FN] neuron -> gabaergic neuron
+  [FN] neuron associated cell -> glial cell
+  [FN] neuron of the forebrain -> internal globus pallidus core projecting neuron
+  [FN] respiratory tract epithelial cell -> epithelial cell of lower respiratory tract
+  [FN] respiratory tract epithelial cell -> respiratory tract secretory epithelial cell
+  [FN] secretory cell -> gabaergic neuron
+  [FN] secretory cell -> secretory epithelial cell
+  [FN] secretory cell -> seromucus secreting cell
+  [FN] seromucus secreting cell -> mucus secreting cell

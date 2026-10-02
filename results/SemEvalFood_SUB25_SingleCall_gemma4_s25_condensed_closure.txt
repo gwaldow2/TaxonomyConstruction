@@ -1,0 +1,153 @@
+==================================================
+=== Detailed Node Pair Analysis (Condensed Transitive Closure) ===
+Match Type Used: SET_OVERLAP
+==================================================
+Precision: 0.8846 | Recall: 0.5111 | F1: 0.6479
+
+CORRECT PREDICTIONS (True Positives: 46 Pred edges covering 46 GT edges):
+  [TP] PRED: (condiment -> blue cheese dressing)
+        matches GT: (condiment -> blue cheese dressing)
+  [TP] PRED: (condiment -> dressing)
+        matches GT: (condiment -> dressing)
+  [TP] PRED: (condiment -> relish)
+        matches GT: (condiment -> relish)
+  [TP] PRED: (condiment -> sauce)
+        matches GT: (condiment -> sauce)
+  [TP] PRED: (condiment -> steak sauce)
+        matches GT: (condiment -> steak sauce)
+  [TP] PRED: (dressing -> blue cheese dressing)
+        matches GT: (dressing -> blue cheese dressing)
+  [TP] PRED: (feed -> alfalfa)
+        matches GT: (feed -> alfalfa)
+  [TP] PRED: (feed -> fodder)
+        matches GT: (feed -> fodder)
+  [TP] PRED: (fodder -> alfalfa)
+        matches GT: (fodder -> alfalfa)
+  [TP] PRED: (food -> alfalfa)
+        matches GT: (food -> alfalfa)
+  [TP] PRED: (food -> blue cheese dressing)
+        matches GT: (food -> blue cheese dressing)
+  [TP] PRED: (food -> chow)
+        matches GT: (food -> chow)
+  [TP] PRED: (food -> condiment)
+        matches GT: (food -> condiment)
+  [TP] PRED: (food -> dressing)
+        matches GT: (food -> dressing)
+  [TP] PRED: (food -> eatage)
+        matches GT: (food -> eatage)
+  [TP] PRED: (food -> fare)
+        matches GT: (food -> fare)
+  [TP] PRED: (food -> feed)
+        matches GT: (food -> feed)
+  [TP] PRED: (food -> flavorer)
+        matches GT: (food -> flavorer)
+  [TP] PRED: (food -> fodder)
+        matches GT: (food -> fodder)
+  [TP] PRED: (food -> foodstuff)
+        matches GT: (food -> foodstuff)
+  [TP] PRED: (food -> herb)
+        matches GT: (food -> herb)
+  [TP] PRED: (food -> home fries)
+        matches GT: (food -> home fries)
+  [TP] PRED: (food -> ingredient)
+        matches GT: (food -> ingredient)
+  [TP] PRED: (food -> meal)
+        matches GT: (food -> meal)
+  [TP] PRED: (food -> nutriment)
+        matches GT: (food -> nutriment)
+  [TP] PRED: (food -> oolong)
+        matches GT: (food -> oolong)
+  [TP] PRED: (food -> potato)
+        matches GT: (food -> potato)
+  [TP] PRED: (food -> relish)
+        matches GT: (food -> relish)
+  [TP] PRED: (food -> sauce)
+        matches GT: (food -> sauce)
+  [TP] PRED: (food -> starches)
+        matches GT: (food -> starches)
+  [TP] PRED: (food -> steak sauce)
+        matches GT: (food -> steak sauce)
+  [TP] PRED: (food -> sun tea)
+        matches GT: (food -> sun tea)
+  [TP] PRED: (food -> tea)
+        matches GT: (food -> tea)
+  [TP] PRED: (ingredient -> blue cheese dressing)
+        matches GT: (ingredient -> blue cheese dressing)
+  [TP] PRED: (ingredient -> condiment)
+        matches GT: (ingredient -> condiment)
+  [TP] PRED: (ingredient -> dressing)
+        matches GT: (ingredient -> dressing)
+  [TP] PRED: (ingredient -> flavorer)
+        matches GT: (ingredient -> flavorer)
+  [TP] PRED: (ingredient -> herb)
+        matches GT: (ingredient -> herb)
+  [TP] PRED: (ingredient -> relish)
+        matches GT: (ingredient -> relish)
+  [TP] PRED: (ingredient -> sauce)
+        matches GT: (ingredient -> sauce)
+  [TP] PRED: (ingredient -> steak sauce)
+        matches GT: (ingredient -> steak sauce)
+  [TP] PRED: (potato -> home fries)
+        matches GT: (potato -> home fries)
+  [TP] PRED: (starches -> home fries)
+        matches GT: (starches -> home fries)
+  [TP] PRED: (starches -> potato)
+        matches GT: (starches -> potato)
+  [TP] PRED: (tea -> oolong)
+        matches GT: (tea -> oolong)
+  [TP] PRED: (tea -> sun tea)
+        matches GT: (tea -> sun tea)
+
+INCORRECT PREDICTIONS (False Positives: 6):
+  [FP] condiment -> flavorer
+  [FP] feed -> chow
+  [FP] ingredient -> home fries
+  [FP] ingredient -> potato
+  [FP] ingredient -> starches
+  [FP] sauce -> steak sauce
+
+MISSED RELATIONS (False Negatives: 44):
+  [FN] fare -> chow
+  [FN] feed -> eatage
+  [FN] flavorer -> blue cheese dressing
+  [FN] flavorer -> condiment
+  [FN] flavorer -> dressing
+  [FN] flavorer -> herb
+  [FN] flavorer -> oolong
+  [FN] flavorer -> relish
+  [FN] flavorer -> sauce
+  [FN] flavorer -> steak sauce
+  [FN] flavorer -> sun tea
+  [FN] flavorer -> tea
+  [FN] fodder -> eatage
+  [FN] foodstuff -> blue cheese dressing
+  [FN] foodstuff -> condiment
+  [FN] foodstuff -> dressing
+  [FN] foodstuff -> flavorer
+  [FN] foodstuff -> herb
+  [FN] foodstuff -> home fries
+  [FN] foodstuff -> ingredient
+  [FN] foodstuff -> meal
+  [FN] foodstuff -> oolong
+  [FN] foodstuff -> potato
+  [FN] foodstuff -> relish
+  [FN] foodstuff -> sauce
+  [FN] foodstuff -> starches
+  [FN] foodstuff -> steak sauce
+  [FN] foodstuff -> sun tea
+  [FN] foodstuff -> tea
+  [FN] herb -> oolong
+  [FN] herb -> sun tea
+  [FN] herb -> tea
+  [FN] ingredient -> oolong
+  [FN] ingredient -> sun tea
+  [FN] ingredient -> tea
+  [FN] meal -> oolong
+  [FN] meal -> sun tea
+  [FN] meal -> tea
+  [FN] nutriment -> meal
+  [FN] nutriment -> oolong
+  [FN] nutriment -> sun tea
+  [FN] nutriment -> tea
+  [FN] sauce -> blue cheese dressing
+  [FN] sauce -> dressing

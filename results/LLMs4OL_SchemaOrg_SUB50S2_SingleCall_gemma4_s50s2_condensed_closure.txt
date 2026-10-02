@@ -1,0 +1,165 @@
+==================================================
+=== Detailed Node Pair Analysis (Condensed Transitive Closure) ===
+Match Type Used: SET_OVERLAP
+==================================================
+Precision: 0.5769 | Recall: 0.5921 | F1: 0.5844
+
+CORRECT PREDICTIONS (True Positives: 45 Pred edges covering 45 GT edges):
+  [TP] PRED: (action -> bookmarkaction)
+        matches GT: (action -> bookmarkaction)
+  [TP] PRED: (action -> consumeaction)
+        matches GT: (action -> consumeaction)
+  [TP] PRED: (action -> organizeaction)
+        matches GT: (action -> organizeaction)
+  [TP] PRED: (action -> watchaction)
+        matches GT: (action -> watchaction)
+  [TP] PRED: (audience -> businessaudience)
+        matches GT: (audience -> businessaudience)
+  [TP] PRED: (creativework -> article)
+        matches GT: (creativework -> article)
+  [TP] PRED: (creativework -> creativeworkseries)
+        matches GT: (creativework -> creativeworkseries)
+  [TP] PRED: (creativework -> socialmediaposting)
+        matches GT: (creativework -> socialmediaposting)
+  [TP] PRED: (enumeration -> certificationstatusenumeration)
+        matches GT: (enumeration -> certificationstatusenumeration)
+  [TP] PRED: (enumeration -> mediamanipulationratingenumeration)
+        matches GT: (enumeration -> mediamanipulationratingenumeration)
+  [TP] PRED: (foodestablishment -> fastfoodrestaurant)
+        matches GT: (foodestablishment -> fastfoodrestaurant)
+  [TP] PRED: (localbusiness -> fastfoodrestaurant)
+        matches GT: (localbusiness -> fastfoodrestaurant)
+  [TP] PRED: (localbusiness -> foodestablishment)
+        matches GT: (localbusiness -> foodestablishment)
+  [TP] PRED: (localbusiness -> individualphysician)
+        matches GT: (localbusiness -> individualphysician)
+  [TP] PRED: (localbusiness -> medicalbusiness)
+        matches GT: (localbusiness -> medicalbusiness)
+  [TP] PRED: (medicalbusiness -> individualphysician)
+        matches GT: (medicalbusiness -> individualphysician)
+  [TP] PRED: (medicalentity -> anatomicalstructure)
+        matches GT: (medicalentity -> anatomicalstructure)
+  [TP] PRED: (medicalentity -> medicalcode)
+        matches GT: (medicalentity -> medicalcode)
+  [TP] PRED: (medicalentity -> medicalintangible)
+        matches GT: (medicalentity -> medicalintangible)
+  [TP] PRED: (medicalentity -> medicalprocedure)
+        matches GT: (medicalentity -> medicalprocedure)
+  [TP] PRED: (medicalentity -> medicaltherapy)
+        matches GT: (medicalentity -> medicaltherapy)
+  [TP] PRED: (medicalentity -> occupationaltherapy)
+        matches GT: (medicalentity -> occupationaltherapy)
+  [TP] PRED: (medicalentity -> palliativeprocedure)
+        matches GT: (medicalentity -> palliativeprocedure)
+  [TP] PRED: (medicalentity -> therapeuticprocedure)
+        matches GT: (medicalentity -> therapeuticprocedure)
+  [TP] PRED: (medicalintangible -> medicalcode)
+        matches GT: (medicalintangible -> medicalcode)
+  [TP] PRED: (medicalorganization -> individualphysician)
+        matches GT: (medicalorganization -> individualphysician)
+  [TP] PRED: (medicalprocedure -> occupationaltherapy)
+        matches GT: (medicalprocedure -> occupationaltherapy)
+  [TP] PRED: (medicalprocedure -> palliativeprocedure)
+        matches GT: (medicalprocedure -> palliativeprocedure)
+  [TP] PRED: (medicalprocedure -> therapeuticprocedure)
+        matches GT: (medicalprocedure -> therapeuticprocedure)
+  [TP] PRED: (organization -> fastfoodrestaurant)
+        matches GT: (organization -> fastfoodrestaurant)
+  [TP] PRED: (organization -> foodestablishment)
+        matches GT: (organization -> foodestablishment)
+  [TP] PRED: (organization -> individualphysician)
+        matches GT: (organization -> individualphysician)
+  [TP] PRED: (organization -> localbusiness)
+        matches GT: (organization -> localbusiness)
+  [TP] PRED: (organization -> medicalbusiness)
+        matches GT: (organization -> medicalbusiness)
+  [TP] PRED: (organization -> medicalorganization)
+        matches GT: (organization -> medicalorganization)
+  [TP] PRED: (organization -> musicgroup)
+        matches GT: (organization -> musicgroup)
+  [TP] PRED: (organization -> performinggroup)
+        matches GT: (organization -> performinggroup)
+  [TP] PRED: (performinggroup -> musicgroup)
+        matches GT: (performinggroup -> musicgroup)
+  [TP] PRED: (physician -> individualphysician)
+        matches GT: (physician -> individualphysician)
+  [TP] PRED: (place -> fastfoodrestaurant)
+        matches GT: (place -> fastfoodrestaurant)
+  [TP] PRED: (place -> foodestablishment)
+        matches GT: (place -> foodestablishment)
+  [TP] PRED: (place -> individualphysician)
+        matches GT: (place -> individualphysician)
+  [TP] PRED: (place -> localbusiness)
+        matches GT: (place -> localbusiness)
+  [TP] PRED: (place -> medicalbusiness)
+        matches GT: (place -> medicalbusiness)
+  [TP] PRED: (therapeuticprocedure -> occupationaltherapy)
+        matches GT: (therapeuticprocedure -> occupationaltherapy)
+
+INCORRECT PREDICTIONS (False Positives: 33):
+  [FP] action -> assessaction
+  [FP] action -> reactaction
+  [FP] comicseries -> creativeworkseries
+  [FP] comicseries -> series
+  [FP] creativework -> bookformattype
+  [FP] creativework -> comicseries
+  [FP] creativework -> howto
+  [FP] creativework -> howtoitem
+  [FP] creativework -> periodical
+  [FP] creativework -> recipe
+  [FP] creativework -> review
+  [FP] creativework -> series
+  [FP] creativeworkseries -> series
+  [FP] howto -> howtoitem
+  [FP] intangible -> medicalcode
+  [FP] intangible -> medicalintangible
+  [FP] intangible -> recommendation
+  [FP] localbusiness -> electrician
+  [FP] localbusiness -> homeandconstructionbusiness
+  [FP] localbusiness -> medicalorganization
+  [FP] medicalbusiness -> medicalorganization
+  [FP] medicalentity -> individualphysician
+  [FP] medicalentity -> medicalorganization
+  [FP] medicalentity -> medicaltest
+  [FP] medicalentity -> recommendation
+  [FP] medicalintangible -> recommendation
+  [FP] organization -> electrician
+  [FP] organization -> homeandconstructionbusiness
+  [FP] place -> electrician
+  [FP] place -> homeandconstructionbusiness
+  [FP] place -> medicalorganization
+  [FP] videogameseries -> creativeworkseries
+  [FP] videogameseries -> series
+
+MISSED RELATIONS (False Negatives: 31):
+  [FN] article -> socialmediaposting
+  [FN] assessaction -> reactaction
+  [FN] consumeaction -> watchaction
+  [FN] creativework -> videogameseries
+  [FN] creativeworkseries -> videogameseries
+  [FN] enumeration -> bookformattype
+  [FN] homeandconstructionbusiness -> electrician
+  [FN] howto -> recipe
+  [FN] intangible -> audience
+  [FN] intangible -> businessaudience
+  [FN] intangible -> creativeworkseries
+  [FN] intangible -> howtoitem
+  [FN] intangible -> listitem
+  [FN] intangible -> series
+  [FN] intangible -> videogameseries
+  [FN] listitem -> howtoitem
+  [FN] localbusiness -> physician
+  [FN] medicalbusiness -> physician
+  [FN] medicalorganization -> physician
+  [FN] medicalprocedure -> medicaltherapy
+  [FN] medicaltherapy -> occupationaltherapy
+  [FN] medicaltherapy -> palliativeprocedure
+  [FN] organization -> physician
+  [FN] organizeaction -> bookmarkaction
+  [FN] periodical -> comicseries
+  [FN] place -> physician
+  [FN] review -> recommendation
+  [FN] series -> creativeworkseries
+  [FN] series -> videogameseries
+  [FN] therapeuticprocedure -> medicaltherapy
+  [FN] therapeuticprocedure -> palliativeprocedure

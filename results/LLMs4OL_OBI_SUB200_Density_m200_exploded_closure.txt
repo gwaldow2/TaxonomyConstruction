@@ -1,0 +1,907 @@
+==================================================
+=== Detailed Node Pair Analysis (Exploded Transitive Closure) ===
+Match Type Used: EXACT
+==================================================
+Precision: 0.3559 | Recall: 0.4070 | F1: 0.3797
+
+CORRECT PREDICTIONS (True Positives: 210 Pred edges covering 210 GT edges):
+  [TP] 3d molecular structure determination assay -> x-ray crystallography 3d molecular structure determination assay
+  [TP] 3d structure determination assay -> 3d molecular structure determination assay
+  [TP] 3d structure determination assay -> x-ray crystallography 3d molecular structure determination assay
+  [TP] albumin assay -> albumin concentration assay
+  [TP] albumin assay -> comprehensive metabolic panel venous blood albumin assay
+  [TP] analyte assay -> abl90 panel venous blood sodium assay
+  [TP] analyte assay -> prostate-specific antigen assay
+  [TP] analyte assay -> sodium1 assay
+  [TP] analyte assay -> total venous blood psa assay
+  [TP] antigen specific antibodies assay datum -> antigen specific antibodies in milk assay datum
+  [TP] arthropod specimen collection by aspiration -> daytime arthropod specimen collection by aspiration
+  [TP] arthropod specimen collection process -> adult arthropod specimen collection process
+  [TP] arthropod specimen collection process -> arthropod specimen collection by aspiration
+  [TP] arthropod specimen collection process -> daytime arthropod specimen collection by aspiration
+  [TP] arthropod specimen collection process -> live arthropod specimen collection process
+  [TP] assay -> 5-nucleotidase activity level assay
+  [TP] assay -> abl90 panel venous blood sodium assay
+  [TP] assay -> analyte assay
+  [TP] assay -> analytical chromatography
+  [TP] assay -> assay measuring binding of a b cell epitopeantibody complex
+  [TP] assay -> assay measuring qualitative binding of a b cell epitopeantibody complex
+  [TP] assay -> b cell epitope assay
+  [TP] assay -> blood assay
+  [TP] assay -> blood microbiology assay
+  [TP] assay -> carboxyfluorescein succinimidyl ester staining assay
+  [TP] assay -> carboxyfluorescein succinimidyl ester staining assay measuring epitope specific proliferation of t cells
+  [TP] assay -> cerebrospinal fluid assay
+  [TP] assay -> cerebrospinal fluid macrophage count assay
+  [TP] assay -> chromatography assay measuring binding of a b cell epitopeantibody complex
+  [TP] assay -> comprehensive metabolic panel venous blood albumin assay
+  [TP] assay -> comprehensive metabolic panel venous blood creatinine assay
+  [TP] assay -> elisa measuring epitope specific interleukin-22 production by t cells
+  [TP] assay -> enzymatic activity level assay
+  [TP] assay -> enzyme-linked immunosorbent assay
+  [TP] assay -> immune epitope assay
+  [TP] assay -> insecticide resistance assay
+  [TP] assay -> insecticide resistance by detecting enzyme activity assay
+  [TP] assay -> insecticide resistance by detecting glutathione s-transferase activity assay
+  [TP] assay -> lipid panel venous blood cholesterol assay
+  [TP] assay -> organism detection assay
+  [TP] assay -> parasite detection assay
+  [TP] assay -> polymerase chain reaction assay
+  [TP] assay -> prostate-specific antigen assay
+  [TP] assay -> protein assay
+  [TP] assay -> protein expression profiling assay
+  [TP] assay -> proximity extension assay
+  [TP] assay -> serum neutralization of viral infectivity assay
+  [TP] assay -> sodium1 assay
+  [TP] assay -> total venous blood psa assay
+  [TP] assay -> venous blood hemoglobin a1c assay
+  [TP] assay -> venous blood microbiology assay
+  [TP] assay -> venous blood thyroid stimulating hormone assay
+  [TP] assay array -> affymetrix rhesus macaque genome array
+  [TP] assay array -> dna microarray
+  [TP] assay array -> microarray
+  [TP] assay measuring binding of a b cell epitopeantibody complex -> assay measuring qualitative binding of a b cell epitopeantibody complex
+  [TP] assay measuring binding of a b cell epitopeantibody complex -> chromatography assay measuring binding of a b cell epitopeantibody complex
+  [TP] assay measuring binding of a t cell epitopemhctcr complex -> assay measuring a binding constant of a t cell epitopemhctcr complex
+  [TP] assay measuring binding of a t cell epitopemhctcr complex -> assay measuring the on rate kon of a t cell epitopemhctcr complex
+  [TP] assay measuring epitope specific chemokine c-x-c motif ligand 9 production by t cells -> intracellular cytokine staining assay measuring epitope specific chemokine c-x-c motif ligand 9 production by t cells
+  [TP] assay measuring epitope specific cytokine production by t cells -> assay measuring epitope specific interleukin-22 production by t cells
+  [TP] assay measuring epitope specific cytokine production by t cells -> assay measuring epitope specific macrophage inflammatory protein-1 gamma production by t cells
+  [TP] assay measuring epitope specific cytokine production by t cells -> elisa measuring epitope specific interleukin-22 production by t cells
+  [TP] assay measuring epitope specific interleukin-22 production by t cells -> elisa measuring epitope specific interleukin-22 production by t cells
+  [TP] assay measuring qualitative binding of a b cell epitopeantibody complex -> chromatography assay measuring binding of a b cell epitopeantibody complex
+  [TP] b cell epitope assay -> assay measuring binding of a b cell epitopeantibody complex
+  [TP] b cell epitope assay -> assay measuring qualitative binding of a b cell epitopeantibody complex
+  [TP] b cell epitope assay -> chromatography assay measuring binding of a b cell epitopeantibody complex
+  [TP] blood assay -> abl90 panel venous blood sodium assay
+  [TP] blood assay -> blood microbiology assay
+  [TP] blood assay -> comprehensive metabolic panel venous blood creatinine assay
+  [TP] blood assay -> lipid panel venous blood cholesterol assay
+  [TP] blood assay -> total venous blood psa assay
+  [TP] blood assay -> venous blood hemoglobin a1c assay
+  [TP] blood assay -> venous blood microbiology assay
+  [TP] blood assay -> venous blood thyroid stimulating hormone assay
+  [TP] blood microbiology assay -> venous blood microbiology assay
+  [TP] carboxyfluorescein succinimidyl ester staining assay -> carboxyfluorescein succinimidyl ester staining assay measuring epitope specific proliferation of t cells
+  [TP] cholesterol assay -> lipid panel venous blood cholesterol assay
+  [TP] clinical history -> brother clinical history of cancer
+  [TP] clinical history -> family clinical history of cancer
+  [TP] container -> anticoagulant-containing test tube
+  [TP] container -> test tube
+  [TP] container -> vial
+  [TP] continuant -> independent continuant
+  [TP] correction objective -> background correction objective
+  [TP] creatinine assay -> comprehensive metabolic panel venous blood creatinine assay
+  [TP] cytokine production -> interleukin-12 production
+  [TP] cytometer -> flow cytometer
+  [TP] cytometer -> flow cytometer analyzer
+  [TP] cytometer -> lsrfortessa x-20
+  [TP] cytometric bead array assay -> antigen detection by cytometric bead array assay
+  [TP] cytometric bead array assay -> cytometric bead array assay measuring epitope specific macrophage inflammatory protein-1 gamma production by t cells
+  [TP] cytometry assay -> flow cytometry assay
+  [TP] data item -> antigen specific antibodies assay datum
+  [TP] data item -> antigen specific antibodies in milk assay datum
+  [TP] data item -> measurement datum
+  [TP] data item -> milk assay datum
+  [TP] data transformation -> error correction data transformation
+  [TP] data transformation -> false discovery rate correction method
+  [TP] data transformation -> mean centering
+  [TP] data transformation -> multiple testing correction method
+  [TP] data transformation -> normalization data transformation
+  [TP] device -> anticoagulant-containing test tube
+  [TP] device -> container
+  [TP] device -> cryostat
+  [TP] device -> cytometer
+  [TP] device -> dna sequencer
+  [TP] device -> environmental control device
+  [TP] device -> flow cytometer
+  [TP] device -> flow cytometer analyzer
+  [TP] device -> lsrfortessa x-20
+  [TP] device -> material separation device
+  [TP] device -> measurement device
+  [TP] device -> multichannel pipette
+  [TP] device -> spectrophotometer
+  [TP] device -> test tube
+  [TP] device -> tissue embedding station
+  [TP] device -> vial
+  [TP] disposition -> disposition to be a product of antigen processing and presentation
+  [TP] dna microarray -> affymetrix rhesus macaque genome array
+  [TP] enzymatic activity level assay -> 5-nucleotidase activity level assay
+  [TP] epitope protection experiment -> epitope protection experiment based on survival
+  [TP] epitope protection experiment -> in vivo assay measuring b cell epitope specific protection based on survival
+  [TP] epitope protection experiment based on survival -> in vivo assay measuring b cell epitope specific protection based on survival
+  [TP] family clinical history of cancer -> brother clinical history of cancer
+  [TP] flow cytometer -> flow cytometer analyzer
+  [TP] flow cytometer -> lsrfortessa x-20
+  [TP] function -> connection function
+  [TP] functional assessment of individual -> nose to finger assessment
+  [TP] immune epitope assay -> assay measuring binding of a b cell epitopeantibody complex
+  [TP] immune epitope assay -> assay measuring qualitative binding of a b cell epitopeantibody complex
+  [TP] immune epitope assay -> b cell epitope assay
+  [TP] immune epitope assay -> chromatography assay measuring binding of a b cell epitopeantibody complex
+  [TP] in vivo skin test assay measuring t cell epitope specific type iv hypersensitivity -> in vivo skin test assay measuring t cell epitope specific type iv hypersensitivity resulting from the adoptive transfer of epitope specific t cells
+  [TP] insecticide resistance assay -> insecticide resistance by detecting enzyme activity assay
+  [TP] insecticide resistance assay -> insecticide resistance by detecting glutathione s-transferase activity assay
+  [TP] insecticide resistance by detecting enzyme activity assay -> insecticide resistance by detecting glutathione s-transferase activity assay
+  [TP] interleukin-3 production -> epitope specific interleukin-3 production by t cells
+  [TP] lymphocyte assay -> lymphocyte count assay
+  [TP] macrophage assay -> cerebrospinal fluid macrophage count assay
+  [TP] material entity -> dna polymerase complex
+  [TP] material entity -> enzyme
+  [TP] material entity -> filter paper
+  [TP] material entity -> high-density lipoprotein cholesterol
+  [TP] material entity -> molecular entity
+  [TP] material entity -> object aggregate
+  [TP] material entity -> processed material
+  [TP] material entity -> protein-containing complex
+  [TP] material entity -> skin of body specimen
+  [TP] material entity -> specimen
+  [TP] material entity -> specimen from organism
+  [TP] material entity -> tobramycin
+  [TP] material processing -> material component separation
+  [TP] measurement device -> cytometer
+  [TP] measurement device -> flow cytometer
+  [TP] measurement device -> flow cytometer analyzer
+  [TP] measurement device -> lsrfortessa x-20
+  [TP] mhc class i protein complex -> h2-kb protein complex
+  [TP] mhc class i protein complex -> mouse mhc class i protein complex
+  [TP] mhc class i protein complex -> mouse mhc class i protein complex with h2-b haplotype
+  [TP] mhc protein complex -> h2-kb protein complex
+  [TP] mhc protein complex -> mhc class i protein complex
+  [TP] mhc protein complex -> mouse mhc class i protein complex
+  [TP] mhc protein complex -> mouse mhc class i protein complex with h2-b haplotype
+  [TP] microarray -> affymetrix rhesus macaque genome array
+  [TP] microarray -> dna microarray
+  [TP] molecular entity -> high-density lipoprotein cholesterol
+  [TP] molecular entity -> tobramycin
+  [TP] molecular_function -> catalytic activity
+  [TP] molecular_function -> rna nuclease activity
+  [TP] monocyte assay -> manual differential bodily fluid monocyte count assay
+  [TP] mouse mhc class i protein complex -> h2-kb protein complex
+  [TP] mouse mhc class i protein complex -> mouse mhc class i protein complex with h2-b haplotype
+  [TP] multiple testing correction method -> false discovery rate correction method
+  [TP] organism detection assay -> parasite detection assay
+  [TP] organization -> organization of specimen collector
+  [TP] ploidy -> euploid
+  [TP] prostate-specific antigen assay -> total venous blood psa assay
+  [TP] protein -> ceruloplasmin
+  [TP] protein-containing complex -> dna polymerase complex
+  [TP] quality -> physical object quality
+  [TP] quality -> physical quality
+  [TP] regulator role -> role of regulator of consumables and medical devices
+  [TP] role -> accessed material role
+  [TP] role -> adjuvant role
+  [TP] role -> measurand role
+  [TP] role -> participant under investigation role
+  [TP] role -> regulator role
+  [TP] role -> regulatory role
+  [TP] role -> role of regulator of consumables and medical devices
+  [TP] role -> to be treated with placebo role
+  [TP] sodium1 assay -> abl90 panel venous blood sodium assay
+  [TP] specimen -> skin of body specimen
+  [TP] specimen -> specimen from organism
+  [TP] specimen collection process -> adult arthropod specimen collection process
+  [TP] specimen collection process -> arthropod specimen collection by aspiration
+  [TP] specimen collection process -> arthropod specimen collection process
+  [TP] specimen collection process -> daytime arthropod specimen collection by aspiration
+  [TP] specimen collection process -> live arthropod specimen collection process
+  [TP] specimen from organism -> skin of body specimen
+  [TP] t cell epitope assay -> assay measuring a binding constant of a t cell epitopemhctcr complex
+  [TP] t cell epitope assay -> assay measuring binding of a t cell epitopemhctcr complex
+  [TP] t cell epitope assay -> assay measuring biological activity resulting from t cell epitopemhctcr binding
+  [TP] t cell epitope assay -> assay measuring quantitative binding of an epitopemhctcr complex
+  [TP] t cell epitope assay -> assay measuring the on rate kon of a t cell epitopemhctcr complex
+  [TP] test tube -> anticoagulant-containing test tube
+  [TP] thyroid stimulating hormone assay -> venous blood thyroid stimulating hormone assay
+  [TP] value specification -> mass value specification
+  [TP] value specification -> scalar value specification
+
+INCORRECT PREDICTIONS (False Positives: 380):
+  [FP] analyte assay -> blood assay
+  [FP] analyte assay -> blood microbiology assay
+  [FP] analyte assay -> cholesterol assay
+  [FP] analyte assay -> comprehensive metabolic panel venous blood creatinine assay
+  [FP] analyte assay -> creatinine assay
+  [FP] analyte assay -> lipid panel venous blood cholesterol assay
+  [FP] analyte assay -> thyroid stimulating hormone assay
+  [FP] analyte assay -> venous blood hemoglobin a1c assay
+  [FP] analyte assay -> venous blood microbiology assay
+  [FP] analyte assay -> venous blood thyroid stimulating hormone assay
+  [FP] assay -> 3d molecular structure determination assay
+  [FP] assay -> 3d structure determination assay
+  [FP] assay -> affymetrix rhesus macaque genome array
+  [FP] assay -> albumin assay
+  [FP] assay -> albumin concentration assay
+  [FP] assay -> antigen detection by cytometric bead array assay
+  [FP] assay -> assay array
+  [FP] assay -> assay measuring a binding constant of a t cell epitopemhctcr complex
+  [FP] assay -> assay measuring binding of a t cell epitopemhctcr complex
+  [FP] assay -> assay measuring biological activity resulting from t cell epitopemhctcr binding
+  [FP] assay -> assay measuring epitope specific chemokine c-x-c motif ligand 9 production by t cells
+  [FP] assay -> assay measuring epitope specific cytokine production by t cells
+  [FP] assay -> assay measuring epitope specific interferon-alpha production by t cells
+  [FP] assay -> assay measuring epitope specific interleukin-22 production by t cells
+  [FP] assay -> assay measuring epitope specific macrophage inflammatory protein-1 gamma production by t cells
+  [FP] assay -> assay measuring quantitative binding of an epitopemhctcr complex
+  [FP] assay -> assay measuring the on rate kon of a t cell epitopemhctcr complex
+  [FP] assay -> cholesterol assay
+  [FP] assay -> creatinine assay
+  [FP] assay -> cytometric bead array assay
+  [FP] assay -> cytometric bead array assay measuring epitope specific macrophage inflammatory protein-1 gamma production by t cells
+  [FP] assay -> cytometry assay
+  [FP] assay -> dna microarray
+  [FP] assay -> flow cytometry assay
+  [FP] assay -> intracellular cytokine staining assay measuring epitope specific chemokine c-x-c motif ligand 9 production by t cells
+  [FP] assay -> lymphocyte assay
+  [FP] assay -> lymphocyte count assay
+  [FP] assay -> macrophage assay
+  [FP] assay -> manual differential bodily fluid monocyte count assay
+  [FP] assay -> microarray
+  [FP] assay -> monocyte assay
+  [FP] assay -> t cell epitope assay
+  [FP] assay -> thyroid stimulating hormone assay
+  [FP] assay -> x-ray crystallography 3d molecular structure determination assay
+  [FP] assay measuring epitope specific cytokine production by t cells -> assay measuring epitope specific chemokine c-x-c motif ligand 9 production by t cells
+  [FP] assay measuring epitope specific cytokine production by t cells -> assay measuring epitope specific interferon-alpha production by t cells
+  [FP] assay measuring epitope specific cytokine production by t cells -> intracellular cytokine staining assay measuring epitope specific chemokine c-x-c motif ligand 9 production by t cells
+  [FP] blood assay -> cholesterol assay
+  [FP] blood assay -> creatinine assay
+  [FP] blood assay -> prostate-specific antigen assay
+  [FP] blood assay -> sodium1 assay
+  [FP] blood assay -> thyroid stimulating hormone assay
+  [FP] center calculation data transformation -> mean centering
+  [FP] continuant -> brother clinical history of cancer
+  [FP] continuant -> clinical history
+  [FP] continuant -> family clinical history of cancer
+  [FP] continuant -> organization
+  [FP] continuant -> organization of specimen collector
+  [FP] cytokine production -> epitope specific cytokine production by t cells
+  [FP] cytokine production -> epitope specific interleukin-3 production by t cells
+  [FP] cytokine production -> interleukin-3 production
+  [FP] cytometry assay -> antigen detection by cytometric bead array assay
+  [FP] cytometry assay -> carboxyfluorescein succinimidyl ester staining assay
+  [FP] cytometry assay -> carboxyfluorescein succinimidyl ester staining assay measuring epitope specific proliferation of t cells
+  [FP] cytometry assay -> cytometric bead array assay
+  [FP] cytometry assay -> cytometric bead array assay measuring epitope specific macrophage inflammatory protein-1 gamma production by t cells
+  [FP] data item -> anatomical structure quality
+  [FP] data item -> brother clinical history of cancer
+  [FP] data item -> cellular quality
+  [FP] data item -> ceruloplasmin
+  [FP] data item -> clinical history
+  [FP] data item -> continuant
+  [FP] data item -> disposition
+  [FP] data item -> disposition to be a product of antigen processing and presentation
+  [FP] data item -> dna polymerase complex
+  [FP] data item -> enzyme
+  [FP] data item -> family clinical history of cancer
+  [FP] data item -> filter paper
+  [FP] data item -> h2-kb protein complex
+  [FP] data item -> high-density lipoprotein cholesterol
+  [FP] data item -> independent continuant
+  [FP] data item -> mass value specification
+  [FP] data item -> material combination
+  [FP] data item -> material entity
+  [FP] data item -> mhc class i protein complex
+  [FP] data item -> mhc protein complex
+  [FP] data item -> molecular entity
+  [FP] data item -> mouse mhc class i protein complex
+  [FP] data item -> mouse mhc class i protein complex with h2-b haplotype
+  [FP] data item -> object aggregate
+  [FP] data item -> organization
+  [FP] data item -> organization of specimen collector
+  [FP] data item -> physical object quality
+  [FP] data item -> physical quality
+  [FP] data item -> processed material
+  [FP] data item -> protein
+  [FP] data item -> protein-containing complex
+  [FP] data item -> quality
+  [FP] data item -> scalar value specification
+  [FP] data item -> skin of body specimen
+  [FP] data item -> specimen
+  [FP] data item -> specimen from organism
+  [FP] data item -> tobramycin
+  [FP] data item -> value specification
+  [FP] data transformation -> center calculation data transformation
+  [FP] efficacy of epitope intervention experiment -> epitope protection experiment
+  [FP] efficacy of epitope intervention experiment -> epitope protection experiment based on survival
+  [FP] efficacy of epitope intervention experiment -> in vivo assay measuring b cell epitope specific protection based on survival
+  [FP] enzymatic ligation -> nuclear ligation assay
+  [FP] function -> catalytic activity
+  [FP] function -> rna nuclease activity
+  [FP] immune epitope assay -> assay measuring a binding constant of a t cell epitopemhctcr complex
+  [FP] immune epitope assay -> assay measuring binding of a t cell epitopemhctcr complex
+  [FP] immune epitope assay -> assay measuring biological activity resulting from t cell epitopemhctcr binding
+  [FP] immune epitope assay -> assay measuring epitope specific chemokine c-x-c motif ligand 9 production by t cells
+  [FP] immune epitope assay -> assay measuring epitope specific cytokine production by t cells
+  [FP] immune epitope assay -> assay measuring epitope specific interferon-alpha production by t cells
+  [FP] immune epitope assay -> assay measuring epitope specific interleukin-22 production by t cells
+  [FP] immune epitope assay -> assay measuring epitope specific macrophage inflammatory protein-1 gamma production by t cells
+  [FP] immune epitope assay -> assay measuring quantitative binding of an epitopemhctcr complex
+  [FP] immune epitope assay -> assay measuring the on rate kon of a t cell epitopemhctcr complex
+  [FP] immune epitope assay -> elisa measuring epitope specific interleukin-22 production by t cells
+  [FP] immune epitope assay -> intracellular cytokine staining assay measuring epitope specific chemokine c-x-c motif ligand 9 production by t cells
+  [FP] immune epitope assay -> t cell epitope assay
+  [FP] in vivo skin test assay measuring t cell epitope specific type iv hypersensitivity -> in vivo assay measuring a t cell epitope specific response after adoptive transfer of epitope specific t cells
+  [FP] in vivo skin test assay measuring t cell epitope specific type iv hypersensitivity resulting from the adoptive transfer of epitope specific t cells -> in vivo assay measuring a t cell epitope specific response after adoptive transfer of epitope specific t cells
+  [FP] material entity -> brother clinical history of cancer
+  [FP] material entity -> ceruloplasmin
+  [FP] material entity -> clinical history
+  [FP] material entity -> continuant
+  [FP] material entity -> family clinical history of cancer
+  [FP] material entity -> h2-kb protein complex
+  [FP] material entity -> independent continuant
+  [FP] material entity -> material combination
+  [FP] material entity -> mhc class i protein complex
+  [FP] material entity -> mhc protein complex
+  [FP] material entity -> mouse mhc class i protein complex
+  [FP] material entity -> mouse mhc class i protein complex with h2-b haplotype
+  [FP] material entity -> organization
+  [FP] material entity -> organization of specimen collector
+  [FP] material entity -> protein
+  [FP] measurement datum -> anatomical structure quality
+  [FP] measurement datum -> antigen specific antibodies assay datum
+  [FP] measurement datum -> antigen specific antibodies in milk assay datum
+  [FP] measurement datum -> brother clinical history of cancer
+  [FP] measurement datum -> cellular quality
+  [FP] measurement datum -> ceruloplasmin
+  [FP] measurement datum -> clinical history
+  [FP] measurement datum -> continuant
+  [FP] measurement datum -> disposition
+  [FP] measurement datum -> disposition to be a product of antigen processing and presentation
+  [FP] measurement datum -> dna polymerase complex
+  [FP] measurement datum -> enzyme
+  [FP] measurement datum -> family clinical history of cancer
+  [FP] measurement datum -> filter paper
+  [FP] measurement datum -> h2-kb protein complex
+  [FP] measurement datum -> high-density lipoprotein cholesterol
+  [FP] measurement datum -> independent continuant
+  [FP] measurement datum -> mass value specification
+  [FP] measurement datum -> material combination
+  [FP] measurement datum -> material entity
+  [FP] measurement datum -> mhc class i protein complex
+  [FP] measurement datum -> mhc protein complex
+  [FP] measurement datum -> milk assay datum
+  [FP] measurement datum -> molecular entity
+  [FP] measurement datum -> mouse mhc class i protein complex
+  [FP] measurement datum -> mouse mhc class i protein complex with h2-b haplotype
+  [FP] measurement datum -> object aggregate
+  [FP] measurement datum -> organization
+  [FP] measurement datum -> organization of specimen collector
+  [FP] measurement datum -> physical object quality
+  [FP] measurement datum -> physical quality
+  [FP] measurement datum -> processed material
+  [FP] measurement datum -> protein
+  [FP] measurement datum -> protein-containing complex
+  [FP] measurement datum -> quality
+  [FP] measurement datum -> scalar value specification
+  [FP] measurement datum -> skin of body specimen
+  [FP] measurement datum -> specimen
+  [FP] measurement datum -> specimen from organism
+  [FP] measurement datum -> tobramycin
+  [FP] measurement datum -> value specification
+  [FP] molecular entity -> ceruloplasmin
+  [FP] molecular entity -> dna polymerase complex
+  [FP] molecular entity -> enzyme
+  [FP] molecular entity -> h2-kb protein complex
+  [FP] molecular entity -> mhc class i protein complex
+  [FP] molecular entity -> mhc protein complex
+  [FP] molecular entity -> mouse mhc class i protein complex
+  [FP] molecular entity -> mouse mhc class i protein complex with h2-b haplotype
+  [FP] molecular entity -> protein
+  [FP] molecular entity -> protein-containing complex
+  [FP] molecular_function -> connection function
+  [FP] molecular_function -> function
+  [FP] object aggregate -> material combination
+  [FP] obsolete_activation -> obsolete class
+  [FP] physical object quality -> brother clinical history of cancer
+  [FP] physical object quality -> ceruloplasmin
+  [FP] physical object quality -> clinical history
+  [FP] physical object quality -> continuant
+  [FP] physical object quality -> dna polymerase complex
+  [FP] physical object quality -> enzyme
+  [FP] physical object quality -> family clinical history of cancer
+  [FP] physical object quality -> filter paper
+  [FP] physical object quality -> h2-kb protein complex
+  [FP] physical object quality -> high-density lipoprotein cholesterol
+  [FP] physical object quality -> independent continuant
+  [FP] physical object quality -> material combination
+  [FP] physical object quality -> material entity
+  [FP] physical object quality -> mhc class i protein complex
+  [FP] physical object quality -> mhc protein complex
+  [FP] physical object quality -> molecular entity
+  [FP] physical object quality -> mouse mhc class i protein complex
+  [FP] physical object quality -> mouse mhc class i protein complex with h2-b haplotype
+  [FP] physical object quality -> object aggregate
+  [FP] physical object quality -> organization
+  [FP] physical object quality -> organization of specimen collector
+  [FP] physical object quality -> processed material
+  [FP] physical object quality -> protein
+  [FP] physical object quality -> protein-containing complex
+  [FP] physical object quality -> skin of body specimen
+  [FP] physical object quality -> specimen
+  [FP] physical object quality -> specimen from organism
+  [FP] physical object quality -> tobramycin
+  [FP] process -> adding a material entity into a target
+  [FP] process -> adult arthropod specimen collection process
+  [FP] process -> arthropod specimen collection by aspiration
+  [FP] process -> arthropod specimen collection process
+  [FP] process -> artificially induced dna repair
+  [FP] process -> background correction objective
+  [FP] process -> center calculation data transformation
+  [FP] process -> correction objective
+  [FP] process -> cytokine production
+  [FP] process -> data transformation
+  [FP] process -> daytime arthropod specimen collection by aspiration
+  [FP] process -> dna subtraction
+  [FP] process -> efficacy of epitope intervention experiment
+  [FP] process -> enzymatic ligation
+  [FP] process -> epitope protection experiment
+  [FP] process -> epitope protection experiment based on survival
+  [FP] process -> epitope specific cytokine production by t cells
+  [FP] process -> epitope specific interleukin-3 production by t cells
+  [FP] process -> error correction data transformation
+  [FP] process -> false discovery rate correction method
+  [FP] process -> functional assessment of individual
+  [FP] process -> in vivo assay measuring a t cell epitope specific response after adoptive transfer of epitope specific t cells
+  [FP] process -> in vivo assay measuring b cell epitope specific protection based on survival
+  [FP] process -> in vivo skin test assay measuring t cell epitope specific type iv hypersensitivity
+  [FP] process -> in vivo skin test assay measuring t cell epitope specific type iv hypersensitivity resulting from the adoptive transfer of epitope specific t cells
+  [FP] process -> interleukin-12 production
+  [FP] process -> interleukin-3 production
+  [FP] process -> ionize process
+  [FP] process -> live arthropod specimen collection process
+  [FP] process -> material component separation
+  [FP] process -> material processing
+  [FP] process -> mean centering
+  [FP] process -> multiple testing correction method
+  [FP] process -> normalization data transformation
+  [FP] process -> nose to finger assessment
+  [FP] process -> nuclear ligation assay
+  [FP] process -> planned process
+  [FP] process -> process
+  [FP] process -> realizable entity
+  [FP] process -> specimen collection process
+  [FP] protein -> enzyme
+  [FP] protein assay -> albumin assay
+  [FP] protein assay -> albumin concentration assay
+  [FP] protein assay -> comprehensive metabolic panel venous blood albumin assay
+  [FP] protein-containing complex -> h2-kb protein complex
+  [FP] protein-containing complex -> mhc class i protein complex
+  [FP] protein-containing complex -> mhc protein complex
+  [FP] protein-containing complex -> mouse mhc class i protein complex
+  [FP] protein-containing complex -> mouse mhc class i protein complex with h2-b haplotype
+  [FP] quality -> anatomical structure quality
+  [FP] quality -> brother clinical history of cancer
+  [FP] quality -> cellular quality
+  [FP] quality -> ceruloplasmin
+  [FP] quality -> clinical history
+  [FP] quality -> continuant
+  [FP] quality -> disposition
+  [FP] quality -> disposition to be a product of antigen processing and presentation
+  [FP] quality -> dna polymerase complex
+  [FP] quality -> enzyme
+  [FP] quality -> family clinical history of cancer
+  [FP] quality -> filter paper
+  [FP] quality -> h2-kb protein complex
+  [FP] quality -> high-density lipoprotein cholesterol
+  [FP] quality -> independent continuant
+  [FP] quality -> material combination
+  [FP] quality -> material entity
+  [FP] quality -> mhc class i protein complex
+  [FP] quality -> mhc protein complex
+  [FP] quality -> molecular entity
+  [FP] quality -> mouse mhc class i protein complex
+  [FP] quality -> mouse mhc class i protein complex with h2-b haplotype
+  [FP] quality -> object aggregate
+  [FP] quality -> organization
+  [FP] quality -> organization of specimen collector
+  [FP] quality -> processed material
+  [FP] quality -> protein
+  [FP] quality -> protein-containing complex
+  [FP] quality -> skin of body specimen
+  [FP] quality -> specimen
+  [FP] quality -> specimen from organism
+  [FP] quality -> tobramycin
+  [FP] realizable entity -> adding a material entity into a target
+  [FP] realizable entity -> adult arthropod specimen collection process
+  [FP] realizable entity -> arthropod specimen collection by aspiration
+  [FP] realizable entity -> arthropod specimen collection process
+  [FP] realizable entity -> artificially induced dna repair
+  [FP] realizable entity -> background correction objective
+  [FP] realizable entity -> center calculation data transformation
+  [FP] realizable entity -> correction objective
+  [FP] realizable entity -> cytokine production
+  [FP] realizable entity -> data transformation
+  [FP] realizable entity -> daytime arthropod specimen collection by aspiration
+  [FP] realizable entity -> dna subtraction
+  [FP] realizable entity -> efficacy of epitope intervention experiment
+  [FP] realizable entity -> enzymatic ligation
+  [FP] realizable entity -> epitope protection experiment
+  [FP] realizable entity -> epitope protection experiment based on survival
+  [FP] realizable entity -> epitope specific cytokine production by t cells
+  [FP] realizable entity -> epitope specific interleukin-3 production by t cells
+  [FP] realizable entity -> error correction data transformation
+  [FP] realizable entity -> false discovery rate correction method
+  [FP] realizable entity -> functional assessment of individual
+  [FP] realizable entity -> in vivo assay measuring a t cell epitope specific response after adoptive transfer of epitope specific t cells
+  [FP] realizable entity -> in vivo assay measuring b cell epitope specific protection based on survival
+  [FP] realizable entity -> in vivo skin test assay measuring t cell epitope specific type iv hypersensitivity
+  [FP] realizable entity -> in vivo skin test assay measuring t cell epitope specific type iv hypersensitivity resulting from the adoptive transfer of epitope specific t cells
+  [FP] realizable entity -> interleukin-12 production
+  [FP] realizable entity -> interleukin-3 production
+  [FP] realizable entity -> ionize process
+  [FP] realizable entity -> live arthropod specimen collection process
+  [FP] realizable entity -> material component separation
+  [FP] realizable entity -> material processing
+  [FP] realizable entity -> mean centering
+  [FP] realizable entity -> multiple testing correction method
+  [FP] realizable entity -> normalization data transformation
+  [FP] realizable entity -> nose to finger assessment
+  [FP] realizable entity -> nuclear ligation assay
+  [FP] realizable entity -> planned process
+  [FP] realizable entity -> process
+  [FP] realizable entity -> realizable entity
+  [FP] realizable entity -> specimen collection process
+  [FP] value specification -> anatomical structure quality
+  [FP] value specification -> brother clinical history of cancer
+  [FP] value specification -> cellular quality
+  [FP] value specification -> ceruloplasmin
+  [FP] value specification -> clinical history
+  [FP] value specification -> continuant
+  [FP] value specification -> disposition
+  [FP] value specification -> disposition to be a product of antigen processing and presentation
+  [FP] value specification -> dna polymerase complex
+  [FP] value specification -> enzyme
+  [FP] value specification -> family clinical history of cancer
+  [FP] value specification -> filter paper
+  [FP] value specification -> h2-kb protein complex
+  [FP] value specification -> high-density lipoprotein cholesterol
+  [FP] value specification -> independent continuant
+  [FP] value specification -> material combination
+  [FP] value specification -> material entity
+  [FP] value specification -> mhc class i protein complex
+  [FP] value specification -> mhc protein complex
+  [FP] value specification -> molecular entity
+  [FP] value specification -> mouse mhc class i protein complex
+  [FP] value specification -> mouse mhc class i protein complex with h2-b haplotype
+  [FP] value specification -> object aggregate
+  [FP] value specification -> organization
+  [FP] value specification -> organization of specimen collector
+  [FP] value specification -> physical object quality
+  [FP] value specification -> physical quality
+  [FP] value specification -> processed material
+  [FP] value specification -> protein
+  [FP] value specification -> protein-containing complex
+  [FP] value specification -> quality
+  [FP] value specification -> skin of body specimen
+  [FP] value specification -> specimen
+  [FP] value specification -> specimen from organism
+  [FP] value specification -> tobramycin
+
+MISSED RELATIONS (False Negatives: 306):
+  [FN] adult arthropod specimen collection process -> arthropod specimen collection by aspiration
+  [FN] adult arthropod specimen collection process -> daytime arthropod specimen collection by aspiration
+  [FN] alpha-beta t cell -> cd4-positive alpha-beta t cell
+  [FN] analyte assay -> analytical chromatography
+  [FN] analyte assay -> chromatography assay measuring binding of a b cell epitopeantibody complex
+  [FN] analyte assay -> elisa measuring epitope specific interleukin-22 production by t cells
+  [FN] analyte assay -> enzyme-linked immunosorbent assay
+  [FN] analyte assay -> protein assay
+  [FN] analyte assay -> proximity extension assay
+  [FN] analyte assay -> serum neutralization of viral infectivity assay
+  [FN] analytical chromatography -> chromatography assay measuring binding of a b cell epitopeantibody complex
+  [FN] anatomical structure quality -> cellular quality
+  [FN] anatomical structure quality -> euploid
+  [FN] anatomical structure quality -> ploidy
+  [FN] antibody purification of mhc class ii protein complex -> antibody purification of cattle mhc class ii protein complex
+  [FN] antigen detection by cytometric bead array assay -> cytometric bead array assay measuring epitope specific macrophage inflammatory protein-1 gamma production by t cells
+  [FN] arthropod trap -> bg-sentinel trap
+  [FN] assay -> nanodroplet processing in one pot for trace samples assay
+  [FN] assay -> nuclear ligation assay
+  [FN] assay measuring a binding constant of a t cell epitopemhctcr complex -> assay measuring the on rate kon of a t cell epitopemhctcr complex
+  [FN] assay measuring binding of a t cell epitopemhctcr complex -> assay measuring quantitative binding of an epitopemhctcr complex
+  [FN] assay measuring biological activity resulting from t cell epitopemhctcr binding -> assay measuring epitope specific cytokine production by t cells
+  [FN] assay measuring biological activity resulting from t cell epitopemhctcr binding -> assay measuring epitope specific interleukin-22 production by t cells
+  [FN] assay measuring biological activity resulting from t cell epitopemhctcr binding -> assay measuring epitope specific macrophage inflammatory protein-1 gamma production by t cells
+  [FN] assay measuring biological activity resulting from t cell epitopemhctcr binding -> cytometric bead array assay measuring epitope specific macrophage inflammatory protein-1 gamma production by t cells
+  [FN] assay measuring biological activity resulting from t cell epitopemhctcr binding -> elisa measuring epitope specific interleukin-22 production by t cells
+  [FN] assay measuring epitope specific cytokine production by t cells -> cytometric bead array assay measuring epitope specific macrophage inflammatory protein-1 gamma production by t cells
+  [FN] assay measuring epitope specific macrophage inflammatory protein-1 gamma production by t cells -> cytometric bead array assay measuring epitope specific macrophage inflammatory protein-1 gamma production by t cells
+  [FN] assay measuring quantitative binding of an epitopemhctcr complex -> assay measuring a binding constant of a t cell epitopemhctcr complex
+  [FN] assay measuring quantitative binding of an epitopemhctcr complex -> assay measuring the on rate kon of a t cell epitopemhctcr complex
+  [FN] blood assay -> comprehensive metabolic panel venous blood albumin assay
+  [FN] blood assay -> serum neutralization of viral infectivity assay
+  [FN] catalytic activity -> rna nuclease activity
+  [FN] cellular quality -> euploid
+  [FN] cellular quality -> ploidy
+  [FN] cerebrospinal fluid assay -> cerebrospinal fluid macrophage count assay
+  [FN] container -> cryostat
+  [FN] continuant -> affymetrix rhesus macaque genome array
+  [FN] continuant -> anticoagulant-containing test tube
+  [FN] continuant -> arthropod trap
+  [FN] continuant -> assay array
+  [FN] continuant -> bg-sentinel trap
+  [FN] continuant -> container
+  [FN] continuant -> cryostat
+  [FN] continuant -> cytometer
+  [FN] continuant -> device
+  [FN] continuant -> dna microarray
+  [FN] continuant -> dna polymerase complex
+  [FN] continuant -> dna sequencer
+  [FN] continuant -> environmental control device
+  [FN] continuant -> enzyme
+  [FN] continuant -> filter paper
+  [FN] continuant -> flow cytometer
+  [FN] continuant -> flow cytometer analyzer
+  [FN] continuant -> high-density lipoprotein cholesterol
+  [FN] continuant -> illumina genome analyzer
+  [FN] continuant -> lactoscope c4
+  [FN] continuant -> lsrfortessa x-20
+  [FN] continuant -> material entity
+  [FN] continuant -> material separation device
+  [FN] continuant -> measurement device
+  [FN] continuant -> microarray
+  [FN] continuant -> molecular entity
+  [FN] continuant -> multichannel pipette
+  [FN] continuant -> object aggregate
+  [FN] continuant -> processed material
+  [FN] continuant -> protein-containing complex
+  [FN] continuant -> skin of body specimen
+  [FN] continuant -> specimen
+  [FN] continuant -> specimen from organism
+  [FN] continuant -> spectrophotometer
+  [FN] continuant -> test tube
+  [FN] continuant -> tissue embedding station
+  [FN] continuant -> tobramycin
+  [FN] continuant -> vial
+  [FN] cytometry assay -> cerebrospinal fluid macrophage count assay
+  [FN] cytometry assay -> intracellular cytokine staining assay measuring epitope specific chemokine c-x-c motif ligand 9 production by t cells
+  [FN] cytometry assay -> lymphocyte assay
+  [FN] cytometry assay -> lymphocyte count assay
+  [FN] cytometry assay -> macrophage assay
+  [FN] cytometry assay -> manual differential bodily fluid monocyte count assay
+  [FN] cytometry assay -> monocyte assay
+  [FN] data item -> dose
+  [FN] device -> affymetrix rhesus macaque genome array
+  [FN] device -> arthropod trap
+  [FN] device -> assay array
+  [FN] device -> bg-sentinel trap
+  [FN] device -> dna microarray
+  [FN] device -> filter paper
+  [FN] device -> illumina genome analyzer
+  [FN] device -> lactoscope c4
+  [FN] device -> microarray
+  [FN] dna sequencer -> illumina genome analyzer
+  [FN] efficacy of epitope intervention experiment -> in vivo skin test assay measuring t cell epitope specific type iv hypersensitivity
+  [FN] efficacy of epitope intervention experiment -> in vivo skin test assay measuring t cell epitope specific type iv hypersensitivity resulting from the adoptive transfer of epitope specific t cells
+  [FN] environmental control device -> cryostat
+  [FN] enzyme -> dna polymerase complex
+  [FN] enzyme-linked immunosorbent assay -> elisa measuring epitope specific interleukin-22 production by t cells
+  [FN] epitope specific cytokine production by t cells -> epitope specific interleukin-3 production by t cells
+  [FN] error correction data transformation -> false discovery rate correction method
+  [FN] error correction data transformation -> multiple testing correction method
+  [FN] flow cytometer analyzer -> lsrfortessa x-20
+  [FN] flow cytometry assay -> intracellular cytokine staining assay measuring epitope specific chemokine c-x-c motif ligand 9 production by t cells
+  [FN] in vivo assay measuring a t cell epitope specific response after adoptive transfer of epitope specific t cells -> in vivo skin test assay measuring t cell epitope specific type iv hypersensitivity resulting from the adoptive transfer of epitope specific t cells
+  [FN] independent continuant -> affymetrix rhesus macaque genome array
+  [FN] independent continuant -> anticoagulant-containing test tube
+  [FN] independent continuant -> arthropod trap
+  [FN] independent continuant -> assay array
+  [FN] independent continuant -> bg-sentinel trap
+  [FN] independent continuant -> container
+  [FN] independent continuant -> cryostat
+  [FN] independent continuant -> cytometer
+  [FN] independent continuant -> device
+  [FN] independent continuant -> dna microarray
+  [FN] independent continuant -> dna polymerase complex
+  [FN] independent continuant -> dna sequencer
+  [FN] independent continuant -> environmental control device
+  [FN] independent continuant -> enzyme
+  [FN] independent continuant -> filter paper
+  [FN] independent continuant -> flow cytometer
+  [FN] independent continuant -> flow cytometer analyzer
+  [FN] independent continuant -> high-density lipoprotein cholesterol
+  [FN] independent continuant -> illumina genome analyzer
+  [FN] independent continuant -> lactoscope c4
+  [FN] independent continuant -> lsrfortessa x-20
+  [FN] independent continuant -> material entity
+  [FN] independent continuant -> material separation device
+  [FN] independent continuant -> measurement device
+  [FN] independent continuant -> microarray
+  [FN] independent continuant -> molecular entity
+  [FN] independent continuant -> multichannel pipette
+  [FN] independent continuant -> object aggregate
+  [FN] independent continuant -> processed material
+  [FN] independent continuant -> protein-containing complex
+  [FN] independent continuant -> skin of body specimen
+  [FN] independent continuant -> specimen
+  [FN] independent continuant -> specimen from organism
+  [FN] independent continuant -> spectrophotometer
+  [FN] independent continuant -> test tube
+  [FN] independent continuant -> tissue embedding station
+  [FN] independent continuant -> tobramycin
+  [FN] independent continuant -> vial
+  [FN] live arthropod specimen collection process -> adult arthropod specimen collection process
+  [FN] live arthropod specimen collection process -> arthropod specimen collection by aspiration
+  [FN] live arthropod specimen collection process -> daytime arthropod specimen collection by aspiration
+  [FN] material combination -> adding a material entity into a target
+  [FN] material component separation -> dna subtraction
+  [FN] material entity -> affymetrix rhesus macaque genome array
+  [FN] material entity -> anticoagulant-containing test tube
+  [FN] material entity -> arthropod trap
+  [FN] material entity -> assay array
+  [FN] material entity -> bg-sentinel trap
+  [FN] material entity -> container
+  [FN] material entity -> cryostat
+  [FN] material entity -> cytometer
+  [FN] material entity -> device
+  [FN] material entity -> dna microarray
+  [FN] material entity -> dna sequencer
+  [FN] material entity -> environmental control device
+  [FN] material entity -> flow cytometer
+  [FN] material entity -> flow cytometer analyzer
+  [FN] material entity -> illumina genome analyzer
+  [FN] material entity -> lactoscope c4
+  [FN] material entity -> lsrfortessa x-20
+  [FN] material entity -> material separation device
+  [FN] material entity -> measurement device
+  [FN] material entity -> microarray
+  [FN] material entity -> multichannel pipette
+  [FN] material entity -> spectrophotometer
+  [FN] material entity -> test tube
+  [FN] material entity -> tissue embedding station
+  [FN] material entity -> vial
+  [FN] material processing -> adding a material entity into a target
+  [FN] material processing -> artificially induced dna repair
+  [FN] material processing -> dna subtraction
+  [FN] material processing -> enzymatic ligation
+  [FN] material processing -> ionize process
+  [FN] material processing -> material combination
+  [FN] material separation device -> filter paper
+  [FN] measurement datum -> dose
+  [FN] measurement device -> dna sequencer
+  [FN] measurement device -> illumina genome analyzer
+  [FN] measurement device -> lactoscope c4
+  [FN] measurement device -> multichannel pipette
+  [FN] measurement device -> spectrophotometer
+  [FN] milk assay datum -> antigen specific antibodies in milk assay datum
+  [FN] mouse mhc class i protein complex with h2-b haplotype -> h2-kb protein complex
+  [FN] normalization data transformation -> mean centering
+  [FN] obsolete class -> obsolete_activation
+  [FN] organism detection assay -> blood microbiology assay
+  [FN] organism detection assay -> venous blood microbiology assay
+  [FN] participant under investigation role -> to be treated with placebo role
+  [FN] physical object quality -> physical quality
+  [FN] physical object quality -> pressure
+  [FN] physical quality -> pressure
+  [FN] planned process -> 5-nucleotidase activity level assay
+  [FN] planned process -> abl90 panel venous blood sodium assay
+  [FN] planned process -> adding a material entity into a target
+  [FN] planned process -> analyte assay
+  [FN] planned process -> analytical chromatography
+  [FN] planned process -> artificially induced dna repair
+  [FN] planned process -> assay
+  [FN] planned process -> assay measuring binding of a b cell epitopeantibody complex
+  [FN] planned process -> assay measuring qualitative binding of a b cell epitopeantibody complex
+  [FN] planned process -> b cell epitope assay
+  [FN] planned process -> blood assay
+  [FN] planned process -> blood microbiology assay
+  [FN] planned process -> carboxyfluorescein succinimidyl ester staining assay
+  [FN] planned process -> carboxyfluorescein succinimidyl ester staining assay measuring epitope specific proliferation of t cells
+  [FN] planned process -> cerebrospinal fluid assay
+  [FN] planned process -> cerebrospinal fluid macrophage count assay
+  [FN] planned process -> chromatography assay measuring binding of a b cell epitopeantibody complex
+  [FN] planned process -> comprehensive metabolic panel venous blood albumin assay
+  [FN] planned process -> comprehensive metabolic panel venous blood creatinine assay
+  [FN] planned process -> data transformation
+  [FN] planned process -> dna subtraction
+  [FN] planned process -> elisa measuring epitope specific interleukin-22 production by t cells
+  [FN] planned process -> enzymatic activity level assay
+  [FN] planned process -> enzymatic ligation
+  [FN] planned process -> enzyme-linked immunosorbent assay
+  [FN] planned process -> error correction data transformation
+  [FN] planned process -> false discovery rate correction method
+  [FN] planned process -> immune epitope assay
+  [FN] planned process -> insecticide resistance assay
+  [FN] planned process -> insecticide resistance by detecting enzyme activity assay
+  [FN] planned process -> insecticide resistance by detecting glutathione s-transferase activity assay
+  [FN] planned process -> ionize process
+  [FN] planned process -> lipid panel venous blood cholesterol assay
+  [FN] planned process -> material combination
+  [FN] planned process -> material component separation
+  [FN] planned process -> material processing
+  [FN] planned process -> mean centering
+  [FN] planned process -> multiple testing correction method
+  [FN] planned process -> nanodroplet processing in one pot for trace samples assay
+  [FN] planned process -> normalization data transformation
+  [FN] planned process -> nuclear ligation assay
+  [FN] planned process -> organism detection assay
+  [FN] planned process -> parasite detection assay
+  [FN] planned process -> polymerase chain reaction assay
+  [FN] planned process -> prostate-specific antigen assay
+  [FN] planned process -> protein assay
+  [FN] planned process -> protein expression profiling assay
+  [FN] planned process -> proximity extension assay
+  [FN] planned process -> serum neutralization of viral infectivity assay
+  [FN] planned process -> sodium1 assay
+  [FN] planned process -> total venous blood psa assay
+  [FN] planned process -> venous blood hemoglobin a1c assay
+  [FN] planned process -> venous blood microbiology assay
+  [FN] planned process -> venous blood thyroid stimulating hormone assay
+  [FN] polymerase chain reaction assay -> proximity extension assay
+  [FN] process -> catalytic activity
+  [FN] process -> molecular_function
+  [FN] process -> rna nuclease activity
+  [FN] processed material -> affymetrix rhesus macaque genome array
+  [FN] processed material -> anticoagulant-containing test tube
+  [FN] processed material -> arthropod trap
+  [FN] processed material -> assay array
+  [FN] processed material -> bg-sentinel trap
+  [FN] processed material -> container
+  [FN] processed material -> cryostat
+  [FN] processed material -> cytometer
+  [FN] processed material -> device
+  [FN] processed material -> dna microarray
+  [FN] processed material -> dna sequencer
+  [FN] processed material -> environmental control device
+  [FN] processed material -> filter paper
+  [FN] processed material -> flow cytometer
+  [FN] processed material -> flow cytometer analyzer
+  [FN] processed material -> illumina genome analyzer
+  [FN] processed material -> lactoscope c4
+  [FN] processed material -> lsrfortessa x-20
+  [FN] processed material -> material separation device
+  [FN] processed material -> measurement device
+  [FN] processed material -> microarray
+  [FN] processed material -> multichannel pipette
+  [FN] processed material -> spectrophotometer
+  [FN] processed material -> test tube
+  [FN] processed material -> tissue embedding station
+  [FN] processed material -> vial
+  [FN] protein assay -> prostate-specific antigen assay
+  [FN] protein assay -> total venous blood psa assay
+  [FN] protein expression profiling assay -> nanodroplet processing in one pot for trace samples assay
+  [FN] quality -> device setting
+  [FN] quality -> pressure
+  [FN] realizable entity -> accessed material role
+  [FN] realizable entity -> adjuvant role
+  [FN] realizable entity -> disposition
+  [FN] realizable entity -> disposition to be a product of antigen processing and presentation
+  [FN] realizable entity -> measurand role
+  [FN] realizable entity -> participant under investigation role
+  [FN] realizable entity -> regulator role
+  [FN] realizable entity -> regulatory role
+  [FN] realizable entity -> role
+  [FN] realizable entity -> role of regulator of consumables and medical devices
+  [FN] realizable entity -> to be treated with placebo role
+  [FN] regulatory role -> regulator role
+  [FN] regulatory role -> role of regulator of consumables and medical devices
+  [FN] scalar value specification -> mass value specification
+  [FN] spectrophotometer -> lactoscope c4
+  [FN] t cell epitope assay -> assay measuring epitope specific cytokine production by t cells
+  [FN] t cell epitope assay -> assay measuring epitope specific interleukin-22 production by t cells
+  [FN] t cell epitope assay -> assay measuring epitope specific macrophage inflammatory protein-1 gamma production by t cells
+  [FN] t cell epitope assay -> cytometric bead array assay measuring epitope specific macrophage inflammatory protein-1 gamma production by t cells
+  [FN] t cell epitope assay -> elisa measuring epitope specific interleukin-22 production by t cells
+  [FN] vial -> anticoagulant-containing test tube
+  [FN] vial -> test tube

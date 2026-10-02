@@ -1,0 +1,498 @@
+==================================================
+=== Detailed Node Pair Analysis (Condensed Transitive Closure) ===
+Match Type Used: SET_OVERLAP
+==================================================
+Precision: 0.4659 | Recall: 0.9438 | F1: 0.6239
+
+CORRECT PREDICTIONS (True Positives: 123 Pred edges covering 168 GT edges):
+  [TP] PRED: (alcohol -> brandy sling)
+        matches GT: (alcohol -> brandy sling)
+  [TP] PRED: (alcohol -> highball)
+        matches GT: (alcohol -> highball)
+  [TP] PRED: (alcohol -> mixed drink)
+        matches GT: (alcohol -> mixed drink)
+  [TP] PRED: (alcohol -> sling)
+        matches GT: (alcohol -> sling)
+  [TP] PRED: (baked goods -> baguet)
+        matches GT: (baked goods -> baguet)
+  [TP] PRED: (baked goods -> bread)
+        matches GT: (baked goods -> bread)
+  [TP] PRED: (baked goods -> french bread)
+        matches GT: (baked goods -> french bread)
+  [TP] PRED: (baked goods -> pastry)
+        matches GT: (baked goods -> pastry)
+  [TP] PRED: (baked goods -> patty shell)
+        matches GT: (baked goods -> patty shell)
+  [TP] PRED: (baked goods -> toast)
+        matches GT: (baked goods -> toast)
+  [TP] PRED: (baked goods -> white bread)
+        matches GT: (baked goods -> white bread)
+  [TP] PRED: (baked goods -> zwieback)
+        matches GT: (baked goods -> zwieback)
+  [TP] PRED: (beverage -> alcohol)
+        matches GT: (beverage -> alcohol)
+  [TP] PRED: (beverage -> brandy sling)
+        matches GT: (beverage -> brandy sling)
+  [TP] PRED: (beverage -> highball)
+        matches GT: (beverage -> highball)
+  [TP] PRED: (beverage -> mixed drink)
+        matches GT: (beverage -> mixed drink)
+  [TP] PRED: (beverage -> sling)
+        matches GT: (beverage -> sling)
+  [TP] PRED: (bread -> baguet)
+        matches GT: (bread -> baguet)
+  [TP] PRED: (bread -> french bread)
+        matches GT: (bread -> french bread)
+  [TP] PRED: (bread -> toast)
+        matches GT: (bread -> toast)
+  [TP] PRED: (bread -> white bread)
+        matches GT: (bread -> white bread)
+  [TP] PRED: (bread -> zwieback)
+        matches GT: (bread -> zwieback)
+  [TP] PRED: (butter -> clarified butter)
+        matches GT: (butter -> clarified butter)
+  [TP] PRED: (cheese -> parmesan)
+        matches GT: (cheese -> parmesan)
+  [TP] PRED: (concoction (concoction, dish, sauce) -> bigos)
+        matches GT: (dish -> bigos)
+  [TP] PRED: (concoction (concoction, dish, sauce) -> bomber)
+        matches GT: (dish -> bomber)
+  [TP] PRED: (concoction (concoction, dish, sauce) -> carrot pudding)
+        matches GT: (dish -> carrot pudding)
+  [TP] PRED: (concoction (concoction, dish, sauce) -> chocolate sauce)
+        matches GT: (sauce -> chocolate sauce)
+  [TP] PRED: (concoction (concoction, dish, sauce) -> fricassee)
+        matches GT: (dish -> fricassee)
+  [TP] PRED: (concoction (concoction, dish, sauce) -> lobster thermidor)
+        matches GT: (dish -> lobster thermidor)
+  [TP] PRED: (concoction (concoction, dish, sauce) -> pastry)
+        matches GT: (concoction -> pastry)
+  [TP] PRED: (concoction (concoction, dish, sauce) -> patty shell)
+        matches GT: (concoction -> patty shell)
+  [TP] PRED: (concoction (concoction, dish, sauce) -> pudding)
+        matches GT: (dish -> pudding)
+  [TP] PRED: (concoction (concoction, dish, sauce) -> sandwich)
+        matches GT: (dish -> sandwich)
+  [TP] PRED: (concoction (concoction, dish, sauce) -> snack food)
+        matches GT: (dish -> snack food)
+  [TP] PRED: (concoction (concoction, dish, sauce) -> stew)
+        matches GT: (dish -> stew)
+  [TP] PRED: (concoction (concoction, dish, sauce) -> turkey stew)
+        matches GT: (dish -> turkey stew)
+  [TP] PRED: (condiment (condiment, flavorer) -> chocolate sauce)
+        matches GT: (condiment -> chocolate sauce)
+  [TP] PRED: (condiment (condiment, flavorer) -> chocolate sauce)
+        matches GT: (flavorer -> chocolate sauce)
+  [TP] PRED: (condiment (condiment, flavorer) -> concoction (concoction, dish, sauce))
+        matches GT: (condiment -> sauce)
+  [TP] PRED: (condiment (condiment, flavorer) -> concoction (concoction, dish, sauce))
+        matches GT: (flavorer -> sauce)
+  [TP] PRED: (condiment (condiment, flavorer) -> vinegar)
+        matches GT: (condiment -> vinegar)
+  [TP] PRED: (condiment (condiment, flavorer) -> vinegar)
+        matches GT: (flavorer -> vinegar)
+  [TP] PRED: (course -> carrot pudding)
+        matches GT: (course -> carrot pudding)
+  [TP] PRED: (course -> dessert)
+        matches GT: (course -> dessert)
+  [TP] PRED: (course -> pudding)
+        matches GT: (course -> pudding)
+  [TP] PRED: (dairy product -> butter)
+        matches GT: (dairy product -> butter)
+  [TP] PRED: (dairy product -> cheese)
+        matches GT: (dairy product -> cheese)
+  [TP] PRED: (dairy product -> clarified butter)
+        matches GT: (dairy product -> clarified butter)
+  [TP] PRED: (dairy product -> parmesan)
+        matches GT: (dairy product -> parmesan)
+  [TP] PRED: (dessert -> carrot pudding)
+        matches GT: (dessert -> carrot pudding)
+  [TP] PRED: (dessert -> pudding)
+        matches GT: (dessert -> pudding)
+  [TP] PRED: (dough -> pastry)
+        matches GT: (dough -> pastry)
+  [TP] PRED: (dough -> patty shell)
+        matches GT: (dough -> patty shell)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> alcohol)
+        matches GT: (food -> alcohol)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> baguet)
+        matches GT: (food -> baguet)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> baguet)
+        matches GT: (foodstuff -> baguet)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> baked goods)
+        matches GT: (food -> baked goods)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> beverage)
+        matches GT: (food -> beverage)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> bigos)
+        matches GT: (food -> bigos)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> bigos)
+        matches GT: (nutriment -> bigos)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> bomber)
+        matches GT: (food -> bomber)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> bomber)
+        matches GT: (nutriment -> bomber)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> brandy sling)
+        matches GT: (food -> brandy sling)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> bread)
+        matches GT: (food -> bread)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> bread)
+        matches GT: (foodstuff -> bread)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> butter)
+        matches GT: (food -> butter)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> butter)
+        matches GT: (foodstuff -> butter)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> carrot pudding)
+        matches GT: (food -> carrot pudding)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> carrot pudding)
+        matches GT: (nutriment -> carrot pudding)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> cheese)
+        matches GT: (food -> cheese)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> cheese)
+        matches GT: (foodstuff -> cheese)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> chocolate sauce)
+        matches GT: (food -> chocolate sauce)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> chocolate sauce)
+        matches GT: (foodstuff -> chocolate sauce)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> clarified butter)
+        matches GT: (food -> clarified butter)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> clarified butter)
+        matches GT: (foodstuff -> clarified butter)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> concoction (concoction, dish, sauce))
+        matches GT: (food -> concoction)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> concoction (concoction, dish, sauce))
+        matches GT: (food -> dish)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> concoction (concoction, dish, sauce))
+        matches GT: (food -> sauce)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> concoction (concoction, dish, sauce))
+        matches GT: (foodstuff -> concoction)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> concoction (concoction, dish, sauce))
+        matches GT: (foodstuff -> sauce)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> concoction (concoction, dish, sauce))
+        matches GT: (nutriment -> dish)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> condiment (condiment, flavorer))
+        matches GT: (food -> condiment)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> condiment (condiment, flavorer))
+        matches GT: (food -> flavorer)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> condiment (condiment, flavorer))
+        matches GT: (foodstuff -> condiment)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> condiment (condiment, flavorer))
+        matches GT: (foodstuff -> flavorer)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> dairy product)
+        matches GT: (food -> dairy product)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> dairy product)
+        matches GT: (foodstuff -> dairy product)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> dessert)
+        matches GT: (food -> dessert)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> dessert)
+        matches GT: (nutriment -> dessert)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> dough)
+        matches GT: (food -> dough)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> dough)
+        matches GT: (foodstuff -> dough)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> french bread)
+        matches GT: (food -> french bread)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> french bread)
+        matches GT: (foodstuff -> french bread)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> french sorrel)
+        matches GT: (food -> french sorrel)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> fricassee)
+        matches GT: (food -> fricassee)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> fricassee)
+        matches GT: (nutriment -> fricassee)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> greens)
+        matches GT: (food -> greens)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> highball)
+        matches GT: (food -> highball)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> ingredient)
+        matches GT: (food -> ingredient)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> ingredient)
+        matches GT: (foodstuff -> ingredient)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> lobster thermidor)
+        matches GT: (food -> lobster thermidor)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> lobster thermidor)
+        matches GT: (nutriment -> lobster thermidor)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> mixed drink)
+        matches GT: (food -> mixed drink)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> parmesan)
+        matches GT: (food -> parmesan)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> parmesan)
+        matches GT: (foodstuff -> parmesan)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> pastry)
+        matches GT: (food -> pastry)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> pastry)
+        matches GT: (foodstuff -> pastry)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> patty shell)
+        matches GT: (food -> patty shell)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> patty shell)
+        matches GT: (foodstuff -> patty shell)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> produce (produce, vegetable))
+        matches GT: (food -> produce)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> produce (produce, vegetable))
+        matches GT: (food -> vegetable)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> pudding)
+        matches GT: (food -> pudding)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> pudding)
+        matches GT: (nutriment -> pudding)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> sandwich)
+        matches GT: (food -> sandwich)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> sandwich)
+        matches GT: (nutriment -> sandwich)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> sling)
+        matches GT: (food -> sling)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> snack food)
+        matches GT: (food -> snack food)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> snack food)
+        matches GT: (nutriment -> snack food)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> solanaceous vegetable)
+        matches GT: (food -> solanaceous vegetable)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> starches)
+        matches GT: (food -> starches)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> starches)
+        matches GT: (foodstuff -> starches)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> stew)
+        matches GT: (food -> stew)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> stew)
+        matches GT: (nutriment -> stew)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> toast)
+        matches GT: (food -> toast)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> toast)
+        matches GT: (foodstuff -> toast)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> turkey stew)
+        matches GT: (food -> turkey stew)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> turkey stew)
+        matches GT: (nutriment -> turkey stew)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> vinegar)
+        matches GT: (food -> vinegar)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> vinegar)
+        matches GT: (foodstuff -> vinegar)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> white bread)
+        matches GT: (food -> white bread)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> white bread)
+        matches GT: (foodstuff -> white bread)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> zwieback)
+        matches GT: (food -> zwieback)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> zwieback)
+        matches GT: (foodstuff -> zwieback)
+  [TP] PRED: (french bread -> baguet)
+        matches GT: (french bread -> baguet)
+  [TP] PRED: (greens -> french sorrel)
+        matches GT: (greens -> french sorrel)
+  [TP] PRED: (highball -> brandy sling)
+        matches GT: (highball -> brandy sling)
+  [TP] PRED: (highball -> sling)
+        matches GT: (highball -> sling)
+  [TP] PRED: (ingredient -> chocolate sauce)
+        matches GT: (ingredient -> chocolate sauce)
+  [TP] PRED: (ingredient -> concoction (concoction, dish, sauce))
+        matches GT: (ingredient -> sauce)
+  [TP] PRED: (ingredient -> condiment (condiment, flavorer))
+        matches GT: (ingredient -> condiment)
+  [TP] PRED: (ingredient -> condiment (condiment, flavorer))
+        matches GT: (ingredient -> flavorer)
+  [TP] PRED: (ingredient -> vinegar)
+        matches GT: (ingredient -> vinegar)
+  [TP] PRED: (mixed drink -> brandy sling)
+        matches GT: (mixed drink -> brandy sling)
+  [TP] PRED: (mixed drink -> highball)
+        matches GT: (mixed drink -> highball)
+  [TP] PRED: (mixed drink -> sling)
+        matches GT: (mixed drink -> sling)
+  [TP] PRED: (pastry -> patty shell)
+        matches GT: (pastry -> patty shell)
+  [TP] PRED: (produce (produce, vegetable) -> french sorrel)
+        matches GT: (produce -> french sorrel)
+  [TP] PRED: (produce (produce, vegetable) -> french sorrel)
+        matches GT: (vegetable -> french sorrel)
+  [TP] PRED: (produce (produce, vegetable) -> greens)
+        matches GT: (produce -> greens)
+  [TP] PRED: (produce (produce, vegetable) -> greens)
+        matches GT: (vegetable -> greens)
+  [TP] PRED: (produce (produce, vegetable) -> solanaceous vegetable)
+        matches GT: (produce -> solanaceous vegetable)
+  [TP] PRED: (produce (produce, vegetable) -> solanaceous vegetable)
+        matches GT: (vegetable -> solanaceous vegetable)
+  [TP] PRED: (pudding -> carrot pudding)
+        matches GT: (pudding -> carrot pudding)
+  [TP] PRED: (sling -> brandy sling)
+        matches GT: (sling -> brandy sling)
+  [TP] PRED: (snack food -> sandwich)
+        matches GT: (snack food -> sandwich)
+  [TP] PRED: (starches -> baguet)
+        matches GT: (starches -> baguet)
+  [TP] PRED: (starches -> bread)
+        matches GT: (starches -> bread)
+  [TP] PRED: (starches -> french bread)
+        matches GT: (starches -> french bread)
+  [TP] PRED: (starches -> toast)
+        matches GT: (starches -> toast)
+  [TP] PRED: (starches -> white bread)
+        matches GT: (starches -> white bread)
+  [TP] PRED: (starches -> zwieback)
+        matches GT: (starches -> zwieback)
+  [TP] PRED: (stew -> bigos)
+        matches GT: (stew -> bigos)
+  [TP] PRED: (stew -> fricassee)
+        matches GT: (stew -> fricassee)
+  [TP] PRED: (stew -> turkey stew)
+        matches GT: (stew -> turkey stew)
+  [TP] PRED: (toast -> zwieback)
+        matches GT: (toast -> zwieback)
+  [TP] PRED: (white bread -> baguet)
+        matches GT: (white bread -> baguet)
+  [TP] PRED: (white bread -> french bread)
+        matches GT: (white bread -> french bread)
+
+INCORRECT PREDICTIONS (False Positives: 141):
+  [FP] alcohol -> bomber
+  [FP] beverage -> bomber
+  [FP] concoction (concoction, dish, sauce) -> alcohol
+  [FP] concoction (concoction, dish, sauce) -> baguet
+  [FP] concoction (concoction, dish, sauce) -> baked goods
+  [FP] concoction (concoction, dish, sauce) -> beverage
+  [FP] concoction (concoction, dish, sauce) -> brandy sling
+  [FP] concoction (concoction, dish, sauce) -> bread
+  [FP] concoction (concoction, dish, sauce) -> dessert
+  [FP] concoction (concoction, dish, sauce) -> french bread
+  [FP] concoction (concoction, dish, sauce) -> highball
+  [FP] concoction (concoction, dish, sauce) -> mixed drink
+  [FP] concoction (concoction, dish, sauce) -> sling
+  [FP] concoction (concoction, dish, sauce) -> toast
+  [FP] concoction (concoction, dish, sauce) -> vinegar
+  [FP] concoction (concoction, dish, sauce) -> white bread
+  [FP] concoction (concoction, dish, sauce) -> zwieback
+  [FP] condiment (condiment, flavorer) -> alcohol
+  [FP] condiment (condiment, flavorer) -> baguet
+  [FP] condiment (condiment, flavorer) -> baked goods
+  [FP] condiment (condiment, flavorer) -> beverage
+  [FP] condiment (condiment, flavorer) -> bigos
+  [FP] condiment (condiment, flavorer) -> bomber
+  [FP] condiment (condiment, flavorer) -> brandy sling
+  [FP] condiment (condiment, flavorer) -> bread
+  [FP] condiment (condiment, flavorer) -> butter
+  [FP] condiment (condiment, flavorer) -> carrot pudding
+  [FP] condiment (condiment, flavorer) -> clarified butter
+  [FP] condiment (condiment, flavorer) -> dessert
+  [FP] condiment (condiment, flavorer) -> french bread
+  [FP] condiment (condiment, flavorer) -> fricassee
+  [FP] condiment (condiment, flavorer) -> highball
+  [FP] condiment (condiment, flavorer) -> lobster thermidor
+  [FP] condiment (condiment, flavorer) -> mixed drink
+  [FP] condiment (condiment, flavorer) -> parmesan
+  [FP] condiment (condiment, flavorer) -> pastry
+  [FP] condiment (condiment, flavorer) -> patty shell
+  [FP] condiment (condiment, flavorer) -> pudding
+  [FP] condiment (condiment, flavorer) -> sandwich
+  [FP] condiment (condiment, flavorer) -> sling
+  [FP] condiment (condiment, flavorer) -> snack food
+  [FP] condiment (condiment, flavorer) -> stew
+  [FP] condiment (condiment, flavorer) -> toast
+  [FP] condiment (condiment, flavorer) -> turkey stew
+  [FP] condiment (condiment, flavorer) -> white bread
+  [FP] condiment (condiment, flavorer) -> zwieback
+  [FP] course -> pastry
+  [FP] course -> patty shell
+  [FP] dessert -> pastry
+  [FP] dessert -> patty shell
+  [FP] dough -> baguet
+  [FP] dough -> bread
+  [FP] dough -> french bread
+  [FP] dough -> toast
+  [FP] dough -> white bread
+  [FP] dough -> zwieback
+  [FP] ingredient -> alcohol
+  [FP] ingredient -> baguet
+  [FP] ingredient -> baked goods
+  [FP] ingredient -> beverage
+  [FP] ingredient -> bigos
+  [FP] ingredient -> bomber
+  [FP] ingredient -> brandy sling
+  [FP] ingredient -> bread
+  [FP] ingredient -> butter
+  [FP] ingredient -> carrot pudding
+  [FP] ingredient -> cheese
+  [FP] ingredient -> clarified butter
+  [FP] ingredient -> dairy product
+  [FP] ingredient -> dessert
+  [FP] ingredient -> dough
+  [FP] ingredient -> french bread
+  [FP] ingredient -> french sorrel
+  [FP] ingredient -> fricassee
+  [FP] ingredient -> greens
+  [FP] ingredient -> highball
+  [FP] ingredient -> lobster thermidor
+  [FP] ingredient -> mixed drink
+  [FP] ingredient -> parmesan
+  [FP] ingredient -> pastry
+  [FP] ingredient -> patty shell
+  [FP] ingredient -> pudding
+  [FP] ingredient -> sandwich
+  [FP] ingredient -> sling
+  [FP] ingredient -> snack food
+  [FP] ingredient -> solanaceous vegetable
+  [FP] ingredient -> starches
+  [FP] ingredient -> stew
+  [FP] ingredient -> toast
+  [FP] ingredient -> turkey stew
+  [FP] ingredient -> white bread
+  [FP] ingredient -> zwieback
+  [FP] mixed drink -> bomber
+  [FP] produce (produce, vegetable) -> alcohol
+  [FP] produce (produce, vegetable) -> baguet
+  [FP] produce (produce, vegetable) -> baked goods
+  [FP] produce (produce, vegetable) -> beverage
+  [FP] produce (produce, vegetable) -> bigos
+  [FP] produce (produce, vegetable) -> bomber
+  [FP] produce (produce, vegetable) -> brandy sling
+  [FP] produce (produce, vegetable) -> bread
+  [FP] produce (produce, vegetable) -> butter
+  [FP] produce (produce, vegetable) -> carrot pudding
+  [FP] produce (produce, vegetable) -> cheese
+  [FP] produce (produce, vegetable) -> chocolate sauce
+  [FP] produce (produce, vegetable) -> clarified butter
+  [FP] produce (produce, vegetable) -> concoction (concoction, dish, sauce)
+  [FP] produce (produce, vegetable) -> condiment (condiment, flavorer)
+  [FP] produce (produce, vegetable) -> dairy product
+  [FP] produce (produce, vegetable) -> dessert
+  [FP] produce (produce, vegetable) -> dough
+  [FP] produce (produce, vegetable) -> french bread
+  [FP] produce (produce, vegetable) -> fricassee
+  [FP] produce (produce, vegetable) -> highball
+  [FP] produce (produce, vegetable) -> ingredient
+  [FP] produce (produce, vegetable) -> lobster thermidor
+  [FP] produce (produce, vegetable) -> mixed drink
+  [FP] produce (produce, vegetable) -> parmesan
+  [FP] produce (produce, vegetable) -> pastry
+  [FP] produce (produce, vegetable) -> patty shell
+  [FP] produce (produce, vegetable) -> pudding
+  [FP] produce (produce, vegetable) -> sandwich
+  [FP] produce (produce, vegetable) -> sling
+  [FP] produce (produce, vegetable) -> snack food
+  [FP] produce (produce, vegetable) -> starches
+  [FP] produce (produce, vegetable) -> stew
+  [FP] produce (produce, vegetable) -> toast
+  [FP] produce (produce, vegetable) -> turkey stew
+  [FP] produce (produce, vegetable) -> vinegar
+  [FP] produce (produce, vegetable) -> white bread
+  [FP] produce (produce, vegetable) -> zwieback
+  [FP] snack food -> baguet
+  [FP] snack food -> baked goods
+  [FP] snack food -> bread
+  [FP] snack food -> french bread
+  [FP] snack food -> pastry
+  [FP] snack food -> patty shell
+  [FP] snack food -> toast
+  [FP] snack food -> white bread
+  [FP] snack food -> zwieback
+  [FP] starches -> patty shell
+
+MISSED RELATIONS (False Negatives: 10):
+  [FN] concoction -> dough
+  [FN] flavorer -> condiment
+  [FN] food -> course
+  [FN] food -> foodstuff
+  [FN] food -> nutriment
+  [FN] fricassee -> turkey stew
+  [FN] nutriment -> course
+  [FN] produce -> vegetable
+  [FN] sandwich -> bomber
+  [FN] snack food -> bomber

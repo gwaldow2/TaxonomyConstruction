@@ -1,0 +1,114 @@
+==================================================
+=== Detailed Node Pair Analysis (Condensed Transitive Reduction) ===
+Match Type Used: SET_OVERLAP
+==================================================
+Precision: 0.8824 | Recall: 0.8654 | F1: 0.8738
+
+CORRECT PREDICTIONS (True Positives: 45 Pred edges covering 45 GT edges):
+  [TP] PRED: (alcohol -> koumiss)
+        matches GT: (alcohol -> koumiss)
+  [TP] PRED: (baked goods -> bread)
+        matches GT: (baked goods -> bread)
+  [TP] PRED: (baked goods -> cake)
+        matches GT: (baked goods -> cake)
+  [TP] PRED: (berry -> raspberry)
+        matches GT: (berry -> raspberry)
+  [TP] PRED: (beverage -> alcohol)
+        matches GT: (beverage -> alcohol)
+  [TP] PRED: (bread -> bun)
+        matches GT: (bread -> bun)
+  [TP] PRED: (bun -> sweet roll)
+        matches GT: (bun -> sweet roll)
+  [TP] PRED: (cake -> applesauce cake)
+        matches GT: (cake -> applesauce cake)
+  [TP] PRED: (citrus -> orange)
+        matches GT: (citrus -> orange)
+  [TP] PRED: (course -> dessert)
+        matches GT: (course -> dessert)
+  [TP] PRED: (dessert -> pudding)
+        matches GT: (dessert -> pudding)
+  [TP] PRED: (dish -> chicken paprika)
+        matches GT: (dish -> chicken paprika)
+  [TP] PRED: (dish -> scampi)
+        matches GT: (dish -> scampi)
+  [TP] PRED: (edible fruit -> berry)
+        matches GT: (edible fruit -> berry)
+  [TP] PRED: (edible fruit -> citrus)
+        matches GT: (edible fruit -> citrus)
+  [TP] PRED: (flavorer -> herb)
+        matches GT: (flavorer -> herb)
+  [TP] PRED: (food -> baked goods)
+        matches GT: (food -> baked goods)
+  [TP] PRED: (food -> beverage)
+        matches GT: (food -> beverage)
+  [TP] PRED: (food -> foodstuff)
+        matches GT: (food -> foodstuff)
+  [TP] PRED: (food -> meat)
+        matches GT: (food -> meat)
+  [TP] PRED: (food -> nutriment)
+        matches GT: (food -> nutriment)
+  [TP] PRED: (food -> produce)
+        matches GT: (food -> produce)
+  [TP] PRED: (food -> soul food)
+        matches GT: (food -> soul food)
+  [TP] PRED: (foodstuff -> ingredient)
+        matches GT: (foodstuff -> ingredient)
+  [TP] PRED: (greens -> salad green)
+        matches GT: (greens -> salad green)
+  [TP] PRED: (herb -> marjoram)
+        matches GT: (herb -> marjoram)
+  [TP] PRED: (ingredient -> flavorer)
+        matches GT: (ingredient -> flavorer)
+  [TP] PRED: (jerky -> beef jerky)
+        matches GT: (jerky -> beef jerky)
+  [TP] PRED: (legume -> pea)
+        matches GT: (legume -> pea)
+  [TP] PRED: (lettuce -> cos)
+        matches GT: (lettuce -> cos)
+  [TP] PRED: (meat -> jerky)
+        matches GT: (meat -> jerky)
+  [TP] PRED: (meat -> pork)
+        matches GT: (meat -> pork)
+  [TP] PRED: (nutriment -> course)
+        matches GT: (nutriment -> course)
+  [TP] PRED: (orange -> sweet orange)
+        matches GT: (orange -> sweet orange)
+  [TP] PRED: (pea -> marrowfat pea)
+        matches GT: (pea -> marrowfat pea)
+  [TP] PRED: (produce -> edible fruit)
+        matches GT: (produce -> edible fruit)
+  [TP] PRED: (produce -> vegetable)
+        matches GT: (produce -> vegetable)
+  [TP] PRED: (pudding -> corn pudding)
+        matches GT: (pudding -> corn pudding)
+  [TP] PRED: (salad green -> lettuce)
+        matches GT: (salad green -> lettuce)
+  [TP] PRED: (sandwich -> gyro)
+        matches GT: (sandwich -> gyro)
+  [TP] PRED: (snack food -> sandwich)
+        matches GT: (snack food -> sandwich)
+  [TP] PRED: (sweet orange -> navel orange)
+        matches GT: (sweet orange -> navel orange)
+  [TP] PRED: (sweet roll -> bear claw)
+        matches GT: (sweet roll -> bear claw)
+  [TP] PRED: (vegetable -> greens)
+        matches GT: (vegetable -> greens)
+  [TP] PRED: (vegetable -> legume)
+        matches GT: (vegetable -> legume)
+
+INCORRECT PREDICTIONS (False Positives: 6):
+  [FP] beverage -> chocolate
+  [FP] flavorer -> chocolate
+  [FP] food -> dish
+  [FP] food -> snack food
+  [FP] food -> starches
+  [FP] snack food -> chocolate candy
+
+MISSED RELATIONS (False Negatives: 7):
+  [FN] chocolate -> chocolate candy
+  [FN] dish -> pudding
+  [FN] dish -> snack food
+  [FN] food -> chocolate
+  [FN] foodstuff -> starches
+  [FN] nutriment -> dish
+  [FN] starches -> bread

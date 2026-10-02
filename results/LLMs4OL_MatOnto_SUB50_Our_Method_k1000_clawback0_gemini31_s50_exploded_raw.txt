@@ -1,0 +1,163 @@
+==================================================
+=== Detailed Node Pair Analysis (Exploded Raw Edges) ===
+Match Type Used: EXACT
+==================================================
+Precision: 0.2534 | Recall: 0.8605 | F1: 0.3915
+
+CORRECT PREDICTIONS (True Positives: 37 Pred edges covering 37 GT edges):
+  [TP] atom -> curium atom
+  [TP] atom -> potassium atom
+  [TP] carbon allotrope -> chaoite
+  [TP] chemical quality -> electronegativity
+  [TP] concentration -> amount of substance concentration
+  [TP] continuant -> dependent_continuant
+  [TP] continuant -> independent_continuant
+  [TP] cyclicity -> acyclic
+  [TP] dependent_continuant -> quality
+  [TP] electromagnetic radiation unit -> luminous flux unit
+  [TP] electronegativity -> pauling electronegativity
+  [TP] element -> magnesium
+  [TP] element -> molybdenum
+  [TP] element -> scandium
+  [TP] independent_continuant -> object
+  [TP] independent_continuant -> site
+  [TP] ion -> anion
+  [TP] measured property -> angular acceleration
+  [TP] measured property -> concentration
+  [TP] measured property -> count
+  [TP] measured property -> density
+  [TP] measured property -> electric resistance
+  [TP] measured property -> temperature
+  [TP] molecularquality -> cyclicity
+  [TP] quality -> chemical quality
+  [TP] quality -> measured property
+  [TP] radiation unit -> dose equivalent unit
+  [TP] scaled unit -> peta scaled unit
+  [TP] scaled unit -> zepto scaled unit
+  [TP] unit -> conduction unit
+  [TP] unit -> derivedunit
+  [TP] unit -> electric resistance unit
+  [TP] unit -> electromagnetic radiation unit
+  [TP] unit -> molecular mass unit
+  [TP] unit -> moment of force unit
+  [TP] unit -> radiation unit
+  [TP] unit raised to power -> unit raised to power of three
+
+INCORRECT PREDICTIONS (False Positives: 109):
+  [FP] atom -> element
+  [FP] atom -> magnesium
+  [FP] atom -> scandium
+  [FP] chemical quality -> acyclic
+  [FP] chemical quality -> cyclicity
+  [FP] chemical quality -> molecularquality
+  [FP] chemical quality -> opticalisomer
+  [FP] chemical quality -> pauling electronegativity
+  [FP] continuant -> acyclic
+  [FP] continuant -> amount of substance concentration
+  [FP] continuant -> angular acceleration
+  [FP] continuant -> atom
+  [FP] continuant -> chemical quality
+  [FP] continuant -> concentration
+  [FP] continuant -> count
+  [FP] continuant -> curium atom
+  [FP] continuant -> cyclicity
+  [FP] continuant -> density
+  [FP] continuant -> electric resistance
+  [FP] continuant -> electronegativity
+  [FP] continuant -> element
+  [FP] continuant -> hardness range
+  [FP] continuant -> ion
+  [FP] continuant -> magnesium
+  [FP] continuant -> measured property
+  [FP] continuant -> molecularquality
+  [FP] continuant -> molybdenum
+  [FP] continuant -> object
+  [FP] continuant -> opticalisomer
+  [FP] continuant -> organic group
+  [FP] continuant -> pauling electronegativity
+  [FP] continuant -> potassium atom
+  [FP] continuant -> quality
+  [FP] continuant -> scandium
+  [FP] continuant -> site
+  [FP] continuant -> temperature
+  [FP] dependent_continuant -> acyclic
+  [FP] dependent_continuant -> amount of substance concentration
+  [FP] dependent_continuant -> angular acceleration
+  [FP] dependent_continuant -> chemical quality
+  [FP] dependent_continuant -> concentration
+  [FP] dependent_continuant -> count
+  [FP] dependent_continuant -> cyclicity
+  [FP] dependent_continuant -> density
+  [FP] dependent_continuant -> electric resistance
+  [FP] dependent_continuant -> electronegativity
+  [FP] dependent_continuant -> hardness range
+  [FP] dependent_continuant -> measured property
+  [FP] dependent_continuant -> molecularquality
+  [FP] dependent_continuant -> opticalisomer
+  [FP] dependent_continuant -> pauling electronegativity
+  [FP] dependent_continuant -> temperature
+  [FP] derivedunit -> conduction unit
+  [FP] derivedunit -> dose equivalent unit
+  [FP] derivedunit -> electric resistance unit
+  [FP] derivedunit -> electromagnetic radiation unit
+  [FP] derivedunit -> luminous flux unit
+  [FP] derivedunit -> molecular mass unit
+  [FP] derivedunit -> moment of force unit
+  [FP] derivedunit -> radiation unit
+  [FP] derivedunit -> unit raised to power
+  [FP] derivedunit -> unit raised to power of three
+  [FP] independent_continuant -> anion
+  [FP] independent_continuant -> atom
+  [FP] independent_continuant -> carbon allotrope
+  [FP] independent_continuant -> chaoite
+  [FP] independent_continuant -> curium atom
+  [FP] independent_continuant -> element
+  [FP] independent_continuant -> general sulfinic acid group
+  [FP] independent_continuant -> ion
+  [FP] independent_continuant -> magnesium
+  [FP] independent_continuant -> molybdenum
+  [FP] independent_continuant -> opticalisomer
+  [FP] independent_continuant -> organic group
+  [FP] independent_continuant -> potassium atom
+  [FP] independent_continuant -> scandium
+  [FP] measured property -> amount of substance concentration
+  [FP] measured property -> electronegativity
+  [FP] measured property -> hardness range
+  [FP] measured property -> pauling electronegativity
+  [FP] molecularquality -> acyclic
+  [FP] molecularquality -> opticalisomer
+  [FP] object -> curium atom
+  [FP] object -> element
+  [FP] object -> potassium atom
+  [FP] object -> scandium
+  [FP] quality -> acyclic
+  [FP] quality -> amount of substance concentration
+  [FP] quality -> angular acceleration
+  [FP] quality -> concentration
+  [FP] quality -> count
+  [FP] quality -> cyclicity
+  [FP] quality -> density
+  [FP] quality -> electric resistance
+  [FP] quality -> electronegativity
+  [FP] quality -> hardness range
+  [FP] quality -> molecularquality
+  [FP] quality -> opticalisomer
+  [FP] quality -> pauling electronegativity
+  [FP] quality -> temperature
+  [FP] radiation unit -> electromagnetic radiation unit
+  [FP] radiation unit -> luminous flux unit
+  [FP] unit -> dose equivalent unit
+  [FP] unit -> luminous flux unit
+  [FP] unit -> peta scaled unit
+  [FP] unit -> scaled unit
+  [FP] unit -> unit raised to power
+  [FP] unit -> unit raised to power of three
+  [FP] unit -> zepto scaled unit
+
+MISSED RELATIONS (False Negatives: 6):
+  [FN] chemical quality -> chemical class
+  [FN] derivedunit -> scaled unit
+  [FN] measured property -> molecularquality
+  [FN] object -> atom
+  [FN] object -> organic group
+  [FN] organic group -> general sulfinic acid group

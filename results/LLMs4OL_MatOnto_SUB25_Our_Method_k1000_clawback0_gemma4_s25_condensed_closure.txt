@@ -1,0 +1,118 @@
+==================================================
+=== Detailed Node Pair Analysis (Condensed Transitive Closure) ===
+Match Type Used: SET_OVERLAP
+==================================================
+Precision: 0.5593 | Recall: 0.8837 | F1: 0.6851
+
+CORRECT PREDICTIONS (True Positives: 33 Pred edges covering 38 GT edges):
+  [TP] PRED: (carbon allotrope -> chaoite)
+        matches GT: (carbon allotrope -> chaoite)
+  [TP] PRED: (continuant -> chemical quality)
+        matches GT: (continuant -> chemical quality)
+  [TP] PRED: (continuant -> concentration)
+        matches GT: (continuant -> concentration)
+  [TP] PRED: (continuant -> count)
+        matches GT: (continuant -> count)
+  [TP] PRED: (continuant -> density)
+        matches GT: (continuant -> density)
+  [TP] PRED: (continuant -> dependent_continuant)
+        matches GT: (continuant -> dependent_continuant)
+  [TP] PRED: (continuant -> measured property (measured property, quality))
+        matches GT: (continuant -> measured property)
+  [TP] PRED: (continuant -> measured property (measured property, quality))
+        matches GT: (continuant -> quality)
+  [TP] PRED: (dependent_continuant -> chemical quality)
+        matches GT: (dependent_continuant -> chemical quality)
+  [TP] PRED: (dependent_continuant -> concentration)
+        matches GT: (dependent_continuant -> concentration)
+  [TP] PRED: (dependent_continuant -> count)
+        matches GT: (dependent_continuant -> count)
+  [TP] PRED: (dependent_continuant -> density)
+        matches GT: (dependent_continuant -> density)
+  [TP] PRED: (dependent_continuant -> measured property (measured property, quality))
+        matches GT: (dependent_continuant -> measured property)
+  [TP] PRED: (dependent_continuant -> measured property (measured property, quality))
+        matches GT: (dependent_continuant -> quality)
+  [TP] PRED: (derivedunit -> peta scaled unit)
+        matches GT: (derivedunit -> peta scaled unit)
+  [TP] PRED: (derivedunit -> scaled unit)
+        matches GT: (derivedunit -> scaled unit)
+  [TP] PRED: (derivedunit -> zepto scaled unit)
+        matches GT: (derivedunit -> zepto scaled unit)
+  [TP] PRED: (element -> magnesium)
+        matches GT: (element -> magnesium)
+  [TP] PRED: (element -> molybdenum)
+        matches GT: (element -> molybdenum)
+  [TP] PRED: (element -> scandium)
+        matches GT: (element -> scandium)
+  [TP] PRED: (measured property (measured property, quality) -> chemical quality)
+        matches GT: (quality -> chemical quality)
+  [TP] PRED: (measured property (measured property, quality) -> concentration)
+        matches GT: (measured property -> concentration)
+  [TP] PRED: (measured property (measured property, quality) -> concentration)
+        matches GT: (quality -> concentration)
+  [TP] PRED: (measured property (measured property, quality) -> count)
+        matches GT: (measured property -> count)
+  [TP] PRED: (measured property (measured property, quality) -> count)
+        matches GT: (quality -> count)
+  [TP] PRED: (measured property (measured property, quality) -> density)
+        matches GT: (measured property -> density)
+  [TP] PRED: (measured property (measured property, quality) -> density)
+        matches GT: (quality -> density)
+  [TP] PRED: (radiation unit -> dose equivalent unit)
+        matches GT: (radiation unit -> dose equivalent unit)
+  [TP] PRED: (scaled unit -> peta scaled unit)
+        matches GT: (scaled unit -> peta scaled unit)
+  [TP] PRED: (scaled unit -> zepto scaled unit)
+        matches GT: (scaled unit -> zepto scaled unit)
+  [TP] PRED: (unit -> conduction unit)
+        matches GT: (unit -> conduction unit)
+  [TP] PRED: (unit -> derivedunit)
+        matches GT: (unit -> derivedunit)
+  [TP] PRED: (unit -> dose equivalent unit)
+        matches GT: (unit -> dose equivalent unit)
+  [TP] PRED: (unit -> molecular mass unit)
+        matches GT: (unit -> molecular mass unit)
+  [TP] PRED: (unit -> peta scaled unit)
+        matches GT: (unit -> peta scaled unit)
+  [TP] PRED: (unit -> radiation unit)
+        matches GT: (unit -> radiation unit)
+  [TP] PRED: (unit -> scaled unit)
+        matches GT: (unit -> scaled unit)
+  [TP] PRED: (unit -> zepto scaled unit)
+        matches GT: (unit -> zepto scaled unit)
+
+INCORRECT PREDICTIONS (False Positives: 26):
+  [FP] chemical quality -> concentration
+  [FP] chemical quality -> density
+  [FP] chemical quality -> hardness range
+  [FP] continuant -> carbon allotrope
+  [FP] continuant -> chaoite
+  [FP] continuant -> hardness range
+  [FP] continuant -> magnesium
+  [FP] continuant -> molybdenum
+  [FP] continuant -> scandium
+  [FP] dependent_continuant -> carbon allotrope
+  [FP] dependent_continuant -> chaoite
+  [FP] dependent_continuant -> hardness range
+  [FP] dependent_continuant -> magnesium
+  [FP] dependent_continuant -> molybdenum
+  [FP] dependent_continuant -> scandium
+  [FP] derivedunit -> conduction unit
+  [FP] derivedunit -> dose equivalent unit
+  [FP] derivedunit -> molecular mass unit
+  [FP] derivedunit -> radiation unit
+  [FP] element -> chaoite
+  [FP] measured property (measured property, quality) -> hardness range
+  [FP] radiation unit -> conduction unit
+  [FP] scaled unit -> conduction unit
+  [FP] scaled unit -> dose equivalent unit
+  [FP] scaled unit -> molecular mass unit
+  [FP] scaled unit -> radiation unit
+
+MISSED RELATIONS (False Negatives: 5):
+  [FN] chemical quality -> chemical class
+  [FN] continuant -> chemical class
+  [FN] dependent_continuant -> chemical class
+  [FN] quality -> chemical class
+  [FN] quality -> measured property

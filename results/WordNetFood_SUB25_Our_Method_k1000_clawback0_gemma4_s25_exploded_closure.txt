@@ -1,0 +1,171 @@
+==================================================
+=== Detailed Node Pair Analysis (Exploded Transitive Closure) ===
+Match Type Used: EXACT
+==================================================
+Precision: 0.4065 | Recall: 0.9265 | F1: 0.5650
+
+CORRECT PREDICTIONS (True Positives: 63 Pred edges covering 63 GT edges):
+  [TP] baked goods -> applesauce cake
+  [TP] baked goods -> cake
+  [TP] berry -> raspberry
+  [TP] cake -> applesauce cake
+  [TP] dessert -> corn pudding
+  [TP] dessert -> pudding
+  [TP] dish -> corn pudding
+  [TP] dish -> gyro
+  [TP] dish -> pudding
+  [TP] dish -> sandwich
+  [TP] dish -> snack food
+  [TP] edible fruit -> berry
+  [TP] edible fruit -> raspberry
+  [TP] flavorer -> herb
+  [TP] flavorer -> marjoram
+  [TP] food -> applesauce cake
+  [TP] food -> baked goods
+  [TP] food -> beef jerky
+  [TP] food -> berry
+  [TP] food -> cake
+  [TP] food -> corn pudding
+  [TP] food -> dessert
+  [TP] food -> dish
+  [TP] food -> edible fruit
+  [TP] food -> flavorer
+  [TP] food -> foodstuff
+  [TP] food -> gyro
+  [TP] food -> herb
+  [TP] food -> ingredient
+  [TP] food -> jerky
+  [TP] food -> marjoram
+  [TP] food -> meat
+  [TP] food -> nutriment
+  [TP] food -> produce
+  [TP] food -> pudding
+  [TP] food -> raspberry
+  [TP] food -> sandwich
+  [TP] food -> snack food
+  [TP] foodstuff -> flavorer
+  [TP] foodstuff -> herb
+  [TP] foodstuff -> ingredient
+  [TP] foodstuff -> marjoram
+  [TP] herb -> marjoram
+  [TP] ingredient -> flavorer
+  [TP] ingredient -> herb
+  [TP] ingredient -> marjoram
+  [TP] jerky -> beef jerky
+  [TP] meat -> beef jerky
+  [TP] meat -> jerky
+  [TP] nutriment -> corn pudding
+  [TP] nutriment -> dessert
+  [TP] nutriment -> dish
+  [TP] nutriment -> gyro
+  [TP] nutriment -> pudding
+  [TP] nutriment -> sandwich
+  [TP] nutriment -> snack food
+  [TP] produce -> berry
+  [TP] produce -> edible fruit
+  [TP] produce -> raspberry
+  [TP] pudding -> corn pudding
+  [TP] sandwich -> gyro
+  [TP] snack food -> gyro
+  [TP] snack food -> sandwich
+
+INCORRECT PREDICTIONS (False Positives: 92):
+  [FP] dessert -> applesauce cake
+  [FP] dessert -> baked goods
+  [FP] dessert -> cake
+  [FP] dish -> applesauce cake
+  [FP] dish -> baked goods
+  [FP] dish -> beef jerky
+  [FP] dish -> berry
+  [FP] dish -> cake
+  [FP] dish -> dessert
+  [FP] dish -> dish
+  [FP] dish -> edible fruit
+  [FP] dish -> flavorer
+  [FP] dish -> food
+  [FP] dish -> foodstuff
+  [FP] dish -> herb
+  [FP] dish -> ingredient
+  [FP] dish -> jerky
+  [FP] dish -> marjoram
+  [FP] dish -> meat
+  [FP] dish -> nutriment
+  [FP] dish -> produce
+  [FP] dish -> raspberry
+  [FP] flavorer -> raspberry
+  [FP] food -> food
+  [FP] foodstuff -> applesauce cake
+  [FP] foodstuff -> baked goods
+  [FP] foodstuff -> beef jerky
+  [FP] foodstuff -> berry
+  [FP] foodstuff -> cake
+  [FP] foodstuff -> corn pudding
+  [FP] foodstuff -> dessert
+  [FP] foodstuff -> dish
+  [FP] foodstuff -> edible fruit
+  [FP] foodstuff -> food
+  [FP] foodstuff -> foodstuff
+  [FP] foodstuff -> gyro
+  [FP] foodstuff -> jerky
+  [FP] foodstuff -> meat
+  [FP] foodstuff -> nutriment
+  [FP] foodstuff -> produce
+  [FP] foodstuff -> pudding
+  [FP] foodstuff -> raspberry
+  [FP] foodstuff -> sandwich
+  [FP] foodstuff -> snack food
+  [FP] ingredient -> applesauce cake
+  [FP] ingredient -> baked goods
+  [FP] ingredient -> beef jerky
+  [FP] ingredient -> berry
+  [FP] ingredient -> cake
+  [FP] ingredient -> corn pudding
+  [FP] ingredient -> dessert
+  [FP] ingredient -> dish
+  [FP] ingredient -> edible fruit
+  [FP] ingredient -> food
+  [FP] ingredient -> foodstuff
+  [FP] ingredient -> gyro
+  [FP] ingredient -> ingredient
+  [FP] ingredient -> jerky
+  [FP] ingredient -> meat
+  [FP] ingredient -> nutriment
+  [FP] ingredient -> produce
+  [FP] ingredient -> pudding
+  [FP] ingredient -> raspberry
+  [FP] ingredient -> sandwich
+  [FP] ingredient -> snack food
+  [FP] nutriment -> applesauce cake
+  [FP] nutriment -> baked goods
+  [FP] nutriment -> beef jerky
+  [FP] nutriment -> berry
+  [FP] nutriment -> cake
+  [FP] nutriment -> edible fruit
+  [FP] nutriment -> flavorer
+  [FP] nutriment -> food
+  [FP] nutriment -> foodstuff
+  [FP] nutriment -> herb
+  [FP] nutriment -> ingredient
+  [FP] nutriment -> jerky
+  [FP] nutriment -> marjoram
+  [FP] nutriment -> meat
+  [FP] nutriment -> nutriment
+  [FP] nutriment -> produce
+  [FP] nutriment -> raspberry
+  [FP] produce -> herb
+  [FP] produce -> marjoram
+  [FP] snack food -> applesauce cake
+  [FP] snack food -> baked goods
+  [FP] snack food -> beef jerky
+  [FP] snack food -> cake
+  [FP] snack food -> corn pudding
+  [FP] snack food -> jerky
+  [FP] snack food -> pudding
+  [FP] snack food -> raspberry
+
+MISSED RELATIONS (False Negatives: 5):
+  [FN] course -> corn pudding
+  [FN] course -> dessert
+  [FN] course -> pudding
+  [FN] food -> course
+  [FN] nutriment -> course

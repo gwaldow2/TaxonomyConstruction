@@ -1,0 +1,64 @@
+==================================================
+=== Detailed Node Pair Analysis (Exploded Raw Edges) ===
+Match Type Used: EXACT
+==================================================
+Precision: 0.7556 | Recall: 0.8095 | F1: 0.7816
+
+CORRECT PREDICTIONS (True Positives: 34 Pred edges covering 34 GT edges):
+  [TP] action -> createaction
+  [TP] action -> organizeaction
+  [TP] action -> transferaction
+  [TP] allocateaction -> assignaction
+  [TP] article -> techarticle
+  [TP] audience -> peopleaudience
+  [TP] createaction -> cookaction
+  [TP] creativework -> ampstory
+  [TP] creativework -> article
+  [TP] creativework -> creativeworkseries
+  [TP] creativework -> howtostep
+  [TP] creativework -> shortstory
+  [TP] creativeworkseries -> movieseries
+  [TP] enumeration -> adultorientedenumeration
+  [TP] enumeration -> governmentbenefitstype
+  [TP] enumeration -> measurementmethodenum
+  [TP] enumeration -> physicalactivitycategory
+  [TP] foodestablishment -> bakery
+  [TP] intangible -> audience
+  [TP] intangible -> listitem
+  [TP] intangible -> service
+  [TP] intangible -> ticket
+  [TP] localbusiness -> entertainmentbusiness
+  [TP] localbusiness -> foodestablishment
+  [TP] localbusiness -> lodgingbusiness
+  [TP] localbusiness -> sportsactivitylocation
+  [TP] lodgingbusiness -> motel
+  [TP] medicalentity -> medicalintangible
+  [TP] organization -> localbusiness
+  [TP] organization -> researchorganization
+  [TP] place -> localbusiness
+  [TP] service -> broadcastservice
+  [TP] sportsactivitylocation -> exercisegym
+  [TP] transferaction -> takeaction
+
+INCORRECT PREDICTIONS (False Positives: 11):
+  [FP] action -> allocateaction
+  [FP] creativework -> imageobject
+  [FP] creativeworkseries -> comicseries
+  [FP] creativeworkseries -> periodical
+  [FP] creativeworkseries -> series
+  [FP] enumeration -> medicalcode
+  [FP] intangible -> datatype
+  [FP] intangible -> enumeration
+  [FP] intangible -> itemlist
+  [FP] intangible -> medicalentity
+  [FP] intangible -> offer
+
+MISSED RELATIONS (False Negatives: 8):
+  [FN] datatype -> time
+  [FN] intangible -> series
+  [FN] itemlist -> howtostep
+  [FN] listitem -> howtostep
+  [FN] medicalintangible -> medicalcode
+  [FN] organizeaction -> allocateaction
+  [FN] periodical -> comicseries
+  [FN] series -> creativeworkseries

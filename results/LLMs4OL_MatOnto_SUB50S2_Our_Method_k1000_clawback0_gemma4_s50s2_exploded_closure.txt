@@ -1,0 +1,320 @@
+==================================================
+=== Detailed Node Pair Analysis (Exploded Transitive Closure) ===
+Match Type Used: EXACT
+==================================================
+Precision: 0.3934 | Recall: 0.9677 | F1: 0.5594
+
+CORRECT PREDICTIONS (True Positives: 120 Pred edges covering 120 GT edges):
+  [TP] atom -> argon atom
+  [TP] atom -> bismuth atom
+  [TP] atom -> californium atom
+  [TP] atom -> hassium atom
+  [TP] atom -> radon atom
+  [TP] atom -> xenon atom
+  [TP] chemical agent -> oxidizing agent
+  [TP] chemical agent -> reducing agent
+  [TP] chemical phase -> strange matter phase
+  [TP] chemical phase -> uncommon chemical phase
+  [TP] cistrans isomer -> cis isomer
+  [TP] continuant -> argon atom
+  [TP] continuant -> aryl
+  [TP] continuant -> atom
+  [TP] continuant -> bismuth atom
+  [TP] continuant -> californium atom
+  [TP] continuant -> carbon group
+  [TP] continuant -> dependent_continuant
+  [TP] continuant -> hassium atom
+  [TP] continuant -> homogeneous mixture
+  [TP] continuant -> independent_continuant
+  [TP] continuant -> measured property
+  [TP] continuant -> mixture
+  [TP] continuant -> molar mass
+  [TP] continuant -> molecularquality
+  [TP] continuant -> moleculecomponentcount
+  [TP] continuant -> non aromatic ring
+  [TP] continuant -> object
+  [TP] continuant -> organic group
+  [TP] continuant -> permeability
+  [TP] continuant -> permittivity
+  [TP] continuant -> quality
+  [TP] continuant -> racemic mixture
+  [TP] continuant -> radon atom
+  [TP] continuant -> ring
+  [TP] continuant -> solution
+  [TP] continuant -> ultimate tensile strength
+  [TP] continuant -> undefined stereo bond count
+  [TP] continuant -> xenon atom
+  [TP] dependent_continuant -> measured property
+  [TP] dependent_continuant -> molar mass
+  [TP] dependent_continuant -> molecularquality
+  [TP] dependent_continuant -> moleculecomponentcount
+  [TP] dependent_continuant -> permeability
+  [TP] dependent_continuant -> permittivity
+  [TP] dependent_continuant -> quality
+  [TP] dependent_continuant -> ultimate tensile strength
+  [TP] dependent_continuant -> undefined stereo bond count
+  [TP] derivedunit -> scaled unit
+  [TP] derivedunit -> zepto scaled unit
+  [TP] element -> hydrogen
+  [TP] element -> magnesium
+  [TP] element -> ununbium
+  [TP] element -> ununoctium
+  [TP] homogeneous mixture -> racemic mixture
+  [TP] homogeneous mixture -> solution
+  [TP] independent_continuant -> argon atom
+  [TP] independent_continuant -> aryl
+  [TP] independent_continuant -> atom
+  [TP] independent_continuant -> bismuth atom
+  [TP] independent_continuant -> californium atom
+  [TP] independent_continuant -> carbon group
+  [TP] independent_continuant -> hassium atom
+  [TP] independent_continuant -> homogeneous mixture
+  [TP] independent_continuant -> mixture
+  [TP] independent_continuant -> non aromatic ring
+  [TP] independent_continuant -> object
+  [TP] independent_continuant -> organic group
+  [TP] independent_continuant -> racemic mixture
+  [TP] independent_continuant -> radon atom
+  [TP] independent_continuant -> ring
+  [TP] independent_continuant -> solution
+  [TP] independent_continuant -> xenon atom
+  [TP] measured property -> molar mass
+  [TP] measured property -> molecularquality
+  [TP] measured property -> moleculecomponentcount
+  [TP] measured property -> permeability
+  [TP] measured property -> permittivity
+  [TP] measured property -> ultimate tensile strength
+  [TP] measured property -> undefined stereo bond count
+  [TP] mixture -> homogeneous mixture
+  [TP] mixture -> racemic mixture
+  [TP] mixture -> solution
+  [TP] molecularquality -> moleculecomponentcount
+  [TP] molecularquality -> undefined stereo bond count
+  [TP] moleculecomponentcount -> undefined stereo bond count
+  [TP] object -> argon atom
+  [TP] object -> aryl
+  [TP] object -> atom
+  [TP] object -> bismuth atom
+  [TP] object -> californium atom
+  [TP] object -> carbon group
+  [TP] object -> hassium atom
+  [TP] object -> homogeneous mixture
+  [TP] object -> mixture
+  [TP] object -> non aromatic ring
+  [TP] object -> organic group
+  [TP] object -> racemic mixture
+  [TP] object -> radon atom
+  [TP] object -> ring
+  [TP] object -> solution
+  [TP] object -> xenon atom
+  [TP] organic group -> aryl
+  [TP] quality -> measured property
+  [TP] quality -> molar mass
+  [TP] quality -> molecularquality
+  [TP] quality -> moleculecomponentcount
+  [TP] quality -> permeability
+  [TP] quality -> permittivity
+  [TP] quality -> ultimate tensile strength
+  [TP] quality -> undefined stereo bond count
+  [TP] ring -> non aromatic ring
+  [TP] scaled unit -> zepto scaled unit
+  [TP] uncommon chemical phase -> strange matter phase
+  [TP] unit -> derivedunit
+  [TP] unit -> electromagnetic radiation unit
+  [TP] unit -> illuminance unit
+  [TP] unit -> molar energy unit
+  [TP] unit -> scaled unit
+  [TP] unit -> zepto scaled unit
+
+INCORRECT PREDICTIONS (False Positives: 185):
+  [FP] atom -> hydrogen
+  [FP] atom -> magnesium
+  [FP] atom -> ununbium
+  [FP] atom -> ununoctium
+  [FP] chemical agent -> argon atom
+  [FP] chemical agent -> bismuth atom
+  [FP] chemical agent -> carbon group
+  [FP] chemical agent -> cis isomer
+  [FP] chemical agent -> element
+  [FP] chemical agent -> hassium atom
+  [FP] chemical agent -> homogeneous mixture
+  [FP] chemical agent -> hydrogen
+  [FP] chemical agent -> magnesium
+  [FP] chemical agent -> mixture
+  [FP] chemical agent -> racemic mixture
+  [FP] chemical agent -> radon atom
+  [FP] chemical agent -> solution
+  [FP] chemical agent -> ununbium
+  [FP] chemical agent -> ununoctium
+  [FP] chemical agent -> xenon atom
+  [FP] chemical substance -> argon atom
+  [FP] chemical substance -> aryl
+  [FP] chemical substance -> atom
+  [FP] chemical substance -> bismuth atom
+  [FP] chemical substance -> californium atom
+  [FP] chemical substance -> carbon group
+  [FP] chemical substance -> chemical agent
+  [FP] chemical substance -> cis isomer
+  [FP] chemical substance -> cistrans isomer
+  [FP] chemical substance -> element
+  [FP] chemical substance -> hassium atom
+  [FP] chemical substance -> homogeneous mixture
+  [FP] chemical substance -> hydrogen
+  [FP] chemical substance -> magnesium
+  [FP] chemical substance -> mixture
+  [FP] chemical substance -> organic group
+  [FP] chemical substance -> oxidizing agent
+  [FP] chemical substance -> racemic mixture
+  [FP] chemical substance -> radon atom
+  [FP] chemical substance -> reducing agent
+  [FP] chemical substance -> solution
+  [FP] chemical substance -> strange matter phase
+  [FP] chemical substance -> uncommon chemical phase
+  [FP] chemical substance -> ununbium
+  [FP] chemical substance -> ununoctium
+  [FP] chemical substance -> xenon atom
+  [FP] chemical substance -> zepto scaled unit
+  [FP] continuant -> chemical agent
+  [FP] continuant -> chemical phase
+  [FP] continuant -> chemical substance
+  [FP] continuant -> cis isomer
+  [FP] continuant -> cistrans isomer
+  [FP] continuant -> continuant
+  [FP] continuant -> derivedunit
+  [FP] continuant -> electromagnetic radiation unit
+  [FP] continuant -> element
+  [FP] continuant -> hardness range
+  [FP] continuant -> hydrogen
+  [FP] continuant -> illuminance unit
+  [FP] continuant -> magnesium
+  [FP] continuant -> molar energy unit
+  [FP] continuant -> oxidizing agent
+  [FP] continuant -> reducing agent
+  [FP] continuant -> scaled unit
+  [FP] continuant -> strange matter phase
+  [FP] continuant -> uncommon chemical phase
+  [FP] continuant -> unit
+  [FP] continuant -> ununbium
+  [FP] continuant -> ununoctium
+  [FP] continuant -> zepto scaled unit
+  [FP] dependent_continuant -> argon atom
+  [FP] dependent_continuant -> aryl
+  [FP] dependent_continuant -> atom
+  [FP] dependent_continuant -> bismuth atom
+  [FP] dependent_continuant -> californium atom
+  [FP] dependent_continuant -> carbon group
+  [FP] dependent_continuant -> chemical agent
+  [FP] dependent_continuant -> chemical phase
+  [FP] dependent_continuant -> chemical substance
+  [FP] dependent_continuant -> cis isomer
+  [FP] dependent_continuant -> cistrans isomer
+  [FP] dependent_continuant -> element
+  [FP] dependent_continuant -> hardness range
+  [FP] dependent_continuant -> hassium atom
+  [FP] dependent_continuant -> homogeneous mixture
+  [FP] dependent_continuant -> hydrogen
+  [FP] dependent_continuant -> magnesium
+  [FP] dependent_continuant -> mixture
+  [FP] dependent_continuant -> organic group
+  [FP] dependent_continuant -> oxidizing agent
+  [FP] dependent_continuant -> racemic mixture
+  [FP] dependent_continuant -> radon atom
+  [FP] dependent_continuant -> reducing agent
+  [FP] dependent_continuant -> solution
+  [FP] dependent_continuant -> strange matter phase
+  [FP] dependent_continuant -> uncommon chemical phase
+  [FP] dependent_continuant -> ununbium
+  [FP] dependent_continuant -> ununoctium
+  [FP] dependent_continuant -> xenon atom
+  [FP] dependent_continuant -> zepto scaled unit
+  [FP] derivedunit -> electromagnetic radiation unit
+  [FP] derivedunit -> illuminance unit
+  [FP] derivedunit -> molar energy unit
+  [FP] element -> carbon group
+  [FP] element -> xenon atom
+  [FP] independent_continuant -> chemical agent
+  [FP] independent_continuant -> chemical phase
+  [FP] independent_continuant -> chemical substance
+  [FP] independent_continuant -> cis isomer
+  [FP] independent_continuant -> cistrans isomer
+  [FP] independent_continuant -> continuant
+  [FP] independent_continuant -> dependent_continuant
+  [FP] independent_continuant -> derivedunit
+  [FP] independent_continuant -> electromagnetic radiation unit
+  [FP] independent_continuant -> element
+  [FP] independent_continuant -> hardness range
+  [FP] independent_continuant -> hydrogen
+  [FP] independent_continuant -> illuminance unit
+  [FP] independent_continuant -> independent_continuant
+  [FP] independent_continuant -> magnesium
+  [FP] independent_continuant -> measured property
+  [FP] independent_continuant -> molar energy unit
+  [FP] independent_continuant -> molar mass
+  [FP] independent_continuant -> molecularquality
+  [FP] independent_continuant -> moleculecomponentcount
+  [FP] independent_continuant -> oxidizing agent
+  [FP] independent_continuant -> permeability
+  [FP] independent_continuant -> permittivity
+  [FP] independent_continuant -> quality
+  [FP] independent_continuant -> reducing agent
+  [FP] independent_continuant -> scaled unit
+  [FP] independent_continuant -> strange matter phase
+  [FP] independent_continuant -> ultimate tensile strength
+  [FP] independent_continuant -> uncommon chemical phase
+  [FP] independent_continuant -> undefined stereo bond count
+  [FP] independent_continuant -> unit
+  [FP] independent_continuant -> ununbium
+  [FP] independent_continuant -> ununoctium
+  [FP] independent_continuant -> zepto scaled unit
+  [FP] measured property -> hardness range
+  [FP] molecularquality -> molar mass
+  [FP] object -> chemical agent
+  [FP] object -> chemical phase
+  [FP] object -> chemical substance
+  [FP] object -> cis isomer
+  [FP] object -> cistrans isomer
+  [FP] object -> continuant
+  [FP] object -> dependent_continuant
+  [FP] object -> derivedunit
+  [FP] object -> electromagnetic radiation unit
+  [FP] object -> element
+  [FP] object -> hardness range
+  [FP] object -> hydrogen
+  [FP] object -> illuminance unit
+  [FP] object -> independent_continuant
+  [FP] object -> magnesium
+  [FP] object -> measured property
+  [FP] object -> molar energy unit
+  [FP] object -> molar mass
+  [FP] object -> molecularquality
+  [FP] object -> moleculecomponentcount
+  [FP] object -> object
+  [FP] object -> oxidizing agent
+  [FP] object -> permeability
+  [FP] object -> permittivity
+  [FP] object -> quality
+  [FP] object -> reducing agent
+  [FP] object -> scaled unit
+  [FP] object -> strange matter phase
+  [FP] object -> ultimate tensile strength
+  [FP] object -> uncommon chemical phase
+  [FP] object -> undefined stereo bond count
+  [FP] object -> unit
+  [FP] object -> ununbium
+  [FP] object -> ununoctium
+  [FP] object -> zepto scaled unit
+  [FP] quality -> chemical phase
+  [FP] quality -> hardness range
+  [FP] quality -> strange matter phase
+  [FP] quality -> uncommon chemical phase
+  [FP] reducing agent -> hydrogen
+  [FP] reducing agent -> magnesium
+  [FP] scaled unit -> electromagnetic radiation unit
+  [FP] scaled unit -> illuminance unit
+  [FP] scaled unit -> molar energy unit
+
+MISSED RELATIONS (False Negatives: 4):
+  [FN] connected_temporal_region -> temporal_instant
+  [FN] electromagnetic radiation unit -> illuminance unit
+  [FN] organic group -> carbon group
+  [FN] solution -> racemic mixture

@@ -1,0 +1,58 @@
+==================================================
+=== Detailed Node Pair Analysis (Condensed Transitive Reduction) ===
+Match Type Used: SET_OVERLAP
+==================================================
+Precision: 0.5769 | Recall: 0.7143 | F1: 0.6383
+
+CORRECT PREDICTIONS (True Positives: 15 Pred edges covering 15 GT edges):
+  [TP] PRED: (addition reaction -> polar addition reaction)
+        matches GT: (addition reaction -> polar addition reaction)
+  [TP] PRED: (atom -> californium atom)
+        matches GT: (atom -> californium atom)
+  [TP] PRED: (atom -> helium atom)
+        matches GT: (atom -> helium atom)
+  [TP] PRED: (atom -> ytterbium atom)
+        matches GT: (atom -> ytterbium atom)
+  [TP] PRED: (continuant -> dependent_continuant)
+        matches GT: (continuant -> dependent_continuant)
+  [TP] PRED: (continuant -> independent_continuant (independent_continuant, object))
+        matches GT: (continuant -> independent_continuant)
+  [TP] PRED: (dependent_continuant -> quality)
+        matches GT: (dependent_continuant -> quality)
+  [TP] PRED: (element -> ununbium)
+        matches GT: (element -> ununbium)
+  [TP] PRED: (independent_continuant (independent_continuant, object) -> atom)
+        matches GT: (object -> atom)
+  [TP] PRED: (measured property -> specific energy)
+        matches GT: (measured property -> specific energy)
+  [TP] PRED: (polar addition reaction -> nucleophilic addition reaction)
+        matches GT: (polar addition reaction -> nucleophilic addition reaction)
+  [TP] PRED: (quality -> measured property)
+        matches GT: (quality -> measured property)
+  [TP] PRED: (spatial_region (spatial_region, three_dimensional_region) -> thermodynamic system)
+        matches GT: (three_dimensional_region -> thermodynamic system)
+  [TP] PRED: (thermodynamic system -> open thermodynamic system)
+        matches GT: (thermodynamic system -> open thermodynamic system)
+  [TP] PRED: (unit -> molar energy unit)
+        matches GT: (unit -> molar energy unit)
+
+INCORRECT PREDICTIONS (False Positives: 11):
+  [FP] atom -> ununbium
+  [FP] continuant -> element
+  [FP] continuant -> wikipedia
+  [FP] dependent_continuant -> spatial_region (spatial_region, three_dimensional_region)
+  [FP] independent_continuant (independent_continuant, object) -> spatial_region (spatial_region, three_dimensional_region)
+  [FP] measured property -> illuminance
+  [FP] quality -> chemical conformation
+  [FP] quality -> electromagnetic radation
+  [FP] thermodynamic system -> californium atom
+  [FP] thermodynamic system -> helium atom
+  [FP] thermodynamic system -> ytterbium atom
+
+MISSED RELATIONS (False Negatives: 6):
+  [FN] chemical conformation -> wikipedia
+  [FN] continuant -> spatial_region
+  [FN] electromagnetic radation -> illuminance
+  [FN] independent_continuant -> object
+  [FN] measured property -> electromagnetic radation
+  [FN] spatial_region -> three_dimensional_region

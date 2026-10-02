@@ -1,0 +1,163 @@
+==================================================
+=== Detailed Node Pair Analysis (Exploded Transitive Closure) ===
+Match Type Used: EXACT
+==================================================
+Precision: 0.8491 | Recall: 0.6618 | F1: 0.7438
+
+CORRECT PREDICTIONS (True Positives: 90 Pred edges covering 90 GT edges):
+  [TP] cell -> central nervous system neuron
+  [TP] cell -> columnarcuboidal epithelial cell
+  [TP] cell -> ecto-epithelial cell
+  [TP] cell -> electrically active cell
+  [TP] cell -> electrically responsive cell
+  [TP] cell -> electrically signaling cell
+  [TP] cell -> enteroglial cell
+  [TP] cell -> epithelial cell
+  [TP] cell -> gabaergic neuron
+  [TP] cell -> glial cell
+  [TP] cell -> gpi core neuron primate
+  [TP] cell -> internal globus pallidus core projecting neuron
+  [TP] cell -> neural cell
+  [TP] cell -> neural crest derived neuroblast
+  [TP] cell -> neurecto-epithelial cell
+  [TP] cell -> neuroblast sensu vertebrata
+  [TP] cell -> neuron
+  [TP] cell -> neuron associated cell
+  [TP] cell -> neuron of the forebrain
+  [TP] cell -> precursor cell
+  [TP] cell -> progenitor cell
+  [TP] cell -> retinal ganglion cell
+  [TP] cell -> retinal ganglion cell c
+  [TP] cell -> retinal ganglion cell c outer
+  [TP] cell -> secretory cell
+  [TP] cell -> supporting cell
+  [TP] cell -> supporting cell of carotid body
+  [TP] cell -> type 1 submucosal plexus glia
+  [TP] central nervous system neuron -> gpi core neuron primate
+  [TP] central nervous system neuron -> internal globus pallidus core projecting neuron
+  [TP] central nervous system neuron -> neuron of the forebrain
+  [TP] ecto-epithelial cell -> neurecto-epithelial cell
+  [TP] electrically active cell -> electrically signaling cell
+  [TP] enteroglial cell -> type 1 submucosal plexus glia
+  [TP] epithelial cell -> columnarcuboidal epithelial cell
+  [TP] epithelial cell -> ecto-epithelial cell
+  [TP] epithelial cell -> neurecto-epithelial cell
+  [TP] eukaryotic cell -> central nervous system neuron
+  [TP] eukaryotic cell -> columnarcuboidal epithelial cell
+  [TP] eukaryotic cell -> ecto-epithelial cell
+  [TP] eukaryotic cell -> enteroglial cell
+  [TP] eukaryotic cell -> epithelial cell
+  [TP] eukaryotic cell -> gabaergic neuron
+  [TP] eukaryotic cell -> glial cell
+  [TP] eukaryotic cell -> gpi core neuron primate
+  [TP] eukaryotic cell -> internal globus pallidus core projecting neuron
+  [TP] eukaryotic cell -> neural cell
+  [TP] eukaryotic cell -> neural crest derived neuroblast
+  [TP] eukaryotic cell -> neurecto-epithelial cell
+  [TP] eukaryotic cell -> neuroblast sensu vertebrata
+  [TP] eukaryotic cell -> neuron
+  [TP] eukaryotic cell -> neuron associated cell
+  [TP] eukaryotic cell -> neuron of the forebrain
+  [TP] eukaryotic cell -> retinal ganglion cell
+  [TP] eukaryotic cell -> retinal ganglion cell c
+  [TP] eukaryotic cell -> retinal ganglion cell c outer
+  [TP] eukaryotic cell -> supporting cell of carotid body
+  [TP] eukaryotic cell -> type 1 submucosal plexus glia
+  [TP] glial cell -> enteroglial cell
+  [TP] glial cell -> type 1 submucosal plexus glia
+  [TP] internal globus pallidus core projecting neuron -> gpi core neuron primate
+  [TP] neural cell -> central nervous system neuron
+  [TP] neural cell -> enteroglial cell
+  [TP] neural cell -> gabaergic neuron
+  [TP] neural cell -> glial cell
+  [TP] neural cell -> gpi core neuron primate
+  [TP] neural cell -> internal globus pallidus core projecting neuron
+  [TP] neural cell -> neuron
+  [TP] neural cell -> neuron associated cell
+  [TP] neural cell -> neuron of the forebrain
+  [TP] neural cell -> retinal ganglion cell
+  [TP] neural cell -> retinal ganglion cell c
+  [TP] neural cell -> retinal ganglion cell c outer
+  [TP] neural cell -> type 1 submucosal plexus glia
+  [TP] neuroblast sensu vertebrata -> neural crest derived neuroblast
+  [TP] neuron -> central nervous system neuron
+  [TP] neuron -> gabaergic neuron
+  [TP] neuron -> gpi core neuron primate
+  [TP] neuron -> internal globus pallidus core projecting neuron
+  [TP] neuron -> neuron of the forebrain
+  [TP] neuron -> retinal ganglion cell
+  [TP] neuron -> retinal ganglion cell c
+  [TP] neuron -> retinal ganglion cell c outer
+  [TP] neuron of the forebrain -> gpi core neuron primate
+  [TP] neuron of the forebrain -> internal globus pallidus core projecting neuron
+  [TP] precursor cell -> progenitor cell
+  [TP] retinal ganglion cell -> retinal ganglion cell c
+  [TP] retinal ganglion cell -> retinal ganglion cell c outer
+  [TP] retinal ganglion cell c -> retinal ganglion cell c outer
+  [TP] supporting cell -> supporting cell of carotid body
+
+INCORRECT PREDICTIONS (False Positives: 16):
+  [FP] electrically responsive cell -> electrically active cell
+  [FP] electrically responsive cell -> electrically signaling cell
+  [FP] eukaryotic cell -> cell
+  [FP] eukaryotic cell -> electrically active cell
+  [FP] eukaryotic cell -> electrically responsive cell
+  [FP] eukaryotic cell -> electrically signaling cell
+  [FP] eukaryotic cell -> precursor cell
+  [FP] eukaryotic cell -> progenitor cell
+  [FP] eukaryotic cell -> secretory cell
+  [FP] eukaryotic cell -> supporting cell
+  [FP] glial cell -> supporting cell
+  [FP] glial cell -> supporting cell of carotid body
+  [FP] neural cell -> neural crest derived neuroblast
+  [FP] neural cell -> neuroblast sensu vertebrata
+  [FP] neural cell -> supporting cell
+  [FP] neural cell -> supporting cell of carotid body
+
+MISSED RELATIONS (False Negatives: 46):
+  [FN] cell -> eukaryotic cell
+  [FN] columnarcuboidal epithelial cell -> neurecto-epithelial cell
+  [FN] columnarcuboidal epithelial cell -> supporting cell of carotid body
+  [FN] ecto-epithelial cell -> supporting cell of carotid body
+  [FN] electrically active cell -> central nervous system neuron
+  [FN] electrically active cell -> electrically responsive cell
+  [FN] electrically active cell -> gabaergic neuron
+  [FN] electrically active cell -> gpi core neuron primate
+  [FN] electrically active cell -> internal globus pallidus core projecting neuron
+  [FN] electrically active cell -> neuron
+  [FN] electrically active cell -> neuron of the forebrain
+  [FN] electrically active cell -> retinal ganglion cell
+  [FN] electrically active cell -> retinal ganglion cell c
+  [FN] electrically active cell -> retinal ganglion cell c outer
+  [FN] electrically responsive cell -> central nervous system neuron
+  [FN] electrically responsive cell -> gabaergic neuron
+  [FN] electrically responsive cell -> gpi core neuron primate
+  [FN] electrically responsive cell -> internal globus pallidus core projecting neuron
+  [FN] electrically responsive cell -> neuron
+  [FN] electrically responsive cell -> neuron of the forebrain
+  [FN] electrically responsive cell -> retinal ganglion cell
+  [FN] electrically responsive cell -> retinal ganglion cell c
+  [FN] electrically responsive cell -> retinal ganglion cell c outer
+  [FN] electrically signaling cell -> central nervous system neuron
+  [FN] electrically signaling cell -> gabaergic neuron
+  [FN] electrically signaling cell -> gpi core neuron primate
+  [FN] electrically signaling cell -> internal globus pallidus core projecting neuron
+  [FN] electrically signaling cell -> neuron
+  [FN] electrically signaling cell -> neuron of the forebrain
+  [FN] electrically signaling cell -> retinal ganglion cell
+  [FN] electrically signaling cell -> retinal ganglion cell c
+  [FN] electrically signaling cell -> retinal ganglion cell c outer
+  [FN] epithelial cell -> supporting cell of carotid body
+  [FN] gabaergic neuron -> gpi core neuron primate
+  [FN] gabaergic neuron -> internal globus pallidus core projecting neuron
+  [FN] neurecto-epithelial cell -> supporting cell of carotid body
+  [FN] neuron associated cell -> enteroglial cell
+  [FN] neuron associated cell -> glial cell
+  [FN] neuron associated cell -> type 1 submucosal plexus glia
+  [FN] precursor cell -> neural crest derived neuroblast
+  [FN] precursor cell -> neuroblast sensu vertebrata
+  [FN] progenitor cell -> neural crest derived neuroblast
+  [FN] progenitor cell -> neuroblast sensu vertebrata
+  [FN] secretory cell -> gabaergic neuron
+  [FN] secretory cell -> gpi core neuron primate
+  [FN] secretory cell -> internal globus pallidus core projecting neuron

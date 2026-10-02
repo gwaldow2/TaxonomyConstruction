@@ -1,0 +1,58 @@
+==================================================
+=== Detailed Node Pair Analysis (Condensed Transitive Reduction) ===
+Match Type Used: SET_OVERLAP
+==================================================
+Precision: 0.8333 | Recall: 0.8696 | F1: 0.8511
+
+CORRECT PREDICTIONS (True Positives: 20 Pred edges covering 20 GT edges):
+  [TP] PRED: (analyte assay -> luteinizing hormone assay)
+        matches GT: (analyte assay -> luteinizing hormone assay)
+  [TP] PRED: (assay -> analyte assay)
+        matches GT: (assay -> analyte assay)
+  [TP] PRED: (assay -> epigenetic modification assay)
+        matches GT: (assay -> epigenetic modification assay)
+  [TP] PRED: (assay -> organism detection assay)
+        matches GT: (assay -> organism detection assay)
+  [TP] PRED: (continuant -> independent continuant)
+        matches GT: (continuant -> independent continuant)
+  [TP] PRED: (data transformation -> network analysis)
+        matches GT: (data transformation -> network analysis)
+  [TP] PRED: (device -> catheter)
+        matches GT: (device -> catheter)
+  [TP] PRED: (device -> chip spotting device)
+        matches GT: (device -> chip spotting device)
+  [TP] PRED: (dna methylation profiling assay -> dna methylation profiling by array assay)
+        matches GT: (dna methylation profiling assay -> dna methylation profiling by array assay)
+  [TP] PRED: (epigenetic modification assay -> dna methylation profiling assay)
+        matches GT: (epigenetic modification assay -> dna methylation profiling assay)
+  [TP] PRED: (imaging assay -> magnetic resonance imaging assay)
+        matches GT: (imaging assay -> magnetic resonance imaging assay)
+  [TP] PRED: (independent continuant -> material entity)
+        matches GT: (independent continuant -> material entity)
+  [TP] PRED: (material entity -> processed material)
+        matches GT: (material entity -> processed material)
+  [TP] PRED: (network analysis -> network subgraph quality calculation)
+        matches GT: (network analysis -> network subgraph quality calculation)
+  [TP] PRED: (network subgraph quality calculation -> subgraph degree calculation)
+        matches GT: (network subgraph quality calculation -> subgraph degree calculation)
+  [TP] PRED: (organism detection assay -> organism detection by salinity tolerance assay)
+        matches GT: (organism detection assay -> organism detection by salinity tolerance assay)
+  [TP] PRED: (performance status value specification -> eastern cooperative oncology group score value specification)
+        matches GT: (performance status value specification -> eastern cooperative oncology group score value specification)
+  [TP] PRED: (planned process -> assay)
+        matches GT: (planned process -> assay)
+  [TP] PRED: (planned process -> data transformation)
+        matches GT: (planned process -> data transformation)
+  [TP] PRED: (planned process -> study intervention)
+        matches GT: (planned process -> study intervention)
+
+INCORRECT PREDICTIONS (False Positives: 4):
+  [FP] assay -> imaging assay
+  [FP] dna methylation profiling assay -> dna methylation profiling by chip-chip assay
+  [FP] dna methylation profiling by chip-chip assay -> chip-chip assay
+  [FP] material entity -> device
+
+MISSED RELATIONS (False Negatives: 3):
+  [FN] chip-chip assay -> dna methylation profiling by chip-chip assay
+  [FN] epigenetic modification assay -> dna methylation profiling by chip-chip assay
+  [FN] processed material -> device

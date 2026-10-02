@@ -1,0 +1,107 @@
+==================================================
+=== Detailed Node Pair Analysis (Condensed Transitive Reduction) ===
+Match Type Used: SET_OVERLAP
+==================================================
+Precision: 0.5385 | Recall: 0.6364 | F1: 0.5833
+
+CORRECT PREDICTIONS (True Positives: 28 Pred edges covering 28 GT edges):
+  [TP] PRED: (atom -> argon atom)
+        matches GT: (atom -> argon atom)
+  [TP] PRED: (atom -> bismuth atom)
+        matches GT: (atom -> bismuth atom)
+  [TP] PRED: (atom -> californium atom)
+        matches GT: (atom -> californium atom)
+  [TP] PRED: (atom -> hassium atom)
+        matches GT: (atom -> hassium atom)
+  [TP] PRED: (atom -> radon atom)
+        matches GT: (atom -> radon atom)
+  [TP] PRED: (atom -> xenon atom)
+        matches GT: (atom -> xenon atom)
+  [TP] PRED: (chemical agent -> oxidizing agent)
+        matches GT: (chemical agent -> oxidizing agent)
+  [TP] PRED: (chemical agent -> reducing agent)
+        matches GT: (chemical agent -> reducing agent)
+  [TP] PRED: (chemical phase -> uncommon chemical phase)
+        matches GT: (chemical phase -> uncommon chemical phase)
+  [TP] PRED: (cistrans isomer -> cis isomer)
+        matches GT: (cistrans isomer -> cis isomer)
+  [TP] PRED: (continuant -> dependent_continuant)
+        matches GT: (continuant -> dependent_continuant)
+  [TP] PRED: (continuant -> independent_continuant)
+        matches GT: (continuant -> independent_continuant)
+  [TP] PRED: (dependent_continuant -> quality)
+        matches GT: (dependent_continuant -> quality)
+  [TP] PRED: (element -> hydrogen)
+        matches GT: (element -> hydrogen)
+  [TP] PRED: (element -> magnesium)
+        matches GT: (element -> magnesium)
+  [TP] PRED: (element -> ununbium)
+        matches GT: (element -> ununbium)
+  [TP] PRED: (element -> ununoctium)
+        matches GT: (element -> ununoctium)
+  [TP] PRED: (homogeneous mixture -> solution)
+        matches GT: (homogeneous mixture -> solution)
+  [TP] PRED: (independent_continuant -> object)
+        matches GT: (independent_continuant -> object)
+  [TP] PRED: (measured property -> permeability)
+        matches GT: (measured property -> permeability)
+  [TP] PRED: (measured property -> permittivity)
+        matches GT: (measured property -> permittivity)
+  [TP] PRED: (measured property -> ultimate tensile strength)
+        matches GT: (measured property -> ultimate tensile strength)
+  [TP] PRED: (mixture -> homogeneous mixture)
+        matches GT: (mixture -> homogeneous mixture)
+  [TP] PRED: (quality -> measured property)
+        matches GT: (quality -> measured property)
+  [TP] PRED: (ring -> non aromatic ring)
+        matches GT: (ring -> non aromatic ring)
+  [TP] PRED: (scaled unit -> zepto scaled unit)
+        matches GT: (scaled unit -> zepto scaled unit)
+  [TP] PRED: (uncommon chemical phase -> strange matter phase)
+        matches GT: (uncommon chemical phase -> strange matter phase)
+  [TP] PRED: (unit -> derivedunit)
+        matches GT: (unit -> derivedunit)
+
+INCORRECT PREDICTIONS (False Positives: 24):
+  [FP] aryl -> organic group
+  [FP] chemical substance -> chemical agent
+  [FP] chemical substance -> element
+  [FP] chemical substance -> mixture
+  [FP] continuant -> temporal_instant
+  [FP] dependent_continuant -> chemical phase
+  [FP] dependent_continuant -> hardness range
+  [FP] dependent_continuant -> molecularquality
+  [FP] dependent_continuant -> moleculecomponentcount
+  [FP] dependent_continuant -> undefined stereo bond count
+  [FP] dependent_continuant -> unit
+  [FP] derivedunit -> electromagnetic radiation unit
+  [FP] derivedunit -> illuminance unit
+  [FP] derivedunit -> molar energy unit
+  [FP] derivedunit -> molar mass
+  [FP] independent_continuant -> atom
+  [FP] independent_continuant -> carbon group
+  [FP] independent_continuant -> cistrans isomer
+  [FP] independent_continuant -> ring
+  [FP] mixture -> racemic mixture
+  [FP] object -> chemical substance
+  [FP] ring -> aryl
+  [FP] temporal_instant -> connected_temporal_region
+  [FP] unit -> scaled unit
+
+MISSED RELATIONS (False Negatives: 16):
+  [FN] connected_temporal_region -> temporal_instant
+  [FN] derivedunit -> scaled unit
+  [FN] electromagnetic radiation unit -> illuminance unit
+  [FN] measured property -> molar mass
+  [FN] measured property -> molecularquality
+  [FN] molecularquality -> moleculecomponentcount
+  [FN] moleculecomponentcount -> undefined stereo bond count
+  [FN] object -> atom
+  [FN] object -> mixture
+  [FN] object -> organic group
+  [FN] object -> ring
+  [FN] organic group -> aryl
+  [FN] organic group -> carbon group
+  [FN] solution -> racemic mixture
+  [FN] unit -> electromagnetic radiation unit
+  [FN] unit -> molar energy unit

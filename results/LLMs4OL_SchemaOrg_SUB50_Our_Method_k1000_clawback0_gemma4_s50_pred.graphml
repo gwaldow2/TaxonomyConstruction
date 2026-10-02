@@ -1,0 +1,148 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d4" for="graph" attr.name="timestamp" attr.type="string"/>
+<key id="d3" for="graph" attr.name="scale" attr.type="string"/>
+<key id="d2" for="graph" attr.name="results_file" attr.type="string"/>
+<key id="d1" for="graph" attr.name="tag" attr.type="string"/>
+<key id="d0" for="graph" attr.name="model" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">google/gemma-4-31b-it</data>
+<data key="d1">gemma4_s50</data>
+<data key="d2">results/scaling_gemma4.json</data>
+<data key="d3">SUB50</data>
+<data key="d4">2026-09-30T16:37:49</data>
+<node id="enumeration"/>
+<node id="itemlist"/>
+<node id="action"/>
+<node id="allocateaction"/>
+<node id="lodgingbusiness"/>
+<node id="motel"/>
+<node id="localbusiness"/>
+<node id="place"/>
+<node id="organization"/>
+<node id="service"/>
+<node id="intangible"/>
+<node id="medicalintangible"/>
+<node id="periodical (periodical, series)"/>
+<node id="comicseries"/>
+<node id="creativeworkseries"/>
+<node id="creativework"/>
+<node id="sportsactivitylocation"/>
+<node id="exercisegym"/>
+<node id="bakery"/>
+<node id="foodestablishment"/>
+<node id="entertainmentbusiness"/>
+<node id="broadcastservice"/>
+<node id="adultorientedenumeration"/>
+<node id="measurementmethodenum"/>
+<node id="medicalentity"/>
+<node id="medicalcode"/>
+<node id="datatype"/>
+<node id="listitem"/>
+<node id="howtostep"/>
+<node id="createaction"/>
+<node id="audience"/>
+<node id="peopleaudience"/>
+<node id="imageobject"/>
+<node id="article"/>
+<node id="ampstory"/>
+<node id="movieseries"/>
+<node id="techarticle"/>
+<node id="shortstory"/>
+<node id="time"/>
+<node id="offer"/>
+<node id="transferaction"/>
+<node id="assignaction"/>
+<node id="takeaction"/>
+<node id="organizeaction"/>
+<node id="cookaction"/>
+<node id="researchorganization"/>
+<node id="ticket"/>
+<edge source="enumeration" target="itemlist"/>
+<edge source="enumeration" target="adultorientedenumeration"/>
+<edge source="enumeration" target="measurementmethodenum"/>
+<edge source="action" target="allocateaction"/>
+<edge source="action" target="createaction"/>
+<edge source="action" target="transferaction"/>
+<edge source="action" target="assignaction"/>
+<edge source="action" target="takeaction"/>
+<edge source="action" target="organizeaction"/>
+<edge source="action" target="cookaction"/>
+<edge source="lodgingbusiness" target="motel"/>
+<edge source="localbusiness" target="motel"/>
+<edge source="localbusiness" target="lodgingbusiness"/>
+<edge source="localbusiness" target="entertainmentbusiness"/>
+<edge source="localbusiness" target="exercisegym"/>
+<edge source="localbusiness" target="bakery"/>
+<edge source="localbusiness" target="sportsactivitylocation"/>
+<edge source="localbusiness" target="foodestablishment"/>
+<edge source="localbusiness" target="researchorganization"/>
+<edge source="localbusiness" target="broadcastservice"/>
+<edge source="place" target="motel"/>
+<edge source="place" target="sportsactivitylocation"/>
+<edge source="place" target="exercisegym"/>
+<edge source="place" target="bakery"/>
+<edge source="place" target="localbusiness"/>
+<edge source="place" target="foodestablishment"/>
+<edge source="organization" target="motel"/>
+<edge source="organization" target="lodgingbusiness"/>
+<edge source="organization" target="entertainmentbusiness"/>
+<edge source="organization" target="exercisegym"/>
+<edge source="organization" target="bakery"/>
+<edge source="organization" target="localbusiness"/>
+<edge source="organization" target="foodestablishment"/>
+<edge source="organization" target="researchorganization"/>
+<edge source="organization" target="broadcastservice"/>
+<edge source="service" target="motel"/>
+<edge source="service" target="lodgingbusiness"/>
+<edge source="service" target="entertainmentbusiness"/>
+<edge source="service" target="offer"/>
+<edge source="service" target="broadcastservice"/>
+<edge source="intangible" target="medicalintangible"/>
+<edge source="intangible" target="medicalcode"/>
+<edge source="intangible" target="creativework"/>
+<edge source="intangible" target="time"/>
+<edge source="intangible" target="measurementmethodenum"/>
+<edge source="intangible" target="offer"/>
+<edge source="intangible" target="creativeworkseries"/>
+<edge source="intangible" target="broadcastservice"/>
+<edge source="intangible" target="ticket"/>
+<edge source="medicalintangible" target="measurementmethodenum"/>
+<edge source="medicalintangible" target="medicalcode"/>
+<edge source="periodical (periodical, series)" target="comicseries"/>
+<edge source="periodical (periodical, series)" target="movieseries"/>
+<edge source="periodical (periodical, series)" target="article"/>
+<edge source="creativeworkseries" target="comicseries"/>
+<edge source="creativeworkseries" target="periodical (periodical, series)"/>
+<edge source="creativeworkseries" target="movieseries"/>
+<edge source="creativework" target="comicseries"/>
+<edge source="creativework" target="periodical (periodical, series)"/>
+<edge source="creativework" target="imageobject"/>
+<edge source="creativework" target="creativeworkseries"/>
+<edge source="creativework" target="article"/>
+<edge source="creativework" target="ampstory"/>
+<edge source="creativework" target="movieseries"/>
+<edge source="creativework" target="techarticle"/>
+<edge source="creativework" target="shortstory"/>
+<edge source="sportsactivitylocation" target="exercisegym"/>
+<edge source="foodestablishment" target="bakery"/>
+<edge source="entertainmentbusiness" target="broadcastservice"/>
+<edge source="medicalentity" target="medicalcode"/>
+<edge source="medicalentity" target="measurementmethodenum"/>
+<edge source="medicalentity" target="medicalintangible"/>
+<edge source="datatype" target="medicalcode"/>
+<edge source="datatype" target="enumeration"/>
+<edge source="datatype" target="adultorientedenumeration"/>
+<edge source="datatype" target="measurementmethodenum"/>
+<edge source="listitem" target="howtostep"/>
+<edge source="createaction" target="cookaction"/>
+<edge source="audience" target="peopleaudience"/>
+<edge source="article" target="techarticle"/>
+<edge source="article" target="ampstory"/>
+<edge source="shortstory" target="ampstory"/>
+<edge source="offer" target="ticket"/>
+<edge source="takeaction" target="allocateaction"/>
+<edge source="takeaction" target="createaction"/>
+<edge source="takeaction" target="transferaction"/>
+<edge source="takeaction" target="assignaction"/>
+<edge source="takeaction" target="organizeaction"/>
+<edge source="takeaction" target="cookaction"/>
+</graph></graphml>

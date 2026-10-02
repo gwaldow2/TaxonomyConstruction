@@ -1,0 +1,52 @@
+==================================================
+=== Detailed Node Pair Analysis (Condensed Transitive Reduction) ===
+Match Type Used: SET_OVERLAP
+==================================================
+Precision: 0.5500 | Recall: 0.5238 | F1: 0.5366
+
+CORRECT PREDICTIONS (True Positives: 11 Pred edges covering 11 GT edges):
+  [TP] PRED: (audience -> peopleaudience)
+        matches GT: (audience -> peopleaudience)
+  [TP] PRED: (creativework -> creativeworkseries)
+        matches GT: (creativework -> creativeworkseries)
+  [TP] PRED: (creativework -> howtostep)
+        matches GT: (creativework -> howtostep)
+  [TP] PRED: (enumeration -> adultorientedenumeration)
+        matches GT: (enumeration -> adultorientedenumeration)
+  [TP] PRED: (enumeration -> governmentbenefitstype)
+        matches GT: (enumeration -> governmentbenefitstype)
+  [TP] PRED: (intangible -> service)
+        matches GT: (intangible -> service)
+  [TP] PRED: (localbusiness -> entertainmentbusiness)
+        matches GT: (localbusiness -> entertainmentbusiness)
+  [TP] PRED: (localbusiness -> foodestablishment)
+        matches GT: (localbusiness -> foodestablishment)
+  [TP] PRED: (organization -> localbusiness)
+        matches GT: (organization -> localbusiness)
+  [TP] PRED: (organization -> researchorganization)
+        matches GT: (organization -> researchorganization)
+  [TP] PRED: (service -> broadcastservice)
+        matches GT: (service -> broadcastservice)
+
+INCORRECT PREDICTIONS (False Positives: 9):
+  [FP] creativeworkseries -> series
+  [FP] datatype -> adultorientedenumeration
+  [FP] intangible -> creativework
+  [FP] intangible -> datatype
+  [FP] intangible -> enumeration
+  [FP] itemlist -> listitem
+  [FP] itemlist -> series
+  [FP] localbusiness -> bakery
+  [FP] series -> movieseries
+
+MISSED RELATIONS (False Negatives: 10):
+  [FN] creativeworkseries -> movieseries
+  [FN] datatype -> time
+  [FN] foodestablishment -> bakery
+  [FN] intangible -> audience
+  [FN] intangible -> listitem
+  [FN] intangible -> series
+  [FN] itemlist -> howtostep
+  [FN] listitem -> howtostep
+  [FN] place -> localbusiness
+  [FN] series -> creativeworkseries

@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d4" for="graph" attr.name="timestamp" attr.type="string"/>
+<key id="d3" for="graph" attr.name="scale" attr.type="string"/>
+<key id="d2" for="graph" attr.name="results_file" attr.type="string"/>
+<key id="d1" for="graph" attr.name="tag" attr.type="string"/>
+<key id="d0" for="graph" attr.name="model" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">google/gemma-4-31b-it</data>
+<data key="d1">gemma4_s25s2</data>
+<data key="d2">results/scaling_gemma4.json</data>
+<data key="d3">SUB25S2</data>
+<data key="d4">2026-09-30T16:51:14</data>
+<node id="food (food, foodstuff, ingredient, nutriment)"/>
+<node id="starches"/>
+<node id="cheese"/>
+<node id="cheshire cheese"/>
+<node id="dairy product"/>
+<node id="colostrum"/>
+<node id="whole milk"/>
+<node id="milk"/>
+<node id="water"/>
+<node id="feed"/>
+<node id="cattle cake"/>
+<node id="vitamin"/>
+<node id="inositol"/>
+<node id="water soluble vitamin"/>
+<node id="b complex vitamin"/>
+<node id="condiment (condiment, flavorer)"/>
+<node id="sauce"/>
+<node id="grain"/>
+<node id="brown rice"/>
+<node id="white sauce"/>
+<node id="rice"/>
+<edge source="food (food, foodstuff, ingredient, nutriment)" target="starches"/>
+<edge source="food (food, foodstuff, ingredient, nutriment)" target="cheshire cheese"/>
+<edge source="food (food, foodstuff, ingredient, nutriment)" target="dairy product"/>
+<edge source="food (food, foodstuff, ingredient, nutriment)" target="water"/>
+<edge source="food (food, foodstuff, ingredient, nutriment)" target="feed"/>
+<edge source="food (food, foodstuff, ingredient, nutriment)" target="condiment (condiment, flavorer)"/>
+<edge source="food (food, foodstuff, ingredient, nutriment)" target="cheese"/>
+<edge source="food (food, foodstuff, ingredient, nutriment)" target="colostrum"/>
+<edge source="food (food, foodstuff, ingredient, nutriment)" target="b complex vitamin"/>
+<edge source="food (food, foodstuff, ingredient, nutriment)" target="whole milk"/>
+<edge source="food (food, foodstuff, ingredient, nutriment)" target="grain"/>
+<edge source="food (food, foodstuff, ingredient, nutriment)" target="brown rice"/>
+<edge source="food (food, foodstuff, ingredient, nutriment)" target="white sauce"/>
+<edge source="food (food, foodstuff, ingredient, nutriment)" target="sauce"/>
+<edge source="food (food, foodstuff, ingredient, nutriment)" target="cattle cake"/>
+<edge source="food (food, foodstuff, ingredient, nutriment)" target="rice"/>
+<edge source="food (food, foodstuff, ingredient, nutriment)" target="milk"/>
+<edge source="food (food, foodstuff, ingredient, nutriment)" target="water soluble vitamin"/>
+<edge source="food (food, foodstuff, ingredient, nutriment)" target="vitamin"/>
+<edge source="food (food, foodstuff, ingredient, nutriment)" target="inositol"/>
+<edge source="cheese" target="cheshire cheese"/>
+<edge source="dairy product" target="cheshire cheese"/>
+<edge source="dairy product" target="cheese"/>
+<edge source="dairy product" target="colostrum"/>
+<edge source="dairy product" target="whole milk"/>
+<edge source="dairy product" target="milk"/>
+<edge source="milk" target="colostrum"/>
+<edge source="milk" target="whole milk"/>
+<edge source="feed" target="cattle cake"/>
+<edge source="vitamin" target="inositol"/>
+<edge source="vitamin" target="b complex vitamin"/>
+<edge source="vitamin" target="water soluble vitamin"/>
+<edge source="water soluble vitamin" target="inositol"/>
+<edge source="water soluble vitamin" target="b complex vitamin"/>
+<edge source="b complex vitamin" target="inositol"/>
+<edge source="condiment (condiment, flavorer)" target="white sauce"/>
+<edge source="condiment (condiment, flavorer)" target="sauce"/>
+<edge source="sauce" target="white sauce"/>
+<edge source="grain" target="brown rice"/>
+<edge source="grain" target="rice"/>
+<edge source="rice" target="brown rice"/>
+</graph></graphml>

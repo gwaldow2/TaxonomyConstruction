@@ -1,0 +1,48 @@
+==================================================
+=== Detailed Node Pair Analysis (Exploded Raw Edges) ===
+Match Type Used: EXACT
+==================================================
+Precision: 0.5417 | Recall: 0.5000 | F1: 0.5200
+
+CORRECT PREDICTIONS (True Positives: 13 Pred edges covering 13 GT edges):
+  [TP] condiment -> relish
+  [TP] condiment -> sauce
+  [TP] dressing -> blue cheese dressing
+  [TP] feed -> fodder
+  [TP] fodder -> alfalfa
+  [TP] food -> fare
+  [TP] food -> feed
+  [TP] food -> foodstuff
+  [TP] food -> nutriment
+  [TP] potato -> home fries
+  [TP] starches -> potato
+  [TP] tea -> oolong
+  [TP] tea -> sun tea
+
+INCORRECT PREDICTIONS (False Positives: 11):
+  [FP] condiment -> dressing
+  [FP] condiment -> flavorer
+  [FP] feed -> chow
+  [FP] food -> eatage
+  [FP] food -> ingredient
+  [FP] food -> meal
+  [FP] food -> tea
+  [FP] ingredient -> condiment
+  [FP] ingredient -> herb
+  [FP] ingredient -> starches
+  [FP] sauce -> steak sauce
+
+MISSED RELATIONS (False Negatives: 13):
+  [FN] condiment -> steak sauce
+  [FN] fare -> chow
+  [FN] flavorer -> condiment
+  [FN] flavorer -> herb
+  [FN] fodder -> eatage
+  [FN] foodstuff -> ingredient
+  [FN] foodstuff -> meal
+  [FN] foodstuff -> starches
+  [FN] herb -> tea
+  [FN] ingredient -> flavorer
+  [FN] meal -> tea
+  [FN] nutriment -> meal
+  [FN] sauce -> dressing

@@ -1,0 +1,47 @@
+==================================================
+=== Detailed Node Pair Analysis (Exploded Raw Edges) ===
+Match Type Used: EXACT
+==================================================
+Precision: 0.5161 | Recall: 0.7619 | F1: 0.6154
+
+CORRECT PREDICTIONS (True Positives: 16 Pred edges covering 16 GT edges):
+  [TP] cardinal part of multi-tissue plant structure -> cardinal organ part
+  [TP] leaf -> vascular leaf
+  [TP] multi-tissue plant structure -> plant organ
+  [TP] phyllome -> leaf
+  [TP] pith -> tuber pith
+  [TP] plant anatomical entity -> plant structure
+  [TP] plant axis elongation zone -> root elongation zone
+  [TP] plant organ -> phyllome
+  [TP] plant structure -> cardinal part of multi-tissue plant structure
+  [TP] plant structure -> multi-tissue plant structure
+  [TP] plant structure -> portion of plant tissue
+  [TP] portion of ground tissue -> parenchyma
+  [TP] portion of plant tissue -> portion of ground tissue
+  [TP] prickle -> root prickle
+  [TP] root elongation zone -> primary root elongation zone
+  [TP] tuber pith -> aerial tuber pith
+
+INCORRECT PREDICTIONS (False Positives: 15):
+  [FP] leaf -> leaf apex
+  [FP] leaf -> leaf tendril
+  [FP] plant anatomical entity -> cardinal part of multi-tissue plant structure
+  [FP] plant anatomical entity -> multi-tissue plant structure
+  [FP] plant anatomical entity -> plant axis elongation zone
+  [FP] plant anatomical entity -> portion of plant tissue
+  [FP] plant anatomical entity -> prickle
+  [FP] plant anatomical entity -> shoot axis internode
+  [FP] plant anatomical entity -> shoot system
+  [FP] plant structure -> plant anatomical entity
+  [FP] plant structure -> plant axis elongation zone
+  [FP] plant structure -> prickle
+  [FP] plant structure -> shoot axis internode
+  [FP] plant structure -> shoot system
+  [FP] portion of ground tissue -> pith
+
+MISSED RELATIONS (False Negatives: 5):
+  [FN] cardinal organ part -> plant axis elongation zone
+  [FN] cardinal organ part -> shoot axis internode
+  [FN] parenchyma -> pith
+  [FN] shoot system -> po_0000055
+  [FN] vascular leaf -> leaf tendril

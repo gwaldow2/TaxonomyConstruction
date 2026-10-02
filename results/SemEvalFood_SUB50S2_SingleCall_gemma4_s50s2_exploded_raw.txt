@@ -1,0 +1,73 @@
+==================================================
+=== Detailed Node Pair Analysis (Exploded Raw Edges) ===
+Match Type Used: EXACT
+==================================================
+Precision: 0.7727 | Recall: 0.6538 | F1: 0.7083
+
+CORRECT PREDICTIONS (True Positives: 34 Pred edges covering 34 GT edges):
+  [TP] b complex vitamin -> inositol
+  [TP] bread -> bun
+  [TP] canned food -> canned meat
+  [TP] cheese -> cheshire cheese
+  [TP] cheese -> parmesan
+  [TP] condiment -> sauce
+  [TP] cream -> whipping cream
+  [TP] dairy product -> cheese
+  [TP] dairy product -> cream
+  [TP] dairy product -> milk
+  [TP] dessert -> frozen dessert
+  [TP] dish -> enchilada
+  [TP] feed -> cattle cake
+  [TP] food -> foodstuff
+  [TP] food -> nutriment
+  [TP] foodstuff -> canned food
+  [TP] foodstuff -> dairy product
+  [TP] foodstuff -> grain
+  [TP] foodstuff -> ingredient
+  [TP] foodstuff -> starches
+  [TP] frozen dessert -> parfait
+  [TP] grain -> rice
+  [TP] herb -> sweet cicely
+  [TP] ingredient -> flavorer
+  [TP] milk -> colostrum
+  [TP] milk -> whole milk
+  [TP] rice -> brown rice
+  [TP] sauce -> white sauce
+  [TP] snack food -> corn chip
+  [TP] spread -> cheese spread
+  [TP] starches -> rice
+  [TP] sweet roll -> honey bun
+  [TP] vitamin -> water soluble vitamin
+  [TP] water soluble vitamin -> b complex vitamin
+
+INCORRECT PREDICTIONS (False Positives: 10):
+  [FP] bread -> sweet roll
+  [FP] cheese -> cheese spread
+  [FP] foodstuff -> bread
+  [FP] foodstuff -> dessert
+  [FP] foodstuff -> dish
+  [FP] foodstuff -> feed
+  [FP] foodstuff -> snack food
+  [FP] ingredient -> condiment
+  [FP] ingredient -> herb
+  [FP] ingredient -> vitamin
+
+MISSED RELATIONS (False Negatives: 18):
+  [FN] bun -> sweet roll
+  [FN] canned meat -> fanny adams
+  [FN] condiment -> spread
+  [FN] course -> dessert
+  [FN] dish -> chili
+  [FN] dish -> snack food
+  [FN] flavorer -> condiment
+  [FN] flavorer -> herb
+  [FN] food -> feed
+  [FN] food -> water
+  [FN] foodstuff -> milk
+  [FN] nutriment -> course
+  [FN] nutriment -> dainty
+  [FN] nutriment -> dish
+  [FN] nutriment -> milk
+  [FN] nutriment -> vitamin
+  [FN] starches -> bread
+  [FN] white sauce -> blanc

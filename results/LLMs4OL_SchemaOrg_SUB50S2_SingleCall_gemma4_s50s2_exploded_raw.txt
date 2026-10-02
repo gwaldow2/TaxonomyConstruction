@@ -1,0 +1,78 @@
+==================================================
+=== Detailed Node Pair Analysis (Exploded Raw Edges) ===
+Match Type Used: EXACT
+==================================================
+Precision: 0.4565 | Recall: 0.5000 | F1: 0.4773
+
+CORRECT PREDICTIONS (True Positives: 21 Pred edges covering 21 GT edges):
+  [TP] action -> consumeaction
+  [TP] action -> organizeaction
+  [TP] audience -> businessaudience
+  [TP] creativework -> article
+  [TP] enumeration -> certificationstatusenumeration
+  [TP] enumeration -> mediamanipulationratingenumeration
+  [TP] foodestablishment -> fastfoodrestaurant
+  [TP] localbusiness -> foodestablishment
+  [TP] localbusiness -> medicalbusiness
+  [TP] medicalentity -> anatomicalstructure
+  [TP] medicalentity -> medicalintangible
+  [TP] medicalentity -> medicalprocedure
+  [TP] medicalintangible -> medicalcode
+  [TP] medicalprocedure -> palliativeprocedure
+  [TP] medicalprocedure -> therapeuticprocedure
+  [TP] organization -> localbusiness
+  [TP] organization -> medicalorganization
+  [TP] organization -> performinggroup
+  [TP] performinggroup -> musicgroup
+  [TP] physician -> individualphysician
+  [TP] place -> localbusiness
+
+INCORRECT PREDICTIONS (False Positives: 25):
+  [FP] action -> assessaction
+  [FP] action -> bookmarkaction
+  [FP] action -> reactaction
+  [FP] action -> watchaction
+  [FP] comicseries -> creativeworkseries
+  [FP] creativework -> bookformattype
+  [FP] creativework -> comicseries
+  [FP] creativework -> howto
+  [FP] creativework -> periodical
+  [FP] creativework -> recipe
+  [FP] creativework -> review
+  [FP] creativework -> socialmediaposting
+  [FP] creativeworkseries -> series
+  [FP] howto -> howtoitem
+  [FP] intangible -> medicalintangible
+  [FP] localbusiness -> electrician
+  [FP] localbusiness -> homeandconstructionbusiness
+  [FP] medicalbusiness -> medicalorganization
+  [FP] medicalentity -> medicalorganization
+  [FP] medicalentity -> medicaltest
+  [FP] medicalentity -> medicaltherapy
+  [FP] medicalintangible -> recommendation
+  [FP] medicalorganization -> individualphysician
+  [FP] therapeuticprocedure -> occupationaltherapy
+  [FP] videogameseries -> creativeworkseries
+
+MISSED RELATIONS (False Negatives: 21):
+  [FN] article -> socialmediaposting
+  [FN] assessaction -> reactaction
+  [FN] consumeaction -> watchaction
+  [FN] creativework -> creativeworkseries
+  [FN] creativeworkseries -> videogameseries
+  [FN] enumeration -> bookformattype
+  [FN] homeandconstructionbusiness -> electrician
+  [FN] howto -> recipe
+  [FN] intangible -> audience
+  [FN] intangible -> listitem
+  [FN] intangible -> series
+  [FN] listitem -> howtoitem
+  [FN] medicalbusiness -> physician
+  [FN] medicalorganization -> physician
+  [FN] medicaltherapy -> occupationaltherapy
+  [FN] medicaltherapy -> palliativeprocedure
+  [FN] organizeaction -> bookmarkaction
+  [FN] periodical -> comicseries
+  [FN] review -> recommendation
+  [FN] series -> creativeworkseries
+  [FN] therapeuticprocedure -> medicaltherapy

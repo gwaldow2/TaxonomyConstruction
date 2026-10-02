@@ -1,0 +1,85 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d4" for="graph" attr.name="timestamp" attr.type="string"/>
+<key id="d3" for="graph" attr.name="scale" attr.type="string"/>
+<key id="d2" for="graph" attr.name="results_file" attr.type="string"/>
+<key id="d1" for="graph" attr.name="tag" attr.type="string"/>
+<key id="d0" for="graph" attr.name="model" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">google/gemma-4-31b-it</data>
+<data key="d1">gemma4_s25</data>
+<data key="d2">results/scaling_gemma4.json</data>
+<data key="d3">SUB25</data>
+<data key="d4">2026-09-30T16:34:01</data>
+<node id="carbon allotrope"/>
+<node id="chaoite"/>
+<node id="radiation unit"/>
+<node id="dose equivalent unit"/>
+<node id="unit"/>
+<node id="derivedunit"/>
+<node id="scaled unit"/>
+<node id="measured property (measured property, quality)"/>
+<node id="density"/>
+<node id="chemical quality"/>
+<node id="molecular mass unit"/>
+<node id="conduction unit"/>
+<node id="peta scaled unit"/>
+<node id="zepto scaled unit"/>
+<node id="continuant"/>
+<node id="dependent_continuant"/>
+<node id="concentration"/>
+<node id="hardness range"/>
+<node id="element"/>
+<node id="magnesium"/>
+<node id="scandium"/>
+<node id="molybdenum"/>
+<node id="count"/>
+<edge source="carbon allotrope" target="chaoite"/>
+<edge source="radiation unit" target="dose equivalent unit"/>
+<edge source="radiation unit" target="conduction unit"/>
+<edge source="unit" target="dose equivalent unit"/>
+<edge source="unit" target="molecular mass unit"/>
+<edge source="unit" target="radiation unit"/>
+<edge source="unit" target="derivedunit"/>
+<edge source="unit" target="scaled unit"/>
+<edge source="unit" target="conduction unit"/>
+<edge source="unit" target="peta scaled unit"/>
+<edge source="unit" target="zepto scaled unit"/>
+<edge source="derivedunit" target="dose equivalent unit"/>
+<edge source="derivedunit" target="molecular mass unit"/>
+<edge source="derivedunit" target="radiation unit"/>
+<edge source="derivedunit" target="scaled unit"/>
+<edge source="derivedunit" target="conduction unit"/>
+<edge source="derivedunit" target="peta scaled unit"/>
+<edge source="derivedunit" target="zepto scaled unit"/>
+<edge source="scaled unit" target="dose equivalent unit"/>
+<edge source="scaled unit" target="molecular mass unit"/>
+<edge source="scaled unit" target="radiation unit"/>
+<edge source="scaled unit" target="conduction unit"/>
+<edge source="scaled unit" target="peta scaled unit"/>
+<edge source="scaled unit" target="zepto scaled unit"/>
+<edge source="measured property (measured property, quality)" target="density"/>
+<edge source="measured property (measured property, quality)" target="hardness range"/>
+<edge source="measured property (measured property, quality)" target="chemical quality"/>
+<edge source="measured property (measured property, quality)" target="count"/>
+<edge source="measured property (measured property, quality)" target="concentration"/>
+<edge source="chemical quality" target="density"/>
+<edge source="chemical quality" target="hardness range"/>
+<edge source="chemical quality" target="concentration"/>
+<edge source="continuant" target="dependent_continuant"/>
+<edge source="continuant" target="measured property (measured property, quality)"/>
+<edge source="continuant" target="carbon allotrope"/>
+<edge source="continuant" target="magnesium"/>
+<edge source="continuant" target="scandium"/>
+<edge source="continuant" target="molybdenum"/>
+<edge source="dependent_continuant" target="measured property (measured property, quality)"/>
+<edge source="dependent_continuant" target="density"/>
+<edge source="dependent_continuant" target="concentration"/>
+<edge source="dependent_continuant" target="chemical quality"/>
+<edge source="dependent_continuant" target="carbon allotrope"/>
+<edge source="dependent_continuant" target="magnesium"/>
+<edge source="dependent_continuant" target="scandium"/>
+<edge source="dependent_continuant" target="molybdenum"/>
+<edge source="element" target="chaoite"/>
+<edge source="element" target="magnesium"/>
+<edge source="element" target="scandium"/>
+<edge source="element" target="molybdenum"/>
+</graph></graphml>

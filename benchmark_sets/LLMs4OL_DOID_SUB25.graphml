@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d8" for="node" attr.name="is_virtual" attr.type="boolean"/>
+<key id="d7" for="graph" attr.name="generated" attr.type="string"/>
+<key id="d6" for="graph" attr.name="generator" attr.type="string"/>
+<key id="d5" for="graph" attr.name="source_edges" attr.type="string"/>
+<key id="d4" for="graph" attr.name="source_nodes" attr.type="string"/>
+<key id="d3" for="graph" attr.name="source_file" attr.type="string"/>
+<key id="d2" for="graph" attr.name="seed" attr.type="string"/>
+<key id="d1" for="graph" attr.name="target_nodes" attr.type="string"/>
+<key id="d0" for="graph" attr.name="scale" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">SUB25</data>
+<data key="d1">25</data>
+<data key="d2">42</data>
+<data key="d3">LLMs4OL_DOID_FULL.graphml</data>
+<data key="d4">9600</data>
+<data key="d5">13610</data>
+<data key="d6">scale_benchmarks.py</data>
+<data key="d7">2026-09-30T16:24:51</data>
+<node id="nervous system disease"/>
+<node id="physical disorder"/>
+<node id="polycystic kidney disease"/>
+<node id="lissencephaly 1"/>
+<node id="autosomal recessive polycystic kidney disease"/>
+<node id="neuronal intestinal dysplasia type a"/>
+<node id="polycystic kidney disease 4"/>
+<node id="urinary system disease"/>
+<node id="autosomal recessive disease"/>
+<node id="familial adult myoclonic epilepsy 7"/>
+<node id="cystic kidney disease"/>
+<node id="colonic disease"/>
+<node id="absence epilepsy"/>
+<node id="autosomal genetic disease"/>
+<node id="monogenic disease"/>
+<node id="congenital nervous system abnormality"/>
+<node id="genetic disease"/>
+<node id="autosomal dominant disease"/>
+<node id="intestinal pseudo-obstruction"/>
+<node id="disease of anatomical entity"/>
+<node id="familial adult myoclonic epilepsy"/>
+<node id="kidney disease"/>
+<node id="adolescence-adult electroclinical syndrome"/>
+<node id="disease"/>
+<node id="lissencephaly"/>
+<node id="virtual_root">
+  <data key="d8">True</data>
+</node>
+<edge source="nervous system disease" target="congenital nervous system abnormality"/>
+<edge source="physical disorder" target="congenital nervous system abnormality"/>
+<edge source="polycystic kidney disease" target="autosomal recessive polycystic kidney disease"/>
+<edge source="autosomal recessive polycystic kidney disease" target="polycystic kidney disease 4"/>
+<edge source="urinary system disease" target="kidney disease"/>
+<edge source="autosomal recessive disease" target="autosomal recessive polycystic kidney disease"/>
+<edge source="cystic kidney disease" target="polycystic kidney disease"/>
+<edge source="colonic disease" target="intestinal pseudo-obstruction"/>
+<edge source="absence epilepsy" target="adolescence-adult electroclinical syndrome"/>
+<edge source="autosomal genetic disease" target="autosomal recessive disease"/>
+<edge source="monogenic disease" target="autosomal genetic disease"/>
+<edge source="congenital nervous system abnormality" target="lissencephaly"/>
+<edge source="genetic disease" target="monogenic disease"/>
+<edge source="autosomal dominant disease" target="lissencephaly 1"/>
+<edge source="autosomal dominant disease" target="familial adult myoclonic epilepsy 7"/>
+<edge source="intestinal pseudo-obstruction" target="neuronal intestinal dysplasia type a"/>
+<edge source="disease of anatomical entity" target="urinary system disease"/>
+<edge source="disease of anatomical entity" target="nervous system disease"/>
+<edge source="familial adult myoclonic epilepsy" target="familial adult myoclonic epilepsy 7"/>
+<edge source="kidney disease" target="cystic kidney disease"/>
+<edge source="adolescence-adult electroclinical syndrome" target="familial adult myoclonic epilepsy"/>
+<edge source="disease" target="physical disorder"/>
+<edge source="disease" target="disease of anatomical entity"/>
+<edge source="disease" target="genetic disease"/>
+<edge source="lissencephaly" target="lissencephaly 1"/>
+<edge source="virtual_root" target="colonic disease"/>
+<edge source="virtual_root" target="absence epilepsy"/>
+<edge source="virtual_root" target="autosomal dominant disease"/>
+<edge source="virtual_root" target="disease"/>
+</graph></graphml>

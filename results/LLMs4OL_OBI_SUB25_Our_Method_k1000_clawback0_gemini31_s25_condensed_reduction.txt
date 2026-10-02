@@ -1,0 +1,59 @@
+==================================================
+=== Detailed Node Pair Analysis (Condensed Transitive Reduction) ===
+Match Type Used: SET_OVERLAP
+==================================================
+Precision: 0.8800 | Recall: 1.0000 | F1: 0.9362
+
+CORRECT PREDICTIONS (True Positives: 22 Pred edges covering 22 GT edges):
+  [TP] PRED: (assay -> carboxyfluorescein succinimidyl ester staining assay)
+        matches GT: (assay -> carboxyfluorescein succinimidyl ester staining assay)
+  [TP] PRED: (assay -> insecticide resistance assay)
+        matches GT: (assay -> insecticide resistance assay)
+  [TP] PRED: (assay -> organism detection assay)
+        matches GT: (assay -> organism detection assay)
+  [TP] PRED: (assay array -> microarray)
+        matches GT: (assay array -> microarray)
+  [TP] PRED: (carboxyfluorescein succinimidyl ester staining assay -> carboxyfluorescein succinimidyl ester staining assay measuring epitope specific proliferation of t cells)
+        matches GT: (carboxyfluorescein succinimidyl ester staining assay -> carboxyfluorescein succinimidyl ester staining assay measuring epitope specific proliferation of t cells)
+  [TP] PRED: (clinical history -> family clinical history of cancer)
+        matches GT: (clinical history -> family clinical history of cancer)
+  [TP] PRED: (continuant -> independent continuant)
+        matches GT: (continuant -> independent continuant)
+  [TP] PRED: (device -> assay array)
+        matches GT: (device -> assay array)
+  [TP] PRED: (device -> material separation device)
+        matches GT: (device -> material separation device)
+  [TP] PRED: (dna microarray -> affymetrix rhesus macaque genome array)
+        matches GT: (dna microarray -> affymetrix rhesus macaque genome array)
+  [TP] PRED: (family clinical history of cancer -> brother clinical history of cancer)
+        matches GT: (family clinical history of cancer -> brother clinical history of cancer)
+  [TP] PRED: (function -> connection function)
+        matches GT: (function -> connection function)
+  [TP] PRED: (independent continuant -> material entity)
+        matches GT: (independent continuant -> material entity)
+  [TP] PRED: (insecticide resistance assay -> insecticide resistance by detecting enzyme activity assay)
+        matches GT: (insecticide resistance assay -> insecticide resistance by detecting enzyme activity assay)
+  [TP] PRED: (insecticide resistance by detecting enzyme activity assay -> insecticide resistance by detecting glutathione s-transferase activity assay)
+        matches GT: (insecticide resistance by detecting enzyme activity assay -> insecticide resistance by detecting glutathione s-transferase activity assay)
+  [TP] PRED: (material entity -> processed material)
+        matches GT: (material entity -> processed material)
+  [TP] PRED: (material separation device -> filter paper)
+        matches GT: (material separation device -> filter paper)
+  [TP] PRED: (microarray -> dna microarray)
+        matches GT: (microarray -> dna microarray)
+  [TP] PRED: (organism detection assay -> parasite detection assay)
+        matches GT: (organism detection assay -> parasite detection assay)
+  [TP] PRED: (organization -> organization of specimen collector)
+        matches GT: (organization -> organization of specimen collector)
+  [TP] PRED: (planned process -> assay)
+        matches GT: (planned process -> assay)
+  [TP] PRED: (processed material -> device)
+        matches GT: (processed material -> device)
+
+INCORRECT PREDICTIONS (False Positives: 3):
+  [FP] continuant -> clinical history
+  [FP] continuant -> function
+  [FP] material entity -> organization
+
+MISSED RELATIONS (False Negatives: 0):
+  None. (Perfect Recall!)

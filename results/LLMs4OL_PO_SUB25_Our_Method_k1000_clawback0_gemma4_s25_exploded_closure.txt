@@ -1,0 +1,139 @@
+==================================================
+=== Detailed Node Pair Analysis (Exploded Transitive Closure) ===
+Match Type Used: EXACT
+==================================================
+Precision: 0.4683 | Recall: 0.9672 | F1: 0.6310
+
+CORRECT PREDICTIONS (True Positives: 59 Pred edges covering 59 GT edges):
+  [TP] abscission zone -> floral organ abscission zone
+  [TP] cardinal organ part -> branch internode differentiation zone
+  [TP] cardinal organ part -> plant axis differentiation zone
+  [TP] cardinal organ part -> shoot internode differentiation zone
+  [TP] cardinal part of multi-tissue plant structure -> branch internode differentiation zone
+  [TP] cardinal part of multi-tissue plant structure -> cardinal organ part
+  [TP] cardinal part of multi-tissue plant structure -> plant axis differentiation zone
+  [TP] cardinal part of multi-tissue plant structure -> shoot internode differentiation zone
+  [TP] flower -> ear floret
+  [TP] flower -> pistillate flower
+  [TP] flower -> spikelet floret
+  [TP] multi-tissue plant structure -> phyllome
+  [TP] multi-tissue plant structure -> sporophyll
+  [TP] phyllome -> sporophyll
+  [TP] plant anatomical entity -> abscission zone
+  [TP] plant anatomical entity -> branch internode differentiation zone
+  [TP] plant anatomical entity -> cardinal organ part
+  [TP] plant anatomical entity -> cardinal part of multi-tissue plant structure
+  [TP] plant anatomical entity -> central endosperm
+  [TP] plant anatomical entity -> floral organ abscission zone
+  [TP] plant anatomical entity -> multi-tissue plant structure
+  [TP] plant anatomical entity -> phyllome
+  [TP] plant anatomical entity -> plant axis differentiation zone
+  [TP] plant anatomical entity -> plant organ
+  [TP] plant anatomical entity -> plant structure
+  [TP] plant anatomical entity -> portion of ground tissue
+  [TP] plant anatomical entity -> portion of plant tissue
+  [TP] plant anatomical entity -> shoot internode differentiation zone
+  [TP] plant anatomical entity -> sporophyll
+  [TP] plant axis differentiation zone -> branch internode differentiation zone
+  [TP] plant axis differentiation zone -> shoot internode differentiation zone
+  [TP] plant organ -> phyllome
+  [TP] plant organ -> sporophyll
+  [TP] plant structure -> abscission zone
+  [TP] plant structure -> branch internode differentiation zone
+  [TP] plant structure -> cardinal organ part
+  [TP] plant structure -> cardinal part of multi-tissue plant structure
+  [TP] plant structure -> central endosperm
+  [TP] plant structure -> floral organ abscission zone
+  [TP] plant structure -> multi-tissue plant structure
+  [TP] plant structure -> phyllome
+  [TP] plant structure -> plant axis differentiation zone
+  [TP] plant structure -> plant organ
+  [TP] plant structure -> portion of ground tissue
+  [TP] plant structure -> portion of plant tissue
+  [TP] plant structure -> shoot internode differentiation zone
+  [TP] plant structure -> sporophyll
+  [TP] portion of plant tissue -> abscission zone
+  [TP] portion of plant tissue -> central endosperm
+  [TP] portion of plant tissue -> floral organ abscission zone
+  [TP] portion of plant tissue -> portion of ground tissue
+  [TP] reproductive shoot system -> ear floret
+  [TP] reproductive shoot system -> flower
+  [TP] reproductive shoot system -> pistillate flower
+  [TP] reproductive shoot system -> spikelet floret
+  [TP] shoot internode differentiation zone -> branch internode differentiation zone
+  [TP] spikelet floret -> ear floret
+  [TP] storage parenchyma -> tuber storage parenchyma
+  [TP] tuber axillary shoot -> subterranean tuber axillary shoot
+
+INCORRECT PREDICTIONS (False Positives: 67):
+  [FP] cardinal organ part -> abscission zone
+  [FP] cardinal organ part -> cardinal organ part
+  [FP] cardinal organ part -> cardinal part of multi-tissue plant structure
+  [FP] cardinal organ part -> floral organ abscission zone
+  [FP] cardinal part of multi-tissue plant structure -> abscission zone
+  [FP] cardinal part of multi-tissue plant structure -> cardinal part of multi-tissue plant structure
+  [FP] cardinal part of multi-tissue plant structure -> floral organ abscission zone
+  [FP] multi-tissue plant structure -> abscission zone
+  [FP] multi-tissue plant structure -> branch internode differentiation zone
+  [FP] multi-tissue plant structure -> central endosperm
+  [FP] multi-tissue plant structure -> ear floret
+  [FP] multi-tissue plant structure -> floral organ abscission zone
+  [FP] multi-tissue plant structure -> flower
+  [FP] multi-tissue plant structure -> pistillate flower
+  [FP] multi-tissue plant structure -> plant axis differentiation zone
+  [FP] multi-tissue plant structure -> reproductive shoot system
+  [FP] multi-tissue plant structure -> shoot internode differentiation zone
+  [FP] multi-tissue plant structure -> spikelet floret
+  [FP] multi-tissue plant structure -> subterranean tuber axillary shoot
+  [FP] multi-tissue plant structure -> tuber axillary shoot
+  [FP] plant anatomical entity -> ear floret
+  [FP] plant anatomical entity -> flower
+  [FP] plant anatomical entity -> pistillate flower
+  [FP] plant anatomical entity -> plant anatomical entity
+  [FP] plant anatomical entity -> reproductive shoot system
+  [FP] plant anatomical entity -> spikelet floret
+  [FP] plant anatomical entity -> storage parenchyma
+  [FP] plant anatomical entity -> subterranean tuber axillary shoot
+  [FP] plant anatomical entity -> tuber axillary shoot
+  [FP] plant anatomical entity -> tuber storage parenchyma
+  [FP] plant organ -> abscission zone
+  [FP] plant organ -> branch internode differentiation zone
+  [FP] plant organ -> central endosperm
+  [FP] plant organ -> ear floret
+  [FP] plant organ -> floral organ abscission zone
+  [FP] plant organ -> flower
+  [FP] plant organ -> multi-tissue plant structure
+  [FP] plant organ -> pistillate flower
+  [FP] plant organ -> plant axis differentiation zone
+  [FP] plant organ -> reproductive shoot system
+  [FP] plant organ -> shoot internode differentiation zone
+  [FP] plant organ -> spikelet floret
+  [FP] plant organ -> storage parenchyma
+  [FP] plant organ -> subterranean tuber axillary shoot
+  [FP] plant organ -> tuber axillary shoot
+  [FP] plant organ -> tuber storage parenchyma
+  [FP] plant structure -> ear floret
+  [FP] plant structure -> flower
+  [FP] plant structure -> pistillate flower
+  [FP] plant structure -> plant anatomical entity
+  [FP] plant structure -> plant structure
+  [FP] plant structure -> reproductive shoot system
+  [FP] plant structure -> spikelet floret
+  [FP] plant structure -> storage parenchyma
+  [FP] plant structure -> subterranean tuber axillary shoot
+  [FP] plant structure -> tuber axillary shoot
+  [FP] plant structure -> tuber storage parenchyma
+  [FP] portion of ground tissue -> storage parenchyma
+  [FP] portion of ground tissue -> tuber storage parenchyma
+  [FP] portion of plant tissue -> branch internode differentiation zone
+  [FP] portion of plant tissue -> plant axis differentiation zone
+  [FP] portion of plant tissue -> shoot internode differentiation zone
+  [FP] portion of plant tissue -> storage parenchyma
+  [FP] portion of plant tissue -> tuber storage parenchyma
+  [FP] subterranean tuber axillary shoot -> subterranean tuber axillary shoot
+  [FP] subterranean tuber axillary shoot -> tuber axillary shoot
+  [FP] tuber axillary shoot -> tuber axillary shoot
+
+MISSED RELATIONS (False Negatives: 2):
+  [FN] multi-tissue plant structure -> plant organ
+  [FN] pistillate flower -> ear floret

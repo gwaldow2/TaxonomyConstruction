@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d4" for="graph" attr.name="timestamp" attr.type="string"/>
+<key id="d3" for="graph" attr.name="scale" attr.type="string"/>
+<key id="d2" for="graph" attr.name="results_file" attr.type="string"/>
+<key id="d1" for="graph" attr.name="tag" attr.type="string"/>
+<key id="d0" for="graph" attr.name="model" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">gemini-3.1-pro-preview</data>
+<data key="d1">gemini31_s25</data>
+<data key="d2">results/scaling_gemini.json</data>
+<data key="d3">SUB25</data>
+<data key="d4">2026-09-30T17:44:42</data>
+<node id="itemlist"/>
+<node id="intangible"/>
+<node id="place"/>
+<node id="entertainmentbusiness"/>
+<node id="enumeration"/>
+<node id="listitem"/>
+<node id="time"/>
+<node id="peopleaudience"/>
+<node id="creativework"/>
+<node id="adultorientedenumeration"/>
+<node id="datatype"/>
+<node id="service"/>
+<node id="series"/>
+<node id="creativeworkseries"/>
+<node id="bakery"/>
+<node id="localbusiness"/>
+<node id="howtostep"/>
+<node id="foodestablishment"/>
+<node id="organization"/>
+<node id="audience"/>
+<node id="researchorganization"/>
+<node id="broadcastservice"/>
+<node id="governmentbenefitstype"/>
+<node id="movieseries"/>
+<node id="offer"/>
+<edge source="intangible" target="audience"/>
+<edge source="intangible" target="enumeration"/>
+<edge source="intangible" target="itemlist"/>
+<edge source="intangible" target="listitem"/>
+<edge source="intangible" target="offer"/>
+<edge source="intangible" target="series"/>
+<edge source="intangible" target="service"/>
+<edge source="place" target="localbusiness"/>
+<edge source="enumeration" target="adultorientedenumeration"/>
+<edge source="enumeration" target="governmentbenefitstype"/>
+<edge source="listitem" target="howtostep"/>
+<edge source="creativework" target="creativeworkseries"/>
+<edge source="creativework" target="howtostep"/>
+<edge source="datatype" target="time"/>
+<edge source="service" target="broadcastservice"/>
+<edge source="series" target="creativeworkseries"/>
+<edge source="creativeworkseries" target="movieseries"/>
+<edge source="localbusiness" target="entertainmentbusiness"/>
+<edge source="localbusiness" target="foodestablishment"/>
+<edge source="foodestablishment" target="bakery"/>
+<edge source="organization" target="localbusiness"/>
+<edge source="organization" target="researchorganization"/>
+<edge source="audience" target="peopleaudience"/>
+</graph></graphml>

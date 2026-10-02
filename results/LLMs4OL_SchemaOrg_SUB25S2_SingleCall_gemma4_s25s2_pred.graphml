@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d4" for="graph" attr.name="timestamp" attr.type="string"/>
+<key id="d3" for="graph" attr.name="scale" attr.type="string"/>
+<key id="d2" for="graph" attr.name="results_file" attr.type="string"/>
+<key id="d1" for="graph" attr.name="tag" attr.type="string"/>
+<key id="d0" for="graph" attr.name="model" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">google/gemma-4-31b-it</data>
+<data key="d1">gemma4_s25s2</data>
+<data key="d2">results/scaling_gemma4.json</data>
+<data key="d3">SUB25S2</data>
+<data key="d4">2026-09-30T16:51:14</data>
+<node id="fastfoodrestaurant"/>
+<node id="physician"/>
+<node id="palliativeprocedure"/>
+<node id="medicalentity"/>
+<node id="foodestablishment"/>
+<node id="consumeaction"/>
+<node id="organization"/>
+<node id="comicseries"/>
+<node id="medicalbusiness"/>
+<node id="listitem"/>
+<node id="periodical"/>
+<node id="organizeaction"/>
+<node id="localbusiness"/>
+<node id="watchaction"/>
+<node id="electrician"/>
+<node id="medicaltherapy"/>
+<node id="action"/>
+<node id="medicalprocedure"/>
+<node id="bookmarkaction"/>
+<node id="homeandconstructionbusiness"/>
+<node id="howtoitem"/>
+<node id="place"/>
+<node id="individualphysician"/>
+<node id="therapeuticprocedure"/>
+<node id="medicalorganization"/>
+<node id="intangible"/>
+<edge source="physician" target="individualphysician"/>
+<edge source="medicalentity" target="medicalorganization"/>
+<edge source="medicalentity" target="physician"/>
+<edge source="medicalentity" target="medicalprocedure"/>
+<edge source="medicalentity" target="medicaltherapy"/>
+<edge source="foodestablishment" target="fastfoodrestaurant"/>
+<edge source="organization" target="medicalorganization"/>
+<edge source="medicalbusiness" target="medicalorganization"/>
+<edge source="medicalbusiness" target="individualphysician"/>
+<edge source="periodical" target="comicseries"/>
+<edge source="localbusiness" target="foodestablishment"/>
+<edge source="localbusiness" target="homeandconstructionbusiness"/>
+<edge source="localbusiness" target="medicalbusiness"/>
+<edge source="medicaltherapy" target="therapeuticprocedure"/>
+<edge source="action" target="bookmarkaction"/>
+<edge source="action" target="consumeaction"/>
+<edge source="action" target="organizeaction"/>
+<edge source="action" target="watchaction"/>
+<edge source="medicalprocedure" target="therapeuticprocedure"/>
+<edge source="homeandconstructionbusiness" target="electrician"/>
+<edge source="place" target="localbusiness"/>
+<edge source="therapeuticprocedure" target="palliativeprocedure"/>
+<edge source="intangible" target="howtoitem"/>
+<edge source="intangible" target="listitem"/>
+<edge source="intangible" target="periodical"/>
+</graph></graphml>

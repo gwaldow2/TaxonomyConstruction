@@ -1,0 +1,157 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d4" for="graph" attr.name="timestamp" attr.type="string"/>
+<key id="d3" for="graph" attr.name="scale" attr.type="string"/>
+<key id="d2" for="graph" attr.name="results_file" attr.type="string"/>
+<key id="d1" for="graph" attr.name="tag" attr.type="string"/>
+<key id="d0" for="graph" attr.name="model" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">google/gemma-4-31b-it</data>
+<data key="d1">gemma4_s50s2</data>
+<data key="d2">results/scaling_gemma4.json</data>
+<data key="d3">SUB50S2</data>
+<data key="d4">2026-09-30T17:12:11</data>
+<node id="creativework"/>
+<node id="article"/>
+<node id="intangible"/>
+<node id="review"/>
+<node id="assessaction"/>
+<node id="foodestablishment"/>
+<node id="fastfoodrestaurant"/>
+<node id="localbusiness"/>
+<node id="organization"/>
+<node id="place"/>
+<node id="audience"/>
+<node id="businessaudience"/>
+<node id="medicalentity"/>
+<node id="physician"/>
+<node id="individualphysician"/>
+<node id="action"/>
+<node id="socialmediaposting"/>
+<node id="therapeuticprocedure"/>
+<node id="palliativeprocedure"/>
+<node id="medicalprocedure (medicalprocedure, medicaltherapy)"/>
+<node id="occupationaltherapy"/>
+<node id="anatomicalstructure"/>
+<node id="medicalcode"/>
+<node id="medicaltest"/>
+<node id="medicalbusiness (medicalbusiness, medicalorganization)"/>
+<node id="creativeworkseries"/>
+<node id="series"/>
+<node id="comicseries"/>
+<node id="videogameseries"/>
+<node id="consumeaction"/>
+<node id="performinggroup"/>
+<node id="musicgroup"/>
+<node id="homeandconstructionbusiness"/>
+<node id="enumeration"/>
+<node id="mediamanipulationratingenumeration"/>
+<node id="recommendation"/>
+<node id="listitem"/>
+<node id="howtoitem"/>
+<node id="periodical"/>
+<node id="organizeaction"/>
+<node id="medicalintangible"/>
+<node id="electrician"/>
+<node id="recipe"/>
+<node id="howto"/>
+<node id="watchaction"/>
+<node id="bookmarkaction"/>
+<node id="reactaction"/>
+<node id="certificationstatusenumeration"/>
+<node id="bookformattype"/>
+<edge source="creativework" target="article"/>
+<edge source="creativework" target="review"/>
+<edge source="creativework" target="socialmediaposting"/>
+<edge source="creativework" target="creativeworkseries"/>
+<edge source="creativework" target="comicseries"/>
+<edge source="creativework" target="recommendation"/>
+<edge source="creativework" target="listitem"/>
+<edge source="creativework" target="periodical"/>
+<edge source="creativework" target="recipe"/>
+<edge source="creativework" target="videogameseries"/>
+<edge source="creativework" target="howto"/>
+<edge source="creativework" target="howtoitem"/>
+<edge source="creativework" target="series"/>
+<edge source="article" target="howto"/>
+<edge source="intangible" target="article"/>
+<edge source="intangible" target="recommendation"/>
+<edge source="intangible" target="periodical"/>
+<edge source="intangible" target="medicalintangible"/>
+<edge source="intangible" target="videogameseries"/>
+<edge source="intangible" target="medicalprocedure (medicalprocedure, medicaltherapy)"/>
+<edge source="intangible" target="certificationstatusenumeration"/>
+<edge source="intangible" target="creativework"/>
+<edge source="intangible" target="medicalcode"/>
+<edge source="intangible" target="medicaltest"/>
+<edge source="intangible" target="bookformattype"/>
+<edge source="assessaction" target="review"/>
+<edge source="foodestablishment" target="fastfoodrestaurant"/>
+<edge source="localbusiness" target="fastfoodrestaurant"/>
+<edge source="localbusiness" target="foodestablishment"/>
+<edge source="localbusiness" target="medicalbusiness (medicalbusiness, medicalorganization)"/>
+<edge source="localbusiness" target="electrician"/>
+<edge source="localbusiness" target="homeandconstructionbusiness"/>
+<edge source="organization" target="fastfoodrestaurant"/>
+<edge source="organization" target="foodestablishment"/>
+<edge source="organization" target="performinggroup"/>
+<edge source="organization" target="medicalbusiness (medicalbusiness, medicalorganization)"/>
+<edge source="organization" target="musicgroup"/>
+<edge source="organization" target="localbusiness"/>
+<edge source="organization" target="homeandconstructionbusiness"/>
+<edge source="place" target="fastfoodrestaurant"/>
+<edge source="place" target="foodestablishment"/>
+<edge source="place" target="localbusiness"/>
+<edge source="place" target="medicalbusiness (medicalbusiness, medicalorganization)"/>
+<edge source="place" target="homeandconstructionbusiness"/>
+<edge source="audience" target="businessaudience"/>
+<edge source="medicalentity" target="physician"/>
+<edge source="medicalentity" target="palliativeprocedure"/>
+<edge source="medicalentity" target="occupationaltherapy"/>
+<edge source="medicalentity" target="medicalprocedure (medicalprocedure, medicaltherapy)"/>
+<edge source="medicalentity" target="anatomicalstructure"/>
+<edge source="medicalentity" target="medicalcode"/>
+<edge source="medicalentity" target="medicaltest"/>
+<edge source="medicalentity" target="individualphysician"/>
+<edge source="medicalentity" target="therapeuticprocedure"/>
+<edge source="medicalentity" target="medicalbusiness (medicalbusiness, medicalorganization)"/>
+<edge source="medicalentity" target="medicalintangible"/>
+<edge source="physician" target="individualphysician"/>
+<edge source="action" target="socialmediaposting"/>
+<edge source="action" target="palliativeprocedure"/>
+<edge source="action" target="consumeaction"/>
+<edge source="action" target="organizeaction"/>
+<edge source="action" target="watchaction"/>
+<edge source="action" target="bookmarkaction"/>
+<edge source="action" target="assessaction"/>
+<edge source="action" target="reactaction"/>
+<edge source="action" target="medicalprocedure (medicalprocedure, medicaltherapy)"/>
+<edge source="action" target="therapeuticprocedure"/>
+<edge source="therapeuticprocedure" target="palliativeprocedure"/>
+<edge source="therapeuticprocedure" target="occupationaltherapy"/>
+<edge source="medicalprocedure (medicalprocedure, medicaltherapy)" target="palliativeprocedure"/>
+<edge source="medicalprocedure (medicalprocedure, medicaltherapy)" target="occupationaltherapy"/>
+<edge source="medicalprocedure (medicalprocedure, medicaltherapy)" target="medicaltest"/>
+<edge source="medicalprocedure (medicalprocedure, medicaltherapy)" target="therapeuticprocedure"/>
+<edge source="medicalbusiness (medicalbusiness, medicalorganization)" target="foodestablishment"/>
+<edge source="creativeworkseries" target="comicseries"/>
+<edge source="creativeworkseries" target="videogameseries"/>
+<edge source="creativeworkseries" target="periodical"/>
+<edge source="series" target="creativeworkseries"/>
+<edge source="series" target="comicseries"/>
+<edge source="series" target="periodical"/>
+<edge source="series" target="videogameseries"/>
+<edge source="consumeaction" target="watchaction"/>
+<edge source="performinggroup" target="musicgroup"/>
+<edge source="homeandconstructionbusiness" target="electrician"/>
+<edge source="enumeration" target="mediamanipulationratingenumeration"/>
+<edge source="enumeration" target="certificationstatusenumeration"/>
+<edge source="enumeration" target="medicalcode"/>
+<edge source="enumeration" target="bookformattype"/>
+<edge source="howtoitem" target="listitem"/>
+<edge source="howtoitem" target="recipe"/>
+<edge source="medicalintangible" target="medicalprocedure (medicalprocedure, medicaltherapy)"/>
+<edge source="medicalintangible" target="medicalcode"/>
+<edge source="medicalintangible" target="medicaltest"/>
+<edge source="medicalintangible" target="certificationstatusenumeration"/>
+<edge source="howto" target="recipe"/>
+<edge source="howto" target="howtoitem"/>
+</graph></graphml>

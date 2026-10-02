@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d4" for="graph" attr.name="timestamp" attr.type="string"/>
+<key id="d3" for="graph" attr.name="scale" attr.type="string"/>
+<key id="d2" for="graph" attr.name="results_file" attr.type="string"/>
+<key id="d1" for="graph" attr.name="tag" attr.type="string"/>
+<key id="d0" for="graph" attr.name="model" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">google/gemma-4-31b-it</data>
+<data key="d1">gemma4_s25s1</data>
+<data key="d2">results/scaling_gemma4.json</data>
+<data key="d3">SUB25S1</data>
+<data key="d4">2026-09-30T16:46:58</data>
+<node id="suspendaction"/>
+<node id="tvepisode"/>
+<node id="datadownload"/>
+<node id="movietheater"/>
+<node id="manuscript"/>
+<node id="civicstructure"/>
+<node id="televisionchannel"/>
+<node id="carusagetype"/>
+<node id="organization"/>
+<node id="entertainmentbusiness"/>
+<node id="localbusiness"/>
+<node id="controlaction"/>
+<node id="action"/>
+<node id="governmentbuilding"/>
+<node id="enumeration"/>
+<node id="sizegroupenumeration"/>
+<node id="creativework"/>
+<node id="collection"/>
+<node id="sportsactivitylocation"/>
+<node id="healthclub"/>
+<node id="place"/>
+<node id="emergencyservice"/>
+<node id="episode"/>
+<node id="mediaobject"/>
+<node id="broadcastchannel"/>
+<node id="intangible"/>
+<edge source="civicstructure" target="governmentbuilding"/>
+<edge source="organization" target="emergencyservice"/>
+<edge source="entertainmentbusiness" target="movietheater"/>
+<edge source="localbusiness" target="entertainmentbusiness"/>
+<edge source="localbusiness" target="healthclub"/>
+<edge source="action" target="controlaction"/>
+<edge source="action" target="suspendaction"/>
+<edge source="enumeration" target="carusagetype"/>
+<edge source="enumeration" target="sizegroupenumeration"/>
+<edge source="creativework" target="mediaobject"/>
+<edge source="creativework" target="episode"/>
+<edge source="creativework" target="manuscript"/>
+<edge source="collection" target="datadownload"/>
+<edge source="place" target="localbusiness"/>
+<edge source="place" target="civicstructure"/>
+<edge source="place" target="sportsactivitylocation"/>
+<edge source="episode" target="tvepisode"/>
+<edge source="mediaobject" target="broadcastchannel"/>
+<edge source="broadcastchannel" target="televisionchannel"/>
+<edge source="intangible" target="action"/>
+<edge source="intangible" target="creativework"/>
+<edge source="intangible" target="enumeration"/>
+</graph></graphml>

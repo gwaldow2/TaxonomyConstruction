@@ -1,0 +1,111 @@
+==================================================
+=== Detailed Node Pair Analysis (Condensed Transitive Reduction) ===
+Match Type Used: SET_OVERLAP
+==================================================
+Precision: 0.6000 | Recall: 0.6000 | F1: 0.6000
+
+CORRECT PREDICTIONS (True Positives: 30 Pred edges covering 30 GT edges):
+  [TP] PRED: (adjuvant role -> immunologic adjuvant role)
+        matches GT: (adjuvant role -> immunologic adjuvant role)
+  [TP] PRED: (analyte assay -> chloride assay)
+        matches GT: (analyte assay -> chloride assay)
+  [TP] PRED: (assay -> analyte assay)
+        matches GT: (assay -> analyte assay)
+  [TP] PRED: (assay -> blood assay)
+        matches GT: (assay -> blood assay)
+  [TP] PRED: (assay -> insecticide resistance assay)
+        matches GT: (assay -> insecticide resistance assay)
+  [TP] PRED: (assay -> organism detection assay)
+        matches GT: (assay -> organism detection assay)
+  [TP] PRED: (assay measuring b cell epitope specific in vivo activity -> in vivo assay measuring a b cell epitope specific response after adoptive transfer of epitope specific antibodies or b cells)
+        matches GT: (assay measuring b cell epitope specific in vivo activity -> in vivo assay measuring a b cell epitope specific response after adoptive transfer of epitope specific antibodies or b cells)
+  [TP] PRED: (assay measuring b cell epitope specific in vivo activity -> in vivo assay measuring b cell epitope specific protection from challenge)
+        matches GT: (assay measuring b cell epitope specific in vivo activity -> in vivo assay measuring b cell epitope specific protection from challenge)
+  [TP] PRED: (assay measuring epitope specific cytokine production by t cells -> assay measuring epitope specific ip-10 production by t cells)
+        matches GT: (assay measuring epitope specific cytokine production by t cells -> assay measuring epitope specific ip-10 production by t cells)
+  [TP] PRED: (assay measuring epitope specific ip-10 production by t cells -> intracellular cytokine staining assay measuring epitope specific ip-10 production by t cells)
+        matches GT: (assay measuring epitope specific ip-10 production by t cells -> intracellular cytokine staining assay measuring epitope specific ip-10 production by t cells)
+  [TP] PRED: (brain region atlas image data set -> probabilistic brain region atlas image dataset)
+        matches GT: (brain region atlas image data set -> probabilistic brain region atlas image dataset)
+  [TP] PRED: (chloride assay -> chem16 venous blood chloride assay)
+        matches GT: (chloride assay -> chem16 venous blood chloride assay)
+  [TP] PRED: (data item -> feces assay datum)
+        matches GT: (data item -> feces assay datum)
+  [TP] PRED: (data transformation -> sequence analysis data transformation)
+        matches GT: (data transformation -> sequence analysis data transformation)
+  [TP] PRED: (epitope protection from tumor challenge experiment -> in vivo assay measuring b cell epitope specific protection from tumor challenge resulting from the adoptive transfer of epitope specific antibodies or b cells)
+        matches GT: (epitope protection from tumor challenge experiment -> in vivo assay measuring b cell epitope specific protection from tumor challenge resulting from the adoptive transfer of epitope specific antibodies or b cells)
+  [TP] PRED: (filtration -> water filtration)
+        matches GT: (filtration -> water filtration)
+  [TP] PRED: (function -> record function)
+        matches GT: (function -> record function)
+  [TP] PRED: (image data set -> computed image data set)
+        matches GT: (image data set -> computed image data set)
+  [TP] PRED: (in vivo assay measuring b cell epitope specific protection from challenge -> in vivo assay measuring b cell epitope specific protection from challenge resulting from adoptive transfer of epitope specific antibodies or b cells)
+        matches GT: (in vivo assay measuring b cell epitope specific protection from challenge -> in vivo assay measuring b cell epitope specific protection from challenge resulting from adoptive transfer of epitope specific antibodies or b cells)
+  [TP] PRED: (insecticide resistance assay -> insecticide resistance bioassay)
+        matches GT: (insecticide resistance assay -> insecticide resistance bioassay)
+  [TP] PRED: (insecticide resistance bioassay -> direct insecticide resistance bioassay)
+        matches GT: (insecticide resistance bioassay -> direct insecticide resistance bioassay)
+  [TP] PRED: (mass spectrometry assay -> liquid chromatography mass spectrometry assay)
+        matches GT: (mass spectrometry assay -> liquid chromatography mass spectrometry assay)
+  [TP] PRED: (material component separation -> filtration)
+        matches GT: (material component separation -> filtration)
+  [TP] PRED: (material processing -> material component separation)
+        matches GT: (material processing -> material component separation)
+  [TP] PRED: (organism detection assay -> gram stain assay)
+        matches GT: (organism detection assay -> gram stain assay)
+  [TP] PRED: (planned process -> assay)
+        matches GT: (planned process -> assay)
+  [TP] PRED: (planned process -> material processing)
+        matches GT: (planned process -> material processing)
+  [TP] PRED: (role -> adjuvant role)
+        matches GT: (role -> adjuvant role)
+  [TP] PRED: (specimen identifier -> specimen identifier assigned by specimen repository)
+        matches GT: (specimen identifier -> specimen identifier assigned by specimen repository)
+  [TP] PRED: (symbol -> centrally registered identifier symbol)
+        matches GT: (symbol -> centrally registered identifier symbol)
+
+INCORRECT PREDICTIONS (False Positives: 20):
+  [FP] assay -> assay measuring b cell epitope specific in vivo activity
+  [FP] assay -> assay measuring biological activity resulting from b cell epitopeantibody binding
+  [FP] assay -> assay measuring biological activity resulting from t cell epitopemhctcr binding
+  [FP] assay -> centre for disease control and prevention bottle bioassay
+  [FP] assay -> mass spectrometry assay
+  [FP] assay -> t cell epitope assay
+  [FP] assay measuring biological activity resulting from b cell epitopeantibody binding -> 96-well neutralization assay
+  [FP] assay measuring biological activity resulting from b cell epitopeantibody binding -> serum neutralization of viral infectivity assay
+  [FP] assay measuring epitope specific cytokine production by t cells -> assay measuring epitope specific interleukin-13 production by t cells
+  [FP] data item -> data transformation
+  [FP] data item -> image data set
+  [FP] data item -> specimen identifier
+  [FP] data item -> symbol
+  [FP] data transformation -> sequence library data demultiplexing
+  [FP] epitope protection experiment -> epitope protection from tumor challenge experiment
+  [FP] image data set -> brain region atlas image data set
+  [FP] in vivo assay measuring b cell epitope specific protection from challenge -> epitope protection experiment
+  [FP] insecticide resistance assay -> direct insecticide resistance diagnostic assay
+  [FP] realizable entity -> planned process
+  [FP] t cell epitope assay -> assay measuring epitope specific cytokine production by t cells
+
+MISSED RELATIONS (False Negatives: 20):
+  [FN] analyte assay -> detection of specific nucleic acid polymers with complementary probes
+  [FN] analyte assay -> serum neutralization of viral infectivity assay
+  [FN] assay measuring biological activity resulting from b cell epitopeantibody binding -> assay measuring b cell epitope specific in vivo activity
+  [FN] assay measuring biological activity resulting from t cell epitopemhctcr binding -> assay measuring epitope specific cytokine production by t cells
+  [FN] assay measuring epitope specific interleukin-13 production by t cells -> detection of specific nucleic acids with complementary probes assay measuring epitope specific interleukin-13 production by t cells
+  [FN] blood assay -> chem16 venous blood chloride assay
+  [FN] blood assay -> serum neutralization of viral infectivity assay
+  [FN] centrally registered identifier symbol -> specimen identifier
+  [FN] computed image data set -> brain region atlas image data set
+  [FN] detection of specific nucleic acid polymers with complementary probes -> detection of specific nucleic acids with complementary probes assay measuring epitope specific interleukin-13 production by t cells
+  [FN] direct insecticide resistance bioassay -> direct insecticide resistance diagnostic assay
+  [FN] direct insecticide resistance diagnostic assay -> centre for disease control and prevention bottle bioassay
+  [FN] epitope protection experiment -> in vivo assay measuring b cell epitope specific protection from challenge
+  [FN] in vivo assay measuring a b cell epitope specific response after adoptive transfer of epitope specific antibodies or b cells -> in vivo assay measuring b cell epitope specific protection from challenge resulting from adoptive transfer of epitope specific antibodies or b cells
+  [FN] in vivo assay measuring b cell epitope specific protection from challenge resulting from adoptive transfer of epitope specific antibodies or b cells -> in vivo assay measuring b cell epitope specific protection from tumor challenge resulting from the adoptive transfer of epitope specific antibodies or b cells
+  [FN] planned process -> data transformation
+  [FN] realizable entity -> role
+  [FN] sequence analysis data transformation -> sequence library data demultiplexing
+  [FN] serum neutralization of viral infectivity assay -> 96-well neutralization assay
+  [FN] t cell epitope assay -> assay measuring biological activity resulting from t cell epitopemhctcr binding

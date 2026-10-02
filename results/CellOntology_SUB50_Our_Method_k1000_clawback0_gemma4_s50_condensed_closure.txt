@@ -1,0 +1,582 @@
+==================================================
+=== Detailed Node Pair Analysis (Condensed Transitive Closure) ===
+Match Type Used: SET_OVERLAP
+==================================================
+Precision: 0.6211 | Recall: 0.8165 | F1: 0.7055
+
+CORRECT PREDICTIONS (True Positives: 141 Pred edges covering 218 GT edges):
+  [TP] PRED: (auditory epithelial cell -> strial basal cell)
+        matches GT: (auditory epithelial cell -> strial basal cell)
+  [TP] PRED: (b cell (b cell, lymphocyte of b lineage) -> b cell cd19-positive (b cell cd19-positive, lymphocyte of b lineage cd19-positive))
+        matches GT: (b cell -> b cell cd19-positive)
+  [TP] PRED: (b cell (b cell, lymphocyte of b lineage) -> b cell cd19-positive (b cell cd19-positive, lymphocyte of b lineage cd19-positive))
+        matches GT: (lymphocyte of b lineage -> b cell cd19-positive)
+  [TP] PRED: (b cell (b cell, lymphocyte of b lineage) -> b cell cd19-positive (b cell cd19-positive, lymphocyte of b lineage cd19-positive))
+        matches GT: (lymphocyte of b lineage -> lymphocyte of b lineage cd19-positive)
+  [TP] PRED: (b cell (b cell, lymphocyte of b lineage) -> be cell)
+        matches GT: (b cell -> be cell)
+  [TP] PRED: (b cell (b cell, lymphocyte of b lineage) -> be cell)
+        matches GT: (lymphocyte of b lineage -> be cell)
+  [TP] PRED: (b cell (b cell, lymphocyte of b lineage) -> be1 cell)
+        matches GT: (b cell -> be1 cell)
+  [TP] PRED: (b cell (b cell, lymphocyte of b lineage) -> be1 cell)
+        matches GT: (lymphocyte of b lineage -> be1 cell)
+  [TP] PRED: (b cell (b cell, lymphocyte of b lineage) -> mature b cell)
+        matches GT: (b cell -> mature b cell)
+  [TP] PRED: (b cell (b cell, lymphocyte of b lineage) -> mature b cell)
+        matches GT: (lymphocyte of b lineage -> mature b cell)
+  [TP] PRED: (b cell cd19-positive (b cell cd19-positive, lymphocyte of b lineage cd19-positive) -> mature b cell)
+        matches GT: (b cell cd19-positive -> mature b cell)
+  [TP] PRED: (b cell cd19-positive (b cell cd19-positive, lymphocyte of b lineage cd19-positive) -> mature b cell)
+        matches GT: (lymphocyte of b lineage cd19-positive -> mature b cell)
+  [TP] PRED: (be cell -> be1 cell)
+        matches GT: (be cell -> be1 cell)
+  [TP] PRED: (cell (cell, eukaryotic cell) -> auditory epithelial cell)
+        matches GT: (cell -> auditory epithelial cell)
+  [TP] PRED: (cell (cell, eukaryotic cell) -> auditory epithelial cell)
+        matches GT: (eukaryotic cell -> auditory epithelial cell)
+  [TP] PRED: (cell (cell, eukaryotic cell) -> b cell (b cell, lymphocyte of b lineage))
+        matches GT: (cell -> b cell)
+  [TP] PRED: (cell (cell, eukaryotic cell) -> b cell (b cell, lymphocyte of b lineage))
+        matches GT: (cell -> lymphocyte of b lineage)
+  [TP] PRED: (cell (cell, eukaryotic cell) -> b cell (b cell, lymphocyte of b lineage))
+        matches GT: (eukaryotic cell -> b cell)
+  [TP] PRED: (cell (cell, eukaryotic cell) -> b cell (b cell, lymphocyte of b lineage))
+        matches GT: (eukaryotic cell -> lymphocyte of b lineage)
+  [TP] PRED: (cell (cell, eukaryotic cell) -> b cell cd19-positive (b cell cd19-positive, lymphocyte of b lineage cd19-positive))
+        matches GT: (cell -> b cell cd19-positive)
+  [TP] PRED: (cell (cell, eukaryotic cell) -> b cell cd19-positive (b cell cd19-positive, lymphocyte of b lineage cd19-positive))
+        matches GT: (cell -> lymphocyte of b lineage cd19-positive)
+  [TP] PRED: (cell (cell, eukaryotic cell) -> b cell cd19-positive (b cell cd19-positive, lymphocyte of b lineage cd19-positive))
+        matches GT: (eukaryotic cell -> b cell cd19-positive)
+  [TP] PRED: (cell (cell, eukaryotic cell) -> b cell cd19-positive (b cell cd19-positive, lymphocyte of b lineage cd19-positive))
+        matches GT: (eukaryotic cell -> lymphocyte of b lineage cd19-positive)
+  [TP] PRED: (cell (cell, eukaryotic cell) -> be cell)
+        matches GT: (cell -> be cell)
+  [TP] PRED: (cell (cell, eukaryotic cell) -> be cell)
+        matches GT: (eukaryotic cell -> be cell)
+  [TP] PRED: (cell (cell, eukaryotic cell) -> be1 cell)
+        matches GT: (cell -> be1 cell)
+  [TP] PRED: (cell (cell, eukaryotic cell) -> be1 cell)
+        matches GT: (eukaryotic cell -> be1 cell)
+  [TP] PRED: (cell (cell, eukaryotic cell) -> branched duct epithelial cell)
+        matches GT: (cell -> branched duct epithelial cell)
+  [TP] PRED: (cell (cell, eukaryotic cell) -> branched duct epithelial cell)
+        matches GT: (eukaryotic cell -> branched duct epithelial cell)
+  [TP] PRED: (cell (cell, eukaryotic cell) -> central nervous system neuron)
+        matches GT: (cell -> central nervous system neuron)
+  [TP] PRED: (cell (cell, eukaryotic cell) -> central nervous system neuron)
+        matches GT: (eukaryotic cell -> central nervous system neuron)
+  [TP] PRED: (cell (cell, eukaryotic cell) -> chemoreceptor cell)
+        matches GT: (cell -> chemoreceptor cell)
+  [TP] PRED: (cell (cell, eukaryotic cell) -> chemoreceptor cell)
+        matches GT: (eukaryotic cell -> chemoreceptor cell)
+  [TP] PRED: (cell (cell, eukaryotic cell) -> cholangiocyte)
+        matches GT: (cell -> cholangiocyte)
+  [TP] PRED: (cell (cell, eukaryotic cell) -> cholangiocyte)
+        matches GT: (eukaryotic cell -> cholangiocyte)
+  [TP] PRED: (cell (cell, eukaryotic cell) -> columnarcuboidal epithelial cell)
+        matches GT: (cell -> columnarcuboidal epithelial cell)
+  [TP] PRED: (cell (cell, eukaryotic cell) -> columnarcuboidal epithelial cell)
+        matches GT: (eukaryotic cell -> columnarcuboidal epithelial cell)
+  [TP] PRED: (cell (cell, eukaryotic cell) -> connective tissue cell (connective tissue cell, stromal cell))
+        matches GT: (cell -> connective tissue cell)
+  [TP] PRED: (cell (cell, eukaryotic cell) -> connective tissue cell (connective tissue cell, stromal cell))
+        matches GT: (cell -> stromal cell)
+  [TP] PRED: (cell (cell, eukaryotic cell) -> connective tissue cell (connective tissue cell, stromal cell))
+        matches GT: (eukaryotic cell -> connective tissue cell)
+  [TP] PRED: (cell (cell, eukaryotic cell) -> connective tissue cell (connective tissue cell, stromal cell))
+        matches GT: (eukaryotic cell -> stromal cell)
+  [TP] PRED: (cell (cell, eukaryotic cell) -> duct epithelial cell)
+        matches GT: (cell -> duct epithelial cell)
+  [TP] PRED: (cell (cell, eukaryotic cell) -> duct epithelial cell)
+        matches GT: (eukaryotic cell -> duct epithelial cell)
+  [TP] PRED: (cell (cell, eukaryotic cell) -> ecto-epithelial cell)
+        matches GT: (cell -> ecto-epithelial cell)
+  [TP] PRED: (cell (cell, eukaryotic cell) -> ecto-epithelial cell)
+        matches GT: (eukaryotic cell -> ecto-epithelial cell)
+  [TP] PRED: (cell (cell, eukaryotic cell) -> electrically active cell (electrically active cell, electrically responsive cell, electrically signaling cell, neural cell))
+        matches GT: (cell -> electrically active cell)
+  [TP] PRED: (cell (cell, eukaryotic cell) -> electrically active cell (electrically active cell, electrically responsive cell, electrically signaling cell, neural cell))
+        matches GT: (cell -> electrically responsive cell)
+  [TP] PRED: (cell (cell, eukaryotic cell) -> electrically active cell (electrically active cell, electrically responsive cell, electrically signaling cell, neural cell))
+        matches GT: (cell -> electrically signaling cell)
+  [TP] PRED: (cell (cell, eukaryotic cell) -> electrically active cell (electrically active cell, electrically responsive cell, electrically signaling cell, neural cell))
+        matches GT: (cell -> neural cell)
+  [TP] PRED: (cell (cell, eukaryotic cell) -> electrically active cell (electrically active cell, electrically responsive cell, electrically signaling cell, neural cell))
+        matches GT: (eukaryotic cell -> neural cell)
+  [TP] PRED: (cell (cell, eukaryotic cell) -> endo-epithelial cell)
+        matches GT: (cell -> endo-epithelial cell)
+  [TP] PRED: (cell (cell, eukaryotic cell) -> endo-epithelial cell)
+        matches GT: (eukaryotic cell -> endo-epithelial cell)
+  [TP] PRED: (cell (cell, eukaryotic cell) -> epithelial cell of upper respiratory tract)
+        matches GT: (cell -> epithelial cell of upper respiratory tract)
+  [TP] PRED: (cell (cell, eukaryotic cell) -> epithelial cell of upper respiratory tract)
+        matches GT: (eukaryotic cell -> epithelial cell of upper respiratory tract)
+  [TP] PRED: (cell (cell, eukaryotic cell) -> epithelial cell)
+        matches GT: (cell -> epithelial cell)
+  [TP] PRED: (cell (cell, eukaryotic cell) -> epithelial cell)
+        matches GT: (eukaryotic cell -> epithelial cell)
+  [TP] PRED: (cell (cell, eukaryotic cell) -> fibroblast)
+        matches GT: (cell -> fibroblast)
+  [TP] PRED: (cell (cell, eukaryotic cell) -> fibroblast)
+        matches GT: (eukaryotic cell -> fibroblast)
+  [TP] PRED: (cell (cell, eukaryotic cell) -> hematopoietic cell)
+        matches GT: (cell -> hematopoietic cell)
+  [TP] PRED: (cell (cell, eukaryotic cell) -> large mucus secreting cholangiocyte)
+        matches GT: (cell -> large mucus secreting cholangiocyte)
+  [TP] PRED: (cell (cell, eukaryotic cell) -> large mucus secreting cholangiocyte)
+        matches GT: (eukaryotic cell -> large mucus secreting cholangiocyte)
+  [TP] PRED: (cell (cell, eukaryotic cell) -> leukocyte)
+        matches GT: (cell -> leukocyte)
+  [TP] PRED: (cell (cell, eukaryotic cell) -> leukocyte)
+        matches GT: (eukaryotic cell -> leukocyte)
+  [TP] PRED: (cell (cell, eukaryotic cell) -> lymphocyte)
+        matches GT: (cell -> lymphocyte)
+  [TP] PRED: (cell (cell, eukaryotic cell) -> lymphocyte)
+        matches GT: (eukaryotic cell -> lymphocyte)
+  [TP] PRED: (cell (cell, eukaryotic cell) -> mature b cell)
+        matches GT: (cell -> mature b cell)
+  [TP] PRED: (cell (cell, eukaryotic cell) -> mature b cell)
+        matches GT: (eukaryotic cell -> mature b cell)
+  [TP] PRED: (cell (cell, eukaryotic cell) -> mesothelial fibroblast of the leptomeninx)
+        matches GT: (cell -> mesothelial fibroblast of the leptomeninx)
+  [TP] PRED: (cell (cell, eukaryotic cell) -> mesothelial fibroblast of the leptomeninx)
+        matches GT: (eukaryotic cell -> mesothelial fibroblast of the leptomeninx)
+  [TP] PRED: (cell (cell, eukaryotic cell) -> mesothelial fibroblast)
+        matches GT: (cell -> mesothelial fibroblast)
+  [TP] PRED: (cell (cell, eukaryotic cell) -> mesothelial fibroblast)
+        matches GT: (eukaryotic cell -> mesothelial fibroblast)
+  [TP] PRED: (cell (cell, eukaryotic cell) -> mononuclear leukocyte)
+        matches GT: (cell -> mononuclear leukocyte)
+  [TP] PRED: (cell (cell, eukaryotic cell) -> mononuclear leukocyte)
+        matches GT: (eukaryotic cell -> mononuclear leukocyte)
+  [TP] PRED: (cell (cell, eukaryotic cell) -> motile cell)
+        matches GT: (cell -> motile cell)
+  [TP] PRED: (cell (cell, eukaryotic cell) -> mucus secreting cell)
+        matches GT: (cell -> mucus secreting cell)
+  [TP] PRED: (cell (cell, eukaryotic cell) -> neurecto-epithelial cell)
+        matches GT: (cell -> neurecto-epithelial cell)
+  [TP] PRED: (cell (cell, eukaryotic cell) -> neurecto-epithelial cell)
+        matches GT: (eukaryotic cell -> neurecto-epithelial cell)
+  [TP] PRED: (cell (cell, eukaryotic cell) -> neuron)
+        matches GT: (cell -> neuron)
+  [TP] PRED: (cell (cell, eukaryotic cell) -> neuron)
+        matches GT: (eukaryotic cell -> neuron)
+  [TP] PRED: (cell (cell, eukaryotic cell) -> nucleate cell)
+        matches GT: (cell -> nucleate cell)
+  [TP] PRED: (cell (cell, eukaryotic cell) -> olfactory epithelial cell)
+        matches GT: (cell -> olfactory epithelial cell)
+  [TP] PRED: (cell (cell, eukaryotic cell) -> olfactory epithelial cell)
+        matches GT: (eukaryotic cell -> olfactory epithelial cell)
+  [TP] PRED: (cell (cell, eukaryotic cell) -> professional antigen presenting cell)
+        matches GT: (cell -> professional antigen presenting cell)
+  [TP] PRED: (cell (cell, eukaryotic cell) -> professional antigen presenting cell)
+        matches GT: (eukaryotic cell -> professional antigen presenting cell)
+  [TP] PRED: (cell (cell, eukaryotic cell) -> respiratory tract epithelial cell)
+        matches GT: (cell -> respiratory tract epithelial cell)
+  [TP] PRED: (cell (cell, eukaryotic cell) -> respiratory tract epithelial cell)
+        matches GT: (eukaryotic cell -> respiratory tract epithelial cell)
+  [TP] PRED: (cell (cell, eukaryotic cell) -> secretory cell (secretory cell, secretory epithelial cell))
+        matches GT: (cell -> secretory cell)
+  [TP] PRED: (cell (cell, eukaryotic cell) -> secretory cell (secretory cell, secretory epithelial cell))
+        matches GT: (cell -> secretory epithelial cell)
+  [TP] PRED: (cell (cell, eukaryotic cell) -> secretory cell (secretory cell, secretory epithelial cell))
+        matches GT: (eukaryotic cell -> secretory epithelial cell)
+  [TP] PRED: (cell (cell, eukaryotic cell) -> sensory epithelial cell)
+        matches GT: (cell -> sensory epithelial cell)
+  [TP] PRED: (cell (cell, eukaryotic cell) -> sensory epithelial cell)
+        matches GT: (eukaryotic cell -> sensory epithelial cell)
+  [TP] PRED: (cell (cell, eukaryotic cell) -> sensory receptor cell)
+        matches GT: (cell -> sensory receptor cell)
+  [TP] PRED: (cell (cell, eukaryotic cell) -> sensory receptor cell)
+        matches GT: (eukaryotic cell -> sensory receptor cell)
+  [TP] PRED: (cell (cell, eukaryotic cell) -> seromucus secreting cell)
+        matches GT: (cell -> seromucus secreting cell)
+  [TP] PRED: (cell (cell, eukaryotic cell) -> single nucleate cell)
+        matches GT: (cell -> single nucleate cell)
+  [TP] PRED: (cell (cell, eukaryotic cell) -> single nucleate cell)
+        matches GT: (eukaryotic cell -> single nucleate cell)
+  [TP] PRED: (cell (cell, eukaryotic cell) -> strial basal cell)
+        matches GT: (cell -> strial basal cell)
+  [TP] PRED: (cell (cell, eukaryotic cell) -> strial basal cell)
+        matches GT: (eukaryotic cell -> strial basal cell)
+  [TP] PRED: (cell (cell, eukaryotic cell) -> vascular leptomeningeal cell)
+        matches GT: (cell -> vascular leptomeningeal cell)
+  [TP] PRED: (cell (cell, eukaryotic cell) -> vascular leptomeningeal cell)
+        matches GT: (eukaryotic cell -> vascular leptomeningeal cell)
+  [TP] PRED: (cell (cell, eukaryotic cell) -> vlmc nn vascular leptomeningeal cell mmus)
+        matches GT: (cell -> vlmc nn vascular leptomeningeal cell mmus)
+  [TP] PRED: (cell (cell, eukaryotic cell) -> vlmc nn vascular leptomeningeal cell mmus)
+        matches GT: (eukaryotic cell -> vlmc nn vascular leptomeningeal cell mmus)
+  [TP] PRED: (cholangiocyte -> large mucus secreting cholangiocyte)
+        matches GT: (cholangiocyte -> large mucus secreting cholangiocyte)
+  [TP] PRED: (connective tissue cell (connective tissue cell, stromal cell) -> fibroblast)
+        matches GT: (connective tissue cell -> fibroblast)
+  [TP] PRED: (connective tissue cell (connective tissue cell, stromal cell) -> fibroblast)
+        matches GT: (stromal cell -> fibroblast)
+  [TP] PRED: (connective tissue cell (connective tissue cell, stromal cell) -> mesothelial fibroblast of the leptomeninx)
+        matches GT: (connective tissue cell -> mesothelial fibroblast of the leptomeninx)
+  [TP] PRED: (connective tissue cell (connective tissue cell, stromal cell) -> mesothelial fibroblast of the leptomeninx)
+        matches GT: (stromal cell -> mesothelial fibroblast of the leptomeninx)
+  [TP] PRED: (connective tissue cell (connective tissue cell, stromal cell) -> mesothelial fibroblast)
+        matches GT: (connective tissue cell -> mesothelial fibroblast)
+  [TP] PRED: (connective tissue cell (connective tissue cell, stromal cell) -> mesothelial fibroblast)
+        matches GT: (stromal cell -> mesothelial fibroblast)
+  [TP] PRED: (connective tissue cell (connective tissue cell, stromal cell) -> vascular leptomeningeal cell)
+        matches GT: (connective tissue cell -> vascular leptomeningeal cell)
+  [TP] PRED: (connective tissue cell (connective tissue cell, stromal cell) -> vascular leptomeningeal cell)
+        matches GT: (stromal cell -> vascular leptomeningeal cell)
+  [TP] PRED: (connective tissue cell (connective tissue cell, stromal cell) -> vlmc nn vascular leptomeningeal cell mmus)
+        matches GT: (connective tissue cell -> vlmc nn vascular leptomeningeal cell mmus)
+  [TP] PRED: (connective tissue cell (connective tissue cell, stromal cell) -> vlmc nn vascular leptomeningeal cell mmus)
+        matches GT: (stromal cell -> vlmc nn vascular leptomeningeal cell mmus)
+  [TP] PRED: (duct epithelial cell -> branched duct epithelial cell)
+        matches GT: (duct epithelial cell -> branched duct epithelial cell)
+  [TP] PRED: (duct epithelial cell -> cholangiocyte)
+        matches GT: (duct epithelial cell -> cholangiocyte)
+  [TP] PRED: (duct epithelial cell -> large mucus secreting cholangiocyte)
+        matches GT: (duct epithelial cell -> large mucus secreting cholangiocyte)
+  [TP] PRED: (ecto-epithelial cell -> neurecto-epithelial cell)
+        matches GT: (ecto-epithelial cell -> neurecto-epithelial cell)
+  [TP] PRED: (electrically active cell (electrically active cell, electrically responsive cell, electrically signaling cell, neural cell) -> central nervous system neuron)
+        matches GT: (electrically active cell -> central nervous system neuron)
+  [TP] PRED: (electrically active cell (electrically active cell, electrically responsive cell, electrically signaling cell, neural cell) -> central nervous system neuron)
+        matches GT: (electrically responsive cell -> central nervous system neuron)
+  [TP] PRED: (electrically active cell (electrically active cell, electrically responsive cell, electrically signaling cell, neural cell) -> central nervous system neuron)
+        matches GT: (electrically signaling cell -> central nervous system neuron)
+  [TP] PRED: (electrically active cell (electrically active cell, electrically responsive cell, electrically signaling cell, neural cell) -> central nervous system neuron)
+        matches GT: (neural cell -> central nervous system neuron)
+  [TP] PRED: (electrically active cell (electrically active cell, electrically responsive cell, electrically signaling cell, neural cell) -> neuron)
+        matches GT: (electrically active cell -> neuron)
+  [TP] PRED: (electrically active cell (electrically active cell, electrically responsive cell, electrically signaling cell, neural cell) -> neuron)
+        matches GT: (electrically responsive cell -> neuron)
+  [TP] PRED: (electrically active cell (electrically active cell, electrically responsive cell, electrically signaling cell, neural cell) -> neuron)
+        matches GT: (electrically signaling cell -> neuron)
+  [TP] PRED: (electrically active cell (electrically active cell, electrically responsive cell, electrically signaling cell, neural cell) -> neuron)
+        matches GT: (neural cell -> neuron)
+  [TP] PRED: (electrically active cell (electrically active cell, electrically responsive cell, electrically signaling cell, neural cell) -> olfactory epithelial cell)
+        matches GT: (neural cell -> olfactory epithelial cell)
+  [TP] PRED: (epithelial cell -> auditory epithelial cell)
+        matches GT: (epithelial cell -> auditory epithelial cell)
+  [TP] PRED: (epithelial cell -> branched duct epithelial cell)
+        matches GT: (epithelial cell -> branched duct epithelial cell)
+  [TP] PRED: (epithelial cell -> cholangiocyte)
+        matches GT: (epithelial cell -> cholangiocyte)
+  [TP] PRED: (epithelial cell -> columnarcuboidal epithelial cell)
+        matches GT: (epithelial cell -> columnarcuboidal epithelial cell)
+  [TP] PRED: (epithelial cell -> duct epithelial cell)
+        matches GT: (epithelial cell -> duct epithelial cell)
+  [TP] PRED: (epithelial cell -> ecto-epithelial cell)
+        matches GT: (epithelial cell -> ecto-epithelial cell)
+  [TP] PRED: (epithelial cell -> endo-epithelial cell)
+        matches GT: (epithelial cell -> endo-epithelial cell)
+  [TP] PRED: (epithelial cell -> epithelial cell of upper respiratory tract)
+        matches GT: (epithelial cell -> epithelial cell of upper respiratory tract)
+  [TP] PRED: (epithelial cell -> large mucus secreting cholangiocyte)
+        matches GT: (epithelial cell -> large mucus secreting cholangiocyte)
+  [TP] PRED: (epithelial cell -> neurecto-epithelial cell)
+        matches GT: (epithelial cell -> neurecto-epithelial cell)
+  [TP] PRED: (epithelial cell -> olfactory epithelial cell)
+        matches GT: (epithelial cell -> olfactory epithelial cell)
+  [TP] PRED: (epithelial cell -> respiratory tract epithelial cell)
+        matches GT: (epithelial cell -> respiratory tract epithelial cell)
+  [TP] PRED: (epithelial cell -> secretory cell (secretory cell, secretory epithelial cell))
+        matches GT: (epithelial cell -> secretory epithelial cell)
+  [TP] PRED: (epithelial cell -> sensory epithelial cell)
+        matches GT: (epithelial cell -> sensory epithelial cell)
+  [TP] PRED: (epithelial cell -> strial basal cell)
+        matches GT: (epithelial cell -> strial basal cell)
+  [TP] PRED: (epithelial cell of upper respiratory tract -> olfactory epithelial cell)
+        matches GT: (epithelial cell of upper respiratory tract -> olfactory epithelial cell)
+  [TP] PRED: (fibroblast -> mesothelial fibroblast of the leptomeninx)
+        matches GT: (fibroblast -> mesothelial fibroblast of the leptomeninx)
+  [TP] PRED: (fibroblast -> mesothelial fibroblast)
+        matches GT: (fibroblast -> mesothelial fibroblast)
+  [TP] PRED: (hematopoietic cell -> b cell (b cell, lymphocyte of b lineage))
+        matches GT: (hematopoietic cell -> b cell)
+  [TP] PRED: (hematopoietic cell -> b cell (b cell, lymphocyte of b lineage))
+        matches GT: (hematopoietic cell -> lymphocyte of b lineage)
+  [TP] PRED: (hematopoietic cell -> b cell cd19-positive (b cell cd19-positive, lymphocyte of b lineage cd19-positive))
+        matches GT: (hematopoietic cell -> b cell cd19-positive)
+  [TP] PRED: (hematopoietic cell -> b cell cd19-positive (b cell cd19-positive, lymphocyte of b lineage cd19-positive))
+        matches GT: (hematopoietic cell -> lymphocyte of b lineage cd19-positive)
+  [TP] PRED: (hematopoietic cell -> be cell)
+        matches GT: (hematopoietic cell -> be cell)
+  [TP] PRED: (hematopoietic cell -> be1 cell)
+        matches GT: (hematopoietic cell -> be1 cell)
+  [TP] PRED: (hematopoietic cell -> leukocyte)
+        matches GT: (hematopoietic cell -> leukocyte)
+  [TP] PRED: (hematopoietic cell -> lymphocyte)
+        matches GT: (hematopoietic cell -> lymphocyte)
+  [TP] PRED: (hematopoietic cell -> mature b cell)
+        matches GT: (hematopoietic cell -> mature b cell)
+  [TP] PRED: (hematopoietic cell -> mononuclear leukocyte)
+        matches GT: (hematopoietic cell -> mononuclear leukocyte)
+  [TP] PRED: (hematopoietic cell -> professional antigen presenting cell)
+        matches GT: (hematopoietic cell -> professional antigen presenting cell)
+  [TP] PRED: (leukocyte -> b cell (b cell, lymphocyte of b lineage))
+        matches GT: (leukocyte -> b cell)
+  [TP] PRED: (leukocyte -> b cell (b cell, lymphocyte of b lineage))
+        matches GT: (leukocyte -> lymphocyte of b lineage)
+  [TP] PRED: (leukocyte -> b cell cd19-positive (b cell cd19-positive, lymphocyte of b lineage cd19-positive))
+        matches GT: (leukocyte -> b cell cd19-positive)
+  [TP] PRED: (leukocyte -> b cell cd19-positive (b cell cd19-positive, lymphocyte of b lineage cd19-positive))
+        matches GT: (leukocyte -> lymphocyte of b lineage cd19-positive)
+  [TP] PRED: (leukocyte -> be cell)
+        matches GT: (leukocyte -> be cell)
+  [TP] PRED: (leukocyte -> be1 cell)
+        matches GT: (leukocyte -> be1 cell)
+  [TP] PRED: (leukocyte -> lymphocyte)
+        matches GT: (leukocyte -> lymphocyte)
+  [TP] PRED: (leukocyte -> mature b cell)
+        matches GT: (leukocyte -> mature b cell)
+  [TP] PRED: (leukocyte -> mononuclear leukocyte)
+        matches GT: (leukocyte -> mononuclear leukocyte)
+  [TP] PRED: (leukocyte -> professional antigen presenting cell)
+        matches GT: (leukocyte -> professional antigen presenting cell)
+  [TP] PRED: (lymphocyte -> b cell (b cell, lymphocyte of b lineage))
+        matches GT: (lymphocyte -> b cell)
+  [TP] PRED: (lymphocyte -> b cell (b cell, lymphocyte of b lineage))
+        matches GT: (lymphocyte -> lymphocyte of b lineage)
+  [TP] PRED: (lymphocyte -> b cell cd19-positive (b cell cd19-positive, lymphocyte of b lineage cd19-positive))
+        matches GT: (lymphocyte -> b cell cd19-positive)
+  [TP] PRED: (lymphocyte -> b cell cd19-positive (b cell cd19-positive, lymphocyte of b lineage cd19-positive))
+        matches GT: (lymphocyte -> lymphocyte of b lineage cd19-positive)
+  [TP] PRED: (lymphocyte -> be cell)
+        matches GT: (lymphocyte -> be cell)
+  [TP] PRED: (lymphocyte -> be1 cell)
+        matches GT: (lymphocyte -> be1 cell)
+  [TP] PRED: (lymphocyte -> mature b cell)
+        matches GT: (lymphocyte -> mature b cell)
+  [TP] PRED: (mesothelial fibroblast -> mesothelial fibroblast of the leptomeninx)
+        matches GT: (mesothelial fibroblast -> mesothelial fibroblast of the leptomeninx)
+  [TP] PRED: (mononuclear leukocyte -> b cell (b cell, lymphocyte of b lineage))
+        matches GT: (mononuclear leukocyte -> b cell)
+  [TP] PRED: (mononuclear leukocyte -> b cell (b cell, lymphocyte of b lineage))
+        matches GT: (mononuclear leukocyte -> lymphocyte of b lineage)
+  [TP] PRED: (mononuclear leukocyte -> b cell cd19-positive (b cell cd19-positive, lymphocyte of b lineage cd19-positive))
+        matches GT: (mononuclear leukocyte -> b cell cd19-positive)
+  [TP] PRED: (mononuclear leukocyte -> b cell cd19-positive (b cell cd19-positive, lymphocyte of b lineage cd19-positive))
+        matches GT: (mononuclear leukocyte -> lymphocyte of b lineage cd19-positive)
+  [TP] PRED: (mononuclear leukocyte -> be cell)
+        matches GT: (mononuclear leukocyte -> be cell)
+  [TP] PRED: (mononuclear leukocyte -> be1 cell)
+        matches GT: (mononuclear leukocyte -> be1 cell)
+  [TP] PRED: (mononuclear leukocyte -> lymphocyte)
+        matches GT: (mononuclear leukocyte -> lymphocyte)
+  [TP] PRED: (mononuclear leukocyte -> mature b cell)
+        matches GT: (mononuclear leukocyte -> mature b cell)
+  [TP] PRED: (mucus secreting cell -> large mucus secreting cholangiocyte)
+        matches GT: (mucus secreting cell -> large mucus secreting cholangiocyte)
+  [TP] PRED: (neuron -> central nervous system neuron)
+        matches GT: (neuron -> central nervous system neuron)
+  [TP] PRED: (nucleate cell -> b cell (b cell, lymphocyte of b lineage))
+        matches GT: (nucleate cell -> b cell)
+  [TP] PRED: (nucleate cell -> b cell (b cell, lymphocyte of b lineage))
+        matches GT: (nucleate cell -> lymphocyte of b lineage)
+  [TP] PRED: (nucleate cell -> b cell cd19-positive (b cell cd19-positive, lymphocyte of b lineage cd19-positive))
+        matches GT: (nucleate cell -> b cell cd19-positive)
+  [TP] PRED: (nucleate cell -> b cell cd19-positive (b cell cd19-positive, lymphocyte of b lineage cd19-positive))
+        matches GT: (nucleate cell -> lymphocyte of b lineage cd19-positive)
+  [TP] PRED: (nucleate cell -> be cell)
+        matches GT: (nucleate cell -> be cell)
+  [TP] PRED: (nucleate cell -> be1 cell)
+        matches GT: (nucleate cell -> be1 cell)
+  [TP] PRED: (nucleate cell -> leukocyte)
+        matches GT: (nucleate cell -> leukocyte)
+  [TP] PRED: (nucleate cell -> lymphocyte)
+        matches GT: (nucleate cell -> lymphocyte)
+  [TP] PRED: (nucleate cell -> mature b cell)
+        matches GT: (nucleate cell -> mature b cell)
+  [TP] PRED: (nucleate cell -> mononuclear leukocyte)
+        matches GT: (nucleate cell -> mononuclear leukocyte)
+  [TP] PRED: (nucleate cell -> professional antigen presenting cell)
+        matches GT: (nucleate cell -> professional antigen presenting cell)
+  [TP] PRED: (nucleate cell -> single nucleate cell)
+        matches GT: (nucleate cell -> single nucleate cell)
+  [TP] PRED: (professional antigen presenting cell -> be cell)
+        matches GT: (professional antigen presenting cell -> be cell)
+  [TP] PRED: (professional antigen presenting cell -> be1 cell)
+        matches GT: (professional antigen presenting cell -> be1 cell)
+  [TP] PRED: (professional antigen presenting cell -> mature b cell)
+        matches GT: (professional antigen presenting cell -> mature b cell)
+  [TP] PRED: (respiratory tract epithelial cell -> epithelial cell of upper respiratory tract)
+        matches GT: (respiratory tract epithelial cell -> epithelial cell of upper respiratory tract)
+  [TP] PRED: (respiratory tract epithelial cell -> olfactory epithelial cell)
+        matches GT: (respiratory tract epithelial cell -> olfactory epithelial cell)
+  [TP] PRED: (secretory cell (secretory cell, secretory epithelial cell) -> large mucus secreting cholangiocyte)
+        matches GT: (secretory cell -> large mucus secreting cholangiocyte)
+  [TP] PRED: (secretory cell (secretory cell, secretory epithelial cell) -> large mucus secreting cholangiocyte)
+        matches GT: (secretory epithelial cell -> large mucus secreting cholangiocyte)
+  [TP] PRED: (secretory cell (secretory cell, secretory epithelial cell) -> mucus secreting cell)
+        matches GT: (secretory cell -> mucus secreting cell)
+  [TP] PRED: (secretory cell (secretory cell, secretory epithelial cell) -> seromucus secreting cell)
+        matches GT: (secretory cell -> seromucus secreting cell)
+  [TP] PRED: (sensory epithelial cell -> auditory epithelial cell)
+        matches GT: (sensory epithelial cell -> auditory epithelial cell)
+  [TP] PRED: (sensory epithelial cell -> olfactory epithelial cell)
+        matches GT: (sensory epithelial cell -> olfactory epithelial cell)
+  [TP] PRED: (sensory epithelial cell -> strial basal cell)
+        matches GT: (sensory epithelial cell -> strial basal cell)
+  [TP] PRED: (sensory receptor cell -> chemoreceptor cell)
+        matches GT: (sensory receptor cell -> chemoreceptor cell)
+  [TP] PRED: (single nucleate cell -> b cell (b cell, lymphocyte of b lineage))
+        matches GT: (single nucleate cell -> b cell)
+  [TP] PRED: (single nucleate cell -> b cell (b cell, lymphocyte of b lineage))
+        matches GT: (single nucleate cell -> lymphocyte of b lineage)
+  [TP] PRED: (single nucleate cell -> b cell cd19-positive (b cell cd19-positive, lymphocyte of b lineage cd19-positive))
+        matches GT: (single nucleate cell -> b cell cd19-positive)
+  [TP] PRED: (single nucleate cell -> b cell cd19-positive (b cell cd19-positive, lymphocyte of b lineage cd19-positive))
+        matches GT: (single nucleate cell -> lymphocyte of b lineage cd19-positive)
+  [TP] PRED: (single nucleate cell -> be cell)
+        matches GT: (single nucleate cell -> be cell)
+  [TP] PRED: (single nucleate cell -> be1 cell)
+        matches GT: (single nucleate cell -> be1 cell)
+  [TP] PRED: (single nucleate cell -> lymphocyte)
+        matches GT: (single nucleate cell -> lymphocyte)
+  [TP] PRED: (single nucleate cell -> mature b cell)
+        matches GT: (single nucleate cell -> mature b cell)
+  [TP] PRED: (single nucleate cell -> mononuclear leukocyte)
+        matches GT: (single nucleate cell -> mononuclear leukocyte)
+  [TP] PRED: (vascular leptomeningeal cell -> vlmc nn vascular leptomeningeal cell mmus)
+        matches GT: (vascular leptomeningeal cell -> vlmc nn vascular leptomeningeal cell mmus)
+
+INCORRECT PREDICTIONS (False Positives: 86):
+  [FP] columnarcuboidal epithelial cell -> large mucus secreting cholangiocyte
+  [FP] connective tissue cell (connective tissue cell, stromal cell) -> b cell (b cell, lymphocyte of b lineage)
+  [FP] connective tissue cell (connective tissue cell, stromal cell) -> b cell cd19-positive (b cell cd19-positive, lymphocyte of b lineage cd19-positive)
+  [FP] connective tissue cell (connective tissue cell, stromal cell) -> be cell
+  [FP] connective tissue cell (connective tissue cell, stromal cell) -> be1 cell
+  [FP] connective tissue cell (connective tissue cell, stromal cell) -> leukocyte
+  [FP] connective tissue cell (connective tissue cell, stromal cell) -> lymphocyte
+  [FP] connective tissue cell (connective tissue cell, stromal cell) -> mature b cell
+  [FP] connective tissue cell (connective tissue cell, stromal cell) -> mononuclear leukocyte
+  [FP] connective tissue cell (connective tissue cell, stromal cell) -> professional antigen presenting cell
+  [FP] electrically active cell (electrically active cell, electrically responsive cell, electrically signaling cell, neural cell) -> auditory epithelial cell
+  [FP] electrically active cell (electrically active cell, electrically responsive cell, electrically signaling cell, neural cell) -> chemoreceptor cell
+  [FP] electrically active cell (electrically active cell, electrically responsive cell, electrically signaling cell, neural cell) -> neurecto-epithelial cell
+  [FP] electrically active cell (electrically active cell, electrically responsive cell, electrically signaling cell, neural cell) -> sensory epithelial cell
+  [FP] electrically active cell (electrically active cell, electrically responsive cell, electrically signaling cell, neural cell) -> sensory receptor cell
+  [FP] electrically active cell (electrically active cell, electrically responsive cell, electrically signaling cell, neural cell) -> strial basal cell
+  [FP] epithelial cell -> mucus secreting cell
+  [FP] epithelial cell -> seromucus secreting cell
+  [FP] mononuclear leukocyte -> professional antigen presenting cell
+  [FP] mucus secreting cell -> seromucus secreting cell
+  [FP] nucleate cell -> auditory epithelial cell
+  [FP] nucleate cell -> branched duct epithelial cell
+  [FP] nucleate cell -> central nervous system neuron
+  [FP] nucleate cell -> chemoreceptor cell
+  [FP] nucleate cell -> cholangiocyte
+  [FP] nucleate cell -> columnarcuboidal epithelial cell
+  [FP] nucleate cell -> connective tissue cell (connective tissue cell, stromal cell)
+  [FP] nucleate cell -> duct epithelial cell
+  [FP] nucleate cell -> ecto-epithelial cell
+  [FP] nucleate cell -> electrically active cell (electrically active cell, electrically responsive cell, electrically signaling cell, neural cell)
+  [FP] nucleate cell -> endo-epithelial cell
+  [FP] nucleate cell -> epithelial cell
+  [FP] nucleate cell -> epithelial cell of upper respiratory tract
+  [FP] nucleate cell -> fibroblast
+  [FP] nucleate cell -> hematopoietic cell
+  [FP] nucleate cell -> large mucus secreting cholangiocyte
+  [FP] nucleate cell -> mesothelial fibroblast
+  [FP] nucleate cell -> mesothelial fibroblast of the leptomeninx
+  [FP] nucleate cell -> motile cell
+  [FP] nucleate cell -> mucus secreting cell
+  [FP] nucleate cell -> neurecto-epithelial cell
+  [FP] nucleate cell -> neuron
+  [FP] nucleate cell -> olfactory epithelial cell
+  [FP] nucleate cell -> respiratory tract epithelial cell
+  [FP] nucleate cell -> secretory cell (secretory cell, secretory epithelial cell)
+  [FP] nucleate cell -> sensory epithelial cell
+  [FP] nucleate cell -> sensory receptor cell
+  [FP] nucleate cell -> seromucus secreting cell
+  [FP] nucleate cell -> strial basal cell
+  [FP] nucleate cell -> vascular leptomeningeal cell
+  [FP] nucleate cell -> vlmc nn vascular leptomeningeal cell mmus
+  [FP] professional antigen presenting cell -> b cell (b cell, lymphocyte of b lineage)
+  [FP] professional antigen presenting cell -> b cell cd19-positive (b cell cd19-positive, lymphocyte of b lineage cd19-positive)
+  [FP] secretory cell (secretory cell, secretory epithelial cell) -> cholangiocyte
+  [FP] single nucleate cell -> auditory epithelial cell
+  [FP] single nucleate cell -> branched duct epithelial cell
+  [FP] single nucleate cell -> central nervous system neuron
+  [FP] single nucleate cell -> chemoreceptor cell
+  [FP] single nucleate cell -> cholangiocyte
+  [FP] single nucleate cell -> columnarcuboidal epithelial cell
+  [FP] single nucleate cell -> connective tissue cell (connective tissue cell, stromal cell)
+  [FP] single nucleate cell -> duct epithelial cell
+  [FP] single nucleate cell -> ecto-epithelial cell
+  [FP] single nucleate cell -> electrically active cell (electrically active cell, electrically responsive cell, electrically signaling cell, neural cell)
+  [FP] single nucleate cell -> endo-epithelial cell
+  [FP] single nucleate cell -> epithelial cell
+  [FP] single nucleate cell -> epithelial cell of upper respiratory tract
+  [FP] single nucleate cell -> fibroblast
+  [FP] single nucleate cell -> hematopoietic cell
+  [FP] single nucleate cell -> large mucus secreting cholangiocyte
+  [FP] single nucleate cell -> leukocyte
+  [FP] single nucleate cell -> mesothelial fibroblast
+  [FP] single nucleate cell -> mesothelial fibroblast of the leptomeninx
+  [FP] single nucleate cell -> mucus secreting cell
+  [FP] single nucleate cell -> neurecto-epithelial cell
+  [FP] single nucleate cell -> neuron
+  [FP] single nucleate cell -> olfactory epithelial cell
+  [FP] single nucleate cell -> professional antigen presenting cell
+  [FP] single nucleate cell -> respiratory tract epithelial cell
+  [FP] single nucleate cell -> secretory cell (secretory cell, secretory epithelial cell)
+  [FP] single nucleate cell -> sensory epithelial cell
+  [FP] single nucleate cell -> sensory receptor cell
+  [FP] single nucleate cell -> seromucus secreting cell
+  [FP] single nucleate cell -> strial basal cell
+  [FP] single nucleate cell -> vascular leptomeningeal cell
+  [FP] single nucleate cell -> vlmc nn vascular leptomeningeal cell mmus
+
+MISSED RELATIONS (False Negatives: 49):
+  [FN] b cell cd19-positive -> be cell
+  [FN] b cell cd19-positive -> be1 cell
+  [FN] branched duct epithelial cell -> cholangiocyte
+  [FN] branched duct epithelial cell -> large mucus secreting cholangiocyte
+  [FN] cell -> eukaryotic cell
+  [FN] chemoreceptor cell -> olfactory epithelial cell
+  [FN] columnarcuboidal epithelial cell -> neurecto-epithelial cell
+  [FN] columnarcuboidal epithelial cell -> olfactory epithelial cell
+  [FN] connective tissue cell -> stromal cell
+  [FN] ecto-epithelial cell -> olfactory epithelial cell
+  [FN] electrically active cell -> electrically responsive cell
+  [FN] electrically active cell -> electrically signaling cell
+  [FN] endo-epithelial cell -> epithelial cell of upper respiratory tract
+  [FN] endo-epithelial cell -> olfactory epithelial cell
+  [FN] endo-epithelial cell -> respiratory tract epithelial cell
+  [FN] fibroblast -> vascular leptomeningeal cell
+  [FN] fibroblast -> vlmc nn vascular leptomeningeal cell mmus
+  [FN] lymphocyte of b lineage -> b cell
+  [FN] lymphocyte of b lineage cd19-positive -> b cell cd19-positive
+  [FN] lymphocyte of b lineage cd19-positive -> be cell
+  [FN] lymphocyte of b lineage cd19-positive -> be1 cell
+  [FN] mature b cell -> be cell
+  [FN] mature b cell -> be1 cell
+  [FN] mesothelial fibroblast -> vascular leptomeningeal cell
+  [FN] mesothelial fibroblast -> vlmc nn vascular leptomeningeal cell mmus
+  [FN] mesothelial fibroblast of the leptomeninx -> vascular leptomeningeal cell
+  [FN] mesothelial fibroblast of the leptomeninx -> vlmc nn vascular leptomeningeal cell mmus
+  [FN] motile cell -> b cell
+  [FN] motile cell -> b cell cd19-positive
+  [FN] motile cell -> be cell
+  [FN] motile cell -> be1 cell
+  [FN] motile cell -> leukocyte
+  [FN] motile cell -> lymphocyte
+  [FN] motile cell -> lymphocyte of b lineage
+  [FN] motile cell -> lymphocyte of b lineage cd19-positive
+  [FN] motile cell -> mature b cell
+  [FN] motile cell -> mononuclear leukocyte
+  [FN] motile cell -> professional antigen presenting cell
+  [FN] neural cell -> mesothelial fibroblast of the leptomeninx
+  [FN] neural cell -> vascular leptomeningeal cell
+  [FN] neural cell -> vlmc nn vascular leptomeningeal cell mmus
+  [FN] neurecto-epithelial cell -> olfactory epithelial cell
+  [FN] secretory cell -> secretory epithelial cell
+  [FN] sensory receptor cell -> auditory epithelial cell
+  [FN] sensory receptor cell -> olfactory epithelial cell
+  [FN] sensory receptor cell -> sensory epithelial cell
+  [FN] sensory receptor cell -> strial basal cell
+  [FN] seromucus secreting cell -> large mucus secreting cholangiocyte
+  [FN] seromucus secreting cell -> mucus secreting cell

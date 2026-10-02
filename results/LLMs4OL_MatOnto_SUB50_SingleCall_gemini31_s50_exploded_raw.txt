@@ -1,0 +1,67 @@
+==================================================
+=== Detailed Node Pair Analysis (Exploded Raw Edges) ===
+Match Type Used: EXACT
+==================================================
+Precision: 0.7292 | Recall: 0.8140 | F1: 0.7692
+
+CORRECT PREDICTIONS (True Positives: 35 Pred edges covering 35 GT edges):
+  [TP] atom -> curium atom
+  [TP] atom -> potassium atom
+  [TP] carbon allotrope -> chaoite
+  [TP] chemical quality -> electronegativity
+  [TP] concentration -> amount of substance concentration
+  [TP] continuant -> dependent_continuant
+  [TP] continuant -> independent_continuant
+  [TP] cyclicity -> acyclic
+  [TP] dependent_continuant -> quality
+  [TP] electromagnetic radiation unit -> luminous flux unit
+  [TP] electronegativity -> pauling electronegativity
+  [TP] element -> magnesium
+  [TP] element -> molybdenum
+  [TP] element -> scandium
+  [TP] independent_continuant -> object
+  [TP] independent_continuant -> site
+  [TP] ion -> anion
+  [TP] measured property -> angular acceleration
+  [TP] measured property -> concentration
+  [TP] measured property -> count
+  [TP] measured property -> density
+  [TP] measured property -> electric resistance
+  [TP] measured property -> temperature
+  [TP] molecularquality -> cyclicity
+  [TP] object -> atom
+  [TP] object -> organic group
+  [TP] organic group -> general sulfinic acid group
+  [TP] quality -> chemical quality
+  [TP] quality -> measured property
+  [TP] radiation unit -> dose equivalent unit
+  [TP] scaled unit -> peta scaled unit
+  [TP] scaled unit -> zepto scaled unit
+  [TP] unit -> derivedunit
+  [TP] unit -> molecular mass unit
+  [TP] unit raised to power -> unit raised to power of three
+
+INCORRECT PREDICTIONS (False Positives: 13):
+  [FP] chemical quality -> molecularquality
+  [FP] derivedunit -> conduction unit
+  [FP] derivedunit -> electric resistance unit
+  [FP] derivedunit -> electromagnetic radiation unit
+  [FP] derivedunit -> moment of force unit
+  [FP] derivedunit -> radiation unit
+  [FP] derivedunit -> unit raised to power
+  [FP] measured property -> hardness range
+  [FP] object -> carbon allotrope
+  [FP] object -> element
+  [FP] object -> ion
+  [FP] object -> opticalisomer
+  [FP] unit -> scaled unit
+
+MISSED RELATIONS (False Negatives: 8):
+  [FN] chemical quality -> chemical class
+  [FN] derivedunit -> scaled unit
+  [FN] measured property -> molecularquality
+  [FN] unit -> conduction unit
+  [FN] unit -> electric resistance unit
+  [FN] unit -> electromagnetic radiation unit
+  [FN] unit -> moment of force unit
+  [FN] unit -> radiation unit

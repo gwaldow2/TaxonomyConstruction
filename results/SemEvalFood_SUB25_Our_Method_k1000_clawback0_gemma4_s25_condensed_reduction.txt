@@ -1,0 +1,58 @@
+==================================================
+=== Detailed Node Pair Analysis (Condensed Transitive Reduction) ===
+Match Type Used: SET_OVERLAP
+==================================================
+Precision: 0.6190 | Recall: 0.5000 | F1: 0.5532
+
+CORRECT PREDICTIONS (True Positives: 13 Pred edges covering 13 GT edges):
+  [TP] PRED: (condiment (condiment, dressing, flavorer, sauce) -> blue cheese dressing)
+        matches GT: (dressing -> blue cheese dressing)
+  [TP] PRED: (condiment (condiment, dressing, flavorer, sauce) -> herb)
+        matches GT: (flavorer -> herb)
+  [TP] PRED: (condiment (condiment, dressing, flavorer, sauce) -> relish)
+        matches GT: (condiment -> relish)
+  [TP] PRED: (condiment (condiment, dressing, flavorer, sauce) -> steak sauce)
+        matches GT: (condiment -> steak sauce)
+  [TP] PRED: (feed -> fodder)
+        matches GT: (feed -> fodder)
+  [TP] PRED: (fodder -> alfalfa)
+        matches GT: (fodder -> alfalfa)
+  [TP] PRED: (food (food, foodstuff, ingredient, nutriment) -> condiment (condiment, dressing, flavorer, sauce))
+        matches GT: (ingredient -> flavorer)
+  [TP] PRED: (food (food, foodstuff, ingredient, nutriment) -> fare)
+        matches GT: (food -> fare)
+  [TP] PRED: (food (food, foodstuff, ingredient, nutriment) -> feed)
+        matches GT: (food -> feed)
+  [TP] PRED: (food (food, foodstuff, ingredient, nutriment) -> starches)
+        matches GT: (foodstuff -> starches)
+  [TP] PRED: (starches -> potato)
+        matches GT: (starches -> potato)
+  [TP] PRED: (tea -> oolong)
+        matches GT: (tea -> oolong)
+  [TP] PRED: (tea -> sun tea)
+        matches GT: (tea -> sun tea)
+
+INCORRECT PREDICTIONS (False Positives: 8):
+  [FP] chow -> eatage
+  [FP] chow -> home fries
+  [FP] condiment (condiment, dressing, flavorer, sauce) -> tea
+  [FP] fare -> meal
+  [FP] feed -> chow
+  [FP] feed -> herb
+  [FP] fodder -> potato
+  [FP] meal -> chow
+
+MISSED RELATIONS (False Negatives: 13):
+  [FN] condiment -> sauce
+  [FN] fare -> chow
+  [FN] flavorer -> condiment
+  [FN] fodder -> eatage
+  [FN] food -> foodstuff
+  [FN] food -> nutriment
+  [FN] foodstuff -> ingredient
+  [FN] foodstuff -> meal
+  [FN] herb -> tea
+  [FN] meal -> tea
+  [FN] nutriment -> meal
+  [FN] potato -> home fries
+  [FN] sauce -> dressing

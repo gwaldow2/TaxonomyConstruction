@@ -1,0 +1,88 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d4" for="graph" attr.name="timestamp" attr.type="string"/>
+<key id="d3" for="graph" attr.name="scale" attr.type="string"/>
+<key id="d2" for="graph" attr.name="results_file" attr.type="string"/>
+<key id="d1" for="graph" attr.name="tag" attr.type="string"/>
+<key id="d0" for="graph" attr.name="model" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">google/gemma-4-31b-it</data>
+<data key="d1">gemma4_s25s1</data>
+<data key="d2">results/scaling_gemma4.json</data>
+<data key="d3">SUB25S1</data>
+<data key="d4">2026-09-30T16:46:58</data>
+<node id="specimen identifier"/>
+<node id="centrally registered identifier symbol"/>
+<node id="symbol"/>
+<node id="data item"/>
+<node id="material processing"/>
+<node id="material component separation"/>
+<node id="filtration"/>
+<node id="water filtration"/>
+<node id="assay"/>
+<node id="t cell epitope assay"/>
+<node id="analyte assay"/>
+<node id="assay measuring biological activity resulting from t cell epitopemhctcr binding"/>
+<node id="assay measuring epitope specific cytokine production by t cells"/>
+<node id="assay measuring epitope specific ip-10 production by t cells"/>
+<node id="intracellular cytokine staining assay measuring epitope specific ip-10 production by t cells"/>
+<node id="sequence analysis data transformation"/>
+<node id="sequence library data demultiplexing"/>
+<node id="data transformation"/>
+<node id="serum neutralization of viral infectivity assay"/>
+<node id="blood assay"/>
+<node id="96-well neutralization assay"/>
+<node id="function"/>
+<node id="record function"/>
+<node id="feces assay datum"/>
+<node id="specimen identifier assigned by specimen repository"/>
+<edge source="specimen identifier" target="centrally registered identifier symbol"/>
+<edge source="specimen identifier" target="specimen identifier assigned by specimen repository"/>
+<edge source="symbol" target="centrally registered identifier symbol"/>
+<edge source="symbol" target="specimen identifier assigned by specimen repository"/>
+<edge source="symbol" target="specimen identifier"/>
+<edge source="data item" target="centrally registered identifier symbol"/>
+<edge source="data item" target="feces assay datum"/>
+<edge source="data item" target="specimen identifier assigned by specimen repository"/>
+<edge source="data item" target="specimen identifier"/>
+<edge source="data item" target="symbol"/>
+<edge source="material processing" target="material component separation"/>
+<edge source="material processing" target="filtration"/>
+<edge source="material processing" target="water filtration"/>
+<edge source="material component separation" target="filtration"/>
+<edge source="material component separation" target="water filtration"/>
+<edge source="filtration" target="water filtration"/>
+<edge source="assay" target="t cell epitope assay"/>
+<edge source="assay" target="serum neutralization of viral infectivity assay"/>
+<edge source="assay" target="blood assay"/>
+<edge source="assay" target="assay measuring biological activity resulting from t cell epitopemhctcr binding"/>
+<edge source="assay" target="96-well neutralization assay"/>
+<edge source="assay" target="assay measuring epitope specific cytokine production by t cells"/>
+<edge source="assay" target="assay measuring epitope specific ip-10 production by t cells"/>
+<edge source="assay" target="intracellular cytokine staining assay measuring epitope specific ip-10 production by t cells"/>
+<edge source="assay" target="analyte assay"/>
+<edge source="t cell epitope assay" target="assay measuring biological activity resulting from t cell epitopemhctcr binding"/>
+<edge source="t cell epitope assay" target="assay measuring epitope specific cytokine production by t cells"/>
+<edge source="t cell epitope assay" target="assay measuring epitope specific ip-10 production by t cells"/>
+<edge source="t cell epitope assay" target="intracellular cytokine staining assay measuring epitope specific ip-10 production by t cells"/>
+<edge source="analyte assay" target="t cell epitope assay"/>
+<edge source="analyte assay" target="serum neutralization of viral infectivity assay"/>
+<edge source="analyte assay" target="blood assay"/>
+<edge source="analyte assay" target="assay measuring biological activity resulting from t cell epitopemhctcr binding"/>
+<edge source="analyte assay" target="96-well neutralization assay"/>
+<edge source="analyte assay" target="assay measuring epitope specific cytokine production by t cells"/>
+<edge source="analyte assay" target="assay measuring epitope specific ip-10 production by t cells"/>
+<edge source="analyte assay" target="intracellular cytokine staining assay measuring epitope specific ip-10 production by t cells"/>
+<edge source="assay measuring biological activity resulting from t cell epitopemhctcr binding" target="assay measuring epitope specific cytokine production by t cells"/>
+<edge source="assay measuring biological activity resulting from t cell epitopemhctcr binding" target="assay measuring epitope specific ip-10 production by t cells"/>
+<edge source="assay measuring biological activity resulting from t cell epitopemhctcr binding" target="intracellular cytokine staining assay measuring epitope specific ip-10 production by t cells"/>
+<edge source="assay measuring epitope specific cytokine production by t cells" target="assay measuring epitope specific ip-10 production by t cells"/>
+<edge source="assay measuring epitope specific cytokine production by t cells" target="intracellular cytokine staining assay measuring epitope specific ip-10 production by t cells"/>
+<edge source="assay measuring epitope specific ip-10 production by t cells" target="intracellular cytokine staining assay measuring epitope specific ip-10 production by t cells"/>
+<edge source="sequence analysis data transformation" target="sequence library data demultiplexing"/>
+<edge source="data transformation" target="sequence library data demultiplexing"/>
+<edge source="data transformation" target="sequence analysis data transformation"/>
+<edge source="serum neutralization of viral infectivity assay" target="96-well neutralization assay"/>
+<edge source="blood assay" target="serum neutralization of viral infectivity assay"/>
+<edge source="blood assay" target="assay measuring epitope specific cytokine production by t cells"/>
+<edge source="blood assay" target="intracellular cytokine staining assay measuring epitope specific ip-10 production by t cells"/>
+<edge source="function" target="record function"/>
+</graph></graphml>

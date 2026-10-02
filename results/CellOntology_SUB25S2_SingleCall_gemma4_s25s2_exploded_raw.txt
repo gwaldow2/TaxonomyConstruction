@@ -1,0 +1,55 @@
+==================================================
+=== Detailed Node Pair Analysis (Exploded Raw Edges) ===
+Match Type Used: EXACT
+==================================================
+Precision: 0.7241 | Recall: 0.5833 | F1: 0.6462
+
+CORRECT PREDICTIONS (True Positives: 21 Pred edges covering 21 GT edges):
+  [TP] cell -> precursor cell
+  [TP] cell -> secretory cell
+  [TP] central nervous system neuron -> neuron of the forebrain
+  [TP] ecto-epithelial cell -> neurecto-epithelial cell
+  [TP] electrically active cell -> electrically signaling cell
+  [TP] enteroglial cell -> type 1 submucosal plexus glia
+  [TP] epithelial cell -> columnarcuboidal epithelial cell
+  [TP] epithelial cell -> ecto-epithelial cell
+  [TP] glial cell -> enteroglial cell
+  [TP] internal globus pallidus core projecting neuron -> gpi core neuron primate
+  [TP] neural cell -> neuron
+  [TP] neural cell -> neuron associated cell
+  [TP] neuroblast sensu vertebrata -> neural crest derived neuroblast
+  [TP] neuron -> central nervous system neuron
+  [TP] neuron -> gabaergic neuron
+  [TP] neuron -> retinal ganglion cell
+  [TP] neuron of the forebrain -> internal globus pallidus core projecting neuron
+  [TP] precursor cell -> progenitor cell
+  [TP] retinal ganglion cell -> retinal ganglion cell c
+  [TP] retinal ganglion cell c -> retinal ganglion cell c outer
+  [TP] supporting cell -> supporting cell of carotid body
+
+INCORRECT PREDICTIONS (False Positives: 8):
+  [FP] cell -> electrically responsive cell
+  [FP] cell -> epithelial cell
+  [FP] cell -> neural cell
+  [FP] electrically responsive cell -> electrically active cell
+  [FP] eukaryotic cell -> cell
+  [FP] glial cell -> supporting cell
+  [FP] neural cell -> glial cell
+  [FP] neural cell -> neuroblast sensu vertebrata
+
+MISSED RELATIONS (False Negatives: 15):
+  [FN] cell -> electrically active cell
+  [FN] cell -> eukaryotic cell
+  [FN] cell -> supporting cell
+  [FN] columnarcuboidal epithelial cell -> neurecto-epithelial cell
+  [FN] electrically active cell -> electrically responsive cell
+  [FN] electrically responsive cell -> neuron
+  [FN] electrically signaling cell -> neuron
+  [FN] eukaryotic cell -> epithelial cell
+  [FN] eukaryotic cell -> neural cell
+  [FN] eukaryotic cell -> neuroblast sensu vertebrata
+  [FN] gabaergic neuron -> internal globus pallidus core projecting neuron
+  [FN] neurecto-epithelial cell -> supporting cell of carotid body
+  [FN] neuron associated cell -> glial cell
+  [FN] progenitor cell -> neuroblast sensu vertebrata
+  [FN] secretory cell -> gabaergic neuron

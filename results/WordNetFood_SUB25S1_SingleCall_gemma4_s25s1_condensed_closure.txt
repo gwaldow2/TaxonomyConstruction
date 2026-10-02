@@ -1,0 +1,155 @@
+==================================================
+=== Detailed Node Pair Analysis (Condensed Transitive Closure) ===
+Match Type Used: SET_OVERLAP
+==================================================
+Precision: 0.7568 | Recall: 0.8000 | F1: 0.7778
+
+CORRECT PREDICTIONS (True Positives: 56 Pred edges covering 56 GT edges):
+  [TP] PRED: (berry -> boysenberry)
+        matches GT: (berry -> boysenberry)
+  [TP] PRED: (beverage -> sarsaparilla)
+        matches GT: (beverage -> sarsaparilla)
+  [TP] PRED: (beverage -> soft drink)
+        matches GT: (beverage -> soft drink)
+  [TP] PRED: (boiled egg -> easter egg)
+        matches GT: (boiled egg -> easter egg)
+  [TP] PRED: (boiled egg -> hard-boiled egg)
+        matches GT: (boiled egg -> hard-boiled egg)
+  [TP] PRED: (candy -> fudge)
+        matches GT: (candy -> fudge)
+  [TP] PRED: (candy -> penuche)
+        matches GT: (candy -> penuche)
+  [TP] PRED: (edible fruit -> berry)
+        matches GT: (edible fruit -> berry)
+  [TP] PRED: (edible fruit -> boysenberry)
+        matches GT: (edible fruit -> boysenberry)
+  [TP] PRED: (food -> beef tongue)
+        matches GT: (food -> beef tongue)
+  [TP] PRED: (food -> berry)
+        matches GT: (food -> berry)
+  [TP] PRED: (food -> beverage)
+        matches GT: (food -> beverage)
+  [TP] PRED: (food -> boiled egg)
+        matches GT: (food -> boiled egg)
+  [TP] PRED: (food -> boysenberry)
+        matches GT: (food -> boysenberry)
+  [TP] PRED: (food -> candy)
+        matches GT: (food -> candy)
+  [TP] PRED: (food -> dish)
+        matches GT: (food -> dish)
+  [TP] PRED: (food -> easter egg)
+        matches GT: (food -> easter egg)
+  [TP] PRED: (food -> edible fruit)
+        matches GT: (food -> edible fruit)
+  [TP] PRED: (food -> fudge)
+        matches GT: (food -> fudge)
+  [TP] PRED: (food -> hard-boiled egg)
+        matches GT: (food -> hard-boiled egg)
+  [TP] PRED: (food -> meat)
+        matches GT: (food -> meat)
+  [TP] PRED: (food -> penuche)
+        matches GT: (food -> penuche)
+  [TP] PRED: (food -> produce)
+        matches GT: (food -> produce)
+  [TP] PRED: (food -> saltwater fish)
+        matches GT: (food -> saltwater fish)
+  [TP] PRED: (food -> sarsaparilla)
+        matches GT: (food -> sarsaparilla)
+  [TP] PRED: (food -> sea bass)
+        matches GT: (food -> sea bass)
+  [TP] PRED: (food -> seafood)
+        matches GT: (food -> seafood)
+  [TP] PRED: (food -> soft drink)
+        matches GT: (food -> soft drink)
+  [TP] PRED: (food -> sweet)
+        matches GT: (food -> sweet)
+  [TP] PRED: (food -> tongue)
+        matches GT: (food -> tongue)
+  [TP] PRED: (food -> variety meat)
+        matches GT: (food -> variety meat)
+  [TP] PRED: (fudge -> penuche)
+        matches GT: (fudge -> penuche)
+  [TP] PRED: (meat -> beef tongue)
+        matches GT: (meat -> beef tongue)
+  [TP] PRED: (meat -> tongue)
+        matches GT: (meat -> tongue)
+  [TP] PRED: (meat -> variety meat)
+        matches GT: (meat -> variety meat)
+  [TP] PRED: (nutriment -> boiled egg)
+        matches GT: (nutriment -> boiled egg)
+  [TP] PRED: (nutriment -> candy)
+        matches GT: (nutriment -> candy)
+  [TP] PRED: (nutriment -> dish)
+        matches GT: (nutriment -> dish)
+  [TP] PRED: (nutriment -> easter egg)
+        matches GT: (nutriment -> easter egg)
+  [TP] PRED: (nutriment -> fudge)
+        matches GT: (nutriment -> fudge)
+  [TP] PRED: (nutriment -> hard-boiled egg)
+        matches GT: (nutriment -> hard-boiled egg)
+  [TP] PRED: (nutriment -> penuche)
+        matches GT: (nutriment -> penuche)
+  [TP] PRED: (nutriment -> sweet)
+        matches GT: (nutriment -> sweet)
+  [TP] PRED: (produce -> berry)
+        matches GT: (produce -> berry)
+  [TP] PRED: (produce -> boysenberry)
+        matches GT: (produce -> boysenberry)
+  [TP] PRED: (produce -> edible fruit)
+        matches GT: (produce -> edible fruit)
+  [TP] PRED: (saltwater fish -> sea bass)
+        matches GT: (saltwater fish -> sea bass)
+  [TP] PRED: (seafood -> saltwater fish)
+        matches GT: (seafood -> saltwater fish)
+  [TP] PRED: (seafood -> sea bass)
+        matches GT: (seafood -> sea bass)
+  [TP] PRED: (soft drink -> sarsaparilla)
+        matches GT: (soft drink -> sarsaparilla)
+  [TP] PRED: (sweet -> candy)
+        matches GT: (sweet -> candy)
+  [TP] PRED: (sweet -> fudge)
+        matches GT: (sweet -> fudge)
+  [TP] PRED: (sweet -> penuche)
+        matches GT: (sweet -> penuche)
+  [TP] PRED: (tongue -> beef tongue)
+        matches GT: (tongue -> beef tongue)
+  [TP] PRED: (variety meat -> beef tongue)
+        matches GT: (variety meat -> beef tongue)
+  [TP] PRED: (variety meat -> tongue)
+        matches GT: (variety meat -> tongue)
+
+INCORRECT PREDICTIONS (False Positives: 18):
+  [FP] meat -> saltwater fish
+  [FP] meat -> sea bass
+  [FP] meat -> seafood
+  [FP] nutriment -> beef tongue
+  [FP] nutriment -> berry
+  [FP] nutriment -> beverage
+  [FP] nutriment -> boysenberry
+  [FP] nutriment -> edible fruit
+  [FP] nutriment -> food
+  [FP] nutriment -> meat
+  [FP] nutriment -> produce
+  [FP] nutriment -> saltwater fish
+  [FP] nutriment -> sarsaparilla
+  [FP] nutriment -> sea bass
+  [FP] nutriment -> seafood
+  [FP] nutriment -> soft drink
+  [FP] nutriment -> tongue
+  [FP] nutriment -> variety meat
+
+MISSED RELATIONS (False Negatives: 14):
+  [FN] candy -> easter egg
+  [FN] dainty -> candy
+  [FN] dainty -> easter egg
+  [FN] dainty -> fudge
+  [FN] dainty -> penuche
+  [FN] dainty -> sweet
+  [FN] dish -> boiled egg
+  [FN] dish -> easter egg
+  [FN] dish -> hard-boiled egg
+  [FN] food -> dainty
+  [FN] food -> nutriment
+  [FN] hard-boiled egg -> easter egg
+  [FN] nutriment -> dainty
+  [FN] sweet -> easter egg

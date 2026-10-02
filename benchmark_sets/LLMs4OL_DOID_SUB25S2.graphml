@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d8" for="node" attr.name="is_virtual" attr.type="boolean"/>
+<key id="d7" for="graph" attr.name="generated" attr.type="string"/>
+<key id="d6" for="graph" attr.name="generator" attr.type="string"/>
+<key id="d5" for="graph" attr.name="source_edges" attr.type="string"/>
+<key id="d4" for="graph" attr.name="source_nodes" attr.type="string"/>
+<key id="d3" for="graph" attr.name="source_file" attr.type="string"/>
+<key id="d2" for="graph" attr.name="seed" attr.type="string"/>
+<key id="d1" for="graph" attr.name="target_nodes" attr.type="string"/>
+<key id="d0" for="graph" attr.name="scale" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">SUB25S2</data>
+<data key="d1">25</data>
+<data key="d2">2</data>
+<data key="d3">LLMs4OL_DOID_FULL.graphml</data>
+<data key="d4">9600</data>
+<data key="d5">13610</data>
+<data key="d6">scale_benchmarks.py</data>
+<data key="d7">2026-09-30T16:27:40</data>
+<node id="disease"/>
+<node id="autosomal recessive disease"/>
+<node id="specific developmental disorder"/>
+<node id="organ system cancer"/>
+<node id="autosomal recessive intellectual developmental disorder"/>
+<node id="bladder disease"/>
+<node id="genetic disease"/>
+<node id="urinary bladder cancer"/>
+<node id="disease of anatomical entity"/>
+<node id="mitochondrial metabolism disease"/>
+<node id="autosomal genetic disease"/>
+<node id="monogenic disease"/>
+<node id="neurodevelopmental disorder with microcephaly epilepsy and brain atrophy"/>
+<node id="urinary system disease"/>
+<node id="inherited metabolic disorder"/>
+<node id="urinary system cancer"/>
+<node id="combined oxidative phosphorylation deficiency 19"/>
+<node id="autosomal recessive osteopetrosis 7"/>
+<node id="developmental disorder of mental health"/>
+<node id="neurodegenerative disease"/>
+<node id="motor neuron disease"/>
+<node id="spinal muscular atrophy"/>
+<node id="combined oxidative phosphorylation deficiency"/>
+<node id="intellectual disability"/>
+<node id="adult spinal muscular atrophy"/>
+<node id="disease of mental health"/>
+<node id="virtual_root">
+  <data key="d8">True</data>
+</node>
+<edge source="disease" target="disease of anatomical entity"/>
+<edge source="disease" target="genetic disease"/>
+<edge source="disease" target="disease of mental health"/>
+<edge source="autosomal recessive disease" target="adult spinal muscular atrophy"/>
+<edge source="autosomal recessive disease" target="combined oxidative phosphorylation deficiency 19"/>
+<edge source="autosomal recessive disease" target="autosomal recessive osteopetrosis 7"/>
+<edge source="autosomal recessive disease" target="autosomal recessive intellectual developmental disorder"/>
+<edge source="specific developmental disorder" target="intellectual disability"/>
+<edge source="organ system cancer" target="urinary system cancer"/>
+<edge source="autosomal recessive intellectual developmental disorder" target="neurodevelopmental disorder with microcephaly epilepsy and brain atrophy"/>
+<edge source="bladder disease" target="urinary bladder cancer"/>
+<edge source="genetic disease" target="inherited metabolic disorder"/>
+<edge source="genetic disease" target="monogenic disease"/>
+<edge source="disease of anatomical entity" target="urinary system disease"/>
+<edge source="mitochondrial metabolism disease" target="combined oxidative phosphorylation deficiency"/>
+<edge source="autosomal genetic disease" target="autosomal recessive disease"/>
+<edge source="monogenic disease" target="autosomal genetic disease"/>
+<edge source="urinary system disease" target="urinary system cancer"/>
+<edge source="urinary system disease" target="bladder disease"/>
+<edge source="inherited metabolic disorder" target="mitochondrial metabolism disease"/>
+<edge source="urinary system cancer" target="urinary bladder cancer"/>
+<edge source="developmental disorder of mental health" target="specific developmental disorder"/>
+<edge source="neurodegenerative disease" target="motor neuron disease"/>
+<edge source="motor neuron disease" target="spinal muscular atrophy"/>
+<edge source="spinal muscular atrophy" target="adult spinal muscular atrophy"/>
+<edge source="combined oxidative phosphorylation deficiency" target="combined oxidative phosphorylation deficiency 19"/>
+<edge source="intellectual disability" target="autosomal recessive intellectual developmental disorder"/>
+<edge source="disease of mental health" target="developmental disorder of mental health"/>
+<edge source="virtual_root" target="disease"/>
+<edge source="virtual_root" target="organ system cancer"/>
+<edge source="virtual_root" target="neurodegenerative disease"/>
+</graph></graphml>

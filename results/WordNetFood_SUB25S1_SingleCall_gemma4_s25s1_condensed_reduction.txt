@@ -1,0 +1,59 @@
+==================================================
+=== Detailed Node Pair Analysis (Condensed Transitive Reduction) ===
+Match Type Used: SET_OVERLAP
+==================================================
+Precision: 0.7391 | Recall: 0.6800 | F1: 0.7083
+
+CORRECT PREDICTIONS (True Positives: 17 Pred edges covering 17 GT edges):
+  [TP] PRED: (berry -> boysenberry)
+        matches GT: (berry -> boysenberry)
+  [TP] PRED: (beverage -> soft drink)
+        matches GT: (beverage -> soft drink)
+  [TP] PRED: (boiled egg -> hard-boiled egg)
+        matches GT: (boiled egg -> hard-boiled egg)
+  [TP] PRED: (candy -> fudge)
+        matches GT: (candy -> fudge)
+  [TP] PRED: (edible fruit -> berry)
+        matches GT: (edible fruit -> berry)
+  [TP] PRED: (food -> beverage)
+        matches GT: (food -> beverage)
+  [TP] PRED: (food -> meat)
+        matches GT: (food -> meat)
+  [TP] PRED: (food -> produce)
+        matches GT: (food -> produce)
+  [TP] PRED: (fudge -> penuche)
+        matches GT: (fudge -> penuche)
+  [TP] PRED: (meat -> variety meat)
+        matches GT: (meat -> variety meat)
+  [TP] PRED: (produce -> edible fruit)
+        matches GT: (produce -> edible fruit)
+  [TP] PRED: (saltwater fish -> sea bass)
+        matches GT: (saltwater fish -> sea bass)
+  [TP] PRED: (seafood -> saltwater fish)
+        matches GT: (seafood -> saltwater fish)
+  [TP] PRED: (soft drink -> sarsaparilla)
+        matches GT: (soft drink -> sarsaparilla)
+  [TP] PRED: (sweet -> candy)
+        matches GT: (sweet -> candy)
+  [TP] PRED: (tongue -> beef tongue)
+        matches GT: (tongue -> beef tongue)
+  [TP] PRED: (variety meat -> tongue)
+        matches GT: (variety meat -> tongue)
+
+INCORRECT PREDICTIONS (False Positives: 6):
+  [FP] boiled egg -> easter egg
+  [FP] food -> boiled egg
+  [FP] food -> dish
+  [FP] food -> sweet
+  [FP] meat -> seafood
+  [FP] nutriment -> food
+
+MISSED RELATIONS (False Negatives: 8):
+  [FN] candy -> easter egg
+  [FN] dainty -> sweet
+  [FN] dish -> boiled egg
+  [FN] food -> nutriment
+  [FN] food -> seafood
+  [FN] hard-boiled egg -> easter egg
+  [FN] nutriment -> dainty
+  [FN] nutriment -> dish

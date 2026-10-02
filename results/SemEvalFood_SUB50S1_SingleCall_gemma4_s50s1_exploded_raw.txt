@@ -1,0 +1,78 @@
+==================================================
+=== Detailed Node Pair Analysis (Exploded Raw Edges) ===
+Match Type Used: EXACT
+==================================================
+Precision: 0.6327 | Recall: 0.6327 | F1: 0.6327
+
+CORRECT PREDICTIONS (True Positives: 31 Pred edges covering 31 GT edges):
+  [TP] bread -> bun
+  [TP] butter -> meuniere butter
+  [TP] candied citrus peel -> grapefruit peel
+  [TP] candied fruit -> candied citrus peel
+  [TP] chowder -> fish chowder
+  [TP] cocktail -> sidecar
+  [TP] condiment -> sauce
+  [TP] corn -> hominy
+  [TP] course -> appetizer
+  [TP] dairy product -> butter
+  [TP] dish -> scrapple
+  [TP] dish -> snack food
+  [TP] dish -> soup
+  [TP] dough -> pastry
+  [TP] dressing -> lorenzo dressing
+  [TP] flavorer -> condiment
+  [TP] food -> foodstuff
+  [TP] food -> nutriment
+  [TP] foodstuff -> dairy product
+  [TP] foodstuff -> grain
+  [TP] foodstuff -> ingredient
+  [TP] foodstuff -> starches
+  [TP] grain -> corn
+  [TP] ingredient -> egg white
+  [TP] ingredient -> flavorer
+  [TP] pastry -> puff paste
+  [TP] sandwich -> open face sandwich
+  [TP] sauce -> dressing
+  [TP] soup -> chowder
+  [TP] sweet -> confiture
+  [TP] sweet roll -> honey bun
+
+INCORRECT PREDICTIONS (False Positives: 18):
+  [FP] concoction -> cocktail
+  [FP] concoction -> sauce
+  [FP] condiment -> pepper sauce
+  [FP] condiment -> seasoned salt
+  [FP] dish -> course
+  [FP] dish -> sandwich
+  [FP] food -> bread
+  [FP] food -> dainty
+  [FP] food -> dish
+  [FP] food -> ingredient
+  [FP] ingredient -> sweet
+  [FP] pastry -> bun
+  [FP] pastry -> crescent roll
+  [FP] pastry -> phyllo
+  [FP] pastry -> sweet roll
+  [FP] seasoned salt -> onion salt
+  [FP] starches -> dough
+  [FP] sweet -> candied fruit
+
+MISSED RELATIONS (False Negatives: 18):
+  [FN] appetizer -> cocktail
+  [FN] bun -> crescent roll
+  [FN] bun -> sweet roll
+  [FN] commissariat -> larder
+  [FN] concoction -> dough
+  [FN] confiture -> candied fruit
+  [FN] dainty -> sweet
+  [FN] flavorer -> onion salt
+  [FN] flavorer -> seasoned salt
+  [FN] food -> commissariat
+  [FN] foodstuff -> concoction
+  [FN] nutriment -> course
+  [FN] nutriment -> dainty
+  [FN] nutriment -> dish
+  [FN] puff paste -> phyllo
+  [FN] sauce -> pepper sauce
+  [FN] snack food -> sandwich
+  [FN] starches -> bread

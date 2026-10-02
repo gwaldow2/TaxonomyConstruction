@@ -1,0 +1,425 @@
+==================================================
+=== Detailed Node Pair Analysis (Condensed Transitive Closure) ===
+Match Type Used: SET_OVERLAP
+==================================================
+Precision: 0.6310 | Recall: 0.9130 | F1: 0.7462
+
+CORRECT PREDICTIONS (True Positives: 106 Pred edges covering 168 GT edges):
+  [TP] PRED: (apical meristem -> ear spikelet meristem)
+        matches GT: (apical meristem -> ear spikelet meristem)
+  [TP] PRED: (apical meristem -> inflorescence apical meristem)
+        matches GT: (apical meristem -> inflorescence apical meristem)
+  [TP] PRED: (apical meristem -> inflorescence meristem (inflorescence meristem, reproductive shoot apical meristem))
+        matches GT: (apical meristem -> reproductive shoot apical meristem)
+  [TP] PRED: (apical meristem -> shoot apical meristem)
+        matches GT: (apical meristem -> shoot apical meristem)
+  [TP] PRED: (apical meristem -> spikelet meristem)
+        matches GT: (apical meristem -> spikelet meristem)
+  [TP] PRED: (cardinal organ part (cardinal organ part, cardinal part of multi-tissue plant structure) -> leaf base)
+        matches GT: (cardinal organ part -> leaf base)
+  [TP] PRED: (cardinal organ part (cardinal organ part, cardinal part of multi-tissue plant structure) -> leaf base)
+        matches GT: (cardinal part of multi-tissue plant structure -> leaf base)
+  [TP] PRED: (cardinal organ part (cardinal organ part, cardinal part of multi-tissue plant structure) -> phyllome base)
+        matches GT: (cardinal organ part -> phyllome base)
+  [TP] PRED: (cardinal organ part (cardinal organ part, cardinal part of multi-tissue plant structure) -> phyllome base)
+        matches GT: (cardinal part of multi-tissue plant structure -> phyllome base)
+  [TP] PRED: (cardinal organ part (cardinal organ part, cardinal part of multi-tissue plant structure) -> plant axis elongation zone)
+        matches GT: (cardinal organ part -> plant axis elongation zone)
+  [TP] PRED: (cardinal organ part (cardinal organ part, cardinal part of multi-tissue plant structure) -> plant axis elongation zone)
+        matches GT: (cardinal part of multi-tissue plant structure -> plant axis elongation zone)
+  [TP] PRED: (cardinal organ part (cardinal organ part, cardinal part of multi-tissue plant structure) -> primary root elongation zone)
+        matches GT: (cardinal organ part -> primary root elongation zone)
+  [TP] PRED: (cardinal organ part (cardinal organ part, cardinal part of multi-tissue plant structure) -> primary root elongation zone)
+        matches GT: (cardinal part of multi-tissue plant structure -> primary root elongation zone)
+  [TP] PRED: (cardinal organ part (cardinal organ part, cardinal part of multi-tissue plant structure) -> root elongation zone)
+        matches GT: (cardinal organ part -> root elongation zone)
+  [TP] PRED: (cardinal organ part (cardinal organ part, cardinal part of multi-tissue plant structure) -> root elongation zone)
+        matches GT: (cardinal part of multi-tissue plant structure -> root elongation zone)
+  [TP] PRED: (cardinal organ part (cardinal organ part, cardinal part of multi-tissue plant structure) -> shoot axis internode)
+        matches GT: (cardinal organ part -> shoot axis internode)
+  [TP] PRED: (cardinal organ part (cardinal organ part, cardinal part of multi-tissue plant structure) -> shoot axis internode)
+        matches GT: (cardinal part of multi-tissue plant structure -> shoot axis internode)
+  [TP] PRED: (cultured plant cell -> leaf-derived cultured plant cell)
+        matches GT: (cultured plant cell -> leaf-derived cultured plant cell)
+  [TP] PRED: (ear floret (ear floret, spikelet floret) -> upper floret of pedicellate spikelet of ear)
+        matches GT: (ear floret -> upper floret of pedicellate spikelet of ear)
+  [TP] PRED: (ear floret (ear floret, spikelet floret) -> upper floret of pedicellate spikelet of ear)
+        matches GT: (spikelet floret -> upper floret of pedicellate spikelet of ear)
+  [TP] PRED: (ear meristem -> ear spikelet meristem)
+        matches GT: (ear meristem -> ear spikelet meristem)
+  [TP] PRED: (flower -> ear floret (ear floret, spikelet floret))
+        matches GT: (flower -> ear floret)
+  [TP] PRED: (flower -> ear floret (ear floret, spikelet floret))
+        matches GT: (flower -> spikelet floret)
+  [TP] PRED: (flower -> pistillate flower)
+        matches GT: (flower -> pistillate flower)
+  [TP] PRED: (flower -> upper floret of pedicellate spikelet of ear)
+        matches GT: (flower -> upper floret of pedicellate spikelet of ear)
+  [TP] PRED: (in vitro plant structure -> cultured plant cell)
+        matches GT: (in vitro plant structure -> cultured plant cell)
+  [TP] PRED: (in vitro plant structure -> leaf-derived cultured plant cell)
+        matches GT: (in vitro plant structure -> leaf-derived cultured plant cell)
+  [TP] PRED: (inflorescence apical meristem -> ear spikelet meristem)
+        matches GT: (inflorescence apical meristem -> ear spikelet meristem)
+  [TP] PRED: (inflorescence apical meristem -> spikelet meristem)
+        matches GT: (inflorescence apical meristem -> spikelet meristem)
+  [TP] PRED: (inflorescence meristem (inflorescence meristem, reproductive shoot apical meristem) -> ear spikelet meristem)
+        matches GT: (inflorescence meristem -> ear spikelet meristem)
+  [TP] PRED: (inflorescence meristem (inflorescence meristem, reproductive shoot apical meristem) -> ear spikelet meristem)
+        matches GT: (reproductive shoot apical meristem -> ear spikelet meristem)
+  [TP] PRED: (inflorescence meristem (inflorescence meristem, reproductive shoot apical meristem) -> inflorescence apical meristem)
+        matches GT: (inflorescence meristem -> inflorescence apical meristem)
+  [TP] PRED: (inflorescence meristem (inflorescence meristem, reproductive shoot apical meristem) -> inflorescence apical meristem)
+        matches GT: (reproductive shoot apical meristem -> inflorescence apical meristem)
+  [TP] PRED: (inflorescence meristem (inflorescence meristem, reproductive shoot apical meristem) -> spikelet meristem)
+        matches GT: (inflorescence meristem -> spikelet meristem)
+  [TP] PRED: (inflorescence meristem (inflorescence meristem, reproductive shoot apical meristem) -> spikelet meristem)
+        matches GT: (reproductive shoot apical meristem -> spikelet meristem)
+  [TP] PRED: (leaf (leaf, vascular leaf) -> leaf tendril)
+        matches GT: (leaf -> leaf tendril)
+  [TP] PRED: (leaf (leaf, vascular leaf) -> leaf tendril)
+        matches GT: (vascular leaf -> leaf tendril)
+  [TP] PRED: (multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant structure) -> aerial tuber pith)
+        matches GT: (plant anatomical entity -> aerial tuber pith)
+  [TP] PRED: (multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant structure) -> aerial tuber pith)
+        matches GT: (plant structure -> aerial tuber pith)
+  [TP] PRED: (multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant structure) -> apical meristem)
+        matches GT: (plant anatomical entity -> apical meristem)
+  [TP] PRED: (multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant structure) -> apical meristem)
+        matches GT: (plant structure -> apical meristem)
+  [TP] PRED: (multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant structure) -> cardinal organ part (cardinal organ part, cardinal part of multi-tissue plant structure))
+        matches GT: (plant anatomical entity -> cardinal organ part)
+  [TP] PRED: (multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant structure) -> cardinal organ part (cardinal organ part, cardinal part of multi-tissue plant structure))
+        matches GT: (plant anatomical entity -> cardinal part of multi-tissue plant structure)
+  [TP] PRED: (multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant structure) -> cardinal organ part (cardinal organ part, cardinal part of multi-tissue plant structure))
+        matches GT: (plant structure -> cardinal organ part)
+  [TP] PRED: (multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant structure) -> cardinal organ part (cardinal organ part, cardinal part of multi-tissue plant structure))
+        matches GT: (plant structure -> cardinal part of multi-tissue plant structure)
+  [TP] PRED: (multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant structure) -> cultured plant cell)
+        matches GT: (plant anatomical entity -> cultured plant cell)
+  [TP] PRED: (multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant structure) -> cultured plant cell)
+        matches GT: (plant structure -> cultured plant cell)
+  [TP] PRED: (multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant structure) -> ear spikelet meristem)
+        matches GT: (plant anatomical entity -> ear spikelet meristem)
+  [TP] PRED: (multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant structure) -> ear spikelet meristem)
+        matches GT: (plant structure -> ear spikelet meristem)
+  [TP] PRED: (multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant structure) -> in vitro plant structure)
+        matches GT: (plant anatomical entity -> in vitro plant structure)
+  [TP] PRED: (multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant structure) -> in vitro plant structure)
+        matches GT: (plant structure -> in vitro plant structure)
+  [TP] PRED: (multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant structure) -> inflorescence apical meristem)
+        matches GT: (plant anatomical entity -> inflorescence apical meristem)
+  [TP] PRED: (multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant structure) -> inflorescence apical meristem)
+        matches GT: (plant structure -> inflorescence apical meristem)
+  [TP] PRED: (multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant structure) -> inflorescence meristem (inflorescence meristem, reproductive shoot apical meristem))
+        matches GT: (plant anatomical entity -> reproductive shoot apical meristem)
+  [TP] PRED: (multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant structure) -> inflorescence meristem (inflorescence meristem, reproductive shoot apical meristem))
+        matches GT: (plant structure -> reproductive shoot apical meristem)
+  [TP] PRED: (multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant structure) -> leaf (leaf, vascular leaf))
+        matches GT: (multi-tissue plant structure -> leaf)
+  [TP] PRED: (multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant structure) -> leaf (leaf, vascular leaf))
+        matches GT: (multi-tissue plant structure -> vascular leaf)
+  [TP] PRED: (multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant structure) -> leaf (leaf, vascular leaf))
+        matches GT: (plant anatomical entity -> leaf)
+  [TP] PRED: (multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant structure) -> leaf (leaf, vascular leaf))
+        matches GT: (plant anatomical entity -> vascular leaf)
+  [TP] PRED: (multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant structure) -> leaf (leaf, vascular leaf))
+        matches GT: (plant structure -> leaf)
+  [TP] PRED: (multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant structure) -> leaf (leaf, vascular leaf))
+        matches GT: (plant structure -> vascular leaf)
+  [TP] PRED: (multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant structure) -> leaf base)
+        matches GT: (plant anatomical entity -> leaf base)
+  [TP] PRED: (multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant structure) -> leaf base)
+        matches GT: (plant structure -> leaf base)
+  [TP] PRED: (multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant structure) -> leaf plate meristem (leaf plate meristem, phyllome plate meristem))
+        matches GT: (plant anatomical entity -> leaf plate meristem)
+  [TP] PRED: (multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant structure) -> leaf plate meristem (leaf plate meristem, phyllome plate meristem))
+        matches GT: (plant anatomical entity -> phyllome plate meristem)
+  [TP] PRED: (multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant structure) -> leaf plate meristem (leaf plate meristem, phyllome plate meristem))
+        matches GT: (plant structure -> leaf plate meristem)
+  [TP] PRED: (multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant structure) -> leaf plate meristem (leaf plate meristem, phyllome plate meristem))
+        matches GT: (plant structure -> phyllome plate meristem)
+  [TP] PRED: (multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant structure) -> leaf tendril)
+        matches GT: (multi-tissue plant structure -> leaf tendril)
+  [TP] PRED: (multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant structure) -> leaf tendril)
+        matches GT: (plant anatomical entity -> leaf tendril)
+  [TP] PRED: (multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant structure) -> leaf tendril)
+        matches GT: (plant structure -> leaf tendril)
+  [TP] PRED: (multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant structure) -> leaf-derived cultured plant cell)
+        matches GT: (plant anatomical entity -> leaf-derived cultured plant cell)
+  [TP] PRED: (multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant structure) -> leaf-derived cultured plant cell)
+        matches GT: (plant structure -> leaf-derived cultured plant cell)
+  [TP] PRED: (multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant structure) -> parenchyma (parenchyma, portion of ground tissue))
+        matches GT: (plant anatomical entity -> parenchyma)
+  [TP] PRED: (multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant structure) -> parenchyma (parenchyma, portion of ground tissue))
+        matches GT: (plant anatomical entity -> portion of ground tissue)
+  [TP] PRED: (multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant structure) -> parenchyma (parenchyma, portion of ground tissue))
+        matches GT: (plant structure -> parenchyma)
+  [TP] PRED: (multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant structure) -> parenchyma (parenchyma, portion of ground tissue))
+        matches GT: (plant structure -> portion of ground tissue)
+  [TP] PRED: (multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant structure) -> phyllome base)
+        matches GT: (plant anatomical entity -> phyllome base)
+  [TP] PRED: (multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant structure) -> phyllome base)
+        matches GT: (plant structure -> phyllome base)
+  [TP] PRED: (multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant structure) -> phyllome)
+        matches GT: (multi-tissue plant structure -> phyllome)
+  [TP] PRED: (multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant structure) -> phyllome)
+        matches GT: (plant anatomical entity -> phyllome)
+  [TP] PRED: (multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant structure) -> phyllome)
+        matches GT: (plant structure -> phyllome)
+  [TP] PRED: (multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant structure) -> pith)
+        matches GT: (plant anatomical entity -> pith)
+  [TP] PRED: (multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant structure) -> pith)
+        matches GT: (plant structure -> pith)
+  [TP] PRED: (multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant structure) -> plant axis elongation zone)
+        matches GT: (plant anatomical entity -> plant axis elongation zone)
+  [TP] PRED: (multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant structure) -> plant axis elongation zone)
+        matches GT: (plant structure -> plant axis elongation zone)
+  [TP] PRED: (multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant structure) -> plant cell)
+        matches GT: (plant anatomical entity -> plant cell)
+  [TP] PRED: (multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant structure) -> plant cell)
+        matches GT: (plant structure -> plant cell)
+  [TP] PRED: (multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant structure) -> plant organ)
+        matches GT: (multi-tissue plant structure -> plant organ)
+  [TP] PRED: (multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant structure) -> plant organ)
+        matches GT: (plant anatomical entity -> plant organ)
+  [TP] PRED: (multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant structure) -> plant organ)
+        matches GT: (plant structure -> plant organ)
+  [TP] PRED: (multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant structure) -> portion of meristem tissue)
+        matches GT: (plant anatomical entity -> portion of meristem tissue)
+  [TP] PRED: (multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant structure) -> portion of meristem tissue)
+        matches GT: (plant structure -> portion of meristem tissue)
+  [TP] PRED: (multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant structure) -> portion of plant tissue)
+        matches GT: (plant anatomical entity -> portion of plant tissue)
+  [TP] PRED: (multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant structure) -> portion of plant tissue)
+        matches GT: (plant structure -> portion of plant tissue)
+  [TP] PRED: (multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant structure) -> primary root elongation zone)
+        matches GT: (plant anatomical entity -> primary root elongation zone)
+  [TP] PRED: (multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant structure) -> primary root elongation zone)
+        matches GT: (plant structure -> primary root elongation zone)
+  [TP] PRED: (multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant structure) -> root elongation zone)
+        matches GT: (plant anatomical entity -> root elongation zone)
+  [TP] PRED: (multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant structure) -> root elongation zone)
+        matches GT: (plant structure -> root elongation zone)
+  [TP] PRED: (multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant structure) -> shoot apical meristem)
+        matches GT: (plant anatomical entity -> shoot apical meristem)
+  [TP] PRED: (multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant structure) -> shoot apical meristem)
+        matches GT: (plant structure -> shoot apical meristem)
+  [TP] PRED: (multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant structure) -> shoot axis internode)
+        matches GT: (plant anatomical entity -> shoot axis internode)
+  [TP] PRED: (multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant structure) -> shoot axis internode)
+        matches GT: (plant structure -> shoot axis internode)
+  [TP] PRED: (multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant structure) -> shoot system meristem)
+        matches GT: (plant anatomical entity -> shoot system meristem)
+  [TP] PRED: (multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant structure) -> shoot system meristem)
+        matches GT: (plant structure -> shoot system meristem)
+  [TP] PRED: (multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant structure) -> spikelet meristem)
+        matches GT: (plant anatomical entity -> spikelet meristem)
+  [TP] PRED: (multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant structure) -> spikelet meristem)
+        matches GT: (plant structure -> spikelet meristem)
+  [TP] PRED: (multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant structure) -> tuber pith)
+        matches GT: (plant anatomical entity -> tuber pith)
+  [TP] PRED: (multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant structure) -> tuber pith)
+        matches GT: (plant structure -> tuber pith)
+  [TP] PRED: (parenchyma (parenchyma, portion of ground tissue) -> aerial tuber pith)
+        matches GT: (parenchyma -> aerial tuber pith)
+  [TP] PRED: (parenchyma (parenchyma, portion of ground tissue) -> aerial tuber pith)
+        matches GT: (portion of ground tissue -> aerial tuber pith)
+  [TP] PRED: (parenchyma (parenchyma, portion of ground tissue) -> pith)
+        matches GT: (parenchyma -> pith)
+  [TP] PRED: (parenchyma (parenchyma, portion of ground tissue) -> pith)
+        matches GT: (portion of ground tissue -> pith)
+  [TP] PRED: (parenchyma (parenchyma, portion of ground tissue) -> tuber pith)
+        matches GT: (parenchyma -> tuber pith)
+  [TP] PRED: (parenchyma (parenchyma, portion of ground tissue) -> tuber pith)
+        matches GT: (portion of ground tissue -> tuber pith)
+  [TP] PRED: (phyllome -> leaf (leaf, vascular leaf))
+        matches GT: (phyllome -> leaf)
+  [TP] PRED: (phyllome -> leaf (leaf, vascular leaf))
+        matches GT: (phyllome -> vascular leaf)
+  [TP] PRED: (phyllome -> leaf tendril)
+        matches GT: (phyllome -> leaf tendril)
+  [TP] PRED: (phyllome base -> leaf base)
+        matches GT: (phyllome base -> leaf base)
+  [TP] PRED: (pith -> aerial tuber pith)
+        matches GT: (pith -> aerial tuber pith)
+  [TP] PRED: (pith -> tuber pith)
+        matches GT: (pith -> tuber pith)
+  [TP] PRED: (plant axis elongation zone -> primary root elongation zone)
+        matches GT: (plant axis elongation zone -> primary root elongation zone)
+  [TP] PRED: (plant axis elongation zone -> root elongation zone)
+        matches GT: (plant axis elongation zone -> root elongation zone)
+  [TP] PRED: (plant cell -> cultured plant cell)
+        matches GT: (plant cell -> cultured plant cell)
+  [TP] PRED: (plant cell -> leaf-derived cultured plant cell)
+        matches GT: (plant cell -> leaf-derived cultured plant cell)
+  [TP] PRED: (plant organ -> leaf (leaf, vascular leaf))
+        matches GT: (plant organ -> leaf)
+  [TP] PRED: (plant organ -> leaf (leaf, vascular leaf))
+        matches GT: (plant organ -> vascular leaf)
+  [TP] PRED: (plant organ -> leaf tendril)
+        matches GT: (plant organ -> leaf tendril)
+  [TP] PRED: (plant organ -> phyllome)
+        matches GT: (plant organ -> phyllome)
+  [TP] PRED: (portion of meristem tissue -> apical meristem)
+        matches GT: (portion of meristem tissue -> apical meristem)
+  [TP] PRED: (portion of meristem tissue -> ear spikelet meristem)
+        matches GT: (portion of meristem tissue -> ear spikelet meristem)
+  [TP] PRED: (portion of meristem tissue -> inflorescence apical meristem)
+        matches GT: (portion of meristem tissue -> inflorescence apical meristem)
+  [TP] PRED: (portion of meristem tissue -> inflorescence meristem (inflorescence meristem, reproductive shoot apical meristem))
+        matches GT: (portion of meristem tissue -> reproductive shoot apical meristem)
+  [TP] PRED: (portion of meristem tissue -> leaf plate meristem (leaf plate meristem, phyllome plate meristem))
+        matches GT: (portion of meristem tissue -> leaf plate meristem)
+  [TP] PRED: (portion of meristem tissue -> leaf plate meristem (leaf plate meristem, phyllome plate meristem))
+        matches GT: (portion of meristem tissue -> phyllome plate meristem)
+  [TP] PRED: (portion of meristem tissue -> shoot apical meristem)
+        matches GT: (portion of meristem tissue -> shoot apical meristem)
+  [TP] PRED: (portion of meristem tissue -> shoot system meristem)
+        matches GT: (portion of meristem tissue -> shoot system meristem)
+  [TP] PRED: (portion of meristem tissue -> spikelet meristem)
+        matches GT: (portion of meristem tissue -> spikelet meristem)
+  [TP] PRED: (portion of plant tissue -> aerial tuber pith)
+        matches GT: (portion of plant tissue -> aerial tuber pith)
+  [TP] PRED: (portion of plant tissue -> apical meristem)
+        matches GT: (portion of plant tissue -> apical meristem)
+  [TP] PRED: (portion of plant tissue -> ear spikelet meristem)
+        matches GT: (portion of plant tissue -> ear spikelet meristem)
+  [TP] PRED: (portion of plant tissue -> inflorescence apical meristem)
+        matches GT: (portion of plant tissue -> inflorescence apical meristem)
+  [TP] PRED: (portion of plant tissue -> inflorescence meristem (inflorescence meristem, reproductive shoot apical meristem))
+        matches GT: (portion of plant tissue -> reproductive shoot apical meristem)
+  [TP] PRED: (portion of plant tissue -> leaf plate meristem (leaf plate meristem, phyllome plate meristem))
+        matches GT: (portion of plant tissue -> leaf plate meristem)
+  [TP] PRED: (portion of plant tissue -> leaf plate meristem (leaf plate meristem, phyllome plate meristem))
+        matches GT: (portion of plant tissue -> phyllome plate meristem)
+  [TP] PRED: (portion of plant tissue -> parenchyma (parenchyma, portion of ground tissue))
+        matches GT: (portion of plant tissue -> parenchyma)
+  [TP] PRED: (portion of plant tissue -> parenchyma (parenchyma, portion of ground tissue))
+        matches GT: (portion of plant tissue -> portion of ground tissue)
+  [TP] PRED: (portion of plant tissue -> pith)
+        matches GT: (portion of plant tissue -> pith)
+  [TP] PRED: (portion of plant tissue -> portion of meristem tissue)
+        matches GT: (portion of plant tissue -> portion of meristem tissue)
+  [TP] PRED: (portion of plant tissue -> shoot apical meristem)
+        matches GT: (portion of plant tissue -> shoot apical meristem)
+  [TP] PRED: (portion of plant tissue -> shoot system meristem)
+        matches GT: (portion of plant tissue -> shoot system meristem)
+  [TP] PRED: (portion of plant tissue -> spikelet meristem)
+        matches GT: (portion of plant tissue -> spikelet meristem)
+  [TP] PRED: (portion of plant tissue -> tuber pith)
+        matches GT: (portion of plant tissue -> tuber pith)
+  [TP] PRED: (portion of vascular tissue -> leaf lamina vascular system)
+        matches GT: (portion of vascular tissue -> leaf lamina vascular system)
+  [TP] PRED: (portion of vascular tissue -> vascular system)
+        matches GT: (portion of vascular tissue -> vascular system)
+  [TP] PRED: (prickle -> root prickle)
+        matches GT: (prickle -> root prickle)
+  [TP] PRED: (root elongation zone -> primary root elongation zone)
+        matches GT: (root elongation zone -> primary root elongation zone)
+  [TP] PRED: (shoot apical meristem -> ear spikelet meristem)
+        matches GT: (shoot apical meristem -> ear spikelet meristem)
+  [TP] PRED: (shoot apical meristem -> inflorescence apical meristem)
+        matches GT: (shoot apical meristem -> inflorescence apical meristem)
+  [TP] PRED: (shoot apical meristem -> inflorescence meristem (inflorescence meristem, reproductive shoot apical meristem))
+        matches GT: (shoot apical meristem -> reproductive shoot apical meristem)
+  [TP] PRED: (shoot apical meristem -> spikelet meristem)
+        matches GT: (shoot apical meristem -> spikelet meristem)
+  [TP] PRED: (shoot system meristem -> ear spikelet meristem)
+        matches GT: (shoot system meristem -> ear spikelet meristem)
+  [TP] PRED: (shoot system meristem -> inflorescence apical meristem)
+        matches GT: (shoot system meristem -> inflorescence apical meristem)
+  [TP] PRED: (shoot system meristem -> inflorescence meristem (inflorescence meristem, reproductive shoot apical meristem))
+        matches GT: (shoot system meristem -> reproductive shoot apical meristem)
+  [TP] PRED: (shoot system meristem -> shoot apical meristem)
+        matches GT: (shoot system meristem -> shoot apical meristem)
+  [TP] PRED: (shoot system meristem -> spikelet meristem)
+        matches GT: (shoot system meristem -> spikelet meristem)
+  [TP] PRED: (spikelet meristem -> ear spikelet meristem)
+        matches GT: (spikelet meristem -> ear spikelet meristem)
+  [TP] PRED: (tuber pith -> aerial tuber pith)
+        matches GT: (tuber pith -> aerial tuber pith)
+  [TP] PRED: (vascular system -> leaf lamina vascular system)
+        matches GT: (vascular system -> leaf lamina vascular system)
+
+INCORRECT PREDICTIONS (False Positives: 62):
+  [FP] apical meristem -> ear meristem
+  [FP] apical meristem -> shoot system meristem
+  [FP] cardinal organ part (cardinal organ part, cardinal part of multi-tissue plant structure) -> leaf apex
+  [FP] inflorescence apical meristem -> ear meristem
+  [FP] inflorescence meristem (inflorescence meristem, reproductive shoot apical meristem) -> ear meristem
+  [FP] leaf (leaf, vascular leaf) -> leaf apex
+  [FP] leaf (leaf, vascular leaf) -> leaf base
+  [FP] multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant structure) -> ear floret (ear floret, spikelet floret)
+  [FP] multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant structure) -> ear meristem
+  [FP] multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant structure) -> flower
+  [FP] multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant structure) -> leaf apex
+  [FP] multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant structure) -> leaf lamina vascular system
+  [FP] multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant structure) -> pistillate flower
+  [FP] multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant structure) -> po_0000055
+  [FP] multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant structure) -> portion of vascular tissue
+  [FP] multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant structure) -> prickle
+  [FP] multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant structure) -> reproductive shoot system
+  [FP] multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant structure) -> root prickle
+  [FP] multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant structure) -> shoot system
+  [FP] multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant structure) -> upper floret of pedicellate spikelet of ear
+  [FP] multi-tissue plant structure (multi-tissue plant structure, plant anatomical entity, plant structure) -> vascular system
+  [FP] phyllome -> leaf apex
+  [FP] phyllome -> leaf base
+  [FP] phyllome -> phyllome base
+  [FP] phyllome -> po_0000055
+  [FP] plant cell -> aerial tuber pith
+  [FP] plant cell -> parenchyma (parenchyma, portion of ground tissue)
+  [FP] plant cell -> pith
+  [FP] plant cell -> tuber pith
+  [FP] plant organ -> aerial tuber pith
+  [FP] plant organ -> apical meristem
+  [FP] plant organ -> ear floret (ear floret, spikelet floret)
+  [FP] plant organ -> ear meristem
+  [FP] plant organ -> ear spikelet meristem
+  [FP] plant organ -> flower
+  [FP] plant organ -> inflorescence apical meristem
+  [FP] plant organ -> inflorescence meristem (inflorescence meristem, reproductive shoot apical meristem)
+  [FP] plant organ -> leaf apex
+  [FP] plant organ -> leaf base
+  [FP] plant organ -> leaf plate meristem (leaf plate meristem, phyllome plate meristem)
+  [FP] plant organ -> phyllome base
+  [FP] plant organ -> pistillate flower
+  [FP] plant organ -> plant axis elongation zone
+  [FP] plant organ -> po_0000055
+  [FP] plant organ -> prickle
+  [FP] plant organ -> primary root elongation zone
+  [FP] plant organ -> root elongation zone
+  [FP] plant organ -> root prickle
+  [FP] plant organ -> shoot apical meristem
+  [FP] plant organ -> shoot axis internode
+  [FP] plant organ -> shoot system meristem
+  [FP] plant organ -> spikelet meristem
+  [FP] plant organ -> tuber pith
+  [FP] plant organ -> upper floret of pedicellate spikelet of ear
+  [FP] portion of meristem tissue -> ear meristem
+  [FP] portion of plant tissue -> ear meristem
+  [FP] portion of plant tissue -> leaf lamina vascular system
+  [FP] portion of plant tissue -> portion of vascular tissue
+  [FP] portion of plant tissue -> vascular system
+  [FP] shoot apical meristem -> ear meristem
+  [FP] shoot system -> reproductive shoot system
+  [FP] shoot system meristem -> ear meristem
+
+MISSED RELATIONS (False Negatives: 16):
+  [FN] cardinal part of multi-tissue plant structure -> cardinal organ part
+  [FN] leaf -> vascular leaf
+  [FN] phyllome plate meristem -> leaf plate meristem
+  [FN] pistillate flower -> ear floret
+  [FN] pistillate flower -> upper floret of pedicellate spikelet of ear
+  [FN] plant anatomical entity -> multi-tissue plant structure
+  [FN] plant anatomical entity -> plant structure
+  [FN] plant structure -> multi-tissue plant structure
+  [FN] portion of ground tissue -> parenchyma
+  [FN] reproductive shoot system -> ear floret
+  [FN] reproductive shoot system -> flower
+  [FN] reproductive shoot system -> pistillate flower
+  [FN] reproductive shoot system -> spikelet floret
+  [FN] reproductive shoot system -> upper floret of pedicellate spikelet of ear
+  [FN] shoot system -> po_0000055
+  [FN] spikelet floret -> ear floret

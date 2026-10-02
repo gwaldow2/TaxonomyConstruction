@@ -1,0 +1,52 @@
+==================================================
+=== Detailed Node Pair Analysis (Exploded Raw Edges) ===
+Match Type Used: EXACT
+==================================================
+Precision: 0.4815 | Recall: 0.4815 | F1: 0.4815
+
+CORRECT PREDICTIONS (True Positives: 13 Pred edges covering 13 GT edges):
+  [TP] bread -> bun
+  [TP] chowder -> fish chowder
+  [TP] corn -> hominy
+  [TP] dish -> soup
+  [TP] dough -> pastry
+  [TP] flavorer -> onion salt
+  [TP] food -> foodstuff
+  [TP] grain -> corn
+  [TP] ingredient -> egg white
+  [TP] nutriment -> dish
+  [TP] pastry -> puff paste
+  [TP] sauce -> pepper sauce
+  [TP] soup -> chowder
+
+INCORRECT PREDICTIONS (False Positives: 14):
+  [FP] bread -> crescent roll
+  [FP] bread -> sweet roll
+  [FP] bun -> honey bun
+  [FP] concoction -> condiment
+  [FP] condiment -> flavorer
+  [FP] dough -> bread
+  [FP] flavorer -> sauce
+  [FP] foodstuff -> nutriment
+  [FP] ingredient -> concoction
+  [FP] ingredient -> dough
+  [FP] ingredient -> starches
+  [FP] nutriment -> ingredient
+  [FP] pastry -> phyllo
+  [FP] starches -> grain
+
+MISSED RELATIONS (False Negatives: 14):
+  [FN] bun -> crescent roll
+  [FN] bun -> sweet roll
+  [FN] concoction -> dough
+  [FN] condiment -> sauce
+  [FN] flavorer -> condiment
+  [FN] food -> nutriment
+  [FN] foodstuff -> concoction
+  [FN] foodstuff -> grain
+  [FN] foodstuff -> ingredient
+  [FN] foodstuff -> starches
+  [FN] ingredient -> flavorer
+  [FN] puff paste -> phyllo
+  [FN] starches -> bread
+  [FN] sweet roll -> honey bun

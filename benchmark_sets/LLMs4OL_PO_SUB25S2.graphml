@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d8" for="node" attr.name="is_virtual" attr.type="boolean"/>
+<key id="d7" for="graph" attr.name="generated" attr.type="string"/>
+<key id="d6" for="graph" attr.name="generator" attr.type="string"/>
+<key id="d5" for="graph" attr.name="source_edges" attr.type="string"/>
+<key id="d4" for="graph" attr.name="source_nodes" attr.type="string"/>
+<key id="d3" for="graph" attr.name="source_file" attr.type="string"/>
+<key id="d2" for="graph" attr.name="seed" attr.type="string"/>
+<key id="d1" for="graph" attr.name="target_nodes" attr.type="string"/>
+<key id="d0" for="graph" attr.name="scale" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">SUB25S2</data>
+<data key="d1">25</data>
+<data key="d2">2</data>
+<data key="d3">LLMs4OL_PO_FULL.graphml</data>
+<data key="d4">1163</data>
+<data key="d5">1200</data>
+<data key="d6">scale_benchmarks.py</data>
+<data key="d7">2026-09-30T16:27:43</data>
+<node id="native plant cell"/>
+<node id="inflorescence axis"/>
+<node id="cardinal part of multi-tissue plant structure"/>
+<node id="tassel inflorescence branch"/>
+<node id="shoot axis"/>
+<node id="parenchyma cell"/>
+<node id="plant axis"/>
+<node id="plant organ"/>
+<node id="plant anatomical entity"/>
+<node id="plant structure"/>
+<node id="higher order inflorescence axis"/>
+<node id="phyllome"/>
+<node id="portion of meristem tissue"/>
+<node id="cardinal organ part"/>
+<node id="chlorenchyma cell"/>
+<node id="phyllome base"/>
+<node id="meristem l3 layer"/>
+<node id="petiole distal end"/>
+<node id="tmema"/>
+<node id="multi-tissue plant structure"/>
+<node id="portion of plant tissue"/>
+<node id="prophyll"/>
+<node id="sepal base"/>
+<node id="ground tissue cell"/>
+<node id="bracteole"/>
+<node id="virtual_root">
+  <data key="d8">True</data>
+</node>
+<edge source="native plant cell" target="ground tissue cell"/>
+<edge source="inflorescence axis" target="higher order inflorescence axis"/>
+<edge source="cardinal part of multi-tissue plant structure" target="cardinal organ part"/>
+<edge source="shoot axis" target="inflorescence axis"/>
+<edge source="parenchyma cell" target="chlorenchyma cell"/>
+<edge source="plant axis" target="shoot axis"/>
+<edge source="plant organ" target="phyllome"/>
+<edge source="plant anatomical entity" target="plant structure"/>
+<edge source="plant structure" target="multi-tissue plant structure"/>
+<edge source="plant structure" target="cardinal part of multi-tissue plant structure"/>
+<edge source="plant structure" target="portion of plant tissue"/>
+<edge source="higher order inflorescence axis" target="tassel inflorescence branch"/>
+<edge source="phyllome" target="prophyll"/>
+<edge source="portion of meristem tissue" target="meristem l3 layer"/>
+<edge source="cardinal organ part" target="petiole distal end"/>
+<edge source="cardinal organ part" target="phyllome base"/>
+<edge source="phyllome base" target="sepal base"/>
+<edge source="multi-tissue plant structure" target="plant organ"/>
+<edge source="portion of plant tissue" target="portion of meristem tissue"/>
+<edge source="portion of plant tissue" target="tmema"/>
+<edge source="prophyll" target="bracteole"/>
+<edge source="ground tissue cell" target="parenchyma cell"/>
+<edge source="virtual_root" target="native plant cell"/>
+<edge source="virtual_root" target="plant axis"/>
+<edge source="virtual_root" target="plant anatomical entity"/>
+</graph></graphml>

@@ -1,0 +1,38 @@
+==================================================
+=== Detailed Node Pair Analysis (Exploded Raw Edges) ===
+Match Type Used: EXACT
+==================================================
+Precision: 0.8333 | Recall: 0.8696 | F1: 0.8511
+
+CORRECT PREDICTIONS (True Positives: 20 Pred edges covering 20 GT edges):
+  [TP] analyte assay -> luteinizing hormone assay
+  [TP] assay -> analyte assay
+  [TP] assay -> epigenetic modification assay
+  [TP] assay -> organism detection assay
+  [TP] continuant -> independent continuant
+  [TP] data transformation -> network analysis
+  [TP] device -> catheter
+  [TP] device -> chip spotting device
+  [TP] dna methylation profiling assay -> dna methylation profiling by array assay
+  [TP] epigenetic modification assay -> dna methylation profiling assay
+  [TP] imaging assay -> magnetic resonance imaging assay
+  [TP] independent continuant -> material entity
+  [TP] material entity -> processed material
+  [TP] network analysis -> network subgraph quality calculation
+  [TP] network subgraph quality calculation -> subgraph degree calculation
+  [TP] organism detection assay -> organism detection by salinity tolerance assay
+  [TP] performance status value specification -> eastern cooperative oncology group score value specification
+  [TP] planned process -> assay
+  [TP] planned process -> data transformation
+  [TP] planned process -> study intervention
+
+INCORRECT PREDICTIONS (False Positives: 4):
+  [FP] assay -> imaging assay
+  [FP] dna methylation profiling assay -> dna methylation profiling by chip-chip assay
+  [FP] dna methylation profiling by chip-chip assay -> chip-chip assay
+  [FP] material entity -> device
+
+MISSED RELATIONS (False Negatives: 3):
+  [FN] chip-chip assay -> dna methylation profiling by chip-chip assay
+  [FN] epigenetic modification assay -> dna methylation profiling by chip-chip assay
+  [FN] processed material -> device

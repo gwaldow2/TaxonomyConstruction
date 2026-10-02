@@ -1,0 +1,87 @@
+==================================================
+=== Detailed Node Pair Analysis (Condensed Transitive Closure) ===
+Match Type Used: SET_OVERLAP
+==================================================
+Precision: 0.6279 | Recall: 0.8750 | F1: 0.7311
+
+CORRECT PREDICTIONS (True Positives: 27 Pred edges covering 28 GT edges):
+  [TP] PRED: (action -> controlaction)
+        matches GT: (action -> controlaction)
+  [TP] PRED: (action -> suspendaction)
+        matches GT: (action -> suspendaction)
+  [TP] PRED: (civicstructure -> movietheater)
+        matches GT: (civicstructure -> movietheater)
+  [TP] PRED: (controlaction -> suspendaction)
+        matches GT: (controlaction -> suspendaction)
+  [TP] PRED: (creativework (creativework, mediaobject) -> manuscript)
+        matches GT: (creativework -> manuscript)
+  [TP] PRED: (entertainmentbusiness -> movietheater)
+        matches GT: (entertainmentbusiness -> movietheater)
+  [TP] PRED: (enumeration -> sizegroupenumeration)
+        matches GT: (enumeration -> sizegroupenumeration)
+  [TP] PRED: (episode -> tvepisode)
+        matches GT: (episode -> tvepisode)
+  [TP] PRED: (intangible -> broadcastchannel (broadcastchannel, televisionchannel))
+        matches GT: (intangible -> broadcastchannel)
+  [TP] PRED: (intangible -> broadcastchannel (broadcastchannel, televisionchannel))
+        matches GT: (intangible -> televisionchannel)
+  [TP] PRED: (localbusiness -> emergencyservice)
+        matches GT: (localbusiness -> emergencyservice)
+  [TP] PRED: (localbusiness -> entertainmentbusiness)
+        matches GT: (localbusiness -> entertainmentbusiness)
+  [TP] PRED: (localbusiness -> healthclub)
+        matches GT: (localbusiness -> healthclub)
+  [TP] PRED: (localbusiness -> movietheater)
+        matches GT: (localbusiness -> movietheater)
+  [TP] PRED: (localbusiness -> sportsactivitylocation)
+        matches GT: (localbusiness -> sportsactivitylocation)
+  [TP] PRED: (organization -> emergencyservice)
+        matches GT: (organization -> emergencyservice)
+  [TP] PRED: (organization -> entertainmentbusiness)
+        matches GT: (organization -> entertainmentbusiness)
+  [TP] PRED: (organization -> healthclub)
+        matches GT: (organization -> healthclub)
+  [TP] PRED: (organization -> localbusiness)
+        matches GT: (organization -> localbusiness)
+  [TP] PRED: (organization -> movietheater)
+        matches GT: (organization -> movietheater)
+  [TP] PRED: (organization -> sportsactivitylocation)
+        matches GT: (organization -> sportsactivitylocation)
+  [TP] PRED: (place -> emergencyservice)
+        matches GT: (place -> emergencyservice)
+  [TP] PRED: (place -> entertainmentbusiness)
+        matches GT: (place -> entertainmentbusiness)
+  [TP] PRED: (place -> healthclub)
+        matches GT: (place -> healthclub)
+  [TP] PRED: (place -> localbusiness)
+        matches GT: (place -> localbusiness)
+  [TP] PRED: (place -> movietheater)
+        matches GT: (place -> movietheater)
+  [TP] PRED: (place -> sportsactivitylocation)
+        matches GT: (place -> sportsactivitylocation)
+  [TP] PRED: (sportsactivitylocation -> healthclub)
+        matches GT: (sportsactivitylocation -> healthclub)
+
+INCORRECT PREDICTIONS (False Positives: 16):
+  [FP] action -> datadownload
+  [FP] civicstructure -> governmentbuilding
+  [FP] creativework (creativework, mediaobject) -> broadcastchannel (broadcastchannel, televisionchannel)
+  [FP] creativework (creativework, mediaobject) -> episode
+  [FP] creativework (creativework, mediaobject) -> tvepisode
+  [FP] entertainmentbusiness -> broadcastchannel (broadcastchannel, televisionchannel)
+  [FP] entertainmentbusiness -> healthclub
+  [FP] intangible -> creativework (creativework, mediaobject)
+  [FP] intangible -> episode
+  [FP] intangible -> manuscript
+  [FP] intangible -> tvepisode
+  [FP] localbusiness -> broadcastchannel (broadcastchannel, televisionchannel)
+  [FP] organization -> broadcastchannel (broadcastchannel, televisionchannel)
+  [FP] place -> broadcastchannel (broadcastchannel, televisionchannel)
+  [FP] place -> civicstructure
+  [FP] place -> governmentbuilding
+
+MISSED RELATIONS (False Negatives: 4):
+  [FN] broadcastchannel -> televisionchannel
+  [FN] creativework -> collection
+  [FN] enumeration -> carusagetype
+  [FN] mediaobject -> datadownload

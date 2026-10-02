@@ -1,0 +1,184 @@
+==================================================
+=== Detailed Node Pair Analysis (Exploded Transitive Closure) ===
+Match Type Used: EXACT
+==================================================
+Precision: 0.5280 | Recall: 0.8763 | F1: 0.6589
+
+CORRECT PREDICTIONS (True Positives: 85 Pred edges covering 85 GT edges):
+  [TP] bread -> bun
+  [TP] bread -> crescent roll
+  [TP] bread -> honey bun
+  [TP] bread -> sweet roll
+  [TP] bun -> honey bun
+  [TP] bun -> sweet roll
+  [TP] chowder -> fish chowder
+  [TP] condiment -> pepper sauce
+  [TP] condiment -> sauce
+  [TP] corn -> hominy
+  [TP] dish -> chowder
+  [TP] dish -> fish chowder
+  [TP] dish -> soup
+  [TP] dough -> phyllo
+  [TP] dough -> puff paste
+  [TP] flavorer -> condiment
+  [TP] flavorer -> onion salt
+  [TP] flavorer -> pepper sauce
+  [TP] flavorer -> sauce
+  [TP] food -> bread
+  [TP] food -> bun
+  [TP] food -> chowder
+  [TP] food -> concoction
+  [TP] food -> condiment
+  [TP] food -> corn
+  [TP] food -> crescent roll
+  [TP] food -> dish
+  [TP] food -> dough
+  [TP] food -> egg white
+  [TP] food -> fish chowder
+  [TP] food -> flavorer
+  [TP] food -> foodstuff
+  [TP] food -> grain
+  [TP] food -> hominy
+  [TP] food -> honey bun
+  [TP] food -> ingredient
+  [TP] food -> nutriment
+  [TP] food -> onion salt
+  [TP] food -> pastry
+  [TP] food -> pepper sauce
+  [TP] food -> phyllo
+  [TP] food -> puff paste
+  [TP] food -> sauce
+  [TP] food -> soup
+  [TP] food -> starches
+  [TP] food -> sweet roll
+  [TP] foodstuff -> bread
+  [TP] foodstuff -> bun
+  [TP] foodstuff -> concoction
+  [TP] foodstuff -> condiment
+  [TP] foodstuff -> corn
+  [TP] foodstuff -> crescent roll
+  [TP] foodstuff -> dough
+  [TP] foodstuff -> egg white
+  [TP] foodstuff -> flavorer
+  [TP] foodstuff -> grain
+  [TP] foodstuff -> hominy
+  [TP] foodstuff -> honey bun
+  [TP] foodstuff -> ingredient
+  [TP] foodstuff -> onion salt
+  [TP] foodstuff -> pastry
+  [TP] foodstuff -> pepper sauce
+  [TP] foodstuff -> phyllo
+  [TP] foodstuff -> puff paste
+  [TP] foodstuff -> sauce
+  [TP] foodstuff -> starches
+  [TP] foodstuff -> sweet roll
+  [TP] grain -> corn
+  [TP] grain -> hominy
+  [TP] ingredient -> condiment
+  [TP] ingredient -> egg white
+  [TP] ingredient -> flavorer
+  [TP] ingredient -> onion salt
+  [TP] ingredient -> pepper sauce
+  [TP] ingredient -> sauce
+  [TP] nutriment -> chowder
+  [TP] nutriment -> dish
+  [TP] nutriment -> fish chowder
+  [TP] nutriment -> soup
+  [TP] pastry -> phyllo
+  [TP] pastry -> puff paste
+  [TP] sauce -> pepper sauce
+  [TP] soup -> chowder
+  [TP] soup -> fish chowder
+  [TP] sweet roll -> honey bun
+
+INCORRECT PREDICTIONS (False Positives: 76):
+  [FP] concoction -> chowder
+  [FP] concoction -> condiment
+  [FP] concoction -> fish chowder
+  [FP] concoction -> flavorer
+  [FP] concoction -> onion salt
+  [FP] concoction -> pepper sauce
+  [FP] concoction -> sauce
+  [FP] concoction -> soup
+  [FP] condiment -> condiment
+  [FP] condiment -> flavorer
+  [FP] condiment -> onion salt
+  [FP] dish -> bread
+  [FP] dish -> bun
+  [FP] dish -> concoction
+  [FP] dish -> condiment
+  [FP] dish -> crescent roll
+  [FP] dish -> flavorer
+  [FP] dish -> honey bun
+  [FP] dish -> onion salt
+  [FP] dish -> pastry
+  [FP] dish -> pepper sauce
+  [FP] dish -> phyllo
+  [FP] dish -> puff paste
+  [FP] dish -> sauce
+  [FP] dish -> sweet roll
+  [FP] flavorer -> flavorer
+  [FP] food -> food
+  [FP] foodstuff -> chowder
+  [FP] foodstuff -> dish
+  [FP] foodstuff -> fish chowder
+  [FP] foodstuff -> food
+  [FP] foodstuff -> foodstuff
+  [FP] foodstuff -> nutriment
+  [FP] foodstuff -> soup
+  [FP] ingredient -> bread
+  [FP] ingredient -> bun
+  [FP] ingredient -> corn
+  [FP] ingredient -> crescent roll
+  [FP] ingredient -> dough
+  [FP] ingredient -> grain
+  [FP] ingredient -> hominy
+  [FP] ingredient -> honey bun
+  [FP] ingredient -> pastry
+  [FP] ingredient -> phyllo
+  [FP] ingredient -> puff paste
+  [FP] ingredient -> starches
+  [FP] ingredient -> sweet roll
+  [FP] nutriment -> bread
+  [FP] nutriment -> bun
+  [FP] nutriment -> concoction
+  [FP] nutriment -> condiment
+  [FP] nutriment -> corn
+  [FP] nutriment -> crescent roll
+  [FP] nutriment -> dough
+  [FP] nutriment -> egg white
+  [FP] nutriment -> flavorer
+  [FP] nutriment -> food
+  [FP] nutriment -> foodstuff
+  [FP] nutriment -> grain
+  [FP] nutriment -> hominy
+  [FP] nutriment -> honey bun
+  [FP] nutriment -> ingredient
+  [FP] nutriment -> nutriment
+  [FP] nutriment -> onion salt
+  [FP] nutriment -> pastry
+  [FP] nutriment -> pepper sauce
+  [FP] nutriment -> phyllo
+  [FP] nutriment -> puff paste
+  [FP] nutriment -> sauce
+  [FP] nutriment -> starches
+  [FP] nutriment -> sweet roll
+  [FP] pastry -> bun
+  [FP] pastry -> crescent roll
+  [FP] pastry -> honey bun
+  [FP] pastry -> sweet roll
+  [FP] starches -> hominy
+
+MISSED RELATIONS (False Negatives: 12):
+  [FN] bun -> crescent roll
+  [FN] concoction -> dough
+  [FN] concoction -> pastry
+  [FN] concoction -> phyllo
+  [FN] concoction -> puff paste
+  [FN] dough -> pastry
+  [FN] puff paste -> phyllo
+  [FN] starches -> bread
+  [FN] starches -> bun
+  [FN] starches -> crescent roll
+  [FN] starches -> honey bun
+  [FN] starches -> sweet roll

@@ -1,0 +1,187 @@
+==================================================
+=== Detailed Node Pair Analysis (Exploded Raw Edges) ===
+Match Type Used: EXACT
+==================================================
+Precision: 0.2308 | Recall: 0.8478 | F1: 0.3628
+
+CORRECT PREDICTIONS (True Positives: 39 Pred edges covering 39 GT edges):
+  [TP] analyte assay -> chloride assay
+  [TP] analyte assay -> luteinizing hormone assay
+  [TP] analyte assay -> reporter cell line analyte detection bioassay
+  [TP] assay -> analyte assay
+  [TP] assay -> blood assay
+  [TP] assay -> cell culture assay
+  [TP] assay -> epigenetic modification assay
+  [TP] assay -> organism detection assay
+  [TP] assay measuring biological activity resulting from t cell epitopemhctcr binding -> assay measuring epitope specific cytokine production by t cells
+  [TP] assay measuring epitope specific cytokine production by t cells -> assay measuring epitope specific interleukin-6 production by t cells
+  [TP] assay measuring epitope specific interleukin-6 production by t cells -> cell culture analyte detection bioassay measuring epitope specific interleukin-6 production by t cells
+  [TP] biological attribute -> limb coordination efficacy
+  [TP] blood assay -> basic metabolic panel venous blood chloride assay
+  [TP] cell culture assay -> reporter cell line analyte detection bioassay
+  [TP] chip-chip assay -> dna methylation profiling by chip-chip assay
+  [TP] chloride assay -> basic metabolic panel venous blood chloride assay
+  [TP] continuant -> independent continuant
+  [TP] data transformation -> descriptive statistical calculation data transformation
+  [TP] descriptive statistical calculation data transformation -> kurtosis calculation
+  [TP] device -> catheter
+  [TP] device -> chip spotting device
+  [TP] dna methylation profiling assay -> dna methylation profiling by array assay
+  [TP] epigenetic modification assay -> dna methylation profiling assay
+  [TP] epigenetic modification assay -> dna methylation profiling by chip-chip assay
+  [TP] establishing cell culture -> establishing primary cell culture
+  [TP] imaging assay -> magnetic resonance imaging assay
+  [TP] independent continuant -> material entity
+  [TP] limb coordination efficacy -> lower limb coordination efficacy
+  [TP] material entity -> processed material
+  [TP] material processing -> establishing cell culture
+  [TP] network analysis -> network subgraph quality calculation
+  [TP] network subgraph quality calculation -> subgraph degree calculation
+  [TP] organism detection assay -> organism detection by salinity tolerance assay
+  [TP] osmolality assay -> urine osmolality assay
+  [TP] performance status value specification -> eastern cooperative oncology group score value specification
+  [TP] reporter cell line analyte detection bioassay -> cell culture analyte detection bioassay measuring epitope specific interleukin-6 production by t cells
+  [TP] t cell epitope assay -> assay measuring biological activity resulting from t cell epitopemhctcr binding
+  [TP] urine assay -> urine osmolality assay
+  [TP] varian nmr instrument -> varian unity inova spectrometer
+
+INCORRECT PREDICTIONS (False Positives: 130):
+  [FP] analyte assay -> assay measuring epitope specific cytokine production by t cells
+  [FP] analyte assay -> assay measuring epitope specific interleukin-6 production by t cells
+  [FP] analyte assay -> basic metabolic panel venous blood chloride assay
+  [FP] analyte assay -> blood assay
+  [FP] analyte assay -> cell culture analyte detection bioassay measuring epitope specific interleukin-6 production by t cells
+  [FP] analyte assay -> cell culture assay
+  [FP] analyte assay -> chip-chip assay
+  [FP] analyte assay -> dna methylation profiling assay
+  [FP] analyte assay -> dna methylation profiling by array assay
+  [FP] analyte assay -> dna methylation profiling by chip-chip assay
+  [FP] analyte assay -> epigenetic modification assay
+  [FP] analyte assay -> imaging assay
+  [FP] analyte assay -> magnetic resonance imaging assay
+  [FP] analyte assay -> organism detection assay
+  [FP] analyte assay -> organism detection by salinity tolerance assay
+  [FP] analyte assay -> osmolality assay
+  [FP] analyte assay -> t cell epitope assay
+  [FP] analyte assay -> urine assay
+  [FP] analyte assay -> urine osmolality assay
+  [FP] assay -> assay measuring biological activity resulting from t cell epitopemhctcr binding
+  [FP] assay -> assay measuring epitope specific cytokine production by t cells
+  [FP] assay -> assay measuring epitope specific interleukin-6 production by t cells
+  [FP] assay -> basic metabolic panel venous blood chloride assay
+  [FP] assay -> cell culture analyte detection bioassay measuring epitope specific interleukin-6 production by t cells
+  [FP] assay -> chip-chip assay
+  [FP] assay -> chloride assay
+  [FP] assay -> dna methylation profiling assay
+  [FP] assay -> dna methylation profiling by array assay
+  [FP] assay -> dna methylation profiling by chip-chip assay
+  [FP] assay -> imaging assay
+  [FP] assay -> luteinizing hormone assay
+  [FP] assay -> magnetic resonance imaging assay
+  [FP] assay -> organism detection by salinity tolerance assay
+  [FP] assay -> osmolality assay
+  [FP] assay -> reporter cell line analyte detection bioassay
+  [FP] assay -> t cell epitope assay
+  [FP] assay -> urine assay
+  [FP] assay -> urine osmolality assay
+  [FP] assay measuring biological activity resulting from t cell epitopemhctcr binding -> assay measuring epitope specific interleukin-6 production by t cells
+  [FP] assay measuring biological activity resulting from t cell epitopemhctcr binding -> cell culture analyte detection bioassay measuring epitope specific interleukin-6 production by t cells
+  [FP] assay measuring biological activity resulting from t cell epitopemhctcr binding -> cell culture assay
+  [FP] assay measuring biological activity resulting from t cell epitopemhctcr binding -> reporter cell line analyte detection bioassay
+  [FP] assay measuring epitope specific cytokine production by t cells -> cell culture analyte detection bioassay measuring epitope specific interleukin-6 production by t cells
+  [FP] assay measuring epitope specific cytokine production by t cells -> cell culture assay
+  [FP] assay measuring epitope specific cytokine production by t cells -> reporter cell line analyte detection bioassay
+  [FP] assay measuring epitope specific interleukin-6 production by t cells -> assay measuring epitope specific cytokine production by t cells
+  [FP] assay measuring epitope specific interleukin-6 production by t cells -> cell culture assay
+  [FP] assay measuring epitope specific interleukin-6 production by t cells -> reporter cell line analyte detection bioassay
+  [FP] biological attribute -> lower limb coordination efficacy
+  [FP] blood assay -> luteinizing hormone assay
+  [FP] cell culture analyte detection bioassay measuring epitope specific interleukin-6 production by t cells -> assay measuring epitope specific cytokine production by t cells
+  [FP] cell culture analyte detection bioassay measuring epitope specific interleukin-6 production by t cells -> assay measuring epitope specific interleukin-6 production by t cells
+  [FP] cell culture analyte detection bioassay measuring epitope specific interleukin-6 production by t cells -> cell culture assay
+  [FP] cell culture analyte detection bioassay measuring epitope specific interleukin-6 production by t cells -> reporter cell line analyte detection bioassay
+  [FP] cell culture assay -> assay measuring epitope specific cytokine production by t cells
+  [FP] cell culture assay -> assay measuring epitope specific interleukin-6 production by t cells
+  [FP] cell culture assay -> cell culture analyte detection bioassay measuring epitope specific interleukin-6 production by t cells
+  [FP] continuant -> assay measuring epitope specific cytokine production by t cells
+  [FP] continuant -> assay measuring epitope specific interleukin-6 production by t cells
+  [FP] continuant -> catheter
+  [FP] continuant -> cell culture analyte detection bioassay measuring epitope specific interleukin-6 production by t cells
+  [FP] continuant -> cell culture assay
+  [FP] continuant -> chip spotting device
+  [FP] continuant -> device
+  [FP] continuant -> material entity
+  [FP] continuant -> processed material
+  [FP] continuant -> reporter cell line analyte detection bioassay
+  [FP] continuant -> varian nmr instrument
+  [FP] continuant -> varian unity inova spectrometer
+  [FP] data transformation -> kurtosis calculation
+  [FP] data transformation -> network subgraph quality calculation
+  [FP] data transformation -> spread calculation data transformation
+  [FP] data transformation -> subgraph degree calculation
+  [FP] descriptive statistical calculation data transformation -> spread calculation data transformation
+  [FP] descriptive statistical calculation data transformation -> subgraph degree calculation
+  [FP] device -> assay measuring epitope specific cytokine production by t cells
+  [FP] device -> assay measuring epitope specific interleukin-6 production by t cells
+  [FP] device -> cell culture analyte detection bioassay measuring epitope specific interleukin-6 production by t cells
+  [FP] device -> cell culture assay
+  [FP] device -> reporter cell line analyte detection bioassay
+  [FP] device -> varian nmr instrument
+  [FP] device -> varian unity inova spectrometer
+  [FP] dna methylation profiling assay -> dna methylation profiling by chip-chip assay
+  [FP] epigenetic modification assay -> chip-chip assay
+  [FP] epigenetic modification assay -> dna methylation profiling by array assay
+  [FP] independent continuant -> assay measuring epitope specific cytokine production by t cells
+  [FP] independent continuant -> assay measuring epitope specific interleukin-6 production by t cells
+  [FP] independent continuant -> catheter
+  [FP] independent continuant -> cell culture analyte detection bioassay measuring epitope specific interleukin-6 production by t cells
+  [FP] independent continuant -> cell culture assay
+  [FP] independent continuant -> chip spotting device
+  [FP] independent continuant -> device
+  [FP] independent continuant -> processed material
+  [FP] independent continuant -> reporter cell line analyte detection bioassay
+  [FP] independent continuant -> varian nmr instrument
+  [FP] independent continuant -> varian unity inova spectrometer
+  [FP] material entity -> assay measuring epitope specific cytokine production by t cells
+  [FP] material entity -> assay measuring epitope specific interleukin-6 production by t cells
+  [FP] material entity -> catheter
+  [FP] material entity -> cell culture analyte detection bioassay measuring epitope specific interleukin-6 production by t cells
+  [FP] material entity -> cell culture assay
+  [FP] material entity -> chip spotting device
+  [FP] material entity -> device
+  [FP] material entity -> reporter cell line analyte detection bioassay
+  [FP] material entity -> varian nmr instrument
+  [FP] material entity -> varian unity inova spectrometer
+  [FP] material processing -> assay measuring epitope specific cytokine production by t cells
+  [FP] material processing -> assay measuring epitope specific interleukin-6 production by t cells
+  [FP] material processing -> cell culture analyte detection bioassay measuring epitope specific interleukin-6 production by t cells
+  [FP] material processing -> cell culture assay
+  [FP] material processing -> establishing primary cell culture
+  [FP] material processing -> reporter cell line analyte detection bioassay
+  [FP] network analysis -> subgraph degree calculation
+  [FP] planned process -> assay measuring epitope specific cytokine production by t cells
+  [FP] planned process -> assay measuring epitope specific interleukin-6 production by t cells
+  [FP] planned process -> cell culture analyte detection bioassay measuring epitope specific interleukin-6 production by t cells
+  [FP] planned process -> cell culture assay
+  [FP] planned process -> establishing cell culture
+  [FP] planned process -> establishing primary cell culture
+  [FP] planned process -> network subgraph quality calculation
+  [FP] planned process -> reporter cell line analyte detection bioassay
+  [FP] reporter cell line analyte detection bioassay -> assay measuring epitope specific cytokine production by t cells
+  [FP] reporter cell line analyte detection bioassay -> assay measuring epitope specific interleukin-6 production by t cells
+  [FP] reporter cell line analyte detection bioassay -> cell culture assay
+  [FP] t cell epitope assay -> assay measuring epitope specific cytokine production by t cells
+  [FP] t cell epitope assay -> assay measuring epitope specific interleukin-6 production by t cells
+  [FP] t cell epitope assay -> cell culture analyte detection bioassay measuring epitope specific interleukin-6 production by t cells
+  [FP] t cell epitope assay -> cell culture assay
+  [FP] t cell epitope assay -> reporter cell line analyte detection bioassay
+  [FP] urine assay -> luteinizing hormone assay
+
+MISSED RELATIONS (False Negatives: 7):
+  [FN] data transformation -> network analysis
+  [FN] planned process -> assay
+  [FN] planned process -> data transformation
+  [FN] planned process -> material processing
+  [FN] planned process -> study intervention
+  [FN] processed material -> device
+  [FN] spread calculation data transformation -> kurtosis calculation

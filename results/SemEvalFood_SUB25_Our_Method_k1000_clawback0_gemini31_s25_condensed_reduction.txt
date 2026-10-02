@@ -1,0 +1,65 @@
+==================================================
+=== Detailed Node Pair Analysis (Condensed Transitive Reduction) ===
+Match Type Used: SET_OVERLAP
+==================================================
+Precision: 0.6071 | Recall: 0.6538 | F1: 0.6296
+
+CORRECT PREDICTIONS (True Positives: 17 Pred edges covering 17 GT edges):
+  [TP] PRED: (condiment -> relish)
+        matches GT: (condiment -> relish)
+  [TP] PRED: (condiment -> sauce)
+        matches GT: (condiment -> sauce)
+  [TP] PRED: (dressing -> blue cheese dressing)
+        matches GT: (dressing -> blue cheese dressing)
+  [TP] PRED: (feed -> fodder)
+        matches GT: (feed -> fodder)
+  [TP] PRED: (flavorer -> condiment)
+        matches GT: (flavorer -> condiment)
+  [TP] PRED: (flavorer -> herb)
+        matches GT: (flavorer -> herb)
+  [TP] PRED: (food -> feed)
+        matches GT: (food -> feed)
+  [TP] PRED: (food -> foodstuff)
+        matches GT: (food -> foodstuff)
+  [TP] PRED: (food -> nutriment)
+        matches GT: (food -> nutriment)
+  [TP] PRED: (foodstuff -> ingredient)
+        matches GT: (foodstuff -> ingredient)
+  [TP] PRED: (foodstuff -> meal)
+        matches GT: (foodstuff -> meal)
+  [TP] PRED: (foodstuff -> starches)
+        matches GT: (foodstuff -> starches)
+  [TP] PRED: (ingredient -> flavorer)
+        matches GT: (ingredient -> flavorer)
+  [TP] PRED: (nutriment -> meal)
+        matches GT: (nutriment -> meal)
+  [TP] PRED: (sauce -> dressing)
+        matches GT: (sauce -> dressing)
+  [TP] PRED: (tea -> oolong)
+        matches GT: (tea -> oolong)
+  [TP] PRED: (tea -> sun tea)
+        matches GT: (tea -> sun tea)
+
+INCORRECT PREDICTIONS (False Positives: 11):
+  [FP] feed -> eatage
+  [FP] feed -> meal
+  [FP] food -> tea
+  [FP] herb -> alfalfa
+  [FP] herb -> potato
+  [FP] meal -> chow
+  [FP] nutriment -> fare
+  [FP] nutriment -> herb
+  [FP] nutriment -> home fries
+  [FP] nutriment -> sun tea
+  [FP] sauce -> steak sauce
+
+MISSED RELATIONS (False Negatives: 9):
+  [FN] condiment -> steak sauce
+  [FN] fare -> chow
+  [FN] fodder -> alfalfa
+  [FN] fodder -> eatage
+  [FN] food -> fare
+  [FN] herb -> tea
+  [FN] meal -> tea
+  [FN] potato -> home fries
+  [FN] starches -> potato

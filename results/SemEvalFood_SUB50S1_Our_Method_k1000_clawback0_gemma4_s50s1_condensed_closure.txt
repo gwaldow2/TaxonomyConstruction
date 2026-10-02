@@ -1,0 +1,452 @@
+==================================================
+=== Detailed Node Pair Analysis (Condensed Transitive Closure) ===
+Match Type Used: SET_OVERLAP
+==================================================
+Precision: 0.4808 | Recall: 0.8297 | F1: 0.6088
+
+CORRECT PREDICTIONS (True Positives: 100 Pred edges covering 151 GT edges):
+  [TP] PRED: (bread -> bun)
+        matches GT: (bread -> bun)
+  [TP] PRED: (bread -> crescent roll)
+        matches GT: (bread -> crescent roll)
+  [TP] PRED: (bread -> honey bun)
+        matches GT: (bread -> honey bun)
+  [TP] PRED: (bread -> sweet roll)
+        matches GT: (bread -> sweet roll)
+  [TP] PRED: (bun -> crescent roll)
+        matches GT: (bun -> crescent roll)
+  [TP] PRED: (bun -> honey bun)
+        matches GT: (bun -> honey bun)
+  [TP] PRED: (bun -> sweet roll)
+        matches GT: (bun -> sweet roll)
+  [TP] PRED: (butter -> meuniere butter)
+        matches GT: (butter -> meuniere butter)
+  [TP] PRED: (candied fruit -> candied citrus peel)
+        matches GT: (candied fruit -> candied citrus peel)
+  [TP] PRED: (chowder -> fish chowder)
+        matches GT: (chowder -> fish chowder)
+  [TP] PRED: (cocktail -> sidecar)
+        matches GT: (cocktail -> sidecar)
+  [TP] PRED: (concoction (concoction, dish) -> chowder)
+        matches GT: (dish -> chowder)
+  [TP] PRED: (concoction (concoction, dish) -> fish chowder)
+        matches GT: (dish -> fish chowder)
+  [TP] PRED: (concoction (concoction, dish) -> open face sandwich)
+        matches GT: (dish -> open face sandwich)
+  [TP] PRED: (concoction (concoction, dish) -> pastry)
+        matches GT: (concoction -> pastry)
+  [TP] PRED: (concoction (concoction, dish) -> puff paste)
+        matches GT: (concoction -> puff paste)
+  [TP] PRED: (concoction (concoction, dish) -> sandwich)
+        matches GT: (dish -> sandwich)
+  [TP] PRED: (concoction (concoction, dish) -> scrapple)
+        matches GT: (dish -> scrapple)
+  [TP] PRED: (concoction (concoction, dish) -> snack food)
+        matches GT: (dish -> snack food)
+  [TP] PRED: (concoction (concoction, dish) -> soup)
+        matches GT: (dish -> soup)
+  [TP] PRED: (condiment (condiment, flavorer) -> dressing)
+        matches GT: (condiment -> dressing)
+  [TP] PRED: (condiment (condiment, flavorer) -> dressing)
+        matches GT: (flavorer -> dressing)
+  [TP] PRED: (condiment (condiment, flavorer) -> lorenzo dressing)
+        matches GT: (condiment -> lorenzo dressing)
+  [TP] PRED: (condiment (condiment, flavorer) -> lorenzo dressing)
+        matches GT: (flavorer -> lorenzo dressing)
+  [TP] PRED: (condiment (condiment, flavorer) -> onion salt)
+        matches GT: (flavorer -> onion salt)
+  [TP] PRED: (condiment (condiment, flavorer) -> pepper sauce)
+        matches GT: (condiment -> pepper sauce)
+  [TP] PRED: (condiment (condiment, flavorer) -> pepper sauce)
+        matches GT: (flavorer -> pepper sauce)
+  [TP] PRED: (condiment (condiment, flavorer) -> sauce)
+        matches GT: (condiment -> sauce)
+  [TP] PRED: (condiment (condiment, flavorer) -> sauce)
+        matches GT: (flavorer -> sauce)
+  [TP] PRED: (condiment (condiment, flavorer) -> seasoned salt)
+        matches GT: (flavorer -> seasoned salt)
+  [TP] PRED: (corn -> hominy)
+        matches GT: (corn -> hominy)
+  [TP] PRED: (course -> appetizer)
+        matches GT: (course -> appetizer)
+  [TP] PRED: (course -> cocktail)
+        matches GT: (course -> cocktail)
+  [TP] PRED: (course -> sidecar)
+        matches GT: (course -> sidecar)
+  [TP] PRED: (dairy product -> butter)
+        matches GT: (dairy product -> butter)
+  [TP] PRED: (dairy product -> meuniere butter)
+        matches GT: (dairy product -> meuniere butter)
+  [TP] PRED: (dough -> phyllo)
+        matches GT: (dough -> phyllo)
+  [TP] PRED: (dough -> puff paste)
+        matches GT: (dough -> puff paste)
+  [TP] PRED: (dressing -> lorenzo dressing)
+        matches GT: (dressing -> lorenzo dressing)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> appetizer)
+        matches GT: (food -> appetizer)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> appetizer)
+        matches GT: (nutriment -> appetizer)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> bread)
+        matches GT: (food -> bread)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> bread)
+        matches GT: (foodstuff -> bread)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> bun)
+        matches GT: (food -> bun)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> bun)
+        matches GT: (foodstuff -> bun)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> butter)
+        matches GT: (food -> butter)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> butter)
+        matches GT: (foodstuff -> butter)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> candied citrus peel)
+        matches GT: (food -> candied citrus peel)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> candied citrus peel)
+        matches GT: (nutriment -> candied citrus peel)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> candied fruit)
+        matches GT: (food -> candied fruit)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> candied fruit)
+        matches GT: (nutriment -> candied fruit)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> chowder)
+        matches GT: (food -> chowder)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> chowder)
+        matches GT: (nutriment -> chowder)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> cocktail)
+        matches GT: (food -> cocktail)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> cocktail)
+        matches GT: (nutriment -> cocktail)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> concoction (concoction, dish))
+        matches GT: (food -> concoction)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> concoction (concoction, dish))
+        matches GT: (food -> dish)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> concoction (concoction, dish))
+        matches GT: (foodstuff -> concoction)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> concoction (concoction, dish))
+        matches GT: (nutriment -> dish)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> condiment (condiment, flavorer))
+        matches GT: (food -> condiment)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> condiment (condiment, flavorer))
+        matches GT: (food -> flavorer)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> condiment (condiment, flavorer))
+        matches GT: (foodstuff -> condiment)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> condiment (condiment, flavorer))
+        matches GT: (foodstuff -> flavorer)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> confiture)
+        matches GT: (food -> confiture)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> confiture)
+        matches GT: (nutriment -> confiture)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> corn)
+        matches GT: (food -> corn)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> corn)
+        matches GT: (foodstuff -> corn)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> crescent roll)
+        matches GT: (food -> crescent roll)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> crescent roll)
+        matches GT: (foodstuff -> crescent roll)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> dainty)
+        matches GT: (food -> dainty)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> dainty)
+        matches GT: (nutriment -> dainty)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> dairy product)
+        matches GT: (food -> dairy product)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> dairy product)
+        matches GT: (foodstuff -> dairy product)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> dough)
+        matches GT: (food -> dough)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> dough)
+        matches GT: (foodstuff -> dough)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> dressing)
+        matches GT: (food -> dressing)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> dressing)
+        matches GT: (foodstuff -> dressing)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> egg white)
+        matches GT: (food -> egg white)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> egg white)
+        matches GT: (foodstuff -> egg white)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> fish chowder)
+        matches GT: (food -> fish chowder)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> fish chowder)
+        matches GT: (nutriment -> fish chowder)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> grain)
+        matches GT: (food -> grain)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> grain)
+        matches GT: (foodstuff -> grain)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> grapefruit peel)
+        matches GT: (food -> grapefruit peel)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> grapefruit peel)
+        matches GT: (nutriment -> grapefruit peel)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> hominy)
+        matches GT: (food -> hominy)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> hominy)
+        matches GT: (foodstuff -> hominy)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> honey bun)
+        matches GT: (food -> honey bun)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> honey bun)
+        matches GT: (foodstuff -> honey bun)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> ingredient)
+        matches GT: (food -> ingredient)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> ingredient)
+        matches GT: (foodstuff -> ingredient)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> lorenzo dressing)
+        matches GT: (food -> lorenzo dressing)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> lorenzo dressing)
+        matches GT: (foodstuff -> lorenzo dressing)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> meuniere butter)
+        matches GT: (food -> meuniere butter)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> meuniere butter)
+        matches GT: (foodstuff -> meuniere butter)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> onion salt)
+        matches GT: (food -> onion salt)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> onion salt)
+        matches GT: (foodstuff -> onion salt)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> open face sandwich)
+        matches GT: (food -> open face sandwich)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> open face sandwich)
+        matches GT: (nutriment -> open face sandwich)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> pastry)
+        matches GT: (food -> pastry)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> pastry)
+        matches GT: (foodstuff -> pastry)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> pepper sauce)
+        matches GT: (food -> pepper sauce)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> pepper sauce)
+        matches GT: (foodstuff -> pepper sauce)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> phyllo)
+        matches GT: (food -> phyllo)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> phyllo)
+        matches GT: (foodstuff -> phyllo)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> puff paste)
+        matches GT: (food -> puff paste)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> puff paste)
+        matches GT: (foodstuff -> puff paste)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> sandwich)
+        matches GT: (food -> sandwich)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> sandwich)
+        matches GT: (nutriment -> sandwich)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> sauce)
+        matches GT: (food -> sauce)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> sauce)
+        matches GT: (foodstuff -> sauce)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> scrapple)
+        matches GT: (food -> scrapple)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> scrapple)
+        matches GT: (nutriment -> scrapple)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> seasoned salt)
+        matches GT: (food -> seasoned salt)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> seasoned salt)
+        matches GT: (foodstuff -> seasoned salt)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> sidecar)
+        matches GT: (food -> sidecar)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> sidecar)
+        matches GT: (nutriment -> sidecar)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> snack food)
+        matches GT: (food -> snack food)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> snack food)
+        matches GT: (nutriment -> snack food)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> soup)
+        matches GT: (food -> soup)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> soup)
+        matches GT: (nutriment -> soup)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> starches)
+        matches GT: (food -> starches)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> starches)
+        matches GT: (foodstuff -> starches)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> sweet roll)
+        matches GT: (food -> sweet roll)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> sweet roll)
+        matches GT: (foodstuff -> sweet roll)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> sweet)
+        matches GT: (food -> sweet)
+  [TP] PRED: (food (food, foodstuff, nutriment) -> sweet)
+        matches GT: (nutriment -> sweet)
+  [TP] PRED: (grain -> corn)
+        matches GT: (grain -> corn)
+  [TP] PRED: (grain -> hominy)
+        matches GT: (grain -> hominy)
+  [TP] PRED: (ingredient -> condiment (condiment, flavorer))
+        matches GT: (ingredient -> condiment)
+  [TP] PRED: (ingredient -> condiment (condiment, flavorer))
+        matches GT: (ingredient -> flavorer)
+  [TP] PRED: (ingredient -> dressing)
+        matches GT: (ingredient -> dressing)
+  [TP] PRED: (ingredient -> egg white)
+        matches GT: (ingredient -> egg white)
+  [TP] PRED: (ingredient -> lorenzo dressing)
+        matches GT: (ingredient -> lorenzo dressing)
+  [TP] PRED: (ingredient -> onion salt)
+        matches GT: (ingredient -> onion salt)
+  [TP] PRED: (ingredient -> pepper sauce)
+        matches GT: (ingredient -> pepper sauce)
+  [TP] PRED: (ingredient -> sauce)
+        matches GT: (ingredient -> sauce)
+  [TP] PRED: (ingredient -> seasoned salt)
+        matches GT: (ingredient -> seasoned salt)
+  [TP] PRED: (pastry -> puff paste)
+        matches GT: (pastry -> puff paste)
+  [TP] PRED: (sandwich -> open face sandwich)
+        matches GT: (sandwich -> open face sandwich)
+  [TP] PRED: (sauce -> dressing)
+        matches GT: (sauce -> dressing)
+  [TP] PRED: (sauce -> lorenzo dressing)
+        matches GT: (sauce -> lorenzo dressing)
+  [TP] PRED: (sauce -> pepper sauce)
+        matches GT: (sauce -> pepper sauce)
+  [TP] PRED: (snack food -> open face sandwich)
+        matches GT: (snack food -> open face sandwich)
+  [TP] PRED: (snack food -> sandwich)
+        matches GT: (snack food -> sandwich)
+  [TP] PRED: (soup -> chowder)
+        matches GT: (soup -> chowder)
+  [TP] PRED: (soup -> fish chowder)
+        matches GT: (soup -> fish chowder)
+  [TP] PRED: (sweet -> candied citrus peel)
+        matches GT: (sweet -> candied citrus peel)
+  [TP] PRED: (sweet -> candied fruit)
+        matches GT: (sweet -> candied fruit)
+  [TP] PRED: (sweet -> confiture)
+        matches GT: (sweet -> confiture)
+  [TP] PRED: (sweet roll -> honey bun)
+        matches GT: (sweet roll -> honey bun)
+
+INCORRECT PREDICTIONS (False Positives: 108):
+  [FP] appetizer -> crescent roll
+  [FP] appetizer -> open face sandwich
+  [FP] appetizer -> sandwich
+  [FP] concoction (concoction, dish) -> appetizer
+  [FP] concoction (concoction, dish) -> bun
+  [FP] concoction (concoction, dish) -> butter
+  [FP] concoction (concoction, dish) -> candied citrus peel
+  [FP] concoction (concoction, dish) -> candied fruit
+  [FP] concoction (concoction, dish) -> cocktail
+  [FP] concoction (concoction, dish) -> condiment (condiment, flavorer)
+  [FP] concoction (concoction, dish) -> confiture
+  [FP] concoction (concoction, dish) -> crescent roll
+  [FP] concoction (concoction, dish) -> dressing
+  [FP] concoction (concoction, dish) -> honey bun
+  [FP] concoction (concoction, dish) -> lorenzo dressing
+  [FP] concoction (concoction, dish) -> meuniere butter
+  [FP] concoction (concoction, dish) -> onion salt
+  [FP] concoction (concoction, dish) -> pepper sauce
+  [FP] concoction (concoction, dish) -> sauce
+  [FP] concoction (concoction, dish) -> seasoned salt
+  [FP] concoction (concoction, dish) -> sidecar
+  [FP] concoction (concoction, dish) -> sweet roll
+  [FP] condiment (condiment, flavorer) -> butter
+  [FP] condiment (condiment, flavorer) -> confiture
+  [FP] condiment (condiment, flavorer) -> meuniere butter
+  [FP] course -> bun
+  [FP] course -> butter
+  [FP] course -> candied citrus peel
+  [FP] course -> candied fruit
+  [FP] course -> chowder
+  [FP] course -> concoction (concoction, dish)
+  [FP] course -> condiment (condiment, flavorer)
+  [FP] course -> confiture
+  [FP] course -> crescent roll
+  [FP] course -> dressing
+  [FP] course -> fish chowder
+  [FP] course -> honey bun
+  [FP] course -> lorenzo dressing
+  [FP] course -> meuniere butter
+  [FP] course -> onion salt
+  [FP] course -> open face sandwich
+  [FP] course -> pastry
+  [FP] course -> pepper sauce
+  [FP] course -> puff paste
+  [FP] course -> sandwich
+  [FP] course -> sauce
+  [FP] course -> scrapple
+  [FP] course -> seasoned salt
+  [FP] course -> snack food
+  [FP] course -> soup
+  [FP] course -> sweet roll
+  [FP] dressing -> meuniere butter
+  [FP] ingredient -> appetizer
+  [FP] ingredient -> bread
+  [FP] ingredient -> bun
+  [FP] ingredient -> butter
+  [FP] ingredient -> candied citrus peel
+  [FP] ingredient -> candied fruit
+  [FP] ingredient -> chowder
+  [FP] ingredient -> cocktail
+  [FP] ingredient -> concoction (concoction, dish)
+  [FP] ingredient -> confiture
+  [FP] ingredient -> corn
+  [FP] ingredient -> crescent roll
+  [FP] ingredient -> dairy product
+  [FP] ingredient -> dough
+  [FP] ingredient -> fish chowder
+  [FP] ingredient -> grain
+  [FP] ingredient -> grapefruit peel
+  [FP] ingredient -> hominy
+  [FP] ingredient -> honey bun
+  [FP] ingredient -> meuniere butter
+  [FP] ingredient -> open face sandwich
+  [FP] ingredient -> pastry
+  [FP] ingredient -> phyllo
+  [FP] ingredient -> puff paste
+  [FP] ingredient -> sandwich
+  [FP] ingredient -> scrapple
+  [FP] ingredient -> sidecar
+  [FP] ingredient -> snack food
+  [FP] ingredient -> soup
+  [FP] ingredient -> starches
+  [FP] ingredient -> sweet roll
+  [FP] pastry -> bun
+  [FP] pastry -> crescent roll
+  [FP] pastry -> honey bun
+  [FP] pastry -> sweet roll
+  [FP] sauce -> confiture
+  [FP] sauce -> meuniere butter
+  [FP] seasoned salt -> onion salt
+  [FP] snack food -> appetizer
+  [FP] snack food -> bun
+  [FP] snack food -> candied citrus peel
+  [FP] snack food -> candied fruit
+  [FP] snack food -> crescent roll
+  [FP] snack food -> honey bun
+  [FP] snack food -> pastry
+  [FP] snack food -> puff paste
+  [FP] snack food -> sweet roll
+  [FP] starches -> hominy
+  [FP] sweet -> bun
+  [FP] sweet -> crescent roll
+  [FP] sweet -> dainty
+  [FP] sweet -> honey bun
+  [FP] sweet -> pastry
+  [FP] sweet -> puff paste
+  [FP] sweet -> sweet roll
+  [FP] sweet roll -> crescent roll
+
+MISSED RELATIONS (False Negatives: 31):
+  [FN] appetizer -> cocktail
+  [FN] appetizer -> sidecar
+  [FN] candied citrus peel -> grapefruit peel
+  [FN] candied fruit -> grapefruit peel
+  [FN] commissariat -> larder
+  [FN] concoction -> dough
+  [FN] concoction -> phyllo
+  [FN] confiture -> candied citrus peel
+  [FN] confiture -> candied fruit
+  [FN] confiture -> grapefruit peel
+  [FN] dainty -> candied citrus peel
+  [FN] dainty -> candied fruit
+  [FN] dainty -> confiture
+  [FN] dainty -> grapefruit peel
+  [FN] dainty -> sweet
+  [FN] dough -> pastry
+  [FN] flavorer -> condiment
+  [FN] food -> commissariat
+  [FN] food -> course
+  [FN] food -> foodstuff
+  [FN] food -> larder
+  [FN] food -> nutriment
+  [FN] nutriment -> course
+  [FN] pastry -> phyllo
+  [FN] puff paste -> phyllo
+  [FN] starches -> bread
+  [FN] starches -> bun
+  [FN] starches -> crescent roll
+  [FN] starches -> honey bun
+  [FN] starches -> sweet roll
+  [FN] sweet -> grapefruit peel

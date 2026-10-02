@@ -1,0 +1,107 @@
+==================================================
+=== Detailed Node Pair Analysis (Exploded Transitive Closure) ===
+Match Type Used: EXACT
+==================================================
+Precision: 0.8846 | Recall: 0.5111 | F1: 0.6479
+
+CORRECT PREDICTIONS (True Positives: 46 Pred edges covering 46 GT edges):
+  [TP] condiment -> blue cheese dressing
+  [TP] condiment -> dressing
+  [TP] condiment -> relish
+  [TP] condiment -> sauce
+  [TP] condiment -> steak sauce
+  [TP] dressing -> blue cheese dressing
+  [TP] feed -> alfalfa
+  [TP] feed -> fodder
+  [TP] fodder -> alfalfa
+  [TP] food -> alfalfa
+  [TP] food -> blue cheese dressing
+  [TP] food -> chow
+  [TP] food -> condiment
+  [TP] food -> dressing
+  [TP] food -> eatage
+  [TP] food -> fare
+  [TP] food -> feed
+  [TP] food -> flavorer
+  [TP] food -> fodder
+  [TP] food -> foodstuff
+  [TP] food -> herb
+  [TP] food -> home fries
+  [TP] food -> ingredient
+  [TP] food -> meal
+  [TP] food -> nutriment
+  [TP] food -> oolong
+  [TP] food -> potato
+  [TP] food -> relish
+  [TP] food -> sauce
+  [TP] food -> starches
+  [TP] food -> steak sauce
+  [TP] food -> sun tea
+  [TP] food -> tea
+  [TP] ingredient -> blue cheese dressing
+  [TP] ingredient -> condiment
+  [TP] ingredient -> dressing
+  [TP] ingredient -> flavorer
+  [TP] ingredient -> herb
+  [TP] ingredient -> relish
+  [TP] ingredient -> sauce
+  [TP] ingredient -> steak sauce
+  [TP] potato -> home fries
+  [TP] starches -> home fries
+  [TP] starches -> potato
+  [TP] tea -> oolong
+  [TP] tea -> sun tea
+
+INCORRECT PREDICTIONS (False Positives: 6):
+  [FP] condiment -> flavorer
+  [FP] feed -> chow
+  [FP] ingredient -> home fries
+  [FP] ingredient -> potato
+  [FP] ingredient -> starches
+  [FP] sauce -> steak sauce
+
+MISSED RELATIONS (False Negatives: 44):
+  [FN] fare -> chow
+  [FN] feed -> eatage
+  [FN] flavorer -> blue cheese dressing
+  [FN] flavorer -> condiment
+  [FN] flavorer -> dressing
+  [FN] flavorer -> herb
+  [FN] flavorer -> oolong
+  [FN] flavorer -> relish
+  [FN] flavorer -> sauce
+  [FN] flavorer -> steak sauce
+  [FN] flavorer -> sun tea
+  [FN] flavorer -> tea
+  [FN] fodder -> eatage
+  [FN] foodstuff -> blue cheese dressing
+  [FN] foodstuff -> condiment
+  [FN] foodstuff -> dressing
+  [FN] foodstuff -> flavorer
+  [FN] foodstuff -> herb
+  [FN] foodstuff -> home fries
+  [FN] foodstuff -> ingredient
+  [FN] foodstuff -> meal
+  [FN] foodstuff -> oolong
+  [FN] foodstuff -> potato
+  [FN] foodstuff -> relish
+  [FN] foodstuff -> sauce
+  [FN] foodstuff -> starches
+  [FN] foodstuff -> steak sauce
+  [FN] foodstuff -> sun tea
+  [FN] foodstuff -> tea
+  [FN] herb -> oolong
+  [FN] herb -> sun tea
+  [FN] herb -> tea
+  [FN] ingredient -> oolong
+  [FN] ingredient -> sun tea
+  [FN] ingredient -> tea
+  [FN] meal -> oolong
+  [FN] meal -> sun tea
+  [FN] meal -> tea
+  [FN] nutriment -> meal
+  [FN] nutriment -> oolong
+  [FN] nutriment -> sun tea
+  [FN] nutriment -> tea
+  [FN] sauce -> blue cheese dressing
+  [FN] sauce -> dressing

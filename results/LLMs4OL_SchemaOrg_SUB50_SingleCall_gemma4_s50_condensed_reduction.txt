@@ -1,0 +1,93 @@
+==================================================
+=== Detailed Node Pair Analysis (Condensed Transitive Reduction) ===
+Match Type Used: SET_OVERLAP
+==================================================
+Precision: 0.5500 | Recall: 0.5238 | F1: 0.5366
+
+CORRECT PREDICTIONS (True Positives: 22 Pred edges covering 22 GT edges):
+  [TP] PRED: (action -> createaction)
+        matches GT: (action -> createaction)
+  [TP] PRED: (action -> organizeaction)
+        matches GT: (action -> organizeaction)
+  [TP] PRED: (action -> transferaction)
+        matches GT: (action -> transferaction)
+  [TP] PRED: (article -> techarticle)
+        matches GT: (article -> techarticle)
+  [TP] PRED: (audience -> peopleaudience)
+        matches GT: (audience -> peopleaudience)
+  [TP] PRED: (creativework -> article)
+        matches GT: (creativework -> article)
+  [TP] PRED: (creativework -> howtostep)
+        matches GT: (creativework -> howtostep)
+  [TP] PRED: (creativework -> shortstory)
+        matches GT: (creativework -> shortstory)
+  [TP] PRED: (creativeworkseries -> movieseries)
+        matches GT: (creativeworkseries -> movieseries)
+  [TP] PRED: (enumeration -> adultorientedenumeration)
+        matches GT: (enumeration -> adultorientedenumeration)
+  [TP] PRED: (enumeration -> governmentbenefitstype)
+        matches GT: (enumeration -> governmentbenefitstype)
+  [TP] PRED: (enumeration -> measurementmethodenum)
+        matches GT: (enumeration -> measurementmethodenum)
+  [TP] PRED: (foodestablishment -> bakery)
+        matches GT: (foodestablishment -> bakery)
+  [TP] PRED: (intangible -> service)
+        matches GT: (intangible -> service)
+  [TP] PRED: (localbusiness -> entertainmentbusiness)
+        matches GT: (localbusiness -> entertainmentbusiness)
+  [TP] PRED: (localbusiness -> foodestablishment)
+        matches GT: (localbusiness -> foodestablishment)
+  [TP] PRED: (localbusiness -> lodgingbusiness)
+        matches GT: (localbusiness -> lodgingbusiness)
+  [TP] PRED: (lodgingbusiness -> motel)
+        matches GT: (lodgingbusiness -> motel)
+  [TP] PRED: (medicalentity -> medicalintangible)
+        matches GT: (medicalentity -> medicalintangible)
+  [TP] PRED: (organization -> researchorganization)
+        matches GT: (organization -> researchorganization)
+  [TP] PRED: (place -> localbusiness)
+        matches GT: (place -> localbusiness)
+  [TP] PRED: (series -> creativeworkseries)
+        matches GT: (series -> creativeworkseries)
+
+INCORRECT PREDICTIONS (False Positives: 18):
+  [FP] action -> allocateaction
+  [FP] action -> assignaction
+  [FP] action -> cookaction
+  [FP] action -> takeaction
+  [FP] creativework -> imageobject
+  [FP] creativework -> periodical
+  [FP] creativework -> series
+  [FP] creativeworkseries -> comicseries
+  [FP] datatype -> enumeration
+  [FP] intangible -> creativework
+  [FP] intangible -> datatype
+  [FP] intangible -> medicalintangible
+  [FP] intangible -> offer
+  [FP] listitem -> itemlist
+  [FP] localbusiness -> exercisegym
+  [FP] medicalentity -> medicalcode
+  [FP] organization -> entertainmentbusiness
+  [FP] place -> sportsactivitylocation
+
+MISSED RELATIONS (False Negatives: 20):
+  [FN] allocateaction -> assignaction
+  [FN] createaction -> cookaction
+  [FN] creativework -> ampstory
+  [FN] creativework -> creativeworkseries
+  [FN] datatype -> time
+  [FN] enumeration -> physicalactivitycategory
+  [FN] intangible -> audience
+  [FN] intangible -> listitem
+  [FN] intangible -> series
+  [FN] intangible -> ticket
+  [FN] itemlist -> howtostep
+  [FN] listitem -> howtostep
+  [FN] localbusiness -> sportsactivitylocation
+  [FN] medicalintangible -> medicalcode
+  [FN] organization -> localbusiness
+  [FN] organizeaction -> allocateaction
+  [FN] periodical -> comicseries
+  [FN] service -> broadcastservice
+  [FN] sportsactivitylocation -> exercisegym
+  [FN] transferaction -> takeaction

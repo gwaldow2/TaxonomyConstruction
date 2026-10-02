@@ -1,0 +1,84 @@
+==================================================
+=== Detailed Node Pair Analysis (Exploded Raw Edges) ===
+Match Type Used: EXACT
+==================================================
+Precision: 0.5714 | Recall: 0.5385 | F1: 0.5545
+
+CORRECT PREDICTIONS (True Positives: 28 Pred edges covering 28 GT edges):
+  [TP] baked goods -> bread
+  [TP] baked goods -> cake
+  [TP] berry -> raspberry
+  [TP] beverage -> alcohol
+  [TP] bread -> bun
+  [TP] cake -> applesauce cake
+  [TP] chocolate -> chocolate candy
+  [TP] citrus -> orange
+  [TP] dessert -> pudding
+  [TP] dish -> chicken paprika
+  [TP] dish -> scampi
+  [TP] edible fruit -> berry
+  [TP] edible fruit -> citrus
+  [TP] food -> beverage
+  [TP] herb -> marjoram
+  [TP] ingredient -> flavorer
+  [TP] jerky -> beef jerky
+  [TP] legume -> pea
+  [TP] lettuce -> cos
+  [TP] meat -> jerky
+  [TP] meat -> pork
+  [TP] orange -> sweet orange
+  [TP] pea -> marrowfat pea
+  [TP] produce -> edible fruit
+  [TP] produce -> vegetable
+  [TP] pudding -> corn pudding
+  [TP] vegetable -> greens
+  [TP] vegetable -> legume
+
+INCORRECT PREDICTIONS (False Positives: 21):
+  [FP] beverage -> koumiss
+  [FP] bread -> sweet roll
+  [FP] dessert -> baked goods
+  [FP] dish -> course
+  [FP] dish -> dessert
+  [FP] dish -> gyro
+  [FP] dish -> sandwich
+  [FP] dish -> soul food
+  [FP] flavorer -> chocolate
+  [FP] food -> dish
+  [FP] food -> ingredient
+  [FP] food -> snack food
+  [FP] foodstuff -> food
+  [FP] greens -> lettuce
+  [FP] ingredient -> herb
+  [FP] ingredient -> meat
+  [FP] ingredient -> produce
+  [FP] ingredient -> starches
+  [FP] lettuce -> salad green
+  [FP] nutriment -> food
+  [FP] orange -> navel orange
+
+MISSED RELATIONS (False Negatives: 24):
+  [FN] alcohol -> koumiss
+  [FN] bun -> sweet roll
+  [FN] course -> dessert
+  [FN] dish -> pudding
+  [FN] dish -> snack food
+  [FN] flavorer -> herb
+  [FN] food -> baked goods
+  [FN] food -> chocolate
+  [FN] food -> foodstuff
+  [FN] food -> meat
+  [FN] food -> nutriment
+  [FN] food -> produce
+  [FN] food -> soul food
+  [FN] foodstuff -> ingredient
+  [FN] foodstuff -> starches
+  [FN] greens -> salad green
+  [FN] nutriment -> course
+  [FN] nutriment -> dish
+  [FN] salad green -> lettuce
+  [FN] sandwich -> gyro
+  [FN] snack food -> sandwich
+  [FN] starches -> bread
+  [FN] sweet orange -> navel orange
+  [FN] sweet roll -> bear claw

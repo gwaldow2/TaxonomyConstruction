@@ -1,0 +1,41 @@
+==================================================
+=== Detailed Node Pair Analysis (Exploded Raw Edges) ===
+Match Type Used: EXACT
+==================================================
+Precision: 0.5500 | Recall: 0.5238 | F1: 0.5366
+
+CORRECT PREDICTIONS (True Positives: 11 Pred edges covering 11 GT edges):
+  [TP] audience -> peopleaudience
+  [TP] creativework -> creativeworkseries
+  [TP] creativework -> howtostep
+  [TP] enumeration -> adultorientedenumeration
+  [TP] enumeration -> governmentbenefitstype
+  [TP] intangible -> service
+  [TP] localbusiness -> entertainmentbusiness
+  [TP] localbusiness -> foodestablishment
+  [TP] organization -> localbusiness
+  [TP] organization -> researchorganization
+  [TP] service -> broadcastservice
+
+INCORRECT PREDICTIONS (False Positives: 9):
+  [FP] creativeworkseries -> series
+  [FP] datatype -> adultorientedenumeration
+  [FP] intangible -> creativework
+  [FP] intangible -> datatype
+  [FP] intangible -> enumeration
+  [FP] itemlist -> listitem
+  [FP] itemlist -> series
+  [FP] localbusiness -> bakery
+  [FP] series -> movieseries
+
+MISSED RELATIONS (False Negatives: 10):
+  [FN] creativeworkseries -> movieseries
+  [FN] datatype -> time
+  [FN] foodestablishment -> bakery
+  [FN] intangible -> audience
+  [FN] intangible -> listitem
+  [FN] intangible -> series
+  [FN] itemlist -> howtostep
+  [FN] listitem -> howtostep
+  [FN] place -> localbusiness
+  [FN] series -> creativeworkseries

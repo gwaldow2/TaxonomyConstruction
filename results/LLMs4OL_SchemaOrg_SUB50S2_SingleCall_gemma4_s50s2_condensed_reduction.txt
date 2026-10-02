@@ -1,0 +1,97 @@
+==================================================
+=== Detailed Node Pair Analysis (Condensed Transitive Reduction) ===
+Match Type Used: SET_OVERLAP
+==================================================
+Precision: 0.4222 | Recall: 0.4634 | F1: 0.4419
+
+CORRECT PREDICTIONS (True Positives: 19 Pred edges covering 19 GT edges):
+  [TP] PRED: (action -> consumeaction)
+        matches GT: (action -> consumeaction)
+  [TP] PRED: (action -> organizeaction)
+        matches GT: (action -> organizeaction)
+  [TP] PRED: (audience -> businessaudience)
+        matches GT: (audience -> businessaudience)
+  [TP] PRED: (creativework -> article)
+        matches GT: (creativework -> article)
+  [TP] PRED: (enumeration -> certificationstatusenumeration)
+        matches GT: (enumeration -> certificationstatusenumeration)
+  [TP] PRED: (enumeration -> mediamanipulationratingenumeration)
+        matches GT: (enumeration -> mediamanipulationratingenumeration)
+  [TP] PRED: (foodestablishment -> fastfoodrestaurant)
+        matches GT: (foodestablishment -> fastfoodrestaurant)
+  [TP] PRED: (localbusiness -> foodestablishment)
+        matches GT: (localbusiness -> foodestablishment)
+  [TP] PRED: (localbusiness -> medicalbusiness)
+        matches GT: (localbusiness -> medicalbusiness)
+  [TP] PRED: (medicalentity -> anatomicalstructure)
+        matches GT: (medicalentity -> anatomicalstructure)
+  [TP] PRED: (medicalentity -> medicalintangible)
+        matches GT: (medicalentity -> medicalintangible)
+  [TP] PRED: (medicalentity -> medicalprocedure)
+        matches GT: (medicalentity -> medicalprocedure)
+  [TP] PRED: (medicalintangible -> medicalcode)
+        matches GT: (medicalintangible -> medicalcode)
+  [TP] PRED: (medicalprocedure -> therapeuticprocedure)
+        matches GT: (medicalprocedure -> therapeuticprocedure)
+  [TP] PRED: (organization -> localbusiness)
+        matches GT: (organization -> localbusiness)
+  [TP] PRED: (organization -> performinggroup)
+        matches GT: (organization -> performinggroup)
+  [TP] PRED: (performinggroup -> musicgroup)
+        matches GT: (performinggroup -> musicgroup)
+  [TP] PRED: (physician -> individualphysician)
+        matches GT: (physician -> individualphysician)
+  [TP] PRED: (place -> localbusiness)
+        matches GT: (place -> localbusiness)
+
+INCORRECT PREDICTIONS (False Positives: 26):
+  [FP] action -> assessaction
+  [FP] action -> bookmarkaction
+  [FP] action -> reactaction
+  [FP] action -> watchaction
+  [FP] comicseries -> creativeworkseries
+  [FP] creativework -> bookformattype
+  [FP] creativework -> comicseries
+  [FP] creativework -> howto
+  [FP] creativework -> periodical
+  [FP] creativework -> recipe
+  [FP] creativework -> review
+  [FP] creativework -> socialmediaposting
+  [FP] creativeworkseries -> series
+  [FP] howto -> howtoitem
+  [FP] intangible -> medicalintangible
+  [FP] localbusiness -> electrician
+  [FP] localbusiness -> homeandconstructionbusiness
+  [FP] medicalbusiness -> medicalorganization
+  [FP] medicalentity -> medicalorganization
+  [FP] medicalentity -> medicaltest
+  [FP] medicalentity -> medicaltherapy
+  [FP] medicalintangible -> recommendation
+  [FP] medicalorganization -> individualphysician
+  [FP] medicalprocedure -> palliativeprocedure
+  [FP] therapeuticprocedure -> occupationaltherapy
+  [FP] videogameseries -> creativeworkseries
+
+MISSED RELATIONS (False Negatives: 22):
+  [FN] article -> socialmediaposting
+  [FN] assessaction -> reactaction
+  [FN] consumeaction -> watchaction
+  [FN] creativework -> creativeworkseries
+  [FN] creativeworkseries -> videogameseries
+  [FN] enumeration -> bookformattype
+  [FN] homeandconstructionbusiness -> electrician
+  [FN] howto -> recipe
+  [FN] intangible -> audience
+  [FN] intangible -> listitem
+  [FN] intangible -> series
+  [FN] listitem -> howtoitem
+  [FN] medicalbusiness -> physician
+  [FN] medicalorganization -> physician
+  [FN] medicaltherapy -> occupationaltherapy
+  [FN] medicaltherapy -> palliativeprocedure
+  [FN] organization -> medicalorganization
+  [FN] organizeaction -> bookmarkaction
+  [FN] periodical -> comicseries
+  [FN] review -> recommendation
+  [FN] series -> creativeworkseries
+  [FN] therapeuticprocedure -> medicaltherapy

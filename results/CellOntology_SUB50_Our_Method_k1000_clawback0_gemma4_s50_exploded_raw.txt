@@ -1,0 +1,374 @@
+==================================================
+=== Detailed Node Pair Analysis (Exploded Raw Edges) ===
+Match Type Used: EXACT
+==================================================
+Precision: 0.1624 | Recall: 0.8261 | F1: 0.2714
+
+CORRECT PREDICTIONS (True Positives: 57 Pred edges covering 57 GT edges):
+  [TP] auditory epithelial cell -> strial basal cell
+  [TP] b cell -> b cell cd19-positive
+  [TP] b cell cd19-positive -> mature b cell
+  [TP] be cell -> be1 cell
+  [TP] cell -> electrically active cell
+  [TP] cell -> eukaryotic cell
+  [TP] cell -> hematopoietic cell
+  [TP] cell -> motile cell
+  [TP] cell -> nucleate cell
+  [TP] cell -> secretory cell
+  [TP] cholangiocyte -> large mucus secreting cholangiocyte
+  [TP] connective tissue cell -> stromal cell
+  [TP] duct epithelial cell -> branched duct epithelial cell
+  [TP] ecto-epithelial cell -> neurecto-epithelial cell
+  [TP] electrically active cell -> electrically responsive cell
+  [TP] electrically active cell -> electrically signaling cell
+  [TP] electrically responsive cell -> neuron
+  [TP] electrically signaling cell -> neuron
+  [TP] epithelial cell -> columnarcuboidal epithelial cell
+  [TP] epithelial cell -> duct epithelial cell
+  [TP] epithelial cell -> ecto-epithelial cell
+  [TP] epithelial cell -> endo-epithelial cell
+  [TP] epithelial cell -> secretory epithelial cell
+  [TP] epithelial cell -> sensory epithelial cell
+  [TP] epithelial cell of upper respiratory tract -> olfactory epithelial cell
+  [TP] eukaryotic cell -> connective tissue cell
+  [TP] eukaryotic cell -> epithelial cell
+  [TP] eukaryotic cell -> leukocyte
+  [TP] eukaryotic cell -> neural cell
+  [TP] eukaryotic cell -> sensory receptor cell
+  [TP] eukaryotic cell -> single nucleate cell
+  [TP] fibroblast -> mesothelial fibroblast
+  [TP] hematopoietic cell -> leukocyte
+  [TP] leukocyte -> mononuclear leukocyte
+  [TP] leukocyte -> professional antigen presenting cell
+  [TP] lymphocyte -> lymphocyte of b lineage
+  [TP] lymphocyte of b lineage -> b cell
+  [TP] lymphocyte of b lineage -> lymphocyte of b lineage cd19-positive
+  [TP] lymphocyte of b lineage cd19-positive -> b cell cd19-positive
+  [TP] mesothelial fibroblast -> mesothelial fibroblast of the leptomeninx
+  [TP] mononuclear leukocyte -> lymphocyte
+  [TP] mucus secreting cell -> large mucus secreting cholangiocyte
+  [TP] neural cell -> neuron
+  [TP] neuron -> central nervous system neuron
+  [TP] nucleate cell -> leukocyte
+  [TP] nucleate cell -> single nucleate cell
+  [TP] professional antigen presenting cell -> mature b cell
+  [TP] respiratory tract epithelial cell -> epithelial cell of upper respiratory tract
+  [TP] secretory cell -> secretory epithelial cell
+  [TP] secretory cell -> seromucus secreting cell
+  [TP] secretory epithelial cell -> large mucus secreting cholangiocyte
+  [TP] sensory epithelial cell -> auditory epithelial cell
+  [TP] sensory epithelial cell -> olfactory epithelial cell
+  [TP] sensory receptor cell -> chemoreceptor cell
+  [TP] single nucleate cell -> mononuclear leukocyte
+  [TP] stromal cell -> fibroblast
+  [TP] vascular leptomeningeal cell -> vlmc nn vascular leptomeningeal cell mmus
+
+INCORRECT PREDICTIONS (False Positives: 294):
+  [FP] b cell -> be cell
+  [FP] b cell -> be1 cell
+  [FP] b cell -> lymphocyte of b lineage
+  [FP] b cell -> lymphocyte of b lineage cd19-positive
+  [FP] b cell -> mature b cell
+  [FP] b cell cd19-positive -> lymphocyte of b lineage cd19-positive
+  [FP] cell -> auditory epithelial cell
+  [FP] cell -> b cell
+  [FP] cell -> b cell cd19-positive
+  [FP] cell -> be cell
+  [FP] cell -> be1 cell
+  [FP] cell -> branched duct epithelial cell
+  [FP] cell -> central nervous system neuron
+  [FP] cell -> chemoreceptor cell
+  [FP] cell -> cholangiocyte
+  [FP] cell -> columnarcuboidal epithelial cell
+  [FP] cell -> connective tissue cell
+  [FP] cell -> duct epithelial cell
+  [FP] cell -> ecto-epithelial cell
+  [FP] cell -> electrically responsive cell
+  [FP] cell -> electrically signaling cell
+  [FP] cell -> endo-epithelial cell
+  [FP] cell -> epithelial cell
+  [FP] cell -> epithelial cell of upper respiratory tract
+  [FP] cell -> fibroblast
+  [FP] cell -> large mucus secreting cholangiocyte
+  [FP] cell -> leukocyte
+  [FP] cell -> lymphocyte
+  [FP] cell -> lymphocyte of b lineage
+  [FP] cell -> lymphocyte of b lineage cd19-positive
+  [FP] cell -> mature b cell
+  [FP] cell -> mesothelial fibroblast
+  [FP] cell -> mesothelial fibroblast of the leptomeninx
+  [FP] cell -> mononuclear leukocyte
+  [FP] cell -> mucus secreting cell
+  [FP] cell -> neural cell
+  [FP] cell -> neurecto-epithelial cell
+  [FP] cell -> neuron
+  [FP] cell -> olfactory epithelial cell
+  [FP] cell -> professional antigen presenting cell
+  [FP] cell -> respiratory tract epithelial cell
+  [FP] cell -> secretory epithelial cell
+  [FP] cell -> sensory epithelial cell
+  [FP] cell -> sensory receptor cell
+  [FP] cell -> seromucus secreting cell
+  [FP] cell -> single nucleate cell
+  [FP] cell -> strial basal cell
+  [FP] cell -> stromal cell
+  [FP] cell -> vascular leptomeningeal cell
+  [FP] cell -> vlmc nn vascular leptomeningeal cell mmus
+  [FP] columnarcuboidal epithelial cell -> large mucus secreting cholangiocyte
+  [FP] connective tissue cell -> fibroblast
+  [FP] connective tissue cell -> leukocyte
+  [FP] connective tissue cell -> mesothelial fibroblast
+  [FP] connective tissue cell -> mesothelial fibroblast of the leptomeninx
+  [FP] connective tissue cell -> vascular leptomeningeal cell
+  [FP] connective tissue cell -> vlmc nn vascular leptomeningeal cell mmus
+  [FP] duct epithelial cell -> cholangiocyte
+  [FP] duct epithelial cell -> large mucus secreting cholangiocyte
+  [FP] electrically active cell -> auditory epithelial cell
+  [FP] electrically active cell -> central nervous system neuron
+  [FP] electrically active cell -> chemoreceptor cell
+  [FP] electrically active cell -> neural cell
+  [FP] electrically active cell -> neurecto-epithelial cell
+  [FP] electrically active cell -> neuron
+  [FP] electrically active cell -> sensory epithelial cell
+  [FP] electrically active cell -> sensory receptor cell
+  [FP] electrically responsive cell -> auditory epithelial cell
+  [FP] electrically responsive cell -> central nervous system neuron
+  [FP] electrically responsive cell -> chemoreceptor cell
+  [FP] electrically responsive cell -> electrically active cell
+  [FP] electrically responsive cell -> electrically signaling cell
+  [FP] electrically responsive cell -> neural cell
+  [FP] electrically responsive cell -> neurecto-epithelial cell
+  [FP] electrically responsive cell -> sensory epithelial cell
+  [FP] electrically responsive cell -> sensory receptor cell
+  [FP] electrically signaling cell -> auditory epithelial cell
+  [FP] electrically signaling cell -> central nervous system neuron
+  [FP] electrically signaling cell -> chemoreceptor cell
+  [FP] electrically signaling cell -> electrically active cell
+  [FP] electrically signaling cell -> electrically responsive cell
+  [FP] electrically signaling cell -> neural cell
+  [FP] electrically signaling cell -> neurecto-epithelial cell
+  [FP] electrically signaling cell -> sensory epithelial cell
+  [FP] electrically signaling cell -> sensory receptor cell
+  [FP] epithelial cell -> auditory epithelial cell
+  [FP] epithelial cell -> branched duct epithelial cell
+  [FP] epithelial cell -> cholangiocyte
+  [FP] epithelial cell -> epithelial cell of upper respiratory tract
+  [FP] epithelial cell -> large mucus secreting cholangiocyte
+  [FP] epithelial cell -> mucus secreting cell
+  [FP] epithelial cell -> neurecto-epithelial cell
+  [FP] epithelial cell -> olfactory epithelial cell
+  [FP] epithelial cell -> respiratory tract epithelial cell
+  [FP] epithelial cell -> secretory cell
+  [FP] epithelial cell -> seromucus secreting cell
+  [FP] epithelial cell -> strial basal cell
+  [FP] eukaryotic cell -> auditory epithelial cell
+  [FP] eukaryotic cell -> b cell
+  [FP] eukaryotic cell -> b cell cd19-positive
+  [FP] eukaryotic cell -> be cell
+  [FP] eukaryotic cell -> be1 cell
+  [FP] eukaryotic cell -> branched duct epithelial cell
+  [FP] eukaryotic cell -> cell
+  [FP] eukaryotic cell -> central nervous system neuron
+  [FP] eukaryotic cell -> chemoreceptor cell
+  [FP] eukaryotic cell -> cholangiocyte
+  [FP] eukaryotic cell -> columnarcuboidal epithelial cell
+  [FP] eukaryotic cell -> duct epithelial cell
+  [FP] eukaryotic cell -> ecto-epithelial cell
+  [FP] eukaryotic cell -> electrically active cell
+  [FP] eukaryotic cell -> electrically responsive cell
+  [FP] eukaryotic cell -> electrically signaling cell
+  [FP] eukaryotic cell -> endo-epithelial cell
+  [FP] eukaryotic cell -> epithelial cell of upper respiratory tract
+  [FP] eukaryotic cell -> fibroblast
+  [FP] eukaryotic cell -> hematopoietic cell
+  [FP] eukaryotic cell -> large mucus secreting cholangiocyte
+  [FP] eukaryotic cell -> lymphocyte
+  [FP] eukaryotic cell -> lymphocyte of b lineage
+  [FP] eukaryotic cell -> lymphocyte of b lineage cd19-positive
+  [FP] eukaryotic cell -> mature b cell
+  [FP] eukaryotic cell -> mesothelial fibroblast
+  [FP] eukaryotic cell -> mesothelial fibroblast of the leptomeninx
+  [FP] eukaryotic cell -> mononuclear leukocyte
+  [FP] eukaryotic cell -> motile cell
+  [FP] eukaryotic cell -> mucus secreting cell
+  [FP] eukaryotic cell -> neurecto-epithelial cell
+  [FP] eukaryotic cell -> neuron
+  [FP] eukaryotic cell -> nucleate cell
+  [FP] eukaryotic cell -> olfactory epithelial cell
+  [FP] eukaryotic cell -> professional antigen presenting cell
+  [FP] eukaryotic cell -> respiratory tract epithelial cell
+  [FP] eukaryotic cell -> secretory cell
+  [FP] eukaryotic cell -> secretory epithelial cell
+  [FP] eukaryotic cell -> sensory epithelial cell
+  [FP] eukaryotic cell -> seromucus secreting cell
+  [FP] eukaryotic cell -> strial basal cell
+  [FP] eukaryotic cell -> stromal cell
+  [FP] eukaryotic cell -> vascular leptomeningeal cell
+  [FP] eukaryotic cell -> vlmc nn vascular leptomeningeal cell mmus
+  [FP] fibroblast -> mesothelial fibroblast of the leptomeninx
+  [FP] hematopoietic cell -> b cell
+  [FP] hematopoietic cell -> b cell cd19-positive
+  [FP] hematopoietic cell -> be1 cell
+  [FP] hematopoietic cell -> lymphocyte
+  [FP] hematopoietic cell -> lymphocyte of b lineage
+  [FP] hematopoietic cell -> lymphocyte of b lineage cd19-positive
+  [FP] hematopoietic cell -> mature b cell
+  [FP] hematopoietic cell -> mononuclear leukocyte
+  [FP] hematopoietic cell -> professional antigen presenting cell
+  [FP] leukocyte -> b cell
+  [FP] leukocyte -> b cell cd19-positive
+  [FP] leukocyte -> be1 cell
+  [FP] leukocyte -> lymphocyte
+  [FP] leukocyte -> lymphocyte of b lineage
+  [FP] leukocyte -> lymphocyte of b lineage cd19-positive
+  [FP] leukocyte -> mature b cell
+  [FP] lymphocyte -> b cell
+  [FP] lymphocyte -> b cell cd19-positive
+  [FP] lymphocyte -> be1 cell
+  [FP] lymphocyte -> lymphocyte of b lineage cd19-positive
+  [FP] lymphocyte -> mature b cell
+  [FP] lymphocyte of b lineage -> b cell cd19-positive
+  [FP] lymphocyte of b lineage -> be cell
+  [FP] lymphocyte of b lineage -> be1 cell
+  [FP] lymphocyte of b lineage -> mature b cell
+  [FP] lymphocyte of b lineage cd19-positive -> mature b cell
+  [FP] mononuclear leukocyte -> b cell
+  [FP] mononuclear leukocyte -> b cell cd19-positive
+  [FP] mononuclear leukocyte -> be1 cell
+  [FP] mononuclear leukocyte -> lymphocyte of b lineage
+  [FP] mononuclear leukocyte -> lymphocyte of b lineage cd19-positive
+  [FP] mononuclear leukocyte -> mature b cell
+  [FP] mononuclear leukocyte -> professional antigen presenting cell
+  [FP] mucus secreting cell -> seromucus secreting cell
+  [FP] neural cell -> auditory epithelial cell
+  [FP] neural cell -> central nervous system neuron
+  [FP] neural cell -> chemoreceptor cell
+  [FP] neural cell -> electrically active cell
+  [FP] neural cell -> electrically responsive cell
+  [FP] neural cell -> electrically signaling cell
+  [FP] neural cell -> neurecto-epithelial cell
+  [FP] neural cell -> sensory epithelial cell
+  [FP] neural cell -> sensory receptor cell
+  [FP] nucleate cell -> auditory epithelial cell
+  [FP] nucleate cell -> b cell
+  [FP] nucleate cell -> b cell cd19-positive
+  [FP] nucleate cell -> be cell
+  [FP] nucleate cell -> be1 cell
+  [FP] nucleate cell -> branched duct epithelial cell
+  [FP] nucleate cell -> central nervous system neuron
+  [FP] nucleate cell -> chemoreceptor cell
+  [FP] nucleate cell -> cholangiocyte
+  [FP] nucleate cell -> columnarcuboidal epithelial cell
+  [FP] nucleate cell -> connective tissue cell
+  [FP] nucleate cell -> duct epithelial cell
+  [FP] nucleate cell -> ecto-epithelial cell
+  [FP] nucleate cell -> electrically active cell
+  [FP] nucleate cell -> electrically responsive cell
+  [FP] nucleate cell -> electrically signaling cell
+  [FP] nucleate cell -> endo-epithelial cell
+  [FP] nucleate cell -> epithelial cell
+  [FP] nucleate cell -> epithelial cell of upper respiratory tract
+  [FP] nucleate cell -> fibroblast
+  [FP] nucleate cell -> hematopoietic cell
+  [FP] nucleate cell -> large mucus secreting cholangiocyte
+  [FP] nucleate cell -> lymphocyte
+  [FP] nucleate cell -> lymphocyte of b lineage
+  [FP] nucleate cell -> lymphocyte of b lineage cd19-positive
+  [FP] nucleate cell -> mature b cell
+  [FP] nucleate cell -> mesothelial fibroblast
+  [FP] nucleate cell -> mesothelial fibroblast of the leptomeninx
+  [FP] nucleate cell -> mononuclear leukocyte
+  [FP] nucleate cell -> motile cell
+  [FP] nucleate cell -> mucus secreting cell
+  [FP] nucleate cell -> neural cell
+  [FP] nucleate cell -> neurecto-epithelial cell
+  [FP] nucleate cell -> neuron
+  [FP] nucleate cell -> olfactory epithelial cell
+  [FP] nucleate cell -> professional antigen presenting cell
+  [FP] nucleate cell -> respiratory tract epithelial cell
+  [FP] nucleate cell -> secretory cell
+  [FP] nucleate cell -> secretory epithelial cell
+  [FP] nucleate cell -> sensory epithelial cell
+  [FP] nucleate cell -> sensory receptor cell
+  [FP] nucleate cell -> seromucus secreting cell
+  [FP] nucleate cell -> strial basal cell
+  [FP] nucleate cell -> stromal cell
+  [FP] nucleate cell -> vascular leptomeningeal cell
+  [FP] nucleate cell -> vlmc nn vascular leptomeningeal cell mmus
+  [FP] professional antigen presenting cell -> b cell
+  [FP] professional antigen presenting cell -> b cell cd19-positive
+  [FP] professional antigen presenting cell -> lymphocyte of b lineage
+  [FP] professional antigen presenting cell -> lymphocyte of b lineage cd19-positive
+  [FP] respiratory tract epithelial cell -> olfactory epithelial cell
+  [FP] secretory cell -> cholangiocyte
+  [FP] secretory cell -> large mucus secreting cholangiocyte
+  [FP] secretory cell -> mucus secreting cell
+  [FP] secretory epithelial cell -> cholangiocyte
+  [FP] secretory epithelial cell -> mucus secreting cell
+  [FP] secretory epithelial cell -> secretory cell
+  [FP] secretory epithelial cell -> seromucus secreting cell
+  [FP] single nucleate cell -> auditory epithelial cell
+  [FP] single nucleate cell -> b cell
+  [FP] single nucleate cell -> b cell cd19-positive
+  [FP] single nucleate cell -> be cell
+  [FP] single nucleate cell -> be1 cell
+  [FP] single nucleate cell -> branched duct epithelial cell
+  [FP] single nucleate cell -> central nervous system neuron
+  [FP] single nucleate cell -> chemoreceptor cell
+  [FP] single nucleate cell -> cholangiocyte
+  [FP] single nucleate cell -> columnarcuboidal epithelial cell
+  [FP] single nucleate cell -> connective tissue cell
+  [FP] single nucleate cell -> duct epithelial cell
+  [FP] single nucleate cell -> ecto-epithelial cell
+  [FP] single nucleate cell -> electrically active cell
+  [FP] single nucleate cell -> electrically responsive cell
+  [FP] single nucleate cell -> electrically signaling cell
+  [FP] single nucleate cell -> endo-epithelial cell
+  [FP] single nucleate cell -> epithelial cell
+  [FP] single nucleate cell -> epithelial cell of upper respiratory tract
+  [FP] single nucleate cell -> fibroblast
+  [FP] single nucleate cell -> hematopoietic cell
+  [FP] single nucleate cell -> large mucus secreting cholangiocyte
+  [FP] single nucleate cell -> leukocyte
+  [FP] single nucleate cell -> lymphocyte
+  [FP] single nucleate cell -> lymphocyte of b lineage
+  [FP] single nucleate cell -> lymphocyte of b lineage cd19-positive
+  [FP] single nucleate cell -> mature b cell
+  [FP] single nucleate cell -> mesothelial fibroblast
+  [FP] single nucleate cell -> mesothelial fibroblast of the leptomeninx
+  [FP] single nucleate cell -> mucus secreting cell
+  [FP] single nucleate cell -> neural cell
+  [FP] single nucleate cell -> neurecto-epithelial cell
+  [FP] single nucleate cell -> neuron
+  [FP] single nucleate cell -> olfactory epithelial cell
+  [FP] single nucleate cell -> professional antigen presenting cell
+  [FP] single nucleate cell -> respiratory tract epithelial cell
+  [FP] single nucleate cell -> secretory cell
+  [FP] single nucleate cell -> secretory epithelial cell
+  [FP] single nucleate cell -> sensory epithelial cell
+  [FP] single nucleate cell -> sensory receptor cell
+  [FP] single nucleate cell -> seromucus secreting cell
+  [FP] single nucleate cell -> strial basal cell
+  [FP] single nucleate cell -> stromal cell
+  [FP] single nucleate cell -> vascular leptomeningeal cell
+  [FP] single nucleate cell -> vlmc nn vascular leptomeningeal cell mmus
+  [FP] stromal cell -> connective tissue cell
+  [FP] stromal cell -> leukocyte
+  [FP] stromal cell -> mesothelial fibroblast
+  [FP] stromal cell -> mesothelial fibroblast of the leptomeninx
+  [FP] stromal cell -> vascular leptomeningeal cell
+  [FP] stromal cell -> vlmc nn vascular leptomeningeal cell mmus
+
+MISSED RELATIONS (False Negatives: 12):
+  [FN] branched duct epithelial cell -> cholangiocyte
+  [FN] chemoreceptor cell -> olfactory epithelial cell
+  [FN] columnarcuboidal epithelial cell -> neurecto-epithelial cell
+  [FN] endo-epithelial cell -> respiratory tract epithelial cell
+  [FN] mature b cell -> be cell
+  [FN] mesothelial fibroblast of the leptomeninx -> vascular leptomeningeal cell
+  [FN] motile cell -> leukocyte
+  [FN] neural cell -> mesothelial fibroblast of the leptomeninx
+  [FN] neural cell -> olfactory epithelial cell
+  [FN] neurecto-epithelial cell -> olfactory epithelial cell
+  [FN] sensory receptor cell -> sensory epithelial cell
+  [FN] seromucus secreting cell -> mucus secreting cell

@@ -1,0 +1,102 @@
+==================================================
+=== Detailed Node Pair Analysis (Exploded Raw Edges) ===
+Match Type Used: EXACT
+==================================================
+Precision: 0.4667 | Recall: 1.0000 | F1: 0.6364
+
+CORRECT PREDICTIONS (True Positives: 42 Pred edges covering 42 GT edges):
+  [TP] action -> createaction
+  [TP] action -> organizeaction
+  [TP] action -> transferaction
+  [TP] allocateaction -> assignaction
+  [TP] article -> techarticle
+  [TP] audience -> peopleaudience
+  [TP] createaction -> cookaction
+  [TP] creativework -> ampstory
+  [TP] creativework -> article
+  [TP] creativework -> creativeworkseries
+  [TP] creativework -> howtostep
+  [TP] creativework -> shortstory
+  [TP] creativeworkseries -> movieseries
+  [TP] datatype -> time
+  [TP] enumeration -> adultorientedenumeration
+  [TP] enumeration -> governmentbenefitstype
+  [TP] enumeration -> measurementmethodenum
+  [TP] enumeration -> physicalactivitycategory
+  [TP] foodestablishment -> bakery
+  [TP] intangible -> audience
+  [TP] intangible -> listitem
+  [TP] intangible -> series
+  [TP] intangible -> service
+  [TP] intangible -> ticket
+  [TP] itemlist -> howtostep
+  [TP] listitem -> howtostep
+  [TP] localbusiness -> entertainmentbusiness
+  [TP] localbusiness -> foodestablishment
+  [TP] localbusiness -> lodgingbusiness
+  [TP] localbusiness -> sportsactivitylocation
+  [TP] lodgingbusiness -> motel
+  [TP] medicalentity -> medicalintangible
+  [TP] medicalintangible -> medicalcode
+  [TP] organization -> localbusiness
+  [TP] organization -> researchorganization
+  [TP] organizeaction -> allocateaction
+  [TP] periodical -> comicseries
+  [TP] place -> localbusiness
+  [TP] series -> creativeworkseries
+  [TP] service -> broadcastservice
+  [TP] sportsactivitylocation -> exercisegym
+  [TP] transferaction -> takeaction
+
+INCORRECT PREDICTIONS (False Positives: 48):
+  [FP] action -> allocateaction
+  [FP] action -> assignaction
+  [FP] action -> cookaction
+  [FP] action -> takeaction
+  [FP] article -> ampstory
+  [FP] creativework -> comicseries
+  [FP] creativework -> imageobject
+  [FP] creativework -> movieseries
+  [FP] creativework -> periodical
+  [FP] creativework -> techarticle
+  [FP] creativeworkseries -> comicseries
+  [FP] creativeworkseries -> periodical
+  [FP] intangible -> adultorientedenumeration
+  [FP] intangible -> broadcastservice
+  [FP] intangible -> comicseries
+  [FP] intangible -> creativeworkseries
+  [FP] intangible -> enumeration
+  [FP] intangible -> governmentbenefitstype
+  [FP] intangible -> howtostep
+  [FP] intangible -> itemlist
+  [FP] intangible -> measurementmethodenum
+  [FP] intangible -> movieseries
+  [FP] intangible -> offer
+  [FP] intangible -> peopleaudience
+  [FP] intangible -> periodical
+  [FP] intangible -> physicalactivitycategory
+  [FP] localbusiness -> bakery
+  [FP] localbusiness -> exercisegym
+  [FP] localbusiness -> motel
+  [FP] medicalentity -> medicalcode
+  [FP] organization -> bakery
+  [FP] organization -> entertainmentbusiness
+  [FP] organization -> exercisegym
+  [FP] organization -> foodestablishment
+  [FP] organization -> lodgingbusiness
+  [FP] organization -> motel
+  [FP] organization -> sportsactivitylocation
+  [FP] organizeaction -> assignaction
+  [FP] place -> bakery
+  [FP] place -> entertainmentbusiness
+  [FP] place -> exercisegym
+  [FP] place -> foodestablishment
+  [FP] place -> lodgingbusiness
+  [FP] place -> motel
+  [FP] place -> sportsactivitylocation
+  [FP] series -> comicseries
+  [FP] series -> movieseries
+  [FP] series -> periodical
+
+MISSED RELATIONS (False Negatives: 0):
+  None. (Perfect Recall!)

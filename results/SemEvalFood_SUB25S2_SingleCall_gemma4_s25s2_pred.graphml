@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d4" for="graph" attr.name="timestamp" attr.type="string"/>
+<key id="d3" for="graph" attr.name="scale" attr.type="string"/>
+<key id="d2" for="graph" attr.name="results_file" attr.type="string"/>
+<key id="d1" for="graph" attr.name="tag" attr.type="string"/>
+<key id="d0" for="graph" attr.name="model" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">google/gemma-4-31b-it</data>
+<data key="d1">gemma4_s25s2</data>
+<data key="d2">results/scaling_gemma4.json</data>
+<data key="d3">SUB25S2</data>
+<data key="d4">2026-09-30T16:51:14</data>
+<node id="starches"/>
+<node id="cheshire cheese"/>
+<node id="dairy product"/>
+<node id="water"/>
+<node id="feed"/>
+<node id="inositol"/>
+<node id="condiment"/>
+<node id="cheese"/>
+<node id="colostrum"/>
+<node id="b complex vitamin"/>
+<node id="blanc"/>
+<node id="flavorer"/>
+<node id="foodstuff"/>
+<node id="nutriment"/>
+<node id="whole milk"/>
+<node id="food"/>
+<node id="grain"/>
+<node id="brown rice"/>
+<node id="water soluble vitamin"/>
+<node id="vitamin"/>
+<node id="white sauce"/>
+<node id="sauce"/>
+<node id="ingredient"/>
+<node id="cattle cake"/>
+<node id="rice"/>
+<node id="milk"/>
+<edge source="dairy product" target="milk"/>
+<edge source="dairy product" target="cheese"/>
+<edge source="feed" target="cattle cake"/>
+<edge source="condiment" target="sauce"/>
+<edge source="cheese" target="cheshire cheese"/>
+<edge source="b complex vitamin" target="inositol"/>
+<edge source="foodstuff" target="ingredient"/>
+<edge source="foodstuff" target="dairy product"/>
+<edge source="foodstuff" target="grain"/>
+<edge source="foodstuff" target="starches"/>
+<edge source="foodstuff" target="feed"/>
+<edge source="nutriment" target="food"/>
+<edge source="food" target="foodstuff"/>
+<edge source="grain" target="rice"/>
+<edge source="water soluble vitamin" target="b complex vitamin"/>
+<edge source="vitamin" target="water soluble vitamin"/>
+<edge source="white sauce" target="blanc"/>
+<edge source="sauce" target="white sauce"/>
+<edge source="ingredient" target="condiment"/>
+<edge source="ingredient" target="flavorer"/>
+<edge source="ingredient" target="vitamin"/>
+<edge source="rice" target="brown rice"/>
+<edge source="milk" target="whole milk"/>
+<edge source="milk" target="colostrum"/>
+</graph></graphml>

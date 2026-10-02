@@ -1,0 +1,69 @@
+==================================================
+=== Detailed Node Pair Analysis (Exploded Raw Edges) ===
+Match Type Used: EXACT
+==================================================
+Precision: 0.6889 | Recall: 0.7045 | F1: 0.6966
+
+CORRECT PREDICTIONS (True Positives: 31 Pred edges covering 31 GT edges):
+  [TP] albumin assay -> comprehensive metabolic panel venous blood albumin assay
+  [TP] assay -> analyte assay
+  [TP] assay -> carboxyfluorescein succinimidyl ester staining assay
+  [TP] assay -> insecticide resistance assay
+  [TP] assay -> organism detection assay
+  [TP] assay -> polymerase chain reaction assay
+  [TP] assay array -> microarray
+  [TP] carboxyfluorescein succinimidyl ester staining assay -> carboxyfluorescein succinimidyl ester staining assay measuring epitope specific proliferation of t cells
+  [TP] clinical history -> family clinical history of cancer
+  [TP] container -> vial
+  [TP] continuant -> independent continuant
+  [TP] device -> container
+  [TP] device -> material separation device
+  [TP] device -> measurement device
+  [TP] dna microarray -> affymetrix rhesus macaque genome array
+  [TP] family clinical history of cancer -> brother clinical history of cancer
+  [TP] function -> connection function
+  [TP] functional assessment of individual -> nose to finger assessment
+  [TP] independent continuant -> material entity
+  [TP] insecticide resistance assay -> insecticide resistance by detecting enzyme activity assay
+  [TP] insecticide resistance by detecting enzyme activity assay -> insecticide resistance by detecting glutathione s-transferase activity assay
+  [TP] material entity -> processed material
+  [TP] material processing -> material component separation
+  [TP] microarray -> dna microarray
+  [TP] organism detection assay -> parasite detection assay
+  [TP] organization -> organization of specimen collector
+  [TP] planned process -> assay
+  [TP] planned process -> material processing
+  [TP] realizable entity -> role
+  [TP] role -> adjuvant role
+  [TP] thyroid stimulating hormone assay -> venous blood thyroid stimulating hormone assay
+
+INCORRECT PREDICTIONS (False Positives: 14):
+  [FP] analyte assay -> blood assay
+  [FP] assay -> assay array
+  [FP] assay -> proximity extension assay
+  [FP] blood assay -> albumin assay
+  [FP] blood assay -> thyroid stimulating hormone assay
+  [FP] container -> test tube
+  [FP] device -> multichannel pipette
+  [FP] function -> functional assessment of individual
+  [FP] independent continuant -> device
+  [FP] independent continuant -> filter paper
+  [FP] independent continuant -> organization
+  [FP] material component separation -> material separation device
+  [FP] realizable entity -> function
+  [FP] realizable entity -> planned process
+
+MISSED RELATIONS (False Negatives: 13):
+  [FN] analyte assay -> proximity extension assay
+  [FN] assay -> blood assay
+  [FN] blood assay -> comprehensive metabolic panel venous blood albumin assay
+  [FN] blood assay -> venous blood thyroid stimulating hormone assay
+  [FN] device -> assay array
+  [FN] material combination -> adding a material entity into a target
+  [FN] material component separation -> dna subtraction
+  [FN] material processing -> material combination
+  [FN] material separation device -> filter paper
+  [FN] measurement device -> multichannel pipette
+  [FN] polymerase chain reaction assay -> proximity extension assay
+  [FN] processed material -> device
+  [FN] vial -> test tube

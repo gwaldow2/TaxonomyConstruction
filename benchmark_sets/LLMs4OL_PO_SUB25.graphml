@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d8" for="node" attr.name="is_virtual" attr.type="boolean"/>
+<key id="d7" for="graph" attr.name="generated" attr.type="string"/>
+<key id="d6" for="graph" attr.name="generator" attr.type="string"/>
+<key id="d5" for="graph" attr.name="source_edges" attr.type="string"/>
+<key id="d4" for="graph" attr.name="source_nodes" attr.type="string"/>
+<key id="d3" for="graph" attr.name="source_file" attr.type="string"/>
+<key id="d2" for="graph" attr.name="seed" attr.type="string"/>
+<key id="d1" for="graph" attr.name="target_nodes" attr.type="string"/>
+<key id="d0" for="graph" attr.name="scale" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">SUB25</data>
+<data key="d1">25</data>
+<data key="d2">42</data>
+<data key="d3">LLMs4OL_PO_FULL.graphml</data>
+<data key="d4">1163</data>
+<data key="d5">1200</data>
+<data key="d6">scale_benchmarks.py</data>
+<data key="d7">2026-09-30T16:24:53</data>
+<node id="central endosperm"/>
+<node id="pistillate flower"/>
+<node id="ear floret"/>
+<node id="plant axis differentiation zone"/>
+<node id="subterranean tuber axillary shoot"/>
+<node id="plant structure"/>
+<node id="plant anatomical entity"/>
+<node id="floral organ abscission zone"/>
+<node id="cardinal organ part"/>
+<node id="tuber storage parenchyma"/>
+<node id="multi-tissue plant structure"/>
+<node id="spikelet floret"/>
+<node id="portion of plant tissue"/>
+<node id="sporophyll"/>
+<node id="phyllome"/>
+<node id="shoot internode differentiation zone"/>
+<node id="flower"/>
+<node id="plant organ"/>
+<node id="cardinal part of multi-tissue plant structure"/>
+<node id="tuber axillary shoot"/>
+<node id="storage parenchyma"/>
+<node id="abscission zone"/>
+<node id="branch internode differentiation zone"/>
+<node id="portion of ground tissue"/>
+<node id="reproductive shoot system"/>
+<node id="virtual_root">
+  <data key="d8">True</data>
+</node>
+<edge source="pistillate flower" target="ear floret"/>
+<edge source="plant axis differentiation zone" target="shoot internode differentiation zone"/>
+<edge source="plant structure" target="multi-tissue plant structure"/>
+<edge source="plant structure" target="cardinal part of multi-tissue plant structure"/>
+<edge source="plant structure" target="portion of plant tissue"/>
+<edge source="plant anatomical entity" target="plant structure"/>
+<edge source="cardinal organ part" target="plant axis differentiation zone"/>
+<edge source="multi-tissue plant structure" target="plant organ"/>
+<edge source="spikelet floret" target="ear floret"/>
+<edge source="portion of plant tissue" target="central endosperm"/>
+<edge source="portion of plant tissue" target="portion of ground tissue"/>
+<edge source="portion of plant tissue" target="abscission zone"/>
+<edge source="phyllome" target="sporophyll"/>
+<edge source="shoot internode differentiation zone" target="branch internode differentiation zone"/>
+<edge source="flower" target="spikelet floret"/>
+<edge source="flower" target="pistillate flower"/>
+<edge source="plant organ" target="phyllome"/>
+<edge source="cardinal part of multi-tissue plant structure" target="cardinal organ part"/>
+<edge source="tuber axillary shoot" target="subterranean tuber axillary shoot"/>
+<edge source="storage parenchyma" target="tuber storage parenchyma"/>
+<edge source="abscission zone" target="floral organ abscission zone"/>
+<edge source="reproductive shoot system" target="flower"/>
+<edge source="virtual_root" target="plant anatomical entity"/>
+<edge source="virtual_root" target="tuber axillary shoot"/>
+<edge source="virtual_root" target="storage parenchyma"/>
+<edge source="virtual_root" target="reproductive shoot system"/>
+</graph></graphml>

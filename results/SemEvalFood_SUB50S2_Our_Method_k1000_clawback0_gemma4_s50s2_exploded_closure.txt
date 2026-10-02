@@ -1,0 +1,328 @@
+==================================================
+=== Detailed Node Pair Analysis (Exploded Transitive Closure) ===
+Match Type Used: EXACT
+==================================================
+Precision: 0.5101 | Recall: 0.8779 | F1: 0.6453
+
+CORRECT PREDICTIONS (True Positives: 151 Pred edges covering 151 GT edges):
+  [TP] b complex vitamin -> inositol
+  [TP] bread -> bun
+  [TP] bread -> honey bun
+  [TP] bread -> sweet roll
+  [TP] bun -> honey bun
+  [TP] bun -> sweet roll
+  [TP] canned food -> canned meat
+  [TP] cheese -> cheshire cheese
+  [TP] cheese -> parmesan
+  [TP] condiment -> cheese spread
+  [TP] condiment -> sauce
+  [TP] condiment -> spread
+  [TP] condiment -> white sauce
+  [TP] course -> dessert
+  [TP] course -> frozen dessert
+  [TP] course -> parfait
+  [TP] cream -> whipping cream
+  [TP] dairy product -> cheese
+  [TP] dairy product -> cheshire cheese
+  [TP] dairy product -> colostrum
+  [TP] dairy product -> cream
+  [TP] dairy product -> milk
+  [TP] dairy product -> parmesan
+  [TP] dairy product -> whipping cream
+  [TP] dairy product -> whole milk
+  [TP] dessert -> frozen dessert
+  [TP] dessert -> parfait
+  [TP] dish -> chili
+  [TP] dish -> corn chip
+  [TP] dish -> enchilada
+  [TP] dish -> snack food
+  [TP] feed -> cattle cake
+  [TP] flavorer -> cheese spread
+  [TP] flavorer -> condiment
+  [TP] flavorer -> sauce
+  [TP] flavorer -> spread
+  [TP] flavorer -> white sauce
+  [TP] food -> b complex vitamin
+  [TP] food -> bread
+  [TP] food -> brown rice
+  [TP] food -> bun
+  [TP] food -> canned food
+  [TP] food -> canned meat
+  [TP] food -> cattle cake
+  [TP] food -> cheese
+  [TP] food -> cheese spread
+  [TP] food -> cheshire cheese
+  [TP] food -> chili
+  [TP] food -> colostrum
+  [TP] food -> condiment
+  [TP] food -> corn chip
+  [TP] food -> cream
+  [TP] food -> dairy product
+  [TP] food -> dessert
+  [TP] food -> dish
+  [TP] food -> enchilada
+  [TP] food -> feed
+  [TP] food -> flavorer
+  [TP] food -> foodstuff
+  [TP] food -> frozen dessert
+  [TP] food -> grain
+  [TP] food -> herb
+  [TP] food -> honey bun
+  [TP] food -> ingredient
+  [TP] food -> inositol
+  [TP] food -> milk
+  [TP] food -> nutriment
+  [TP] food -> parfait
+  [TP] food -> parmesan
+  [TP] food -> rice
+  [TP] food -> sauce
+  [TP] food -> snack food
+  [TP] food -> spread
+  [TP] food -> starches
+  [TP] food -> sweet cicely
+  [TP] food -> sweet roll
+  [TP] food -> vitamin
+  [TP] food -> water
+  [TP] food -> water soluble vitamin
+  [TP] food -> whipping cream
+  [TP] food -> white sauce
+  [TP] food -> whole milk
+  [TP] foodstuff -> bread
+  [TP] foodstuff -> brown rice
+  [TP] foodstuff -> bun
+  [TP] foodstuff -> canned food
+  [TP] foodstuff -> canned meat
+  [TP] foodstuff -> cheese
+  [TP] foodstuff -> cheese spread
+  [TP] foodstuff -> cheshire cheese
+  [TP] foodstuff -> colostrum
+  [TP] foodstuff -> condiment
+  [TP] foodstuff -> cream
+  [TP] foodstuff -> dairy product
+  [TP] foodstuff -> flavorer
+  [TP] foodstuff -> grain
+  [TP] foodstuff -> herb
+  [TP] foodstuff -> honey bun
+  [TP] foodstuff -> ingredient
+  [TP] foodstuff -> milk
+  [TP] foodstuff -> parmesan
+  [TP] foodstuff -> rice
+  [TP] foodstuff -> sauce
+  [TP] foodstuff -> spread
+  [TP] foodstuff -> starches
+  [TP] foodstuff -> sweet cicely
+  [TP] foodstuff -> sweet roll
+  [TP] foodstuff -> whipping cream
+  [TP] foodstuff -> white sauce
+  [TP] foodstuff -> whole milk
+  [TP] frozen dessert -> parfait
+  [TP] grain -> brown rice
+  [TP] grain -> rice
+  [TP] herb -> sweet cicely
+  [TP] ingredient -> cheese spread
+  [TP] ingredient -> condiment
+  [TP] ingredient -> flavorer
+  [TP] ingredient -> herb
+  [TP] ingredient -> sauce
+  [TP] ingredient -> spread
+  [TP] ingredient -> sweet cicely
+  [TP] ingredient -> white sauce
+  [TP] milk -> colostrum
+  [TP] milk -> whole milk
+  [TP] nutriment -> b complex vitamin
+  [TP] nutriment -> chili
+  [TP] nutriment -> colostrum
+  [TP] nutriment -> corn chip
+  [TP] nutriment -> dessert
+  [TP] nutriment -> dish
+  [TP] nutriment -> enchilada
+  [TP] nutriment -> frozen dessert
+  [TP] nutriment -> inositol
+  [TP] nutriment -> milk
+  [TP] nutriment -> parfait
+  [TP] nutriment -> snack food
+  [TP] nutriment -> vitamin
+  [TP] nutriment -> water soluble vitamin
+  [TP] nutriment -> whole milk
+  [TP] rice -> brown rice
+  [TP] sauce -> white sauce
+  [TP] snack food -> corn chip
+  [TP] spread -> cheese spread
+  [TP] starches -> brown rice
+  [TP] starches -> rice
+  [TP] sweet roll -> honey bun
+  [TP] vitamin -> b complex vitamin
+  [TP] vitamin -> inositol
+  [TP] vitamin -> water soluble vitamin
+  [TP] water soluble vitamin -> b complex vitamin
+  [TP] water soluble vitamin -> inositol
+
+INCORRECT PREDICTIONS (False Positives: 145):
+  [FP] cheese -> cheese spread
+  [FP] condiment -> cheese
+  [FP] condiment -> cheshire cheese
+  [FP] condiment -> condiment
+  [FP] condiment -> flavorer
+  [FP] condiment -> parmesan
+  [FP] course -> honey bun
+  [FP] course -> sweet roll
+  [FP] dairy product -> cheese spread
+  [FP] dessert -> honey bun
+  [FP] dessert -> sweet roll
+  [FP] dish -> b complex vitamin
+  [FP] dish -> bread
+  [FP] dish -> brown rice
+  [FP] dish -> bun
+  [FP] dish -> canned food
+  [FP] dish -> canned meat
+  [FP] dish -> cattle cake
+  [FP] dish -> cheese
+  [FP] dish -> cheese spread
+  [FP] dish -> cheshire cheese
+  [FP] dish -> colostrum
+  [FP] dish -> condiment
+  [FP] dish -> cream
+  [FP] dish -> dairy product
+  [FP] dish -> dessert
+  [FP] dish -> dish
+  [FP] dish -> feed
+  [FP] dish -> flavorer
+  [FP] dish -> food
+  [FP] dish -> foodstuff
+  [FP] dish -> frozen dessert
+  [FP] dish -> grain
+  [FP] dish -> herb
+  [FP] dish -> honey bun
+  [FP] dish -> ingredient
+  [FP] dish -> inositol
+  [FP] dish -> milk
+  [FP] dish -> nutriment
+  [FP] dish -> parfait
+  [FP] dish -> parmesan
+  [FP] dish -> rice
+  [FP] dish -> sauce
+  [FP] dish -> spread
+  [FP] dish -> starches
+  [FP] dish -> sweet cicely
+  [FP] dish -> sweet roll
+  [FP] dish -> vitamin
+  [FP] dish -> water
+  [FP] dish -> water soluble vitamin
+  [FP] dish -> whipping cream
+  [FP] dish -> white sauce
+  [FP] dish -> whole milk
+  [FP] flavorer -> cheese
+  [FP] flavorer -> cheshire cheese
+  [FP] flavorer -> flavorer
+  [FP] flavorer -> parmesan
+  [FP] food -> food
+  [FP] foodstuff -> b complex vitamin
+  [FP] foodstuff -> cattle cake
+  [FP] foodstuff -> chili
+  [FP] foodstuff -> corn chip
+  [FP] foodstuff -> dessert
+  [FP] foodstuff -> dish
+  [FP] foodstuff -> enchilada
+  [FP] foodstuff -> feed
+  [FP] foodstuff -> food
+  [FP] foodstuff -> foodstuff
+  [FP] foodstuff -> frozen dessert
+  [FP] foodstuff -> inositol
+  [FP] foodstuff -> nutriment
+  [FP] foodstuff -> parfait
+  [FP] foodstuff -> snack food
+  [FP] foodstuff -> vitamin
+  [FP] foodstuff -> water
+  [FP] foodstuff -> water soluble vitamin
+  [FP] ingredient -> b complex vitamin
+  [FP] ingredient -> bread
+  [FP] ingredient -> brown rice
+  [FP] ingredient -> bun
+  [FP] ingredient -> canned food
+  [FP] ingredient -> canned meat
+  [FP] ingredient -> cattle cake
+  [FP] ingredient -> cheese
+  [FP] ingredient -> cheshire cheese
+  [FP] ingredient -> chili
+  [FP] ingredient -> colostrum
+  [FP] ingredient -> corn chip
+  [FP] ingredient -> cream
+  [FP] ingredient -> dairy product
+  [FP] ingredient -> grain
+  [FP] ingredient -> honey bun
+  [FP] ingredient -> inositol
+  [FP] ingredient -> milk
+  [FP] ingredient -> parmesan
+  [FP] ingredient -> rice
+  [FP] ingredient -> snack food
+  [FP] ingredient -> starches
+  [FP] ingredient -> sweet roll
+  [FP] ingredient -> vitamin
+  [FP] ingredient -> water soluble vitamin
+  [FP] ingredient -> whipping cream
+  [FP] ingredient -> whole milk
+  [FP] milk -> cream
+  [FP] milk -> whipping cream
+  [FP] nutriment -> bread
+  [FP] nutriment -> brown rice
+  [FP] nutriment -> bun
+  [FP] nutriment -> canned food
+  [FP] nutriment -> canned meat
+  [FP] nutriment -> cattle cake
+  [FP] nutriment -> cheese
+  [FP] nutriment -> cheese spread
+  [FP] nutriment -> cheshire cheese
+  [FP] nutriment -> condiment
+  [FP] nutriment -> cream
+  [FP] nutriment -> dairy product
+  [FP] nutriment -> feed
+  [FP] nutriment -> flavorer
+  [FP] nutriment -> food
+  [FP] nutriment -> foodstuff
+  [FP] nutriment -> grain
+  [FP] nutriment -> herb
+  [FP] nutriment -> honey bun
+  [FP] nutriment -> ingredient
+  [FP] nutriment -> nutriment
+  [FP] nutriment -> parmesan
+  [FP] nutriment -> rice
+  [FP] nutriment -> sauce
+  [FP] nutriment -> spread
+  [FP] nutriment -> starches
+  [FP] nutriment -> sweet cicely
+  [FP] nutriment -> sweet roll
+  [FP] nutriment -> water
+  [FP] nutriment -> whipping cream
+  [FP] nutriment -> white sauce
+  [FP] snack food -> cheese
+  [FP] snack food -> cheese spread
+  [FP] snack food -> cheshire cheese
+  [FP] snack food -> honey bun
+  [FP] snack food -> parmesan
+  [FP] snack food -> sweet roll
+  [FP] spread -> cheese
+  [FP] spread -> cheshire cheese
+  [FP] spread -> parmesan
+
+MISSED RELATIONS (False Negatives: 21):
+  [FN] canned food -> fanny adams
+  [FN] canned meat -> fanny adams
+  [FN] condiment -> blanc
+  [FN] flavorer -> blanc
+  [FN] flavorer -> herb
+  [FN] flavorer -> sweet cicely
+  [FN] food -> blanc
+  [FN] food -> course
+  [FN] food -> dainty
+  [FN] food -> fanny adams
+  [FN] foodstuff -> blanc
+  [FN] foodstuff -> fanny adams
+  [FN] ingredient -> blanc
+  [FN] nutriment -> course
+  [FN] nutriment -> dainty
+  [FN] sauce -> blanc
+  [FN] starches -> bread
+  [FN] starches -> bun
+  [FN] starches -> honey bun
+  [FN] starches -> sweet roll
+  [FN] white sauce -> blanc

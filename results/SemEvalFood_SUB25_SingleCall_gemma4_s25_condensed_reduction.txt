@@ -1,0 +1,61 @@
+==================================================
+=== Detailed Node Pair Analysis (Condensed Transitive Reduction) ===
+Match Type Used: SET_OVERLAP
+==================================================
+Precision: 0.5417 | Recall: 0.5000 | F1: 0.5200
+
+CORRECT PREDICTIONS (True Positives: 13 Pred edges covering 13 GT edges):
+  [TP] PRED: (condiment -> relish)
+        matches GT: (condiment -> relish)
+  [TP] PRED: (condiment -> sauce)
+        matches GT: (condiment -> sauce)
+  [TP] PRED: (dressing -> blue cheese dressing)
+        matches GT: (dressing -> blue cheese dressing)
+  [TP] PRED: (feed -> fodder)
+        matches GT: (feed -> fodder)
+  [TP] PRED: (fodder -> alfalfa)
+        matches GT: (fodder -> alfalfa)
+  [TP] PRED: (food -> fare)
+        matches GT: (food -> fare)
+  [TP] PRED: (food -> feed)
+        matches GT: (food -> feed)
+  [TP] PRED: (food -> foodstuff)
+        matches GT: (food -> foodstuff)
+  [TP] PRED: (food -> nutriment)
+        matches GT: (food -> nutriment)
+  [TP] PRED: (potato -> home fries)
+        matches GT: (potato -> home fries)
+  [TP] PRED: (starches -> potato)
+        matches GT: (starches -> potato)
+  [TP] PRED: (tea -> oolong)
+        matches GT: (tea -> oolong)
+  [TP] PRED: (tea -> sun tea)
+        matches GT: (tea -> sun tea)
+
+INCORRECT PREDICTIONS (False Positives: 11):
+  [FP] condiment -> dressing
+  [FP] condiment -> flavorer
+  [FP] feed -> chow
+  [FP] food -> eatage
+  [FP] food -> ingredient
+  [FP] food -> meal
+  [FP] food -> tea
+  [FP] ingredient -> condiment
+  [FP] ingredient -> herb
+  [FP] ingredient -> starches
+  [FP] sauce -> steak sauce
+
+MISSED RELATIONS (False Negatives: 13):
+  [FN] condiment -> steak sauce
+  [FN] fare -> chow
+  [FN] flavorer -> condiment
+  [FN] flavorer -> herb
+  [FN] fodder -> eatage
+  [FN] foodstuff -> ingredient
+  [FN] foodstuff -> meal
+  [FN] foodstuff -> starches
+  [FN] herb -> tea
+  [FN] ingredient -> flavorer
+  [FN] meal -> tea
+  [FN] nutriment -> meal
+  [FN] sauce -> dressing

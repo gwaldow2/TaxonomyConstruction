@@ -1,0 +1,82 @@
+==================================================
+=== Detailed Node Pair Analysis (Exploded Raw Edges) ===
+Match Type Used: EXACT
+==================================================
+Precision: 0.6458 | Recall: 0.5741 | F1: 0.6078
+
+CORRECT PREDICTIONS (True Positives: 31 Pred edges covering 31 GT edges):
+  [TP] apple -> cooking apple
+  [TP] baked goods -> cake
+  [TP] berry -> boysenberry
+  [TP] beverage -> soft drink
+  [TP] beverage -> tea
+  [TP] black tea -> congou
+  [TP] boiled egg -> hard-boiled egg
+  [TP] candy -> fudge
+  [TP] condiment -> sauce
+  [TP] confiture -> conserve
+  [TP] cooking apple -> bramleys seedling
+  [TP] dish -> soup
+  [TP] edible fruit -> apple
+  [TP] edible fruit -> berry
+  [TP] food -> baked goods
+  [TP] food -> beverage
+  [TP] food -> produce
+  [TP] ingredient -> flavorer
+  [TP] jam -> strawberry jam
+  [TP] meat -> variety meat
+  [TP] produce -> edible fruit
+  [TP] produce -> vegetable
+  [TP] saltwater fish -> sea bass
+  [TP] sauce -> chinese brown sauce
+  [TP] seafood -> saltwater fish
+  [TP] soft drink -> sarsaparilla
+  [TP] sweet -> candy
+  [TP] sweet -> confiture
+  [TP] tea -> black tea
+  [TP] tongue -> beef tongue
+  [TP] variety meat -> tongue
+
+INCORRECT PREDICTIONS (False Positives: 17):
+  [FP] baked goods -> cruller
+  [FP] baked goods -> friedcake
+  [FP] boiled egg -> easter egg
+  [FP] candy -> penuche
+  [FP] confiture -> jam
+  [FP] dish -> meal
+  [FP] food -> boiled egg
+  [FP] food -> dish
+  [FP] food -> ingredient
+  [FP] food -> sweet
+  [FP] foodstuff -> food
+  [FP] ingredient -> condiment
+  [FP] meat -> seafood
+  [FP] nutriment -> food
+  [FP] produce -> herb
+  [FP] produce -> meat
+  [FP] sweet -> dainty
+
+MISSED RELATIONS (False Negatives: 23):
+  [FN] cake -> friedcake
+  [FN] candy -> easter egg
+  [FN] conserve -> jam
+  [FN] dainty -> sweet
+  [FN] dish -> boiled egg
+  [FN] flavorer -> condiment
+  [FN] flavorer -> herb
+  [FN] food -> foodstuff
+  [FN] food -> meat
+  [FN] food -> nutriment
+  [FN] food -> seafood
+  [FN] foodstuff -> ingredient
+  [FN] foodstuff -> meal
+  [FN] friedcake -> cruller
+  [FN] fudge -> penuche
+  [FN] hard-boiled egg -> easter egg
+  [FN] herb -> tea
+  [FN] meal -> tea
+  [FN] nutriment -> dainty
+  [FN] nutriment -> dish
+  [FN] nutriment -> meal
+  [FN] soup -> julienne
+  [FN] vegetable -> julienne

@@ -1,0 +1,966 @@
+==================================================
+=== Detailed Node Pair Analysis (Exploded Transitive Closure) ===
+Match Type Used: EXACT
+==================================================
+Precision: 0.3625 | Recall: 0.4241 | F1: 0.3909
+
+CORRECT PREDICTIONS (True Positives: 232 Pred edges covering 232 GT edges):
+  [TP] angle -> solid angle
+  [TP] atom -> aluminium atom
+  [TP] atom -> americium atom
+  [TP] atom -> astatine atom
+  [TP] atom -> curium atom
+  [TP] atom -> gallium atom
+  [TP] atom -> halogenatom
+  [TP] atom -> holmium atom
+  [TP] atom -> manganese atom
+  [TP] atom -> mercury atom
+  [TP] atom -> polonium atom
+  [TP] atom -> potassium atom
+  [TP] atom -> rubidium atom
+  [TP] atom -> silicon atom
+  [TP] atom -> tellurium atom
+  [TP] atom -> terbium atom
+  [TP] atom -> ununpentium atom
+  [TP] atom -> ununseptium atom
+  [TP] atom -> unununium atom
+  [TP] atom -> xenon atom
+  [TP] carbon allotrope -> fullerene
+  [TP] carbon allotrope -> glassy carbon
+  [TP] chemical conformation -> anticlinal conformation
+  [TP] chemical conformation -> periplanar conformation
+  [TP] chemical formula -> molecular formula
+  [TP] chemical quality -> chiral center
+  [TP] chemical quality -> molecular center
+  [TP] chemical quality -> molecular geometry
+  [TP] chemical quality -> trigonal pyramidal molecular geometry
+  [TP] chemical substance -> binary compound
+  [TP] chemical substance -> complex
+  [TP] chemical substance -> compound
+  [TP] chemical substance -> ionic compound
+  [TP] chemical substance -> metal complex
+  [TP] complex -> metal complex
+  [TP] compound -> binary compound
+  [TP] compound -> complex
+  [TP] compound -> ionic compound
+  [TP] compound -> metal complex
+  [TP] concentration unit -> molality unit
+  [TP] continuant -> carbon group
+  [TP] continuant -> carboxylic acid group
+  [TP] continuant -> dependent_continuant
+  [TP] continuant -> general sulfinic acid group
+  [TP] continuant -> homogeneous mixture
+  [TP] continuant -> independent_continuant
+  [TP] continuant -> methyl group
+  [TP] continuant -> mixture
+  [TP] continuant -> object
+  [TP] continuant -> organic group
+  [TP] continuant -> secondary amine group
+  [TP] continuant -> solution
+  [TP] continuant -> sulfonic acid derivative group
+  [TP] continuant -> sulfonic acid group
+  [TP] continuant -> sulfoxide group
+  [TP] continuant -> thiol group
+  [TP] covalent bond -> disulfide bond
+  [TP] density -> mass density
+  [TP] derivedunit -> centi scaled unit
+  [TP] derivedunit -> giga scaled unit
+  [TP] derivedunit -> peta scaled unit
+  [TP] derivedunit -> pico scaled unit
+  [TP] derivedunit -> scaled unit
+  [TP] derivedunit -> tera scaled unit
+  [TP] derivedunit -> zepto scaled unit
+  [TP] electronegativity -> mulliken electronegativity
+  [TP] electronegativity -> pauling electronegativity
+  [TP] element -> beryllium
+  [TP] element -> bromine
+  [TP] element -> darmstadtium
+  [TP] element -> hafnium
+  [TP] element -> magnesium
+  [TP] element -> molybdenum
+  [TP] element -> osmium
+  [TP] element -> promethium
+  [TP] element -> scandium
+  [TP] element -> silver
+  [TP] element -> ununoctium
+  [TP] element -> xenon
+  [TP] energy -> internal energy
+  [TP] entity -> connected_spatiotemporal_region
+  [TP] entity -> occurrent
+  [TP] entity -> spatiotemporal_interval
+  [TP] entity -> spatiotemporal_region
+  [TP] homogeneous mixture -> solution
+  [TP] identifier -> molecular formula
+  [TP] independent_continuant -> object
+  [TP] material -> ceramic material
+  [TP] measured property -> angle
+  [TP] measured property -> angular acceleration
+  [TP] measured property -> band gap
+  [TP] measured property -> count
+  [TP] measured property -> density
+  [TP] measured property -> electric resistance
+  [TP] measured property -> energy
+  [TP] measured property -> entropy
+  [TP] measured property -> flexural modulus
+  [TP] measured property -> gibbs free energy
+  [TP] measured property -> hydrogen bond acceptor count
+  [TP] measured property -> intensive property
+  [TP] measured property -> internal energy
+  [TP] measured property -> magnetic flux
+  [TP] measured property -> magnetic flux density
+  [TP] measured property -> mass density
+  [TP] measured property -> molar energy
+  [TP] measured property -> molar entropy
+  [TP] measured property -> molecular mass
+  [TP] measured property -> moleculecomponentcount
+  [TP] measured property -> permittivity
+  [TP] measured property -> polar surface area
+  [TP] measured property -> power
+  [TP] measured property -> solid angle
+  [TP] measured property -> specific volume
+  [TP] measured property -> surface tension
+  [TP] measured property -> temperature
+  [TP] measured property -> undefined stereo atom count
+  [TP] measured property -> velocity
+  [TP] measured property -> wavenumber
+  [TP] mixture -> homogeneous mixture
+  [TP] mixture -> solution
+  [TP] molecular center -> chiral center
+  [TP] molecular geometry -> trigonal pyramidal molecular geometry
+  [TP] molecularquality -> hydrogen bond acceptor count
+  [TP] organic compound -> acyl compound
+  [TP] organic compound -> amine
+  [TP] organic compound -> imine
+  [TP] organic compound -> ketone
+  [TP] organic group -> carboxylic acid group
+  [TP] organic group -> general sulfinic acid group
+  [TP] organic group -> methyl group
+  [TP] organic group -> secondary amine group
+  [TP] organic group -> sulfonic acid derivative group
+  [TP] organic group -> sulfonic acid group
+  [TP] organic group -> sulfoxide group
+  [TP] organic group -> thiol group
+  [TP] period element -> period 3 element
+  [TP] periodic block -> g-block element
+  [TP] periodic block -> p-block element
+  [TP] periodic table element -> period 3 element
+  [TP] periodic table element -> period element
+  [TP] processual_entity -> process_aggregate
+  [TP] quality -> acyclic
+  [TP] quality -> angle
+  [TP] quality -> angular acceleration
+  [TP] quality -> aromatic
+  [TP] quality -> aromaticity
+  [TP] quality -> atom property
+  [TP] quality -> band gap
+  [TP] quality -> chemical quality
+  [TP] quality -> chiral center
+  [TP] quality -> count
+  [TP] quality -> cyclicity
+  [TP] quality -> density
+  [TP] quality -> electric resistance
+  [TP] quality -> electronegativity
+  [TP] quality -> energy
+  [TP] quality -> entropy
+  [TP] quality -> flexural modulus
+  [TP] quality -> gibbs free energy
+  [TP] quality -> hydrogen bond acceptor count
+  [TP] quality -> intensive property
+  [TP] quality -> internal energy
+  [TP] quality -> magnetic flux
+  [TP] quality -> magnetic flux density
+  [TP] quality -> mass density
+  [TP] quality -> measured property
+  [TP] quality -> molar energy
+  [TP] quality -> molar entropy
+  [TP] quality -> molecular center
+  [TP] quality -> molecular geometry
+  [TP] quality -> molecular mass
+  [TP] quality -> molecularquality
+  [TP] quality -> moleculecomponentcount
+  [TP] quality -> mulliken electronegativity
+  [TP] quality -> non aromatic
+  [TP] quality -> pauling electronegativity
+  [TP] quality -> permittivity
+  [TP] quality -> polar surface area
+  [TP] quality -> power
+  [TP] quality -> solid angle
+  [TP] quality -> space group number
+  [TP] quality -> space group property
+  [TP] quality -> specific volume
+  [TP] quality -> surface tension
+  [TP] quality -> temperature
+  [TP] quality -> trigonal pyramidal molecular geometry
+  [TP] quality -> undefined stereo atom count
+  [TP] quality -> velocity
+  [TP] quality -> wavenumber
+  [TP] radiation unit -> dose equivalent unit
+  [TP] scaled unit -> centi scaled unit
+  [TP] scaled unit -> giga scaled unit
+  [TP] scaled unit -> peta scaled unit
+  [TP] scaled unit -> pico scaled unit
+  [TP] scaled unit -> tera scaled unit
+  [TP] scaled unit -> zepto scaled unit
+  [TP] space group property -> space group number
+  [TP] spatial_region -> three_dimensional_region
+  [TP] spatiotemporal_region -> connected_spatiotemporal_region
+  [TP] spatiotemporal_region -> spatiotemporal_interval
+  [TP] stereoisomer -> enantiomer
+  [TP] thermodynamic system -> closed thermodynamic system
+  [TP] unit -> angular velocity unit
+  [TP] unit -> area density unit
+  [TP] unit -> catalytic activity unit
+  [TP] unit -> centi scaled unit
+  [TP] unit -> concentration unit
+  [TP] unit -> conduction unit
+  [TP] unit -> density unit
+  [TP] unit -> derivedunit
+  [TP] unit -> dose equivalent unit
+  [TP] unit -> electric current unit
+  [TP] unit -> electric resistance unit
+  [TP] unit -> electromagnetic radiation unit
+  [TP] unit -> energy unit
+  [TP] unit -> giga scaled unit
+  [TP] unit -> linear density unit
+  [TP] unit -> luminous flux unit
+  [TP] unit -> molality unit
+  [TP] unit -> molar mass unit
+  [TP] unit -> molecular mass unit
+  [TP] unit -> moment of force unit
+  [TP] unit -> peta scaled unit
+  [TP] unit -> pico scaled unit
+  [TP] unit -> radiation unit
+  [TP] unit -> scaled unit
+  [TP] unit -> tera scaled unit
+  [TP] unit -> zepto scaled unit
+  [TP] unit raised to power -> unit raised to power of negative one
+  [TP] unit raised to power -> unit raised to power of negative two
+  [TP] unit raised to power -> unit raised to power of one
+  [TP] unit raised to power -> unit raised to power of three
+
+INCORRECT PREDICTIONS (False Positives: 408):
+  [FP] atom property -> electronegativity
+  [FP] atom property -> mulliken electronegativity
+  [FP] atom property -> pauling electronegativity
+  [FP] chemical quality -> acyclic
+  [FP] chemical quality -> anticlinal conformation
+  [FP] chemical quality -> aromatic
+  [FP] chemical quality -> aromaticity
+  [FP] chemical quality -> chemical conformation
+  [FP] chemical quality -> cyclicity
+  [FP] chemical quality -> non aromatic
+  [FP] chemical quality -> periplanar conformation
+  [FP] chemical substance -> acyl compound
+  [FP] chemical substance -> amine
+  [FP] chemical substance -> beryllium
+  [FP] chemical substance -> bromine
+  [FP] chemical substance -> carbon group
+  [FP] chemical substance -> carboxylic acid group
+  [FP] chemical substance -> darmstadtium
+  [FP] chemical substance -> element
+  [FP] chemical substance -> enantiomer
+  [FP] chemical substance -> g-block element
+  [FP] chemical substance -> general sulfinic acid group
+  [FP] chemical substance -> hafnium
+  [FP] chemical substance -> imine
+  [FP] chemical substance -> ketone
+  [FP] chemical substance -> magnesium
+  [FP] chemical substance -> methyl group
+  [FP] chemical substance -> molybdenum
+  [FP] chemical substance -> opticalisomer
+  [FP] chemical substance -> organic compound
+  [FP] chemical substance -> organic group
+  [FP] chemical substance -> osmium
+  [FP] chemical substance -> p-block element
+  [FP] chemical substance -> period 3 element
+  [FP] chemical substance -> period element
+  [FP] chemical substance -> periodic block
+  [FP] chemical substance -> periodic table element
+  [FP] chemical substance -> promethium
+  [FP] chemical substance -> r or s isomer
+  [FP] chemical substance -> scandium
+  [FP] chemical substance -> secondary amine group
+  [FP] chemical substance -> silver
+  [FP] chemical substance -> stereoisomer
+  [FP] chemical substance -> sulfonic acid derivative group
+  [FP] chemical substance -> sulfonic acid group
+  [FP] chemical substance -> sulfoxide group
+  [FP] chemical substance -> thiol group
+  [FP] chemical substance -> ununoctium
+  [FP] chemical substance -> xenon
+  [FP] compound -> acyl compound
+  [FP] compound -> amine
+  [FP] compound -> enantiomer
+  [FP] compound -> imine
+  [FP] compound -> ketone
+  [FP] compound -> opticalisomer
+  [FP] compound -> organic compound
+  [FP] compound -> r or s isomer
+  [FP] compound -> stereoisomer
+  [FP] continuant -> acyl compound
+  [FP] continuant -> amine
+  [FP] continuant -> beryllium
+  [FP] continuant -> binary compound
+  [FP] continuant -> bromine
+  [FP] continuant -> carbon allotrope
+  [FP] continuant -> ceramic material
+  [FP] continuant -> chaoite
+  [FP] continuant -> chemical substance
+  [FP] continuant -> complex
+  [FP] continuant -> compound
+  [FP] continuant -> covalent bond
+  [FP] continuant -> darmstadtium
+  [FP] continuant -> disulfide bond
+  [FP] continuant -> element
+  [FP] continuant -> enantiomer
+  [FP] continuant -> fullerene
+  [FP] continuant -> g-block element
+  [FP] continuant -> glassy carbon
+  [FP] continuant -> hafnium
+  [FP] continuant -> imine
+  [FP] continuant -> ionic compound
+  [FP] continuant -> ketone
+  [FP] continuant -> magnesium
+  [FP] continuant -> material
+  [FP] continuant -> metal complex
+  [FP] continuant -> molybdenum
+  [FP] continuant -> opticalisomer
+  [FP] continuant -> organic compound
+  [FP] continuant -> osmium
+  [FP] continuant -> p-block element
+  [FP] continuant -> period 3 element
+  [FP] continuant -> period element
+  [FP] continuant -> periodic block
+  [FP] continuant -> periodic table element
+  [FP] continuant -> promethium
+  [FP] continuant -> r or s isomer
+  [FP] continuant -> scandium
+  [FP] continuant -> silver
+  [FP] continuant -> stereoisomer
+  [FP] continuant -> ununoctium
+  [FP] continuant -> xenon
+  [FP] count -> hydrogen bond acceptor count
+  [FP] count -> moleculecomponentcount
+  [FP] count -> undefined stereo atom count
+  [FP] dependent_continuant -> covalent bond
+  [FP] dependent_continuant -> disulfide bond
+  [FP] derivedunit -> unit raised to power
+  [FP] derivedunit -> unit raised to power of negative one
+  [FP] derivedunit -> unit raised to power of negative two
+  [FP] derivedunit -> unit raised to power of one
+  [FP] derivedunit -> unit raised to power of three
+  [FP] element -> carbon group
+  [FP] element -> g-block element
+  [FP] element -> p-block element
+  [FP] element -> period 3 element
+  [FP] element -> period element
+  [FP] element -> periodic block
+  [FP] element -> periodic table element
+  [FP] enantiomer -> r or s isomer
+  [FP] energy -> gibbs free energy
+  [FP] energy -> molar energy
+  [FP] entity -> acyclic
+  [FP] entity -> acyl compound
+  [FP] entity -> amine
+  [FP] entity -> angle
+  [FP] entity -> angular acceleration
+  [FP] entity -> angular velocity unit
+  [FP] entity -> anticlinal conformation
+  [FP] entity -> area density unit
+  [FP] entity -> aromatic
+  [FP] entity -> aromaticity
+  [FP] entity -> atom property
+  [FP] entity -> band gap
+  [FP] entity -> beryllium
+  [FP] entity -> binary compound
+  [FP] entity -> bromine
+  [FP] entity -> carbon allotrope
+  [FP] entity -> carbon group
+  [FP] entity -> carboxylic acid group
+  [FP] entity -> catalytic activity unit
+  [FP] entity -> centi scaled unit
+  [FP] entity -> ceramic material
+  [FP] entity -> chaoite
+  [FP] entity -> chemical conformation
+  [FP] entity -> chemical quality
+  [FP] entity -> chemical substance
+  [FP] entity -> chiral center
+  [FP] entity -> closed thermodynamic system
+  [FP] entity -> complex
+  [FP] entity -> compound
+  [FP] entity -> concentration unit
+  [FP] entity -> conduction unit
+  [FP] entity -> continuant
+  [FP] entity -> count
+  [FP] entity -> covalent bond
+  [FP] entity -> cyclicity
+  [FP] entity -> darmstadtium
+  [FP] entity -> density
+  [FP] entity -> density unit
+  [FP] entity -> dependent_continuant
+  [FP] entity -> derivedunit
+  [FP] entity -> disposition
+  [FP] entity -> disulfide bond
+  [FP] entity -> dose equivalent unit
+  [FP] entity -> electric current unit
+  [FP] entity -> electric resistance
+  [FP] entity -> electric resistance unit
+  [FP] entity -> electromagnetic radiation unit
+  [FP] entity -> electronegativity
+  [FP] entity -> element
+  [FP] entity -> enantiomer
+  [FP] entity -> energy
+  [FP] entity -> energy unit
+  [FP] entity -> entropy
+  [FP] entity -> flexural modulus
+  [FP] entity -> fullerene
+  [FP] entity -> g-block element
+  [FP] entity -> general sulfinic acid group
+  [FP] entity -> gibbs free energy
+  [FP] entity -> giga scaled unit
+  [FP] entity -> glassy carbon
+  [FP] entity -> hafnium
+  [FP] entity -> homogeneous mixture
+  [FP] entity -> hydrogen bond acceptor count
+  [FP] entity -> imine
+  [FP] entity -> independent_continuant
+  [FP] entity -> intensive property
+  [FP] entity -> internal energy
+  [FP] entity -> ionic compound
+  [FP] entity -> ketone
+  [FP] entity -> linear density unit
+  [FP] entity -> luminous flux unit
+  [FP] entity -> magnesium
+  [FP] entity -> magnetic flux
+  [FP] entity -> magnetic flux density
+  [FP] entity -> mass density
+  [FP] entity -> material
+  [FP] entity -> measured property
+  [FP] entity -> metal complex
+  [FP] entity -> methyl group
+  [FP] entity -> mixture
+  [FP] entity -> molality unit
+  [FP] entity -> molar energy
+  [FP] entity -> molar entropy
+  [FP] entity -> molar mass unit
+  [FP] entity -> molecular center
+  [FP] entity -> molecular geometry
+  [FP] entity -> molecular mass
+  [FP] entity -> molecular mass unit
+  [FP] entity -> molecularquality
+  [FP] entity -> moleculecomponentcount
+  [FP] entity -> molybdenum
+  [FP] entity -> moment of force unit
+  [FP] entity -> mulliken electronegativity
+  [FP] entity -> non aromatic
+  [FP] entity -> non polar addition reaction
+  [FP] entity -> object
+  [FP] entity -> opticalisomer
+  [FP] entity -> organic compound
+  [FP] entity -> organic group
+  [FP] entity -> osmium
+  [FP] entity -> p-block element
+  [FP] entity -> pauling electronegativity
+  [FP] entity -> period 3 element
+  [FP] entity -> period element
+  [FP] entity -> periodic block
+  [FP] entity -> periodic table element
+  [FP] entity -> periplanar conformation
+  [FP] entity -> permittivity
+  [FP] entity -> peta scaled unit
+  [FP] entity -> pico scaled unit
+  [FP] entity -> polar surface area
+  [FP] entity -> power
+  [FP] entity -> process_aggregate
+  [FP] entity -> processual_entity
+  [FP] entity -> promethium
+  [FP] entity -> quality
+  [FP] entity -> r or s isomer
+  [FP] entity -> radiation unit
+  [FP] entity -> realizable_entity
+  [FP] entity -> scaled unit
+  [FP] entity -> scandium
+  [FP] entity -> secondary amine group
+  [FP] entity -> silver
+  [FP] entity -> site
+  [FP] entity -> solid angle
+  [FP] entity -> solution
+  [FP] entity -> source
+  [FP] entity -> space group number
+  [FP] entity -> space group property
+  [FP] entity -> spatial_region
+  [FP] entity -> specific volume
+  [FP] entity -> stereoisomer
+  [FP] entity -> sulfonic acid derivative group
+  [FP] entity -> sulfonic acid group
+  [FP] entity -> sulfoxide group
+  [FP] entity -> surface tension
+  [FP] entity -> temperature
+  [FP] entity -> tera scaled unit
+  [FP] entity -> thermodynamic system
+  [FP] entity -> thiol group
+  [FP] entity -> three_dimensional_region
+  [FP] entity -> trigonal pyramidal molecular geometry
+  [FP] entity -> undefined stereo atom count
+  [FP] entity -> unit
+  [FP] entity -> unit raised to power
+  [FP] entity -> unit raised to power of negative one
+  [FP] entity -> unit raised to power of negative two
+  [FP] entity -> unit raised to power of one
+  [FP] entity -> unit raised to power of three
+  [FP] entity -> ununoctium
+  [FP] entity -> velocity
+  [FP] entity -> wavenumber
+  [FP] entity -> xenon
+  [FP] entity -> zepto scaled unit
+  [FP] entropy -> molar entropy
+  [FP] identifier -> chemical formula
+  [FP] material -> acyl compound
+  [FP] material -> amine
+  [FP] material -> beryllium
+  [FP] material -> binary compound
+  [FP] material -> bromine
+  [FP] material -> carbon allotrope
+  [FP] material -> carbon group
+  [FP] material -> carboxylic acid group
+  [FP] material -> chaoite
+  [FP] material -> chemical substance
+  [FP] material -> complex
+  [FP] material -> compound
+  [FP] material -> darmstadtium
+  [FP] material -> element
+  [FP] material -> enantiomer
+  [FP] material -> fullerene
+  [FP] material -> g-block element
+  [FP] material -> general sulfinic acid group
+  [FP] material -> glassy carbon
+  [FP] material -> hafnium
+  [FP] material -> homogeneous mixture
+  [FP] material -> imine
+  [FP] material -> ionic compound
+  [FP] material -> ketone
+  [FP] material -> magnesium
+  [FP] material -> metal complex
+  [FP] material -> methyl group
+  [FP] material -> mixture
+  [FP] material -> molybdenum
+  [FP] material -> opticalisomer
+  [FP] material -> organic compound
+  [FP] material -> organic group
+  [FP] material -> osmium
+  [FP] material -> p-block element
+  [FP] material -> period 3 element
+  [FP] material -> period element
+  [FP] material -> periodic block
+  [FP] material -> periodic table element
+  [FP] material -> promethium
+  [FP] material -> r or s isomer
+  [FP] material -> scandium
+  [FP] material -> secondary amine group
+  [FP] material -> silver
+  [FP] material -> solution
+  [FP] material -> stereoisomer
+  [FP] material -> sulfonic acid derivative group
+  [FP] material -> sulfonic acid group
+  [FP] material -> sulfoxide group
+  [FP] material -> thiol group
+  [FP] material -> ununoctium
+  [FP] material -> xenon
+  [FP] occurrent -> non polar addition reaction
+  [FP] occurrent -> process_aggregate
+  [FP] periodic block -> carbon group
+  [FP] processual_entity -> non polar addition reaction
+  [FP] processual_entity -> occurrent
+  [FP] quality -> anticlinal conformation
+  [FP] quality -> chemical conformation
+  [FP] quality -> disposition
+  [FP] quality -> periplanar conformation
+  [FP] radiation unit -> electromagnetic radiation unit
+  [FP] realizable_entity -> acyl compound
+  [FP] realizable_entity -> amine
+  [FP] realizable_entity -> beryllium
+  [FP] realizable_entity -> binary compound
+  [FP] realizable_entity -> bromine
+  [FP] realizable_entity -> carbon allotrope
+  [FP] realizable_entity -> carbon group
+  [FP] realizable_entity -> carboxylic acid group
+  [FP] realizable_entity -> ceramic material
+  [FP] realizable_entity -> chaoite
+  [FP] realizable_entity -> chemical substance
+  [FP] realizable_entity -> complex
+  [FP] realizable_entity -> compound
+  [FP] realizable_entity -> continuant
+  [FP] realizable_entity -> covalent bond
+  [FP] realizable_entity -> darmstadtium
+  [FP] realizable_entity -> dependent_continuant
+  [FP] realizable_entity -> disulfide bond
+  [FP] realizable_entity -> element
+  [FP] realizable_entity -> enantiomer
+  [FP] realizable_entity -> fullerene
+  [FP] realizable_entity -> g-block element
+  [FP] realizable_entity -> general sulfinic acid group
+  [FP] realizable_entity -> glassy carbon
+  [FP] realizable_entity -> hafnium
+  [FP] realizable_entity -> homogeneous mixture
+  [FP] realizable_entity -> imine
+  [FP] realizable_entity -> independent_continuant
+  [FP] realizable_entity -> ionic compound
+  [FP] realizable_entity -> ketone
+  [FP] realizable_entity -> magnesium
+  [FP] realizable_entity -> material
+  [FP] realizable_entity -> metal complex
+  [FP] realizable_entity -> methyl group
+  [FP] realizable_entity -> mixture
+  [FP] realizable_entity -> molybdenum
+  [FP] realizable_entity -> object
+  [FP] realizable_entity -> opticalisomer
+  [FP] realizable_entity -> organic compound
+  [FP] realizable_entity -> organic group
+  [FP] realizable_entity -> osmium
+  [FP] realizable_entity -> p-block element
+  [FP] realizable_entity -> period 3 element
+  [FP] realizable_entity -> period element
+  [FP] realizable_entity -> periodic block
+  [FP] realizable_entity -> periodic table element
+  [FP] realizable_entity -> promethium
+  [FP] realizable_entity -> r or s isomer
+  [FP] realizable_entity -> scandium
+  [FP] realizable_entity -> secondary amine group
+  [FP] realizable_entity -> silver
+  [FP] realizable_entity -> solution
+  [FP] realizable_entity -> stereoisomer
+  [FP] realizable_entity -> sulfonic acid derivative group
+  [FP] realizable_entity -> sulfonic acid group
+  [FP] realizable_entity -> sulfoxide group
+  [FP] realizable_entity -> thiol group
+  [FP] realizable_entity -> ununoctium
+  [FP] realizable_entity -> xenon
+  [FP] spatial_region -> site
+  [FP] spatiotemporal_region -> site
+  [FP] spatiotemporal_region -> spatial_region
+  [FP] spatiotemporal_region -> three_dimensional_region
+  [FP] stereoisomer -> opticalisomer
+  [FP] stereoisomer -> r or s isomer
+  [FP] sulfonic acid group -> sulfonic acid derivative group
+  [FP] unit -> unit raised to power
+  [FP] unit -> unit raised to power of negative one
+  [FP] unit -> unit raised to power of negative two
+  [FP] unit -> unit raised to power of one
+  [FP] unit -> unit raised to power of three
+
+MISSED RELATIONS (False Negatives: 315):
+  [FN] area -> polar surface area
+  [FN] aromaticity -> aromatic
+  [FN] aromaticity -> non aromatic
+  [FN] binary compound -> ionic compound
+  [FN] carbon allotrope -> chaoite
+  [FN] carbon group -> methyl group
+  [FN] chemical quality -> chemical class
+  [FN] chemical quality -> chemical formula
+  [FN] chemical quality -> electronegativity
+  [FN] chemical quality -> molecular formula
+  [FN] chemical quality -> mulliken electronegativity
+  [FN] chemical quality -> pauling electronegativity
+  [FN] concentration -> amount of substance concentration
+  [FN] concentration -> catalytic concentration
+  [FN] connected_spatiotemporal_region -> spatiotemporal_interval
+  [FN] continuant -> absorbed dose rate
+  [FN] continuant -> acyclic
+  [FN] continuant -> aluminium atom
+  [FN] continuant -> americium atom
+  [FN] continuant -> amount of substance concentration
+  [FN] continuant -> angle
+  [FN] continuant -> angular acceleration
+  [FN] continuant -> area
+  [FN] continuant -> aromatic
+  [FN] continuant -> aromaticity
+  [FN] continuant -> astatine atom
+  [FN] continuant -> atom
+  [FN] continuant -> atom property
+  [FN] continuant -> band gap
+  [FN] continuant -> catalytic concentration
+  [FN] continuant -> chemical class
+  [FN] continuant -> chemical formula
+  [FN] continuant -> chemical quality
+  [FN] continuant -> chiral center
+  [FN] continuant -> closed thermodynamic system
+  [FN] continuant -> concentration
+  [FN] continuant -> count
+  [FN] continuant -> curium atom
+  [FN] continuant -> cyclicity
+  [FN] continuant -> density
+  [FN] continuant -> disposition
+  [FN] continuant -> electric flux density
+  [FN] continuant -> electric resistance
+  [FN] continuant -> electronegativity
+  [FN] continuant -> energy
+  [FN] continuant -> entropy
+  [FN] continuant -> exposure
+  [FN] continuant -> flexural modulus
+  [FN] continuant -> gallium atom
+  [FN] continuant -> gibbs free energy
+  [FN] continuant -> halogenatom
+  [FN] continuant -> holmium atom
+  [FN] continuant -> hydrogen bond acceptor count
+  [FN] continuant -> identifier
+  [FN] continuant -> intensive property
+  [FN] continuant -> internal energy
+  [FN] continuant -> lattice parameter
+  [FN] continuant -> length
+  [FN] continuant -> magnetic flux
+  [FN] continuant -> magnetic flux density
+  [FN] continuant -> manganese atom
+  [FN] continuant -> mass density
+  [FN] continuant -> measured property
+  [FN] continuant -> mercury atom
+  [FN] continuant -> molar energy
+  [FN] continuant -> molar entropy
+  [FN] continuant -> molecular center
+  [FN] continuant -> molecular formula
+  [FN] continuant -> molecular geometry
+  [FN] continuant -> molecular mass
+  [FN] continuant -> molecularquality
+  [FN] continuant -> moleculecomponentcount
+  [FN] continuant -> mulliken electronegativity
+  [FN] continuant -> non aromatic
+  [FN] continuant -> partition coefficient
+  [FN] continuant -> pauling electronegativity
+  [FN] continuant -> permittivity
+  [FN] continuant -> polar surface area
+  [FN] continuant -> polonium atom
+  [FN] continuant -> potassium atom
+  [FN] continuant -> power
+  [FN] continuant -> quality
+  [FN] continuant -> radiation
+  [FN] continuant -> realizable_entity
+  [FN] continuant -> rubidium atom
+  [FN] continuant -> silicon atom
+  [FN] continuant -> site
+  [FN] continuant -> solid angle
+  [FN] continuant -> source
+  [FN] continuant -> space group number
+  [FN] continuant -> space group property
+  [FN] continuant -> spatial_region
+  [FN] continuant -> specific volume
+  [FN] continuant -> surface tension
+  [FN] continuant -> tellurium atom
+  [FN] continuant -> temperature
+  [FN] continuant -> terbium atom
+  [FN] continuant -> thermodynamic system
+  [FN] continuant -> three_dimensional_region
+  [FN] continuant -> trigonal pyramidal molecular geometry
+  [FN] continuant -> undefined stereo atom count
+  [FN] continuant -> ununpentium atom
+  [FN] continuant -> ununseptium atom
+  [FN] continuant -> unununium atom
+  [FN] continuant -> velocity
+  [FN] continuant -> wavenumber
+  [FN] continuant -> xenon atom
+  [FN] cyclicity -> acyclic
+  [FN] density unit -> area density unit
+  [FN] density unit -> linear density unit
+  [FN] dependent_continuant -> absorbed dose rate
+  [FN] dependent_continuant -> acyclic
+  [FN] dependent_continuant -> amount of substance concentration
+  [FN] dependent_continuant -> angle
+  [FN] dependent_continuant -> angular acceleration
+  [FN] dependent_continuant -> area
+  [FN] dependent_continuant -> aromatic
+  [FN] dependent_continuant -> aromaticity
+  [FN] dependent_continuant -> atom property
+  [FN] dependent_continuant -> band gap
+  [FN] dependent_continuant -> catalytic concentration
+  [FN] dependent_continuant -> chemical class
+  [FN] dependent_continuant -> chemical formula
+  [FN] dependent_continuant -> chemical quality
+  [FN] dependent_continuant -> chiral center
+  [FN] dependent_continuant -> concentration
+  [FN] dependent_continuant -> count
+  [FN] dependent_continuant -> cyclicity
+  [FN] dependent_continuant -> density
+  [FN] dependent_continuant -> disposition
+  [FN] dependent_continuant -> electric flux density
+  [FN] dependent_continuant -> electric resistance
+  [FN] dependent_continuant -> electronegativity
+  [FN] dependent_continuant -> energy
+  [FN] dependent_continuant -> entropy
+  [FN] dependent_continuant -> exposure
+  [FN] dependent_continuant -> flexural modulus
+  [FN] dependent_continuant -> gibbs free energy
+  [FN] dependent_continuant -> hydrogen bond acceptor count
+  [FN] dependent_continuant -> identifier
+  [FN] dependent_continuant -> intensive property
+  [FN] dependent_continuant -> internal energy
+  [FN] dependent_continuant -> lattice parameter
+  [FN] dependent_continuant -> length
+  [FN] dependent_continuant -> magnetic flux
+  [FN] dependent_continuant -> magnetic flux density
+  [FN] dependent_continuant -> mass density
+  [FN] dependent_continuant -> measured property
+  [FN] dependent_continuant -> molar energy
+  [FN] dependent_continuant -> molar entropy
+  [FN] dependent_continuant -> molecular center
+  [FN] dependent_continuant -> molecular formula
+  [FN] dependent_continuant -> molecular geometry
+  [FN] dependent_continuant -> molecular mass
+  [FN] dependent_continuant -> molecularquality
+  [FN] dependent_continuant -> moleculecomponentcount
+  [FN] dependent_continuant -> mulliken electronegativity
+  [FN] dependent_continuant -> non aromatic
+  [FN] dependent_continuant -> partition coefficient
+  [FN] dependent_continuant -> pauling electronegativity
+  [FN] dependent_continuant -> permittivity
+  [FN] dependent_continuant -> polar surface area
+  [FN] dependent_continuant -> power
+  [FN] dependent_continuant -> quality
+  [FN] dependent_continuant -> radiation
+  [FN] dependent_continuant -> realizable_entity
+  [FN] dependent_continuant -> solid angle
+  [FN] dependent_continuant -> space group number
+  [FN] dependent_continuant -> space group property
+  [FN] dependent_continuant -> specific volume
+  [FN] dependent_continuant -> surface tension
+  [FN] dependent_continuant -> temperature
+  [FN] dependent_continuant -> trigonal pyramidal molecular geometry
+  [FN] dependent_continuant -> undefined stereo atom count
+  [FN] dependent_continuant -> velocity
+  [FN] dependent_continuant -> wavenumber
+  [FN] electromagnetic radiation unit -> luminous flux unit
+  [FN] hardness range -> hardness range lower bound
+  [FN] independent_continuant -> aluminium atom
+  [FN] independent_continuant -> americium atom
+  [FN] independent_continuant -> astatine atom
+  [FN] independent_continuant -> atom
+  [FN] independent_continuant -> carbon group
+  [FN] independent_continuant -> carboxylic acid group
+  [FN] independent_continuant -> curium atom
+  [FN] independent_continuant -> gallium atom
+  [FN] independent_continuant -> general sulfinic acid group
+  [FN] independent_continuant -> halogenatom
+  [FN] independent_continuant -> holmium atom
+  [FN] independent_continuant -> homogeneous mixture
+  [FN] independent_continuant -> manganese atom
+  [FN] independent_continuant -> mercury atom
+  [FN] independent_continuant -> methyl group
+  [FN] independent_continuant -> mixture
+  [FN] independent_continuant -> organic group
+  [FN] independent_continuant -> polonium atom
+  [FN] independent_continuant -> potassium atom
+  [FN] independent_continuant -> rubidium atom
+  [FN] independent_continuant -> secondary amine group
+  [FN] independent_continuant -> silicon atom
+  [FN] independent_continuant -> site
+  [FN] independent_continuant -> solution
+  [FN] independent_continuant -> source
+  [FN] independent_continuant -> sulfonic acid derivative group
+  [FN] independent_continuant -> sulfonic acid group
+  [FN] independent_continuant -> sulfoxide group
+  [FN] independent_continuant -> tellurium atom
+  [FN] independent_continuant -> terbium atom
+  [FN] independent_continuant -> thiol group
+  [FN] independent_continuant -> ununpentium atom
+  [FN] independent_continuant -> ununseptium atom
+  [FN] independent_continuant -> unununium atom
+  [FN] independent_continuant -> xenon atom
+  [FN] intensive property -> flexural modulus
+  [FN] ion -> anion
+  [FN] material category -> metals
+  [FN] measured property -> absorbed dose rate
+  [FN] measured property -> acyclic
+  [FN] measured property -> amount of substance concentration
+  [FN] measured property -> area
+  [FN] measured property -> aromatic
+  [FN] measured property -> aromaticity
+  [FN] measured property -> atom property
+  [FN] measured property -> catalytic concentration
+  [FN] measured property -> concentration
+  [FN] measured property -> cyclicity
+  [FN] measured property -> electric flux density
+  [FN] measured property -> exposure
+  [FN] measured property -> identifier
+  [FN] measured property -> lattice parameter
+  [FN] measured property -> length
+  [FN] measured property -> molecular formula
+  [FN] measured property -> molecularquality
+  [FN] measured property -> non aromatic
+  [FN] measured property -> partition coefficient
+  [FN] measured property -> radiation
+  [FN] molar energy -> gibbs free energy
+  [FN] molecularquality -> acyclic
+  [FN] molecularquality -> aromatic
+  [FN] molecularquality -> aromaticity
+  [FN] molecularquality -> cyclicity
+  [FN] molecularquality -> identifier
+  [FN] molecularquality -> molecular formula
+  [FN] molecularquality -> molecular mass
+  [FN] molecularquality -> moleculecomponentcount
+  [FN] molecularquality -> non aromatic
+  [FN] molecularquality -> partition coefficient
+  [FN] molecularquality -> polar surface area
+  [FN] molecularquality -> undefined stereo atom count
+  [FN] moleculecomponentcount -> hydrogen bond acceptor count
+  [FN] moleculecomponentcount -> undefined stereo atom count
+  [FN] object -> aluminium atom
+  [FN] object -> americium atom
+  [FN] object -> astatine atom
+  [FN] object -> atom
+  [FN] object -> carbon group
+  [FN] object -> carboxylic acid group
+  [FN] object -> curium atom
+  [FN] object -> gallium atom
+  [FN] object -> general sulfinic acid group
+  [FN] object -> halogenatom
+  [FN] object -> holmium atom
+  [FN] object -> homogeneous mixture
+  [FN] object -> manganese atom
+  [FN] object -> mercury atom
+  [FN] object -> methyl group
+  [FN] object -> mixture
+  [FN] object -> organic group
+  [FN] object -> polonium atom
+  [FN] object -> potassium atom
+  [FN] object -> rubidium atom
+  [FN] object -> secondary amine group
+  [FN] object -> silicon atom
+  [FN] object -> solution
+  [FN] object -> source
+  [FN] object -> sulfonic acid derivative group
+  [FN] object -> sulfonic acid group
+  [FN] object -> sulfoxide group
+  [FN] object -> tellurium atom
+  [FN] object -> terbium atom
+  [FN] object -> thiol group
+  [FN] object -> ununpentium atom
+  [FN] object -> ununseptium atom
+  [FN] object -> unununium atom
+  [FN] object -> xenon atom
+  [FN] occurrent -> connected_spatiotemporal_region
+  [FN] occurrent -> spatiotemporal_interval
+  [FN] occurrent -> spatiotemporal_region
+  [FN] opticalisomer -> r or s isomer
+  [FN] organic group -> carbon group
+  [FN] periodic table element -> g-block element
+  [FN] periodic table element -> p-block element
+  [FN] periodic table element -> periodic block
+  [FN] quality -> absorbed dose rate
+  [FN] quality -> amount of substance concentration
+  [FN] quality -> area
+  [FN] quality -> catalytic concentration
+  [FN] quality -> chemical class
+  [FN] quality -> chemical formula
+  [FN] quality -> concentration
+  [FN] quality -> electric flux density
+  [FN] quality -> exposure
+  [FN] quality -> identifier
+  [FN] quality -> lattice parameter
+  [FN] quality -> length
+  [FN] quality -> molecular formula
+  [FN] quality -> partition coefficient
+  [FN] quality -> radiation
+  [FN] radiation -> absorbed dose rate
+  [FN] radiation -> exposure
+  [FN] realizable_entity -> disposition
+  [FN] spatial_region -> closed thermodynamic system
+  [FN] spatial_region -> thermodynamic system
+  [FN] three_dimensional_region -> closed thermodynamic system
+  [FN] three_dimensional_region -> thermodynamic system

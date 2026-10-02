@@ -1,0 +1,84 @@
+==================================================
+=== Detailed Node Pair Analysis (Exploded Raw Edges) ===
+Match Type Used: EXACT
+==================================================
+Precision: 0.5957 | Recall: 0.5185 | F1: 0.5545
+
+CORRECT PREDICTIONS (True Positives: 28 Pred edges covering 28 GT edges):
+  [TP] alcohol -> mixed drink
+  [TP] baked goods -> bread
+  [TP] baked goods -> pastry
+  [TP] beverage -> alcohol
+  [TP] bread -> toast
+  [TP] bread -> white bread
+  [TP] butter -> clarified butter
+  [TP] cheese -> parmesan
+  [TP] condiment -> sauce
+  [TP] condiment -> vinegar
+  [TP] dairy product -> butter
+  [TP] dairy product -> cheese
+  [TP] dish -> pudding
+  [TP] dish -> snack food
+  [TP] dish -> stew
+  [TP] food -> produce
+  [TP] french bread -> baguet
+  [TP] greens -> french sorrel
+  [TP] mixed drink -> highball
+  [TP] pastry -> patty shell
+  [TP] produce -> vegetable
+  [TP] pudding -> carrot pudding
+  [TP] sauce -> chocolate sauce
+  [TP] sling -> brandy sling
+  [TP] stew -> bigos
+  [TP] stew -> fricassee
+  [TP] vegetable -> greens
+  [TP] vegetable -> solanaceous vegetable
+
+INCORRECT PREDICTIONS (False Positives: 19):
+  [FP] beverage -> concoction
+  [FP] bread -> french bread
+  [FP] bread -> zwieback
+  [FP] dish -> baked goods
+  [FP] dish -> course
+  [FP] dish -> dessert
+  [FP] dish -> sandwich
+  [FP] food -> condiment
+  [FP] food -> dairy product
+  [FP] food -> dish
+  [FP] food -> dough
+  [FP] food -> flavorer
+  [FP] food -> starches
+  [FP] foodstuff -> beverage
+  [FP] foodstuff -> food
+  [FP] ingredient -> foodstuff
+  [FP] mixed drink -> sling
+  [FP] nutriment -> ingredient
+  [FP] stew -> turkey stew
+
+MISSED RELATIONS (False Negatives: 26):
+  [FN] concoction -> dough
+  [FN] course -> dessert
+  [FN] dessert -> pudding
+  [FN] dish -> lobster thermidor
+  [FN] dough -> pastry
+  [FN] flavorer -> condiment
+  [FN] food -> baked goods
+  [FN] food -> beverage
+  [FN] food -> butter
+  [FN] food -> cheese
+  [FN] food -> foodstuff
+  [FN] food -> nutriment
+  [FN] foodstuff -> concoction
+  [FN] foodstuff -> dairy product
+  [FN] foodstuff -> ingredient
+  [FN] foodstuff -> starches
+  [FN] fricassee -> turkey stew
+  [FN] highball -> sling
+  [FN] ingredient -> flavorer
+  [FN] nutriment -> course
+  [FN] nutriment -> dish
+  [FN] sandwich -> bomber
+  [FN] snack food -> sandwich
+  [FN] starches -> bread
+  [FN] toast -> zwieback
+  [FN] white bread -> french bread

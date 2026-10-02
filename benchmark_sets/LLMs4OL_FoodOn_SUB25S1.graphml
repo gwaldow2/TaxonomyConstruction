@@ -1,0 +1,86 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d8" for="node" attr.name="is_virtual" attr.type="boolean"/>
+<key id="d7" for="graph" attr.name="generated" attr.type="string"/>
+<key id="d6" for="graph" attr.name="generator" attr.type="string"/>
+<key id="d5" for="graph" attr.name="source_edges" attr.type="string"/>
+<key id="d4" for="graph" attr.name="source_nodes" attr.type="string"/>
+<key id="d3" for="graph" attr.name="source_file" attr.type="string"/>
+<key id="d2" for="graph" attr.name="seed" attr.type="string"/>
+<key id="d1" for="graph" attr.name="target_nodes" attr.type="string"/>
+<key id="d0" for="graph" attr.name="scale" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">SUB25S1</data>
+<data key="d1">25</data>
+<data key="d2">1</data>
+<data key="d3">LLMs4OL_FoodOn_FULL.graphml</data>
+<data key="d4">26398</data>
+<data key="d5">32975</data>
+<data key="d6">scale_benchmarks.py</data>
+<data key="d7">2026-09-30T16:27:41</data>
+<node id="pieces of animal meat raw"/>
+<node id="pieces of animal"/>
+<node id="pieces of animal breast skinless raw"/>
+<node id="plant based refined or partially-refined food product"/>
+<node id="pieces of animal breast raw"/>
+<node id="pieces of animal breast"/>
+<node id="piece of pig"/>
+<node id="material entity"/>
+<node id="pieces of animal meat"/>
+<node id="grape drink mix dry"/>
+<node id="pieces of animal meat skinless raw"/>
+<node id="animal material"/>
+<node id="refined or partially-refined food product"/>
+<node id="butchery cut of pork"/>
+<node id="food product"/>
+<node id="pork sub-primal cut"/>
+<node id="processed food product"/>
+<node id="object aggregate"/>
+<node id="organism material"/>
+<node id="butchery cut of animal"/>
+<node id="food mix product"/>
+<node id="pieces of animal meat skinless"/>
+<node id="piece of animal"/>
+<node id="pieces of animal breast skinless"/>
+<node id="animal sub-primal cut"/>
+<node id="food product component"/>
+<node id="organism piece"/>
+<node id="gelatin drink instant"/>
+<node id="virtual_root">
+  <data key="d8">True</data>
+</node>
+<edge source="pieces of animal meat raw" target="pieces of animal meat skinless raw"/>
+<edge source="pieces of animal meat raw" target="pieces of animal breast raw"/>
+<edge source="pieces of animal" target="pieces of animal meat"/>
+<edge source="plant based refined or partially-refined food product" target="gelatin drink instant"/>
+<edge source="pieces of animal breast raw" target="pieces of animal breast skinless raw"/>
+<edge source="pieces of animal breast" target="pieces of animal breast skinless"/>
+<edge source="pieces of animal breast" target="pieces of animal breast raw"/>
+<edge source="piece of pig" target="butchery cut of pork"/>
+<edge source="material entity" target="organism material"/>
+<edge source="pieces of animal meat" target="pieces of animal meat skinless"/>
+<edge source="pieces of animal meat" target="pieces of animal breast"/>
+<edge source="pieces of animal meat skinless raw" target="pieces of animal breast skinless raw"/>
+<edge source="animal material" target="piece of animal"/>
+<edge source="animal material" target="pieces of animal"/>
+<edge source="refined or partially-refined food product" target="plant based refined or partially-refined food product"/>
+<edge source="butchery cut of pork" target="pork sub-primal cut"/>
+<edge source="food product" target="processed food product"/>
+<edge source="processed food product" target="refined or partially-refined food product"/>
+<edge source="object aggregate" target="pieces of animal"/>
+<edge source="organism material" target="animal material"/>
+<edge source="organism material" target="organism piece"/>
+<edge source="butchery cut of animal" target="animal sub-primal cut"/>
+<edge source="food mix product" target="grape drink mix dry"/>
+<edge source="pieces of animal meat skinless" target="pieces of animal meat skinless raw"/>
+<edge source="pieces of animal meat skinless" target="pieces of animal breast skinless"/>
+<edge source="piece of animal" target="piece of pig"/>
+<edge source="piece of animal" target="butchery cut of animal"/>
+<edge source="pieces of animal breast skinless" target="pieces of animal breast skinless raw"/>
+<edge source="animal sub-primal cut" target="pork sub-primal cut"/>
+<edge source="food product component" target="food mix product"/>
+<edge source="organism piece" target="piece of animal"/>
+<edge source="virtual_root" target="pieces of animal meat raw"/>
+<edge source="virtual_root" target="material entity"/>
+<edge source="virtual_root" target="food product"/>
+<edge source="virtual_root" target="object aggregate"/>
+<edge source="virtual_root" target="food product component"/>
+</graph></graphml>

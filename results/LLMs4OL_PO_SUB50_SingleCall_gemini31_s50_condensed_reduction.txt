@@ -1,0 +1,121 @@
+==================================================
+=== Detailed Node Pair Analysis (Condensed Transitive Reduction) ===
+Match Type Used: SET_OVERLAP
+==================================================
+Precision: 0.8070 | Recall: 0.8679 | F1: 0.8364
+
+CORRECT PREDICTIONS (True Positives: 46 Pred edges covering 46 GT edges):
+  [TP] PRED: (abscission zone -> floral organ abscission zone)
+        matches GT: (abscission zone -> floral organ abscission zone)
+  [TP] PRED: (cardinal part of multi-tissue plant structure -> cardinal organ part)
+        matches GT: (cardinal part of multi-tissue plant structure -> cardinal organ part)
+  [TP] PRED: (carpel epidermis -> style epidermis)
+        matches GT: (carpel epidermis -> style epidermis)
+  [TP] PRED: (chlorenchyma cell -> mesophyll cell)
+        matches GT: (chlorenchyma cell -> mesophyll cell)
+  [TP] PRED: (flower -> pistillate flower)
+        matches GT: (flower -> pistillate flower)
+  [TP] PRED: (flower -> spikelet floret)
+        matches GT: (flower -> spikelet floret)
+  [TP] PRED: (ground tissue cell -> parenchyma cell)
+        matches GT: (ground tissue cell -> parenchyma cell)
+  [TP] PRED: (lateral root cap -> lateral root cap of primary root)
+        matches GT: (lateral root cap -> lateral root cap of primary root)
+  [TP] PRED: (leaf adaxial epidermis -> leaf lamina adaxial epidermis)
+        matches GT: (leaf adaxial epidermis -> leaf lamina adaxial epidermis)
+  [TP] PRED: (leaf epidermis -> leaf adaxial epidermis)
+        matches GT: (leaf epidermis -> leaf adaxial epidermis)
+  [TP] PRED: (leaf epidermis -> leaf lamina epidermis)
+        matches GT: (leaf epidermis -> leaf lamina epidermis)
+  [TP] PRED: (leaf lamina epidermis -> leaf lamina adaxial epidermis)
+        matches GT: (leaf lamina epidermis -> leaf lamina adaxial epidermis)
+  [TP] PRED: (multi-tissue plant structure -> plant organ)
+        matches GT: (multi-tissue plant structure -> plant organ)
+  [TP] PRED: (native plant cell -> ground tissue cell)
+        matches GT: (native plant cell -> ground tissue cell)
+  [TP] PRED: (native plant cell -> plant gamete)
+        matches GT: (native plant cell -> plant gamete)
+  [TP] PRED: (parenchyma -> root parenchyma)
+        matches GT: (parenchyma -> root parenchyma)
+  [TP] PRED: (parenchyma cell -> chlorenchyma cell)
+        matches GT: (parenchyma cell -> chlorenchyma cell)
+  [TP] PRED: (phyllome -> sporophyll)
+        matches GT: (phyllome -> sporophyll)
+  [TP] PRED: (phyllome epidermis -> carpel epidermis)
+        matches GT: (phyllome epidermis -> carpel epidermis)
+  [TP] PRED: (phyllome epidermis -> leaf epidermis)
+        matches GT: (phyllome epidermis -> leaf epidermis)
+  [TP] PRED: (plant anatomical entity -> plant structure)
+        matches GT: (plant anatomical entity -> plant structure)
+  [TP] PRED: (plant axis differentiation zone -> shoot internode differentiation zone)
+        matches GT: (plant axis differentiation zone -> shoot internode differentiation zone)
+  [TP] PRED: (plant epidermis -> shoot system epidermis)
+        matches GT: (plant epidermis -> shoot system epidermis)
+  [TP] PRED: (plant gamete -> plant sperm cell)
+        matches GT: (plant gamete -> plant sperm cell)
+  [TP] PRED: (plant organ -> phyllome)
+        matches GT: (plant organ -> phyllome)
+  [TP] PRED: (plant structure -> multi-tissue plant structure)
+        matches GT: (plant structure -> multi-tissue plant structure)
+  [TP] PRED: (po_0000055 -> reproductive bud)
+        matches GT: (po_0000055 -> reproductive bud)
+  [TP] PRED: (po_0000055 -> terminal bud)
+        matches GT: (po_0000055 -> terminal bud)
+  [TP] PRED: (portion of ground tissue -> parenchyma)
+        matches GT: (portion of ground tissue -> parenchyma)
+  [TP] PRED: (portion of plant tissue -> central endosperm)
+        matches GT: (portion of plant tissue -> central endosperm)
+  [TP] PRED: (portion of plant tissue -> plant epidermis)
+        matches GT: (portion of plant tissue -> plant epidermis)
+  [TP] PRED: (portion of plant tissue -> portion of ground tissue)
+        matches GT: (portion of plant tissue -> portion of ground tissue)
+  [TP] PRED: (reproductive bud -> strobilus bud)
+        matches GT: (reproductive bud -> strobilus bud)
+  [TP] PRED: (reproductive bud -> terminal reproductive bud)
+        matches GT: (reproductive bud -> terminal reproductive bud)
+  [TP] PRED: (reproductive shoot system -> flower)
+        matches GT: (reproductive shoot system -> flower)
+  [TP] PRED: (shoot internode differentiation zone -> branch internode differentiation zone)
+        matches GT: (shoot internode differentiation zone -> branch internode differentiation zone)
+  [TP] PRED: (shoot system -> po_0000055)
+        matches GT: (shoot system -> po_0000055)
+  [TP] PRED: (shoot system epidermis -> phyllome epidermis)
+        matches GT: (shoot system epidermis -> phyllome epidermis)
+  [TP] PRED: (spikelet floret -> ear floret)
+        matches GT: (spikelet floret -> ear floret)
+  [TP] PRED: (stem elongation stage -> se05 five nodes or internodes visible stage)
+        matches GT: (stem elongation stage -> se05 five nodes or internodes visible stage)
+  [TP] PRED: (stem elongation stage -> se07 seven nodes or internodes visible stage)
+        matches GT: (stem elongation stage -> se07 seven nodes or internodes visible stage)
+  [TP] PRED: (storage parenchyma -> tuber storage parenchyma)
+        matches GT: (storage parenchyma -> tuber storage parenchyma)
+  [TP] PRED: (strobilus bud -> terminal strobilus bud)
+        matches GT: (strobilus bud -> terminal strobilus bud)
+  [TP] PRED: (terminal bud -> terminal reproductive bud)
+        matches GT: (terminal bud -> terminal reproductive bud)
+  [TP] PRED: (terminal reproductive bud -> terminal strobilus bud)
+        matches GT: (terminal reproductive bud -> terminal strobilus bud)
+  [TP] PRED: (tuber axillary shoot -> subterranean tuber axillary shoot)
+        matches GT: (tuber axillary shoot -> subterranean tuber axillary shoot)
+
+INCORRECT PREDICTIONS (False Positives: 11):
+  [FP] cardinal organ part -> abscission zone
+  [FP] cardinal organ part -> lateral root cap
+  [FP] cardinal part of multi-tissue plant structure -> axil
+  [FP] cardinal part of multi-tissue plant structure -> plant axis differentiation zone
+  [FP] multi-tissue plant structure -> shoot system
+  [FP] parenchyma -> storage parenchyma
+  [FP] plant anatomical entity -> cardinal part of multi-tissue plant structure
+  [FP] plant anatomical entity -> native plant cell
+  [FP] plant anatomical entity -> portion of plant tissue
+  [FP] shoot system -> reproductive shoot system
+  [FP] shoot system -> tuber axillary shoot
+
+MISSED RELATIONS (False Negatives: 7):
+  [FN] cardinal organ part -> plant axis differentiation zone
+  [FN] pistillate flower -> ear floret
+  [FN] plant structure -> cardinal part of multi-tissue plant structure
+  [FN] plant structure -> portion of plant tissue
+  [FN] portion of plant tissue -> abscission zone
+  [FN] reproductive shoot system -> reproductive bud
+  [FN] root parenchyma -> lateral root cap

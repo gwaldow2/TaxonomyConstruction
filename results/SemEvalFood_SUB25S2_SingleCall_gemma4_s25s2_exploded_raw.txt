@@ -1,0 +1,43 @@
+==================================================
+=== Detailed Node Pair Analysis (Exploded Raw Edges) ===
+Match Type Used: EXACT
+==================================================
+Precision: 0.8333 | Recall: 0.7143 | F1: 0.7692
+
+CORRECT PREDICTIONS (True Positives: 20 Pred edges covering 20 GT edges):
+  [TP] b complex vitamin -> inositol
+  [TP] cheese -> cheshire cheese
+  [TP] condiment -> sauce
+  [TP] dairy product -> cheese
+  [TP] dairy product -> milk
+  [TP] feed -> cattle cake
+  [TP] food -> foodstuff
+  [TP] foodstuff -> dairy product
+  [TP] foodstuff -> grain
+  [TP] foodstuff -> ingredient
+  [TP] foodstuff -> starches
+  [TP] grain -> rice
+  [TP] ingredient -> flavorer
+  [TP] milk -> colostrum
+  [TP] milk -> whole milk
+  [TP] rice -> brown rice
+  [TP] sauce -> white sauce
+  [TP] vitamin -> water soluble vitamin
+  [TP] water soluble vitamin -> b complex vitamin
+  [TP] white sauce -> blanc
+
+INCORRECT PREDICTIONS (False Positives: 4):
+  [FP] foodstuff -> feed
+  [FP] ingredient -> condiment
+  [FP] ingredient -> vitamin
+  [FP] nutriment -> food
+
+MISSED RELATIONS (False Negatives: 8):
+  [FN] flavorer -> condiment
+  [FN] food -> feed
+  [FN] food -> nutriment
+  [FN] food -> water
+  [FN] foodstuff -> milk
+  [FN] nutriment -> milk
+  [FN] nutriment -> vitamin
+  [FN] starches -> rice

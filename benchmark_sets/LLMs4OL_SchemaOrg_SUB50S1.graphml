@@ -1,0 +1,124 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d8" for="node" attr.name="is_virtual" attr.type="boolean"/>
+<key id="d7" for="graph" attr.name="generated" attr.type="string"/>
+<key id="d6" for="graph" attr.name="generator" attr.type="string"/>
+<key id="d5" for="graph" attr.name="source_edges" attr.type="string"/>
+<key id="d4" for="graph" attr.name="source_nodes" attr.type="string"/>
+<key id="d3" for="graph" attr.name="source_file" attr.type="string"/>
+<key id="d2" for="graph" attr.name="seed" attr.type="string"/>
+<key id="d1" for="graph" attr.name="target_nodes" attr.type="string"/>
+<key id="d0" for="graph" attr.name="scale" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">SUB50S1</data>
+<data key="d1">50</data>
+<data key="d2">1</data>
+<data key="d3">LLMs4OL_SchemaOrg_FULL.graphml</data>
+<data key="d4">546</data>
+<data key="d5">581</data>
+<data key="d6">scale_benchmarks.py</data>
+<data key="d7">2026-09-30T16:27:43</data>
+<node id="suspendaction"/>
+<node id="project"/>
+<node id="datadownload"/>
+<node id="tvepisode"/>
+<node id="governmentbenefitstype"/>
+<node id="movietheater"/>
+<node id="pronounceabletext"/>
+<node id="manuscript"/>
+<node id="civicstructure"/>
+<node id="medicalentity"/>
+<node id="pricecomponenttypeenumeration"/>
+<node id="photograph"/>
+<node id="text"/>
+<node id="generalcontractor"/>
+<node id="televisionchannel"/>
+<node id="carusagetype"/>
+<node id="publicationevent"/>
+<node id="organization"/>
+<node id="occupation"/>
+<node id="entertainmentbusiness"/>
+<node id="localbusiness"/>
+<node id="controlaction"/>
+<node id="menuitem"/>
+<node id="datatype"/>
+<node id="action"/>
+<node id="fundingagency"/>
+<node id="findaction"/>
+<node id="governmentbuilding"/>
+<node id="giveaction"/>
+<node id="drivewheelconfigurationvalue"/>
+<node id="enumeration"/>
+<node id="sizegroupenumeration"/>
+<node id="legalvaluelevel"/>
+<node id="transferaction"/>
+<node id="creativework"/>
+<node id="eventvenue"/>
+<node id="collection"/>
+<node id="homeandconstructionbusiness"/>
+<node id="sportsactivitylocation"/>
+<node id="healthclub"/>
+<node id="ondemandevent"/>
+<node id="flight"/>
+<node id="place"/>
+<node id="emergencyservice"/>
+<node id="trip"/>
+<node id="episode"/>
+<node id="mediaobject"/>
+<node id="broadcastchannel"/>
+<node id="qualitativevalue"/>
+<node id="intangible"/>
+<node id="virtual_root">
+  <data key="d8">True</data>
+</node>
+<edge source="project" target="fundingagency"/>
+<edge source="civicstructure" target="movietheater"/>
+<edge source="civicstructure" target="eventvenue"/>
+<edge source="text" target="pronounceabletext"/>
+<edge source="publicationevent" target="ondemandevent"/>
+<edge source="organization" target="project"/>
+<edge source="organization" target="localbusiness"/>
+<edge source="entertainmentbusiness" target="movietheater"/>
+<edge source="localbusiness" target="entertainmentbusiness"/>
+<edge source="localbusiness" target="sportsactivitylocation"/>
+<edge source="localbusiness" target="emergencyservice"/>
+<edge source="controlaction" target="suspendaction"/>
+<edge source="datatype" target="text"/>
+<edge source="action" target="transferaction"/>
+<edge source="action" target="controlaction"/>
+<edge source="action" target="findaction"/>
+<edge source="enumeration" target="pricecomponenttypeenumeration"/>
+<edge source="enumeration" target="governmentbenefitstype"/>
+<edge source="enumeration" target="legalvaluelevel"/>
+<edge source="enumeration" target="carusagetype"/>
+<edge source="enumeration" target="sizegroupenumeration"/>
+<edge source="transferaction" target="giveaction"/>
+<edge source="creativework" target="photograph"/>
+<edge source="creativework" target="manuscript"/>
+<edge source="creativework" target="collection"/>
+<edge source="homeandconstructionbusiness" target="generalcontractor"/>
+<edge source="sportsactivitylocation" target="healthclub"/>
+<edge source="place" target="localbusiness"/>
+<edge source="trip" target="flight"/>
+<edge source="episode" target="tvepisode"/>
+<edge source="mediaobject" target="datadownload"/>
+<edge source="broadcastchannel" target="televisionchannel"/>
+<edge source="qualitativevalue" target="drivewheelconfigurationvalue"/>
+<edge source="intangible" target="menuitem"/>
+<edge source="intangible" target="trip"/>
+<edge source="intangible" target="occupation"/>
+<edge source="intangible" target="broadcastchannel"/>
+<edge source="virtual_root" target="civicstructure"/>
+<edge source="virtual_root" target="medicalentity"/>
+<edge source="virtual_root" target="publicationevent"/>
+<edge source="virtual_root" target="organization"/>
+<edge source="virtual_root" target="datatype"/>
+<edge source="virtual_root" target="action"/>
+<edge source="virtual_root" target="governmentbuilding"/>
+<edge source="virtual_root" target="enumeration"/>
+<edge source="virtual_root" target="creativework"/>
+<edge source="virtual_root" target="homeandconstructionbusiness"/>
+<edge source="virtual_root" target="place"/>
+<edge source="virtual_root" target="episode"/>
+<edge source="virtual_root" target="mediaobject"/>
+<edge source="virtual_root" target="qualitativevalue"/>
+<edge source="virtual_root" target="intangible"/>
+</graph></graphml>

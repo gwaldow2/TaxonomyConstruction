@@ -1,0 +1,106 @@
+==================================================
+=== Detailed Node Pair Analysis (Condensed Transitive Reduction) ===
+Match Type Used: SET_OVERLAP
+==================================================
+Precision: 0.5882 | Recall: 0.6818 | F1: 0.6316
+
+CORRECT PREDICTIONS (True Positives: 30 Pred edges covering 30 GT edges):
+  [TP] PRED: (bract -> inflorescence bract)
+        matches GT: (bract -> inflorescence bract)
+  [TP] PRED: (embryo sac cell -> embryo sac central cell)
+        matches GT: (embryo sac cell -> embryo sac central cell)
+  [TP] PRED: (exarch protoxylem -> root system exarch protoxylem)
+        matches GT: (exarch protoxylem -> root system exarch protoxylem)
+  [TP] PRED: (glume -> lower glume)
+        matches GT: (glume -> lower glume)
+  [TP] PRED: (inflorescence axis -> higher order inflorescence axis)
+        matches GT: (inflorescence axis -> higher order inflorescence axis)
+  [TP] PRED: (inflorescence bract -> glume)
+        matches GT: (inflorescence bract -> glume)
+  [TP] PRED: (lower glume -> lower glume of tassel spikelet)
+        matches GT: (lower glume -> lower glume of tassel spikelet)
+  [TP] PRED: (lower glume of tassel spikelet -> lower glume of pedicellate spikelet of tassel)
+        matches GT: (lower glume of tassel spikelet -> lower glume of pedicellate spikelet of tassel)
+  [TP] PRED: (meristematic apical cell -> gametophyte meristematic apical cell)
+        matches GT: (meristematic apical cell -> gametophyte meristematic apical cell)
+  [TP] PRED: (multi-tissue plant structure -> plant organ)
+        matches GT: (multi-tissue plant structure -> plant organ)
+  [TP] PRED: (native plant cell -> ground tissue cell)
+        matches GT: (native plant cell -> ground tissue cell)
+  [TP] PRED: (parenchyma cell -> chlorenchyma cell)
+        matches GT: (parenchyma cell -> chlorenchyma cell)
+  [TP] PRED: (phyllome -> bract)
+        matches GT: (phyllome -> bract)
+  [TP] PRED: (phyllome -> prophyll)
+        matches GT: (phyllome -> prophyll)
+  [TP] PRED: (phyllome base -> sepal base)
+        matches GT: (phyllome base -> sepal base)
+  [TP] PRED: (plant anatomical entity -> plant structure)
+        matches GT: (plant anatomical entity -> plant structure)
+  [TP] PRED: (plant axis -> shoot axis)
+        matches GT: (plant axis -> shoot axis)
+  [TP] PRED: (plant organ -> phyllome)
+        matches GT: (plant organ -> phyllome)
+  [TP] PRED: (plant structure -> multi-tissue plant structure)
+        matches GT: (plant structure -> multi-tissue plant structure)
+  [TP] PRED: (plant structure -> portion of plant tissue)
+        matches GT: (plant structure -> portion of plant tissue)
+  [TP] PRED: (portion of meristem tissue -> meristem l3 layer)
+        matches GT: (portion of meristem tissue -> meristem l3 layer)
+  [TP] PRED: (portion of plant tissue -> portion of ground tissue)
+        matches GT: (portion of plant tissue -> portion of ground tissue)
+  [TP] PRED: (portion of plant tissue -> portion of meristem tissue)
+        matches GT: (portion of plant tissue -> portion of meristem tissue)
+  [TP] PRED: (portion of vascular tissue -> xylem)
+        matches GT: (portion of vascular tissue -> xylem)
+  [TP] PRED: (primary xylem -> protoxylem)
+        matches GT: (primary xylem -> protoxylem)
+  [TP] PRED: (procambium -> shoot procambium)
+        matches GT: (procambium -> shoot procambium)
+  [TP] PRED: (protoxylem -> exarch protoxylem)
+        matches GT: (protoxylem -> exarch protoxylem)
+  [TP] PRED: (shoot axis -> inflorescence axis)
+        matches GT: (shoot axis -> inflorescence axis)
+  [TP] PRED: (tuber axillary shoot -> subterranean tuber axillary shoot)
+        matches GT: (tuber axillary shoot -> subterranean tuber axillary shoot)
+  [TP] PRED: (xylem -> primary xylem)
+        matches GT: (xylem -> primary xylem)
+
+INCORRECT PREDICTIONS (False Positives: 21):
+  [FP] cardinal organ part -> cardinal part of multi-tissue plant structure
+  [FP] ground tissue cell -> parenchyma
+  [FP] meristematic apical cell -> thallus meristematic apical cell
+  [FP] native plant cell -> embryo sac cell
+  [FP] native plant cell -> meristematic apical cell
+  [FP] native plant cell -> parenchyma cell
+  [FP] parenchyma cell -> petiole parenchyma
+  [FP] phyllome -> bracteole
+  [FP] phyllome -> phyllome base
+  [FP] phyllome base -> leaf sheath
+  [FP] phyllome base -> petiole distal end
+  [FP] plant axis -> tuber axillary shoot
+  [FP] plant organ -> plant axis
+  [FP] plant structure -> cardinal organ part
+  [FP] portion of ground tissue -> tmema
+  [FP] portion of plant tissue -> native plant cell
+  [FP] portion of plant tissue -> portion of vascular tissue
+  [FP] portion of vascular tissue -> procambium
+  [FP] procambium -> leaf procambium
+  [FP] protoxylem -> pentarch protoxylem
+  [FP] shoot axis -> tassel inflorescence branch
+
+MISSED RELATIONS (False Negatives: 14):
+  [FN] cardinal organ part -> leaf sheath
+  [FN] cardinal organ part -> petiole distal end
+  [FN] cardinal organ part -> phyllome base
+  [FN] cardinal part of multi-tissue plant structure -> cardinal organ part
+  [FN] gametophyte meristematic apical cell -> thallus meristematic apical cell
+  [FN] ground tissue cell -> parenchyma cell
+  [FN] higher order inflorescence axis -> tassel inflorescence branch
+  [FN] parenchyma -> petiole parenchyma
+  [FN] plant structure -> cardinal part of multi-tissue plant structure
+  [FN] portion of ground tissue -> parenchyma
+  [FN] portion of plant tissue -> tmema
+  [FN] prophyll -> bracteole
+  [FN] root system exarch protoxylem -> pentarch protoxylem
+  [FN] shoot procambium -> leaf procambium

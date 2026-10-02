@@ -1,0 +1,81 @@
+==================================================
+=== Detailed Node Pair Analysis (Exploded Raw Edges) ===
+Match Type Used: EXACT
+==================================================
+Precision: 0.5581 | Recall: 0.4706 | F1: 0.5106
+
+CORRECT PREDICTIONS (True Positives: 24 Pred edges covering 24 GT edges):
+  [TP] appetizer -> antipasto
+  [TP] b complex vitamin -> niacin
+  [TP] b complex vitamin -> vitamin b2
+  [TP] cocktail -> gin and it
+  [TP] condiment -> relish
+  [TP] condiment -> sauce
+  [TP] diet -> diabetic diet
+  [TP] dressing -> blue cheese dressing
+  [TP] dressing -> mayonnaise
+  [TP] food -> fare
+  [TP] food -> feed
+  [TP] food -> foodstuff
+  [TP] food -> nutriment
+  [TP] grain -> buckwheat
+  [TP] ingredient -> flavorer
+  [TP] mayonnaise -> green mayonnaise
+  [TP] meatball -> porcupine ball
+  [TP] potato -> home fries
+  [TP] potato -> mashed potato
+  [TP] starches -> potato
+  [TP] tea -> oolong
+  [TP] tea -> sun tea
+  [TP] vitamin -> water soluble vitamin
+  [TP] water soluble vitamin -> b complex vitamin
+
+INCORRECT PREDICTIONS (False Positives: 19):
+  [FP] condiment -> dressing
+  [FP] dish -> appetizer
+  [FP] dish -> entree
+  [FP] food -> chow
+  [FP] food -> cocktail
+  [FP] food -> dish
+  [FP] food -> eatage
+  [FP] food -> fodder
+  [FP] food -> grain
+  [FP] food -> herb
+  [FP] food -> ingredient
+  [FP] food -> meatball
+  [FP] food -> starches
+  [FP] food -> tea
+  [FP] grain -> alfalfa
+  [FP] herb -> garlic
+  [FP] ingredient -> condiment
+  [FP] meal -> course
+  [FP] sauce -> steak sauce
+
+MISSED RELATIONS (False Negatives: 27):
+  [FN] appetizer -> cocktail
+  [FN] condiment -> steak sauce
+  [FN] course -> appetizer
+  [FN] course -> entree
+  [FN] dainty -> sweet
+  [FN] dish -> meatball
+  [FN] fare -> chow
+  [FN] fare -> diet
+  [FN] feed -> fodder
+  [FN] flavorer -> condiment
+  [FN] flavorer -> garlic
+  [FN] flavorer -> herb
+  [FN] fodder -> alfalfa
+  [FN] fodder -> eatage
+  [FN] foodstuff -> grain
+  [FN] foodstuff -> ingredient
+  [FN] foodstuff -> meal
+  [FN] foodstuff -> starches
+  [FN] herb -> tea
+  [FN] meal -> tea
+  [FN] nutriment -> course
+  [FN] nutriment -> dainty
+  [FN] nutriment -> dish
+  [FN] nutriment -> meal
+  [FN] nutriment -> vitamin
+  [FN] sauce -> dressing
+  [FN] sweet -> center

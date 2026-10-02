@@ -1,0 +1,70 @@
+==================================================
+=== Detailed Node Pair Analysis (Exploded Raw Edges) ===
+Match Type Used: EXACT
+==================================================
+Precision: 0.6667 | Recall: 0.7442 | F1: 0.7033
+
+CORRECT PREDICTIONS (True Positives: 32 Pred edges covering 32 GT edges):
+  [TP] atom -> curium atom
+  [TP] atom -> potassium atom
+  [TP] carbon allotrope -> chaoite
+  [TP] concentration -> amount of substance concentration
+  [TP] continuant -> dependent_continuant
+  [TP] continuant -> independent_continuant
+  [TP] cyclicity -> acyclic
+  [TP] dependent_continuant -> quality
+  [TP] electronegativity -> pauling electronegativity
+  [TP] element -> magnesium
+  [TP] element -> molybdenum
+  [TP] element -> scandium
+  [TP] independent_continuant -> object
+  [TP] independent_continuant -> site
+  [TP] ion -> anion
+  [TP] measured property -> density
+  [TP] measured property -> electric resistance
+  [TP] measured property -> temperature
+  [TP] object -> atom
+  [TP] organic group -> general sulfinic acid group
+  [TP] quality -> chemical quality
+  [TP] quality -> measured property
+  [TP] scaled unit -> peta scaled unit
+  [TP] scaled unit -> zepto scaled unit
+  [TP] unit -> conduction unit
+  [TP] unit -> derivedunit
+  [TP] unit -> electric resistance unit
+  [TP] unit -> electromagnetic radiation unit
+  [TP] unit -> molecular mass unit
+  [TP] unit -> moment of force unit
+  [TP] unit -> radiation unit
+  [TP] unit raised to power -> unit raised to power of three
+
+INCORRECT PREDICTIONS (False Positives: 16):
+  [FP] atom -> element
+  [FP] chemical class -> carbon allotrope
+  [FP] chemical class -> organic group
+  [FP] chemical quality -> cyclicity
+  [FP] dependent_continuant -> concentration
+  [FP] derivedunit -> unit raised to power
+  [FP] independent_continuant -> chemical class
+  [FP] independent_continuant -> ion
+  [FP] measured property -> electronegativity
+  [FP] measured property -> hardness range
+  [FP] quality -> molecularquality
+  [FP] quality -> opticalisomer
+  [FP] unit -> count
+  [FP] unit -> dose equivalent unit
+  [FP] unit -> luminous flux unit
+  [FP] unit -> scaled unit
+
+MISSED RELATIONS (False Negatives: 11):
+  [FN] chemical quality -> chemical class
+  [FN] chemical quality -> electronegativity
+  [FN] derivedunit -> scaled unit
+  [FN] electromagnetic radiation unit -> luminous flux unit
+  [FN] measured property -> angular acceleration
+  [FN] measured property -> concentration
+  [FN] measured property -> count
+  [FN] measured property -> molecularquality
+  [FN] molecularquality -> cyclicity
+  [FN] object -> organic group
+  [FN] radiation unit -> dose equivalent unit

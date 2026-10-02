@@ -1,0 +1,79 @@
+==================================================
+=== Detailed Node Pair Analysis (Exploded Raw Edges) ===
+Match Type Used: EXACT
+==================================================
+Precision: 0.5385 | Recall: 0.6364 | F1: 0.5833
+
+CORRECT PREDICTIONS (True Positives: 28 Pred edges covering 28 GT edges):
+  [TP] atom -> argon atom
+  [TP] atom -> bismuth atom
+  [TP] atom -> californium atom
+  [TP] atom -> hassium atom
+  [TP] atom -> radon atom
+  [TP] atom -> xenon atom
+  [TP] chemical agent -> oxidizing agent
+  [TP] chemical agent -> reducing agent
+  [TP] chemical phase -> uncommon chemical phase
+  [TP] cistrans isomer -> cis isomer
+  [TP] continuant -> dependent_continuant
+  [TP] continuant -> independent_continuant
+  [TP] dependent_continuant -> quality
+  [TP] element -> hydrogen
+  [TP] element -> magnesium
+  [TP] element -> ununbium
+  [TP] element -> ununoctium
+  [TP] homogeneous mixture -> solution
+  [TP] independent_continuant -> object
+  [TP] measured property -> permeability
+  [TP] measured property -> permittivity
+  [TP] measured property -> ultimate tensile strength
+  [TP] mixture -> homogeneous mixture
+  [TP] quality -> measured property
+  [TP] ring -> non aromatic ring
+  [TP] scaled unit -> zepto scaled unit
+  [TP] uncommon chemical phase -> strange matter phase
+  [TP] unit -> derivedunit
+
+INCORRECT PREDICTIONS (False Positives: 24):
+  [FP] aryl -> organic group
+  [FP] chemical substance -> chemical agent
+  [FP] chemical substance -> element
+  [FP] chemical substance -> mixture
+  [FP] continuant -> temporal_instant
+  [FP] dependent_continuant -> chemical phase
+  [FP] dependent_continuant -> hardness range
+  [FP] dependent_continuant -> molecularquality
+  [FP] dependent_continuant -> moleculecomponentcount
+  [FP] dependent_continuant -> undefined stereo bond count
+  [FP] dependent_continuant -> unit
+  [FP] derivedunit -> electromagnetic radiation unit
+  [FP] derivedunit -> illuminance unit
+  [FP] derivedunit -> molar energy unit
+  [FP] derivedunit -> molar mass
+  [FP] independent_continuant -> atom
+  [FP] independent_continuant -> carbon group
+  [FP] independent_continuant -> cistrans isomer
+  [FP] independent_continuant -> ring
+  [FP] mixture -> racemic mixture
+  [FP] object -> chemical substance
+  [FP] ring -> aryl
+  [FP] temporal_instant -> connected_temporal_region
+  [FP] unit -> scaled unit
+
+MISSED RELATIONS (False Negatives: 16):
+  [FN] connected_temporal_region -> temporal_instant
+  [FN] derivedunit -> scaled unit
+  [FN] electromagnetic radiation unit -> illuminance unit
+  [FN] measured property -> molar mass
+  [FN] measured property -> molecularquality
+  [FN] molecularquality -> moleculecomponentcount
+  [FN] moleculecomponentcount -> undefined stereo bond count
+  [FN] object -> atom
+  [FN] object -> mixture
+  [FN] object -> organic group
+  [FN] object -> ring
+  [FN] organic group -> aryl
+  [FN] organic group -> carbon group
+  [FN] solution -> racemic mixture
+  [FN] unit -> electromagnetic radiation unit
+  [FN] unit -> molar energy unit

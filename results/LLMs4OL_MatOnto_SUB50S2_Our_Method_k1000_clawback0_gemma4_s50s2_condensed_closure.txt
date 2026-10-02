@@ -1,0 +1,367 @@
+==================================================
+=== Detailed Node Pair Analysis (Condensed Transitive Closure) ===
+Match Type Used: SET_OVERLAP
+==================================================
+Precision: 0.4250 | Recall: 0.9435 | F1: 0.5860
+
+CORRECT PREDICTIONS (True Positives: 85 Pred edges covering 117 GT edges):
+  [TP] PRED: (atom -> argon atom)
+        matches GT: (atom -> argon atom)
+  [TP] PRED: (atom -> bismuth atom)
+        matches GT: (atom -> bismuth atom)
+  [TP] PRED: (atom -> californium atom)
+        matches GT: (atom -> californium atom)
+  [TP] PRED: (atom -> hassium atom)
+        matches GT: (atom -> hassium atom)
+  [TP] PRED: (atom -> radon atom)
+        matches GT: (atom -> radon atom)
+  [TP] PRED: (atom -> xenon atom)
+        matches GT: (atom -> xenon atom)
+  [TP] PRED: (chemical agent -> oxidizing agent)
+        matches GT: (chemical agent -> oxidizing agent)
+  [TP] PRED: (chemical agent -> reducing agent)
+        matches GT: (chemical agent -> reducing agent)
+  [TP] PRED: (chemical phase -> strange matter phase)
+        matches GT: (chemical phase -> strange matter phase)
+  [TP] PRED: (chemical phase -> uncommon chemical phase)
+        matches GT: (chemical phase -> uncommon chemical phase)
+  [TP] PRED: (cistrans isomer -> cis isomer)
+        matches GT: (cistrans isomer -> cis isomer)
+  [TP] PRED: (continuant (continuant, independent_continuant, object) -> argon atom)
+        matches GT: (continuant -> argon atom)
+  [TP] PRED: (continuant (continuant, independent_continuant, object) -> argon atom)
+        matches GT: (independent_continuant -> argon atom)
+  [TP] PRED: (continuant (continuant, independent_continuant, object) -> argon atom)
+        matches GT: (object -> argon atom)
+  [TP] PRED: (continuant (continuant, independent_continuant, object) -> aryl)
+        matches GT: (continuant -> aryl)
+  [TP] PRED: (continuant (continuant, independent_continuant, object) -> aryl)
+        matches GT: (independent_continuant -> aryl)
+  [TP] PRED: (continuant (continuant, independent_continuant, object) -> aryl)
+        matches GT: (object -> aryl)
+  [TP] PRED: (continuant (continuant, independent_continuant, object) -> atom)
+        matches GT: (continuant -> atom)
+  [TP] PRED: (continuant (continuant, independent_continuant, object) -> atom)
+        matches GT: (independent_continuant -> atom)
+  [TP] PRED: (continuant (continuant, independent_continuant, object) -> atom)
+        matches GT: (object -> atom)
+  [TP] PRED: (continuant (continuant, independent_continuant, object) -> bismuth atom)
+        matches GT: (continuant -> bismuth atom)
+  [TP] PRED: (continuant (continuant, independent_continuant, object) -> bismuth atom)
+        matches GT: (independent_continuant -> bismuth atom)
+  [TP] PRED: (continuant (continuant, independent_continuant, object) -> bismuth atom)
+        matches GT: (object -> bismuth atom)
+  [TP] PRED: (continuant (continuant, independent_continuant, object) -> californium atom)
+        matches GT: (continuant -> californium atom)
+  [TP] PRED: (continuant (continuant, independent_continuant, object) -> californium atom)
+        matches GT: (independent_continuant -> californium atom)
+  [TP] PRED: (continuant (continuant, independent_continuant, object) -> californium atom)
+        matches GT: (object -> californium atom)
+  [TP] PRED: (continuant (continuant, independent_continuant, object) -> carbon group)
+        matches GT: (continuant -> carbon group)
+  [TP] PRED: (continuant (continuant, independent_continuant, object) -> carbon group)
+        matches GT: (independent_continuant -> carbon group)
+  [TP] PRED: (continuant (continuant, independent_continuant, object) -> carbon group)
+        matches GT: (object -> carbon group)
+  [TP] PRED: (continuant (continuant, independent_continuant, object) -> dependent_continuant)
+        matches GT: (continuant -> dependent_continuant)
+  [TP] PRED: (continuant (continuant, independent_continuant, object) -> hassium atom)
+        matches GT: (continuant -> hassium atom)
+  [TP] PRED: (continuant (continuant, independent_continuant, object) -> hassium atom)
+        matches GT: (independent_continuant -> hassium atom)
+  [TP] PRED: (continuant (continuant, independent_continuant, object) -> hassium atom)
+        matches GT: (object -> hassium atom)
+  [TP] PRED: (continuant (continuant, independent_continuant, object) -> homogeneous mixture)
+        matches GT: (continuant -> homogeneous mixture)
+  [TP] PRED: (continuant (continuant, independent_continuant, object) -> homogeneous mixture)
+        matches GT: (independent_continuant -> homogeneous mixture)
+  [TP] PRED: (continuant (continuant, independent_continuant, object) -> homogeneous mixture)
+        matches GT: (object -> homogeneous mixture)
+  [TP] PRED: (continuant (continuant, independent_continuant, object) -> measured property)
+        matches GT: (continuant -> measured property)
+  [TP] PRED: (continuant (continuant, independent_continuant, object) -> mixture)
+        matches GT: (continuant -> mixture)
+  [TP] PRED: (continuant (continuant, independent_continuant, object) -> mixture)
+        matches GT: (independent_continuant -> mixture)
+  [TP] PRED: (continuant (continuant, independent_continuant, object) -> mixture)
+        matches GT: (object -> mixture)
+  [TP] PRED: (continuant (continuant, independent_continuant, object) -> molar mass)
+        matches GT: (continuant -> molar mass)
+  [TP] PRED: (continuant (continuant, independent_continuant, object) -> molecularquality)
+        matches GT: (continuant -> molecularquality)
+  [TP] PRED: (continuant (continuant, independent_continuant, object) -> moleculecomponentcount)
+        matches GT: (continuant -> moleculecomponentcount)
+  [TP] PRED: (continuant (continuant, independent_continuant, object) -> non aromatic ring)
+        matches GT: (continuant -> non aromatic ring)
+  [TP] PRED: (continuant (continuant, independent_continuant, object) -> non aromatic ring)
+        matches GT: (independent_continuant -> non aromatic ring)
+  [TP] PRED: (continuant (continuant, independent_continuant, object) -> non aromatic ring)
+        matches GT: (object -> non aromatic ring)
+  [TP] PRED: (continuant (continuant, independent_continuant, object) -> organic group)
+        matches GT: (continuant -> organic group)
+  [TP] PRED: (continuant (continuant, independent_continuant, object) -> organic group)
+        matches GT: (independent_continuant -> organic group)
+  [TP] PRED: (continuant (continuant, independent_continuant, object) -> organic group)
+        matches GT: (object -> organic group)
+  [TP] PRED: (continuant (continuant, independent_continuant, object) -> permeability)
+        matches GT: (continuant -> permeability)
+  [TP] PRED: (continuant (continuant, independent_continuant, object) -> permittivity)
+        matches GT: (continuant -> permittivity)
+  [TP] PRED: (continuant (continuant, independent_continuant, object) -> quality)
+        matches GT: (continuant -> quality)
+  [TP] PRED: (continuant (continuant, independent_continuant, object) -> racemic mixture)
+        matches GT: (continuant -> racemic mixture)
+  [TP] PRED: (continuant (continuant, independent_continuant, object) -> racemic mixture)
+        matches GT: (independent_continuant -> racemic mixture)
+  [TP] PRED: (continuant (continuant, independent_continuant, object) -> racemic mixture)
+        matches GT: (object -> racemic mixture)
+  [TP] PRED: (continuant (continuant, independent_continuant, object) -> radon atom)
+        matches GT: (continuant -> radon atom)
+  [TP] PRED: (continuant (continuant, independent_continuant, object) -> radon atom)
+        matches GT: (independent_continuant -> radon atom)
+  [TP] PRED: (continuant (continuant, independent_continuant, object) -> radon atom)
+        matches GT: (object -> radon atom)
+  [TP] PRED: (continuant (continuant, independent_continuant, object) -> ring)
+        matches GT: (continuant -> ring)
+  [TP] PRED: (continuant (continuant, independent_continuant, object) -> ring)
+        matches GT: (independent_continuant -> ring)
+  [TP] PRED: (continuant (continuant, independent_continuant, object) -> ring)
+        matches GT: (object -> ring)
+  [TP] PRED: (continuant (continuant, independent_continuant, object) -> solution)
+        matches GT: (continuant -> solution)
+  [TP] PRED: (continuant (continuant, independent_continuant, object) -> solution)
+        matches GT: (independent_continuant -> solution)
+  [TP] PRED: (continuant (continuant, independent_continuant, object) -> solution)
+        matches GT: (object -> solution)
+  [TP] PRED: (continuant (continuant, independent_continuant, object) -> ultimate tensile strength)
+        matches GT: (continuant -> ultimate tensile strength)
+  [TP] PRED: (continuant (continuant, independent_continuant, object) -> undefined stereo bond count)
+        matches GT: (continuant -> undefined stereo bond count)
+  [TP] PRED: (continuant (continuant, independent_continuant, object) -> xenon atom)
+        matches GT: (continuant -> xenon atom)
+  [TP] PRED: (continuant (continuant, independent_continuant, object) -> xenon atom)
+        matches GT: (independent_continuant -> xenon atom)
+  [TP] PRED: (continuant (continuant, independent_continuant, object) -> xenon atom)
+        matches GT: (object -> xenon atom)
+  [TP] PRED: (dependent_continuant -> measured property)
+        matches GT: (dependent_continuant -> measured property)
+  [TP] PRED: (dependent_continuant -> molar mass)
+        matches GT: (dependent_continuant -> molar mass)
+  [TP] PRED: (dependent_continuant -> molecularquality)
+        matches GT: (dependent_continuant -> molecularquality)
+  [TP] PRED: (dependent_continuant -> moleculecomponentcount)
+        matches GT: (dependent_continuant -> moleculecomponentcount)
+  [TP] PRED: (dependent_continuant -> permeability)
+        matches GT: (dependent_continuant -> permeability)
+  [TP] PRED: (dependent_continuant -> permittivity)
+        matches GT: (dependent_continuant -> permittivity)
+  [TP] PRED: (dependent_continuant -> quality)
+        matches GT: (dependent_continuant -> quality)
+  [TP] PRED: (dependent_continuant -> ultimate tensile strength)
+        matches GT: (dependent_continuant -> ultimate tensile strength)
+  [TP] PRED: (dependent_continuant -> undefined stereo bond count)
+        matches GT: (dependent_continuant -> undefined stereo bond count)
+  [TP] PRED: (derivedunit -> scaled unit)
+        matches GT: (derivedunit -> scaled unit)
+  [TP] PRED: (derivedunit -> zepto scaled unit)
+        matches GT: (derivedunit -> zepto scaled unit)
+  [TP] PRED: (element -> hydrogen)
+        matches GT: (element -> hydrogen)
+  [TP] PRED: (element -> magnesium)
+        matches GT: (element -> magnesium)
+  [TP] PRED: (element -> ununbium)
+        matches GT: (element -> ununbium)
+  [TP] PRED: (element -> ununoctium)
+        matches GT: (element -> ununoctium)
+  [TP] PRED: (homogeneous mixture -> racemic mixture)
+        matches GT: (homogeneous mixture -> racemic mixture)
+  [TP] PRED: (homogeneous mixture -> solution)
+        matches GT: (homogeneous mixture -> solution)
+  [TP] PRED: (measured property -> molar mass)
+        matches GT: (measured property -> molar mass)
+  [TP] PRED: (measured property -> molecularquality)
+        matches GT: (measured property -> molecularquality)
+  [TP] PRED: (measured property -> moleculecomponentcount)
+        matches GT: (measured property -> moleculecomponentcount)
+  [TP] PRED: (measured property -> permeability)
+        matches GT: (measured property -> permeability)
+  [TP] PRED: (measured property -> permittivity)
+        matches GT: (measured property -> permittivity)
+  [TP] PRED: (measured property -> ultimate tensile strength)
+        matches GT: (measured property -> ultimate tensile strength)
+  [TP] PRED: (measured property -> undefined stereo bond count)
+        matches GT: (measured property -> undefined stereo bond count)
+  [TP] PRED: (mixture -> homogeneous mixture)
+        matches GT: (mixture -> homogeneous mixture)
+  [TP] PRED: (mixture -> racemic mixture)
+        matches GT: (mixture -> racemic mixture)
+  [TP] PRED: (mixture -> solution)
+        matches GT: (mixture -> solution)
+  [TP] PRED: (molecularquality -> moleculecomponentcount)
+        matches GT: (molecularquality -> moleculecomponentcount)
+  [TP] PRED: (molecularquality -> undefined stereo bond count)
+        matches GT: (molecularquality -> undefined stereo bond count)
+  [TP] PRED: (moleculecomponentcount -> undefined stereo bond count)
+        matches GT: (moleculecomponentcount -> undefined stereo bond count)
+  [TP] PRED: (organic group -> aryl)
+        matches GT: (organic group -> aryl)
+  [TP] PRED: (quality -> measured property)
+        matches GT: (quality -> measured property)
+  [TP] PRED: (quality -> molar mass)
+        matches GT: (quality -> molar mass)
+  [TP] PRED: (quality -> molecularquality)
+        matches GT: (quality -> molecularquality)
+  [TP] PRED: (quality -> moleculecomponentcount)
+        matches GT: (quality -> moleculecomponentcount)
+  [TP] PRED: (quality -> permeability)
+        matches GT: (quality -> permeability)
+  [TP] PRED: (quality -> permittivity)
+        matches GT: (quality -> permittivity)
+  [TP] PRED: (quality -> ultimate tensile strength)
+        matches GT: (quality -> ultimate tensile strength)
+  [TP] PRED: (quality -> undefined stereo bond count)
+        matches GT: (quality -> undefined stereo bond count)
+  [TP] PRED: (ring -> non aromatic ring)
+        matches GT: (ring -> non aromatic ring)
+  [TP] PRED: (scaled unit -> zepto scaled unit)
+        matches GT: (scaled unit -> zepto scaled unit)
+  [TP] PRED: (uncommon chemical phase -> strange matter phase)
+        matches GT: (uncommon chemical phase -> strange matter phase)
+  [TP] PRED: (unit -> derivedunit)
+        matches GT: (unit -> derivedunit)
+  [TP] PRED: (unit -> electromagnetic radiation unit)
+        matches GT: (unit -> electromagnetic radiation unit)
+  [TP] PRED: (unit -> illuminance unit)
+        matches GT: (unit -> illuminance unit)
+  [TP] PRED: (unit -> molar energy unit)
+        matches GT: (unit -> molar energy unit)
+  [TP] PRED: (unit -> scaled unit)
+        matches GT: (unit -> scaled unit)
+  [TP] PRED: (unit -> zepto scaled unit)
+        matches GT: (unit -> zepto scaled unit)
+
+INCORRECT PREDICTIONS (False Positives: 115):
+  [FP] atom -> hydrogen
+  [FP] atom -> magnesium
+  [FP] atom -> ununbium
+  [FP] atom -> ununoctium
+  [FP] chemical agent -> argon atom
+  [FP] chemical agent -> bismuth atom
+  [FP] chemical agent -> carbon group
+  [FP] chemical agent -> cis isomer
+  [FP] chemical agent -> element
+  [FP] chemical agent -> hassium atom
+  [FP] chemical agent -> homogeneous mixture
+  [FP] chemical agent -> hydrogen
+  [FP] chemical agent -> magnesium
+  [FP] chemical agent -> mixture
+  [FP] chemical agent -> racemic mixture
+  [FP] chemical agent -> radon atom
+  [FP] chemical agent -> solution
+  [FP] chemical agent -> ununbium
+  [FP] chemical agent -> ununoctium
+  [FP] chemical agent -> xenon atom
+  [FP] chemical substance -> argon atom
+  [FP] chemical substance -> aryl
+  [FP] chemical substance -> atom
+  [FP] chemical substance -> bismuth atom
+  [FP] chemical substance -> californium atom
+  [FP] chemical substance -> carbon group
+  [FP] chemical substance -> chemical agent
+  [FP] chemical substance -> cis isomer
+  [FP] chemical substance -> cistrans isomer
+  [FP] chemical substance -> element
+  [FP] chemical substance -> hassium atom
+  [FP] chemical substance -> homogeneous mixture
+  [FP] chemical substance -> hydrogen
+  [FP] chemical substance -> magnesium
+  [FP] chemical substance -> mixture
+  [FP] chemical substance -> organic group
+  [FP] chemical substance -> oxidizing agent
+  [FP] chemical substance -> racemic mixture
+  [FP] chemical substance -> radon atom
+  [FP] chemical substance -> reducing agent
+  [FP] chemical substance -> solution
+  [FP] chemical substance -> strange matter phase
+  [FP] chemical substance -> uncommon chemical phase
+  [FP] chemical substance -> ununbium
+  [FP] chemical substance -> ununoctium
+  [FP] chemical substance -> xenon atom
+  [FP] chemical substance -> zepto scaled unit
+  [FP] continuant (continuant, independent_continuant, object) -> chemical agent
+  [FP] continuant (continuant, independent_continuant, object) -> chemical phase
+  [FP] continuant (continuant, independent_continuant, object) -> chemical substance
+  [FP] continuant (continuant, independent_continuant, object) -> cis isomer
+  [FP] continuant (continuant, independent_continuant, object) -> cistrans isomer
+  [FP] continuant (continuant, independent_continuant, object) -> derivedunit
+  [FP] continuant (continuant, independent_continuant, object) -> electromagnetic radiation unit
+  [FP] continuant (continuant, independent_continuant, object) -> element
+  [FP] continuant (continuant, independent_continuant, object) -> hardness range
+  [FP] continuant (continuant, independent_continuant, object) -> hydrogen
+  [FP] continuant (continuant, independent_continuant, object) -> illuminance unit
+  [FP] continuant (continuant, independent_continuant, object) -> magnesium
+  [FP] continuant (continuant, independent_continuant, object) -> molar energy unit
+  [FP] continuant (continuant, independent_continuant, object) -> oxidizing agent
+  [FP] continuant (continuant, independent_continuant, object) -> reducing agent
+  [FP] continuant (continuant, independent_continuant, object) -> scaled unit
+  [FP] continuant (continuant, independent_continuant, object) -> strange matter phase
+  [FP] continuant (continuant, independent_continuant, object) -> uncommon chemical phase
+  [FP] continuant (continuant, independent_continuant, object) -> unit
+  [FP] continuant (continuant, independent_continuant, object) -> ununbium
+  [FP] continuant (continuant, independent_continuant, object) -> ununoctium
+  [FP] continuant (continuant, independent_continuant, object) -> zepto scaled unit
+  [FP] dependent_continuant -> argon atom
+  [FP] dependent_continuant -> aryl
+  [FP] dependent_continuant -> atom
+  [FP] dependent_continuant -> bismuth atom
+  [FP] dependent_continuant -> californium atom
+  [FP] dependent_continuant -> carbon group
+  [FP] dependent_continuant -> chemical agent
+  [FP] dependent_continuant -> chemical phase
+  [FP] dependent_continuant -> chemical substance
+  [FP] dependent_continuant -> cis isomer
+  [FP] dependent_continuant -> cistrans isomer
+  [FP] dependent_continuant -> element
+  [FP] dependent_continuant -> hardness range
+  [FP] dependent_continuant -> hassium atom
+  [FP] dependent_continuant -> homogeneous mixture
+  [FP] dependent_continuant -> hydrogen
+  [FP] dependent_continuant -> magnesium
+  [FP] dependent_continuant -> mixture
+  [FP] dependent_continuant -> organic group
+  [FP] dependent_continuant -> oxidizing agent
+  [FP] dependent_continuant -> racemic mixture
+  [FP] dependent_continuant -> radon atom
+  [FP] dependent_continuant -> reducing agent
+  [FP] dependent_continuant -> solution
+  [FP] dependent_continuant -> strange matter phase
+  [FP] dependent_continuant -> uncommon chemical phase
+  [FP] dependent_continuant -> ununbium
+  [FP] dependent_continuant -> ununoctium
+  [FP] dependent_continuant -> xenon atom
+  [FP] dependent_continuant -> zepto scaled unit
+  [FP] derivedunit -> electromagnetic radiation unit
+  [FP] derivedunit -> illuminance unit
+  [FP] derivedunit -> molar energy unit
+  [FP] element -> carbon group
+  [FP] element -> xenon atom
+  [FP] measured property -> hardness range
+  [FP] molecularquality -> molar mass
+  [FP] quality -> chemical phase
+  [FP] quality -> hardness range
+  [FP] quality -> strange matter phase
+  [FP] quality -> uncommon chemical phase
+  [FP] reducing agent -> hydrogen
+  [FP] reducing agent -> magnesium
+  [FP] scaled unit -> electromagnetic radiation unit
+  [FP] scaled unit -> illuminance unit
+  [FP] scaled unit -> molar energy unit
+
+MISSED RELATIONS (False Negatives: 7):
+  [FN] connected_temporal_region -> temporal_instant
+  [FN] continuant -> independent_continuant
+  [FN] continuant -> object
+  [FN] electromagnetic radiation unit -> illuminance unit
+  [FN] independent_continuant -> object
+  [FN] organic group -> carbon group
+  [FN] solution -> racemic mixture

@@ -1,0 +1,97 @@
+==================================================
+=== Detailed Node Pair Analysis (Exploded Raw Edges) ===
+Match Type Used: EXACT
+==================================================
+Precision: 0.2651 | Recall: 0.8800 | F1: 0.4074
+
+CORRECT PREDICTIONS (True Positives: 22 Pred edges covering 22 GT edges):
+  [TP] berry -> boysenberry
+  [TP] beverage -> soft drink
+  [TP] boiled egg -> hard-boiled egg
+  [TP] candy -> easter egg
+  [TP] candy -> fudge
+  [TP] dish -> boiled egg
+  [TP] edible fruit -> berry
+  [TP] food -> beverage
+  [TP] food -> meat
+  [TP] food -> nutriment
+  [TP] food -> produce
+  [TP] food -> seafood
+  [TP] fudge -> penuche
+  [TP] meat -> variety meat
+  [TP] nutriment -> dish
+  [TP] produce -> edible fruit
+  [TP] saltwater fish -> sea bass
+  [TP] seafood -> saltwater fish
+  [TP] soft drink -> sarsaparilla
+  [TP] sweet -> candy
+  [TP] tongue -> beef tongue
+  [TP] variety meat -> tongue
+
+INCORRECT PREDICTIONS (False Positives: 61):
+  [FP] beverage -> sarsaparilla
+  [FP] candy -> penuche
+  [FP] dish -> beef tongue
+  [FP] dish -> fudge
+  [FP] dish -> hard-boiled egg
+  [FP] dish -> sea bass
+  [FP] dish -> seafood
+  [FP] edible fruit -> boysenberry
+  [FP] food -> beef tongue
+  [FP] food -> berry
+  [FP] food -> boiled egg
+  [FP] food -> boysenberry
+  [FP] food -> candy
+  [FP] food -> dish
+  [FP] food -> easter egg
+  [FP] food -> edible fruit
+  [FP] food -> fudge
+  [FP] food -> hard-boiled egg
+  [FP] food -> penuche
+  [FP] food -> saltwater fish
+  [FP] food -> sarsaparilla
+  [FP] food -> sea bass
+  [FP] food -> soft drink
+  [FP] food -> sweet
+  [FP] food -> tongue
+  [FP] food -> variety meat
+  [FP] meat -> beef tongue
+  [FP] meat -> saltwater fish
+  [FP] meat -> sea bass
+  [FP] meat -> seafood
+  [FP] meat -> tongue
+  [FP] nutriment -> beef tongue
+  [FP] nutriment -> berry
+  [FP] nutriment -> beverage
+  [FP] nutriment -> boiled egg
+  [FP] nutriment -> boysenberry
+  [FP] nutriment -> candy
+  [FP] nutriment -> easter egg
+  [FP] nutriment -> edible fruit
+  [FP] nutriment -> food
+  [FP] nutriment -> fudge
+  [FP] nutriment -> hard-boiled egg
+  [FP] nutriment -> meat
+  [FP] nutriment -> penuche
+  [FP] nutriment -> produce
+  [FP] nutriment -> saltwater fish
+  [FP] nutriment -> sarsaparilla
+  [FP] nutriment -> sea bass
+  [FP] nutriment -> seafood
+  [FP] nutriment -> soft drink
+  [FP] nutriment -> sweet
+  [FP] nutriment -> tongue
+  [FP] nutriment -> variety meat
+  [FP] produce -> berry
+  [FP] produce -> boysenberry
+  [FP] seafood -> sea bass
+  [FP] sweet -> boysenberry
+  [FP] sweet -> easter egg
+  [FP] sweet -> fudge
+  [FP] sweet -> penuche
+  [FP] variety meat -> beef tongue
+
+MISSED RELATIONS (False Negatives: 3):
+  [FN] dainty -> sweet
+  [FN] hard-boiled egg -> easter egg
+  [FN] nutriment -> dainty

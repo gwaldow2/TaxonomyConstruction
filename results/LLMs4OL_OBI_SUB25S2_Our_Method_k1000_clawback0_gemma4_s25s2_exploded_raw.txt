@@ -1,0 +1,69 @@
+==================================================
+=== Detailed Node Pair Analysis (Exploded Raw Edges) ===
+Match Type Used: EXACT
+==================================================
+Precision: 0.3396 | Recall: 0.7826 | F1: 0.4737
+
+CORRECT PREDICTIONS (True Positives: 18 Pred edges covering 18 GT edges):
+  [TP] analyte assay -> luteinizing hormone assay
+  [TP] assay -> analyte assay
+  [TP] assay -> epigenetic modification assay
+  [TP] assay -> organism detection assay
+  [TP] chip-chip assay -> dna methylation profiling by chip-chip assay
+  [TP] continuant -> independent continuant
+  [TP] device -> catheter
+  [TP] device -> chip spotting device
+  [TP] dna methylation profiling assay -> dna methylation profiling by array assay
+  [TP] epigenetic modification assay -> dna methylation profiling assay
+  [TP] epigenetic modification assay -> dna methylation profiling by chip-chip assay
+  [TP] imaging assay -> magnetic resonance imaging assay
+  [TP] independent continuant -> material entity
+  [TP] material entity -> processed material
+  [TP] network analysis -> network subgraph quality calculation
+  [TP] network subgraph quality calculation -> subgraph degree calculation
+  [TP] organism detection assay -> organism detection by salinity tolerance assay
+  [TP] performance status value specification -> eastern cooperative oncology group score value specification
+
+INCORRECT PREDICTIONS (False Positives: 35):
+  [FP] analyte assay -> chip-chip assay
+  [FP] analyte assay -> dna methylation profiling assay
+  [FP] analyte assay -> dna methylation profiling by array assay
+  [FP] analyte assay -> dna methylation profiling by chip-chip assay
+  [FP] analyte assay -> epigenetic modification assay
+  [FP] analyte assay -> imaging assay
+  [FP] analyte assay -> magnetic resonance imaging assay
+  [FP] analyte assay -> organism detection assay
+  [FP] analyte assay -> organism detection by salinity tolerance assay
+  [FP] assay -> chip-chip assay
+  [FP] assay -> dna methylation profiling assay
+  [FP] assay -> dna methylation profiling by array assay
+  [FP] assay -> dna methylation profiling by chip-chip assay
+  [FP] assay -> imaging assay
+  [FP] assay -> luteinizing hormone assay
+  [FP] assay -> magnetic resonance imaging assay
+  [FP] assay -> organism detection by salinity tolerance assay
+  [FP] continuant -> catheter
+  [FP] continuant -> chip spotting device
+  [FP] continuant -> device
+  [FP] continuant -> material entity
+  [FP] continuant -> planned process
+  [FP] continuant -> processed material
+  [FP] dna methylation profiling assay -> dna methylation profiling by chip-chip assay
+  [FP] epigenetic modification assay -> dna methylation profiling by array assay
+  [FP] independent continuant -> catheter
+  [FP] independent continuant -> chip spotting device
+  [FP] independent continuant -> device
+  [FP] independent continuant -> planned process
+  [FP] independent continuant -> processed material
+  [FP] material entity -> catheter
+  [FP] material entity -> chip spotting device
+  [FP] material entity -> device
+  [FP] network analysis -> subgraph degree calculation
+  [FP] processed material -> chip spotting device
+
+MISSED RELATIONS (False Negatives: 5):
+  [FN] data transformation -> network analysis
+  [FN] planned process -> assay
+  [FN] planned process -> data transformation
+  [FN] planned process -> study intervention
+  [FN] processed material -> device

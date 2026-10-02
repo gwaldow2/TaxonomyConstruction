@@ -1,0 +1,78 @@
+==================================================
+=== Detailed Node Pair Analysis (Exploded Transitive Closure) ===
+Match Type Used: EXACT
+==================================================
+Precision: 0.6415 | Recall: 0.7083 | F1: 0.6733
+
+CORRECT PREDICTIONS (True Positives: 34 Pred edges covering 34 GT edges):
+  [TP] analyte assay -> 96-well neutralization assay
+  [TP] analyte assay -> serum neutralization of viral infectivity assay
+  [TP] assay -> 96-well neutralization assay
+  [TP] assay -> analyte assay
+  [TP] assay -> blood assay
+  [TP] assay -> serum neutralization of viral infectivity assay
+  [TP] assay measuring biological activity resulting from t cell epitopemhctcr binding -> assay measuring epitope specific cytokine production by t cells
+  [TP] assay measuring biological activity resulting from t cell epitopemhctcr binding -> assay measuring epitope specific ip-10 production by t cells
+  [TP] assay measuring biological activity resulting from t cell epitopemhctcr binding -> intracellular cytokine staining assay measuring epitope specific ip-10 production by t cells
+  [TP] assay measuring epitope specific cytokine production by t cells -> assay measuring epitope specific ip-10 production by t cells
+  [TP] assay measuring epitope specific cytokine production by t cells -> intracellular cytokine staining assay measuring epitope specific ip-10 production by t cells
+  [TP] assay measuring epitope specific ip-10 production by t cells -> intracellular cytokine staining assay measuring epitope specific ip-10 production by t cells
+  [TP] blood assay -> 96-well neutralization assay
+  [TP] blood assay -> serum neutralization of viral infectivity assay
+  [TP] data item -> feces assay datum
+  [TP] data transformation -> sequence analysis data transformation
+  [TP] data transformation -> sequence library data demultiplexing
+  [TP] filtration -> water filtration
+  [TP] function -> record function
+  [TP] material component separation -> filtration
+  [TP] material component separation -> water filtration
+  [TP] material processing -> filtration
+  [TP] material processing -> material component separation
+  [TP] material processing -> water filtration
+  [TP] sequence analysis data transformation -> sequence library data demultiplexing
+  [TP] serum neutralization of viral infectivity assay -> 96-well neutralization assay
+  [TP] specimen identifier -> specimen identifier assigned by specimen repository
+  [TP] symbol -> centrally registered identifier symbol
+  [TP] symbol -> specimen identifier
+  [TP] symbol -> specimen identifier assigned by specimen repository
+  [TP] t cell epitope assay -> assay measuring biological activity resulting from t cell epitopemhctcr binding
+  [TP] t cell epitope assay -> assay measuring epitope specific cytokine production by t cells
+  [TP] t cell epitope assay -> assay measuring epitope specific ip-10 production by t cells
+  [TP] t cell epitope assay -> intracellular cytokine staining assay measuring epitope specific ip-10 production by t cells
+
+INCORRECT PREDICTIONS (False Positives: 19):
+  [FP] analyte assay -> assay measuring biological activity resulting from t cell epitopemhctcr binding
+  [FP] analyte assay -> assay measuring epitope specific cytokine production by t cells
+  [FP] analyte assay -> assay measuring epitope specific ip-10 production by t cells
+  [FP] analyte assay -> blood assay
+  [FP] analyte assay -> intracellular cytokine staining assay measuring epitope specific ip-10 production by t cells
+  [FP] analyte assay -> t cell epitope assay
+  [FP] assay -> assay measuring biological activity resulting from t cell epitopemhctcr binding
+  [FP] assay -> assay measuring epitope specific cytokine production by t cells
+  [FP] assay -> assay measuring epitope specific ip-10 production by t cells
+  [FP] assay -> intracellular cytokine staining assay measuring epitope specific ip-10 production by t cells
+  [FP] assay -> t cell epitope assay
+  [FP] blood assay -> assay measuring epitope specific cytokine production by t cells
+  [FP] blood assay -> assay measuring epitope specific ip-10 production by t cells
+  [FP] blood assay -> intracellular cytokine staining assay measuring epitope specific ip-10 production by t cells
+  [FP] data item -> centrally registered identifier symbol
+  [FP] data item -> specimen identifier
+  [FP] data item -> specimen identifier assigned by specimen repository
+  [FP] data item -> symbol
+  [FP] specimen identifier -> centrally registered identifier symbol
+
+MISSED RELATIONS (False Negatives: 14):
+  [FN] centrally registered identifier symbol -> specimen identifier
+  [FN] centrally registered identifier symbol -> specimen identifier assigned by specimen repository
+  [FN] planned process -> 96-well neutralization assay
+  [FN] planned process -> analyte assay
+  [FN] planned process -> assay
+  [FN] planned process -> blood assay
+  [FN] planned process -> data transformation
+  [FN] planned process -> filtration
+  [FN] planned process -> material component separation
+  [FN] planned process -> material processing
+  [FN] planned process -> sequence analysis data transformation
+  [FN] planned process -> sequence library data demultiplexing
+  [FN] planned process -> serum neutralization of viral infectivity assay
+  [FN] planned process -> water filtration
