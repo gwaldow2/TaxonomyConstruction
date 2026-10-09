@@ -99,9 +99,21 @@ def main():
     ap.add_argument("--scale", default="SUB")
     ap.add_argument("--results_file", default="density_results.json")
     ap.add_argument("--max_retries", type=int, default=3)
+    ap.add_argument("--tag", default="",
+                    help="Per-model provenance tag appended to every report and prediction-graph "
+                         "filename (e.g. gemini31_dsweep). Without it, sweeps with different "
+                         "models overwrite each other's ./results artifacts.")
     ap.add_argument("--dry_run", action="store_true",
                     help="Show group counts and one sample prompt per m; no LLM calls.")
     args = ap.parse_args()
+
+    # Same provenance contract as main.py: the evaluator appends the tag to every
+    # artifact filename and stamps these fields into each saved prediction graph.
+    from datetime import datetime
+    import evaluator as _evaluator
+    _evaluator.RUN_META = {"model": args.model, "tag": args.tag,
+                           "results_file": args.results_file, "scale": args.scale,
+                           "timestamp": datetime.now().isoformat(timespec="seconds")}
 
     from data_manager import load_benchmark_graph, get_primary_term
     from our_method import cluster_synonyms_and_enforce_dag
