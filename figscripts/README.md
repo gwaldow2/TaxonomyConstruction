@@ -31,6 +31,7 @@ blocks, keeping exactly one result entry (the wanted method) per block.
 | `density_vis.py` | density_gemma4.png | results/mech_20260909/density_gemma4.json |
 | `khop_vis.py` | khop_recall.png (three-way, N=100) | results/battery_20260925/khop_setoverlap.csv (frozen CSV incl. matched rows) |
 | `khop200.py` | khop_sub200.png (+ builds khop_sub200.csv) | scaling campaign preds + benchmark graphs |
+| `khop_v2core.py` | paper_figures/v2/khop_recall_v2core.png (+ builds khop_v2core.csv) | battery N=100 preds (legacy 3) + v2phase1/v2phase2 preds & GT (V2 four) |
 | `khop_mechanism_data.py` | builds results/scaling_20261001/khop_mechanism.csv | battery + scaling single-call preds |
 | `khop_mechanism_vis.py` | khop_mechanism.png | khop_mechanism.csv |
 | `m_recommend_split.py` | m_recommendation_gemma.png, m_recommendation_gemini.png | density sweep jsons + scaling fits |
