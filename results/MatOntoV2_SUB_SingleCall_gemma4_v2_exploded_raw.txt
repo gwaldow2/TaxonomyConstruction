@@ -1,0 +1,142 @@
+==================================================
+=== Detailed Node Pair Analysis (Exploded Raw Edges) ===
+Match Type Used: EXACT
+==================================================
+Precision: 0.7071 | Recall: 0.6863 | F1: 0.6965
+
+CORRECT PREDICTIONS (True Positives: 70 Pred edges covering 70 GT edges):
+  [TP] acyl halide group -> acylbromidegroup
+  [TP] allotrope -> carbon allotrope
+  [TP] atom -> antimony atom
+  [TP] atom -> argon atom
+  [TP] atom -> berkelium atom
+  [TP] atom -> boron atom
+  [TP] atom -> bromine atom
+  [TP] atom -> cerium atom
+  [TP] atom -> europium atom
+  [TP] atom -> germanium atom
+  [TP] atom -> neon atom
+  [TP] atom -> palladium atom
+  [TP] atom -> radium atom
+  [TP] atom -> ununpentium atom
+  [TP] carbon allotrope -> chaoite
+  [TP] chemical conformation -> periplanar conformation
+  [TP] chemical substance -> pure substance
+  [TP] compound -> binary compound
+  [TP] compound -> complex
+  [TP] compound -> organic compound
+  [TP] continuant -> dependent_continuant
+  [TP] continuant -> independent_continuant
+  [TP] dependent_continuant -> quality
+  [TP] electric charge -> negative charge
+  [TP] element -> barium
+  [TP] element -> boron
+  [TP] element -> californium
+  [TP] element -> dysprosium
+  [TP] element -> fluorine
+  [TP] element -> hassium
+  [TP] element -> helium
+  [TP] element -> periodic table element
+  [TP] element -> platinum
+  [TP] element -> protactinium
+  [TP] element -> radium
+  [TP] element -> radon
+  [TP] element -> thulium
+  [TP] energy -> internal energy
+  [TP] entity -> continuant
+  [TP] group element -> boron group element
+  [TP] group element -> group 12 element
+  [TP] group element -> group 2 element
+  [TP] group element -> group 4 element
+  [TP] independent_continuant -> object
+  [TP] measured property -> angle
+  [TP] measured property -> atom property
+  [TP] measured property -> electric charge
+  [TP] measured property -> electric charge density
+  [TP] measured property -> flexural strength
+  [TP] measured property -> fracture toughness
+  [TP] measured property -> molecularquality
+  [TP] measured property -> potential difference
+  [TP] measured property -> temperature range
+  [TP] measured property -> wavenumber
+  [TP] molecular geometry -> linear molecular geometry
+  [TP] organic compound -> acyl compound
+  [TP] organic compound -> alcohol
+  [TP] organic compound -> ether
+  [TP] organic group -> acyl halide group
+  [TP] organic group -> ketone group
+  [TP] period element -> period 3 element
+  [TP] periodic table element -> group element
+  [TP] periodic table element -> period element
+  [TP] pure substance -> element
+  [TP] quality -> measured property
+  [TP] ring -> homo cyclic ring
+  [TP] temperature range -> temperature range upper bound
+  [TP] unit -> conduction unit
+  [TP] unit -> electric resistance unit
+  [TP] unit -> electromagnetic radiation unit
+
+INCORRECT PREDICTIONS (False Positives: 29):
+  [FP] acyl compound -> acyl halide group
+  [FP] compound -> ionic compound
+  [FP] compound -> reactant
+  [FP] compound -> reagent
+  [FP] compound -> solute
+  [FP] element -> allotrope
+  [FP] element -> atom
+  [FP] independent_continuant -> chemical substance
+  [FP] independent_continuant -> electromagnetic radation
+  [FP] independent_continuant -> unit
+  [FP] measured property -> atomic number
+  [FP] measured property -> chemical quality
+  [FP] measured property -> cyclicity
+  [FP] measured property -> flexural modulus
+  [FP] measured property -> hydrogen bond donor count
+  [FP] measured property -> internal energy
+  [FP] measured property -> luminous flux
+  [FP] measured property -> molecular geometry
+  [FP] measured property -> moleculecomponentcount
+  [FP] measured property -> space group property
+  [FP] object -> fiat_object_part
+  [FP] organic compound -> ketone group
+  [FP] pure substance -> compound
+  [FP] quality -> chemical conformation
+  [FP] quality -> intensive property
+  [FP] ring -> acyclic
+  [FP] topological complex -> ring
+  [FP] unit -> irradiance unit
+  [FP] unit -> thermal conduction unit
+
+MISSED RELATIONS (False Negatives: 32):
+  [FN] atom property -> atomic number
+  [FN] binary compound -> ionic compound
+  [FN] chemical quality -> chemical conformation
+  [FN] chemical quality -> chemical family
+  [FN] chemical quality -> electric charge
+  [FN] chemical quality -> molecular geometry
+  [FN] chemical substance -> compound
+  [FN] chemical substance -> reagent
+  [FN] chemical substance -> solute
+  [FN] complex -> topological complex
+  [FN] conduction unit -> thermal conduction unit
+  [FN] cyclicity -> acyclic
+  [FN] electromagnetic radation -> luminous flux
+  [FN] electromagnetic radiation unit -> irradiance unit
+  [FN] independent_continuant -> fiat_object_part
+  [FN] intensive property -> flexural modulus
+  [FN] measured property -> electromagnetic radation
+  [FN] measured property -> energy
+  [FN] measured property -> intensive property
+  [FN] measured property -> unit
+  [FN] molecularquality -> cyclicity
+  [FN] molecularquality -> moleculecomponentcount
+  [FN] moleculecomponentcount -> hydrogen bond donor count
+  [FN] object -> atom
+  [FN] object -> chemical substance
+  [FN] object -> organic group
+  [FN] object -> ring
+  [FN] pure substance -> allotrope
+  [FN] quality -> atom property
+  [FN] quality -> chemical quality
+  [FN] quality -> space group property
+  [FN] reagent -> reactant

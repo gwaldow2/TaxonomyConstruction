@@ -1,0 +1,140 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d11" for="node" attr.name="is_virtual" attr.type="boolean"/>
+<key id="d10" for="graph" attr.name="generated" attr.type="string"/>
+<key id="d9" for="graph" attr.name="source_file" attr.type="string"/>
+<key id="d8" for="graph" attr.name="seed" attr.type="string"/>
+<key id="d7" for="graph" attr.name="target_nodes" attr.type="string"/>
+<key id="d6" for="graph" attr.name="scale" attr.type="string"/>
+<key id="d5" for="graph" attr.name="source_edges" attr.type="string"/>
+<key id="d4" for="graph" attr.name="source_nodes" attr.type="string"/>
+<key id="d3" for="graph" attr.name="generator" attr.type="string"/>
+<key id="d2" for="graph" attr.name="source_fetched" attr.type="string"/>
+<key id="d1" for="graph" attr.name="source_sha256" attr.type="string"/>
+<key id="d0" for="graph" attr.name="source_url" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">https://purl.obolibrary.org/obo/obi.obo</data>
+<data key="d1">71c2aa99851163bb253fcba533b3f36b8dc26c0b96816280da4341996dd208b9</data>
+<data key="d2">2026-10-16T00:01:36</data>
+<data key="d3">scale_benchmarks.py</data>
+<data key="d4">4704</data>
+<data key="d5">5669</data>
+<data key="d6">SUB50</data>
+<data key="d7">50</data>
+<data key="d8">42</data>
+<data key="d9">OBIV2_FULL.graphml</data>
+<data key="d10">2026-10-16T00:05:53</data>
+<node id="measurement device"/>
+<node id="insecticide resistance assay"/>
+<node id="carbon dioxide assay"/>
+<node id="genetic transformation"/>
+<node id="assay measuring binding of a mhcligand complex"/>
+<node id="complex of molecules"/>
+<node id="mammalian 2-hybrid assay"/>
+<node id="random mutagenesis"/>
+<node id="device"/>
+<node id="completely executed planned process"/>
+<node id="single-cell metabolically labeled new rna tagging sequencing"/>
+<node id="immune epitope assay"/>
+<node id="insecticide resistance time response assay"/>
+<node id="transcription profiling by rna sequencing assay"/>
+<node id="analyte assay"/>
+<node id="pacbio rs ii"/>
+<node id="detection of specific nucleic acid polymers with complementary probes"/>
+<node id="mhc ligand assay"/>
+<node id="material entity"/>
+<node id="assay measuring epitope specific interleukin-18 production by t cells"/>
+<node id="assay"/>
+<node id="binding assay using radioactivity detection"/>
+<node id="insecticide resistance time response by bottle assay"/>
+<node id="molecule"/>
+<node id="gadolinium atom"/>
+<node id="dna sequencer"/>
+<node id="planned process"/>
+<node id="binding assay"/>
+<node id="insecticide resistance by detecting glutathione s-transferase activity assay"/>
+<node id="luminex 200"/>
+<node id="cytometer"/>
+<node id="protein-containing complex"/>
+<node id="transcription profiling assay"/>
+<node id="radioactivity detection assay measuring half maximal effective concentration ec50 to determine direct binding of a cell-lysate-mhcligand complex"/>
+<node id="blood assay"/>
+<node id="processed material entity"/>
+<node id="process"/>
+<node id="insecticide resistance by detecting enzyme activity assay"/>
+<node id="assay measuring epitope specific cytokine production by t cells"/>
+<node id="induced mutagenesis"/>
+<node id="flow cytometer"/>
+<node id="single-cell transcription profiling by rna sequencing assay"/>
+<node id="panel5 venous blood carbon dioxide assay"/>
+<node id="insecticide resistance bioassay"/>
+<node id="flow cytometer analyzer"/>
+<node id="assay measuring biological activity resulting from t cell epitopemhctcr binding"/>
+<node id="assay measuring quantitative binding of a mhcligand complex"/>
+<node id="detection of specific nucleic acids with complementary probes assay measuring epitope specific interleukin-18 production by t cells"/>
+<node id="cellular_component"/>
+<node id="t cell epitope assay"/>
+<node id="chemical mutagenesis"/>
+<node id="assay measuring the half maximal effective concentration ec50 of a mhcligand complex"/>
+<node id="cytosolic creatine kinase complex mb-type"/>
+<node id="direct insecticide resistance bioassay"/>
+<node id="virtual_root">
+  <data key="d11">True</data>
+</node>
+<edge source="measurement device" target="dna sequencer"/>
+<edge source="measurement device" target="cytometer"/>
+<edge source="insecticide resistance assay" target="insecticide resistance by detecting enzyme activity assay"/>
+<edge source="insecticide resistance assay" target="insecticide resistance bioassay"/>
+<edge source="carbon dioxide assay" target="panel5 venous blood carbon dioxide assay"/>
+<edge source="genetic transformation" target="induced mutagenesis"/>
+<edge source="assay measuring binding of a mhcligand complex" target="assay measuring quantitative binding of a mhcligand complex"/>
+<edge source="complex of molecules" target="protein-containing complex"/>
+<edge source="random mutagenesis" target="chemical mutagenesis"/>
+<edge source="device" target="measurement device"/>
+<edge source="completely executed planned process" target="assay"/>
+<edge source="completely executed planned process" target="genetic transformation"/>
+<edge source="immune epitope assay" target="mhc ligand assay"/>
+<edge source="immune epitope assay" target="t cell epitope assay"/>
+<edge source="insecticide resistance time response assay" target="insecticide resistance time response by bottle assay"/>
+<edge source="transcription profiling by rna sequencing assay" target="single-cell transcription profiling by rna sequencing assay"/>
+<edge source="analyte assay" target="detection of specific nucleic acid polymers with complementary probes"/>
+<edge source="analyte assay" target="carbon dioxide assay"/>
+<edge source="detection of specific nucleic acid polymers with complementary probes" target="detection of specific nucleic acids with complementary probes assay measuring epitope specific interleukin-18 production by t cells"/>
+<edge source="mhc ligand assay" target="assay measuring binding of a mhcligand complex"/>
+<edge source="material entity" target="molecule"/>
+<edge source="material entity" target="processed material entity"/>
+<edge source="material entity" target="complex of molecules"/>
+<edge source="material entity" target="cellular_component"/>
+<edge source="assay measuring epitope specific interleukin-18 production by t cells" target="detection of specific nucleic acids with complementary probes assay measuring epitope specific interleukin-18 production by t cells"/>
+<edge source="assay" target="transcription profiling assay"/>
+<edge source="assay" target="analyte assay"/>
+<edge source="assay" target="binding assay"/>
+<edge source="assay" target="insecticide resistance assay"/>
+<edge source="assay" target="blood assay"/>
+<edge source="assay" target="immune epitope assay"/>
+<edge source="binding assay using radioactivity detection" target="radioactivity detection assay measuring half maximal effective concentration ec50 to determine direct binding of a cell-lysate-mhcligand complex"/>
+<edge source="molecule" target="gadolinium atom"/>
+<edge source="dna sequencer" target="pacbio rs ii"/>
+<edge source="planned process" target="completely executed planned process"/>
+<edge source="binding assay" target="binding assay using radioactivity detection"/>
+<edge source="binding assay" target="mammalian 2-hybrid assay"/>
+<edge source="cytometer" target="flow cytometer"/>
+<edge source="protein-containing complex" target="cytosolic creatine kinase complex mb-type"/>
+<edge source="transcription profiling assay" target="transcription profiling by rna sequencing assay"/>
+<edge source="blood assay" target="panel5 venous blood carbon dioxide assay"/>
+<edge source="processed material entity" target="device"/>
+<edge source="process" target="planned process"/>
+<edge source="insecticide resistance by detecting enzyme activity assay" target="insecticide resistance by detecting glutathione s-transferase activity assay"/>
+<edge source="assay measuring epitope specific cytokine production by t cells" target="assay measuring epitope specific interleukin-18 production by t cells"/>
+<edge source="induced mutagenesis" target="random mutagenesis"/>
+<edge source="flow cytometer" target="flow cytometer analyzer"/>
+<edge source="single-cell transcription profiling by rna sequencing assay" target="single-cell metabolically labeled new rna tagging sequencing"/>
+<edge source="insecticide resistance bioassay" target="direct insecticide resistance bioassay"/>
+<edge source="flow cytometer analyzer" target="luminex 200"/>
+<edge source="assay measuring biological activity resulting from t cell epitopemhctcr binding" target="assay measuring epitope specific cytokine production by t cells"/>
+<edge source="assay measuring quantitative binding of a mhcligand complex" target="assay measuring the half maximal effective concentration ec50 of a mhcligand complex"/>
+<edge source="cellular_component" target="protein-containing complex"/>
+<edge source="t cell epitope assay" target="assay measuring biological activity resulting from t cell epitopemhctcr binding"/>
+<edge source="assay measuring the half maximal effective concentration ec50 of a mhcligand complex" target="radioactivity detection assay measuring half maximal effective concentration ec50 to determine direct binding of a cell-lysate-mhcligand complex"/>
+<edge source="direct insecticide resistance bioassay" target="insecticide resistance time response assay"/>
+<edge source="virtual_root" target="material entity"/>
+<edge source="virtual_root" target="process"/>
+</graph></graphml>
