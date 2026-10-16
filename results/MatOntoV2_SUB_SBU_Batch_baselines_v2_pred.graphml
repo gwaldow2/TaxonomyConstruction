@@ -1,0 +1,205 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d4" for="graph" attr.name="timestamp" attr.type="string"/>
+<key id="d3" for="graph" attr.name="scale" attr.type="string"/>
+<key id="d2" for="graph" attr.name="results_file" attr.type="string"/>
+<key id="d1" for="graph" attr.name="tag" attr.type="string"/>
+<key id="d0" for="graph" attr.name="model" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">google/gemma-4-31b-it</data>
+<data key="d1">baselines_v2</data>
+<data key="d2">results/v2_baselines.json</data>
+<data key="d3">SUB</data>
+<data key="d4">2026-10-16T00:41:36</data>
+<node id="entity"/>
+<node id="continuant"/>
+<node id="dependent_continuant"/>
+<node id="independent_continuant"/>
+<node id="fiat_object_part"/>
+<node id="object"/>
+<node id="chemical substance"/>
+<node id="element"/>
+<node id="compound"/>
+<node id="pure substance"/>
+<node id="periodic table element"/>
+<node id="period element"/>
+<node id="group element"/>
+<node id="period 3 element"/>
+<node id="group 2 element"/>
+<node id="group 4 element"/>
+<node id="group 12 element"/>
+<node id="boron group element"/>
+<node id="boron"/>
+<node id="fluorine"/>
+<node id="helium"/>
+<node id="radium"/>
+<node id="platinum"/>
+<node id="hassium"/>
+<node id="protactinium"/>
+<node id="barium"/>
+<node id="radon"/>
+<node id="thulium"/>
+<node id="dysprosium"/>
+<node id="californium"/>
+<node id="cerium"/>
+<node id="atom"/>
+<node id="boron atom"/>
+<node id="bromine atom"/>
+<node id="palladium atom"/>
+<node id="europium atom"/>
+<node id="radium atom"/>
+<node id="neon atom"/>
+<node id="ununpentium atom"/>
+<node id="argon atom"/>
+<node id="germanium atom"/>
+<node id="berkelium atom"/>
+<node id="organic compound"/>
+<node id="binary compound"/>
+<node id="ionic compound"/>
+<node id="acyl compound"/>
+<node id="ether"/>
+<node id="alcohol"/>
+<node id="ketone group"/>
+<node id="acyl halide group"/>
+<node id="acylbromidegroup"/>
+<node id="organic group"/>
+<node id="complex"/>
+<node id="topological complex"/>
+<node id="allotrope"/>
+<node id="carbon allotrope"/>
+<node id="chaoite"/>
+<node id="quality"/>
+<node id="chemical quality"/>
+<node id="molecularquality"/>
+<node id="measured property"/>
+<node id="intensive property"/>
+<node id="flexural modulus"/>
+<node id="fracture toughness"/>
+<node id="flexural strength"/>
+<node id="atom property"/>
+<node id="atomic number"/>
+<node id="electric charge"/>
+<node id="negative charge"/>
+<node id="electric charge density"/>
+<node id="potential difference"/>
+<node id="energy"/>
+<node id="internal energy"/>
+<node id="temperature range"/>
+<node id="temperature range upper bound"/>
+<node id="wavenumber"/>
+<node id="luminous flux"/>
+<node id="angle"/>
+<node id="moleculecomponentcount"/>
+<node id="hydrogen bond donor count"/>
+<node id="chemical conformation"/>
+<node id="periplanar conformation"/>
+<node id="molecular geometry"/>
+<node id="linear molecular geometry"/>
+<node id="ring"/>
+<node id="homo cyclic ring"/>
+<node id="cyclicity"/>
+<node id="acyclic"/>
+<node id="unit"/>
+<node id="thermal conduction unit"/>
+<node id="conduction unit"/>
+<node id="electric resistance unit"/>
+<node id="irradiance unit"/>
+<node id="electromagnetic radiation unit"/>
+<node id="electromagnetic radation"/>
+<node id="solute"/>
+<node id="reactant"/>
+<node id="reagent"/>
+<node id="space group property"/>
+<edge source="entity" target="continuant"/>
+<edge source="entity" target="dependent_continuant"/>
+<edge source="continuant" target="independent_continuant"/>
+<edge source="continuant" target="fiat_object_part"/>
+<edge source="dependent_continuant" target="quality"/>
+<edge source="independent_continuant" target="object"/>
+<edge source="object" target="chemical substance"/>
+<edge source="chemical substance" target="element"/>
+<edge source="chemical substance" target="compound"/>
+<edge source="chemical substance" target="pure substance"/>
+<edge source="chemical substance" target="solute"/>
+<edge source="chemical substance" target="reactant"/>
+<edge source="chemical substance" target="reagent"/>
+<edge source="element" target="periodic table element"/>
+<edge source="element" target="boron"/>
+<edge source="element" target="fluorine"/>
+<edge source="element" target="helium"/>
+<edge source="element" target="radium"/>
+<edge source="element" target="platinum"/>
+<edge source="element" target="hassium"/>
+<edge source="element" target="protactinium"/>
+<edge source="element" target="barium"/>
+<edge source="element" target="radon"/>
+<edge source="element" target="thulium"/>
+<edge source="element" target="dysprosium"/>
+<edge source="element" target="californium"/>
+<edge source="element" target="cerium"/>
+<edge source="element" target="atom"/>
+<edge source="compound" target="organic compound"/>
+<edge source="compound" target="binary compound"/>
+<edge source="compound" target="ionic compound"/>
+<edge source="compound" target="complex"/>
+<edge source="periodic table element" target="period element"/>
+<edge source="periodic table element" target="group element"/>
+<edge source="period element" target="period 3 element"/>
+<edge source="group element" target="group 2 element"/>
+<edge source="group element" target="group 4 element"/>
+<edge source="group element" target="group 12 element"/>
+<edge source="group element" target="boron group element"/>
+<edge source="atom" target="boron atom"/>
+<edge source="atom" target="bromine atom"/>
+<edge source="atom" target="palladium atom"/>
+<edge source="atom" target="europium atom"/>
+<edge source="atom" target="radium atom"/>
+<edge source="atom" target="neon atom"/>
+<edge source="atom" target="ununpentium atom"/>
+<edge source="atom" target="argon atom"/>
+<edge source="atom" target="germanium atom"/>
+<edge source="atom" target="berkelium atom"/>
+<edge source="organic compound" target="acyl compound"/>
+<edge source="organic compound" target="ether"/>
+<edge source="organic compound" target="alcohol"/>
+<edge source="acyl compound" target="ketone group"/>
+<edge source="acyl compound" target="acyl halide group"/>
+<edge source="acyl halide group" target="acylbromidegroup"/>
+<edge source="organic group" target="ketone group"/>
+<edge source="organic group" target="acyl halide group"/>
+<edge source="complex" target="topological complex"/>
+<edge source="allotrope" target="carbon allotrope"/>
+<edge source="allotrope" target="chaoite"/>
+<edge source="quality" target="chemical quality"/>
+<edge source="quality" target="molecularquality"/>
+<edge source="quality" target="measured property"/>
+<edge source="measured property" target="intensive property"/>
+<edge source="measured property" target="atom property"/>
+<edge source="measured property" target="electric charge"/>
+<edge source="measured property" target="electric charge density"/>
+<edge source="measured property" target="potential difference"/>
+<edge source="measured property" target="energy"/>
+<edge source="measured property" target="temperature range"/>
+<edge source="measured property" target="wavenumber"/>
+<edge source="measured property" target="luminous flux"/>
+<edge source="measured property" target="angle"/>
+<edge source="measured property" target="moleculecomponentcount"/>
+<edge source="measured property" target="hydrogen bond donor count"/>
+<edge source="measured property" target="space group property"/>
+<edge source="intensive property" target="flexural modulus"/>
+<edge source="intensive property" target="fracture toughness"/>
+<edge source="intensive property" target="flexural strength"/>
+<edge source="atom property" target="atomic number"/>
+<edge source="electric charge" target="negative charge"/>
+<edge source="energy" target="internal energy"/>
+<edge source="temperature range" target="temperature range upper bound"/>
+<edge source="chemical conformation" target="periplanar conformation"/>
+<edge source="molecular geometry" target="linear molecular geometry"/>
+<edge source="ring" target="homo cyclic ring"/>
+<edge source="ring" target="cyclicity"/>
+<edge source="ring" target="acyclic"/>
+<edge source="unit" target="thermal conduction unit"/>
+<edge source="unit" target="conduction unit"/>
+<edge source="unit" target="electric resistance unit"/>
+<edge source="unit" target="irradiance unit"/>
+<edge source="unit" target="electromagnetic radiation unit"/>
+<edge source="electromagnetic radation" target="electromagnetic radiation unit"/>
+</graph></graphml>

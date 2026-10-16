@@ -1,0 +1,765 @@
+==================================================
+=== Detailed Node Pair Analysis (Exploded Transitive Closure) ===
+Match Type Used: EXACT
+==================================================
+Precision: 0.1429 | Recall: 0.0523 | F1: 0.0765
+
+CORRECT PREDICTIONS (True Positives: 30 Pred edges covering 30 GT edges):
+  [TP] acyl halide group -> acylbromidegroup
+  [TP] allotrope -> carbon allotrope
+  [TP] atom -> antimony atom
+  [TP] atom -> argon atom
+  [TP] atom -> neon atom
+  [TP] atom -> ununpentium atom
+  [TP] atom property -> atomic number
+  [TP] chemical conformation -> periplanar conformation
+  [TP] chemical substance -> chaoite
+  [TP] chemical substance -> fluorine
+  [TP] chemical substance -> pure substance
+  [TP] chemical substance -> solute
+  [TP] complex -> topological complex
+  [TP] compound -> binary compound
+  [TP] compound -> organic compound
+  [TP] conduction unit -> thermal conduction unit
+  [TP] electric charge -> negative charge
+  [TP] electromagnetic radiation unit -> irradiance unit
+  [TP] element -> barium
+  [TP] element -> californium
+  [TP] energy -> internal energy
+  [TP] group element -> group 12 element
+  [TP] group element -> group 2 element
+  [TP] group element -> group 4 element
+  [TP] measured property -> intensive property
+  [TP] molecular geometry -> linear molecular geometry
+  [TP] organic group -> ketone group
+  [TP] period element -> period 3 element
+  [TP] pure substance -> chaoite
+  [TP] temperature range -> temperature range upper bound
+
+INCORRECT PREDICTIONS (False Positives: 180):
+  [FP] acyl compound -> acyclic
+  [FP] acyl halide group -> acyclic
+  [FP] acyl halide group -> acyl compound
+  [FP] acyl halide group -> acyl halide group
+  [FP] acylbromidegroup -> acyclic
+  [FP] acylbromidegroup -> acyl compound
+  [FP] acylbromidegroup -> acyl halide group
+  [FP] acylbromidegroup -> acylbromidegroup
+  [FP] alcohol -> alcohol
+  [FP] alcohol -> ether
+  [FP] allotrope -> allotrope
+  [FP] antimony atom -> ununpentium atom
+  [FP] atom -> atom
+  [FP] atom -> atom property
+  [FP] atom -> atomic number
+  [FP] atom -> helium
+  [FP] atom -> intensive property
+  [FP] atom -> measured property
+  [FP] atom -> wavenumber
+  [FP] atom property -> antimony atom
+  [FP] atom property -> argon atom
+  [FP] atom property -> atom
+  [FP] atom property -> atom property
+  [FP] atom property -> helium
+  [FP] atom property -> intensive property
+  [FP] atom property -> measured property
+  [FP] atom property -> neon atom
+  [FP] atom property -> ununpentium atom
+  [FP] atom property -> wavenumber
+  [FP] atomic number -> wavenumber
+  [FP] berkelium atom -> protactinium
+  [FP] boron -> boron
+  [FP] boron -> boron atom
+  [FP] boron -> boron group element
+  [FP] boron -> bromine atom
+  [FP] boron atom -> boron
+  [FP] boron atom -> boron atom
+  [FP] boron atom -> boron group element
+  [FP] boron atom -> bromine atom
+  [FP] californium -> barium
+  [FP] carbon allotrope -> allotrope
+  [FP] carbon allotrope -> carbon allotrope
+  [FP] chemical conformation -> chemical conformation
+  [FP] chemical quality -> quality
+  [FP] chemical reaction -> chaoite
+  [FP] chemical reaction -> chemical family
+  [FP] chemical reaction -> chemical quality
+  [FP] chemical reaction -> chemical substance
+  [FP] chemical reaction -> fluorine
+  [FP] chemical reaction -> pure substance
+  [FP] chemical reaction -> quality
+  [FP] chemical reaction -> reactant
+  [FP] chemical reaction -> reagent
+  [FP] chemical reaction -> solute
+  [FP] chemical substance -> chemical family
+  [FP] chemical substance -> chemical quality
+  [FP] chemical substance -> quality
+  [FP] complex -> angle
+  [FP] complex -> complex
+  [FP] compound -> compound
+  [FP] compound -> ketone group
+  [FP] compound -> moleculecomponentcount
+  [FP] compound -> organic group
+  [FP] conduction unit -> conduction unit
+  [FP] conduction unit -> electric resistance unit
+  [FP] conduction unit -> unit
+  [FP] cyclicity -> cyclicity
+  [FP] cyclicity -> homo cyclic ring
+  [FP] cyclicity -> ring
+  [FP] dependent_continuant -> continuant
+  [FP] dependent_continuant -> dependent_continuant
+  [FP] dependent_continuant -> independent_continuant
+  [FP] electric charge -> electric charge
+  [FP] electric charge -> electric charge density
+  [FP] electromagnetic radiation unit -> electromagnetic radation
+  [FP] electromagnetic radiation unit -> electromagnetic radiation unit
+  [FP] electromagnetic radiation unit -> luminous flux
+  [FP] electrostatic interaction -> potential difference
+  [FP] element -> object
+  [FP] energy -> energy
+  [FP] ether -> alcohol
+  [FP] ether -> ether
+  [FP] europium atom -> berkelium atom
+  [FP] europium atom -> cerium atom
+  [FP] europium atom -> europium atom
+  [FP] europium atom -> germanium atom
+  [FP] europium atom -> protactinium
+  [FP] fiat_process_part -> fiat_object_part
+  [FP] flexural modulus -> flexural modulus
+  [FP] flexural modulus -> flexural strength
+  [FP] flexural modulus -> fracture toughness
+  [FP] flexural strength -> flexural modulus
+  [FP] flexural strength -> flexural strength
+  [FP] flexural strength -> fracture toughness
+  [FP] germanium atom -> berkelium atom
+  [FP] germanium atom -> cerium atom
+  [FP] germanium atom -> europium atom
+  [FP] germanium atom -> germanium atom
+  [FP] germanium atom -> protactinium
+  [FP] group 2 element -> barium
+  [FP] group 2 element -> californium
+  [FP] group 2 element -> element
+  [FP] group 2 element -> group 12 element
+  [FP] group 2 element -> group 2 element
+  [FP] group 2 element -> group 4 element
+  [FP] group 2 element -> group element
+  [FP] group 2 element -> object
+  [FP] group 2 element -> space group property
+  [FP] group element -> barium
+  [FP] group element -> californium
+  [FP] group element -> element
+  [FP] group element -> group element
+  [FP] group element -> object
+  [FP] group element -> space group property
+  [FP] hassium -> dysprosium
+  [FP] hassium -> hassium
+  [FP] hassium -> thulium
+  [FP] homo cyclic ring -> cyclicity
+  [FP] homo cyclic ring -> homo cyclic ring
+  [FP] homo cyclic ring -> ring
+  [FP] hydrogen bond -> hydrogen bond donor count
+  [FP] independent_continuant -> continuant
+  [FP] independent_continuant -> dependent_continuant
+  [FP] independent_continuant -> independent_continuant
+  [FP] internal energy -> energy
+  [FP] internal energy -> internal energy
+  [FP] ionic bond -> ionic compound
+  [FP] irradiance unit -> electromagnetic radation
+  [FP] irradiance unit -> electromagnetic radiation unit
+  [FP] irradiance unit -> irradiance unit
+  [FP] irradiance unit -> luminous flux
+  [FP] linear molecular geometry -> linear molecular geometry
+  [FP] linear molecular geometry -> molecular geometry
+  [FP] linear molecular geometry -> molecularquality
+  [FP] molecular geometry -> molecular geometry
+  [FP] molecular geometry -> molecularquality
+  [FP] negative charge -> electric charge
+  [FP] negative charge -> electric charge density
+  [FP] negative charge -> negative charge
+  [FP] neon atom -> helium
+  [FP] organic compound -> binary compound
+  [FP] organic compound -> compound
+  [FP] organic compound -> ketone group
+  [FP] organic compound -> moleculecomponentcount
+  [FP] organic compound -> organic compound
+  [FP] organic compound -> organic group
+  [FP] period 3 element -> period 3 element
+  [FP] period 3 element -> period element
+  [FP] period 3 element -> periodic table element
+  [FP] period element -> period element
+  [FP] period element -> periodic table element
+  [FP] periplanar conformation -> chemical conformation
+  [FP] periplanar conformation -> periplanar conformation
+  [FP] processual_entity -> entity
+  [FP] pure substance -> solute
+  [FP] radium -> palladium atom
+  [FP] radium -> platinum
+  [FP] radium -> radium
+  [FP] radium -> radium atom
+  [FP] radium -> radon
+  [FP] radium atom -> palladium atom
+  [FP] radium atom -> platinum
+  [FP] radium atom -> radium
+  [FP] radium atom -> radium atom
+  [FP] radium atom -> radon
+  [FP] reactant -> reagent
+  [FP] solute -> chaoite
+  [FP] temperature range -> temperature range
+  [FP] temperature range upper bound -> temperature range
+  [FP] temperature range upper bound -> temperature range upper bound
+  [FP] thermal conduction unit -> conduction unit
+  [FP] thermal conduction unit -> electric resistance unit
+  [FP] thermal conduction unit -> thermal conduction unit
+  [FP] thermal conduction unit -> unit
+  [FP] thulium -> dysprosium
+  [FP] thulium -> hassium
+  [FP] thulium -> thulium
+  [FP] topological complex -> angle
+  [FP] topological complex -> complex
+  [FP] topological complex -> topological complex
+
+MISSED RELATIONS (False Negatives: 544):
+  [FN] allotrope -> chaoite
+  [FN] atom -> berkelium atom
+  [FN] atom -> boron atom
+  [FN] atom -> bromine atom
+  [FN] atom -> cerium atom
+  [FN] atom -> europium atom
+  [FN] atom -> germanium atom
+  [FN] atom -> palladium atom
+  [FN] atom -> radium atom
+  [FN] binary compound -> ionic compound
+  [FN] carbon allotrope -> chaoite
+  [FN] chemical quality -> chemical conformation
+  [FN] chemical quality -> chemical family
+  [FN] chemical quality -> electric charge
+  [FN] chemical quality -> linear molecular geometry
+  [FN] chemical quality -> molecular geometry
+  [FN] chemical quality -> negative charge
+  [FN] chemical quality -> periplanar conformation
+  [FN] chemical substance -> acyl compound
+  [FN] chemical substance -> alcohol
+  [FN] chemical substance -> allotrope
+  [FN] chemical substance -> barium
+  [FN] chemical substance -> binary compound
+  [FN] chemical substance -> boron
+  [FN] chemical substance -> boron group element
+  [FN] chemical substance -> californium
+  [FN] chemical substance -> carbon allotrope
+  [FN] chemical substance -> complex
+  [FN] chemical substance -> compound
+  [FN] chemical substance -> dysprosium
+  [FN] chemical substance -> element
+  [FN] chemical substance -> ether
+  [FN] chemical substance -> group 12 element
+  [FN] chemical substance -> group 2 element
+  [FN] chemical substance -> group 4 element
+  [FN] chemical substance -> group element
+  [FN] chemical substance -> hassium
+  [FN] chemical substance -> helium
+  [FN] chemical substance -> ionic compound
+  [FN] chemical substance -> organic compound
+  [FN] chemical substance -> period 3 element
+  [FN] chemical substance -> period element
+  [FN] chemical substance -> periodic table element
+  [FN] chemical substance -> platinum
+  [FN] chemical substance -> protactinium
+  [FN] chemical substance -> radium
+  [FN] chemical substance -> radon
+  [FN] chemical substance -> reactant
+  [FN] chemical substance -> reagent
+  [FN] chemical substance -> thulium
+  [FN] chemical substance -> topological complex
+  [FN] compound -> acyl compound
+  [FN] compound -> alcohol
+  [FN] compound -> complex
+  [FN] compound -> ether
+  [FN] compound -> ionic compound
+  [FN] compound -> topological complex
+  [FN] continuant -> acyclic
+  [FN] continuant -> acyl compound
+  [FN] continuant -> acyl halide group
+  [FN] continuant -> acylbromidegroup
+  [FN] continuant -> alcohol
+  [FN] continuant -> allotrope
+  [FN] continuant -> angle
+  [FN] continuant -> antimony atom
+  [FN] continuant -> argon atom
+  [FN] continuant -> atom
+  [FN] continuant -> atom property
+  [FN] continuant -> atomic number
+  [FN] continuant -> barium
+  [FN] continuant -> berkelium atom
+  [FN] continuant -> binary compound
+  [FN] continuant -> boron
+  [FN] continuant -> boron atom
+  [FN] continuant -> boron group element
+  [FN] continuant -> bromine atom
+  [FN] continuant -> californium
+  [FN] continuant -> carbon allotrope
+  [FN] continuant -> cerium atom
+  [FN] continuant -> chaoite
+  [FN] continuant -> chemical conformation
+  [FN] continuant -> chemical family
+  [FN] continuant -> chemical quality
+  [FN] continuant -> chemical substance
+  [FN] continuant -> complex
+  [FN] continuant -> compound
+  [FN] continuant -> conduction unit
+  [FN] continuant -> cyclicity
+  [FN] continuant -> dependent_continuant
+  [FN] continuant -> dysprosium
+  [FN] continuant -> electric charge
+  [FN] continuant -> electric charge density
+  [FN] continuant -> electric resistance unit
+  [FN] continuant -> electromagnetic radation
+  [FN] continuant -> electromagnetic radiation unit
+  [FN] continuant -> element
+  [FN] continuant -> energy
+  [FN] continuant -> ether
+  [FN] continuant -> europium atom
+  [FN] continuant -> fiat_object_part
+  [FN] continuant -> flexural modulus
+  [FN] continuant -> flexural strength
+  [FN] continuant -> fluorine
+  [FN] continuant -> fracture toughness
+  [FN] continuant -> germanium atom
+  [FN] continuant -> group 12 element
+  [FN] continuant -> group 2 element
+  [FN] continuant -> group 4 element
+  [FN] continuant -> group element
+  [FN] continuant -> hassium
+  [FN] continuant -> helium
+  [FN] continuant -> homo cyclic ring
+  [FN] continuant -> hydrogen bond donor count
+  [FN] continuant -> independent_continuant
+  [FN] continuant -> intensive property
+  [FN] continuant -> internal energy
+  [FN] continuant -> ionic compound
+  [FN] continuant -> irradiance unit
+  [FN] continuant -> ketone group
+  [FN] continuant -> linear molecular geometry
+  [FN] continuant -> luminous flux
+  [FN] continuant -> measured property
+  [FN] continuant -> molecular geometry
+  [FN] continuant -> molecularquality
+  [FN] continuant -> moleculecomponentcount
+  [FN] continuant -> negative charge
+  [FN] continuant -> neon atom
+  [FN] continuant -> object
+  [FN] continuant -> organic compound
+  [FN] continuant -> organic group
+  [FN] continuant -> palladium atom
+  [FN] continuant -> period 3 element
+  [FN] continuant -> period element
+  [FN] continuant -> periodic table element
+  [FN] continuant -> periplanar conformation
+  [FN] continuant -> platinum
+  [FN] continuant -> potential difference
+  [FN] continuant -> protactinium
+  [FN] continuant -> pure substance
+  [FN] continuant -> quality
+  [FN] continuant -> radium
+  [FN] continuant -> radium atom
+  [FN] continuant -> radon
+  [FN] continuant -> reactant
+  [FN] continuant -> reagent
+  [FN] continuant -> ring
+  [FN] continuant -> solute
+  [FN] continuant -> space group property
+  [FN] continuant -> temperature range
+  [FN] continuant -> temperature range upper bound
+  [FN] continuant -> thermal conduction unit
+  [FN] continuant -> thulium
+  [FN] continuant -> topological complex
+  [FN] continuant -> unit
+  [FN] continuant -> ununpentium atom
+  [FN] continuant -> wavenumber
+  [FN] cyclicity -> acyclic
+  [FN] dependent_continuant -> acyclic
+  [FN] dependent_continuant -> angle
+  [FN] dependent_continuant -> atom property
+  [FN] dependent_continuant -> atomic number
+  [FN] dependent_continuant -> chemical conformation
+  [FN] dependent_continuant -> chemical family
+  [FN] dependent_continuant -> chemical quality
+  [FN] dependent_continuant -> conduction unit
+  [FN] dependent_continuant -> cyclicity
+  [FN] dependent_continuant -> electric charge
+  [FN] dependent_continuant -> electric charge density
+  [FN] dependent_continuant -> electric resistance unit
+  [FN] dependent_continuant -> electromagnetic radation
+  [FN] dependent_continuant -> electromagnetic radiation unit
+  [FN] dependent_continuant -> energy
+  [FN] dependent_continuant -> flexural modulus
+  [FN] dependent_continuant -> flexural strength
+  [FN] dependent_continuant -> fracture toughness
+  [FN] dependent_continuant -> hydrogen bond donor count
+  [FN] dependent_continuant -> intensive property
+  [FN] dependent_continuant -> internal energy
+  [FN] dependent_continuant -> irradiance unit
+  [FN] dependent_continuant -> linear molecular geometry
+  [FN] dependent_continuant -> luminous flux
+  [FN] dependent_continuant -> measured property
+  [FN] dependent_continuant -> molecular geometry
+  [FN] dependent_continuant -> molecularquality
+  [FN] dependent_continuant -> moleculecomponentcount
+  [FN] dependent_continuant -> negative charge
+  [FN] dependent_continuant -> periplanar conformation
+  [FN] dependent_continuant -> potential difference
+  [FN] dependent_continuant -> quality
+  [FN] dependent_continuant -> space group property
+  [FN] dependent_continuant -> temperature range
+  [FN] dependent_continuant -> temperature range upper bound
+  [FN] dependent_continuant -> thermal conduction unit
+  [FN] dependent_continuant -> unit
+  [FN] dependent_continuant -> wavenumber
+  [FN] electromagnetic radation -> luminous flux
+  [FN] element -> boron
+  [FN] element -> boron group element
+  [FN] element -> dysprosium
+  [FN] element -> fluorine
+  [FN] element -> group 12 element
+  [FN] element -> group 2 element
+  [FN] element -> group 4 element
+  [FN] element -> group element
+  [FN] element -> hassium
+  [FN] element -> helium
+  [FN] element -> period 3 element
+  [FN] element -> period element
+  [FN] element -> periodic table element
+  [FN] element -> platinum
+  [FN] element -> protactinium
+  [FN] element -> radium
+  [FN] element -> radon
+  [FN] element -> thulium
+  [FN] entity -> acyclic
+  [FN] entity -> acyl compound
+  [FN] entity -> acyl halide group
+  [FN] entity -> acylbromidegroup
+  [FN] entity -> alcohol
+  [FN] entity -> allotrope
+  [FN] entity -> angle
+  [FN] entity -> antimony atom
+  [FN] entity -> argon atom
+  [FN] entity -> atom
+  [FN] entity -> atom property
+  [FN] entity -> atomic number
+  [FN] entity -> barium
+  [FN] entity -> berkelium atom
+  [FN] entity -> binary compound
+  [FN] entity -> boron
+  [FN] entity -> boron atom
+  [FN] entity -> boron group element
+  [FN] entity -> bromine atom
+  [FN] entity -> californium
+  [FN] entity -> carbon allotrope
+  [FN] entity -> cerium atom
+  [FN] entity -> chaoite
+  [FN] entity -> chemical conformation
+  [FN] entity -> chemical family
+  [FN] entity -> chemical quality
+  [FN] entity -> chemical substance
+  [FN] entity -> complex
+  [FN] entity -> compound
+  [FN] entity -> conduction unit
+  [FN] entity -> continuant
+  [FN] entity -> cyclicity
+  [FN] entity -> dependent_continuant
+  [FN] entity -> dysprosium
+  [FN] entity -> electric charge
+  [FN] entity -> electric charge density
+  [FN] entity -> electric resistance unit
+  [FN] entity -> electromagnetic radation
+  [FN] entity -> electromagnetic radiation unit
+  [FN] entity -> element
+  [FN] entity -> energy
+  [FN] entity -> ether
+  [FN] entity -> europium atom
+  [FN] entity -> fiat_object_part
+  [FN] entity -> flexural modulus
+  [FN] entity -> flexural strength
+  [FN] entity -> fluorine
+  [FN] entity -> fracture toughness
+  [FN] entity -> germanium atom
+  [FN] entity -> group 12 element
+  [FN] entity -> group 2 element
+  [FN] entity -> group 4 element
+  [FN] entity -> group element
+  [FN] entity -> hassium
+  [FN] entity -> helium
+  [FN] entity -> homo cyclic ring
+  [FN] entity -> hydrogen bond donor count
+  [FN] entity -> independent_continuant
+  [FN] entity -> intensive property
+  [FN] entity -> internal energy
+  [FN] entity -> ionic compound
+  [FN] entity -> irradiance unit
+  [FN] entity -> ketone group
+  [FN] entity -> linear molecular geometry
+  [FN] entity -> luminous flux
+  [FN] entity -> measured property
+  [FN] entity -> molecular geometry
+  [FN] entity -> molecularquality
+  [FN] entity -> moleculecomponentcount
+  [FN] entity -> negative charge
+  [FN] entity -> neon atom
+  [FN] entity -> object
+  [FN] entity -> organic compound
+  [FN] entity -> organic group
+  [FN] entity -> palladium atom
+  [FN] entity -> period 3 element
+  [FN] entity -> period element
+  [FN] entity -> periodic table element
+  [FN] entity -> periplanar conformation
+  [FN] entity -> platinum
+  [FN] entity -> potential difference
+  [FN] entity -> protactinium
+  [FN] entity -> pure substance
+  [FN] entity -> quality
+  [FN] entity -> radium
+  [FN] entity -> radium atom
+  [FN] entity -> radon
+  [FN] entity -> reactant
+  [FN] entity -> reagent
+  [FN] entity -> ring
+  [FN] entity -> solute
+  [FN] entity -> space group property
+  [FN] entity -> temperature range
+  [FN] entity -> temperature range upper bound
+  [FN] entity -> thermal conduction unit
+  [FN] entity -> thulium
+  [FN] entity -> topological complex
+  [FN] entity -> unit
+  [FN] entity -> ununpentium atom
+  [FN] entity -> wavenumber
+  [FN] group element -> boron group element
+  [FN] independent_continuant -> acyl compound
+  [FN] independent_continuant -> acyl halide group
+  [FN] independent_continuant -> acylbromidegroup
+  [FN] independent_continuant -> alcohol
+  [FN] independent_continuant -> allotrope
+  [FN] independent_continuant -> antimony atom
+  [FN] independent_continuant -> argon atom
+  [FN] independent_continuant -> atom
+  [FN] independent_continuant -> barium
+  [FN] independent_continuant -> berkelium atom
+  [FN] independent_continuant -> binary compound
+  [FN] independent_continuant -> boron
+  [FN] independent_continuant -> boron atom
+  [FN] independent_continuant -> boron group element
+  [FN] independent_continuant -> bromine atom
+  [FN] independent_continuant -> californium
+  [FN] independent_continuant -> carbon allotrope
+  [FN] independent_continuant -> cerium atom
+  [FN] independent_continuant -> chaoite
+  [FN] independent_continuant -> chemical substance
+  [FN] independent_continuant -> complex
+  [FN] independent_continuant -> compound
+  [FN] independent_continuant -> dysprosium
+  [FN] independent_continuant -> element
+  [FN] independent_continuant -> ether
+  [FN] independent_continuant -> europium atom
+  [FN] independent_continuant -> fiat_object_part
+  [FN] independent_continuant -> fluorine
+  [FN] independent_continuant -> germanium atom
+  [FN] independent_continuant -> group 12 element
+  [FN] independent_continuant -> group 2 element
+  [FN] independent_continuant -> group 4 element
+  [FN] independent_continuant -> group element
+  [FN] independent_continuant -> hassium
+  [FN] independent_continuant -> helium
+  [FN] independent_continuant -> homo cyclic ring
+  [FN] independent_continuant -> ionic compound
+  [FN] independent_continuant -> ketone group
+  [FN] independent_continuant -> neon atom
+  [FN] independent_continuant -> object
+  [FN] independent_continuant -> organic compound
+  [FN] independent_continuant -> organic group
+  [FN] independent_continuant -> palladium atom
+  [FN] independent_continuant -> period 3 element
+  [FN] independent_continuant -> period element
+  [FN] independent_continuant -> periodic table element
+  [FN] independent_continuant -> platinum
+  [FN] independent_continuant -> protactinium
+  [FN] independent_continuant -> pure substance
+  [FN] independent_continuant -> radium
+  [FN] independent_continuant -> radium atom
+  [FN] independent_continuant -> radon
+  [FN] independent_continuant -> reactant
+  [FN] independent_continuant -> reagent
+  [FN] independent_continuant -> ring
+  [FN] independent_continuant -> solute
+  [FN] independent_continuant -> thulium
+  [FN] independent_continuant -> topological complex
+  [FN] independent_continuant -> ununpentium atom
+  [FN] intensive property -> flexural modulus
+  [FN] measured property -> acyclic
+  [FN] measured property -> angle
+  [FN] measured property -> atom property
+  [FN] measured property -> atomic number
+  [FN] measured property -> conduction unit
+  [FN] measured property -> cyclicity
+  [FN] measured property -> electric charge
+  [FN] measured property -> electric charge density
+  [FN] measured property -> electric resistance unit
+  [FN] measured property -> electromagnetic radation
+  [FN] measured property -> electromagnetic radiation unit
+  [FN] measured property -> energy
+  [FN] measured property -> flexural modulus
+  [FN] measured property -> flexural strength
+  [FN] measured property -> fracture toughness
+  [FN] measured property -> hydrogen bond donor count
+  [FN] measured property -> internal energy
+  [FN] measured property -> irradiance unit
+  [FN] measured property -> luminous flux
+  [FN] measured property -> molecularquality
+  [FN] measured property -> moleculecomponentcount
+  [FN] measured property -> negative charge
+  [FN] measured property -> potential difference
+  [FN] measured property -> temperature range
+  [FN] measured property -> temperature range upper bound
+  [FN] measured property -> thermal conduction unit
+  [FN] measured property -> unit
+  [FN] measured property -> wavenumber
+  [FN] molecularquality -> acyclic
+  [FN] molecularquality -> cyclicity
+  [FN] molecularquality -> hydrogen bond donor count
+  [FN] molecularquality -> moleculecomponentcount
+  [FN] moleculecomponentcount -> hydrogen bond donor count
+  [FN] object -> acyl compound
+  [FN] object -> acyl halide group
+  [FN] object -> acylbromidegroup
+  [FN] object -> alcohol
+  [FN] object -> allotrope
+  [FN] object -> antimony atom
+  [FN] object -> argon atom
+  [FN] object -> atom
+  [FN] object -> barium
+  [FN] object -> berkelium atom
+  [FN] object -> binary compound
+  [FN] object -> boron
+  [FN] object -> boron atom
+  [FN] object -> boron group element
+  [FN] object -> bromine atom
+  [FN] object -> californium
+  [FN] object -> carbon allotrope
+  [FN] object -> cerium atom
+  [FN] object -> chaoite
+  [FN] object -> chemical substance
+  [FN] object -> complex
+  [FN] object -> compound
+  [FN] object -> dysprosium
+  [FN] object -> element
+  [FN] object -> ether
+  [FN] object -> europium atom
+  [FN] object -> fluorine
+  [FN] object -> germanium atom
+  [FN] object -> group 12 element
+  [FN] object -> group 2 element
+  [FN] object -> group 4 element
+  [FN] object -> group element
+  [FN] object -> hassium
+  [FN] object -> helium
+  [FN] object -> homo cyclic ring
+  [FN] object -> ionic compound
+  [FN] object -> ketone group
+  [FN] object -> neon atom
+  [FN] object -> organic compound
+  [FN] object -> organic group
+  [FN] object -> palladium atom
+  [FN] object -> period 3 element
+  [FN] object -> period element
+  [FN] object -> periodic table element
+  [FN] object -> platinum
+  [FN] object -> protactinium
+  [FN] object -> pure substance
+  [FN] object -> radium
+  [FN] object -> radium atom
+  [FN] object -> radon
+  [FN] object -> reactant
+  [FN] object -> reagent
+  [FN] object -> ring
+  [FN] object -> solute
+  [FN] object -> thulium
+  [FN] object -> topological complex
+  [FN] object -> ununpentium atom
+  [FN] organic compound -> acyl compound
+  [FN] organic compound -> alcohol
+  [FN] organic compound -> ether
+  [FN] organic group -> acyl halide group
+  [FN] organic group -> acylbromidegroup
+  [FN] periodic table element -> boron group element
+  [FN] periodic table element -> group 12 element
+  [FN] periodic table element -> group 2 element
+  [FN] periodic table element -> group 4 element
+  [FN] periodic table element -> group element
+  [FN] periodic table element -> period 3 element
+  [FN] periodic table element -> period element
+  [FN] pure substance -> allotrope
+  [FN] pure substance -> barium
+  [FN] pure substance -> boron
+  [FN] pure substance -> boron group element
+  [FN] pure substance -> californium
+  [FN] pure substance -> carbon allotrope
+  [FN] pure substance -> dysprosium
+  [FN] pure substance -> element
+  [FN] pure substance -> fluorine
+  [FN] pure substance -> group 12 element
+  [FN] pure substance -> group 2 element
+  [FN] pure substance -> group 4 element
+  [FN] pure substance -> group element
+  [FN] pure substance -> hassium
+  [FN] pure substance -> helium
+  [FN] pure substance -> period 3 element
+  [FN] pure substance -> period element
+  [FN] pure substance -> periodic table element
+  [FN] pure substance -> platinum
+  [FN] pure substance -> protactinium
+  [FN] pure substance -> radium
+  [FN] pure substance -> radon
+  [FN] pure substance -> thulium
+  [FN] quality -> acyclic
+  [FN] quality -> angle
+  [FN] quality -> atom property
+  [FN] quality -> atomic number
+  [FN] quality -> chemical conformation
+  [FN] quality -> chemical family
+  [FN] quality -> chemical quality
+  [FN] quality -> conduction unit
+  [FN] quality -> cyclicity
+  [FN] quality -> electric charge
+  [FN] quality -> electric charge density
+  [FN] quality -> electric resistance unit
+  [FN] quality -> electromagnetic radation
+  [FN] quality -> electromagnetic radiation unit
+  [FN] quality -> energy
+  [FN] quality -> flexural modulus
+  [FN] quality -> flexural strength
+  [FN] quality -> fracture toughness
+  [FN] quality -> hydrogen bond donor count
+  [FN] quality -> intensive property
+  [FN] quality -> internal energy
+  [FN] quality -> irradiance unit
+  [FN] quality -> linear molecular geometry
+  [FN] quality -> luminous flux
+  [FN] quality -> measured property
+  [FN] quality -> molecular geometry
+  [FN] quality -> molecularquality
+  [FN] quality -> moleculecomponentcount
+  [FN] quality -> negative charge
+  [FN] quality -> periplanar conformation
+  [FN] quality -> potential difference
+  [FN] quality -> space group property
+  [FN] quality -> temperature range
+  [FN] quality -> temperature range upper bound
+  [FN] quality -> thermal conduction unit
+  [FN] quality -> unit
+  [FN] quality -> wavenumber
+  [FN] reagent -> reactant
+  [FN] ring -> homo cyclic ring
+  [FN] unit -> conduction unit
+  [FN] unit -> electric resistance unit
+  [FN] unit -> electromagnetic radiation unit
+  [FN] unit -> irradiance unit
+  [FN] unit -> thermal conduction unit

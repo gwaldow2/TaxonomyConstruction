@@ -1,0 +1,191 @@
+==================================================
+=== Detailed Node Pair Analysis (Condensed Transitive Reduction) ===
+Match Type Used: SET_OVERLAP
+==================================================
+Precision: 0.6835 | Recall: 0.5347 | F1: 0.6000
+
+CORRECT PREDICTIONS (True Positives: 54 Pred edges covering 54 GT edges):
+  [TP] PRED: (action -> achieveaction)
+        matches GT: (action -> achieveaction)
+  [TP] PRED: (action -> assessaction)
+        matches GT: (action -> assessaction)
+  [TP] PRED: (action -> consumeaction)
+        matches GT: (action -> consumeaction)
+  [TP] PRED: (action -> createaction)
+        matches GT: (action -> createaction)
+  [TP] PRED: (action -> interactaction)
+        matches GT: (action -> interactaction)
+  [TP] PRED: (action -> tradeaction)
+        matches GT: (action -> tradeaction)
+  [TP] PRED: (action -> updateaction)
+        matches GT: (action -> updateaction)
+  [TP] PRED: (article -> newsarticle)
+        matches GT: (article -> newsarticle)
+  [TP] PRED: (bodyofwater -> lakebodyofwater)
+        matches GT: (bodyofwater -> lakebodyofwater)
+  [TP] PRED: (civicstructure -> governmentbuilding)
+        matches GT: (civicstructure -> governmentbuilding)
+  [TP] PRED: (creativework -> article)
+        matches GT: (creativework -> article)
+  [TP] PRED: (creativework -> howto)
+        matches GT: (creativework -> howto)
+  [TP] PRED: (creativework -> learningresource)
+        matches GT: (creativework -> learningresource)
+  [TP] PRED: (creativework -> review)
+        matches GT: (creativework -> review)
+  [TP] PRED: (creativework -> visualartwork)
+        matches GT: (creativework -> visualartwork)
+  [TP] PRED: (creativework -> webpage)
+        matches GT: (creativework -> webpage)
+  [TP] PRED: (educationalorganization -> collegeoruniversity)
+        matches GT: (educationalorganization -> collegeoruniversity)
+  [TP] PRED: (event -> foodevent)
+        matches GT: (event -> foodevent)
+  [TP] PRED: (event -> hackathon)
+        matches GT: (event -> hackathon)
+  [TP] PRED: (event -> publicationevent)
+        matches GT: (event -> publicationevent)
+  [TP] PRED: (event -> screeningevent)
+        matches GT: (event -> screeningevent)
+  [TP] PRED: (foodestablishment -> cafeorcoffeeshop)
+        matches GT: (foodestablishment -> cafeorcoffeeshop)
+  [TP] PRED: (governmentbuilding -> cityhall)
+        matches GT: (governmentbuilding -> cityhall)
+  [TP] PRED: (learningresource -> course)
+        matches GT: (learningresource -> course)
+  [TP] PRED: (localbusiness -> automotivebusiness)
+        matches GT: (localbusiness -> automotivebusiness)
+  [TP] PRED: (localbusiness -> entertainmentbusiness)
+        matches GT: (localbusiness -> entertainmentbusiness)
+  [TP] PRED: (localbusiness -> foodestablishment)
+        matches GT: (localbusiness -> foodestablishment)
+  [TP] PRED: (localbusiness -> healthandbeautybusiness)
+        matches GT: (localbusiness -> healthandbeautybusiness)
+  [TP] PRED: (localbusiness -> lodgingbusiness)
+        matches GT: (localbusiness -> lodgingbusiness)
+  [TP] PRED: (localbusiness -> medicalbusiness)
+        matches GT: (localbusiness -> medicalbusiness)
+  [TP] PRED: (localbusiness -> store)
+        matches GT: (localbusiness -> store)
+  [TP] PRED: (lodgingbusiness -> bedandbreakfast)
+        matches GT: (lodgingbusiness -> bedandbreakfast)
+  [TP] PRED: (lodgingbusiness -> resort)
+        matches GT: (lodgingbusiness -> resort)
+  [TP] PRED: (newsarticle -> backgroundnewsarticle)
+        matches GT: (newsarticle -> backgroundnewsarticle)
+  [TP] PRED: (newsarticle -> opinionnewsarticle)
+        matches GT: (newsarticle -> opinionnewsarticle)
+  [TP] PRED: (organization -> educationalorganization)
+        matches GT: (organization -> educationalorganization)
+  [TP] PRED: (organization -> medicalorganization)
+        matches GT: (organization -> medicalorganization)
+  [TP] PRED: (place -> administrativearea)
+        matches GT: (place -> administrativearea)
+  [TP] PRED: (place -> civicstructure)
+        matches GT: (place -> civicstructure)
+  [TP] PRED: (place -> landform)
+        matches GT: (place -> landform)
+  [TP] PRED: (place -> localbusiness)
+        matches GT: (place -> localbusiness)
+  [TP] PRED: (placeofworship -> hindutemple)
+        matches GT: (placeofworship -> hindutemple)
+  [TP] PRED: (product -> individualproduct)
+        matches GT: (product -> individualproduct)
+  [TP] PRED: (review -> claimreview)
+        matches GT: (review -> claimreview)
+  [TP] PRED: (review -> employerreview)
+        matches GT: (review -> employerreview)
+  [TP] PRED: (store -> hobbyshop)
+        matches GT: (store -> hobbyshop)
+  [TP] PRED: (store -> officeequipmentstore)
+        matches GT: (store -> officeequipmentstore)
+  [TP] PRED: (thing -> action)
+        matches GT: (thing -> action)
+  [TP] PRED: (thing -> creativework)
+        matches GT: (thing -> creativework)
+  [TP] PRED: (thing -> organization)
+        matches GT: (thing -> organization)
+  [TP] PRED: (thing -> place)
+        matches GT: (thing -> place)
+  [TP] PRED: (thing -> product)
+        matches GT: (thing -> product)
+  [TP] PRED: (webpage -> checkoutpage)
+        matches GT: (webpage -> checkoutpage)
+  [TP] PRED: (webpage -> collectionpage)
+        matches GT: (webpage -> collectionpage)
+
+INCORRECT PREDICTIONS (False Positives: 25):
+  [FP] action -> addaction
+  [FP] action -> befriendaction
+  [FP] action -> buyaction
+  [FP] action -> communicateaction
+  [FP] action -> informaction
+  [FP] action -> installaction
+  [FP] action -> likeaction
+  [FP] action -> reactaction
+  [FP] action -> rsvpaction
+  [FP] action -> winaction
+  [FP] course -> courseinstance
+  [FP] creativework -> quiz
+  [FP] educationalorganization -> schooldistrict
+  [FP] howto -> howtodirection
+  [FP] howto -> howtotip
+  [FP] lodgingbusiness -> rvpark
+  [FP] medicalbusiness -> physiciansoffice
+  [FP] place -> bodyofwater
+  [FP] store -> shoppingcenter
+  [FP] thing -> number
+  [FP] visualartwork -> painting
+  [FP] webpage -> imagegallery
+  [FP] webpage -> mediagallery
+  [FP] webpage -> wpheader
+  [FP] webpageelement -> hypertoc
+
+MISSED RELATIONS (False Negatives: 47):
+  [FN] achieveaction -> winaction
+  [FN] administrativearea -> schooldistrict
+  [FN] assessaction -> reactaction
+  [FN] automotivebusiness -> gasstation
+  [FN] civicstructure -> bridge
+  [FN] civicstructure -> cemetery
+  [FN] civicstructure -> educationalorganization
+  [FN] civicstructure -> placeofworship
+  [FN] civicstructure -> rvpark
+  [FN] collectionpage -> mediagallery
+  [FN] communicateaction -> informaction
+  [FN] consumeaction -> installaction
+  [FN] creativework -> certification
+  [FN] creativework -> conversation
+  [FN] creativework -> datacatalog
+  [FN] creativework -> howtodirection
+  [FN] creativework -> howtotip
+  [FN] creativework -> hypertoc
+  [FN] creativework -> musicplaylist
+  [FN] creativework -> painting
+  [FN] creativework -> play
+  [FN] creativework -> webpageelement
+  [FN] entertainmentbusiness -> adultentertainment
+  [FN] event -> courseinstance
+  [FN] informaction -> rsvpaction
+  [FN] interactaction -> befriendaction
+  [FN] interactaction -> communicateaction
+  [FN] landform -> bodyofwater
+  [FN] learningresource -> quiz
+  [FN] legalservice -> attorney
+  [FN] localbusiness -> childcare
+  [FN] localbusiness -> legalservice
+  [FN] localbusiness -> shoppingcenter
+  [FN] localbusiness -> sportsactivitylocation
+  [FN] mediagallery -> imagegallery
+  [FN] medicalbusiness -> physician
+  [FN] medicalorganization -> physician
+  [FN] organization -> localbusiness
+  [FN] organization -> performinggroup
+  [FN] performinggroup -> theatergroup
+  [FN] physician -> physiciansoffice
+  [FN] reactaction -> likeaction
+  [FN] sportsactivitylocation -> sportsclub
+  [FN] thing -> event
+  [FN] tradeaction -> buyaction
+  [FN] updateaction -> addaction
+  [FN] webpageelement -> wpheader

@@ -1,0 +1,187 @@
+==================================================
+=== Detailed Node Pair Analysis (Exploded Raw Edges) ===
+Match Type Used: EXACT
+==================================================
+Precision: 0.3300 | Recall: 0.3028 | F1: 0.3158
+
+CORRECT PREDICTIONS (True Positives: 33 Pred edges covering 33 GT edges):
+  [TP] arilloid -> aril
+  [TP] embryo sac cell -> embryo sac central cell
+  [TP] endosperm development stage -> functional specialization of the endosperm stage
+  [TP] glume -> upper glume
+  [TP] glume of ear spikelet -> upper glume of ear spikelet
+  [TP] inflorescence axis -> higher order inflorescence axis
+  [TP] laticifer cell -> articulated laticifer cell
+  [TP] leaf -> vascular leaf
+  [TP] leaf margin -> leaf lamina margin
+  [TP] leaf production stage -> lp09 nine leaves visible stage
+  [TP] meristematic apical cell -> gametophyte meristematic apical cell
+  [TP] parenchyma -> sepal parenchyma
+  [TP] plant axis -> shoot axis
+  [TP] plant cell -> cultured plant cell
+  [TP] plant cell -> native plant cell
+  [TP] plant embryo development stage -> plant embryo globular stage
+  [TP] plant epidermis -> shoot system epidermis
+  [TP] plant structure development stage -> whole plant development stage
+  [TP] portion of plant tissue -> portion of embryo plant tissue
+  [TP] portion of plant tissue -> portion of ground tissue
+  [TP] portion of plant tissue -> portion of meristem tissue
+  [TP] portion of plant tissue -> portion of secretory tissue
+  [TP] portion of plant tissue -> portion of vascular tissue
+  [TP] portion of secretory tissue -> oil gland
+  [TP] ray secondary xylem parenchyma cell -> procumbent ray secondary xylem parenchyma cell
+  [TP] root -> proteoid root
+  [TP] secondary xylem parenchyma cell -> ray secondary xylem parenchyma cell
+  [TP] sporangium -> megasporangium
+  [TP] sporophyte development stage -> sporophyte vegetative stage
+  [TP] tassel inflorescence branch -> long lateral tassel branch
+  [TP] upper glume of ear spikelet -> upper glume of pedicellate spikelet of ear
+  [TP] vascular bundle -> petiole vascular bundle
+  [TP] vascular system -> scutellum vascular system
+
+INCORRECT PREDICTIONS (False Positives: 67):
+  [FP] aril -> arilloid
+  [FP] articulated laticifer cell -> laticifer cell
+  [FP] bfo0000015 -> bfo0000040
+  [FP] bfo0000015 -> uberon0001062
+  [FP] bfo0000040 -> bfo0000015
+  [FP] embryo plant structure -> in vitro plant structure
+  [FP] embryo sac central cell -> embryo sac cell
+  [FP] functional specialization of the endosperm stage -> endosperm development stage
+  [FP] glume -> glume awn
+  [FP] glume awn -> awn
+  [FP] glume awn -> glume
+  [FP] ground tissue cell -> procambial cell
+  [FP] higher order inflorescence axis -> inflorescence axis
+  [FP] inflorescence axis -> inflorescence bract
+  [FP] inflorescence bract -> bract
+  [FP] leaf -> compound leaf
+  [FP] leaf -> pinnate leaf
+  [FP] leaf development stage -> leaf production stage
+  [FP] leaf lamina margin -> leaf margin
+  [FP] leaf lamina margin -> sporophyll margin
+  [FP] leaf production stage -> leaf development stage
+  [FP] long lateral tassel branch -> tassel inflorescence branch
+  [FP] megasporangium -> archegonium head
+  [FP] megasporangium -> leptoid
+  [FP] megasporangium -> sporangium
+  [FP] meristematic apical cell -> chloronema meristematic apical cell
+  [FP] meristematic apical cell -> meristematic cell
+  [FP] meristematic apical cell -> protonema meristematic apical cell
+  [FP] multi-tissue plant structure -> cardinal part of multi-tissue plant structure
+  [FP] multi-tissue plant structure -> multi-tissue plant structure development stage
+  [FP] multi-tissue plant structure development stage -> multi-tissue plant structure
+  [FP] native plant cell -> plant cell
+  [FP] parenchyma -> parenchyma cell
+  [FP] parenchyma cell -> sclerenchyma cell
+  [FP] petiole vascular bundle -> vascular bundle
+  [FP] phyllome -> phyllome development stage
+  [FP] phyllome -> phyllome epidermis
+  [FP] phyllome -> phyllome margin
+  [FP] phyllome development stage -> phyllome
+  [FP] plant cell -> companion cell
+  [FP] plant cell -> plant fiber cell
+  [FP] plant cell -> plant protoplast
+  [FP] plant embryo development stage -> embryo plant structure
+  [FP] plant embryo development stage -> plant organ development stage
+  [FP] plant embryo development stage -> seed development stage
+  [FP] plant epidermis -> stamen epidermis
+  [FP] plant organ -> cardinal organ part
+  [FP] plant organ -> plant anatomical entity
+  [FP] plant organ -> plant organ margin
+  [FP] plant organ development stage -> plant embryo development stage
+  [FP] plant organ development stage -> plant organ
+  [FP] plant structure -> plant axis
+  [FP] plant structure development stage -> plant structure
+  [FP] portion of embryo plant tissue -> portion of plant tissue
+  [FP] portion of ground tissue -> ground tissue cell
+  [FP] portion of ground tissue -> rib zone
+  [FP] proteoid root -> root
+  [FP] protonema meristematic apical cell -> meristematic apical cell
+  [FP] ray secondary xylem parenchyma cell -> secondary xylem parenchyma cell
+  [FP] scutellum vascular system -> vascular system
+  [FP] sepal parenchyma -> parenchyma
+  [FP] sporophyte vegetative stage -> sporophyte development stage
+  [FP] stamen epidermis -> plant epidermis
+  [FP] upper glume of ear spikelet -> glume of ear spikelet
+  [FP] vascular leaf -> leaf
+  [FP] whole plant development stage -> 1 main shoot growth stage
+  [FP] whole plant development stage -> plant structure development stage
+
+MISSED RELATIONS (False Negatives: 76):
+  [FN] 1 main shoot growth stage -> leaf production stage
+  [FN] awn -> glume awn
+  [FN] bfo0000015 -> plant structure development stage
+  [FN] bfo0000040 -> plant anatomical entity
+  [FN] bract -> inflorescence bract
+  [FN] cardinal organ part -> archegonium head
+  [FN] cardinal organ part -> awn
+  [FN] cardinal organ part -> plant organ margin
+  [FN] cardinal part of multi-tissue plant structure -> arilloid
+  [FN] cardinal part of multi-tissue plant structure -> cardinal organ part
+  [FN] compound leaf -> pinnate leaf
+  [FN] cultured plant cell -> plant protoplast
+  [FN] embryo plant structure -> portion of embryo plant tissue
+  [FN] gametophyte meristematic apical cell -> protonema meristematic apical cell
+  [FN] glume -> glume of ear spikelet
+  [FN] ground tissue cell -> laticifer cell
+  [FN] ground tissue cell -> parenchyma cell
+  [FN] ground tissue cell -> sclerenchyma cell
+  [FN] higher order inflorescence axis -> tassel inflorescence branch
+  [FN] in vitro plant structure -> cultured plant cell
+  [FN] inflorescence bract -> glume
+  [FN] meristematic cell -> meristematic apical cell
+  [FN] meristematic cell -> procambial cell
+  [FN] multi-tissue plant structure -> plant organ
+  [FN] multi-tissue plant structure development stage -> plant organ development stage
+  [FN] multi-tissue plant structure development stage -> seed development stage
+  [FN] native plant cell -> embryo sac cell
+  [FN] native plant cell -> ground tissue cell
+  [FN] native plant cell -> leptoid
+  [FN] native plant cell -> meristematic cell
+  [FN] parenchyma cell -> companion cell
+  [FN] parenchyma cell -> secondary xylem parenchyma cell
+  [FN] phyllome -> bract
+  [FN] phyllome -> leaf
+  [FN] phyllome development stage -> leaf development stage
+  [FN] phyllome epidermis -> stamen epidermis
+  [FN] phyllome margin -> leaf margin
+  [FN] phyllome margin -> sporophyll margin
+  [FN] plant anatomical entity -> plant structure
+  [FN] plant axis -> root
+  [FN] plant organ -> phyllome
+  [FN] plant organ -> plant axis
+  [FN] plant organ -> sporangium
+  [FN] plant organ development stage -> phyllome development stage
+  [FN] plant organ margin -> phyllome margin
+  [FN] plant structure -> cardinal part of multi-tissue plant structure
+  [FN] plant structure -> embryo plant structure
+  [FN] plant structure -> in vitro plant structure
+  [FN] plant structure -> multi-tissue plant structure
+  [FN] plant structure -> plant cell
+  [FN] plant structure -> portion of plant tissue
+  [FN] plant structure development stage -> multi-tissue plant structure development stage
+  [FN] portion of embryo plant tissue -> scutellum vascular system
+  [FN] portion of ground tissue -> parenchyma
+  [FN] portion of meristem tissue -> rib zone
+  [FN] portion of plant tissue -> plant epidermis
+  [FN] portion of vascular tissue -> vascular bundle
+  [FN] portion of vascular tissue -> vascular system
+  [FN] protonema meristematic apical cell -> chloronema meristematic apical cell
+  [FN] sclerenchyma cell -> plant fiber cell
+  [FN] seed development stage -> endosperm development stage
+  [FN] shoot axis -> inflorescence axis
+  [FN] shoot system epidermis -> phyllome epidermis
+  [FN] sporophyte vegetative stage -> 1 main shoot growth stage
+  [FN] sporophyte vegetative stage -> plant embryo development stage
+  [FN] uberon0001062 -> archegonium head
+  [FN] uberon0001062 -> aril
+  [FN] uberon0001062 -> long lateral tassel branch
+  [FN] uberon0001062 -> phyllome
+  [FN] uberon0001062 -> plant epidermis
+  [FN] uberon0001062 -> portion of ground tissue
+  [FN] uberon0001062 -> ray secondary xylem parenchyma cell
+  [FN] uberon0001062 -> root
+  [FN] upper glume -> upper glume of ear spikelet
+  [FN] vascular leaf -> compound leaf
+  [FN] whole plant development stage -> sporophyte development stage

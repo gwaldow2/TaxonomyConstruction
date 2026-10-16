@@ -1,0 +1,236 @@
+==================================================
+=== Detailed Node Pair Analysis (Condensed Transitive Reduction) ===
+Match Type Used: SET_OVERLAP
+==================================================
+Precision: 0.4677 | Recall: 0.5743 | F1: 0.5156
+
+CORRECT PREDICTIONS (True Positives: 58 Pred edges covering 58 GT edges):
+  [TP] PRED: (acyl halide group -> acylbromidegroup)
+        matches GT: (acyl halide group -> acylbromidegroup)
+  [TP] PRED: (allotrope -> carbon allotrope)
+        matches GT: (allotrope -> carbon allotrope)
+  [TP] PRED: (atom -> antimony atom)
+        matches GT: (atom -> antimony atom)
+  [TP] PRED: (atom -> berkelium atom)
+        matches GT: (atom -> berkelium atom)
+  [TP] PRED: (atom -> boron atom)
+        matches GT: (atom -> boron atom)
+  [TP] PRED: (atom -> bromine atom)
+        matches GT: (atom -> bromine atom)
+  [TP] PRED: (atom -> cerium atom)
+        matches GT: (atom -> cerium atom)
+  [TP] PRED: (atom -> europium atom)
+        matches GT: (atom -> europium atom)
+  [TP] PRED: (atom -> germanium atom)
+        matches GT: (atom -> germanium atom)
+  [TP] PRED: (atom -> neon atom)
+        matches GT: (atom -> neon atom)
+  [TP] PRED: (atom -> palladium atom)
+        matches GT: (atom -> palladium atom)
+  [TP] PRED: (atom -> radium atom)
+        matches GT: (atom -> radium atom)
+  [TP] PRED: (atom -> ununpentium atom)
+        matches GT: (atom -> ununpentium atom)
+  [TP] PRED: (atom property -> atomic number)
+        matches GT: (atom property -> atomic number)
+  [TP] PRED: (carbon allotrope -> chaoite)
+        matches GT: (carbon allotrope -> chaoite)
+  [TP] PRED: (chemical conformation -> periplanar conformation)
+        matches GT: (chemical conformation -> periplanar conformation)
+  [TP] PRED: (chemical substance -> pure substance)
+        matches GT: (chemical substance -> pure substance)
+  [TP] PRED: (complex -> topological complex)
+        matches GT: (complex -> topological complex)
+  [TP] PRED: (compound -> binary compound)
+        matches GT: (compound -> binary compound)
+  [TP] PRED: (compound -> organic compound)
+        matches GT: (compound -> organic compound)
+  [TP] PRED: (conduction unit -> thermal conduction unit)
+        matches GT: (conduction unit -> thermal conduction unit)
+  [TP] PRED: (continuant -> dependent_continuant)
+        matches GT: (continuant -> dependent_continuant)
+  [TP] PRED: (continuant -> independent_continuant)
+        matches GT: (continuant -> independent_continuant)
+  [TP] PRED: (cyclicity -> acyclic)
+        matches GT: (cyclicity -> acyclic)
+  [TP] PRED: (dependent_continuant -> quality)
+        matches GT: (dependent_continuant -> quality)
+  [TP] PRED: (electric charge -> negative charge)
+        matches GT: (electric charge -> negative charge)
+  [TP] PRED: (electromagnetic radiation unit -> irradiance unit)
+        matches GT: (electromagnetic radiation unit -> irradiance unit)
+  [TP] PRED: (element -> periodic table element)
+        matches GT: (element -> periodic table element)
+  [TP] PRED: (energy -> internal energy)
+        matches GT: (energy -> internal energy)
+  [TP] PRED: (entity -> continuant)
+        matches GT: (entity -> continuant)
+  [TP] PRED: (group element -> boron group element)
+        matches GT: (group element -> boron group element)
+  [TP] PRED: (group element -> group 12 element)
+        matches GT: (group element -> group 12 element)
+  [TP] PRED: (group element -> group 2 element)
+        matches GT: (group element -> group 2 element)
+  [TP] PRED: (group element -> group 4 element)
+        matches GT: (group element -> group 4 element)
+  [TP] PRED: (independent_continuant -> fiat_object_part)
+        matches GT: (independent_continuant -> fiat_object_part)
+  [TP] PRED: (independent_continuant -> object)
+        matches GT: (independent_continuant -> object)
+  [TP] PRED: (intensive property -> flexural modulus)
+        matches GT: (intensive property -> flexural modulus)
+  [TP] PRED: (molecular geometry -> linear molecular geometry)
+        matches GT: (molecular geometry -> linear molecular geometry)
+  [TP] PRED: (molecularquality -> cyclicity)
+        matches GT: (molecularquality -> cyclicity)
+  [TP] PRED: (molecularquality -> moleculecomponentcount)
+        matches GT: (molecularquality -> moleculecomponentcount)
+  [TP] PRED: (moleculecomponentcount -> hydrogen bond donor count)
+        matches GT: (moleculecomponentcount -> hydrogen bond donor count)
+  [TP] PRED: (object -> atom)
+        matches GT: (object -> atom)
+  [TP] PRED: (organic compound -> acyl compound)
+        matches GT: (organic compound -> acyl compound)
+  [TP] PRED: (organic compound -> alcohol)
+        matches GT: (organic compound -> alcohol)
+  [TP] PRED: (organic compound -> ether)
+        matches GT: (organic compound -> ether)
+  [TP] PRED: (organic group -> acyl halide group)
+        matches GT: (organic group -> acyl halide group)
+  [TP] PRED: (organic group -> ketone group)
+        matches GT: (organic group -> ketone group)
+  [TP] PRED: (period element -> period 3 element)
+        matches GT: (period element -> period 3 element)
+  [TP] PRED: (periodic table element -> group element)
+        matches GT: (periodic table element -> group element)
+  [TP] PRED: (periodic table element -> period element)
+        matches GT: (periodic table element -> period element)
+  [TP] PRED: (pure substance -> allotrope)
+        matches GT: (pure substance -> allotrope)
+  [TP] PRED: (pure substance -> element)
+        matches GT: (pure substance -> element)
+  [TP] PRED: (quality -> chemical quality)
+        matches GT: (quality -> chemical quality)
+  [TP] PRED: (quality -> measured property)
+        matches GT: (quality -> measured property)
+  [TP] PRED: (ring -> homo cyclic ring)
+        matches GT: (ring -> homo cyclic ring)
+  [TP] PRED: (unit -> conduction unit)
+        matches GT: (unit -> conduction unit)
+  [TP] PRED: (unit -> electric resistance unit)
+        matches GT: (unit -> electric resistance unit)
+  [TP] PRED: (unit -> electromagnetic radiation unit)
+        matches GT: (unit -> electromagnetic radiation unit)
+
+INCORRECT PREDICTIONS (False Positives: 66):
+  [FP] atom -> period 3 element
+  [FP] boron group element -> boron
+  [FP] chemical quality -> atom property
+  [FP] chemical quality -> molecularquality
+  [FP] chemical quality -> space group property
+  [FP] compound -> ionic compound
+  [FP] dependent_continuant -> reactant
+  [FP] dependent_continuant -> reagent
+  [FP] energy -> electromagnetic radation
+  [FP] entity -> solute
+  [FP] entity -> unit
+  [FP] fiat_object_part -> organic group
+  [FP] fiat_object_part -> ring
+  [FP] group 2 element -> barium
+  [FP] group 2 element -> radium
+  [FP] group element -> argon atom
+  [FP] group element -> californium
+  [FP] group element -> dysprosium
+  [FP] group element -> fluorine
+  [FP] group element -> hassium
+  [FP] group element -> helium
+  [FP] group element -> platinum
+  [FP] group element -> protactinium
+  [FP] group element -> radon
+  [FP] group element -> thulium
+  [FP] independent_continuant -> chemical family
+  [FP] independent_continuant -> chemical substance
+  [FP] intensive property -> electric charge density
+  [FP] intensive property -> flexural strength
+  [FP] intensive property -> fracture toughness
+  [FP] intensive property -> potential difference
+  [FP] measured property -> flexural modulus
+  [FP] molecularquality -> chemical conformation
+  [FP] molecularquality -> molecular geometry
+  [FP] object -> boron
+  [FP] object -> chaoite
+  [FP] object -> complex
+  [FP] object -> compound
+  [FP] object -> fluorine
+  [FP] object -> group 12 element
+  [FP] object -> group 2 element
+  [FP] object -> group 4 element
+  [FP] object -> hassium
+  [FP] object -> thulium
+  [FP] period 3 element -> argon atom
+  [FP] period element -> barium
+  [FP] period element -> boron
+  [FP] period element -> californium
+  [FP] period element -> dysprosium
+  [FP] period element -> fluorine
+  [FP] period element -> hassium
+  [FP] period element -> helium
+  [FP] period element -> platinum
+  [FP] period element -> protactinium
+  [FP] period element -> radium
+  [FP] period element -> radon
+  [FP] period element -> thulium
+  [FP] pure substance -> compound
+  [FP] quality -> angle
+  [FP] quality -> electric charge
+  [FP] quality -> energy
+  [FP] quality -> intensive property
+  [FP] quality -> luminous flux
+  [FP] quality -> temperature range
+  [FP] quality -> temperature range upper bound
+  [FP] quality -> wavenumber
+
+MISSED RELATIONS (False Negatives: 43):
+  [FN] atom -> argon atom
+  [FN] binary compound -> ionic compound
+  [FN] chemical quality -> chemical conformation
+  [FN] chemical quality -> chemical family
+  [FN] chemical quality -> electric charge
+  [FN] chemical quality -> molecular geometry
+  [FN] chemical substance -> compound
+  [FN] chemical substance -> reagent
+  [FN] chemical substance -> solute
+  [FN] compound -> complex
+  [FN] electromagnetic radation -> luminous flux
+  [FN] element -> barium
+  [FN] element -> boron
+  [FN] element -> californium
+  [FN] element -> dysprosium
+  [FN] element -> fluorine
+  [FN] element -> hassium
+  [FN] element -> helium
+  [FN] element -> platinum
+  [FN] element -> protactinium
+  [FN] element -> radium
+  [FN] element -> radon
+  [FN] element -> thulium
+  [FN] measured property -> angle
+  [FN] measured property -> atom property
+  [FN] measured property -> electric charge
+  [FN] measured property -> electric charge density
+  [FN] measured property -> electromagnetic radation
+  [FN] measured property -> energy
+  [FN] measured property -> flexural strength
+  [FN] measured property -> fracture toughness
+  [FN] measured property -> intensive property
+  [FN] measured property -> molecularquality
+  [FN] measured property -> potential difference
+  [FN] measured property -> temperature range
+  [FN] measured property -> unit
+  [FN] measured property -> wavenumber
+  [FN] object -> chemical substance
+  [FN] object -> organic group
+  [FN] object -> ring
+  [FN] quality -> space group property
+  [FN] reagent -> reactant
+  [FN] temperature range -> temperature range upper bound

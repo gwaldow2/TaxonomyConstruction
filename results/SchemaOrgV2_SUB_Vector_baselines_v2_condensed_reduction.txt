@@ -1,0 +1,130 @@
+==================================================
+=== Detailed Node Pair Analysis (Condensed Transitive Reduction) ===
+Match Type Used: SET_OVERLAP
+==================================================
+Precision: 0.3333 | Recall: 0.0594 | F1: 0.1008
+
+CORRECT PREDICTIONS (True Positives: 6 Pred edges covering 6 GT edges):
+  [TP] PRED: (action -> achieveaction)
+        matches GT: (action -> achieveaction)
+  [TP] PRED: (bodyofwater -> lakebodyofwater)
+        matches GT: (bodyofwater -> lakebodyofwater)
+  [TP] PRED: (interactaction -> communicateaction)
+        matches GT: (interactaction -> communicateaction)
+  [TP] PRED: (newsarticle -> backgroundnewsarticle)
+        matches GT: (newsarticle -> backgroundnewsarticle)
+  [TP] PRED: (newsarticle -> opinionnewsarticle)
+        matches GT: (newsarticle -> opinionnewsarticle)
+  [TP] PRED: (physician -> physiciansoffice)
+        matches GT: (physician -> physiciansoffice)
+
+INCORRECT PREDICTIONS (False Positives: 12):
+  [FP] addaction -> createaction
+  [FP] addaction -> interactaction
+  [FP] addaction -> updateaction
+  [FP] buyaction -> tradeaction
+  [FP] createaction -> achieveaction
+  [FP] foodevent -> foodestablishment
+  [FP] medicalbusiness -> healthandbeautybusiness
+  [FP] medicalbusiness -> medicalorganization
+  [FP] theatergroup -> performinggroup
+  [FP] webpage -> webpageelement
+  [FP] winaction -> createaction
+  [FP] winaction -> tradeaction
+
+MISSED RELATIONS (False Negatives: 95):
+  [FN] achieveaction -> winaction
+  [FN] action -> assessaction
+  [FN] action -> consumeaction
+  [FN] action -> createaction
+  [FN] action -> interactaction
+  [FN] action -> tradeaction
+  [FN] action -> updateaction
+  [FN] administrativearea -> schooldistrict
+  [FN] article -> newsarticle
+  [FN] assessaction -> reactaction
+  [FN] automotivebusiness -> gasstation
+  [FN] civicstructure -> bridge
+  [FN] civicstructure -> cemetery
+  [FN] civicstructure -> educationalorganization
+  [FN] civicstructure -> governmentbuilding
+  [FN] civicstructure -> placeofworship
+  [FN] civicstructure -> rvpark
+  [FN] collectionpage -> mediagallery
+  [FN] communicateaction -> informaction
+  [FN] consumeaction -> installaction
+  [FN] creativework -> article
+  [FN] creativework -> certification
+  [FN] creativework -> conversation
+  [FN] creativework -> datacatalog
+  [FN] creativework -> howto
+  [FN] creativework -> howtodirection
+  [FN] creativework -> howtotip
+  [FN] creativework -> hypertoc
+  [FN] creativework -> learningresource
+  [FN] creativework -> musicplaylist
+  [FN] creativework -> painting
+  [FN] creativework -> play
+  [FN] creativework -> review
+  [FN] creativework -> visualartwork
+  [FN] creativework -> webpage
+  [FN] creativework -> webpageelement
+  [FN] educationalorganization -> collegeoruniversity
+  [FN] entertainmentbusiness -> adultentertainment
+  [FN] event -> courseinstance
+  [FN] event -> foodevent
+  [FN] event -> hackathon
+  [FN] event -> publicationevent
+  [FN] event -> screeningevent
+  [FN] foodestablishment -> cafeorcoffeeshop
+  [FN] governmentbuilding -> cityhall
+  [FN] informaction -> rsvpaction
+  [FN] interactaction -> befriendaction
+  [FN] landform -> bodyofwater
+  [FN] learningresource -> course
+  [FN] learningresource -> quiz
+  [FN] legalservice -> attorney
+  [FN] localbusiness -> automotivebusiness
+  [FN] localbusiness -> childcare
+  [FN] localbusiness -> entertainmentbusiness
+  [FN] localbusiness -> foodestablishment
+  [FN] localbusiness -> healthandbeautybusiness
+  [FN] localbusiness -> legalservice
+  [FN] localbusiness -> lodgingbusiness
+  [FN] localbusiness -> medicalbusiness
+  [FN] localbusiness -> shoppingcenter
+  [FN] localbusiness -> sportsactivitylocation
+  [FN] localbusiness -> store
+  [FN] lodgingbusiness -> bedandbreakfast
+  [FN] lodgingbusiness -> resort
+  [FN] mediagallery -> imagegallery
+  [FN] medicalbusiness -> physician
+  [FN] medicalorganization -> physician
+  [FN] organization -> educationalorganization
+  [FN] organization -> localbusiness
+  [FN] organization -> medicalorganization
+  [FN] organization -> performinggroup
+  [FN] performinggroup -> theatergroup
+  [FN] place -> administrativearea
+  [FN] place -> civicstructure
+  [FN] place -> landform
+  [FN] place -> localbusiness
+  [FN] placeofworship -> hindutemple
+  [FN] product -> individualproduct
+  [FN] reactaction -> likeaction
+  [FN] review -> claimreview
+  [FN] review -> employerreview
+  [FN] sportsactivitylocation -> sportsclub
+  [FN] store -> hobbyshop
+  [FN] store -> officeequipmentstore
+  [FN] thing -> action
+  [FN] thing -> creativework
+  [FN] thing -> event
+  [FN] thing -> organization
+  [FN] thing -> place
+  [FN] thing -> product
+  [FN] tradeaction -> buyaction
+  [FN] updateaction -> addaction
+  [FN] webpage -> checkoutpage
+  [FN] webpage -> collectionpage
+  [FN] webpageelement -> wpheader

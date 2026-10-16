@@ -1,0 +1,134 @@
+[
+    {
+        "dataset": "SchemaOrgV2_SUB",
+        "use_synsets": false,
+        "explode_nodes": false,
+        "results": [
+            {
+                "method": "Single-Call Baseline",
+                "model": "gemini-3.1-pro-preview",
+                "Cond_Red_F1": 0.9556650246305418,
+                "Cond_Red_Precision": 0.9509803921568627,
+                "Cond_Red_Recall": 0.9603960396039604,
+                "Cond_Clos_F1": 0.9798657718120806,
+                "Cond_Clos_Precision": 0.9831649831649831,
+                "Cond_Clos_Recall": 0.9765886287625418,
+                "Exp_Raw_F1": 0.9509803921568627,
+                "Exp_Clos_F1": 0.9798657718120806,
+                "Runtime_sec": 79.30965995788574
+            },
+            {
+                "method": "Our Method (k=1000, clawback=0)",
+                "model": "gemini-3.1-pro-preview",
+                "Cond_Red_F1": 0.941747572815534,
+                "Cond_Red_Precision": 0.9238095238095239,
+                "Cond_Red_Recall": 0.9603960396039604,
+                "Cond_Clos_F1": 0.9817578772802654,
+                "Cond_Clos_Precision": 0.9736842105263158,
+                "Cond_Clos_Recall": 0.9899665551839465,
+                "Exp_Raw_F1": 0.4938271604938271,
+                "Exp_Clos_F1": 0.9817578772802654,
+                "Runtime_sec": 1568.8473482131958
+            }
+        ]
+    },
+    {
+        "dataset": "POV2_SUB",
+        "use_synsets": false,
+        "explode_nodes": false,
+        "results": [
+            {
+                "method": "Single-Call Baseline",
+                "model": "gemini-3.1-pro-preview",
+                "Cond_Red_F1": 0.7087378640776698,
+                "Cond_Red_Precision": 0.7525773195876289,
+                "Cond_Red_Recall": 0.6697247706422018,
+                "Cond_Clos_F1": 0.8546103111726108,
+                "Cond_Clos_Precision": 0.8650646950092421,
+                "Cond_Clos_Recall": 0.8444055944055944,
+                "Exp_Raw_F1": 0.6981132075471699,
+                "Exp_Clos_F1": 0.8551236749116607,
+                "Runtime_sec": 80.94317770004272
+            },
+            {
+                "method": "Our Method (k=1000, clawback=0)",
+                "model": "gemini-3.1-pro-preview",
+                "Cond_Red_F1": 0.8317757009345795,
+                "Cond_Red_Precision": 0.8476190476190476,
+                "Cond_Red_Recall": 0.8165137614678899,
+                "Cond_Clos_F1": 0.9072369848548408,
+                "Cond_Clos_Precision": 0.8413897280966768,
+                "Cond_Clos_Recall": 0.9842657342657343,
+                "Exp_Raw_F1": 0.2752808988764045,
+                "Exp_Clos_F1": 0.9060240963855423,
+                "Runtime_sec": 2487.3805782794952
+            }
+        ]
+    },
+    {
+        "dataset": "OBIV2_SUB",
+        "use_synsets": false,
+        "explode_nodes": false,
+        "results": [
+            {
+                "method": "Single-Call Baseline",
+                "model": "gemini-3.1-pro-preview",
+                "Cond_Red_F1": 0.7729468599033817,
+                "Cond_Red_Precision": 0.7692307692307693,
+                "Cond_Red_Recall": 0.7766990291262136,
+                "Cond_Clos_F1": 0.9195121951219513,
+                "Cond_Clos_Precision": 0.9496221662468514,
+                "Cond_Clos_Recall": 0.8912529550827423,
+                "Exp_Raw_F1": 0.7788461538461539,
+                "Exp_Clos_F1": 0.9195121951219513,
+                "Runtime_sec": 86.43633604049683
+            },
+            {
+                "method": "Our Method (k=1000, clawback=0)",
+                "model": "gemini-3.1-pro-preview",
+                "Cond_Red_F1": 0.8186046511627907,
+                "Cond_Red_Precision": 0.7857142857142857,
+                "Cond_Red_Recall": 0.8543689320388349,
+                "Cond_Clos_F1": 0.8743961352657005,
+                "Cond_Clos_Precision": 0.8938271604938272,
+                "Cond_Clos_Recall": 0.8557919621749409,
+                "Exp_Raw_F1": 0.37200000000000005,
+                "Exp_Clos_F1": 0.8743961352657005,
+                "Runtime_sec": 1691.4677302837372
+            }
+        ]
+    },
+    {
+        "dataset": "MatOntoV2_SUB",
+        "use_synsets": false,
+        "explode_nodes": false,
+        "results": [
+            {
+                "method": "Single-Call Baseline",
+                "model": "gemini-3.1-pro-preview",
+                "Cond_Red_F1": 0.5308641975308641,
+                "Cond_Red_Precision": 0.7049180327868853,
+                "Cond_Red_Recall": 0.42574257425742573,
+                "Cond_Clos_F1": 0.23248882265275708,
+                "Cond_Clos_Precision": 0.8041237113402062,
+                "Cond_Clos_Recall": 0.13588850174216027,
+                "Exp_Raw_F1": 0.5276073619631902,
+                "Exp_Clos_F1": 0.23248882265275708,
+                "Runtime_sec": 85.72409534454346
+            },
+            {
+                "method": "Our Method (k=1000, clawback=0)",
+                "model": "gemini-3.1-pro-preview",
+                "Cond_Red_F1": 0.5155555555555555,
+                "Cond_Red_Precision": 0.46774193548387094,
+                "Cond_Red_Recall": 0.5742574257425742,
+                "Cond_Clos_F1": 0.850615114235501,
+                "Cond_Clos_Precision": 0.8581560283687943,
+                "Cond_Clos_Recall": 0.8432055749128919,
+                "Exp_Raw_F1": 0.23974763406940064,
+                "Exp_Clos_F1": 0.850615114235501,
+                "Runtime_sec": 1870.3867642879486
+            }
+        ]
+    }
+]

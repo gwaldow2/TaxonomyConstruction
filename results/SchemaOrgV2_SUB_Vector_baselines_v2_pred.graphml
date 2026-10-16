@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d4" for="graph" attr.name="timestamp" attr.type="string"/>
+<key id="d3" for="graph" attr.name="scale" attr.type="string"/>
+<key id="d2" for="graph" attr.name="results_file" attr.type="string"/>
+<key id="d1" for="graph" attr.name="tag" attr.type="string"/>
+<key id="d0" for="graph" attr.name="model" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">google/gemma-4-31b-it</data>
+<data key="d1">baselines_v2</data>
+<data key="d2">results/v2_baselines.json</data>
+<data key="d3">SUB</data>
+<data key="d4">2026-10-16T00:41:36</data>
+<node id="medicalbusiness"/>
+<node id="medicalorganization"/>
+<node id="healthandbeautybusiness"/>
+<node id="newsarticle"/>
+<node id="opinionnewsarticle"/>
+<node id="backgroundnewsarticle"/>
+<node id="bodyofwater"/>
+<node id="lakebodyofwater"/>
+<node id="theatergroup"/>
+<node id="performinggroup"/>
+<node id="action"/>
+<node id="achieveaction"/>
+<node id="physician"/>
+<node id="physiciansoffice"/>
+<node id="webpage"/>
+<node id="webpageelement"/>
+<node id="createaction"/>
+<node id="foodevent"/>
+<node id="foodestablishment"/>
+<node id="addaction"/>
+<node id="updateaction"/>
+<node id="interactaction"/>
+<node id="buyaction"/>
+<node id="tradeaction"/>
+<node id="winaction"/>
+<node id="communicateaction"/>
+<edge source="medicalbusiness" target="medicalorganization"/>
+<edge source="medicalbusiness" target="healthandbeautybusiness"/>
+<edge source="newsarticle" target="opinionnewsarticle"/>
+<edge source="newsarticle" target="backgroundnewsarticle"/>
+<edge source="bodyofwater" target="lakebodyofwater"/>
+<edge source="theatergroup" target="performinggroup"/>
+<edge source="action" target="achieveaction"/>
+<edge source="physician" target="physiciansoffice"/>
+<edge source="webpage" target="webpageelement"/>
+<edge source="createaction" target="achieveaction"/>
+<edge source="foodevent" target="foodestablishment"/>
+<edge source="addaction" target="updateaction"/>
+<edge source="addaction" target="achieveaction"/>
+<edge source="addaction" target="createaction"/>
+<edge source="addaction" target="interactaction"/>
+<edge source="interactaction" target="communicateaction"/>
+<edge source="buyaction" target="tradeaction"/>
+<edge source="winaction" target="tradeaction"/>
+<edge source="winaction" target="createaction"/>
+</graph></graphml>

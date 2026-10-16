@@ -1,0 +1,135 @@
+==================================================
+=== Detailed Node Pair Analysis (Exploded Raw Edges) ===
+Match Type Used: EXACT
+==================================================
+Precision: 0.7470 | Recall: 0.6019 | F1: 0.6667
+
+CORRECT PREDICTIONS (True Positives: 62 Pred edges covering 62 GT edges):
+  [TP] anatomical entity -> material anatomical entity
+  [TP] anatomical structure -> areola
+  [TP] assay -> analyte assay
+  [TP] assay -> binding assay
+  [TP] assay -> chip assay
+  [TP] assay -> cytometry assay
+  [TP] assay -> insecticide resistance assay
+  [TP] assay -> sequencing assay
+  [TP] assay -> single-nucleotide-resolution nucleic acid structure mapping assay
+  [TP] assay -> transcription profiling assay
+  [TP] assay measuring binding of a mhcligand complex -> assay measuring quantitative binding of a mhcligand complex
+  [TP] assay measuring epitope specific cytokine production by t cells -> assay measuring epitope specific interleukin-18 production by t cells
+  [TP] binding assay -> binding assay using radioactivity detection
+  [TP] binding assay using radioactivity detection -> radioactivity detection assay measuring half maximal effective concentration ec50 to determine direct binding of a cell-lysate-mhcligand complex
+  [TP] biological_process -> response to stimulus
+  [TP] blood -> placental blood
+  [TP] bodily fluid -> blood
+  [TP] carbon dioxide assay -> venous blood carbon dioxide assay
+  [TP] chip assay -> chip-seq assay
+  [TP] chromatography instrument -> chromatography pump system
+  [TP] clinical history -> family clinical history of cancer
+  [TP] complex of molecules -> protein-containing complex
+  [TP] cytometer -> flow cytometer
+  [TP] data item -> measurement datum
+  [TP] data transformation -> scaling data transformation
+  [TP] detection of specific nucleic acid polymers with complementary probes -> detection of specific nucleic acids with complementary probes assay measuring epitope specific interleukin-18 production by t cells
+  [TP] device -> material separation device
+  [TP] device -> measurement device
+  [TP] dna sequencer -> pacbio rs ii
+  [TP] dna sequencing assay -> dna sequencing by synthesis assay
+  [TP] family clinical history of cancer -> grandfather clinical history of cancer
+  [TP] flow cytometer -> flow cytometer analyzer
+  [TP] immune epitope assay -> t cell epitope assay
+  [TP] induced mutagenesis -> random mutagenesis
+  [TP] information content entity -> value specification
+  [TP] insecticide resistance assay -> insecticide resistance bioassay
+  [TP] insecticide resistance assay -> insecticide resistance by detecting enzyme activity assay
+  [TP] insecticide resistance bioassay -> direct insecticide resistance bioassay
+  [TP] insecticide resistance by detecting enzyme activity assay -> insecticide resistance by detecting glutathione s-transferase activity assay
+  [TP] insecticide resistance time response assay -> insecticide resistance time response by bottle assay
+  [TP] material anatomical entity -> anatomical structure
+  [TP] material entity -> molecule
+  [TP] material entity -> processed material entity
+  [TP] material separation device -> chromatography instrument
+  [TP] measurement datum -> scalar measurement datum
+  [TP] measurement device -> cytometer
+  [TP] measurement device -> dna sequencer
+  [TP] molecule -> gadolinium atom
+  [TP] molecule -> rhodium atom
+  [TP] organism substance -> bodily fluid
+  [TP] planned process -> completely executed planned process
+  [TP] process -> biological_process
+  [TP] process -> planned process
+  [TP] protein-containing complex -> cytosolic creatine kinase complex mb-type
+  [TP] random mutagenesis -> chemical mutagenesis
+  [TP] response to stimulus -> response to toxic substance
+  [TP] scaling data transformation -> loess scale group transformation
+  [TP] sequencing assay -> dna sequencing assay
+  [TP] single-nucleotide-resolution nucleic acid structure mapping assay -> single-nucleotide-resolution nucleic acid structure mapping assay using chemical probing
+  [TP] transcription profiling assay -> transcription profiling by rna sequencing assay
+  [TP] transcription profiling by rna sequencing assay -> single-cell transcription profiling by rna sequencing assay
+  [TP] value specification -> categorical value specification
+
+INCORRECT PREDICTIONS (False Positives: 21):
+  [FP] analyte assay -> blood assay
+  [FP] assay -> detection of specific nucleic acid polymers with complementary probes
+  [FP] assay measuring binding of a mhcligand complex -> assay measuring the half maximal effective concentration ec50 of a mhcligand complex
+  [FP] binding assay -> assay measuring binding of a mhcligand complex
+  [FP] binding assay -> immune epitope assay
+  [FP] blood assay -> carbon dioxide assay
+  [FP] data item -> information content entity
+  [FP] device -> luminex 200
+  [FP] device -> vacuum degasser
+  [FP] information content entity -> data transformation
+  [FP] insecticide resistance assay -> insecticide resistance time response assay
+  [FP] material entity -> organism substance
+  [FP] material separation device -> fraction collector
+  [FP] measurement datum -> sequencing library input quantity measurement datum
+  [FP] molecule -> complex of molecules
+  [FP] process -> genetic transformation
+  [FP] process -> induced mutagenesis
+  [FP] sequencing assay -> transcription profiling by rna sequencing assay
+  [FP] single-nucleotide-resolution nucleic acid structure mapping assay -> cmct structure mapping assay
+  [FP] t cell epitope assay -> assay measuring epitope specific cytokine production by t cells
+  [FP] venous blood carbon dioxide assay -> panel5 venous blood carbon dioxide assay
+
+MISSED RELATIONS (False Negatives: 41):
+  [FN] analyte assay -> carbon dioxide assay
+  [FN] analyte assay -> detection of specific nucleic acid polymers with complementary probes
+  [FN] analyte assay -> glucose assay
+  [FN] analyte assay -> venous blood valproic acid assay
+  [FN] assay -> blood assay
+  [FN] assay -> immune epitope assay
+  [FN] assay measuring biological activity resulting from t cell epitopemhctcr binding -> assay measuring epitope specific cytokine production by t cells
+  [FN] assay measuring epitope specific interleukin-18 production by t cells -> detection of specific nucleic acids with complementary probes assay measuring epitope specific interleukin-18 production by t cells
+  [FN] assay measuring quantitative binding of a mhcligand complex -> assay measuring the half maximal effective concentration ec50 of a mhcligand complex
+  [FN] assay measuring the half maximal effective concentration ec50 of a mhcligand complex -> radioactivity detection assay measuring half maximal effective concentration ec50 to determine direct binding of a cell-lysate-mhcligand complex
+  [FN] binding assay -> mammalian 2-hybrid assay
+  [FN] blood assay -> panel5 venous blood carbon dioxide assay
+  [FN] blood assay -> venous blood carbon dioxide assay
+  [FN] blood assay -> venous blood valproic acid assay
+  [FN] carbon dioxide assay -> panel5 venous blood carbon dioxide assay
+  [FN] categorical value specification -> clinical tumor stage group according to ajcc 7th edition
+  [FN] cellular_component -> protein-containing complex
+  [FN] chromatography instrument -> fraction collector
+  [FN] chromatography pump system -> vacuum degasser
+  [FN] completely executed planned process -> assay
+  [FN] completely executed planned process -> data transformation
+  [FN] completely executed planned process -> genetic transformation
+  [FN] cytometry assay -> lymphocyte assay
+  [FN] direct insecticide resistance bioassay -> insecticide resistance time response assay
+  [FN] dna sequencing assay -> cleavage under targets and tagmentation
+  [FN] flow cytometer analyzer -> luminex 200
+  [FN] genetic transformation -> induced mutagenesis
+  [FN] immune epitope assay -> mhc ligand assay
+  [FN] information content entity -> clinical history
+  [FN] information content entity -> data item
+  [FN] lymphocyte assay -> total lymphocyte percentage assay
+  [FN] material anatomical entity -> organism substance
+  [FN] material entity -> cellular_component
+  [FN] material entity -> complex of molecules
+  [FN] material entity -> material anatomical entity
+  [FN] mhc ligand assay -> assay measuring binding of a mhcligand complex
+  [FN] processed material entity -> device
+  [FN] scalar measurement datum -> sequencing library input quantity measurement datum
+  [FN] single-cell transcription profiling by rna sequencing assay -> single-cell metabolically labeled new rna tagging sequencing
+  [FN] single-nucleotide-resolution nucleic acid structure mapping assay using chemical probing -> cmct structure mapping assay
+  [FN] t cell epitope assay -> assay measuring biological activity resulting from t cell epitopemhctcr binding

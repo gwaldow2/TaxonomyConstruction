@@ -1,0 +1,290 @@
+[
+    {
+        "dataset": "SchemaOrgV2_SUB",
+        "use_synsets": false,
+        "explode_nodes": false,
+        "results": [
+            {
+                "method": "Lexical",
+                "model": "google/gemma-4-31b-it",
+                "Cond_Red_F1": 0.3043478260869565,
+                "Cond_Red_Precision": 0.5675675675675675,
+                "Cond_Red_Recall": 0.2079207920792079,
+                "Cond_Clos_F1": 0.20118343195266272,
+                "Cond_Clos_Precision": 0.8717948717948718,
+                "Cond_Clos_Recall": 0.11371237458193979,
+                "Exp_Raw_F1": 0.2978723404255319,
+                "Exp_Clos_F1": 0.20118343195266272,
+                "Runtime_sec": 0.20525789260864258
+            },
+            {
+                "method": "Vector",
+                "model": "google/gemma-4-31b-it",
+                "Cond_Red_F1": 0.10084033613445377,
+                "Cond_Red_Precision": 0.3333333333333333,
+                "Cond_Red_Recall": 0.0594059405940594,
+                "Cond_Clos_F1": 0.037500000000000006,
+                "Cond_Clos_Precision": 0.2857142857142857,
+                "Cond_Clos_Recall": 0.020066889632107024,
+                "Exp_Raw_F1": 0.09917355371900827,
+                "Exp_Clos_F1": 0.037500000000000006,
+                "Runtime_sec": 0.5013799667358398
+            },
+            {
+                "method": "SBU LLM Batch",
+                "model": "google/gemma-4-31b-it",
+                "Cond_Red_F1": 0.6,
+                "Cond_Red_Precision": 0.6835443037974683,
+                "Cond_Red_Recall": 0.5346534653465347,
+                "Cond_Clos_F1": 0.7276422764227641,
+                "Cond_Clos_Precision": 0.927461139896373,
+                "Cond_Clos_Recall": 0.5986622073578596,
+                "Exp_Raw_F1": 0.5966850828729282,
+                "Exp_Clos_F1": 0.7276422764227641,
+                "Runtime_sec": 34.36473488807678
+            },
+            {
+                "method": "SBU Embedding",
+                "model": "google/gemma-4-31b-it",
+                "Cond_Red_F1": 0.0,
+                "Cond_Red_Precision": 0.0,
+                "Cond_Red_Recall": 0.0,
+                "Cond_Clos_F1": 0.10444874274661509,
+                "Cond_Clos_Precision": 0.12385321100917432,
+                "Cond_Clos_Recall": 0.0903010033444816,
+                "Exp_Raw_F1": 0.18811881188118812,
+                "Exp_Clos_F1": 0.10444874274661509,
+                "Runtime_sec": 0.17408537864685059
+            },
+            {
+                "method": "TaxoLLaMA (PPL<15.0)",
+                "model": "meta-llama/Llama-2-7b-hf+TaxoLLaMA",
+                "Cond_Red_F1": 0.29000000000000004,
+                "Cond_Red_Precision": 0.29292929292929293,
+                "Cond_Red_Recall": 0.2871287128712871,
+                "Cond_Clos_F1": 0.24719101123595505,
+                "Cond_Clos_Precision": 0.21307506053268765,
+                "Cond_Clos_Recall": 0.29431438127090304,
+                "Exp_Raw_F1": 0.2885572139303483,
+                "Exp_Clos_F1": 0.24719101123595505,
+                "Runtime_sec": 518.0778589248657
+            }
+        ]
+    },
+    {
+        "dataset": "POV2_SUB",
+        "use_synsets": false,
+        "explode_nodes": false,
+        "results": [
+            {
+                "method": "Lexical",
+                "model": "google/gemma-4-31b-it",
+                "Cond_Red_F1": 0.3026315789473685,
+                "Cond_Red_Precision": 0.5348837209302325,
+                "Cond_Red_Recall": 0.21100917431192662,
+                "Cond_Clos_F1": 0.1088,
+                "Cond_Clos_Precision": 0.6415094339622641,
+                "Cond_Clos_Recall": 0.05944055944055944,
+                "Exp_Raw_F1": 0.29629629629629634,
+                "Exp_Clos_F1": 0.1088,
+                "Runtime_sec": 0.10083270072937012
+            },
+            {
+                "method": "Vector",
+                "model": "google/gemma-4-31b-it",
+                "Cond_Red_F1": 0.24581005586592178,
+                "Cond_Red_Precision": 0.3142857142857143,
+                "Cond_Red_Recall": 0.2018348623853211,
+                "Cond_Clos_F1": 0.12681638044914137,
+                "Cond_Clos_Precision": 0.2594594594594595,
+                "Cond_Clos_Recall": 0.08391608391608392,
+                "Exp_Raw_F1": 0.2790697674418604,
+                "Exp_Clos_F1": 0.12681638044914137,
+                "Runtime_sec": 0.41049981117248535
+            },
+            {
+                "method": "SBU LLM Batch",
+                "model": "google/gemma-4-31b-it",
+                "Cond_Red_F1": 0.3459459459459459,
+                "Cond_Red_Precision": 0.42105263157894735,
+                "Cond_Red_Recall": 0.29357798165137616,
+                "Cond_Clos_F1": 0.41005291005291006,
+                "Cond_Clos_Precision": 0.842391304347826,
+                "Cond_Clos_Recall": 0.270979020979021,
+                "Exp_Raw_F1": 0.3459459459459459,
+                "Exp_Clos_F1": 0.41005291005291006,
+                "Runtime_sec": 36.78784799575806
+            },
+            {
+                "method": "SBU Embedding",
+                "model": "google/gemma-4-31b-it",
+                "Cond_Red_F1": 0.0,
+                "Cond_Red_Precision": 0.0,
+                "Cond_Red_Recall": 0.0,
+                "Cond_Clos_F1": 0.13740458015267173,
+                "Cond_Clos_Precision": 0.2523364485981308,
+                "Cond_Clos_Recall": 0.0944055944055944,
+                "Exp_Raw_F1": 0.31578947368421056,
+                "Exp_Clos_F1": 0.13740458015267173,
+                "Runtime_sec": 0.3084523677825928
+            },
+            {
+                "method": "TaxoLLaMA (PPL<15.0)",
+                "model": "meta-llama/Llama-2-7b-hf+TaxoLLaMA",
+                "Cond_Red_F1": 0.27184466019417475,
+                "Cond_Red_Precision": 0.28865979381443296,
+                "Cond_Red_Recall": 0.25688073394495414,
+                "Cond_Clos_F1": 0.20486555697823303,
+                "Cond_Clos_Precision": 0.3827751196172249,
+                "Cond_Clos_Recall": 0.13986013986013987,
+                "Exp_Raw_F1": 0.27184466019417475,
+                "Exp_Clos_F1": 0.20486555697823303,
+                "Runtime_sec": 519.8242559432983
+            }
+        ]
+    },
+    {
+        "dataset": "OBIV2_SUB",
+        "use_synsets": false,
+        "explode_nodes": false,
+        "results": [
+            {
+                "method": "Lexical",
+                "model": "google/gemma-4-31b-it",
+                "Cond_Red_F1": 0.3734939759036145,
+                "Cond_Red_Precision": 0.49206349206349204,
+                "Cond_Red_Recall": 0.30097087378640774,
+                "Cond_Clos_F1": 0.272,
+                "Cond_Clos_Precision": 0.8831168831168831,
+                "Cond_Clos_Recall": 0.1607565011820331,
+                "Exp_Raw_F1": 0.35555555555555557,
+                "Exp_Clos_F1": 0.272,
+                "Runtime_sec": 0.12888216972351074
+            },
+            {
+                "method": "Vector",
+                "model": "google/gemma-4-31b-it",
+                "Cond_Red_F1": 0.44444444444444453,
+                "Cond_Red_Precision": 0.68,
+                "Cond_Red_Recall": 0.3300970873786408,
+                "Cond_Clos_F1": 0.29151291512915123,
+                "Cond_Clos_Precision": 0.6638655462184874,
+                "Cond_Clos_Recall": 0.1867612293144208,
+                "Exp_Raw_F1": 0.4385026737967914,
+                "Exp_Clos_F1": 0.29151291512915123,
+                "Runtime_sec": 0.31118035316467285
+            },
+            {
+                "method": "SBU LLM Batch",
+                "model": "google/gemma-4-31b-it",
+                "Cond_Red_F1": 0.6666666666666666,
+                "Cond_Red_Precision": 0.7469879518072289,
+                "Cond_Red_Recall": 0.6019417475728155,
+                "Cond_Clos_F1": 0.5174129353233831,
+                "Cond_Clos_Precision": 0.8666666666666667,
+                "Cond_Clos_Recall": 0.36879432624113473,
+                "Exp_Raw_F1": 0.6666666666666666,
+                "Exp_Clos_F1": 0.5174129353233831,
+                "Runtime_sec": 54.333465814590454
+            },
+            {
+                "method": "SBU Embedding",
+                "model": "google/gemma-4-31b-it",
+                "Cond_Red_F1": 0.0,
+                "Cond_Red_Precision": 0.0,
+                "Cond_Red_Recall": 0.0,
+                "Cond_Clos_F1": 0.16981132075471697,
+                "Cond_Clos_Precision": 0.2535211267605634,
+                "Cond_Clos_Recall": 0.1276595744680851,
+                "Exp_Raw_F1": 0.3546798029556651,
+                "Exp_Clos_F1": 0.16981132075471697,
+                "Runtime_sec": 0.28235530853271484
+            },
+            {
+                "method": "TaxoLLaMA (PPL<15.0)",
+                "model": "meta-llama/Llama-2-7b-hf+TaxoLLaMA",
+                "Cond_Red_F1": 0.39800995024875624,
+                "Cond_Red_Precision": 0.40816326530612246,
+                "Cond_Red_Recall": 0.3883495145631068,
+                "Cond_Clos_F1": 0.25065963060686014,
+                "Cond_Clos_Precision": 0.2835820895522388,
+                "Cond_Clos_Recall": 0.22458628841607564,
+                "Exp_Raw_F1": 0.39800995024875624,
+                "Exp_Clos_F1": 0.25065963060686014,
+                "Runtime_sec": 521.7881906032562
+            }
+        ]
+    },
+    {
+        "dataset": "MatOntoV2_SUB",
+        "use_synsets": false,
+        "explode_nodes": false,
+        "results": [
+            {
+                "method": "Lexical",
+                "model": "google/gemma-4-31b-it",
+                "Cond_Red_F1": 0.380952380952381,
+                "Cond_Red_Precision": 0.6086956521739131,
+                "Cond_Red_Recall": 0.27722772277227725,
+                "Cond_Clos_F1": 0.13162118780096307,
+                "Cond_Clos_Precision": 0.8367346938775511,
+                "Cond_Clos_Recall": 0.07142857142857142,
+                "Exp_Raw_F1": 0.3841059602649006,
+                "Exp_Clos_F1": 0.13162118780096307,
+                "Runtime_sec": 0.0854635238647461
+            },
+            {
+                "method": "Vector",
+                "model": "google/gemma-4-31b-it",
+                "Cond_Red_F1": 0.22058823529411764,
+                "Cond_Red_Precision": 0.42857142857142855,
+                "Cond_Red_Recall": 0.1485148514851485,
+                "Cond_Clos_F1": 0.07119741100323623,
+                "Cond_Clos_Precision": 0.5,
+                "Cond_Clos_Recall": 0.03832752613240418,
+                "Exp_Raw_F1": 0.22857142857142856,
+                "Exp_Clos_F1": 0.07119741100323623,
+                "Runtime_sec": 0.2284252643585205
+            },
+            {
+                "method": "SBU LLM Batch",
+                "model": "google/gemma-4-31b-it",
+                "Cond_Red_F1": 0.7384615384615384,
+                "Cond_Red_Precision": 0.7659574468085106,
+                "Cond_Red_Recall": 0.7128712871287128,
+                "Cond_Clos_F1": 0.7866927592954991,
+                "Cond_Clos_Precision": 0.8973214285714286,
+                "Cond_Clos_Recall": 0.7003484320557491,
+                "Exp_Raw_F1": 0.7346938775510204,
+                "Exp_Clos_F1": 0.7866927592954991,
+                "Runtime_sec": 42.163405895233154
+            },
+            {
+                "method": "SBU Embedding",
+                "model": "google/gemma-4-31b-it",
+                "Cond_Red_F1": 0.0,
+                "Cond_Red_Precision": 0.0,
+                "Cond_Red_Recall": 0.0,
+                "Cond_Clos_F1": 0.07653061224489796,
+                "Cond_Clos_Precision": 0.14285714285714285,
+                "Cond_Clos_Recall": 0.05226480836236934,
+                "Exp_Raw_F1": 0.2266009852216749,
+                "Exp_Clos_F1": 0.07653061224489796,
+                "Runtime_sec": 0.2748425006866455
+            },
+            {
+                "method": "TaxoLLaMA (PPL<15.0)",
+                "model": "meta-llama/Llama-2-7b-hf+TaxoLLaMA",
+                "Cond_Red_F1": 0.33502538071065985,
+                "Cond_Red_Precision": 0.34375,
+                "Cond_Red_Recall": 0.32673267326732675,
+                "Cond_Clos_F1": 0.12832929782082325,
+                "Cond_Clos_Precision": 0.21031746031746032,
+                "Cond_Clos_Recall": 0.09233449477351917,
+                "Exp_Raw_F1": 0.33333333333333337,
+                "Exp_Clos_F1": 0.12832929782082325,
+                "Runtime_sec": 530.8363649845123
+            }
+        ]
+    }
+]

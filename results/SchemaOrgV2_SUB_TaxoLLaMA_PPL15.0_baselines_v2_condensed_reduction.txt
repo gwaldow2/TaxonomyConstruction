@@ -1,0 +1,211 @@
+==================================================
+=== Detailed Node Pair Analysis (Condensed Transitive Reduction) ===
+Match Type Used: SET_OVERLAP
+==================================================
+Precision: 0.2929 | Recall: 0.2871 | F1: 0.2900
+
+CORRECT PREDICTIONS (True Positives: 29 Pred edges covering 29 GT edges):
+  [TP] PRED: (action -> achieveaction)
+        matches GT: (action -> achieveaction)
+  [TP] PRED: (action -> assessaction)
+        matches GT: (action -> assessaction)
+  [TP] PRED: (action -> consumeaction)
+        matches GT: (action -> consumeaction)
+  [TP] PRED: (action -> createaction)
+        matches GT: (action -> createaction)
+  [TP] PRED: (action -> interactaction)
+        matches GT: (action -> interactaction)
+  [TP] PRED: (action -> tradeaction)
+        matches GT: (action -> tradeaction)
+  [TP] PRED: (action -> updateaction)
+        matches GT: (action -> updateaction)
+  [TP] PRED: (article -> newsarticle)
+        matches GT: (article -> newsarticle)
+  [TP] PRED: (automotivebusiness -> gasstation)
+        matches GT: (automotivebusiness -> gasstation)
+  [TP] PRED: (bodyofwater -> lakebodyofwater)
+        matches GT: (bodyofwater -> lakebodyofwater)
+  [TP] PRED: (entertainmentbusiness -> adultentertainment)
+        matches GT: (entertainmentbusiness -> adultentertainment)
+  [TP] PRED: (event -> foodevent)
+        matches GT: (event -> foodevent)
+  [TP] PRED: (event -> hackathon)
+        matches GT: (event -> hackathon)
+  [TP] PRED: (event -> publicationevent)
+        matches GT: (event -> publicationevent)
+  [TP] PRED: (event -> screeningevent)
+        matches GT: (event -> screeningevent)
+  [TP] PRED: (foodestablishment -> cafeorcoffeeshop)
+        matches GT: (foodestablishment -> cafeorcoffeeshop)
+  [TP] PRED: (landform -> bodyofwater)
+        matches GT: (landform -> bodyofwater)
+  [TP] PRED: (organization -> educationalorganization)
+        matches GT: (organization -> educationalorganization)
+  [TP] PRED: (organization -> medicalorganization)
+        matches GT: (organization -> medicalorganization)
+  [TP] PRED: (physician -> physiciansoffice)
+        matches GT: (physician -> physiciansoffice)
+  [TP] PRED: (placeofworship -> hindutemple)
+        matches GT: (placeofworship -> hindutemple)
+  [TP] PRED: (product -> individualproduct)
+        matches GT: (product -> individualproduct)
+  [TP] PRED: (review -> claimreview)
+        matches GT: (review -> claimreview)
+  [TP] PRED: (review -> employerreview)
+        matches GT: (review -> employerreview)
+  [TP] PRED: (store -> hobbyshop)
+        matches GT: (store -> hobbyshop)
+  [TP] PRED: (store -> officeequipmentstore)
+        matches GT: (store -> officeequipmentstore)
+  [TP] PRED: (thing -> event)
+        matches GT: (thing -> event)
+  [TP] PRED: (thing -> product)
+        matches GT: (thing -> product)
+  [TP] PRED: (webpage -> checkoutpage)
+        matches GT: (webpage -> checkoutpage)
+
+INCORRECT PREDICTIONS (False Positives: 70):
+  [FP] action -> addaction
+  [FP] action -> befriendaction
+  [FP] action -> buyaction
+  [FP] action -> communicateaction
+  [FP] action -> informaction
+  [FP] action -> installaction
+  [FP] action -> likeaction
+  [FP] action -> play
+  [FP] action -> reactaction
+  [FP] action -> rsvpaction
+  [FP] action -> winaction
+  [FP] article -> backgroundnewsarticle
+  [FP] article -> howto
+  [FP] article -> opinionnewsarticle
+  [FP] article -> thing
+  [FP] attorney -> legalservice
+  [FP] automotivebusiness -> localbusiness
+  [FP] automotivebusiness -> rvpark
+  [FP] automotivebusiness -> shoppingcenter
+  [FP] bedandbreakfast -> childcare
+  [FP] cafeorcoffeeshop -> conversation
+  [FP] cafeorcoffeeshop -> datacatalog
+  [FP] cafeorcoffeeshop -> wpheader
+  [FP] certification -> course
+  [FP] certification -> quiz
+  [FP] certification -> review
+  [FP] course -> courseinstance
+  [FP] event -> action
+  [FP] foodestablishment -> bedandbreakfast
+  [FP] healthandbeautybusiness -> automotivebusiness
+  [FP] healthandbeautybusiness -> certification
+  [FP] healthandbeautybusiness -> entertainmentbusiness
+  [FP] healthandbeautybusiness -> foodestablishment
+  [FP] healthandbeautybusiness -> landform
+  [FP] healthandbeautybusiness -> lodgingbusiness
+  [FP] healthandbeautybusiness -> medicalbusiness
+  [FP] healthandbeautybusiness -> number
+  [FP] healthandbeautybusiness -> organization
+  [FP] healthandbeautybusiness -> painting
+  [FP] healthandbeautybusiness -> place
+  [FP] healthandbeautybusiness -> visualartwork
+  [FP] healthandbeautybusiness -> webpage
+  [FP] hindutemple -> article
+  [FP] hindutemple -> bridge
+  [FP] hindutemple -> collectionpage
+  [FP] hindutemple -> creativework
+  [FP] hindutemple -> hypertoc
+  [FP] hindutemple -> physician
+  [FP] hindutemple -> schooldistrict
+  [FP] hobbyshop -> imagegallery
+  [FP] howto -> howtodirection
+  [FP] howto -> howtotip
+  [FP] imagegallery -> mediagallery
+  [FP] organization -> civicstructure
+  [FP] organization -> sportsclub
+  [FP] organization -> theatergroup
+  [FP] physician -> attorney
+  [FP] place -> cemetery
+  [FP] place -> placeofworship
+  [FP] place -> resort
+  [FP] place -> sportsactivitylocation
+  [FP] place -> store
+  [FP] placeofworship -> cityhall
+  [FP] placeofworship -> learningresource
+  [FP] play -> musicplaylist
+  [FP] schooldistrict -> administrativearea
+  [FP] schooldistrict -> collegeoruniversity
+  [FP] schooldistrict -> governmentbuilding
+  [FP] theatergroup -> performinggroup
+  [FP] webpage -> webpageelement
+
+MISSED RELATIONS (False Negatives: 72):
+  [FN] achieveaction -> winaction
+  [FN] administrativearea -> schooldistrict
+  [FN] assessaction -> reactaction
+  [FN] civicstructure -> bridge
+  [FN] civicstructure -> cemetery
+  [FN] civicstructure -> educationalorganization
+  [FN] civicstructure -> governmentbuilding
+  [FN] civicstructure -> placeofworship
+  [FN] civicstructure -> rvpark
+  [FN] collectionpage -> mediagallery
+  [FN] communicateaction -> informaction
+  [FN] consumeaction -> installaction
+  [FN] creativework -> article
+  [FN] creativework -> certification
+  [FN] creativework -> conversation
+  [FN] creativework -> datacatalog
+  [FN] creativework -> howto
+  [FN] creativework -> howtodirection
+  [FN] creativework -> howtotip
+  [FN] creativework -> hypertoc
+  [FN] creativework -> learningresource
+  [FN] creativework -> musicplaylist
+  [FN] creativework -> painting
+  [FN] creativework -> play
+  [FN] creativework -> review
+  [FN] creativework -> visualartwork
+  [FN] creativework -> webpage
+  [FN] creativework -> webpageelement
+  [FN] educationalorganization -> collegeoruniversity
+  [FN] event -> courseinstance
+  [FN] governmentbuilding -> cityhall
+  [FN] informaction -> rsvpaction
+  [FN] interactaction -> befriendaction
+  [FN] interactaction -> communicateaction
+  [FN] learningresource -> course
+  [FN] learningresource -> quiz
+  [FN] legalservice -> attorney
+  [FN] localbusiness -> automotivebusiness
+  [FN] localbusiness -> childcare
+  [FN] localbusiness -> entertainmentbusiness
+  [FN] localbusiness -> foodestablishment
+  [FN] localbusiness -> healthandbeautybusiness
+  [FN] localbusiness -> legalservice
+  [FN] localbusiness -> lodgingbusiness
+  [FN] localbusiness -> medicalbusiness
+  [FN] localbusiness -> shoppingcenter
+  [FN] localbusiness -> sportsactivitylocation
+  [FN] localbusiness -> store
+  [FN] lodgingbusiness -> bedandbreakfast
+  [FN] lodgingbusiness -> resort
+  [FN] mediagallery -> imagegallery
+  [FN] medicalbusiness -> physician
+  [FN] medicalorganization -> physician
+  [FN] newsarticle -> backgroundnewsarticle
+  [FN] newsarticle -> opinionnewsarticle
+  [FN] organization -> localbusiness
+  [FN] organization -> performinggroup
+  [FN] performinggroup -> theatergroup
+  [FN] place -> administrativearea
+  [FN] place -> civicstructure
+  [FN] place -> landform
+  [FN] place -> localbusiness
+  [FN] reactaction -> likeaction
+  [FN] sportsactivitylocation -> sportsclub
+  [FN] thing -> action
+  [FN] thing -> creativework
+  [FN] thing -> organization
+  [FN] thing -> place
+  [FN] tradeaction -> buyaction
+  [FN] updateaction -> addaction
+  [FN] webpage -> collectionpage
+  [FN] webpageelement -> wpheader

@@ -1,0 +1,528 @@
+==================================================
+=== Detailed Node Pair Analysis (Condensed Transitive Closure) ===
+Match Type Used: SET_OVERLAP
+==================================================
+Precision: 0.1239 | Recall: 0.0903 | F1: 0.1044
+
+CORRECT PREDICTIONS (True Positives: 27 Pred edges covering 27 GT edges):
+  [TP] PRED: (bodyofwater -> lakebodyofwater)
+        matches GT: (bodyofwater -> lakebodyofwater)
+  [TP] PRED: (civicstructure -> governmentbuilding)
+        matches GT: (civicstructure -> governmentbuilding)
+  [TP] PRED: (communicateaction -> informaction)
+        matches GT: (communicateaction -> informaction)
+  [TP] PRED: (creativework -> painting)
+        matches GT: (creativework -> painting)
+  [TP] PRED: (event -> publicationevent)
+        matches GT: (event -> publicationevent)
+  [TP] PRED: (event -> screeningevent)
+        matches GT: (event -> screeningevent)
+  [TP] PRED: (foodestablishment -> cafeorcoffeeshop)
+        matches GT: (foodestablishment -> cafeorcoffeeshop)
+  [TP] PRED: (interactaction -> befriendaction)
+        matches GT: (interactaction -> befriendaction)
+  [TP] PRED: (interactaction -> communicateaction)
+        matches GT: (interactaction -> communicateaction)
+  [TP] PRED: (interactaction -> informaction)
+        matches GT: (interactaction -> informaction)
+  [TP] PRED: (localbusiness -> automotivebusiness)
+        matches GT: (localbusiness -> automotivebusiness)
+  [TP] PRED: (mediagallery -> imagegallery)
+        matches GT: (mediagallery -> imagegallery)
+  [TP] PRED: (newsarticle -> backgroundnewsarticle)
+        matches GT: (newsarticle -> backgroundnewsarticle)
+  [TP] PRED: (newsarticle -> opinionnewsarticle)
+        matches GT: (newsarticle -> opinionnewsarticle)
+  [TP] PRED: (performinggroup -> theatergroup)
+        matches GT: (performinggroup -> theatergroup)
+  [TP] PRED: (physician -> physiciansoffice)
+        matches GT: (physician -> physiciansoffice)
+  [TP] PRED: (place -> cemetery)
+        matches GT: (place -> cemetery)
+  [TP] PRED: (place -> gasstation)
+        matches GT: (place -> gasstation)
+  [TP] PRED: (place -> resort)
+        matches GT: (place -> resort)
+  [TP] PRED: (place -> rvpark)
+        matches GT: (place -> rvpark)
+  [TP] PRED: (product -> individualproduct)
+        matches GT: (product -> individualproduct)
+  [TP] PRED: (sportsactivitylocation -> sportsclub)
+        matches GT: (sportsactivitylocation -> sportsclub)
+  [TP] PRED: (store -> officeequipmentstore)
+        matches GT: (store -> officeequipmentstore)
+  [TP] PRED: (tradeaction -> buyaction)
+        matches GT: (tradeaction -> buyaction)
+  [TP] PRED: (webpage -> checkoutpage)
+        matches GT: (webpage -> checkoutpage)
+  [TP] PRED: (webpage -> collectionpage)
+        matches GT: (webpage -> collectionpage)
+  [TP] PRED: (webpageelement -> wpheader)
+        matches GT: (webpageelement -> wpheader)
+
+INCORRECT PREDICTIONS (False Positives: 191):
+  [FP] achieveaction -> action
+  [FP] achieveaction -> musicplaylist
+  [FP] achieveaction -> play
+  [FP] action -> musicplaylist
+  [FP] action -> play
+  [FP] addaction -> achieveaction
+  [FP] addaction -> action
+  [FP] addaction -> addaction
+  [FP] addaction -> createaction
+  [FP] addaction -> musicplaylist
+  [FP] addaction -> play
+  [FP] addaction -> updateaction
+  [FP] attorney -> legalservice
+  [FP] bodyofwater -> bodyofwater
+  [FP] bodyofwater -> cemetery
+  [FP] bodyofwater -> gasstation
+  [FP] bodyofwater -> landform
+  [FP] bodyofwater -> place
+  [FP] bodyofwater -> placeofworship
+  [FP] bodyofwater -> resort
+  [FP] bodyofwater -> rvpark
+  [FP] bridge -> bridge
+  [FP] bridge -> cityhall
+  [FP] buyaction -> buyaction
+  [FP] buyaction -> consumeaction
+  [FP] buyaction -> installaction
+  [FP] buyaction -> likeaction
+  [FP] buyaction -> tradeaction
+  [FP] buyaction -> winaction
+  [FP] childcare -> bedandbreakfast
+  [FP] childcare -> childcare
+  [FP] childcare -> datacatalog
+  [FP] childcare -> schooldistrict
+  [FP] cityhall -> bridge
+  [FP] cityhall -> cityhall
+  [FP] civicstructure -> civicstructure
+  [FP] claimreview -> claimreview
+  [FP] claimreview -> employerreview
+  [FP] collegeoruniversity -> collegeoruniversity
+  [FP] collegeoruniversity -> course
+  [FP] collegeoruniversity -> courseinstance
+  [FP] collegeoruniversity -> howto
+  [FP] collegeoruniversity -> howtodirection
+  [FP] collegeoruniversity -> howtotip
+  [FP] collegeoruniversity -> learningresource
+  [FP] communicateaction -> assessaction
+  [FP] communicateaction -> befriendaction
+  [FP] communicateaction -> communicateaction
+  [FP] communicateaction -> conversation
+  [FP] communicateaction -> interactaction
+  [FP] communicateaction -> reactaction
+  [FP] conversation -> befriendaction
+  [FP] course -> howto
+  [FP] course -> howtodirection
+  [FP] course -> howtotip
+  [FP] courseinstance -> collegeoruniversity
+  [FP] courseinstance -> course
+  [FP] courseinstance -> courseinstance
+  [FP] courseinstance -> howto
+  [FP] courseinstance -> howtodirection
+  [FP] courseinstance -> howtotip
+  [FP] courseinstance -> learningresource
+  [FP] createaction -> achieveaction
+  [FP] createaction -> action
+  [FP] createaction -> addaction
+  [FP] createaction -> createaction
+  [FP] createaction -> musicplaylist
+  [FP] createaction -> play
+  [FP] createaction -> updateaction
+  [FP] creativework -> creativework
+  [FP] employerreview -> claimreview
+  [FP] employerreview -> employerreview
+  [FP] eventreservation -> event
+  [FP] eventreservation -> publicationevent
+  [FP] eventreservation -> screeningevent
+  [FP] foodestablishment -> foodevent
+  [FP] foodestablishment -> hindutemple
+  [FP] foodestablishmentreservation -> cafeorcoffeeshop
+  [FP] foodestablishmentreservation -> foodestablishment
+  [FP] foodestablishmentreservation -> foodevent
+  [FP] foodestablishmentreservation -> hindutemple
+  [FP] governmentbuilding -> civicstructure
+  [FP] governmentbuilding -> governmentbuilding
+  [FP] howto -> howtodirection
+  [FP] howto -> howtotip
+  [FP] howtotip -> howtodirection
+  [FP] imagegallery -> imagegallery
+  [FP] imagegallery -> mediagallery
+  [FP] imagegallery -> visualartwork
+  [FP] informaction -> assessaction
+  [FP] interactaction -> assessaction
+  [FP] interactaction -> conversation
+  [FP] interactaction -> interactaction
+  [FP] interactaction -> reactaction
+  [FP] lakebodyofwater -> bodyofwater
+  [FP] lakebodyofwater -> cemetery
+  [FP] lakebodyofwater -> gasstation
+  [FP] lakebodyofwater -> lakebodyofwater
+  [FP] lakebodyofwater -> landform
+  [FP] lakebodyofwater -> place
+  [FP] lakebodyofwater -> placeofworship
+  [FP] lakebodyofwater -> resort
+  [FP] lakebodyofwater -> rvpark
+  [FP] lodgingreservation -> lodgingbusiness
+  [FP] mediagallery -> mediagallery
+  [FP] mediagallery -> visualartwork
+  [FP] medicalbusiness -> automotivebusiness
+  [FP] medicalbusiness -> educationalorganization
+  [FP] medicalbusiness -> entertainmentbusiness
+  [FP] medicalbusiness -> healthandbeautybusiness
+  [FP] medicalbusiness -> localbusiness
+  [FP] medicalbusiness -> medicalorganization
+  [FP] medicalcontraindication -> certification
+  [FP] medicaldevice -> automotivebusiness
+  [FP] medicaldevice -> educationalorganization
+  [FP] medicaldevice -> entertainmentbusiness
+  [FP] medicaldevice -> healthandbeautybusiness
+  [FP] medicaldevice -> localbusiness
+  [FP] medicaldevice -> medicalbusiness
+  [FP] medicaldevice -> medicalorganization
+  [FP] medicalentity -> adultentertainment
+  [FP] medicalorganization -> educationalorganization
+  [FP] newsarticle -> article
+  [FP] newsarticle -> newsarticle
+  [FP] number -> number
+  [FP] number -> quiz
+  [FP] opinionnewsarticle -> article
+  [FP] opinionnewsarticle -> backgroundnewsarticle
+  [FP] opinionnewsarticle -> newsarticle
+  [FP] opinionnewsarticle -> opinionnewsarticle
+  [FP] organizationrole -> administrativearea
+  [FP] organizationrole -> organization
+  [FP] painting -> creativework
+  [FP] painting -> painting
+  [FP] performinggroup -> performinggroup
+  [FP] physician -> attorney
+  [FP] physician -> legalservice
+  [FP] physician -> physician
+  [FP] physiciansoffice -> attorney
+  [FP] physiciansoffice -> legalservice
+  [FP] physiciansoffice -> physician
+  [FP] physiciansoffice -> physiciansoffice
+  [FP] placeofworship -> cemetery
+  [FP] placeofworship -> gasstation
+  [FP] placeofworship -> place
+  [FP] placeofworship -> resort
+  [FP] placeofworship -> rvpark
+  [FP] play -> musicplaylist
+  [FP] product -> hobbyshop
+  [FP] quiz -> number
+  [FP] quiz -> quiz
+  [FP] rating -> review
+  [FP] resort -> gasstation
+  [FP] resort -> rvpark
+  [FP] rvpark -> gasstation
+  [FP] schooldistrict -> bedandbreakfast
+  [FP] schooldistrict -> childcare
+  [FP] schooldistrict -> datacatalog
+  [FP] schooldistrict -> schooldistrict
+  [FP] shoppingcenter -> hypertoc
+  [FP] shoppingcenter -> officeequipmentstore
+  [FP] shoppingcenter -> shoppingcenter
+  [FP] shoppingcenter -> store
+  [FP] sportsactivitylocation -> hackathon
+  [FP] sportsactivitylocation -> sportsactivitylocation
+  [FP] sportsclub -> hackathon
+  [FP] sportsclub -> sportsactivitylocation
+  [FP] sportsclub -> sportsclub
+  [FP] store -> hypertoc
+  [FP] store -> shoppingcenter
+  [FP] store -> store
+  [FP] substance -> hobbyshop
+  [FP] substance -> individualproduct
+  [FP] substance -> product
+  [FP] substance -> thing
+  [FP] taxireservation -> rsvpaction
+  [FP] theatergroup -> performinggroup
+  [FP] theatergroup -> theatergroup
+  [FP] tradeaction -> consumeaction
+  [FP] tradeaction -> installaction
+  [FP] tradeaction -> likeaction
+  [FP] tradeaction -> tradeaction
+  [FP] tradeaction -> winaction
+  [FP] webpage -> webpage
+  [FP] webpage -> webpageelement
+  [FP] webpage -> wpheader
+  [FP] webpageelement -> checkoutpage
+  [FP] webpageelement -> collectionpage
+  [FP] webpageelement -> webpage
+  [FP] webpageelement -> webpageelement
+  [FP] winaction -> installaction
+
+MISSED RELATIONS (False Negatives: 272):
+  [FN] achieveaction -> winaction
+  [FN] action -> achieveaction
+  [FN] action -> addaction
+  [FN] action -> assessaction
+  [FN] action -> befriendaction
+  [FN] action -> buyaction
+  [FN] action -> communicateaction
+  [FN] action -> consumeaction
+  [FN] action -> createaction
+  [FN] action -> informaction
+  [FN] action -> installaction
+  [FN] action -> interactaction
+  [FN] action -> likeaction
+  [FN] action -> reactaction
+  [FN] action -> rsvpaction
+  [FN] action -> tradeaction
+  [FN] action -> updateaction
+  [FN] action -> winaction
+  [FN] administrativearea -> schooldistrict
+  [FN] article -> backgroundnewsarticle
+  [FN] article -> newsarticle
+  [FN] article -> opinionnewsarticle
+  [FN] assessaction -> likeaction
+  [FN] assessaction -> reactaction
+  [FN] automotivebusiness -> gasstation
+  [FN] civicstructure -> bridge
+  [FN] civicstructure -> cemetery
+  [FN] civicstructure -> cityhall
+  [FN] civicstructure -> collegeoruniversity
+  [FN] civicstructure -> educationalorganization
+  [FN] civicstructure -> hindutemple
+  [FN] civicstructure -> placeofworship
+  [FN] civicstructure -> rvpark
+  [FN] collectionpage -> imagegallery
+  [FN] collectionpage -> mediagallery
+  [FN] communicateaction -> rsvpaction
+  [FN] consumeaction -> installaction
+  [FN] creativework -> article
+  [FN] creativework -> backgroundnewsarticle
+  [FN] creativework -> certification
+  [FN] creativework -> checkoutpage
+  [FN] creativework -> claimreview
+  [FN] creativework -> collectionpage
+  [FN] creativework -> conversation
+  [FN] creativework -> course
+  [FN] creativework -> datacatalog
+  [FN] creativework -> employerreview
+  [FN] creativework -> howto
+  [FN] creativework -> howtodirection
+  [FN] creativework -> howtotip
+  [FN] creativework -> hypertoc
+  [FN] creativework -> imagegallery
+  [FN] creativework -> learningresource
+  [FN] creativework -> mediagallery
+  [FN] creativework -> musicplaylist
+  [FN] creativework -> newsarticle
+  [FN] creativework -> opinionnewsarticle
+  [FN] creativework -> play
+  [FN] creativework -> quiz
+  [FN] creativework -> review
+  [FN] creativework -> visualartwork
+  [FN] creativework -> webpage
+  [FN] creativework -> webpageelement
+  [FN] creativework -> wpheader
+  [FN] educationalorganization -> collegeoruniversity
+  [FN] entertainmentbusiness -> adultentertainment
+  [FN] event -> courseinstance
+  [FN] event -> foodevent
+  [FN] event -> hackathon
+  [FN] governmentbuilding -> cityhall
+  [FN] informaction -> rsvpaction
+  [FN] interactaction -> rsvpaction
+  [FN] landform -> bodyofwater
+  [FN] landform -> lakebodyofwater
+  [FN] learningresource -> course
+  [FN] learningresource -> quiz
+  [FN] legalservice -> attorney
+  [FN] localbusiness -> adultentertainment
+  [FN] localbusiness -> attorney
+  [FN] localbusiness -> bedandbreakfast
+  [FN] localbusiness -> cafeorcoffeeshop
+  [FN] localbusiness -> childcare
+  [FN] localbusiness -> entertainmentbusiness
+  [FN] localbusiness -> foodestablishment
+  [FN] localbusiness -> gasstation
+  [FN] localbusiness -> healthandbeautybusiness
+  [FN] localbusiness -> hobbyshop
+  [FN] localbusiness -> legalservice
+  [FN] localbusiness -> lodgingbusiness
+  [FN] localbusiness -> medicalbusiness
+  [FN] localbusiness -> officeequipmentstore
+  [FN] localbusiness -> physician
+  [FN] localbusiness -> physiciansoffice
+  [FN] localbusiness -> resort
+  [FN] localbusiness -> shoppingcenter
+  [FN] localbusiness -> sportsactivitylocation
+  [FN] localbusiness -> sportsclub
+  [FN] localbusiness -> store
+  [FN] lodgingbusiness -> bedandbreakfast
+  [FN] lodgingbusiness -> resort
+  [FN] medicalbusiness -> physician
+  [FN] medicalbusiness -> physiciansoffice
+  [FN] medicalorganization -> physician
+  [FN] medicalorganization -> physiciansoffice
+  [FN] organization -> adultentertainment
+  [FN] organization -> attorney
+  [FN] organization -> automotivebusiness
+  [FN] organization -> bedandbreakfast
+  [FN] organization -> cafeorcoffeeshop
+  [FN] organization -> childcare
+  [FN] organization -> collegeoruniversity
+  [FN] organization -> educationalorganization
+  [FN] organization -> entertainmentbusiness
+  [FN] organization -> foodestablishment
+  [FN] organization -> gasstation
+  [FN] organization -> healthandbeautybusiness
+  [FN] organization -> hobbyshop
+  [FN] organization -> legalservice
+  [FN] organization -> localbusiness
+  [FN] organization -> lodgingbusiness
+  [FN] organization -> medicalbusiness
+  [FN] organization -> medicalorganization
+  [FN] organization -> officeequipmentstore
+  [FN] organization -> performinggroup
+  [FN] organization -> physician
+  [FN] organization -> physiciansoffice
+  [FN] organization -> resort
+  [FN] organization -> shoppingcenter
+  [FN] organization -> sportsactivitylocation
+  [FN] organization -> sportsclub
+  [FN] organization -> store
+  [FN] organization -> theatergroup
+  [FN] place -> administrativearea
+  [FN] place -> adultentertainment
+  [FN] place -> attorney
+  [FN] place -> automotivebusiness
+  [FN] place -> bedandbreakfast
+  [FN] place -> bodyofwater
+  [FN] place -> bridge
+  [FN] place -> cafeorcoffeeshop
+  [FN] place -> childcare
+  [FN] place -> cityhall
+  [FN] place -> civicstructure
+  [FN] place -> collegeoruniversity
+  [FN] place -> educationalorganization
+  [FN] place -> entertainmentbusiness
+  [FN] place -> foodestablishment
+  [FN] place -> governmentbuilding
+  [FN] place -> healthandbeautybusiness
+  [FN] place -> hindutemple
+  [FN] place -> hobbyshop
+  [FN] place -> lakebodyofwater
+  [FN] place -> landform
+  [FN] place -> legalservice
+  [FN] place -> localbusiness
+  [FN] place -> lodgingbusiness
+  [FN] place -> medicalbusiness
+  [FN] place -> officeequipmentstore
+  [FN] place -> physician
+  [FN] place -> physiciansoffice
+  [FN] place -> placeofworship
+  [FN] place -> schooldistrict
+  [FN] place -> shoppingcenter
+  [FN] place -> sportsactivitylocation
+  [FN] place -> sportsclub
+  [FN] place -> store
+  [FN] placeofworship -> hindutemple
+  [FN] reactaction -> likeaction
+  [FN] review -> claimreview
+  [FN] review -> employerreview
+  [FN] store -> hobbyshop
+  [FN] thing -> achieveaction
+  [FN] thing -> action
+  [FN] thing -> addaction
+  [FN] thing -> administrativearea
+  [FN] thing -> adultentertainment
+  [FN] thing -> article
+  [FN] thing -> assessaction
+  [FN] thing -> attorney
+  [FN] thing -> automotivebusiness
+  [FN] thing -> backgroundnewsarticle
+  [FN] thing -> bedandbreakfast
+  [FN] thing -> befriendaction
+  [FN] thing -> bodyofwater
+  [FN] thing -> bridge
+  [FN] thing -> buyaction
+  [FN] thing -> cafeorcoffeeshop
+  [FN] thing -> cemetery
+  [FN] thing -> certification
+  [FN] thing -> checkoutpage
+  [FN] thing -> childcare
+  [FN] thing -> cityhall
+  [FN] thing -> civicstructure
+  [FN] thing -> claimreview
+  [FN] thing -> collectionpage
+  [FN] thing -> collegeoruniversity
+  [FN] thing -> communicateaction
+  [FN] thing -> consumeaction
+  [FN] thing -> conversation
+  [FN] thing -> course
+  [FN] thing -> courseinstance
+  [FN] thing -> createaction
+  [FN] thing -> creativework
+  [FN] thing -> datacatalog
+  [FN] thing -> educationalorganization
+  [FN] thing -> employerreview
+  [FN] thing -> entertainmentbusiness
+  [FN] thing -> event
+  [FN] thing -> foodestablishment
+  [FN] thing -> foodevent
+  [FN] thing -> gasstation
+  [FN] thing -> governmentbuilding
+  [FN] thing -> hackathon
+  [FN] thing -> healthandbeautybusiness
+  [FN] thing -> hindutemple
+  [FN] thing -> hobbyshop
+  [FN] thing -> howto
+  [FN] thing -> howtodirection
+  [FN] thing -> howtotip
+  [FN] thing -> hypertoc
+  [FN] thing -> imagegallery
+  [FN] thing -> individualproduct
+  [FN] thing -> informaction
+  [FN] thing -> installaction
+  [FN] thing -> interactaction
+  [FN] thing -> lakebodyofwater
+  [FN] thing -> landform
+  [FN] thing -> learningresource
+  [FN] thing -> legalservice
+  [FN] thing -> likeaction
+  [FN] thing -> localbusiness
+  [FN] thing -> lodgingbusiness
+  [FN] thing -> mediagallery
+  [FN] thing -> medicalbusiness
+  [FN] thing -> medicalorganization
+  [FN] thing -> musicplaylist
+  [FN] thing -> newsarticle
+  [FN] thing -> officeequipmentstore
+  [FN] thing -> opinionnewsarticle
+  [FN] thing -> organization
+  [FN] thing -> painting
+  [FN] thing -> performinggroup
+  [FN] thing -> physician
+  [FN] thing -> physiciansoffice
+  [FN] thing -> place
+  [FN] thing -> placeofworship
+  [FN] thing -> play
+  [FN] thing -> product
+  [FN] thing -> publicationevent
+  [FN] thing -> quiz
+  [FN] thing -> reactaction
+  [FN] thing -> resort
+  [FN] thing -> review
+  [FN] thing -> rsvpaction
+  [FN] thing -> rvpark
+  [FN] thing -> schooldistrict
+  [FN] thing -> screeningevent
+  [FN] thing -> shoppingcenter
+  [FN] thing -> sportsactivitylocation
+  [FN] thing -> sportsclub
+  [FN] thing -> store
+  [FN] thing -> theatergroup
+  [FN] thing -> tradeaction
+  [FN] thing -> updateaction
+  [FN] thing -> visualartwork
+  [FN] thing -> webpage
+  [FN] thing -> webpageelement
+  [FN] thing -> winaction
+  [FN] thing -> wpheader
+  [FN] updateaction -> addaction
+  [FN] webpage -> imagegallery
+  [FN] webpage -> mediagallery
