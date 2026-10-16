@@ -18,20 +18,32 @@ plain `python <script>.py`; matplotlib + networkx (+ scipy for stats) suffice un
 | isa_rescore data | `isa_rescore.py` | one run per filter (`--types_csv` once = single judge; twice = unanimity); rendered by rescore_delta_vis*.py here |
 | 18_heuristic_informativeness, 16_precision_clawback, strategy_rank_by, 20_restructure, reconstruction | repo analysis tools (`fp_reason_analysis.py`, `strategy_comparison.py`, `prune_sweep_analysis.py`, `synonym_reconstruction.py`) | see each tool's `--help` |
 
-Merged-core note: when a "run" spans two campaigns (e.g. legacy WNF/CL/SemEval +
-SchemaOrgV2/POV2/OBIV2/MatOntoV2), build a merged json first: concatenate the dataset
-blocks, keeping exactly one result entry (the wanted method) per block.
+Merged-core note: runs spanning the legacy and rebuilt-reference campaigns are merged by
+`merge_corrected_core.py` (see "The corrected core" below) — feed those tools the jsons/CSVs
+from `results/corrected_core/` instead of hand-concatenating campaign files.
+
+## The corrected core
+
+The four LLMs4OL-derived ground truths were found to be train-split-only extracts and
+were rebuilt from their full canonical sources (2026-10-16). The rebuilt datasets ARE
+the ground truths; figures carry no special labeling. `merge_corrected_core.py` builds
+`results/corrected_core/`: merged results jsons, rescore CSVs, judge-audit CSVs and GT
+eval graphs for the canonical seven-dataset core, with the rebuilt datasets mapped back
+to their canonical names (legacy WNF/CL/SemEval rows are unaffected by the fix and are
+carried over). Run it after any new campaign data lands, then regenerate figures from it.
 
 ## Scripts in this directory
 
 | Script | Figure(s) | Input data |
 |---|---|---|
+| `merge_corrected_core.py` | (data) results/corrected_core/ | legacy campaign jsons/CSVs + v2phase1/v2phase2 campaign dirs |
+| `method_comparison_vis.py` | method_comparison.png (+ prints tab:methods) | results/corrected_core/*.json |
 | `scaling_vis.py` | scaling_f1.png, scaling_cost.png | results/scaling_20261001/results/*.json + legacy control/sc jsons (N=100 points) |
 | `knee_scale_vis.py` | density_knee_scale.png | results/mech_20260909/density_gemma4.json + results/scaling_20261001/results/density_sub200.json |
 | `density_vis.py` | density_gemma4.png | results/mech_20260909/density_gemma4.json |
 | `khop_vis.py` | khop_recall.png (three-way, N=100) | results/battery_20260925/khop_setoverlap.csv (frozen CSV incl. matched rows) |
 | `khop200.py` | khop_sub200.png (+ builds khop_sub200.csv) | scaling campaign preds + benchmark graphs |
-| `khop_v2core.py` | paper_figures/v2/khop_recall_v2core.png (+ builds khop_v2core.csv) | battery N=100 preds (legacy 3) + v2phase1/v2phase2 preds & GT (V2 four) |
+| `khop_core.py` | khop_recall_core.png (structured vs single-call at N=100; + builds corrected_core/khop_core.csv) | battery N=100 preds (legacy 3) + v2phase1/v2phase2 preds & GT (rebuilt four) |
 | `khop_mechanism_data.py` | builds results/scaling_20261001/khop_mechanism.csv | battery + scaling single-call preds |
 | `khop_mechanism_vis.py` | khop_mechanism.png | khop_mechanism.csv |
 | `m_recommend_split.py` | m_recommendation_gemma.png, m_recommendation_gemini.png | density sweep jsons + scaling fits |
@@ -39,8 +51,8 @@ blocks, keeping exactly one result entry (the wanted method) per block.
 | `wording_vis.py` | prompt_wording_ablation.png | legacy prompt_ablation/variants jsons |
 | `selfpref_vis.py` | judge_selfpreference.png | results/x2_20260923/rt_*.csv (legacy); V2 variant pending the Gemma-preds audit legs |
 | `normalizer_vis.py` | method_normalization.png | 4-model control + single-call jsons (needs gpt-oss/Qwen on V2 for a V2 variant) |
-| `rescore_delta_vis.py` | isa_rescore_deltas.png (legacy) | results/rescore3_20260923/rescore_{self,cross,consensus}.csv |
-| `rescore_delta_vis_v2.py` | paper_figures/v2/isa_rescore_deltas.png | results/v2phase2_20261016/rescore/rescore_*.csv |
+| `rescore_delta_vis.py` | isa_rescore_deltas.png | results/corrected_core/rescore/ (override dir via $TAXO_RESCORE; edge counts computed from data) |
+| `rescore_delta_vis_v2.py` | paper_figures/v2/isa_rescore_deltas.png (rebuilt-four-only diagnostic) | results/v2phase2_20261016/rescore/rescore_*.csv |
 | `v2_figures.py` | paper_figures/v2/{reference_repair, method_comparison_v2, audit_v2}.png | v2phase1 + v2phase2 campaign dirs + legacy jsons |
 | `synset_dupes_build.py` | (analysis) results/synset_dupes.csv | rebuilds synset graphs from cached sources; needs nltk + obonet |
 

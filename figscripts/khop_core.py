@@ -15,8 +15,8 @@ BASE = os.environ.get("TAXO_BASE", "C:/Users/Hoengager/Documents/Claude/Taxonomy
 BATT = f"{BASE}/results/battery_20260925/preds"
 P1 = f"{BASE}/results/v2phase1_20261016/results"
 P2 = f"{BASE}/results/v2phase2_20261016/results"
-OUT_CSV = f"{BASE}/results/v2phase2_20261016/khop_v2core.csv"
-OUT_PNG = f"{BASE}/paper_figures/v2/khop_recall_v2core.png"
+OUT_CSV = f"{BASE}/results/corrected_core/khop_core.csv"
+OUT_PNG = f"{BASE}/paper_figures/khop_recall_core.png"
 
 LEG3 = ["WordNetFood", "CellOntology", "SemEvalFood"]
 V2_4 = ["SchemaOrgV2", "POV2", "OBIV2", "MatOntoV2"]
@@ -127,8 +127,8 @@ for ax, (tag, title) in zip(axes, PANELS):
     ax.grid(color="0.92")
     ax.legend(fontsize=9, loc="lower left", framealpha=0.95)
 axes[0].set_ylabel("recall of $k$-hop closure pairs", fontweight="bold")
-fig.suptitle("Recall by ancestor distance on the repaired 7-core ($N{=}100$; full-source V2 references\n"
-             f"for SchemaOrg/PO/OBI/MatOnto; synonym-aware matching; $n$ per hop: {n_note})",
+fig.suptitle("Recall by ancestor distance at $N{=}100$: structured extraction holds across depth,\n"
+             f"single-call decays (seven-dataset core, synonym-aware matching; $n$ per hop: {n_note})",
              fontsize=10.5, fontweight="bold", y=1.08)
 fig.tight_layout()
 fig.savefig(OUT_PNG, dpi=250, bbox_inches="tight")

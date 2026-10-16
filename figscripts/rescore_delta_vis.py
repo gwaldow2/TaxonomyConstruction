@@ -8,20 +8,25 @@ import numpy as np
 from scipy import stats
 
 import os
-BASE = os.environ.get("TAXO_BASE", "C:/Users/Hoengager/Documents/Claude/TaxonomyConstruction") + "/results/rescore3_20260923"
-OUT = "C:/Users/Hoengager/Documents/Claude/TaxonomyConstruction/paper_figures/isa_rescore_deltas.png"
+_TB = os.environ.get("TAXO_BASE", "C:/Users/Hoengager/Documents/Claude/TaxonomyConstruction")
+BASE = os.environ.get("TAXO_RESCORE", f"{_TB}/results/corrected_core/rescore")
+OUT = f"{_TB}/paper_figures/isa_rescore_deltas.png"
 
-FILTERS = [("self", "self judge\n(Gemma labels, 78 edges)", "C0"),
-           ("cross", "cross judge\n(Gemini labels, 50 edges)", "C1"),
-           ("consensus", "consensus\n(unanimous, 24 edges)", "0.25")]
+FILTERS = [("self", "self judge\n(Gemma labels, {n} edges)", "C0"),
+           ("cross", "cross judge\n(Gemini labels, {n} edges)", "C1"),
+           ("consensus", "consensus\n(unanimous, {n} edges)", "0.25")]
 METRICS = [("Precision", "$\\Delta$ Precision"), ("Recall", "$\\Delta$ Recall"),
            ("F1", "$\\Delta$ F1")]
 
 data = {}
-for key, _, _ in FILTERS:
+_named = []
+for key, name, col in FILTERS:
     rows = list(csv.DictReader(open(f"{BASE}/rescore_{key}.csv", encoding="utf-8")))
     data[key] = {m: [float(r[f"filt_{m}"]) - float(r[f"orig_{m}"]) for r in rows]
                  for m, _ in METRICS}
+    dropped = sum(int(r["dropped"]) for r in rows)
+    _named.append((key, name.format(n=dropped), col))
+FILTERS = _named
 
 fig, axes = plt.subplots(1, 3, figsize=(12.5, 3.8), sharey=True)
 rng = np.random.default_rng(3)
