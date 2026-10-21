@@ -46,11 +46,17 @@ name: Widget
 id: X:2
 name: Blue Widget
 is_a: X:1 ! Widget
+is_a: UBERON:0001062
 
 [Term]
 id: X:3
 name: Dark Blue Widget
 is_a: X:2 ! Blue Widget
+
+[Term]
+id: X:4
+name: OBSOLETE Old Widget
+is_obsolete: true
 """
 
 
@@ -69,7 +75,10 @@ def test_parse_obo(tmp_path):
     p = tmp_path / "t.obo"
     p.write_text(OBO, encoding="utf-8")
     G = fsb.parse_obo(str(p))
+    # the dangling external ref (UBERON:0001062, no stanza in this file) and the
+    # obsolete term are both excised; only defined, named terms survive
     assert set(G.edges()) == {("widget", "blue widget"), ("blue widget", "dark blue widget")}
+    assert all("uberon" not in n and "obsolete" not in n for n in G.nodes())
 
 
 def test_parse_ttl(tmp_path):

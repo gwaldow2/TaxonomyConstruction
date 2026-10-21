@@ -25,8 +25,13 @@ Parsing decisions (recorded here deliberately):
   both endpoints in the schema.org namespace; superseded classes are KEPT (they
   are part of the published vocabulary). DataTypes are classes too and are kept.
 - PO / OBI: obo releases, is_a edges only, matching the CellOntology treatment.
-  obi.obo includes imported upper-level classes (BFO etc.); they are kept, since
-  OBI's own classification routes through them.
+  Only terms DEFINED in the file (a stanza with a name) become nodes: a bare
+  is_a reference to a term the file never defines (e.g. po.obo's
+  "is_a: UBERON:0001062" lines) would otherwise surface as an opaque ID that
+  no model can read, and the legacy challenge splits excluded those too.
+  obi.obo defines its imported upper-level classes (BFO, UBERON etc.) with
+  names, so those imports are kept, since OBI's own classification routes
+  through them.
 - MatOnto: the GitHub release Turtle (rdfs:subClassOf between named classes,
   rdfs:label preferred over local names). This is the weakest source of the four
   (repo marked beta, 2021 vintage); its manifest row is the citation.
@@ -81,9 +86,22 @@ def fetch_and_pin(name, spec, refetch=False):
 
 # ---------------- parsers ----------------
 
+def _warn_collisions(id_to_name, label):
+    """Distinct source IDs that clean to the same name merge into one node; say so."""
+    by_name = {}
+    for i, n in id_to_name.items():
+        by_name.setdefault(n, []).append(i)
+    merged = {n: ids for n, ids in by_name.items() if len(ids) > 1}
+    for n, ids in sorted(merged.items()):
+        print(f"  [collision] {label}: {sorted(map(str, ids))} -> '{n}'")
+    if merged:
+        print(f"  [collision] {label}: {len(merged)} name(s) cover multiple source IDs")
+
+
 def parse_schemaorg_jsonld(path):
     data = json.load(open(path, encoding="utf-8"))
     G = nx.DiGraph()
+    ids = {}
     def local(x):
         # clean_term lowercases, so CamelCase ids collapse to the squashed form the
         # legacy challenge-derived benchmarks used ("WarrantyScope" -> "warrantyscope").
@@ -97,12 +115,14 @@ def parse_schemaorg_jsonld(path):
         if not (nid.startswith("schema:") or "schema.org" in nid):
             continue
         child = local(nid)
+        ids[nid] = child
         sup = node.get("rdfs:subClassOf", [])
         sup = [sup] if isinstance(sup, dict) else sup
         for s in sup:
             sid = str(s.get("@id", ""))
             if sid.startswith("schema:") or "schema.org" in sid:
                 G.add_edge(local(sid), child)
+    _warn_collisions(ids, "schemaorg")
     return G
 
 
@@ -110,12 +130,21 @@ def parse_obo(path):
     import obonet
     obo = obonet.read_obo(path, ignore_obsolete=True)
     G = nx.DiGraph()
-    nm = {u: clean_term(d.get("name", u)) for u, d in obo.nodes(data=True)}
+    # Only terms the file DEFINES (a stanza with a name) become nodes. A bare
+    # is_a reference to an external term (e.g. "is_a: UBERON:0001062" in po.obo)
+    # has no name here and would surface as an opaque ID no model can read.
+    nm = {u: clean_term(d["name"]) for u, d in obo.nodes(data=True) if d.get("name")}
+    _warn_collisions(nm, "obo")
+    dropped = 0
     for u, v, key in obo.edges(keys=True):
         if key == "is_a":
             parent, child = nm.get(v), nm.get(u)
             if parent and child and parent != child:
                 G.add_edge(parent, child)
+            elif (v not in nm or u not in nm):
+                dropped += 1
+    if dropped:
+        print(f"  [excised] {dropped} is_a edge(s) referencing terms the file does not define")
     return G
 
 
@@ -130,6 +159,7 @@ def parse_ttl(path):
         labels[s] = clean_term(str(o))
     def name(x):
         return labels.get(x) or clean_term(str(x).split("#")[-1].split("/")[-1])
+    _warn_collisions(labels, "ttl")
     G = nx.DiGraph()
     for s, _, o in rg.triples((None, RDFS.subClassOf, None)):
         if isinstance(s, URIRef) and isinstance(o, URIRef):
