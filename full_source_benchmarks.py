@@ -70,6 +70,17 @@ SOURCES = {
 MANIFEST_FIELDS = ["dataset", "url", "fetched", "sha256", "bytes",
                    "source_nodes", "source_edges", "note"]
 
+# Documented source errata, excluded at parse time and reported loudly.
+# Each entry identifies ONE class-expression axiom by (class label, frozenset of
+# union-member labels). MatOnto's GroupTwoElement carries two equivalence
+# unions: the correct group-2 membership AND group 3's membership (Sc, Y,
+# lanthanides, actinides) - an authoring error (GroupThreeElement itself has no
+# union), which would otherwise entail e.g. actinium is-a alkaline earth metal.
+SOURCE_ERRATA = {
+    "ttl": [("group 2 element",
+             frozenset({"actinide", "lanthanide", "scandium", "yttrium"}))],
+}
+
 
 def sources_dir():
     d = os.path.join(dm.DATA_DIR, "full_sources")
@@ -128,6 +139,15 @@ def parse_schemaorg_jsonld(path):
             sid = str(s.get("@id", ""))
             if sid.startswith("schema:") or "schema.org" in sid:
                 G.add_edge(local(sid), child)
+        # schema.org puns its DataType subtree: Text, Number, Date... are typed
+        # both rdfs:Class and schema:DataType, with no subClassOf. The legacy
+        # challenge GT treated that dual typing as is_a (datatype -> time etc.);
+        # keep parity. Enumeration members (typed schema:X only, no rdfs:Class)
+        # stay excluded.
+        for tt in t:
+            tt = str(tt)
+            if tt != "rdfs:Class" and (tt.startswith("schema:") or "schema.org" in tt):
+                G.add_edge(local(tt), child)
     _warn_collisions(ids, "schemaorg")
     return G
 
@@ -173,11 +193,12 @@ def parse_ttl(path):
             if parent and child and parent != child:
                 G.add_edge(parent, child)
 
-    # OWL union axioms entail subsumption that plain subClassOf misses. MatOnto
-    # classifies every chemical element into its period/group/block/series ONLY
-    # via "C equivalentClass [ unionOf (...members...) ]" (64 axioms, 288 edges
-    # not otherwise asserted): C = M1 or ... or Mk entails each Mi is-a C, and
-    # likewise [ unionOf (...) ] subClassOf C entails each member is-a C.
+    # OWL class-expression axioms entail subsumption that plain subClassOf
+    # misses. MatOnto classifies every chemical element into its period/group/
+    # block/series ONLY via "C equivalentClass [ unionOf (...) ]": C = M1 or
+    # ... or Mk entails each Mi is-a C (likewise for a union bnode under
+    # subClassOf). Dually, C equivalentClass/subClassOf [ intersectionOf
+    # (... A ...) ] entails C is-a A for each NAMED component A.
     def union_members(expr, seen):
         if expr in seen:
             return
@@ -189,24 +210,82 @@ def parse_ttl(path):
                 elif isinstance(m, BNode):
                     yield from union_members(m, seen)
 
-    cand = []
+    def intersection_components(expr, seen=None):
+        # recurse through nested intersections (MatOnto: ester group =
+        # ((carbon atom and ...) and ...)); never through unions, whose
+        # components are not entailed superclasses
+        seen = set() if seen is None else seen
+        if expr in seen:
+            return
+        seen.add(expr)
+        for lst in rg.objects(expr, OWL.intersectionOf):
+            for m in rg.items(lst):
+                if isinstance(m, URIRef):
+                    yield m
+                elif isinstance(m, BNode):
+                    yield from intersection_components(m, seen)
+
+    equiv, expr_sub_named, named_sub_expr = [], [], []
     for a, b in rg.subject_objects(OWL.equivalentClass):
         if isinstance(a, URIRef) and isinstance(b, BNode):
-            cand.append((a, b))
+            equiv.append((a, b))
         elif isinstance(a, BNode) and isinstance(b, URIRef):
-            cand.append((b, a))
+            equiv.append((b, a))
     for s, _, o in rg.triples((None, RDFS.subClassOf, None)):
         if isinstance(s, BNode) and isinstance(o, URIRef):
-            cand.append((o, s))
-    added = 0
-    for c, expr in cand:
-        for m in union_members(expr, set()):
-            parent, child = name(c), name(m)
-            if parent and child and parent != child and not G.has_edge(parent, child):
-                G.add_edge(parent, child)
-                added += 1
+            expr_sub_named.append((o, s))
+        elif isinstance(s, URIRef) and isinstance(o, BNode):
+            named_sub_expr.append((s, o))
+
+    added = dropped_errata = 0
+    errata = SOURCE_ERRATA.get("ttl", [])
+
+    def add_edge(parent, child):
+        nonlocal added
+        if parent and child and parent != child and not G.has_edge(parent, child):
+            G.add_edge(parent, child)
+            added += 1
+
+    # C = union(...)  or  union(...) subClassOf C   =>   each member is-a C
+    for c, expr in equiv + expr_sub_named:
+        mem = [name(m) for m in union_members(expr, set())]
+        if (name(c), frozenset(mem)) in errata:
+            dropped_errata += 1
+            print(f"  [erratum] skipped union axiom on '{name(c)}': {sorted(mem)}")
+            continue
+        for child in mem:
+            add_edge(name(c), child)
+    # C = intersection(... A ...)  or  C subClassOf intersection(... A ...)
+    #   =>  C is-a A   (the reverse shape, intersection subClassOf C, entails
+    #       nothing between named classes and is deliberately not extracted)
+    for c, expr in equiv + named_sub_expr:
+        for a in intersection_components(expr):
+            add_edge(name(a), name(c))
     if added:
-        print(f"  [unions] {added} edge(s) entailed by union/oneOf class expressions")
+        print(f"  [expressions] {added} edge(s) entailed by union/oneOf/intersection axioms"
+              + (f" ({dropped_errata} erratum axiom(s) skipped)" if dropped_errata else ""))
+
+    # named<->named equivalentClass pairs are two names for one class (MatOnto:
+    # "alkali metal = group 1 element" and 8 more). Merge them into synset-style
+    # nodes, "head (head, alias)", the same convention the legacy synset
+    # benchmarks use, so set-overlap matching accepts either name.
+    eq = nx.Graph()
+    for a, b in rg.subject_objects(OWL.equivalentClass):
+        if isinstance(a, URIRef) and isinstance(b, URIRef):
+            na, nb = name(a), name(b)
+            if na and nb and na != nb:
+                eq.add_edge(na, nb)
+    mapping = {}
+    for comp in nx.connected_components(eq):
+        names = sorted(comp)
+        node = f"{names[0]} ({', '.join(names)})"
+        for n in names:
+            mapping[n] = node
+    if mapping:
+        G = nx.relabel_nodes(G, mapping)
+        G.remove_edges_from(list(nx.selfloop_edges(G)))
+        print(f"  [equivalences] merged {len(mapping)} names into "
+              f"{len(set(mapping.values()))} synset node(s)")
     return G
 
 
