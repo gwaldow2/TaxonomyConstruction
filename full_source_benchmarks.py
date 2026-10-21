@@ -34,7 +34,13 @@ Parsing decisions (recorded here deliberately):
   through them.
 - MatOnto: the GitHub release Turtle (rdfs:subClassOf between named classes,
   rdfs:label preferred over local names). This is the weakest source of the four
-  (repo marked beta, 2021 vintage); its manifest row is the citation.
+  (project dormant; internal versionInfo 2.01); its manifest row is the citation.
+  Source equivalence verified 2026-10-21: the pinned file is sha256-identical to
+  the MatPortal registry artifact (matportal.org/ontologies/MATONTO, v2.0,
+  uploaded 2021-01-25 — cite this entry in the paper), and OntoLearner's
+  MatOnto.owl (github.com/EngyNasr/MSE-Benchmark) is the same content
+  re-serialized as RDF/XML: 853/853 identical subClassOf edges, 1307 classes.
+  No newer canonical release exists.
 """
 
 import argparse
