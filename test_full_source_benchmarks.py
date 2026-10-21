@@ -84,16 +84,24 @@ def test_parse_obo(tmp_path):
 def test_parse_ttl(tmp_path):
     pytest.importorskip("rdflib")
     ttl = """@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix ex: <http://matonto.org/ontology#> .
 ex:Material rdfs:label "material" .
 ex:Ceramic rdfs:label "ceramic" ; rdfs:subClassOf ex:Material .
 ex:Oxide rdfs:subClassOf ex:Ceramic .
+ex:Alloy rdfs:label "alloy" ; rdfs:subClassOf ex:Material ;
+    owl:equivalentClass [ owl:unionOf ( ex:Bronze ex:Steel ) ] .
+ex:Bronze rdfs:label "bronze" .
+ex:Steel rdfs:label "steel" .
 """
     p = tmp_path / "m.ttl"
     p.write_text(ttl, encoding="utf-8")
     G = fsb.parse_ttl(str(p))
     assert ("material", "ceramic") in G.edges()
     assert ("ceramic", "oxide") in G.edges()             # label missing -> local name
+    # union equivalence entails membership: Alloy = Bronze or Steel
+    assert ("alloy", "bronze") in G.edges()
+    assert ("alloy", "steel") in G.edges()
 
 
 def test_build_one_end_to_end(tmp_path, monkeypatch):

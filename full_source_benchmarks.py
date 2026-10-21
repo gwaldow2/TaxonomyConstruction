@@ -156,8 +156,8 @@ def parse_obo(path):
 
 def parse_ttl(path):
     from rdflib import Graph as RGraph
-    from rdflib.namespace import RDFS
-    from rdflib.term import URIRef
+    from rdflib.namespace import OWL, RDFS
+    from rdflib.term import BNode, URIRef
     rg = RGraph()
     rg.parse(path, format="turtle")
     labels = {}
@@ -172,6 +172,41 @@ def parse_ttl(path):
             parent, child = name(o), name(s)
             if parent and child and parent != child:
                 G.add_edge(parent, child)
+
+    # OWL union axioms entail subsumption that plain subClassOf misses. MatOnto
+    # classifies every chemical element into its period/group/block/series ONLY
+    # via "C equivalentClass [ unionOf (...members...) ]" (64 axioms, 288 edges
+    # not otherwise asserted): C = M1 or ... or Mk entails each Mi is-a C, and
+    # likewise [ unionOf (...) ] subClassOf C entails each member is-a C.
+    def union_members(expr, seen):
+        if expr in seen:
+            return
+        seen.add(expr)
+        for lst in list(rg.objects(expr, OWL.unionOf)) + list(rg.objects(expr, OWL.oneOf)):
+            for m in rg.items(lst):
+                if isinstance(m, URIRef):
+                    yield m
+                elif isinstance(m, BNode):
+                    yield from union_members(m, seen)
+
+    cand = []
+    for a, b in rg.subject_objects(OWL.equivalentClass):
+        if isinstance(a, URIRef) and isinstance(b, BNode):
+            cand.append((a, b))
+        elif isinstance(a, BNode) and isinstance(b, URIRef):
+            cand.append((b, a))
+    for s, _, o in rg.triples((None, RDFS.subClassOf, None)):
+        if isinstance(s, BNode) and isinstance(o, URIRef):
+            cand.append((o, s))
+    added = 0
+    for c, expr in cand:
+        for m in union_members(expr, set()):
+            parent, child = name(c), name(m)
+            if parent and child and parent != child and not G.has_edge(parent, child):
+                G.add_edge(parent, child)
+                added += 1
+    if added:
+        print(f"  [unions] {added} edge(s) entailed by union/oneOf class expressions")
     return G
 
 
