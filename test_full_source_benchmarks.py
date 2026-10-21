@@ -34,6 +34,9 @@ JSONLD = {"@graph": [
     {"@id": "schema:name", "@type": "rdf:Property"},
     {"@id": "http://example.org/Alien", "@type": "rdfs:Class",
      "rdfs:subClassOf": {"@id": "schema:Thing"}},
+    # the punned DataType subtree: dual typing stands in for is_a
+    {"@id": "schema:DataType", "@type": "rdfs:Class"},
+    {"@id": "schema:Text", "@type": ["rdfs:Class", "schema:DataType"]},
 ]}
 
 OBO = """format-version: 1.2
@@ -68,7 +71,8 @@ def test_parse_schemaorg_jsonld(tmp_path):
     assert ("intangible", "offer") in G.edges()
     assert ("thing", "place") in G.edges()
     assert "alien" not in G and "name" not in G          # non-schema / non-class ignored
-    assert G.number_of_nodes() == 10
+    assert ("datatype", "text") in G.edges()             # punned DataType subtree kept
+    assert G.number_of_nodes() == 12
 
 
 def test_parse_obo(tmp_path):
@@ -84,16 +88,56 @@ def test_parse_obo(tmp_path):
 def test_parse_ttl(tmp_path):
     pytest.importorskip("rdflib")
     ttl = """@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix ex: <http://matonto.org/ontology#> .
 ex:Material rdfs:label "material" .
 ex:Ceramic rdfs:label "ceramic" ; rdfs:subClassOf ex:Material .
 ex:Oxide rdfs:subClassOf ex:Ceramic .
+ex:Alloy rdfs:label "alloy" ; rdfs:subClassOf ex:Material ;
+    owl:equivalentClass [ owl:unionOf ( ex:Bronze ex:Steel ) ] .
+ex:Bronze rdfs:label "bronze" .
+ex:Steel rdfs:label "steel" .
+ex:Metal rdfs:label "metal" .
+ex:Cermet rdfs:label "cermet" ;
+    rdfs:subClassOf [ owl:intersectionOf ( ex:Ceramic ex:Metal ) ] .
+ex:Halide rdfs:label "halide" ; rdfs:subClassOf ex:Material ;
+    owl:equivalentClass ex:Salt .
+ex:Salt rdfs:label "salt" .
 """
     p = tmp_path / "m.ttl"
     p.write_text(ttl, encoding="utf-8")
     G = fsb.parse_ttl(str(p))
     assert ("material", "ceramic") in G.edges()
     assert ("ceramic", "oxide") in G.edges()             # label missing -> local name
+    # union equivalence entails membership: Alloy = Bronze or Steel
+    assert ("alloy", "bronze") in G.edges()
+    assert ("alloy", "steel") in G.edges()
+    # subClassOf an intersection entails subsumption by each named component
+    assert ("ceramic", "cermet") in G.edges()
+    assert ("metal", "cermet") in G.edges()
+    # named<->named equivalence merges into a synset node
+    assert ("material", "halide (halide, salt)") in G.edges()
+    assert "halide" not in G and "salt" not in G
+
+
+def test_parse_ttl_erratum(tmp_path):
+    pytest.importorskip("rdflib")
+    ttl = """@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix ex: <http://matonto.org/ontology#> .
+ex:G2 rdfs:label "group 2 element" ;
+    owl:equivalentClass [ owl:unionOf ( ex:Act ex:Lan ex:Sc ex:Y ) ] ;
+    owl:equivalentClass [ owl:unionOf ( ex:Ba ex:Be ) ] .
+ex:Act rdfs:label "actinide" . ex:Lan rdfs:label "lanthanide" .
+ex:Sc rdfs:label "scandium" .  ex:Y rdfs:label "yttrium" .
+ex:Ba rdfs:label "barium" .    ex:Be rdfs:label "beryllium" .
+"""
+    p = tmp_path / "err.ttl"
+    p.write_text(ttl, encoding="utf-8")
+    G = fsb.parse_ttl(str(p))
+    # the documented MatOnto erratum (group 3's membership on group 2) is skipped
+    assert ("group 2 element", "actinide") not in G.edges()
+    assert ("group 2 element", "barium") in G.edges()
 
 
 def test_build_one_end_to_end(tmp_path, monkeypatch):
