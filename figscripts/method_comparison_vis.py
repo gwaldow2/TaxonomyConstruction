@@ -47,8 +47,8 @@ for rank, idx in enumerate(order):
     color = "C0" if "ours" in m else ("C1" if m == "Single-Call" else "0.6")
     ax.bar(rank, np.mean(vals), color=color, width=0.65)
     ax.plot([rank] * len(vals), vals, ".", color="k", ms=5, alpha=0.55)
-    ax.annotate(f"{np.mean(vals):.3f}", (rank, np.mean(vals)), textcoords="offset points",
-                xytext=(0, 5), ha="center", fontsize=9, fontweight="bold")
+    ax.text(rank, 0.012, f"{np.mean(vals):.3f}", ha="center", va="bottom",
+            fontsize=9, fontweight="bold", color="white")
 ax.set_xticks(range(len(names)))
 ax.set_xticklabels([names[i] for i in order], rotation=20, ha="right", fontsize=9)
 ax.set_ylabel("mean Cond. Closure F1", fontweight="bold")

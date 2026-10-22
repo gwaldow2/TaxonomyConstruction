@@ -13,8 +13,8 @@ import networkx as nx
 
 BASE = os.environ.get("TAXO_BASE", "C:/Users/Hoengager/Documents/Claude/TaxonomyConstruction")
 BATT = f"{BASE}/results/battery_20260925/preds"
-P1 = f"{BASE}/results/v2phase1_20261016/results"
-P2 = f"{BASE}/results/v2phase2_20261016/results"
+CAMP = os.environ.get("TAXO_V2_CAMP", f"{BASE}/results/v2r2_20261021")
+P1 = P2 = f"{CAMP}/results"
 OUT_CSV = f"{BASE}/results/corrected_core/khop_core.csv"
 OUT_PNG = f"{BASE}/paper_figures/khop_recall_core.png"
 
@@ -127,8 +127,8 @@ for ax, (tag, title) in zip(axes, PANELS):
     ax.grid(color="0.92")
     ax.legend(fontsize=9, loc="lower left", framealpha=0.95)
 axes[0].set_ylabel("recall of $k$-hop closure pairs", fontweight="bold")
-fig.suptitle("Recall by ancestor distance at $N{=}100$: structured extraction holds across depth,\n"
-             f"single-call decays (seven-dataset core, synonym-aware matching; $n$ per hop: {n_note})",
+fig.suptitle("Recall by ancestor distance at $N{=}100$: structured extraction stays high at every depth,\n"
+             f"single-call trails it (seven-dataset core, synonym-aware matching; $n$ per hop: {n_note})",
              fontsize=10.5, fontweight="bold", y=1.08)
 fig.tight_layout()
 fig.savefig(OUT_PNG, dpi=250, bbox_inches="tight")
