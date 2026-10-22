@@ -1,0 +1,31 @@
+"""One command: core-dataset runs in, paper figures out.
+
+Runs the existing generators in order against $TAXO_V2_CAMP (default
+results/v2r2_20261021). Audit-dependent figures are not included; they need the
+judge-audit legs first.
+
+    python figscripts/make_core_figures.py
+"""
+import os
+import subprocess
+import sys
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+REPO = os.path.dirname(HERE)
+BASE = os.environ.get("TAXO_BASE", "C:/Users/Hoengager/Documents/Claude/TaxonomyConstruction")
+CC = f"{BASE}/results/corrected_core"
+
+STEPS = [
+    [sys.executable, f"{HERE}/merge_corrected_core.py"],
+    [sys.executable, f"{HERE}/method_comparison_vis.py"],
+    [sys.executable, f"{REPO}/base_comparison.py",
+     "--run", f"structured:{CC}/gemma4_structured.json",
+     "--run", f"single-call:{CC}/gemma4_singlecall.json",
+     "--ref", "structured", "--out", f"{BASE}/paper_figures/sc_vs_ours_gemma4.png"],
+    [sys.executable, f"{HERE}/khop_core.py"],
+]
+
+for cmd in STEPS:
+    print(f"\n=== {os.path.basename(cmd[1])} ===", flush=True)
+    subprocess.run(cmd, check=True, cwd=REPO)
+print("\n[*] core figures written to", f"{BASE}/paper_figures")

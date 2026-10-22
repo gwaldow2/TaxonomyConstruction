@@ -36,6 +36,7 @@ carried over). Run it after any new campaign data lands, then regenerate figures
 
 | Script | Figure(s) | Input data |
 |---|---|---|
+| `make_core_figures.py` | ONE COMMAND: runs merge + every core-run figure generator below | $TAXO_V2_CAMP campaign dir |
 | `merge_corrected_core.py` | (data) results/corrected_core/ | legacy campaign jsons/CSVs + v2phase1/v2phase2 campaign dirs |
 | `method_comparison_vis.py` | method_comparison.png (+ prints tab:methods) | results/corrected_core/*.json |
 | `scaling_vis.py` | scaling_f1.png, scaling_cost.png | results/scaling_20261001/results/*.json + legacy control/sc jsons (N=100 points) |
