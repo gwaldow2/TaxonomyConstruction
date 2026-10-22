@@ -1,0 +1,180 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d4" for="graph" attr.name="timestamp" attr.type="string"/>
+<key id="d3" for="graph" attr.name="scale" attr.type="string"/>
+<key id="d2" for="graph" attr.name="results_file" attr.type="string"/>
+<key id="d1" for="graph" attr.name="tag" attr.type="string"/>
+<key id="d0" for="graph" attr.name="model" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">google/gemma-4-31b-it</data>
+<data key="d1">baselines_v2</data>
+<data key="d2">v2r2_baselines.json</data>
+<data key="d3">SUB</data>
+<data key="d4">2026-10-21T21:37:42</data>
+<node id="plant structure"/>
+<node id="plant organ"/>
+<node id="plant anatomical entity"/>
+<node id="phyllome"/>
+<node id="shoot axis"/>
+<node id="root tip"/>
+<node id="hypocotyl"/>
+<node id="leaf"/>
+<node id="vascular leaf"/>
+<node id="adult vascular leaf"/>
+<node id="flag leaf"/>
+<node id="stem internode"/>
+<node id="mesocotyl"/>
+<node id="seedling mesocotyl"/>
+<node id="seedling hypocotyl"/>
+<node id="multi-tissue plant structure"/>
+<node id="vascular bundle"/>
+<node id="pericarp vascular bundle"/>
+<node id="portion of plant tissue"/>
+<node id="portion of ground tissue"/>
+<node id="portion of vascular tissue"/>
+<node id="parenchyma"/>
+<node id="storage parenchyma"/>
+<node id="tuber storage parenchyma"/>
+<node id="aerial tuber storage parenchyma"/>
+<node id="xylem"/>
+<node id="tracheary element"/>
+<node id="xylem vessel"/>
+<node id="secondary xylem tracheary element"/>
+<node id="late wood tracheary element"/>
+<node id="periderm"/>
+<node id="root periderm"/>
+<node id="root periderm scar"/>
+<node id="plant cell"/>
+<node id="native plant cell"/>
+<node id="cultured plant cell"/>
+<node id="plant protoplast"/>
+<node id="plant epidermal cell"/>
+<node id="shoot epidermal cell"/>
+<node id="shoot epidermal pavement cell"/>
+<node id="leaf pavement cell"/>
+<node id="ground tissue cell"/>
+<node id="collenchyma cell"/>
+<node id="short cell"/>
+<node id="plant structure development stage"/>
+<node id="plant organ development stage"/>
+<node id="phyllome development stage"/>
+<node id="leaf production stage"/>
+<node id="vascular leaf anlagen"/>
+<node id="phyllome anlagen"/>
+<node id="multi-tissue plant structure development stage"/>
+<node id="whole plant development stage"/>
+<node id="sporophyte development stage"/>
+<node id="sporophyte vegetative stage"/>
+<node id="sporophyte reproductive stage"/>
+<node id="rosette growth stage"/>
+<node id="mid rosette growth stage"/>
+<node id="1 main shoot growth stage"/>
+<node id="booting stage"/>
+<node id="bo03 late boot stage"/>
+<node id="bo05 flag leaf sheath opened stage"/>
+<node id="fruit development stage"/>
+<node id="fruit initiation stage"/>
+<node id="fruit formation stage"/>
+<node id="stem elongation stage"/>
+<node id="il00 inflorescence just visible stage"/>
+<node id="se01 one node or internode visible stage"/>
+<node id="gametophyte development stage"/>
+<node id="microgametophyte development stage"/>
+<node id="megagametophyte development stage"/>
+<node id="pollen development stage"/>
+<node id="b enlarged microsporocyte stage"/>
+<node id="h late unicellular microspore stage"/>
+<node id="embryo sac"/>
+<node id="plant spore"/>
+<node id="megaspore"/>
+<node id="functional megaspore"/>
+<node id="megagametophyte"/>
+<node id="microgametophyte vegetative cell"/>
+<node id="portion of meristem tissue"/>
+<node id="inflorescence meristem"/>
+<node id="tassel meristem"/>
+<node id="tassel inflorescence axillary meristem"/>
+<node id="short tassel branch meristem"/>
+<node id="long lateral tassel branch meristem"/>
+<node id="inflorescence axillary meristem"/>
+<edge source="plant structure" target="plant organ"/>
+<edge source="plant structure" target="plant anatomical entity"/>
+<edge source="plant organ" target="phyllome"/>
+<edge source="plant organ" target="shoot axis"/>
+<edge source="plant organ" target="root tip"/>
+<edge source="plant organ" target="hypocotyl"/>
+<edge source="plant anatomical entity" target="multi-tissue plant structure"/>
+<edge source="plant anatomical entity" target="portion of plant tissue"/>
+<edge source="plant anatomical entity" target="plant cell"/>
+<edge source="phyllome" target="leaf"/>
+<edge source="phyllome" target="vascular leaf"/>
+<edge source="shoot axis" target="stem internode"/>
+<edge source="shoot axis" target="mesocotyl"/>
+<edge source="hypocotyl" target="seedling hypocotyl"/>
+<edge source="vascular leaf" target="adult vascular leaf"/>
+<edge source="vascular leaf" target="flag leaf"/>
+<edge source="mesocotyl" target="seedling mesocotyl"/>
+<edge source="multi-tissue plant structure" target="vascular bundle"/>
+<edge source="vascular bundle" target="pericarp vascular bundle"/>
+<edge source="portion of plant tissue" target="portion of ground tissue"/>
+<edge source="portion of plant tissue" target="portion of vascular tissue"/>
+<edge source="portion of plant tissue" target="periderm"/>
+<edge source="portion of ground tissue" target="parenchyma"/>
+<edge source="portion of vascular tissue" target="xylem"/>
+<edge source="parenchyma" target="storage parenchyma"/>
+<edge source="storage parenchyma" target="tuber storage parenchyma"/>
+<edge source="tuber storage parenchyma" target="aerial tuber storage parenchyma"/>
+<edge source="xylem" target="tracheary element"/>
+<edge source="tracheary element" target="xylem vessel"/>
+<edge source="tracheary element" target="secondary xylem tracheary element"/>
+<edge source="secondary xylem tracheary element" target="late wood tracheary element"/>
+<edge source="periderm" target="root periderm"/>
+<edge source="root periderm" target="root periderm scar"/>
+<edge source="plant cell" target="native plant cell"/>
+<edge source="plant cell" target="cultured plant cell"/>
+<edge source="plant cell" target="plant protoplast"/>
+<edge source="plant cell" target="plant epidermal cell"/>
+<edge source="plant cell" target="ground tissue cell"/>
+<edge source="plant cell" target="short cell"/>
+<edge source="plant epidermal cell" target="shoot epidermal cell"/>
+<edge source="plant epidermal cell" target="leaf pavement cell"/>
+<edge source="shoot epidermal cell" target="shoot epidermal pavement cell"/>
+<edge source="ground tissue cell" target="parenchyma"/>
+<edge source="ground tissue cell" target="collenchyma cell"/>
+<edge source="plant structure development stage" target="plant organ development stage"/>
+<edge source="plant structure development stage" target="multi-tissue plant structure development stage"/>
+<edge source="plant organ development stage" target="phyllome development stage"/>
+<edge source="phyllome development stage" target="leaf production stage"/>
+<edge source="phyllome development stage" target="vascular leaf anlagen"/>
+<edge source="vascular leaf anlagen" target="phyllome anlagen"/>
+<edge source="whole plant development stage" target="sporophyte development stage"/>
+<edge source="whole plant development stage" target="gametophyte development stage"/>
+<edge source="sporophyte development stage" target="sporophyte vegetative stage"/>
+<edge source="sporophyte development stage" target="sporophyte reproductive stage"/>
+<edge source="sporophyte vegetative stage" target="rosette growth stage"/>
+<edge source="sporophyte vegetative stage" target="1 main shoot growth stage"/>
+<edge source="sporophyte reproductive stage" target="booting stage"/>
+<edge source="sporophyte reproductive stage" target="fruit development stage"/>
+<edge source="sporophyte reproductive stage" target="stem elongation stage"/>
+<edge source="sporophyte reproductive stage" target="il00 inflorescence just visible stage"/>
+<edge source="sporophyte reproductive stage" target="se01 one node or internode visible stage"/>
+<edge source="rosette growth stage" target="mid rosette growth stage"/>
+<edge source="booting stage" target="bo03 late boot stage"/>
+<edge source="booting stage" target="bo05 flag leaf sheath opened stage"/>
+<edge source="fruit development stage" target="fruit initiation stage"/>
+<edge source="fruit development stage" target="fruit formation stage"/>
+<edge source="gametophyte development stage" target="microgametophyte development stage"/>
+<edge source="gametophyte development stage" target="megagametophyte development stage"/>
+<edge source="microgametophyte development stage" target="pollen development stage"/>
+<edge source="microgametophyte development stage" target="microgametophyte vegetative cell"/>
+<edge source="megagametophyte development stage" target="embryo sac"/>
+<edge source="pollen development stage" target="b enlarged microsporocyte stage"/>
+<edge source="pollen development stage" target="h late unicellular microspore stage"/>
+<edge source="plant spore" target="megaspore"/>
+<edge source="megaspore" target="functional megaspore"/>
+<edge source="functional megaspore" target="megagametophyte"/>
+<edge source="portion of meristem tissue" target="inflorescence meristem"/>
+<edge source="inflorescence meristem" target="tassel meristem"/>
+<edge source="inflorescence meristem" target="inflorescence axillary meristem"/>
+<edge source="tassel meristem" target="tassel inflorescence axillary meristem"/>
+<edge source="tassel meristem" target="short tassel branch meristem"/>
+<edge source="short tassel branch meristem" target="long lateral tassel branch meristem"/>
+</graph></graphml>

@@ -1,0 +1,82 @@
+[
+    {
+        "dataset": "SchemaOrgV2_SUB",
+        "use_synsets": false,
+        "explode_nodes": false,
+        "results": [
+            {
+                "method": "Single-Call Baseline [matched]",
+                "model": "gemini-3.1-pro-preview",
+                "Cond_Red_F1": 0.9186602870813396,
+                "Cond_Red_Precision": 0.8888888888888888,
+                "Cond_Red_Recall": 0.9504950495049505,
+                "Cond_Clos_F1": 0.9764065335753176,
+                "Cond_Clos_Precision": 0.9853479853479854,
+                "Cond_Clos_Recall": 0.9676258992805755,
+                "Exp_Raw_F1": 0.5240641711229946,
+                "Exp_Clos_F1": 0.9764065335753176,
+                "Runtime_sec": 85.28590130805969
+            }
+        ]
+    },
+    {
+        "dataset": "POV2_SUB",
+        "use_synsets": false,
+        "explode_nodes": false,
+        "results": [
+            {
+                "method": "Single-Call Baseline [matched]",
+                "model": "gemini-3.1-pro-preview",
+                "Cond_Red_F1": 0.748768472906404,
+                "Cond_Red_Precision": 0.7524752475247525,
+                "Cond_Red_Recall": 0.7450980392156863,
+                "Cond_Clos_F1": 0.7974358974358974,
+                "Cond_Clos_Precision": 0.9228486646884273,
+                "Cond_Clos_Recall": 0.7020316027088036,
+                "Exp_Raw_F1": 0.748768472906404,
+                "Exp_Clos_F1": 0.7974358974358974,
+                "Runtime_sec": 61.80978178977966
+            }
+        ]
+    },
+    {
+        "dataset": "OBIV2_SUB",
+        "use_synsets": false,
+        "explode_nodes": false,
+        "results": [
+            {
+                "method": "Single-Call Baseline [matched]",
+                "model": "gemini-3.1-pro-preview",
+                "Cond_Red_F1": 0.7981220657276996,
+                "Cond_Red_Precision": 0.8095238095238095,
+                "Cond_Red_Recall": 0.7870370370370371,
+                "Cond_Clos_F1": 0.8700834326579261,
+                "Cond_Clos_Precision": 0.9630606860158312,
+                "Cond_Clos_Recall": 0.7934782608695652,
+                "Exp_Raw_F1": 0.7981220657276996,
+                "Exp_Clos_F1": 0.8700834326579261,
+                "Runtime_sec": 62.514506816864014
+            }
+        ]
+    },
+    {
+        "dataset": "MatOntoV2_SUB",
+        "use_synsets": false,
+        "explode_nodes": false,
+        "results": [
+            {
+                "method": "Single-Call Baseline [matched]",
+                "model": "gemini-3.1-pro-preview",
+                "Cond_Red_F1": 0.7426160337552742,
+                "Cond_Red_Precision": 0.7521367521367521,
+                "Cond_Red_Recall": 0.7333333333333333,
+                "Cond_Clos_F1": 0.878122634367903,
+                "Cond_Clos_Precision": 0.9492635024549918,
+                "Cond_Clos_Recall": 0.8169014084507042,
+                "Exp_Raw_F1": 0.7465753424657534,
+                "Exp_Clos_F1": 0.8782849239280774,
+                "Runtime_sec": 80.09683179855347
+            }
+        ]
+    }
+]

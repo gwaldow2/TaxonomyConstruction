@@ -1,0 +1,226 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d4" for="graph" attr.name="timestamp" attr.type="string"/>
+<key id="d3" for="graph" attr.name="scale" attr.type="string"/>
+<key id="d2" for="graph" attr.name="results_file" attr.type="string"/>
+<key id="d1" for="graph" attr.name="tag" attr.type="string"/>
+<key id="d0" for="graph" attr.name="model" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">google/gemma-4-31b-it</data>
+<data key="d1">baselines_v2</data>
+<data key="d2">v2r2_baselines.json</data>
+<data key="d3">SUB</data>
+<data key="d4">2026-10-21T21:37:42</data>
+<node id="organization"/>
+<node id="consortium"/>
+<node id="typeandquantitynode"/>
+<node id="datatype"/>
+<node id="medicalspecialty"/>
+<node id="medicalcause"/>
+<node id="recommendeddoseschedule"/>
+<node id="recommendation"/>
+<node id="organizationrole"/>
+<node id="newsarticle"/>
+<node id="techarticle"/>
+<node id="hotel"/>
+<node id="lodgingbusiness"/>
+<node id="medicalprocedure"/>
+<node id="therapeuticprocedure"/>
+<node id="automotivebusiness"/>
+<node id="localbusiness"/>
+<node id="useaction"/>
+<node id="confirmaction"/>
+<node id="governmentorganization"/>
+<node id="educationalorganization"/>
+<node id="videogameclip"/>
+<node id="tvclip"/>
+<node id="doseschedule"/>
+<node id="orderitem"/>
+<node id="preorderaction"/>
+<node id="winaction"/>
+<node id="inviteaction"/>
+<node id="governmentbuilding"/>
+<node id="controlaction"/>
+<node id="suspendaction"/>
+<node id="quantity"/>
+<node id="mass"/>
+<node id="comment"/>
+<node id="answer"/>
+<node id="shippingconditions"/>
+<node id="solvemathaction"/>
+<node id="podcastseason"/>
+<node id="planaction"/>
+<node id="scheduleaction"/>
+<node id="clip"/>
+<node id="creativeworkseason"/>
+<node id="creativeworkseries"/>
+<node id="blogposting"/>
+<node id="socialmediaposting"/>
+<node id="cityhall"/>
+<node id="bowlingalley"/>
+<node id="geocoordinates"/>
+<node id="landmarksorhistoricalbuildings"/>
+<node id="theatergroup"/>
+<node id="performinggroup"/>
+<node id="number"/>
+<node id="school"/>
+<node id="elementaryschool"/>
+<node id="socialevent"/>
+<node id="educationevent"/>
+<node id="treatmentindication"/>
+<node id="medicaltherapy"/>
+<node id="communicateaction"/>
+<node id="interactaction"/>
+<node id="seabodyofwater"/>
+<node id="bodyofwater"/>
+<node id="place"/>
+<node id="achieveaction"/>
+<node id="action"/>
+<node id="product"/>
+<node id="drugcost"/>
+<node id="quantitativevalue"/>
+<node id="civicstructure"/>
+<node id="anatomicalstructure"/>
+<node id="tradeaction"/>
+<node id="vehicle"/>
+<node id="car"/>
+<node id="medicalindication"/>
+<node id="medicalintangible"/>
+<node id="musicvideoobject"/>
+<node id="mediaobject"/>
+<node id="medicalstudy"/>
+<node id="foodestablishment"/>
+<node id="recipe"/>
+<node id="autobodyshop"/>
+<node id="hobbyshop"/>
+<node id="conversation"/>
+<node id="howtoitem"/>
+<node id="howto"/>
+<node id="thing"/>
+<node id="rating"/>
+<node id="review"/>
+<node id="cafeorcoffeeshop"/>
+<node id="fastfoodrestaurant"/>
+<node id="periodical"/>
+<node id="leaveaction"/>
+<node id="medicalentity"/>
+<node id="hackathon"/>
+<node id="followaction"/>
+<node id="article"/>
+<node id="eventstatustype"/>
+<node id="event"/>
+<node id="creativework"/>
+<node id="opinionnewsarticle"/>
+<node id="findaction"/>
+<node id="discoveraction"/>
+<node id="playaction"/>
+<node id="sportsactivitylocation"/>
+<node id="consumeaction"/>
+<node id="nutritioninformation"/>
+<node id="muscle"/>
+<node id="informaction"/>
+<node id="store"/>
+<node id="barorpub"/>
+<node id="geoshape"/>
+<node id="landform"/>
+<node id="organizeaction"/>
+<edge source="organization" target="consortium"/>
+<edge source="organization" target="organizeaction"/>
+<edge source="typeandquantitynode" target="datatype"/>
+<edge source="medicalspecialty" target="medicalcause"/>
+<edge source="medicalspecialty" target="medicalstudy"/>
+<edge source="medicalspecialty" target="medicalentity"/>
+<edge source="medicalcause" target="drugcost"/>
+<edge source="recommendeddoseschedule" target="recommendation"/>
+<edge source="recommendeddoseschedule" target="doseschedule"/>
+<edge source="organizationrole" target="organization"/>
+<edge source="newsarticle" target="techarticle"/>
+<edge source="newsarticle" target="article"/>
+<edge source="newsarticle" target="opinionnewsarticle"/>
+<edge source="hotel" target="lodgingbusiness"/>
+<edge source="hotel" target="place"/>
+<edge source="lodgingbusiness" target="hotel"/>
+<edge source="medicalprocedure" target="therapeuticprocedure"/>
+<edge source="therapeuticprocedure" target="medicalprocedure"/>
+<edge source="automotivebusiness" target="localbusiness"/>
+<edge source="useaction" target="confirmaction"/>
+<edge source="useaction" target="winaction"/>
+<edge source="useaction" target="leaveaction"/>
+<edge source="useaction" target="consumeaction"/>
+<edge source="useaction" target="controlaction"/>
+<edge source="governmentorganization" target="educationalorganization"/>
+<edge source="governmentorganization" target="governmentbuilding"/>
+<edge source="videogameclip" target="tvclip"/>
+<edge source="videogameclip" target="clip"/>
+<edge source="tvclip" target="podcastseason"/>
+<edge source="tvclip" target="hackathon"/>
+<edge source="tvclip" target="videogameclip"/>
+<edge source="doseschedule" target="recommendeddoseschedule"/>
+<edge source="doseschedule" target="periodical"/>
+<edge source="orderitem" target="preorderaction"/>
+<edge source="winaction" target="inviteaction"/>
+<edge source="winaction" target="tradeaction"/>
+<edge source="winaction" target="playaction"/>
+<edge source="winaction" target="useaction"/>
+<edge source="governmentbuilding" target="governmentorganization"/>
+<edge source="governmentbuilding" target="civicstructure"/>
+<edge source="controlaction" target="suspendaction"/>
+<edge source="quantity" target="mass"/>
+<edge source="quantity" target="number"/>
+<edge source="quantity" target="product"/>
+<edge source="mass" target="muscle"/>
+<edge source="comment" target="answer"/>
+<edge source="answer" target="comment"/>
+<edge source="shippingconditions" target="solvemathaction"/>
+<edge source="planaction" target="scheduleaction"/>
+<edge source="creativeworkseason" target="creativeworkseries"/>
+<edge source="creativeworkseason" target="creativework"/>
+<edge source="creativeworkseries" target="creativeworkseason"/>
+<edge source="blogposting" target="socialmediaposting"/>
+<edge source="socialmediaposting" target="blogposting"/>
+<edge source="cityhall" target="bowlingalley"/>
+<edge source="geocoordinates" target="landmarksorhistoricalbuildings"/>
+<edge source="theatergroup" target="performinggroup"/>
+<edge source="performinggroup" target="theatergroup"/>
+<edge source="school" target="elementaryschool"/>
+<edge source="elementaryschool" target="school"/>
+<edge source="socialevent" target="educationevent"/>
+<edge source="educationevent" target="socialevent"/>
+<edge source="treatmentindication" target="medicaltherapy"/>
+<edge source="treatmentindication" target="medicalindication"/>
+<edge source="communicateaction" target="interactaction"/>
+<edge source="communicateaction" target="conversation"/>
+<edge source="communicateaction" target="informaction"/>
+<edge source="interactaction" target="communicateaction"/>
+<edge source="seabodyofwater" target="bodyofwater"/>
+<edge source="bodyofwater" target="seabodyofwater"/>
+<edge source="place" target="cityhall"/>
+<edge source="place" target="store"/>
+<edge source="achieveaction" target="action"/>
+<edge source="achieveaction" target="planaction"/>
+<edge source="action" target="followaction"/>
+<edge source="product" target="thing"/>
+<edge source="quantitativevalue" target="quantity"/>
+<edge source="civicstructure" target="anatomicalstructure"/>
+<edge source="vehicle" target="car"/>
+<edge source="vehicle" target="automotivebusiness"/>
+<edge source="car" target="vehicle"/>
+<edge source="medicalindication" target="medicalintangible"/>
+<edge source="medicalindication" target="treatmentindication"/>
+<edge source="musicvideoobject" target="mediaobject"/>
+<edge source="mediaobject" target="musicvideoobject"/>
+<edge source="foodestablishment" target="recipe"/>
+<edge source="autobodyshop" target="hobbyshop"/>
+<edge source="hobbyshop" target="autobodyshop"/>
+<edge source="howtoitem" target="howto"/>
+<edge source="rating" target="review"/>
+<edge source="cafeorcoffeeshop" target="fastfoodrestaurant"/>
+<edge source="cafeorcoffeeshop" target="barorpub"/>
+<edge source="eventstatustype" target="event"/>
+<edge source="opinionnewsarticle" target="newsarticle"/>
+<edge source="findaction" target="discoveraction"/>
+<edge source="findaction" target="achieveaction"/>
+<edge source="discoveraction" target="findaction"/>
+<edge source="playaction" target="sportsactivitylocation"/>
+<edge source="nutritioninformation" target="foodestablishment"/>
+<edge source="barorpub" target="cafeorcoffeeshop"/>
+<edge source="geoshape" target="landform"/>
+</graph></graphml>

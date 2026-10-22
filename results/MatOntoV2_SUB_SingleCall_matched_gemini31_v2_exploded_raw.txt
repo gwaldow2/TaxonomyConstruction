@@ -1,0 +1,194 @@
+==================================================
+=== Detailed Node Pair Analysis (Exploded Raw Edges) ===
+Match Type Used: EXACT
+==================================================
+Precision: 0.8015 | Recall: 0.6987 | F1: 0.7466
+
+CORRECT PREDICTIONS (True Positives: 109 Pred edges covering 109 GT edges):
+  [TP] actinide -> mendelevium
+  [TP] acyl halide -> acyl chloride
+  [TP] aromaticity -> aromatic
+  [TP] aromaticity -> non aromatic
+  [TP] atom -> antimony atom
+  [TP] atom -> dysprosium atom
+  [TP] atom -> europium atom
+  [TP] atom -> neodymium atom
+  [TP] atom -> nickel atom
+  [TP] atom -> samarium atom
+  [TP] atom -> tantalum atom
+  [TP] atom -> tungsten atom
+  [TP] chalcogen -> group 16 element
+  [TP] chalcogen -> tellurium
+  [TP] chemical formula -> empirical formula
+  [TP] chemical phase -> common chemical phase
+  [TP] chemical phase -> uncommon chemical phase
+  [TP] chemical substance -> acid
+  [TP] chemical substance -> pure substance
+  [TP] common chemical phase -> gas phase
+  [TP] compound -> organic compound
+  [TP] continuant -> dependent_continuant
+  [TP] continuant -> independent_continuant
+  [TP] cyclicity -> cyclic
+  [TP] d-block element -> titanium
+  [TP] d-block element -> transition metal
+  [TP] d-block element -> tungsten
+  [TP] d-block element -> ununbium
+  [TP] dependent_continuant -> quality
+  [TP] element -> periodic table element
+  [TP] energy -> internal energy
+  [TP] entity -> continuant
+  [TP] group 12 element -> ununbium
+  [TP] group 15 element -> antimony
+  [TP] group 15 element -> nitrogen group element
+  [TP] group 16 element -> chalcogen
+  [TP] group 16 element -> tellurium
+  [TP] group 17 element -> bromine
+  [TP] group 17 element -> fluorine
+  [TP] group 17 element -> halogen
+  [TP] group 4 element -> titanium
+  [TP] group 6 element -> tungsten
+  [TP] group element -> chalcogen
+  [TP] group element -> group 12 element
+  [TP] group element -> group 15 element
+  [TP] group element -> group 16 element
+  [TP] group element -> group 17 element
+  [TP] group element -> group 4 element
+  [TP] group element -> group 6 element
+  [TP] group element -> group 7 element
+  [TP] group element -> halogen
+  [TP] group element -> nitrogen group element
+  [TP] halogen -> bromine
+  [TP] halogen -> fluorine
+  [TP] halogen -> group 17 element
+  [TP] independent_continuant -> object
+  [TP] intensive property -> specific heat
+  [TP] measured property -> angle
+  [TP] measured property -> energy
+  [TP] measured property -> intensive property
+  [TP] measured property -> molecular mass
+  [TP] metalloid -> antimony
+  [TP] metalloid -> tellurium
+  [TP] molecular geometry -> linear molecular geometry
+  [TP] molecular mass -> monoisotopic weight
+  [TP] molecularquality -> aromaticity
+  [TP] molecularquality -> cyclicity
+  [TP] moleculecomponentcount -> isotopic atom count
+  [TP] moleculecomponentcount -> undefined stereo atom count
+  [TP] nitrogen group element -> antimony
+  [TP] nitrogen group element -> group 15 element
+  [TP] object -> atom
+  [TP] organic compound -> acyl halide
+  [TP] organic compound -> imine
+  [TP] organic group -> thiol group
+  [TP] period 2 element -> fluorine
+  [TP] period 4 element -> bromine
+  [TP] period 4 element -> titanium
+  [TP] period 5 element -> antimony
+  [TP] period 5 element -> tellurium
+  [TP] period 6 element -> tungsten
+  [TP] period 7 element -> ununbium
+  [TP] period element -> period 2 element
+  [TP] period element -> period 4 element
+  [TP] period element -> period 5 element
+  [TP] period element -> period 6 element
+  [TP] period element -> period 7 element
+  [TP] periodic block -> d-block element
+  [TP] periodic block -> f-block element
+  [TP] periodic block -> p-block element
+  [TP] periodic block -> transition metal
+  [TP] periodic table element -> group element
+  [TP] periodic table element -> period element
+  [TP] periodic table element -> periodic block
+  [TP] periodic table element -> series element
+  [TP] polarity -> polar
+  [TP] pure substance -> element
+  [TP] quality -> chemical quality
+  [TP] quality -> measured property
+  [TP] scaled unit -> tera scaled unit
+  [TP] scaled unit -> yotta scaled unit
+  [TP] series element -> actinide
+  [TP] series element -> metalloid
+  [TP] transition metal -> d-block element
+  [TP] transition metal -> titanium
+  [TP] transition metal -> tungsten
+  [TP] transition metal -> ununbium
+  [TP] uncommon chemical phase -> fermionic condensate
+  [TP] unit -> derivedunit
+
+INCORRECT PREDICTIONS (False Positives: 27):
+  [FP] chemical agent -> product
+  [FP] chemical agent -> reagent
+  [FP] chemical quality -> molecularquality
+  [FP] chemical substance -> precipitate
+  [FP] dependent_continuant -> chemical formula
+  [FP] dependent_continuant -> unit
+  [FP] derivedunit -> catalytic activity unit
+  [FP] derivedunit -> electric resistance unit
+  [FP] entity -> electromagnetic radation
+  [FP] f-block element -> mendelevium
+  [FP] group element -> carbon group
+  [FP] independent_continuant -> chemical agent
+  [FP] independent_continuant -> chemical phase
+  [FP] independent_continuant -> chemical substance
+  [FP] independent_continuant -> organic group
+  [FP] intensive property -> electric charge density
+  [FP] intensive property -> potential difference
+  [FP] measured property -> moleculecomponentcount
+  [FP] molecularquality -> molecular geometry
+  [FP] molecularquality -> polarity
+  [FP] p-block element -> antimony
+  [FP] p-block element -> bromine
+  [FP] p-block element -> fluorine
+  [FP] p-block element -> tellurium
+  [FP] period 7 element -> mendelevium
+  [FP] pure substance -> compound
+  [FP] unit -> scaled unit
+
+MISSED RELATIONS (False Negatives: 47):
+  [FN] carbon group -> thiol group
+  [FN] chemical quality -> chemical formula
+  [FN] chemical quality -> chemical phase
+  [FN] chemical quality -> molecular geometry
+  [FN] chemical quality -> polarity
+  [FN] chemical substance -> compound
+  [FN] chemical substance -> reagent
+  [FN] derivedunit -> scaled unit
+  [FN] element -> antimony
+  [FN] element -> bromine
+  [FN] element -> fluorine
+  [FN] element -> mendelevium
+  [FN] element -> tellurium
+  [FN] element -> titanium
+  [FN] element -> tungsten
+  [FN] element -> ununbium
+  [FN] f-block element -> actinide
+  [FN] measured property -> electric charge density
+  [FN] measured property -> electromagnetic radation
+  [FN] measured property -> molecularquality
+  [FN] measured property -> potential difference
+  [FN] measured property -> unit
+  [FN] molecularquality -> molecular mass
+  [FN] molecularquality -> moleculecomponentcount
+  [FN] object -> chemical substance
+  [FN] object -> organic group
+  [FN] organic compound -> group 17 element
+  [FN] organic compound -> halogen
+  [FN] organic group -> carbon group
+  [FN] p-block element -> chalcogen
+  [FN] p-block element -> group 15 element
+  [FN] p-block element -> group 16 element
+  [FN] p-block element -> group 17 element
+  [FN] p-block element -> halogen
+  [FN] p-block element -> nitrogen group element
+  [FN] period 7 element -> actinide
+  [FN] product -> precipitate
+  [FN] reagent -> chemical agent
+  [FN] reagent -> product
+  [FN] series element -> chalcogen
+  [FN] series element -> d-block element
+  [FN] series element -> group 16 element
+  [FN] series element -> group 17 element
+  [FN] series element -> halogen
+  [FN] series element -> transition metal
+  [FN] unit -> catalytic activity unit
+  [FN] unit -> electric resistance unit

@@ -1,0 +1,180 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d4" for="graph" attr.name="timestamp" attr.type="string"/>
+<key id="d3" for="graph" attr.name="scale" attr.type="string"/>
+<key id="d2" for="graph" attr.name="results_file" attr.type="string"/>
+<key id="d1" for="graph" attr.name="tag" attr.type="string"/>
+<key id="d0" for="graph" attr.name="model" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">google/gemma-4-31b-it</data>
+<data key="d1">baselines_v2</data>
+<data key="d2">v2r2_baselines.json</data>
+<data key="d3">SUB</data>
+<data key="d4">2026-10-21T21:37:42</data>
+<node id="entity"/>
+<node id="continuant"/>
+<node id="independent_continuant"/>
+<node id="dependent_continuant"/>
+<node id="object"/>
+<node id="chemical substance"/>
+<node id="element"/>
+<node id="compound"/>
+<node id="pure substance"/>
+<node id="chemical agent"/>
+<node id="organic compound"/>
+<node id="acid"/>
+<node id="acyl halide"/>
+<node id="acyl chloride"/>
+<node id="periodic table element"/>
+<node id="periodic block"/>
+<node id="p-block element"/>
+<node id="d-block element"/>
+<node id="f-block element"/>
+<node id="transition metal"/>
+<node id="period element"/>
+<node id="period 2 element"/>
+<node id="period 4 element"/>
+<node id="period 5 element"/>
+<node id="period 6 element"/>
+<node id="period 7 element"/>
+<node id="group element"/>
+<node id="group 4 element"/>
+<node id="group 6 element"/>
+<node id="group 7 element"/>
+<node id="group 12 element"/>
+<node id="group 15 element"/>
+<node id="group 16 element"/>
+<node id="group 17 element"/>
+<node id="halogen"/>
+<node id="chalcogen"/>
+<node id="nitrogen group element"/>
+<node id="actinide"/>
+<node id="metalloid"/>
+<node id="atom"/>
+<node id="samarium atom"/>
+<node id="europium atom"/>
+<node id="dysprosium atom"/>
+<node id="neodymium atom"/>
+<node id="tungsten atom"/>
+<node id="tantalum atom"/>
+<node id="nickel atom"/>
+<node id="antimony atom"/>
+<node id="tellurium"/>
+<node id="samarium"/>
+<node id="antimony"/>
+<node id="titanium"/>
+<node id="mendelevium"/>
+<node id="bromine"/>
+<node id="fluorine"/>
+<node id="ununbium"/>
+<node id="tungsten"/>
+<node id="quality"/>
+<node id="chemical quality"/>
+<node id="measured property"/>
+<node id="intensive property"/>
+<node id="specific heat"/>
+<node id="polarity"/>
+<node id="energy"/>
+<node id="internal energy"/>
+<node id="potential difference"/>
+<node id="electric charge density"/>
+<node id="aromaticity"/>
+<node id="aromatic"/>
+<node id="non aromatic"/>
+<node id="cyclicity"/>
+<node id="cyclic"/>
+<node id="molecular geometry"/>
+<node id="linear molecular geometry"/>
+<node id="unit"/>
+<node id="derivedunit"/>
+<node id="scaled unit"/>
+<node id="tera scaled unit"/>
+<node id="yotta scaled unit"/>
+<node id="electric resistance unit"/>
+<node id="catalytic activity unit"/>
+<node id="chemical phase"/>
+<node id="common chemical phase"/>
+<node id="uncommon chemical phase"/>
+<node id="gas phase"/>
+<node id="fermionic condensate"/>
+<edge source="entity" target="continuant"/>
+<edge source="entity" target="independent_continuant"/>
+<edge source="entity" target="dependent_continuant"/>
+<edge source="continuant" target="object"/>
+<edge source="object" target="chemical substance"/>
+<edge source="chemical substance" target="element"/>
+<edge source="chemical substance" target="compound"/>
+<edge source="chemical substance" target="pure substance"/>
+<edge source="chemical substance" target="chemical agent"/>
+<edge source="element" target="periodic table element"/>
+<edge source="element" target="atom"/>
+<edge source="element" target="tellurium"/>
+<edge source="element" target="samarium"/>
+<edge source="element" target="antimony"/>
+<edge source="element" target="titanium"/>
+<edge source="element" target="mendelevium"/>
+<edge source="element" target="bromine"/>
+<edge source="element" target="fluorine"/>
+<edge source="element" target="ununbium"/>
+<edge source="element" target="tungsten"/>
+<edge source="compound" target="organic compound"/>
+<edge source="compound" target="acid"/>
+<edge source="organic compound" target="acyl halide"/>
+<edge source="acyl halide" target="acyl chloride"/>
+<edge source="periodic table element" target="periodic block"/>
+<edge source="periodic table element" target="period element"/>
+<edge source="periodic table element" target="group element"/>
+<edge source="periodic table element" target="actinide"/>
+<edge source="periodic table element" target="metalloid"/>
+<edge source="periodic block" target="p-block element"/>
+<edge source="periodic block" target="d-block element"/>
+<edge source="periodic block" target="f-block element"/>
+<edge source="d-block element" target="transition metal"/>
+<edge source="period element" target="period 2 element"/>
+<edge source="period element" target="period 4 element"/>
+<edge source="period element" target="period 5 element"/>
+<edge source="period element" target="period 6 element"/>
+<edge source="period element" target="period 7 element"/>
+<edge source="group element" target="group 4 element"/>
+<edge source="group element" target="group 6 element"/>
+<edge source="group element" target="group 7 element"/>
+<edge source="group element" target="group 12 element"/>
+<edge source="group element" target="group 15 element"/>
+<edge source="group element" target="group 16 element"/>
+<edge source="group element" target="group 17 element"/>
+<edge source="group 15 element" target="nitrogen group element"/>
+<edge source="group 16 element" target="chalcogen"/>
+<edge source="group 17 element" target="halogen"/>
+<edge source="atom" target="samarium atom"/>
+<edge source="atom" target="europium atom"/>
+<edge source="atom" target="dysprosium atom"/>
+<edge source="atom" target="neodymium atom"/>
+<edge source="atom" target="tungsten atom"/>
+<edge source="atom" target="tantalum atom"/>
+<edge source="atom" target="nickel atom"/>
+<edge source="atom" target="antimony atom"/>
+<edge source="quality" target="chemical quality"/>
+<edge source="quality" target="measured property"/>
+<edge source="chemical quality" target="aromaticity"/>
+<edge source="chemical quality" target="cyclicity"/>
+<edge source="chemical quality" target="molecular geometry"/>
+<edge source="measured property" target="intensive property"/>
+<edge source="measured property" target="energy"/>
+<edge source="measured property" target="potential difference"/>
+<edge source="measured property" target="electric charge density"/>
+<edge source="intensive property" target="specific heat"/>
+<edge source="intensive property" target="polarity"/>
+<edge source="energy" target="internal energy"/>
+<edge source="aromaticity" target="aromatic"/>
+<edge source="aromaticity" target="non aromatic"/>
+<edge source="cyclicity" target="cyclic"/>
+<edge source="molecular geometry" target="linear molecular geometry"/>
+<edge source="unit" target="derivedunit"/>
+<edge source="unit" target="scaled unit"/>
+<edge source="unit" target="electric resistance unit"/>
+<edge source="unit" target="catalytic activity unit"/>
+<edge source="scaled unit" target="tera scaled unit"/>
+<edge source="scaled unit" target="yotta scaled unit"/>
+<edge source="chemical phase" target="common chemical phase"/>
+<edge source="chemical phase" target="uncommon chemical phase"/>
+<edge source="chemical phase" target="gas phase"/>
+<edge source="chemical phase" target="fermionic condensate"/>
+</graph></graphml>

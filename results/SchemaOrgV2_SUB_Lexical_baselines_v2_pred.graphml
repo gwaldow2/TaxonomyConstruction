@@ -1,0 +1,94 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d4" for="graph" attr.name="timestamp" attr.type="string"/>
+<key id="d3" for="graph" attr.name="scale" attr.type="string"/>
+<key id="d2" for="graph" attr.name="results_file" attr.type="string"/>
+<key id="d1" for="graph" attr.name="tag" attr.type="string"/>
+<key id="d0" for="graph" attr.name="model" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">google/gemma-4-31b-it</data>
+<data key="d1">baselines_v2</data>
+<data key="d2">v2r2_baselines.json</data>
+<data key="d3">SUB</data>
+<data key="d4">2026-10-21T21:37:42</data>
+<node id="organization"/>
+<node id="educationalorganization"/>
+<node id="governmentorganization"/>
+<node id="doseschedule"/>
+<node id="recommendeddoseschedule"/>
+<node id="clip"/>
+<node id="tvclip"/>
+<node id="videogameclip"/>
+<node id="bodyofwater"/>
+<node id="seabodyofwater"/>
+<node id="action"/>
+<node id="confirmaction"/>
+<node id="preorderaction"/>
+<node id="inviteaction"/>
+<node id="suspendaction"/>
+<node id="solvemathaction"/>
+<node id="scheduleaction"/>
+<node id="interactaction"/>
+<node id="tradeaction"/>
+<node id="winaction"/>
+<node id="leaveaction"/>
+<node id="followaction"/>
+<node id="communicateaction"/>
+<node id="discoveraction"/>
+<node id="playaction"/>
+<node id="consumeaction"/>
+<node id="informaction"/>
+<node id="planaction"/>
+<node id="useaction"/>
+<node id="findaction"/>
+<node id="achieveaction"/>
+<node id="controlaction"/>
+<node id="organizeaction"/>
+<node id="article"/>
+<node id="techarticle"/>
+<node id="newsarticle"/>
+<node id="opinionnewsarticle"/>
+<node id="event"/>
+<node id="educationevent"/>
+<node id="socialevent"/>
+<node id="creativework"/>
+<node id="creativeworkseries"/>
+<node id="creativeworkseason"/>
+<node id="school"/>
+<node id="elementaryschool"/>
+<edge source="organization" target="educationalorganization"/>
+<edge source="organization" target="governmentorganization"/>
+<edge source="doseschedule" target="recommendeddoseschedule"/>
+<edge source="clip" target="tvclip"/>
+<edge source="clip" target="videogameclip"/>
+<edge source="bodyofwater" target="seabodyofwater"/>
+<edge source="action" target="confirmaction"/>
+<edge source="action" target="preorderaction"/>
+<edge source="action" target="inviteaction"/>
+<edge source="action" target="suspendaction"/>
+<edge source="action" target="solvemathaction"/>
+<edge source="action" target="scheduleaction"/>
+<edge source="action" target="interactaction"/>
+<edge source="action" target="tradeaction"/>
+<edge source="action" target="winaction"/>
+<edge source="action" target="leaveaction"/>
+<edge source="action" target="followaction"/>
+<edge source="action" target="communicateaction"/>
+<edge source="action" target="discoveraction"/>
+<edge source="action" target="playaction"/>
+<edge source="action" target="consumeaction"/>
+<edge source="action" target="informaction"/>
+<edge source="action" target="planaction"/>
+<edge source="action" target="useaction"/>
+<edge source="action" target="findaction"/>
+<edge source="action" target="achieveaction"/>
+<edge source="action" target="controlaction"/>
+<edge source="action" target="organizeaction"/>
+<edge source="article" target="techarticle"/>
+<edge source="article" target="newsarticle"/>
+<edge source="article" target="opinionnewsarticle"/>
+<edge source="newsarticle" target="opinionnewsarticle"/>
+<edge source="event" target="educationevent"/>
+<edge source="event" target="socialevent"/>
+<edge source="creativework" target="creativeworkseries"/>
+<edge source="creativework" target="creativeworkseason"/>
+<edge source="school" target="elementaryschool"/>
+</graph></graphml>

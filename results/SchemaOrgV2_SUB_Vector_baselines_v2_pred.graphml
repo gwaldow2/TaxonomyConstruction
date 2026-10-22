@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d4" for="graph" attr.name="timestamp" attr.type="string"/>
+<key id="d3" for="graph" attr.name="scale" attr.type="string"/>
+<key id="d2" for="graph" attr.name="results_file" attr.type="string"/>
+<key id="d1" for="graph" attr.name="tag" attr.type="string"/>
+<key id="d0" for="graph" attr.name="model" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">google/gemma-4-31b-it</data>
+<data key="d1">baselines_v2</data>
+<data key="d2">v2r2_baselines.json</data>
+<data key="d3">SUB</data>
+<data key="d4">2026-10-21T21:37:42</data>
+<node id="tvclip"/>
+<node id="videogameclip"/>
+<node id="governmentbuilding"/>
+<node id="governmentorganization"/>
+<node id="medicalprocedure"/>
+<node id="therapeuticprocedure"/>
+<node id="interactaction"/>
+<node id="communicateaction"/>
+<node id="bodyofwater"/>
+<node id="seabodyofwater"/>
+<node id="action"/>
+<node id="achieveaction"/>
+<node id="hotel"/>
+<node id="lodgingbusiness"/>
+<node id="car"/>
+<node id="vehicle"/>
+<node id="blogposting"/>
+<node id="socialmediaposting"/>
+<node id="mediaobject"/>
+<node id="musicvideoobject"/>
+<node id="winaction"/>
+<node id="tradeaction"/>
+<node id="playaction"/>
+<node id="findaction"/>
+<node id="controlaction"/>
+<node id="medicalindication"/>
+<node id="treatmentindication"/>
+<node id="medicalentity"/>
+<node id="newsarticle"/>
+<node id="opinionnewsarticle"/>
+<node id="theatergroup"/>
+<node id="performinggroup"/>
+<node id="useaction"/>
+<node id="consumeaction"/>
+<node id="discoveraction"/>
+<edge source="tvclip" target="videogameclip"/>
+<edge source="governmentbuilding" target="governmentorganization"/>
+<edge source="medicalprocedure" target="therapeuticprocedure"/>
+<edge source="interactaction" target="communicateaction"/>
+<edge source="bodyofwater" target="seabodyofwater"/>
+<edge source="action" target="achieveaction"/>
+<edge source="hotel" target="lodgingbusiness"/>
+<edge source="car" target="vehicle"/>
+<edge source="blogposting" target="socialmediaposting"/>
+<edge source="mediaobject" target="musicvideoobject"/>
+<edge source="winaction" target="tradeaction"/>
+<edge source="winaction" target="playaction"/>
+<edge source="winaction" target="findaction"/>
+<edge source="winaction" target="controlaction"/>
+<edge source="playaction" target="tradeaction"/>
+<edge source="findaction" target="tradeaction"/>
+<edge source="findaction" target="discoveraction"/>
+<edge source="findaction" target="achieveaction"/>
+<edge source="controlaction" target="interactaction"/>
+<edge source="medicalindication" target="treatmentindication"/>
+<edge source="medicalentity" target="medicalprocedure"/>
+<edge source="medicalentity" target="medicalindication"/>
+<edge source="newsarticle" target="opinionnewsarticle"/>
+<edge source="theatergroup" target="performinggroup"/>
+<edge source="useaction" target="interactaction"/>
+<edge source="useaction" target="playaction"/>
+<edge source="useaction" target="consumeaction"/>
+<edge source="useaction" target="findaction"/>
+<edge source="useaction" target="achieveaction"/>
+<edge source="useaction" target="controlaction"/>
+</graph></graphml>

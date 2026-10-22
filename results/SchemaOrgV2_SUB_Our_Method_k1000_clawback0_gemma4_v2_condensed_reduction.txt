@@ -1,0 +1,223 @@
+==================================================
+=== Detailed Node Pair Analysis (Condensed Transitive Reduction) ===
+Match Type Used: SET_OVERLAP
+==================================================
+Precision: 0.5688 | Recall: 0.6337 | F1: 0.5995
+
+CORRECT PREDICTIONS (True Positives: 62 Pred edges covering 64 GT edges):
+  [TP] PRED: (action -> communicateaction (communicateaction, controlaction, interactaction))
+        matches GT: (action -> controlaction)
+  [TP] PRED: (action -> communicateaction (communicateaction, controlaction, interactaction))
+        matches GT: (action -> interactaction)
+  [TP] PRED: (anatomicalstructure -> muscle)
+        matches GT: (anatomicalstructure -> muscle)
+  [TP] PRED: (article -> blogposting (blogposting, socialmediaposting))
+        matches GT: (article -> socialmediaposting)
+  [TP] PRED: (article -> newsarticle)
+        matches GT: (article -> newsarticle)
+  [TP] PRED: (article -> techarticle)
+        matches GT: (article -> techarticle)
+  [TP] PRED: (automotivebusiness -> autobodyshop)
+        matches GT: (automotivebusiness -> autobodyshop)
+  [TP] PRED: (bodyofwater -> seabodyofwater)
+        matches GT: (bodyofwater -> seabodyofwater)
+  [TP] PRED: (civicstructure -> governmentbuilding)
+        matches GT: (civicstructure -> governmentbuilding)
+  [TP] PRED: (clip -> tvclip)
+        matches GT: (clip -> tvclip)
+  [TP] PRED: (clip -> videogameclip)
+        matches GT: (clip -> videogameclip)
+  [TP] PRED: (comment -> answer)
+        matches GT: (comment -> answer)
+  [TP] PRED: (communicateaction (communicateaction, controlaction, interactaction) -> followaction)
+        matches GT: (interactaction -> followaction)
+  [TP] PRED: (communicateaction (communicateaction, controlaction, interactaction) -> informaction)
+        matches GT: (communicateaction -> informaction)
+  [TP] PRED: (communicateaction (communicateaction, controlaction, interactaction) -> inviteaction)
+        matches GT: (communicateaction -> inviteaction)
+  [TP] PRED: (communicateaction (communicateaction, controlaction, interactaction) -> leaveaction)
+        matches GT: (interactaction -> leaveaction)
+  [TP] PRED: (communicateaction (communicateaction, controlaction, interactaction) -> suspendaction)
+        matches GT: (controlaction -> suspendaction)
+  [TP] PRED: (creativework -> article)
+        matches GT: (creativework -> article)
+  [TP] PRED: (creativework -> clip)
+        matches GT: (creativework -> clip)
+  [TP] PRED: (creativework -> creativeworkseries)
+        matches GT: (creativework -> creativeworkseries)
+  [TP] PRED: (creativeworkseason -> podcastseason)
+        matches GT: (creativeworkseason -> podcastseason)
+  [TP] PRED: (creativeworkseries -> periodical)
+        matches GT: (creativeworkseries -> periodical)
+  [TP] PRED: (datatype -> number (number, quantity))
+        matches GT: (datatype -> number)
+  [TP] PRED: (datatype -> number (number, quantity))
+        matches GT: (datatype -> quantity)
+  [TP] PRED: (doseschedule -> recommendeddoseschedule)
+        matches GT: (doseschedule -> recommendeddoseschedule)
+  [TP] PRED: (educationalorganization -> school)
+        matches GT: (educationalorganization -> school)
+  [TP] PRED: (event -> socialevent)
+        matches GT: (event -> socialevent)
+  [TP] PRED: (foodestablishment -> barorpub)
+        matches GT: (foodestablishment -> barorpub)
+  [TP] PRED: (foodestablishment -> cafeorcoffeeshop)
+        matches GT: (foodestablishment -> cafeorcoffeeshop)
+  [TP] PRED: (foodestablishment -> fastfoodrestaurant)
+        matches GT: (foodestablishment -> fastfoodrestaurant)
+  [TP] PRED: (governmentbuilding -> cityhall)
+        matches GT: (governmentbuilding -> cityhall)
+  [TP] PRED: (howto -> recipe)
+        matches GT: (howto -> recipe)
+  [TP] PRED: (localbusiness -> foodestablishment)
+        matches GT: (localbusiness -> foodestablishment)
+  [TP] PRED: (localbusiness -> lodgingbusiness)
+        matches GT: (localbusiness -> lodgingbusiness)
+  [TP] PRED: (localbusiness -> store)
+        matches GT: (localbusiness -> store)
+  [TP] PRED: (lodgingbusiness -> hotel)
+        matches GT: (lodgingbusiness -> hotel)
+  [TP] PRED: (medicalentity -> anatomicalstructure)
+        matches GT: (medicalentity -> anatomicalstructure)
+  [TP] PRED: (medicalentity -> drugcost)
+        matches GT: (medicalentity -> drugcost)
+  [TP] PRED: (medicalentity -> medicalintangible)
+        matches GT: (medicalentity -> medicalintangible)
+  [TP] PRED: (medicalentity -> medicalprocedure)
+        matches GT: (medicalentity -> medicalprocedure)
+  [TP] PRED: (medicalindication -> treatmentindication)
+        matches GT: (medicalindication -> treatmentindication)
+  [TP] PRED: (medicalintangible -> doseschedule)
+        matches GT: (medicalintangible -> doseschedule)
+  [TP] PRED: (medicalprocedure -> therapeuticprocedure)
+        matches GT: (medicalprocedure -> therapeuticprocedure)
+  [TP] PRED: (newsarticle -> opinionnewsarticle)
+        matches GT: (newsarticle -> opinionnewsarticle)
+  [TP] PRED: (number (number, quantity) -> mass)
+        matches GT: (quantity -> mass)
+  [TP] PRED: (organization -> consortium)
+        matches GT: (organization -> consortium)
+  [TP] PRED: (organization -> educationalorganization)
+        matches GT: (organization -> educationalorganization)
+  [TP] PRED: (organization -> governmentorganization)
+        matches GT: (organization -> governmentorganization)
+  [TP] PRED: (organization -> localbusiness)
+        matches GT: (organization -> localbusiness)
+  [TP] PRED: (organization -> performinggroup)
+        matches GT: (organization -> performinggroup)
+  [TP] PRED: (performinggroup -> theatergroup)
+        matches GT: (performinggroup -> theatergroup)
+  [TP] PRED: (place -> landform)
+        matches GT: (place -> landform)
+  [TP] PRED: (place -> landmarksorhistoricalbuildings)
+        matches GT: (place -> landmarksorhistoricalbuildings)
+  [TP] PRED: (place -> localbusiness)
+        matches GT: (place -> localbusiness)
+  [TP] PRED: (product -> vehicle)
+        matches GT: (product -> vehicle)
+  [TP] PRED: (sportsactivitylocation -> bowlingalley)
+        matches GT: (sportsactivitylocation -> bowlingalley)
+  [TP] PRED: (store -> hobbyshop)
+        matches GT: (store -> hobbyshop)
+  [TP] PRED: (therapeuticprocedure -> medicaltherapy)
+        matches GT: (therapeuticprocedure -> medicaltherapy)
+  [TP] PRED: (thing -> event)
+        matches GT: (thing -> event)
+  [TP] PRED: (thing -> medicalentity)
+        matches GT: (thing -> medicalentity)
+  [TP] PRED: (thing -> organization)
+        matches GT: (thing -> organization)
+  [TP] PRED: (thing -> place)
+        matches GT: (thing -> place)
+  [TP] PRED: (thing -> product)
+        matches GT: (thing -> product)
+  [TP] PRED: (vehicle -> car)
+        matches GT: (vehicle -> car)
+
+INCORRECT PREDICTIONS (False Positives: 47):
+  [FP] article -> medicalstudy
+  [FP] blogposting (blogposting, socialmediaposting) -> comment
+  [FP] civicstructure -> school
+  [FP] comment -> review
+  [FP] communicateaction (communicateaction, controlaction, interactaction) -> achieveaction
+  [FP] communicateaction (communicateaction, controlaction, interactaction) -> blogposting (blogposting, socialmediaposting)
+  [FP] communicateaction (communicateaction, controlaction, interactaction) -> confirmaction
+  [FP] communicateaction (communicateaction, controlaction, interactaction) -> consumeaction
+  [FP] communicateaction (communicateaction, controlaction, interactaction) -> conversation
+  [FP] communicateaction (communicateaction, controlaction, interactaction) -> discoveraction
+  [FP] communicateaction (communicateaction, controlaction, interactaction) -> findaction
+  [FP] communicateaction (communicateaction, controlaction, interactaction) -> organizeaction
+  [FP] communicateaction (communicateaction, controlaction, interactaction) -> planaction
+  [FP] communicateaction (communicateaction, controlaction, interactaction) -> playaction
+  [FP] communicateaction (communicateaction, controlaction, interactaction) -> preorderaction
+  [FP] communicateaction (communicateaction, controlaction, interactaction) -> scheduleaction
+  [FP] communicateaction (communicateaction, controlaction, interactaction) -> solvemathaction
+  [FP] communicateaction (communicateaction, controlaction, interactaction) -> tradeaction
+  [FP] communicateaction (communicateaction, controlaction, interactaction) -> useaction
+  [FP] communicateaction (communicateaction, controlaction, interactaction) -> winaction
+  [FP] creativework -> musicvideoobject
+  [FP] creativeworkseries -> creativeworkseason
+  [FP] educationevent -> hackathon
+  [FP] event -> action
+  [FP] governmentbuilding -> elementaryschool
+  [FP] governmentorganization -> cityhall
+  [FP] landmarksorhistoricalbuildings -> civicstructure
+  [FP] localbusiness -> school
+  [FP] mediaobject -> creativework
+  [FP] medicalintangible -> medicalcause
+  [FP] medicalintangible -> medicalindication
+  [FP] medicalintangible -> medicalstudy
+  [FP] number (number, quantity) -> drugcost
+  [FP] place -> bodyofwater
+  [FP] place -> sportsactivitylocation
+  [FP] recommendation -> recommendeddoseschedule
+  [FP] school -> elementaryschool
+  [FP] socialevent -> educationevent
+  [FP] store -> automotivebusiness
+  [FP] store -> barorpub
+  [FP] store -> bowlingalley
+  [FP] store -> cafeorcoffeeshop
+  [FP] store -> fastfoodrestaurant
+  [FP] techarticle -> howto
+  [FP] thing -> datatype
+  [FP] thing -> mediaobject
+  [FP] thing -> recommendation
+
+MISSED RELATIONS (False Negatives: 37):
+  [FN] achieveaction -> winaction
+  [FN] action -> achieveaction
+  [FN] action -> consumeaction
+  [FN] action -> findaction
+  [FN] action -> organizeaction
+  [FN] action -> playaction
+  [FN] action -> solvemathaction
+  [FN] action -> tradeaction
+  [FN] civicstructure -> educationalorganization
+  [FN] consumeaction -> useaction
+  [FN] creativework -> comment
+  [FN] creativework -> conversation
+  [FN] creativework -> creativeworkseason
+  [FN] creativework -> howto
+  [FN] creativework -> mediaobject
+  [FN] creativework -> review
+  [FN] educationalorganization -> elementaryschool
+  [FN] event -> educationevent
+  [FN] event -> hackathon
+  [FN] findaction -> discoveraction
+  [FN] informaction -> confirmaction
+  [FN] interactaction -> communicateaction
+  [FN] landform -> bodyofwater
+  [FN] localbusiness -> automotivebusiness
+  [FN] localbusiness -> sportsactivitylocation
+  [FN] mediaobject -> musicvideoobject
+  [FN] medicalentity -> medicalcause
+  [FN] medicalentity -> medicalindication
+  [FN] medicalentity -> medicalstudy
+  [FN] organizeaction -> planaction
+  [FN] place -> civicstructure
+  [FN] planaction -> scheduleaction
+  [FN] review -> recommendation
+  [FN] socialmediaposting -> blogposting
+  [FN] thing -> action
+  [FN] thing -> creativework
+  [FN] tradeaction -> preorderaction

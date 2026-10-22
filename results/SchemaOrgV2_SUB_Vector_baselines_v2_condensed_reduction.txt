@@ -1,0 +1,139 @@
+==================================================
+=== Detailed Node Pair Analysis (Condensed Transitive Reduction) ===
+Match Type Used: SET_OVERLAP
+==================================================
+Precision: 0.3704 | Recall: 0.0990 | F1: 0.1562
+
+CORRECT PREDICTIONS (True Positives: 10 Pred edges covering 10 GT edges):
+  [TP] PRED: (action -> achieveaction)
+        matches GT: (action -> achieveaction)
+  [TP] PRED: (bodyofwater -> seabodyofwater)
+        matches GT: (bodyofwater -> seabodyofwater)
+  [TP] PRED: (findaction -> discoveraction)
+        matches GT: (findaction -> discoveraction)
+  [TP] PRED: (interactaction -> communicateaction)
+        matches GT: (interactaction -> communicateaction)
+  [TP] PRED: (mediaobject -> musicvideoobject)
+        matches GT: (mediaobject -> musicvideoobject)
+  [TP] PRED: (medicalentity -> medicalindication)
+        matches GT: (medicalentity -> medicalindication)
+  [TP] PRED: (medicalentity -> medicalprocedure)
+        matches GT: (medicalentity -> medicalprocedure)
+  [TP] PRED: (medicalindication -> treatmentindication)
+        matches GT: (medicalindication -> treatmentindication)
+  [TP] PRED: (medicalprocedure -> therapeuticprocedure)
+        matches GT: (medicalprocedure -> therapeuticprocedure)
+  [TP] PRED: (newsarticle -> opinionnewsarticle)
+        matches GT: (newsarticle -> opinionnewsarticle)
+
+INCORRECT PREDICTIONS (False Positives: 17):
+  [FP] blogposting -> socialmediaposting
+  [FP] car -> vehicle
+  [FP] controlaction -> interactaction
+  [FP] findaction -> achieveaction
+  [FP] findaction -> tradeaction
+  [FP] governmentbuilding -> governmentorganization
+  [FP] hotel -> lodgingbusiness
+  [FP] playaction -> tradeaction
+  [FP] theatergroup -> performinggroup
+  [FP] tvclip -> videogameclip
+  [FP] useaction -> consumeaction
+  [FP] useaction -> controlaction
+  [FP] useaction -> findaction
+  [FP] useaction -> playaction
+  [FP] winaction -> controlaction
+  [FP] winaction -> findaction
+  [FP] winaction -> playaction
+
+MISSED RELATIONS (False Negatives: 91):
+  [FN] achieveaction -> winaction
+  [FN] action -> consumeaction
+  [FN] action -> controlaction
+  [FN] action -> findaction
+  [FN] action -> interactaction
+  [FN] action -> organizeaction
+  [FN] action -> playaction
+  [FN] action -> solvemathaction
+  [FN] action -> tradeaction
+  [FN] anatomicalstructure -> muscle
+  [FN] article -> newsarticle
+  [FN] article -> socialmediaposting
+  [FN] article -> techarticle
+  [FN] automotivebusiness -> autobodyshop
+  [FN] civicstructure -> educationalorganization
+  [FN] civicstructure -> governmentbuilding
+  [FN] clip -> tvclip
+  [FN] clip -> videogameclip
+  [FN] comment -> answer
+  [FN] communicateaction -> informaction
+  [FN] communicateaction -> inviteaction
+  [FN] consumeaction -> useaction
+  [FN] controlaction -> suspendaction
+  [FN] creativework -> article
+  [FN] creativework -> clip
+  [FN] creativework -> comment
+  [FN] creativework -> conversation
+  [FN] creativework -> creativeworkseason
+  [FN] creativework -> creativeworkseries
+  [FN] creativework -> howto
+  [FN] creativework -> mediaobject
+  [FN] creativework -> review
+  [FN] creativeworkseason -> podcastseason
+  [FN] creativeworkseries -> periodical
+  [FN] datatype -> number
+  [FN] datatype -> quantity
+  [FN] doseschedule -> recommendeddoseschedule
+  [FN] educationalorganization -> elementaryschool
+  [FN] educationalorganization -> school
+  [FN] event -> educationevent
+  [FN] event -> hackathon
+  [FN] event -> socialevent
+  [FN] foodestablishment -> barorpub
+  [FN] foodestablishment -> cafeorcoffeeshop
+  [FN] foodestablishment -> fastfoodrestaurant
+  [FN] governmentbuilding -> cityhall
+  [FN] howto -> recipe
+  [FN] informaction -> confirmaction
+  [FN] interactaction -> followaction
+  [FN] interactaction -> leaveaction
+  [FN] landform -> bodyofwater
+  [FN] localbusiness -> automotivebusiness
+  [FN] localbusiness -> foodestablishment
+  [FN] localbusiness -> lodgingbusiness
+  [FN] localbusiness -> sportsactivitylocation
+  [FN] localbusiness -> store
+  [FN] lodgingbusiness -> hotel
+  [FN] medicalentity -> anatomicalstructure
+  [FN] medicalentity -> drugcost
+  [FN] medicalentity -> medicalcause
+  [FN] medicalentity -> medicalintangible
+  [FN] medicalentity -> medicalstudy
+  [FN] medicalintangible -> doseschedule
+  [FN] organization -> consortium
+  [FN] organization -> educationalorganization
+  [FN] organization -> governmentorganization
+  [FN] organization -> localbusiness
+  [FN] organization -> performinggroup
+  [FN] organizeaction -> planaction
+  [FN] performinggroup -> theatergroup
+  [FN] place -> civicstructure
+  [FN] place -> landform
+  [FN] place -> landmarksorhistoricalbuildings
+  [FN] place -> localbusiness
+  [FN] planaction -> scheduleaction
+  [FN] product -> vehicle
+  [FN] quantity -> mass
+  [FN] review -> recommendation
+  [FN] socialmediaposting -> blogposting
+  [FN] sportsactivitylocation -> bowlingalley
+  [FN] store -> hobbyshop
+  [FN] therapeuticprocedure -> medicaltherapy
+  [FN] thing -> action
+  [FN] thing -> creativework
+  [FN] thing -> event
+  [FN] thing -> medicalentity
+  [FN] thing -> organization
+  [FN] thing -> place
+  [FN] thing -> product
+  [FN] tradeaction -> preorderaction
+  [FN] vehicle -> car
