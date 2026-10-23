@@ -1,0 +1,126 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d4" for="graph" attr.name="timestamp" attr.type="string"/>
+<key id="d3" for="graph" attr.name="scale" attr.type="string"/>
+<key id="d2" for="graph" attr.name="results_file" attr.type="string"/>
+<key id="d1" for="graph" attr.name="tag" attr.type="string"/>
+<key id="d0" for="graph" attr.name="model" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">Qwen/Qwen2.5-7B-Instruct</data>
+<data key="d1">qwen_v2</data>
+<data key="d2">results/v2r2_qwen.json</data>
+<data key="d3">SUB</data>
+<data key="d4">2026-10-22T20:42:46</data>
+<node id="consortium"/>
+<node id="cityhall (cityhall, educationalorganization, governmentbuilding, governmentorganization, organization, school, theatergroup)"/>
+<node id="cafeorcoffeeshop (cafeorcoffeeshop, fastfoodrestaurant, foodestablishment, localbusiness, lodgingbusiness)"/>
+<node id="civicstructure"/>
+<node id="hotel"/>
+<node id="medicaltherapy"/>
+<node id="therapeuticprocedure"/>
+<node id="recommendeddoseschedule"/>
+<node id="medicalindication"/>
+<node id="bowlingalley"/>
+<node id="car"/>
+<node id="hobbyshop"/>
+<node id="autobodyshop"/>
+<node id="store"/>
+<node id="barorpub"/>
+<node id="clip"/>
+<node id="tvclip"/>
+<node id="mediaobject"/>
+<node id="medicalprocedure"/>
+<node id="treatmentindication"/>
+<node id="landmarksorhistoricalbuildings"/>
+<node id="landform"/>
+<node id="elementaryschool"/>
+<node id="place"/>
+<node id="thing"/>
+<node id="medicalentity"/>
+<node id="medicalstudy"/>
+<node id="creativework"/>
+<node id="podcastseason"/>
+<node id="musicvideoobject"/>
+<node id="article"/>
+<node id="blogposting"/>
+<node id="opinionnewsarticle"/>
+<node id="howto"/>
+<node id="comment"/>
+<node id="videogameclip"/>
+<node id="findaction"/>
+<node id="achieveaction"/>
+<node id="planaction"/>
+<node id="organizeaction"/>
+<node id="controlaction"/>
+<node id="useaction"/>
+<node id="creativeworkseries"/>
+<node id="creativeworkseason"/>
+<node id="performinggroup"/>
+<node id="automotivebusiness"/>
+<node id="vehicle"/>
+<edge source="consortium" target="cityhall (cityhall, educationalorganization, governmentbuilding, governmentorganization, organization, school, theatergroup)"/>
+<edge source="cityhall (cityhall, educationalorganization, governmentbuilding, governmentorganization, organization, school, theatergroup)" target="elementaryschool"/>
+<edge source="cityhall (cityhall, educationalorganization, governmentbuilding, governmentorganization, organization, school, theatergroup)" target="automotivebusiness"/>
+<edge source="cityhall (cityhall, educationalorganization, governmentbuilding, governmentorganization, organization, school, theatergroup)" target="creativework"/>
+<edge source="cafeorcoffeeshop (cafeorcoffeeshop, fastfoodrestaurant, foodestablishment, localbusiness, lodgingbusiness)" target="cityhall (cityhall, educationalorganization, governmentbuilding, governmentorganization, organization, school, theatergroup)"/>
+<edge source="cafeorcoffeeshop (cafeorcoffeeshop, fastfoodrestaurant, foodestablishment, localbusiness, lodgingbusiness)" target="automotivebusiness"/>
+<edge source="cafeorcoffeeshop (cafeorcoffeeshop, fastfoodrestaurant, foodestablishment, localbusiness, lodgingbusiness)" target="creativework"/>
+<edge source="civicstructure" target="cityhall (cityhall, educationalorganization, governmentbuilding, governmentorganization, organization, school, theatergroup)"/>
+<edge source="hotel" target="cafeorcoffeeshop (cafeorcoffeeshop, fastfoodrestaurant, foodestablishment, localbusiness, lodgingbusiness)"/>
+<edge source="hotel" target="cityhall (cityhall, educationalorganization, governmentbuilding, governmentorganization, organization, school, theatergroup)"/>
+<edge source="hotel" target="place"/>
+<edge source="hotel" target="thing"/>
+<edge source="medicaltherapy" target="therapeuticprocedure"/>
+<edge source="medicaltherapy" target="medicalprocedure"/>
+<edge source="medicaltherapy" target="medicalentity"/>
+<edge source="recommendeddoseschedule" target="therapeuticprocedure"/>
+<edge source="medicalindication" target="therapeuticprocedure"/>
+<edge source="medicalindication" target="medicalprocedure"/>
+<edge source="medicalindication" target="medicalentity"/>
+<edge source="bowlingalley" target="cafeorcoffeeshop (cafeorcoffeeshop, fastfoodrestaurant, foodestablishment, localbusiness, lodgingbusiness)"/>
+<edge source="bowlingalley" target="automotivebusiness"/>
+<edge source="car" target="cafeorcoffeeshop (cafeorcoffeeshop, fastfoodrestaurant, foodestablishment, localbusiness, lodgingbusiness)"/>
+<edge source="car" target="automotivebusiness"/>
+<edge source="hobbyshop" target="cafeorcoffeeshop (cafeorcoffeeshop, fastfoodrestaurant, foodestablishment, localbusiness, lodgingbusiness)"/>
+<edge source="autobodyshop" target="cafeorcoffeeshop (cafeorcoffeeshop, fastfoodrestaurant, foodestablishment, localbusiness, lodgingbusiness)"/>
+<edge source="autobodyshop" target="automotivebusiness"/>
+<edge source="store" target="cafeorcoffeeshop (cafeorcoffeeshop, fastfoodrestaurant, foodestablishment, localbusiness, lodgingbusiness)"/>
+<edge source="store" target="creativework"/>
+<edge source="store" target="automotivebusiness"/>
+<edge source="barorpub" target="cafeorcoffeeshop (cafeorcoffeeshop, fastfoodrestaurant, foodestablishment, localbusiness, lodgingbusiness)"/>
+<edge source="barorpub" target="creativework"/>
+<edge source="barorpub" target="automotivebusiness"/>
+<edge source="clip" target="tvclip"/>
+<edge source="tvclip" target="creativework"/>
+<edge source="tvclip" target="creativeworkseason"/>
+<edge source="mediaobject" target="tvclip"/>
+<edge source="medicalprocedure" target="medicalentity"/>
+<edge source="treatmentindication" target="medicalprocedure"/>
+<edge source="landmarksorhistoricalbuildings" target="cityhall (cityhall, educationalorganization, governmentbuilding, governmentorganization, organization, school, theatergroup)"/>
+<edge source="landmarksorhistoricalbuildings" target="civicstructure"/>
+<edge source="landmarksorhistoricalbuildings" target="bowlingalley"/>
+<edge source="landmarksorhistoricalbuildings" target="hotel"/>
+<edge source="landmarksorhistoricalbuildings" target="store"/>
+<edge source="landmarksorhistoricalbuildings" target="cafeorcoffeeshop (cafeorcoffeeshop, fastfoodrestaurant, foodestablishment, localbusiness, lodgingbusiness)"/>
+<edge source="landmarksorhistoricalbuildings" target="barorpub"/>
+<edge source="landmarksorhistoricalbuildings" target="landform"/>
+<edge source="landform" target="creativework"/>
+<edge source="place" target="cafeorcoffeeshop (cafeorcoffeeshop, fastfoodrestaurant, foodestablishment, localbusiness, lodgingbusiness)"/>
+<edge source="thing" target="cafeorcoffeeshop (cafeorcoffeeshop, fastfoodrestaurant, foodestablishment, localbusiness, lodgingbusiness)"/>
+<edge source="medicalstudy" target="medicalentity"/>
+<edge source="podcastseason" target="creativework"/>
+<edge source="musicvideoobject" target="creativework"/>
+<edge source="article" target="creativework"/>
+<edge source="blogposting" target="creativework"/>
+<edge source="opinionnewsarticle" target="creativework"/>
+<edge source="howto" target="creativework"/>
+<edge source="comment" target="creativework"/>
+<edge source="videogameclip" target="creativework"/>
+<edge source="findaction" target="creativework"/>
+<edge source="achieveaction" target="creativework"/>
+<edge source="planaction" target="creativework"/>
+<edge source="organizeaction" target="creativework"/>
+<edge source="controlaction" target="creativework"/>
+<edge source="useaction" target="creativework"/>
+<edge source="creativeworkseries" target="creativeworkseason"/>
+<edge source="performinggroup" target="cityhall (cityhall, educationalorganization, governmentbuilding, governmentorganization, organization, school, theatergroup)"/>
+<edge source="vehicle" target="automotivebusiness"/>
+</graph></graphml>

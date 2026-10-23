@@ -1,0 +1,134 @@
+[
+    {
+        "dataset": "SchemaOrgV2_SUB",
+        "use_synsets": false,
+        "explode_nodes": false,
+        "results": [
+            {
+                "method": "Single-Call Baseline",
+                "model": "openai/gpt-oss-120b",
+                "Cond_Red_F1": 0.68,
+                "Cond_Red_Precision": 0.6868686868686869,
+                "Cond_Red_Recall": 0.6732673267326733,
+                "Cond_Clos_F1": 0.8649706457925636,
+                "Cond_Clos_Precision": 0.9484978540772532,
+                "Cond_Clos_Recall": 0.7949640287769785,
+                "Exp_Raw_F1": 0.68,
+                "Exp_Clos_F1": 0.8649706457925636,
+                "Runtime_sec": 49.26382279396057
+            },
+            {
+                "method": "Our Method (k=1000, clawback=0)",
+                "model": "openai/gpt-oss-120b",
+                "Cond_Red_F1": 0.8627450980392157,
+                "Cond_Red_Precision": 0.8543689320388349,
+                "Cond_Red_Recall": 0.8712871287128713,
+                "Cond_Clos_F1": 0.9443447037701974,
+                "Cond_Clos_Precision": 0.942652329749104,
+                "Cond_Clos_Recall": 0.9460431654676259,
+                "Exp_Raw_F1": 0.5053191489361702,
+                "Exp_Clos_F1": 0.9443447037701974,
+                "Runtime_sec": 396.1616950035095
+            }
+        ]
+    },
+    {
+        "dataset": "POV2_SUB",
+        "use_synsets": false,
+        "explode_nodes": false,
+        "results": [
+            {
+                "method": "Single-Call Baseline",
+                "model": "openai/gpt-oss-120b",
+                "Cond_Red_F1": 0.3350253807106599,
+                "Cond_Red_Precision": 0.3473684210526316,
+                "Cond_Red_Recall": 0.3235294117647059,
+                "Cond_Clos_F1": 0.5325264750378216,
+                "Cond_Clos_Precision": 0.8073394495412844,
+                "Cond_Clos_Recall": 0.3972911963882618,
+                "Exp_Raw_F1": 0.3350253807106599,
+                "Exp_Clos_F1": 0.5325264750378216,
+                "Runtime_sec": 56.96945071220398
+            },
+            {
+                "method": "Our Method (k=1000, clawback=0)",
+                "model": "openai/gpt-oss-120b",
+                "Cond_Red_F1": 0.6311111111111111,
+                "Cond_Red_Precision": 0.5772357723577236,
+                "Cond_Red_Recall": 0.696078431372549,
+                "Cond_Clos_F1": 0.7033723733942168,
+                "Cond_Clos_Precision": 0.6382488479262672,
+                "Cond_Clos_Recall": 0.7832957110609481,
+                "Exp_Raw_F1": 0.28148148148148144,
+                "Exp_Clos_F1": 0.7086294416243655,
+                "Runtime_sec": 598.6205673217773
+            }
+        ]
+    },
+    {
+        "dataset": "OBIV2_SUB",
+        "use_synsets": false,
+        "explode_nodes": false,
+        "results": [
+            {
+                "method": "Single-Call Baseline",
+                "model": "openai/gpt-oss-120b",
+                "Cond_Red_F1": 0.4568527918781726,
+                "Cond_Red_Precision": 0.5056179775280899,
+                "Cond_Red_Recall": 0.4166666666666667,
+                "Cond_Clos_F1": 0.4242424242424242,
+                "Cond_Clos_Precision": 0.9402985074626866,
+                "Cond_Clos_Recall": 0.27391304347826084,
+                "Exp_Raw_F1": 0.4623115577889447,
+                "Exp_Clos_F1": 0.4242424242424242,
+                "Runtime_sec": 82.06033635139465
+            },
+            {
+                "method": "Our Method (k=1000, clawback=0)",
+                "model": "openai/gpt-oss-120b",
+                "Cond_Red_F1": 0.6403508771929824,
+                "Cond_Red_Precision": 0.6083333333333333,
+                "Cond_Red_Recall": 0.6759259259259259,
+                "Cond_Clos_F1": 0.8628131977176879,
+                "Cond_Clos_Precision": 0.9135802469135802,
+                "Cond_Clos_Recall": 0.8173913043478261,
+                "Exp_Raw_F1": 0.36134453781512604,
+                "Exp_Clos_F1": 0.8600682593856656,
+                "Runtime_sec": 748.4245145320892
+            }
+        ]
+    },
+    {
+        "dataset": "MatOntoV2_SUB",
+        "use_synsets": false,
+        "explode_nodes": false,
+        "results": [
+            {
+                "method": "Single-Call Baseline",
+                "model": "openai/gpt-oss-120b",
+                "Cond_Red_F1": 0.4744186046511628,
+                "Cond_Red_Precision": 0.5368421052631579,
+                "Cond_Red_Recall": 0.425,
+                "Cond_Clos_F1": 0.4605809128630705,
+                "Cond_Clos_Precision": 0.8740157480314961,
+                "Cond_Clos_Recall": 0.3126760563380282,
+                "Exp_Raw_F1": 0.5387453874538746,
+                "Exp_Clos_F1": 0.4650283553875236,
+                "Runtime_sec": 68.118079662323
+            },
+            {
+                "method": "Our Method (k=1000, clawback=0)",
+                "model": "openai/gpt-oss-120b",
+                "Cond_Red_F1": 0.5649122807017545,
+                "Cond_Red_Precision": 0.5476190476190477,
+                "Cond_Red_Recall": 0.5833333333333334,
+                "Cond_Clos_F1": 0.8123116659492037,
+                "Cond_Clos_Precision": 0.75,
+                "Cond_Clos_Recall": 0.8859154929577465,
+                "Exp_Raw_F1": 0.251180358829084,
+                "Exp_Clos_F1": 0.7710176991150443,
+                "Runtime_sec": 1049.5505084991455
+            }
+        ]
+    }
+]

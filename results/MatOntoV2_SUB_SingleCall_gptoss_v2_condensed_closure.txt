@@ -1,0 +1,975 @@
+==================================================
+=== Detailed Node Pair Analysis (Condensed Transitive Closure) ===
+Match Type Used: SET_OVERLAP
+==================================================
+Precision: 0.8740 | Recall: 0.3127 | F1: 0.4606
+
+CORRECT PREDICTIONS (True Positives: 222 Pred edges covering 222 GT edges):
+  [TP] PRED: (acyl halide -> acyl chloride)
+        matches GT: (acyl halide -> acyl chloride)
+  [TP] PRED: (atom -> antimony atom)
+        matches GT: (atom -> antimony atom)
+  [TP] PRED: (atom -> dysprosium atom)
+        matches GT: (atom -> dysprosium atom)
+  [TP] PRED: (atom -> europium atom)
+        matches GT: (atom -> europium atom)
+  [TP] PRED: (atom -> neodymium atom)
+        matches GT: (atom -> neodymium atom)
+  [TP] PRED: (atom -> nickel atom)
+        matches GT: (atom -> nickel atom)
+  [TP] PRED: (atom -> samarium atom)
+        matches GT: (atom -> samarium atom)
+  [TP] PRED: (atom -> tantalum atom)
+        matches GT: (atom -> tantalum atom)
+  [TP] PRED: (atom -> tungsten atom)
+        matches GT: (atom -> tungsten atom)
+  [TP] PRED: (chemical formula -> empirical formula)
+        matches GT: (chemical formula -> empirical formula)
+  [TP] PRED: (chemical phase -> common chemical phase)
+        matches GT: (chemical phase -> common chemical phase)
+  [TP] PRED: (chemical phase -> gas phase)
+        matches GT: (chemical phase -> gas phase)
+  [TP] PRED: (chemical phase -> uncommon chemical phase)
+        matches GT: (chemical phase -> uncommon chemical phase)
+  [TP] PRED: (chemical quality -> polar)
+        matches GT: (chemical quality -> polar)
+  [TP] PRED: (chemical quality -> polarity)
+        matches GT: (chemical quality -> polarity)
+  [TP] PRED: (chemical substance -> acid)
+        matches GT: (chemical substance -> acid)
+  [TP] PRED: (chemical substance -> acyl chloride)
+        matches GT: (chemical substance -> acyl chloride)
+  [TP] PRED: (chemical substance -> acyl halide)
+        matches GT: (chemical substance -> acyl halide)
+  [TP] PRED: (chemical substance -> chemical agent)
+        matches GT: (chemical substance -> chemical agent)
+  [TP] PRED: (chemical substance -> compound)
+        matches GT: (chemical substance -> compound)
+  [TP] PRED: (chemical substance -> imine)
+        matches GT: (chemical substance -> imine)
+  [TP] PRED: (chemical substance -> organic compound)
+        matches GT: (chemical substance -> organic compound)
+  [TP] PRED: (chemical substance -> precipitate)
+        matches GT: (chemical substance -> precipitate)
+  [TP] PRED: (chemical substance -> product)
+        matches GT: (chemical substance -> product)
+  [TP] PRED: (chemical substance -> pure substance)
+        matches GT: (chemical substance -> pure substance)
+  [TP] PRED: (chemical substance -> reagent)
+        matches GT: (chemical substance -> reagent)
+  [TP] PRED: (compound -> acyl chloride)
+        matches GT: (compound -> acyl chloride)
+  [TP] PRED: (compound -> acyl halide)
+        matches GT: (compound -> acyl halide)
+  [TP] PRED: (compound -> imine)
+        matches GT: (compound -> imine)
+  [TP] PRED: (compound -> organic compound)
+        matches GT: (compound -> organic compound)
+  [TP] PRED: (continuant -> acid)
+        matches GT: (continuant -> acid)
+  [TP] PRED: (continuant -> acyl chloride)
+        matches GT: (continuant -> acyl chloride)
+  [TP] PRED: (continuant -> acyl halide)
+        matches GT: (continuant -> acyl halide)
+  [TP] PRED: (continuant -> angle)
+        matches GT: (continuant -> angle)
+  [TP] PRED: (continuant -> aromaticity)
+        matches GT: (continuant -> aromaticity)
+  [TP] PRED: (continuant -> chemical agent)
+        matches GT: (continuant -> chemical agent)
+  [TP] PRED: (continuant -> chemical phase)
+        matches GT: (continuant -> chemical phase)
+  [TP] PRED: (continuant -> chemical quality)
+        matches GT: (continuant -> chemical quality)
+  [TP] PRED: (continuant -> chemical substance)
+        matches GT: (continuant -> chemical substance)
+  [TP] PRED: (continuant -> common chemical phase)
+        matches GT: (continuant -> common chemical phase)
+  [TP] PRED: (continuant -> compound)
+        matches GT: (continuant -> compound)
+  [TP] PRED: (continuant -> dependent_continuant)
+        matches GT: (continuant -> dependent_continuant)
+  [TP] PRED: (continuant -> fermionic condensate)
+        matches GT: (continuant -> fermionic condensate)
+  [TP] PRED: (continuant -> gas phase)
+        matches GT: (continuant -> gas phase)
+  [TP] PRED: (continuant -> imine)
+        matches GT: (continuant -> imine)
+  [TP] PRED: (continuant -> independent_continuant)
+        matches GT: (continuant -> independent_continuant)
+  [TP] PRED: (continuant -> intensive property)
+        matches GT: (continuant -> intensive property)
+  [TP] PRED: (continuant -> isotopic atom count)
+        matches GT: (continuant -> isotopic atom count)
+  [TP] PRED: (continuant -> measured property)
+        matches GT: (continuant -> measured property)
+  [TP] PRED: (continuant -> molecular mass)
+        matches GT: (continuant -> molecular mass)
+  [TP] PRED: (continuant -> molecularquality)
+        matches GT: (continuant -> molecularquality)
+  [TP] PRED: (continuant -> moleculecomponentcount)
+        matches GT: (continuant -> moleculecomponentcount)
+  [TP] PRED: (continuant -> monoisotopic weight)
+        matches GT: (continuant -> monoisotopic weight)
+  [TP] PRED: (continuant -> object)
+        matches GT: (continuant -> object)
+  [TP] PRED: (continuant -> organic compound)
+        matches GT: (continuant -> organic compound)
+  [TP] PRED: (continuant -> organic group)
+        matches GT: (continuant -> organic group)
+  [TP] PRED: (continuant -> polar)
+        matches GT: (continuant -> polar)
+  [TP] PRED: (continuant -> polarity)
+        matches GT: (continuant -> polarity)
+  [TP] PRED: (continuant -> precipitate)
+        matches GT: (continuant -> precipitate)
+  [TP] PRED: (continuant -> product)
+        matches GT: (continuant -> product)
+  [TP] PRED: (continuant -> pure substance)
+        matches GT: (continuant -> pure substance)
+  [TP] PRED: (continuant -> quality)
+        matches GT: (continuant -> quality)
+  [TP] PRED: (continuant -> reagent)
+        matches GT: (continuant -> reagent)
+  [TP] PRED: (continuant -> thiol group)
+        matches GT: (continuant -> thiol group)
+  [TP] PRED: (continuant -> uncommon chemical phase)
+        matches GT: (continuant -> uncommon chemical phase)
+  [TP] PRED: (continuant -> undefined stereo atom count)
+        matches GT: (continuant -> undefined stereo atom count)
+  [TP] PRED: (dependent_continuant -> angle)
+        matches GT: (dependent_continuant -> angle)
+  [TP] PRED: (dependent_continuant -> aromaticity)
+        matches GT: (dependent_continuant -> aromaticity)
+  [TP] PRED: (dependent_continuant -> chemical phase)
+        matches GT: (dependent_continuant -> chemical phase)
+  [TP] PRED: (dependent_continuant -> chemical quality)
+        matches GT: (dependent_continuant -> chemical quality)
+  [TP] PRED: (dependent_continuant -> common chemical phase)
+        matches GT: (dependent_continuant -> common chemical phase)
+  [TP] PRED: (dependent_continuant -> gas phase)
+        matches GT: (dependent_continuant -> gas phase)
+  [TP] PRED: (dependent_continuant -> intensive property)
+        matches GT: (dependent_continuant -> intensive property)
+  [TP] PRED: (dependent_continuant -> isotopic atom count)
+        matches GT: (dependent_continuant -> isotopic atom count)
+  [TP] PRED: (dependent_continuant -> measured property)
+        matches GT: (dependent_continuant -> measured property)
+  [TP] PRED: (dependent_continuant -> molecular mass)
+        matches GT: (dependent_continuant -> molecular mass)
+  [TP] PRED: (dependent_continuant -> molecularquality)
+        matches GT: (dependent_continuant -> molecularquality)
+  [TP] PRED: (dependent_continuant -> moleculecomponentcount)
+        matches GT: (dependent_continuant -> moleculecomponentcount)
+  [TP] PRED: (dependent_continuant -> monoisotopic weight)
+        matches GT: (dependent_continuant -> monoisotopic weight)
+  [TP] PRED: (dependent_continuant -> polar)
+        matches GT: (dependent_continuant -> polar)
+  [TP] PRED: (dependent_continuant -> polarity)
+        matches GT: (dependent_continuant -> polarity)
+  [TP] PRED: (dependent_continuant -> quality)
+        matches GT: (dependent_continuant -> quality)
+  [TP] PRED: (dependent_continuant -> uncommon chemical phase)
+        matches GT: (dependent_continuant -> uncommon chemical phase)
+  [TP] PRED: (dependent_continuant -> undefined stereo atom count)
+        matches GT: (dependent_continuant -> undefined stereo atom count)
+  [TP] PRED: (element -> actinide)
+        matches GT: (element -> actinide)
+  [TP] PRED: (element -> antimony)
+        matches GT: (element -> antimony)
+  [TP] PRED: (element -> bromine)
+        matches GT: (element -> bromine)
+  [TP] PRED: (element -> chalcogen (chalcogen, group 16 element))
+        matches GT: (element -> chalcogen (chalcogen, group 16 element))
+  [TP] PRED: (element -> d-block element (d-block element, transition metal))
+        matches GT: (element -> d-block element (d-block element, transition metal))
+  [TP] PRED: (element -> f-block element)
+        matches GT: (element -> f-block element)
+  [TP] PRED: (element -> fluorine)
+        matches GT: (element -> fluorine)
+  [TP] PRED: (element -> group 12 element)
+        matches GT: (element -> group 12 element)
+  [TP] PRED: (element -> group 15 element (group 15 element, nitrogen group element))
+        matches GT: (element -> group 15 element (group 15 element, nitrogen group element))
+  [TP] PRED: (element -> group 17 element (group 17 element, halogen))
+        matches GT: (element -> group 17 element (group 17 element, halogen))
+  [TP] PRED: (element -> group 4 element)
+        matches GT: (element -> group 4 element)
+  [TP] PRED: (element -> group 6 element)
+        matches GT: (element -> group 6 element)
+  [TP] PRED: (element -> group 7 element)
+        matches GT: (element -> group 7 element)
+  [TP] PRED: (element -> group element)
+        matches GT: (element -> group element)
+  [TP] PRED: (element -> mendelevium)
+        matches GT: (element -> mendelevium)
+  [TP] PRED: (element -> metalloid)
+        matches GT: (element -> metalloid)
+  [TP] PRED: (element -> p-block element)
+        matches GT: (element -> p-block element)
+  [TP] PRED: (element -> period 2 element)
+        matches GT: (element -> period 2 element)
+  [TP] PRED: (element -> period 4 element)
+        matches GT: (element -> period 4 element)
+  [TP] PRED: (element -> period 5 element)
+        matches GT: (element -> period 5 element)
+  [TP] PRED: (element -> period 6 element)
+        matches GT: (element -> period 6 element)
+  [TP] PRED: (element -> period 7 element)
+        matches GT: (element -> period 7 element)
+  [TP] PRED: (element -> period element)
+        matches GT: (element -> period element)
+  [TP] PRED: (element -> periodic block)
+        matches GT: (element -> periodic block)
+  [TP] PRED: (element -> periodic table element)
+        matches GT: (element -> periodic table element)
+  [TP] PRED: (element -> series element)
+        matches GT: (element -> series element)
+  [TP] PRED: (element -> tellurium)
+        matches GT: (element -> tellurium)
+  [TP] PRED: (element -> titanium)
+        matches GT: (element -> titanium)
+  [TP] PRED: (element -> tungsten)
+        matches GT: (element -> tungsten)
+  [TP] PRED: (element -> ununbium)
+        matches GT: (element -> ununbium)
+  [TP] PRED: (energy -> internal energy)
+        matches GT: (energy -> internal energy)
+  [TP] PRED: (entity -> acid)
+        matches GT: (entity -> acid)
+  [TP] PRED: (entity -> acyl chloride)
+        matches GT: (entity -> acyl chloride)
+  [TP] PRED: (entity -> acyl halide)
+        matches GT: (entity -> acyl halide)
+  [TP] PRED: (entity -> angle)
+        matches GT: (entity -> angle)
+  [TP] PRED: (entity -> aromaticity)
+        matches GT: (entity -> aromaticity)
+  [TP] PRED: (entity -> chemical agent)
+        matches GT: (entity -> chemical agent)
+  [TP] PRED: (entity -> chemical phase)
+        matches GT: (entity -> chemical phase)
+  [TP] PRED: (entity -> chemical quality)
+        matches GT: (entity -> chemical quality)
+  [TP] PRED: (entity -> chemical substance)
+        matches GT: (entity -> chemical substance)
+  [TP] PRED: (entity -> common chemical phase)
+        matches GT: (entity -> common chemical phase)
+  [TP] PRED: (entity -> compound)
+        matches GT: (entity -> compound)
+  [TP] PRED: (entity -> continuant)
+        matches GT: (entity -> continuant)
+  [TP] PRED: (entity -> dependent_continuant)
+        matches GT: (entity -> dependent_continuant)
+  [TP] PRED: (entity -> fermionic condensate)
+        matches GT: (entity -> fermionic condensate)
+  [TP] PRED: (entity -> gas phase)
+        matches GT: (entity -> gas phase)
+  [TP] PRED: (entity -> imine)
+        matches GT: (entity -> imine)
+  [TP] PRED: (entity -> independent_continuant)
+        matches GT: (entity -> independent_continuant)
+  [TP] PRED: (entity -> intensive property)
+        matches GT: (entity -> intensive property)
+  [TP] PRED: (entity -> isotopic atom count)
+        matches GT: (entity -> isotopic atom count)
+  [TP] PRED: (entity -> measured property)
+        matches GT: (entity -> measured property)
+  [TP] PRED: (entity -> molecular mass)
+        matches GT: (entity -> molecular mass)
+  [TP] PRED: (entity -> molecularquality)
+        matches GT: (entity -> molecularquality)
+  [TP] PRED: (entity -> moleculecomponentcount)
+        matches GT: (entity -> moleculecomponentcount)
+  [TP] PRED: (entity -> monoisotopic weight)
+        matches GT: (entity -> monoisotopic weight)
+  [TP] PRED: (entity -> object)
+        matches GT: (entity -> object)
+  [TP] PRED: (entity -> organic compound)
+        matches GT: (entity -> organic compound)
+  [TP] PRED: (entity -> organic group)
+        matches GT: (entity -> organic group)
+  [TP] PRED: (entity -> polar)
+        matches GT: (entity -> polar)
+  [TP] PRED: (entity -> polarity)
+        matches GT: (entity -> polarity)
+  [TP] PRED: (entity -> precipitate)
+        matches GT: (entity -> precipitate)
+  [TP] PRED: (entity -> product)
+        matches GT: (entity -> product)
+  [TP] PRED: (entity -> pure substance)
+        matches GT: (entity -> pure substance)
+  [TP] PRED: (entity -> quality)
+        matches GT: (entity -> quality)
+  [TP] PRED: (entity -> reagent)
+        matches GT: (entity -> reagent)
+  [TP] PRED: (entity -> thiol group)
+        matches GT: (entity -> thiol group)
+  [TP] PRED: (entity -> uncommon chemical phase)
+        matches GT: (entity -> uncommon chemical phase)
+  [TP] PRED: (entity -> undefined stereo atom count)
+        matches GT: (entity -> undefined stereo atom count)
+  [TP] PRED: (f-block element -> actinide)
+        matches GT: (f-block element -> actinide)
+  [TP] PRED: (group element -> chalcogen (chalcogen, group 16 element))
+        matches GT: (group element -> chalcogen (chalcogen, group 16 element))
+  [TP] PRED: (group element -> group 12 element)
+        matches GT: (group element -> group 12 element)
+  [TP] PRED: (group element -> group 15 element (group 15 element, nitrogen group element))
+        matches GT: (group element -> group 15 element (group 15 element, nitrogen group element))
+  [TP] PRED: (group element -> group 17 element (group 17 element, halogen))
+        matches GT: (group element -> group 17 element (group 17 element, halogen))
+  [TP] PRED: (group element -> group 4 element)
+        matches GT: (group element -> group 4 element)
+  [TP] PRED: (group element -> group 6 element)
+        matches GT: (group element -> group 6 element)
+  [TP] PRED: (group element -> group 7 element)
+        matches GT: (group element -> group 7 element)
+  [TP] PRED: (independent_continuant -> acid)
+        matches GT: (independent_continuant -> acid)
+  [TP] PRED: (independent_continuant -> acyl chloride)
+        matches GT: (independent_continuant -> acyl chloride)
+  [TP] PRED: (independent_continuant -> acyl halide)
+        matches GT: (independent_continuant -> acyl halide)
+  [TP] PRED: (independent_continuant -> chemical agent)
+        matches GT: (independent_continuant -> chemical agent)
+  [TP] PRED: (independent_continuant -> chemical substance)
+        matches GT: (independent_continuant -> chemical substance)
+  [TP] PRED: (independent_continuant -> compound)
+        matches GT: (independent_continuant -> compound)
+  [TP] PRED: (independent_continuant -> imine)
+        matches GT: (independent_continuant -> imine)
+  [TP] PRED: (independent_continuant -> object)
+        matches GT: (independent_continuant -> object)
+  [TP] PRED: (independent_continuant -> organic compound)
+        matches GT: (independent_continuant -> organic compound)
+  [TP] PRED: (independent_continuant -> organic group)
+        matches GT: (independent_continuant -> organic group)
+  [TP] PRED: (independent_continuant -> precipitate)
+        matches GT: (independent_continuant -> precipitate)
+  [TP] PRED: (independent_continuant -> product)
+        matches GT: (independent_continuant -> product)
+  [TP] PRED: (independent_continuant -> pure substance)
+        matches GT: (independent_continuant -> pure substance)
+  [TP] PRED: (independent_continuant -> reagent)
+        matches GT: (independent_continuant -> reagent)
+  [TP] PRED: (independent_continuant -> thiol group)
+        matches GT: (independent_continuant -> thiol group)
+  [TP] PRED: (measured property -> angle)
+        matches GT: (measured property -> angle)
+  [TP] PRED: (measured property -> intensive property)
+        matches GT: (measured property -> intensive property)
+  [TP] PRED: (measured property -> isotopic atom count)
+        matches GT: (measured property -> isotopic atom count)
+  [TP] PRED: (measured property -> molecular mass)
+        matches GT: (measured property -> molecular mass)
+  [TP] PRED: (measured property -> moleculecomponentcount)
+        matches GT: (measured property -> moleculecomponentcount)
+  [TP] PRED: (measured property -> monoisotopic weight)
+        matches GT: (measured property -> monoisotopic weight)
+  [TP] PRED: (measured property -> undefined stereo atom count)
+        matches GT: (measured property -> undefined stereo atom count)
+  [TP] PRED: (molecular geometry -> linear molecular geometry)
+        matches GT: (molecular geometry -> linear molecular geometry)
+  [TP] PRED: (organic compound -> acyl chloride)
+        matches GT: (organic compound -> acyl chloride)
+  [TP] PRED: (organic compound -> acyl halide)
+        matches GT: (organic compound -> acyl halide)
+  [TP] PRED: (organic compound -> imine)
+        matches GT: (organic compound -> imine)
+  [TP] PRED: (organic group -> thiol group)
+        matches GT: (organic group -> thiol group)
+  [TP] PRED: (period element -> period 2 element)
+        matches GT: (period element -> period 2 element)
+  [TP] PRED: (period element -> period 4 element)
+        matches GT: (period element -> period 4 element)
+  [TP] PRED: (period element -> period 5 element)
+        matches GT: (period element -> period 5 element)
+  [TP] PRED: (period element -> period 6 element)
+        matches GT: (period element -> period 6 element)
+  [TP] PRED: (period element -> period 7 element)
+        matches GT: (period element -> period 7 element)
+  [TP] PRED: (periodic block -> actinide)
+        matches GT: (periodic block -> actinide)
+  [TP] PRED: (periodic block -> d-block element (d-block element, transition metal))
+        matches GT: (periodic block -> d-block element (d-block element, transition metal))
+  [TP] PRED: (periodic block -> f-block element)
+        matches GT: (periodic block -> f-block element)
+  [TP] PRED: (periodic block -> p-block element)
+        matches GT: (periodic block -> p-block element)
+  [TP] PRED: (polarity -> polar)
+        matches GT: (polarity -> polar)
+  [TP] PRED: (quality -> angle)
+        matches GT: (quality -> angle)
+  [TP] PRED: (quality -> aromaticity)
+        matches GT: (quality -> aromaticity)
+  [TP] PRED: (quality -> chemical phase)
+        matches GT: (quality -> chemical phase)
+  [TP] PRED: (quality -> chemical quality)
+        matches GT: (quality -> chemical quality)
+  [TP] PRED: (quality -> common chemical phase)
+        matches GT: (quality -> common chemical phase)
+  [TP] PRED: (quality -> gas phase)
+        matches GT: (quality -> gas phase)
+  [TP] PRED: (quality -> intensive property)
+        matches GT: (quality -> intensive property)
+  [TP] PRED: (quality -> isotopic atom count)
+        matches GT: (quality -> isotopic atom count)
+  [TP] PRED: (quality -> measured property)
+        matches GT: (quality -> measured property)
+  [TP] PRED: (quality -> molecular mass)
+        matches GT: (quality -> molecular mass)
+  [TP] PRED: (quality -> molecularquality)
+        matches GT: (quality -> molecularquality)
+  [TP] PRED: (quality -> moleculecomponentcount)
+        matches GT: (quality -> moleculecomponentcount)
+  [TP] PRED: (quality -> monoisotopic weight)
+        matches GT: (quality -> monoisotopic weight)
+  [TP] PRED: (quality -> polar)
+        matches GT: (quality -> polar)
+  [TP] PRED: (quality -> polarity)
+        matches GT: (quality -> polarity)
+  [TP] PRED: (quality -> uncommon chemical phase)
+        matches GT: (quality -> uncommon chemical phase)
+  [TP] PRED: (quality -> undefined stereo atom count)
+        matches GT: (quality -> undefined stereo atom count)
+  [TP] PRED: (scaled unit -> tera scaled unit)
+        matches GT: (scaled unit -> tera scaled unit)
+  [TP] PRED: (scaled unit -> yotta scaled unit)
+        matches GT: (scaled unit -> yotta scaled unit)
+  [TP] PRED: (unit -> catalytic activity unit)
+        matches GT: (unit -> catalytic activity unit)
+  [TP] PRED: (unit -> derivedunit)
+        matches GT: (unit -> derivedunit)
+  [TP] PRED: (unit -> electric resistance unit)
+        matches GT: (unit -> electric resistance unit)
+  [TP] PRED: (unit -> scaled unit)
+        matches GT: (unit -> scaled unit)
+  [TP] PRED: (unit -> tera scaled unit)
+        matches GT: (unit -> tera scaled unit)
+  [TP] PRED: (unit -> yotta scaled unit)
+        matches GT: (unit -> yotta scaled unit)
+
+INCORRECT PREDICTIONS (False Positives: 32):
+  [FP] antimony -> antimony atom
+  [FP] chemical agent -> precipitate
+  [FP] chemical agent -> product
+  [FP] chemical agent -> reagent
+  [FP] chemical quality -> aromaticity
+  [FP] chemical quality -> molecularquality
+  [FP] chemical substance -> fermionic condensate
+  [FP] chemical substance -> organic group
+  [FP] chemical substance -> thiol group
+  [FP] cyclic -> aromatic
+  [FP] cyclic -> cyclicity
+  [FP] cyclic -> non aromatic
+  [FP] derivedunit -> catalytic activity unit
+  [FP] derivedunit -> electric charge density
+  [FP] derivedunit -> electric resistance unit
+  [FP] derivedunit -> potential difference
+  [FP] derivedunit -> specific heat
+  [FP] element -> antimony atom
+  [FP] element -> carbon group
+  [FP] element -> tungsten atom
+  [FP] energy -> electromagnetic radation
+  [FP] group element -> carbon group
+  [FP] independent_continuant -> fermionic condensate
+  [FP] molecular geometry -> aromatic
+  [FP] molecular geometry -> cyclic
+  [FP] molecular geometry -> cyclicity
+  [FP] molecular geometry -> non aromatic
+  [FP] pure substance -> fermionic condensate
+  [FP] tungsten -> tungsten atom
+  [FP] unit -> electric charge density
+  [FP] unit -> potential difference
+  [FP] unit -> specific heat
+
+MISSED RELATIONS (False Negatives: 488):
+  [FN] actinide -> mendelevium
+  [FN] aromaticity -> aromatic
+  [FN] aromaticity -> non aromatic
+  [FN] carbon group -> thiol group
+  [FN] chalcogen (chalcogen, group 16 element) -> tellurium
+  [FN] chemical phase -> fermionic condensate
+  [FN] chemical quality -> chemical formula
+  [FN] chemical quality -> chemical phase
+  [FN] chemical quality -> common chemical phase
+  [FN] chemical quality -> empirical formula
+  [FN] chemical quality -> fermionic condensate
+  [FN] chemical quality -> gas phase
+  [FN] chemical quality -> linear molecular geometry
+  [FN] chemical quality -> molecular geometry
+  [FN] chemical quality -> uncommon chemical phase
+  [FN] chemical substance -> actinide
+  [FN] chemical substance -> antimony
+  [FN] chemical substance -> bromine
+  [FN] chemical substance -> chalcogen (chalcogen, group 16 element)
+  [FN] chemical substance -> d-block element (d-block element, transition metal)
+  [FN] chemical substance -> element
+  [FN] chemical substance -> f-block element
+  [FN] chemical substance -> fluorine
+  [FN] chemical substance -> group 12 element
+  [FN] chemical substance -> group 15 element (group 15 element, nitrogen group element)
+  [FN] chemical substance -> group 17 element (group 17 element, halogen)
+  [FN] chemical substance -> group 4 element
+  [FN] chemical substance -> group 6 element
+  [FN] chemical substance -> group 7 element
+  [FN] chemical substance -> group element
+  [FN] chemical substance -> mendelevium
+  [FN] chemical substance -> metalloid
+  [FN] chemical substance -> p-block element
+  [FN] chemical substance -> period 2 element
+  [FN] chemical substance -> period 4 element
+  [FN] chemical substance -> period 5 element
+  [FN] chemical substance -> period 6 element
+  [FN] chemical substance -> period 7 element
+  [FN] chemical substance -> period element
+  [FN] chemical substance -> periodic block
+  [FN] chemical substance -> periodic table element
+  [FN] chemical substance -> series element
+  [FN] chemical substance -> tellurium
+  [FN] chemical substance -> titanium
+  [FN] chemical substance -> tungsten
+  [FN] chemical substance -> ununbium
+  [FN] common chemical phase -> gas phase
+  [FN] compound -> bromine
+  [FN] compound -> fluorine
+  [FN] compound -> group 17 element (group 17 element, halogen)
+  [FN] continuant -> actinide
+  [FN] continuant -> antimony
+  [FN] continuant -> antimony atom
+  [FN] continuant -> aromatic
+  [FN] continuant -> atom
+  [FN] continuant -> bromine
+  [FN] continuant -> carbon group
+  [FN] continuant -> catalytic activity unit
+  [FN] continuant -> chalcogen (chalcogen, group 16 element)
+  [FN] continuant -> chemical formula
+  [FN] continuant -> cyclic
+  [FN] continuant -> cyclicity
+  [FN] continuant -> d-block element (d-block element, transition metal)
+  [FN] continuant -> derivedunit
+  [FN] continuant -> dysprosium atom
+  [FN] continuant -> electric charge density
+  [FN] continuant -> electric resistance unit
+  [FN] continuant -> electromagnetic radation
+  [FN] continuant -> element
+  [FN] continuant -> empirical formula
+  [FN] continuant -> energy
+  [FN] continuant -> europium atom
+  [FN] continuant -> f-block element
+  [FN] continuant -> fluorine
+  [FN] continuant -> group 12 element
+  [FN] continuant -> group 15 element (group 15 element, nitrogen group element)
+  [FN] continuant -> group 17 element (group 17 element, halogen)
+  [FN] continuant -> group 4 element
+  [FN] continuant -> group 6 element
+  [FN] continuant -> group 7 element
+  [FN] continuant -> group element
+  [FN] continuant -> internal energy
+  [FN] continuant -> linear molecular geometry
+  [FN] continuant -> mendelevium
+  [FN] continuant -> metalloid
+  [FN] continuant -> molecular geometry
+  [FN] continuant -> neodymium atom
+  [FN] continuant -> nickel atom
+  [FN] continuant -> non aromatic
+  [FN] continuant -> p-block element
+  [FN] continuant -> period 2 element
+  [FN] continuant -> period 4 element
+  [FN] continuant -> period 5 element
+  [FN] continuant -> period 6 element
+  [FN] continuant -> period 7 element
+  [FN] continuant -> period element
+  [FN] continuant -> periodic block
+  [FN] continuant -> periodic table element
+  [FN] continuant -> potential difference
+  [FN] continuant -> samarium atom
+  [FN] continuant -> scaled unit
+  [FN] continuant -> series element
+  [FN] continuant -> specific heat
+  [FN] continuant -> tantalum atom
+  [FN] continuant -> tellurium
+  [FN] continuant -> tera scaled unit
+  [FN] continuant -> titanium
+  [FN] continuant -> tungsten
+  [FN] continuant -> tungsten atom
+  [FN] continuant -> unit
+  [FN] continuant -> ununbium
+  [FN] continuant -> yotta scaled unit
+  [FN] cyclicity -> cyclic
+  [FN] d-block element (d-block element, transition metal) -> titanium
+  [FN] d-block element (d-block element, transition metal) -> tungsten
+  [FN] d-block element (d-block element, transition metal) -> ununbium
+  [FN] dependent_continuant -> aromatic
+  [FN] dependent_continuant -> catalytic activity unit
+  [FN] dependent_continuant -> chemical formula
+  [FN] dependent_continuant -> cyclic
+  [FN] dependent_continuant -> cyclicity
+  [FN] dependent_continuant -> derivedunit
+  [FN] dependent_continuant -> electric charge density
+  [FN] dependent_continuant -> electric resistance unit
+  [FN] dependent_continuant -> electromagnetic radation
+  [FN] dependent_continuant -> empirical formula
+  [FN] dependent_continuant -> energy
+  [FN] dependent_continuant -> fermionic condensate
+  [FN] dependent_continuant -> internal energy
+  [FN] dependent_continuant -> linear molecular geometry
+  [FN] dependent_continuant -> molecular geometry
+  [FN] dependent_continuant -> non aromatic
+  [FN] dependent_continuant -> potential difference
+  [FN] dependent_continuant -> scaled unit
+  [FN] dependent_continuant -> specific heat
+  [FN] dependent_continuant -> tera scaled unit
+  [FN] dependent_continuant -> unit
+  [FN] dependent_continuant -> yotta scaled unit
+  [FN] derivedunit -> scaled unit
+  [FN] derivedunit -> tera scaled unit
+  [FN] derivedunit -> yotta scaled unit
+  [FN] entity -> actinide
+  [FN] entity -> antimony
+  [FN] entity -> antimony atom
+  [FN] entity -> aromatic
+  [FN] entity -> atom
+  [FN] entity -> bromine
+  [FN] entity -> carbon group
+  [FN] entity -> catalytic activity unit
+  [FN] entity -> chalcogen (chalcogen, group 16 element)
+  [FN] entity -> chemical formula
+  [FN] entity -> cyclic
+  [FN] entity -> cyclicity
+  [FN] entity -> d-block element (d-block element, transition metal)
+  [FN] entity -> derivedunit
+  [FN] entity -> dysprosium atom
+  [FN] entity -> electric charge density
+  [FN] entity -> electric resistance unit
+  [FN] entity -> electromagnetic radation
+  [FN] entity -> element
+  [FN] entity -> empirical formula
+  [FN] entity -> energy
+  [FN] entity -> europium atom
+  [FN] entity -> f-block element
+  [FN] entity -> fluorine
+  [FN] entity -> group 12 element
+  [FN] entity -> group 15 element (group 15 element, nitrogen group element)
+  [FN] entity -> group 17 element (group 17 element, halogen)
+  [FN] entity -> group 4 element
+  [FN] entity -> group 6 element
+  [FN] entity -> group 7 element
+  [FN] entity -> group element
+  [FN] entity -> internal energy
+  [FN] entity -> linear molecular geometry
+  [FN] entity -> mendelevium
+  [FN] entity -> metalloid
+  [FN] entity -> molecular geometry
+  [FN] entity -> neodymium atom
+  [FN] entity -> nickel atom
+  [FN] entity -> non aromatic
+  [FN] entity -> p-block element
+  [FN] entity -> period 2 element
+  [FN] entity -> period 4 element
+  [FN] entity -> period 5 element
+  [FN] entity -> period 6 element
+  [FN] entity -> period 7 element
+  [FN] entity -> period element
+  [FN] entity -> periodic block
+  [FN] entity -> periodic table element
+  [FN] entity -> potential difference
+  [FN] entity -> samarium atom
+  [FN] entity -> scaled unit
+  [FN] entity -> series element
+  [FN] entity -> specific heat
+  [FN] entity -> tantalum atom
+  [FN] entity -> tellurium
+  [FN] entity -> tera scaled unit
+  [FN] entity -> titanium
+  [FN] entity -> tungsten
+  [FN] entity -> tungsten atom
+  [FN] entity -> unit
+  [FN] entity -> ununbium
+  [FN] entity -> yotta scaled unit
+  [FN] f-block element -> mendelevium
+  [FN] group 12 element -> ununbium
+  [FN] group 15 element (group 15 element, nitrogen group element) -> antimony
+  [FN] group 17 element (group 17 element, halogen) -> bromine
+  [FN] group 17 element (group 17 element, halogen) -> fluorine
+  [FN] group 4 element -> titanium
+  [FN] group 6 element -> tungsten
+  [FN] group element -> antimony
+  [FN] group element -> bromine
+  [FN] group element -> fluorine
+  [FN] group element -> tellurium
+  [FN] group element -> titanium
+  [FN] group element -> tungsten
+  [FN] group element -> ununbium
+  [FN] independent_continuant -> actinide
+  [FN] independent_continuant -> antimony
+  [FN] independent_continuant -> antimony atom
+  [FN] independent_continuant -> atom
+  [FN] independent_continuant -> bromine
+  [FN] independent_continuant -> carbon group
+  [FN] independent_continuant -> chalcogen (chalcogen, group 16 element)
+  [FN] independent_continuant -> d-block element (d-block element, transition metal)
+  [FN] independent_continuant -> dysprosium atom
+  [FN] independent_continuant -> element
+  [FN] independent_continuant -> europium atom
+  [FN] independent_continuant -> f-block element
+  [FN] independent_continuant -> fluorine
+  [FN] independent_continuant -> group 12 element
+  [FN] independent_continuant -> group 15 element (group 15 element, nitrogen group element)
+  [FN] independent_continuant -> group 17 element (group 17 element, halogen)
+  [FN] independent_continuant -> group 4 element
+  [FN] independent_continuant -> group 6 element
+  [FN] independent_continuant -> group 7 element
+  [FN] independent_continuant -> group element
+  [FN] independent_continuant -> mendelevium
+  [FN] independent_continuant -> metalloid
+  [FN] independent_continuant -> neodymium atom
+  [FN] independent_continuant -> nickel atom
+  [FN] independent_continuant -> p-block element
+  [FN] independent_continuant -> period 2 element
+  [FN] independent_continuant -> period 4 element
+  [FN] independent_continuant -> period 5 element
+  [FN] independent_continuant -> period 6 element
+  [FN] independent_continuant -> period 7 element
+  [FN] independent_continuant -> period element
+  [FN] independent_continuant -> periodic block
+  [FN] independent_continuant -> periodic table element
+  [FN] independent_continuant -> samarium atom
+  [FN] independent_continuant -> series element
+  [FN] independent_continuant -> tantalum atom
+  [FN] independent_continuant -> tellurium
+  [FN] independent_continuant -> titanium
+  [FN] independent_continuant -> tungsten
+  [FN] independent_continuant -> tungsten atom
+  [FN] independent_continuant -> ununbium
+  [FN] intensive property -> specific heat
+  [FN] measured property -> aromatic
+  [FN] measured property -> aromaticity
+  [FN] measured property -> catalytic activity unit
+  [FN] measured property -> cyclic
+  [FN] measured property -> cyclicity
+  [FN] measured property -> derivedunit
+  [FN] measured property -> electric charge density
+  [FN] measured property -> electric resistance unit
+  [FN] measured property -> electromagnetic radation
+  [FN] measured property -> energy
+  [FN] measured property -> internal energy
+  [FN] measured property -> molecularquality
+  [FN] measured property -> non aromatic
+  [FN] measured property -> potential difference
+  [FN] measured property -> scaled unit
+  [FN] measured property -> specific heat
+  [FN] measured property -> tera scaled unit
+  [FN] measured property -> unit
+  [FN] measured property -> yotta scaled unit
+  [FN] metalloid -> antimony
+  [FN] metalloid -> tellurium
+  [FN] molecular mass -> monoisotopic weight
+  [FN] molecularquality -> aromatic
+  [FN] molecularquality -> aromaticity
+  [FN] molecularquality -> cyclic
+  [FN] molecularquality -> cyclicity
+  [FN] molecularquality -> isotopic atom count
+  [FN] molecularquality -> molecular mass
+  [FN] molecularquality -> moleculecomponentcount
+  [FN] molecularquality -> monoisotopic weight
+  [FN] molecularquality -> non aromatic
+  [FN] molecularquality -> undefined stereo atom count
+  [FN] moleculecomponentcount -> isotopic atom count
+  [FN] moleculecomponentcount -> undefined stereo atom count
+  [FN] object -> acid
+  [FN] object -> actinide
+  [FN] object -> acyl chloride
+  [FN] object -> acyl halide
+  [FN] object -> antimony
+  [FN] object -> antimony atom
+  [FN] object -> atom
+  [FN] object -> bromine
+  [FN] object -> carbon group
+  [FN] object -> chalcogen (chalcogen, group 16 element)
+  [FN] object -> chemical agent
+  [FN] object -> chemical substance
+  [FN] object -> compound
+  [FN] object -> d-block element (d-block element, transition metal)
+  [FN] object -> dysprosium atom
+  [FN] object -> element
+  [FN] object -> europium atom
+  [FN] object -> f-block element
+  [FN] object -> fluorine
+  [FN] object -> group 12 element
+  [FN] object -> group 15 element (group 15 element, nitrogen group element)
+  [FN] object -> group 17 element (group 17 element, halogen)
+  [FN] object -> group 4 element
+  [FN] object -> group 6 element
+  [FN] object -> group 7 element
+  [FN] object -> group element
+  [FN] object -> imine
+  [FN] object -> mendelevium
+  [FN] object -> metalloid
+  [FN] object -> neodymium atom
+  [FN] object -> nickel atom
+  [FN] object -> organic compound
+  [FN] object -> organic group
+  [FN] object -> p-block element
+  [FN] object -> period 2 element
+  [FN] object -> period 4 element
+  [FN] object -> period 5 element
+  [FN] object -> period 6 element
+  [FN] object -> period 7 element
+  [FN] object -> period element
+  [FN] object -> periodic block
+  [FN] object -> periodic table element
+  [FN] object -> precipitate
+  [FN] object -> product
+  [FN] object -> pure substance
+  [FN] object -> reagent
+  [FN] object -> samarium atom
+  [FN] object -> series element
+  [FN] object -> tantalum atom
+  [FN] object -> tellurium
+  [FN] object -> thiol group
+  [FN] object -> titanium
+  [FN] object -> tungsten
+  [FN] object -> tungsten atom
+  [FN] object -> ununbium
+  [FN] organic compound -> bromine
+  [FN] organic compound -> fluorine
+  [FN] organic compound -> group 17 element (group 17 element, halogen)
+  [FN] organic group -> carbon group
+  [FN] p-block element -> antimony
+  [FN] p-block element -> bromine
+  [FN] p-block element -> chalcogen (chalcogen, group 16 element)
+  [FN] p-block element -> fluorine
+  [FN] p-block element -> group 15 element (group 15 element, nitrogen group element)
+  [FN] p-block element -> group 17 element (group 17 element, halogen)
+  [FN] p-block element -> tellurium
+  [FN] period 2 element -> fluorine
+  [FN] period 4 element -> bromine
+  [FN] period 4 element -> titanium
+  [FN] period 5 element -> antimony
+  [FN] period 5 element -> tellurium
+  [FN] period 6 element -> tungsten
+  [FN] period 7 element -> actinide
+  [FN] period 7 element -> mendelevium
+  [FN] period 7 element -> ununbium
+  [FN] period element -> actinide
+  [FN] period element -> antimony
+  [FN] period element -> bromine
+  [FN] period element -> fluorine
+  [FN] period element -> mendelevium
+  [FN] period element -> tellurium
+  [FN] period element -> titanium
+  [FN] period element -> tungsten
+  [FN] period element -> ununbium
+  [FN] periodic block -> antimony
+  [FN] periodic block -> bromine
+  [FN] periodic block -> chalcogen (chalcogen, group 16 element)
+  [FN] periodic block -> fluorine
+  [FN] periodic block -> group 15 element (group 15 element, nitrogen group element)
+  [FN] periodic block -> group 17 element (group 17 element, halogen)
+  [FN] periodic block -> mendelevium
+  [FN] periodic block -> tellurium
+  [FN] periodic block -> titanium
+  [FN] periodic block -> tungsten
+  [FN] periodic block -> ununbium
+  [FN] periodic table element -> actinide
+  [FN] periodic table element -> antimony
+  [FN] periodic table element -> bromine
+  [FN] periodic table element -> chalcogen (chalcogen, group 16 element)
+  [FN] periodic table element -> d-block element (d-block element, transition metal)
+  [FN] periodic table element -> f-block element
+  [FN] periodic table element -> fluorine
+  [FN] periodic table element -> group 12 element
+  [FN] periodic table element -> group 15 element (group 15 element, nitrogen group element)
+  [FN] periodic table element -> group 17 element (group 17 element, halogen)
+  [FN] periodic table element -> group 4 element
+  [FN] periodic table element -> group 6 element
+  [FN] periodic table element -> group 7 element
+  [FN] periodic table element -> group element
+  [FN] periodic table element -> mendelevium
+  [FN] periodic table element -> metalloid
+  [FN] periodic table element -> p-block element
+  [FN] periodic table element -> period 2 element
+  [FN] periodic table element -> period 4 element
+  [FN] periodic table element -> period 5 element
+  [FN] periodic table element -> period 6 element
+  [FN] periodic table element -> period 7 element
+  [FN] periodic table element -> period element
+  [FN] periodic table element -> periodic block
+  [FN] periodic table element -> series element
+  [FN] periodic table element -> tellurium
+  [FN] periodic table element -> titanium
+  [FN] periodic table element -> tungsten
+  [FN] periodic table element -> ununbium
+  [FN] product -> precipitate
+  [FN] pure substance -> actinide
+  [FN] pure substance -> antimony
+  [FN] pure substance -> bromine
+  [FN] pure substance -> chalcogen (chalcogen, group 16 element)
+  [FN] pure substance -> d-block element (d-block element, transition metal)
+  [FN] pure substance -> element
+  [FN] pure substance -> f-block element
+  [FN] pure substance -> fluorine
+  [FN] pure substance -> group 12 element
+  [FN] pure substance -> group 15 element (group 15 element, nitrogen group element)
+  [FN] pure substance -> group 17 element (group 17 element, halogen)
+  [FN] pure substance -> group 4 element
+  [FN] pure substance -> group 6 element
+  [FN] pure substance -> group 7 element
+  [FN] pure substance -> group element
+  [FN] pure substance -> mendelevium
+  [FN] pure substance -> metalloid
+  [FN] pure substance -> p-block element
+  [FN] pure substance -> period 2 element
+  [FN] pure substance -> period 4 element
+  [FN] pure substance -> period 5 element
+  [FN] pure substance -> period 6 element
+  [FN] pure substance -> period 7 element
+  [FN] pure substance -> period element
+  [FN] pure substance -> periodic block
+  [FN] pure substance -> periodic table element
+  [FN] pure substance -> series element
+  [FN] pure substance -> tellurium
+  [FN] pure substance -> titanium
+  [FN] pure substance -> tungsten
+  [FN] pure substance -> ununbium
+  [FN] quality -> aromatic
+  [FN] quality -> catalytic activity unit
+  [FN] quality -> chemical formula
+  [FN] quality -> cyclic
+  [FN] quality -> cyclicity
+  [FN] quality -> derivedunit
+  [FN] quality -> electric charge density
+  [FN] quality -> electric resistance unit
+  [FN] quality -> electromagnetic radation
+  [FN] quality -> empirical formula
+  [FN] quality -> energy
+  [FN] quality -> fermionic condensate
+  [FN] quality -> internal energy
+  [FN] quality -> linear molecular geometry
+  [FN] quality -> molecular geometry
+  [FN] quality -> non aromatic
+  [FN] quality -> potential difference
+  [FN] quality -> scaled unit
+  [FN] quality -> specific heat
+  [FN] quality -> tera scaled unit
+  [FN] quality -> unit
+  [FN] quality -> yotta scaled unit
+  [FN] reagent -> chemical agent
+  [FN] reagent -> precipitate
+  [FN] reagent -> product
+  [FN] series element -> actinide
+  [FN] series element -> antimony
+  [FN] series element -> bromine
+  [FN] series element -> chalcogen (chalcogen, group 16 element)
+  [FN] series element -> d-block element (d-block element, transition metal)
+  [FN] series element -> fluorine
+  [FN] series element -> group 17 element (group 17 element, halogen)
+  [FN] series element -> mendelevium
+  [FN] series element -> metalloid
+  [FN] series element -> tellurium
+  [FN] series element -> titanium
+  [FN] series element -> tungsten
+  [FN] series element -> ununbium
+  [FN] uncommon chemical phase -> fermionic condensate

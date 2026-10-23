@@ -1,0 +1,475 @@
+==================================================
+=== Detailed Node Pair Analysis (Exploded Raw Edges) ===
+Match Type Used: EXACT
+==================================================
+Precision: 0.1735 | Recall: 0.7451 | F1: 0.2815
+
+CORRECT PREDICTIONS (True Positives: 76 Pred edges covering 76 GT edges):
+  [TP] booting stage -> bo03 late boot stage
+  [TP] booting stage -> bo05 flag leaf sheath opened stage
+  [TP] cardinal organ part -> style
+  [TP] fruit development stage -> fruit formation stage
+  [TP] fruit formation stage -> fruit initiation stage
+  [TP] gametophyte development stage -> microgametophyte development stage
+  [TP] ground tissue cell -> collenchyma cell
+  [TP] hypocotyl -> seedling hypocotyl
+  [TP] in vitro plant structure -> cultured plant cell
+  [TP] inflorescence axillary meristem -> tassel inflorescence axillary meristem
+  [TP] inflorescence meristem -> inflorescence axillary meristem
+  [TP] inflorescence meristem -> tassel meristem
+  [TP] leaf -> vascular leaf
+  [TP] leaf production stage -> lp19 nineteen leaves visible stage
+  [TP] megagametophyte -> embryo sac
+  [TP] megaspore -> functional megaspore
+  [TP] mesocotyl -> seedling mesocotyl
+  [TP] microgametophyte development stage -> pollen development stage
+  [TP] multi-tissue plant structure -> plant organ
+  [TP] multi-tissue plant structure development stage -> fruit development stage
+  [TP] native plant cell -> ground tissue cell
+  [TP] native plant cell -> microgametophyte vegetative cell
+  [TP] parenchyma -> root parenchyma
+  [TP] parenchyma -> storage parenchyma
+  [TP] periderm -> root periderm
+  [TP] phyllome -> leaf
+  [TP] phyllome anlagen -> vascular leaf anlagen
+  [TP] phyllome development stage -> lemma development stage
+  [TP] plant anatomical entity -> plant structure
+  [TP] plant anatomical entity -> portion of plant substance
+  [TP] plant axis -> shoot axis
+  [TP] plant cell -> cultured plant cell
+  [TP] plant cell -> native plant cell
+  [TP] plant epidermal cell -> shoot epidermal cell
+  [TP] plant organ -> phyllome
+  [TP] plant organ -> plant axis
+  [TP] plant organ development stage -> phyllome development stage
+  [TP] plant spore -> megaspore
+  [TP] plant structure -> cardinal part of multi-tissue plant structure
+  [TP] plant structure -> in vitro plant structure
+  [TP] plant structure -> multi-tissue plant structure
+  [TP] plant structure -> plant cell
+  [TP] plant structure -> portion of plant tissue
+  [TP] plant structure -> whole plant
+  [TP] plant structure development stage -> multi-tissue plant structure development stage
+  [TP] plant structure development stage -> whole plant development stage
+  [TP] pollen development stage -> b enlarged microsporocyte stage
+  [TP] pollen development stage -> h late unicellular microspore stage
+  [TP] portion of ground tissue -> parenchyma
+  [TP] portion of plant substance -> cuticular wax
+  [TP] portion of plant tissue -> portion of ground tissue
+  [TP] portion of plant tissue -> portion of meristem tissue
+  [TP] portion of plant tissue -> portion of vascular tissue
+  [TP] portion of vascular tissue -> vascular bundle
+  [TP] portion of vascular tissue -> xylem
+  [TP] root periderm -> root periderm scar
+  [TP] root tip -> lateral root tip
+  [TP] rosette growth stage -> mid rosette growth stage
+  [TP] secondary xylem tracheary element -> late wood tracheary element
+  [TP] shoot axis -> gametophore axis
+  [TP] shoot axis internode -> stem internode
+  [TP] shoot epidermal cell -> shoot epidermal pavement cell
+  [TP] shoot epidermal pavement cell -> leaf pavement cell
+  [TP] sporophyte development stage -> sporophyte reproductive stage
+  [TP] sporophyte development stage -> sporophyte vegetative stage
+  [TP] sporophyte vegetative stage -> 1 main shoot growth stage
+  [TP] storage parenchyma -> tuber storage parenchyma
+  [TP] tassel meristem -> tassel inflorescence axillary meristem
+  [TP] tracheary element -> secondary xylem tracheary element
+  [TP] tuber storage parenchyma -> aerial tuber storage parenchyma
+  [TP] vascular bundle -> pericarp vascular bundle
+  [TP] vascular leaf -> adult vascular leaf
+  [TP] whole plant development stage -> gametophyte development stage
+  [TP] whole plant development stage -> sporophyte development stage
+  [TP] whole plant inflorescence detectable stage -> il00 inflorescence just visible stage
+  [TP] xylem -> xylem vessel
+
+INCORRECT PREDICTIONS (False Positives: 362):
+  [FP] cardinal organ part -> cardinal part of multi-tissue plant structure
+  [FP] cardinal part of multi-tissue plant structure -> vascular bundle
+  [FP] fruit development stage -> fruit initiation stage
+  [FP] gametophyte development stage -> b enlarged microsporocyte stage
+  [FP] gametophyte development stage -> h late unicellular microspore stage
+  [FP] gametophyte development stage -> pollen development stage
+  [FP] ground tissue cell -> aerial tuber storage parenchyma
+  [FP] ground tissue cell -> parenchyma
+  [FP] ground tissue cell -> root parenchyma
+  [FP] ground tissue cell -> storage parenchyma
+  [FP] ground tissue cell -> tuber storage parenchyma
+  [FP] inflorescence axillary meristem -> long lateral tassel branch meristem
+  [FP] inflorescence meristem -> long lateral tassel branch meristem
+  [FP] inflorescence meristem -> short tassel branch meristem
+  [FP] inflorescence meristem -> tassel inflorescence axillary meristem
+  [FP] leaf -> adult vascular leaf
+  [FP] leaf -> flag leaf
+  [FP] leaf -> phyllome anlagen
+  [FP] leaf production stage -> bo05 flag leaf sheath opened stage
+  [FP] microgametophyte development stage -> b enlarged microsporocyte stage
+  [FP] microgametophyte development stage -> h late unicellular microspore stage
+  [FP] multi-tissue plant structure -> adult vascular leaf
+  [FP] multi-tissue plant structure -> flag leaf
+  [FP] multi-tissue plant structure -> leaf
+  [FP] multi-tissue plant structure -> phyllome
+  [FP] multi-tissue plant structure -> vascular bundle
+  [FP] multi-tissue plant structure -> vascular leaf
+  [FP] multi-tissue plant structure -> vascular leaf anlagen
+  [FP] multi-tissue plant structure -> whole plant
+  [FP] native plant cell -> collenchyma cell
+  [FP] native plant cell -> secondary xylem tracheary element
+  [FP] parenchyma -> aerial tuber storage parenchyma
+  [FP] parenchyma -> tuber storage parenchyma
+  [FP] periderm -> root periderm scar
+  [FP] phyllome -> adult vascular leaf
+  [FP] phyllome -> flag leaf
+  [FP] phyllome -> phyllome anlagen
+  [FP] phyllome -> vascular leaf
+  [FP] phyllome development stage -> leaf production stage
+  [FP] phyllome development stage -> phyllome anlagen
+  [FP] plant anatomical entity -> adult vascular leaf
+  [FP] plant anatomical entity -> aerial tuber storage parenchyma
+  [FP] plant anatomical entity -> archegonium head
+  [FP] plant anatomical entity -> cardinal organ part
+  [FP] plant anatomical entity -> cardinal part of multi-tissue plant structure
+  [FP] plant anatomical entity -> collenchyma cell
+  [FP] plant anatomical entity -> cultured plant cell
+  [FP] plant anatomical entity -> cuticular wax
+  [FP] plant anatomical entity -> embryo sac
+  [FP] plant anatomical entity -> flag leaf
+  [FP] plant anatomical entity -> functional megaspore
+  [FP] plant anatomical entity -> gametophore axis
+  [FP] plant anatomical entity -> ground tissue cell
+  [FP] plant anatomical entity -> hypocotyl
+  [FP] plant anatomical entity -> in vitro plant structure
+  [FP] plant anatomical entity -> inflorescence axillary meristem
+  [FP] plant anatomical entity -> inflorescence meristem
+  [FP] plant anatomical entity -> late wood tracheary element
+  [FP] plant anatomical entity -> lateral root tip
+  [FP] plant anatomical entity -> leaf
+  [FP] plant anatomical entity -> leaf pavement cell
+  [FP] plant anatomical entity -> long lateral tassel branch meristem
+  [FP] plant anatomical entity -> megagametophyte
+  [FP] plant anatomical entity -> megaspore
+  [FP] plant anatomical entity -> mesocotyl
+  [FP] plant anatomical entity -> microgametophyte vegetative cell
+  [FP] plant anatomical entity -> multi-tissue plant structure
+  [FP] plant anatomical entity -> native plant cell
+  [FP] plant anatomical entity -> parenchyma
+  [FP] plant anatomical entity -> pericarp vascular bundle
+  [FP] plant anatomical entity -> periderm
+  [FP] plant anatomical entity -> phyllome
+  [FP] plant anatomical entity -> phyllome anlagen
+  [FP] plant anatomical entity -> plant axis
+  [FP] plant anatomical entity -> plant cell
+  [FP] plant anatomical entity -> plant epidermal cell
+  [FP] plant anatomical entity -> plant organ
+  [FP] plant anatomical entity -> plant protoplast
+  [FP] plant anatomical entity -> plant spore
+  [FP] plant anatomical entity -> portion of ground tissue
+  [FP] plant anatomical entity -> portion of meristem tissue
+  [FP] plant anatomical entity -> portion of plant tissue
+  [FP] plant anatomical entity -> portion of vascular tissue
+  [FP] plant anatomical entity -> root parenchyma
+  [FP] plant anatomical entity -> root periderm
+  [FP] plant anatomical entity -> root periderm scar
+  [FP] plant anatomical entity -> root tip
+  [FP] plant anatomical entity -> secondary xylem tracheary element
+  [FP] plant anatomical entity -> seedling hypocotyl
+  [FP] plant anatomical entity -> seedling mesocotyl
+  [FP] plant anatomical entity -> shoot axis
+  [FP] plant anatomical entity -> shoot axis internode
+  [FP] plant anatomical entity -> shoot epidermal cell
+  [FP] plant anatomical entity -> shoot epidermal pavement cell
+  [FP] plant anatomical entity -> short cell
+  [FP] plant anatomical entity -> short tassel branch meristem
+  [FP] plant anatomical entity -> stem internode
+  [FP] plant anatomical entity -> storage parenchyma
+  [FP] plant anatomical entity -> style
+  [FP] plant anatomical entity -> tassel inflorescence axillary meristem
+  [FP] plant anatomical entity -> tassel meristem
+  [FP] plant anatomical entity -> tracheary element
+  [FP] plant anatomical entity -> tuber storage parenchyma
+  [FP] plant anatomical entity -> vascular bundle
+  [FP] plant anatomical entity -> vascular leaf
+  [FP] plant anatomical entity -> vascular leaf anlagen
+  [FP] plant anatomical entity -> whole plant
+  [FP] plant anatomical entity -> xylem
+  [FP] plant anatomical entity -> xylem vessel
+  [FP] plant axis -> gametophore axis
+  [FP] plant axis -> root tip
+  [FP] plant cell -> aerial tuber storage parenchyma
+  [FP] plant cell -> archegonium head
+  [FP] plant cell -> collenchyma cell
+  [FP] plant cell -> functional megaspore
+  [FP] plant cell -> ground tissue cell
+  [FP] plant cell -> late wood tracheary element
+  [FP] plant cell -> leaf pavement cell
+  [FP] plant cell -> megaspore
+  [FP] plant cell -> microgametophyte vegetative cell
+  [FP] plant cell -> parenchyma
+  [FP] plant cell -> plant epidermal cell
+  [FP] plant cell -> plant protoplast
+  [FP] plant cell -> plant spore
+  [FP] plant cell -> secondary xylem tracheary element
+  [FP] plant cell -> shoot epidermal cell
+  [FP] plant cell -> shoot epidermal pavement cell
+  [FP] plant cell -> short cell
+  [FP] plant cell -> storage parenchyma
+  [FP] plant cell -> tracheary element
+  [FP] plant cell -> tuber storage parenchyma
+  [FP] plant cell -> xylem vessel
+  [FP] plant epidermal cell -> leaf pavement cell
+  [FP] plant epidermal cell -> shoot epidermal pavement cell
+  [FP] plant organ -> adult vascular leaf
+  [FP] plant organ -> flag leaf
+  [FP] plant organ -> hypocotyl
+  [FP] plant organ -> leaf
+  [FP] plant organ -> mesocotyl
+  [FP] plant organ -> phyllome anlagen
+  [FP] plant organ -> root tip
+  [FP] plant organ -> seedling hypocotyl
+  [FP] plant organ -> seedling mesocotyl
+  [FP] plant organ -> shoot axis
+  [FP] plant organ -> style
+  [FP] plant organ -> vascular leaf
+  [FP] plant organ development stage -> 1 main shoot growth stage
+  [FP] plant organ development stage -> bo03 late boot stage
+  [FP] plant organ development stage -> bo05 flag leaf sheath opened stage
+  [FP] plant organ development stage -> booting stage
+  [FP] plant organ development stage -> fruit development stage
+  [FP] plant organ development stage -> fruit formation stage
+  [FP] plant organ development stage -> fruit initiation stage
+  [FP] plant organ development stage -> gametophyte development stage
+  [FP] plant organ development stage -> il00 inflorescence just visible stage
+  [FP] plant organ development stage -> leaf production stage
+  [FP] plant organ development stage -> lemma development stage
+  [FP] plant organ development stage -> lp19 nineteen leaves visible stage
+  [FP] plant organ development stage -> microgametophyte development stage
+  [FP] plant organ development stage -> mid rosette growth stage
+  [FP] plant organ development stage -> multi-tissue plant structure development stage
+  [FP] plant organ development stage -> phyllome anlagen
+  [FP] plant organ development stage -> plant structure development stage
+  [FP] plant organ development stage -> pollen development stage
+  [FP] plant organ development stage -> rosette growth stage
+  [FP] plant organ development stage -> se01 one node or internode visible stage
+  [FP] plant organ development stage -> sporophyte development stage
+  [FP] plant organ development stage -> sporophyte reproductive stage
+  [FP] plant organ development stage -> stem elongation stage
+  [FP] plant organ development stage -> whole plant development stage
+  [FP] plant organ development stage -> whole plant inflorescence detectable stage
+  [FP] plant spore -> functional megaspore
+  [FP] plant spore -> h late unicellular microspore stage
+  [FP] plant structure -> adult vascular leaf
+  [FP] plant structure -> aerial tuber storage parenchyma
+  [FP] plant structure -> archegonium head
+  [FP] plant structure -> cardinal organ part
+  [FP] plant structure -> collenchyma cell
+  [FP] plant structure -> cultured plant cell
+  [FP] plant structure -> cuticular wax
+  [FP] plant structure -> embryo sac
+  [FP] plant structure -> flag leaf
+  [FP] plant structure -> functional megaspore
+  [FP] plant structure -> gametophore axis
+  [FP] plant structure -> ground tissue cell
+  [FP] plant structure -> hypocotyl
+  [FP] plant structure -> inflorescence axillary meristem
+  [FP] plant structure -> inflorescence meristem
+  [FP] plant structure -> late wood tracheary element
+  [FP] plant structure -> lateral root tip
+  [FP] plant structure -> leaf
+  [FP] plant structure -> leaf pavement cell
+  [FP] plant structure -> long lateral tassel branch meristem
+  [FP] plant structure -> megagametophyte
+  [FP] plant structure -> megaspore
+  [FP] plant structure -> mesocotyl
+  [FP] plant structure -> microgametophyte vegetative cell
+  [FP] plant structure -> native plant cell
+  [FP] plant structure -> parenchyma
+  [FP] plant structure -> pericarp vascular bundle
+  [FP] plant structure -> periderm
+  [FP] plant structure -> phyllome
+  [FP] plant structure -> phyllome anlagen
+  [FP] plant structure -> plant anatomical entity
+  [FP] plant structure -> plant axis
+  [FP] plant structure -> plant epidermal cell
+  [FP] plant structure -> plant organ
+  [FP] plant structure -> plant protoplast
+  [FP] plant structure -> plant spore
+  [FP] plant structure -> portion of ground tissue
+  [FP] plant structure -> portion of meristem tissue
+  [FP] plant structure -> portion of plant substance
+  [FP] plant structure -> portion of vascular tissue
+  [FP] plant structure -> root parenchyma
+  [FP] plant structure -> root periderm
+  [FP] plant structure -> root periderm scar
+  [FP] plant structure -> root tip
+  [FP] plant structure -> secondary xylem tracheary element
+  [FP] plant structure -> seedling hypocotyl
+  [FP] plant structure -> seedling mesocotyl
+  [FP] plant structure -> shoot axis
+  [FP] plant structure -> shoot axis internode
+  [FP] plant structure -> shoot epidermal cell
+  [FP] plant structure -> shoot epidermal pavement cell
+  [FP] plant structure -> short cell
+  [FP] plant structure -> short tassel branch meristem
+  [FP] plant structure -> stem internode
+  [FP] plant structure -> storage parenchyma
+  [FP] plant structure -> style
+  [FP] plant structure -> tassel inflorescence axillary meristem
+  [FP] plant structure -> tassel meristem
+  [FP] plant structure -> tracheary element
+  [FP] plant structure -> tuber storage parenchyma
+  [FP] plant structure -> vascular bundle
+  [FP] plant structure -> vascular leaf
+  [FP] plant structure -> vascular leaf anlagen
+  [FP] plant structure -> xylem
+  [FP] plant structure -> xylem vessel
+  [FP] plant structure development stage -> 1 main shoot growth stage
+  [FP] plant structure development stage -> bo03 late boot stage
+  [FP] plant structure development stage -> bo05 flag leaf sheath opened stage
+  [FP] plant structure development stage -> booting stage
+  [FP] plant structure development stage -> fruit development stage
+  [FP] plant structure development stage -> fruit formation stage
+  [FP] plant structure development stage -> fruit initiation stage
+  [FP] plant structure development stage -> gametophyte development stage
+  [FP] plant structure development stage -> il00 inflorescence just visible stage
+  [FP] plant structure development stage -> leaf production stage
+  [FP] plant structure development stage -> lemma development stage
+  [FP] plant structure development stage -> lp19 nineteen leaves visible stage
+  [FP] plant structure development stage -> microgametophyte development stage
+  [FP] plant structure development stage -> mid rosette growth stage
+  [FP] plant structure development stage -> phyllome anlagen
+  [FP] plant structure development stage -> phyllome development stage
+  [FP] plant structure development stage -> plant organ development stage
+  [FP] plant structure development stage -> pollen development stage
+  [FP] plant structure development stage -> rosette growth stage
+  [FP] plant structure development stage -> se01 one node or internode visible stage
+  [FP] plant structure development stage -> sporophyte development stage
+  [FP] plant structure development stage -> sporophyte reproductive stage
+  [FP] plant structure development stage -> stem elongation stage
+  [FP] plant structure development stage -> whole plant inflorescence detectable stage
+  [FP] portion of ground tissue -> aerial tuber storage parenchyma
+  [FP] portion of ground tissue -> root parenchyma
+  [FP] portion of ground tissue -> storage parenchyma
+  [FP] portion of meristem tissue -> inflorescence axillary meristem
+  [FP] portion of meristem tissue -> long lateral tassel branch meristem
+  [FP] portion of meristem tissue -> short tassel branch meristem
+  [FP] portion of meristem tissue -> tassel inflorescence axillary meristem
+  [FP] portion of meristem tissue -> tassel meristem
+  [FP] portion of plant substance -> adult vascular leaf
+  [FP] portion of plant substance -> cardinal organ part
+  [FP] portion of plant substance -> lateral root tip
+  [FP] portion of plant substance -> pericarp vascular bundle
+  [FP] portion of plant substance -> periderm
+  [FP] portion of plant substance -> portion of ground tissue
+  [FP] portion of plant substance -> portion of meristem tissue
+  [FP] portion of plant substance -> portion of plant tissue
+  [FP] portion of plant substance -> portion of vascular tissue
+  [FP] portion of plant substance -> root parenchyma
+  [FP] portion of plant substance -> root periderm scar
+  [FP] portion of plant substance -> root tip
+  [FP] portion of plant substance -> secondary xylem tracheary element
+  [FP] portion of plant substance -> shoot axis internode
+  [FP] portion of plant substance -> stem internode
+  [FP] portion of plant substance -> style
+  [FP] portion of plant substance -> tassel inflorescence axillary meristem
+  [FP] portion of plant substance -> vascular bundle
+  [FP] portion of plant substance -> vascular leaf
+  [FP] portion of plant substance -> xylem
+  [FP] portion of plant substance -> xylem vessel
+  [FP] portion of plant tissue -> aerial tuber storage parenchyma
+  [FP] portion of plant tissue -> cardinal organ part
+  [FP] portion of plant tissue -> inflorescence axillary meristem
+  [FP] portion of plant tissue -> lateral root tip
+  [FP] portion of plant tissue -> long lateral tassel branch meristem
+  [FP] portion of plant tissue -> megagametophyte
+  [FP] portion of plant tissue -> microgametophyte vegetative cell
+  [FP] portion of plant tissue -> parenchyma
+  [FP] portion of plant tissue -> pericarp vascular bundle
+  [FP] portion of plant tissue -> periderm
+  [FP] portion of plant tissue -> root parenchyma
+  [FP] portion of plant tissue -> root periderm
+  [FP] portion of plant tissue -> root periderm scar
+  [FP] portion of plant tissue -> root tip
+  [FP] portion of plant tissue -> secondary xylem tracheary element
+  [FP] portion of plant tissue -> shoot axis internode
+  [FP] portion of plant tissue -> stem internode
+  [FP] portion of plant tissue -> storage parenchyma
+  [FP] portion of plant tissue -> tassel inflorescence axillary meristem
+  [FP] portion of plant tissue -> tassel meristem
+  [FP] portion of plant tissue -> tracheary element
+  [FP] portion of plant tissue -> vascular bundle
+  [FP] portion of plant tissue -> vascular leaf anlagen
+  [FP] portion of plant tissue -> xylem
+  [FP] portion of plant tissue -> xylem vessel
+  [FP] portion of vascular tissue -> late wood tracheary element
+  [FP] portion of vascular tissue -> pericarp vascular bundle
+  [FP] portion of vascular tissue -> secondary xylem tracheary element
+  [FP] portion of vascular tissue -> tracheary element
+  [FP] portion of vascular tissue -> xylem vessel
+  [FP] shoot axis -> seedling hypocotyl
+  [FP] shoot axis -> shoot axis internode
+  [FP] sporophyte development stage -> 1 main shoot growth stage
+  [FP] sporophyte development stage -> b enlarged microsporocyte stage
+  [FP] sporophyte development stage -> fruit development stage
+  [FP] sporophyte development stage -> lemma development stage
+  [FP] sporophyte development stage -> lp19 nineteen leaves visible stage
+  [FP] sporophyte development stage -> rosette growth stage
+  [FP] sporophyte development stage -> stem elongation stage
+  [FP] sporophyte reproductive stage -> b enlarged microsporocyte stage
+  [FP] sporophyte vegetative stage -> lp19 nineteen leaves visible stage
+  [FP] sporophyte vegetative stage -> rosette growth stage
+  [FP] sporophyte vegetative stage -> stem elongation stage
+  [FP] storage parenchyma -> aerial tuber storage parenchyma
+  [FP] tassel meristem -> long lateral tassel branch meristem
+  [FP] tassel meristem -> short tassel branch meristem
+  [FP] tracheary element -> late wood tracheary element
+  [FP] tracheary element -> xylem vessel
+  [FP] vascular bundle -> tracheary element
+  [FP] vascular leaf -> flag leaf
+  [FP] whole plant development stage -> 1 main shoot growth stage
+  [FP] whole plant development stage -> b enlarged microsporocyte stage
+  [FP] whole plant development stage -> bo03 late boot stage
+  [FP] whole plant development stage -> bo05 flag leaf sheath opened stage
+  [FP] whole plant development stage -> booting stage
+  [FP] whole plant development stage -> fruit development stage
+  [FP] whole plant development stage -> fruit formation stage
+  [FP] whole plant development stage -> fruit initiation stage
+  [FP] whole plant development stage -> il00 inflorescence just visible stage
+  [FP] whole plant development stage -> leaf production stage
+  [FP] whole plant development stage -> lp19 nineteen leaves visible stage
+  [FP] whole plant development stage -> mid rosette growth stage
+  [FP] whole plant development stage -> rosette growth stage
+  [FP] whole plant development stage -> se01 one node or internode visible stage
+  [FP] whole plant development stage -> sporophyte reproductive stage
+  [FP] whole plant development stage -> sporophyte vegetative stage
+  [FP] whole plant development stage -> stem elongation stage
+  [FP] whole plant development stage -> whole plant inflorescence detectable stage
+  [FP] xylem -> late wood tracheary element
+  [FP] xylem -> secondary xylem tracheary element
+  [FP] xylem -> tracheary element
+
+MISSED RELATIONS (False Negatives: 26):
+  [FN] 1 main shoot growth stage -> leaf production stage
+  [FN] 1 main shoot growth stage -> rosette growth stage
+  [FN] 1 main shoot growth stage -> stem elongation stage
+  [FN] adult vascular leaf -> flag leaf
+  [FN] cardinal organ part -> archegonium head
+  [FN] cardinal organ part -> root tip
+  [FN] cardinal organ part -> shoot axis internode
+  [FN] cardinal part of multi-tissue plant structure -> cardinal organ part
+  [FN] cultured plant cell -> plant protoplast
+  [FN] gametophore axis -> pseudopodium
+  [FN] il00 inflorescence just visible stage -> booting stage
+  [FN] leaf pavement cell -> short cell
+  [FN] multi-tissue plant structure development stage -> plant organ development stage
+  [FN] native plant cell -> plant epidermal cell
+  [FN] native plant cell -> tracheary element
+  [FN] portion of ground tissue -> periderm
+  [FN] portion of meristem tissue -> inflorescence meristem
+  [FN] portion of meristem tissue -> phyllome anlagen
+  [FN] sporophyte reproductive stage -> whole plant inflorescence detectable stage
+  [FN] stem elongation stage -> se01 one node or internode visible stage
+  [FN] stem internode -> hypocotyl
+  [FN] stem internode -> mesocotyl
+  [FN] tassel inflorescence axillary meristem -> long lateral tassel branch meristem
+  [FN] tassel inflorescence axillary meristem -> short tassel branch meristem
+  [FN] whole plant -> megagametophyte
+  [FN] whole plant -> plant spore

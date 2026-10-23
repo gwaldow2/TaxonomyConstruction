@@ -1,0 +1,213 @@
+==================================================
+=== Detailed Node Pair Analysis (Condensed Transitive Reduction) ===
+Match Type Used: SET_OVERLAP
+==================================================
+Precision: 0.1383 | Recall: 0.1204 | F1: 0.1287
+
+CORRECT PREDICTIONS (True Positives: 13 Pred edges covering 13 GT edges):
+  [TP] PRED: (anatomical structure -> oropharynx)
+        matches GT: (anatomical structure -> oropharynx)
+  [TP] PRED: (assay -> analyte assay)
+        matches GT: (assay -> analyte assay)
+  [TP] PRED: (assay -> binding assay)
+        matches GT: (assay -> binding assay)
+  [TP] PRED: (assay -> blood assay)
+        matches GT: (assay -> blood assay)
+  [TP] PRED: (assay -> cell culture assay)
+        matches GT: (assay -> cell culture assay)
+  [TP] PRED: (assay -> cytometry assay)
+        matches GT: (assay -> cytometry assay)
+  [TP] PRED: (assay -> efficacy of epitope intervention experiment)
+        matches GT: (assay -> efficacy of epitope intervention experiment)
+  [TP] PRED: (assay -> electrophysiology assay)
+        matches GT: (assay -> electrophysiology assay)
+  [TP] PRED: (assay -> immune epitope assay)
+        matches GT: (assay -> immune epitope assay)
+  [TP] PRED: (assay -> prothrombin time assay)
+        matches GT: (assay -> prothrombin time assay)
+  [TP] PRED: (assay -> sequencing assay)
+        matches GT: (assay -> sequencing assay)
+  [TP] PRED: (assay -> single-nucleotide-resolution nucleic acid structure mapping assay)
+        matches GT: (assay -> single-nucleotide-resolution nucleic acid structure mapping assay)
+  [TP] PRED: (bodily fluid -> blood)
+        matches GT: (bodily fluid -> blood)
+
+INCORRECT PREDICTIONS (False Positives: 81):
+  [FP] anatomical entity -> anatomical structure
+  [FP] anatomical structure -> placental blood
+  [FP] assay -> 335-triiodothyronine assay
+  [FP] assay -> addition of molecular label
+  [FP] assay -> antibody binding detection by fluorescence quenching
+  [FP] assay -> antigen detection by cytometric bead array assay
+  [FP] assay -> assay measuring binding of a b cell epitopeantibody complex
+  [FP] assay -> assay measuring biological activity resulting from t cell epitopemhctcr binding
+  [FP] assay -> assay measuring epitope specific chemokine c-c motif ligand 4 production by t cells
+  [FP] assay -> assay measuring epitope specific cytokine production by t cells
+  [FP] assay -> assay measuring epitope specific interferon-gamma production by t cells
+  [FP] assay -> assay measuring epitope specific interleukin-10 production by t cells
+  [FP] assay -> assay measuring epitope specific interleukin-23 production by t cells
+  [FP] assay -> assay measuring qualitative binding of a b cell epitopeantibody complex
+  [FP] assay -> assay measuring t cell epitope specific in vivo activity
+  [FP] assay -> b cell epitope assay
+  [FP] assay -> basic metabolic panel venous blood creatinine assay
+  [FP] assay -> binding assay using fluorescence detection
+  [FP] assay -> biopsy
+  [FP] assay -> bodily fluid
+  [FP] assay -> carbon dioxide assay
+  [FP] assay -> creatinine assay
+  [FP] assay -> cytometric bead array assay
+  [FP] assay -> cytometric bead array assay measuring epitope specific interferon-gamma production by t cells
+  [FP] assay -> detection of specific nucleic acid polymers with complementary probes
+  [FP] assay -> detection of specific nucleic acids with complementary probes assay measuring epitope specific interleukin-10 production by t cells
+  [FP] assay -> device
+  [FP] assay -> dna sequencing assay
+  [FP] assay -> electrocardiogram assay
+  [FP] assay -> elispot assay measuring epitope specific interleukin-23 production by t cells
+  [FP] assay -> email address
+  [FP] assay -> email address of specimen provider principal investigator
+  [FP] assay -> enzyme-linked immunospot assay
+  [FP] assay -> epitope treatment experiment
+  [FP] assay -> ercc rna spike-in
+  [FP] assay -> fluorescence quenching binding assay
+  [FP] assay -> in vivo assay measuring a t cell epitope specific response after adoptive transfer of epitope specific t cells
+  [FP] assay -> in vivo assay measuring t cell epitope specific disease reduction resulting from the adoptive transfer of epitope specific t cells
+  [FP] assay -> in vivo assay measuring t cell epitope specific treatment of disease
+  [FP] assay -> information content entity
+  [FP] assay -> iron assay
+  [FP] assay -> iron concentration assay
+  [FP] assay -> lipid panel venous blood low density lipoprotein assay
+  [FP] assay -> longitudinal data analysis
+  [FP] assay -> low-density lipoprotein cholesterol assay
+  [FP] assay -> material anatomical entity
+  [FP] assay -> material entity
+  [FP] assay -> microtiter plate
+  [FP] assay -> molecule
+  [FP] assay -> n-ethyl-n-nitrosourea
+  [FP] assay -> nic rna structure mapping assay
+  [FP] assay -> organism substance
+  [FP] assay -> oropharynx
+  [FP] assay -> participant under investigation role
+  [FP] assay -> pathogen role
+  [FP] assay -> physical object quality
+  [FP] assay -> physical quality
+  [FP] assay -> planned process
+  [FP] assay -> pressure
+  [FP] assay -> process
+  [FP] assay -> processed material entity
+  [FP] assay -> quality
+  [FP] assay -> quenching assay measuring binding of a b cell epitopeantibody complex
+  [FP] assay -> realizable entity
+  [FP] assay -> rhodium atom
+  [FP] assay -> role
+  [FP] assay -> single-nucleotide-resolution nucleic acid structure mapping assay using chemical probing
+  [FP] assay -> skinpunch biopsy
+  [FP] assay -> sodium phosphate
+  [FP] assay -> specific labeling
+  [FP] assay -> specimen collection process
+  [FP] assay -> t cell epitope assay
+  [FP] assay -> tobramycin assay
+  [FP] assay -> transplantation
+  [FP] assay -> tyramide signal amplification sequencing assay
+  [FP] assay -> vitrification apparatus
+  [FP] blood -> free venous blood t3 assay
+  [FP] blood -> gem premier blood gas venous blood carbon dioxide assay
+  [FP] blood -> random venous blood tobramycin assay
+  [FP] blood -> sperm count assay
+  [FP] bodily fluid -> placental blood
+
+MISSED RELATIONS (False Negatives: 95):
+  [FN] 335-triiodothyronine assay -> free venous blood t3 assay
+  [FN] addition of molecular label -> specific labeling
+  [FN] analyte assay -> 335-triiodothyronine assay
+  [FN] analyte assay -> carbon dioxide assay
+  [FN] analyte assay -> creatinine assay
+  [FN] analyte assay -> cytometric bead array assay
+  [FN] analyte assay -> detection of specific nucleic acid polymers with complementary probes
+  [FN] analyte assay -> iron assay
+  [FN] analyte assay -> low-density lipoprotein cholesterol assay
+  [FN] analyte assay -> tobramycin assay
+  [FN] anatomical entity -> material anatomical entity
+  [FN] antibody binding detection by fluorescence quenching -> quenching assay measuring binding of a b cell epitopeantibody complex
+  [FN] antigen detection by cytometric bead array assay -> cytometric bead array assay measuring epitope specific interferon-gamma production by t cells
+  [FN] assay measuring binding of a b cell epitopeantibody complex -> assay measuring qualitative binding of a b cell epitopeantibody complex
+  [FN] assay measuring biological activity resulting from t cell epitopemhctcr binding -> assay measuring epitope specific cytokine production by t cells
+  [FN] assay measuring biological activity resulting from t cell epitopemhctcr binding -> assay measuring t cell epitope specific in vivo activity
+  [FN] assay measuring epitope specific cytokine production by t cells -> assay measuring epitope specific chemokine c-c motif ligand 4 production by t cells
+  [FN] assay measuring epitope specific cytokine production by t cells -> assay measuring epitope specific interferon-gamma production by t cells
+  [FN] assay measuring epitope specific cytokine production by t cells -> assay measuring epitope specific interleukin-10 production by t cells
+  [FN] assay measuring epitope specific cytokine production by t cells -> assay measuring epitope specific interleukin-23 production by t cells
+  [FN] assay measuring epitope specific interferon-gamma production by t cells -> cytometric bead array assay measuring epitope specific interferon-gamma production by t cells
+  [FN] assay measuring epitope specific interleukin-10 production by t cells -> detection of specific nucleic acids with complementary probes assay measuring epitope specific interleukin-10 production by t cells
+  [FN] assay measuring epitope specific interleukin-23 production by t cells -> elispot assay measuring epitope specific interleukin-23 production by t cells
+  [FN] assay measuring qualitative binding of a b cell epitopeantibody complex -> quenching assay measuring binding of a b cell epitopeantibody complex
+  [FN] assay measuring t cell epitope specific in vivo activity -> in vivo assay measuring a t cell epitope specific response after adoptive transfer of epitope specific t cells
+  [FN] assay measuring t cell epitope specific in vivo activity -> in vivo assay measuring t cell epitope specific treatment of disease
+  [FN] b cell epitope assay -> assay measuring binding of a b cell epitopeantibody complex
+  [FN] binding assay -> binding assay using fluorescence detection
+  [FN] binding assay using fluorescence detection -> fluorescence quenching binding assay
+  [FN] biopsy -> skinpunch biopsy
+  [FN] blood -> placental blood
+  [FN] blood assay -> basic metabolic panel venous blood creatinine assay
+  [FN] blood assay -> free venous blood t3 assay
+  [FN] blood assay -> gem premier blood gas venous blood carbon dioxide assay
+  [FN] blood assay -> lipid panel venous blood low density lipoprotein assay
+  [FN] blood assay -> random venous blood tobramycin assay
+  [FN] carbon dioxide assay -> gem premier blood gas venous blood carbon dioxide assay
+  [FN] cell culture assay -> enzyme-linked immunospot assay
+  [FN] characteristic -> quality
+  [FN] characteristic -> realizable entity
+  [FN] collecting specimen from organism -> biopsy
+  [FN] completely executed planned process -> addition of molecular label
+  [FN] completely executed planned process -> assay
+  [FN] completely executed planned process -> data transformation
+  [FN] completely executed planned process -> specimen collection process
+  [FN] completely executed planned process -> transplantation
+  [FN] container -> microtiter plate
+  [FN] creatinine assay -> basic metabolic panel venous blood creatinine assay
+  [FN] cytometric bead array assay -> antigen detection by cytometric bead array assay
+  [FN] cytometry assay -> enzyme-linked immunospot assay
+  [FN] cytometry assay -> sperm count assay
+  [FN] data transformation -> longitudinal data analysis
+  [FN] detection of specific nucleic acid polymers with complementary probes -> detection of specific nucleic acids with complementary probes assay measuring epitope specific interleukin-10 production by t cells
+  [FN] device -> container
+  [FN] device -> vitrification apparatus
+  [FN] dna sequencing assay -> tyramide signal amplification sequencing assay
+  [FN] efficacy of epitope intervention experiment -> epitope treatment experiment
+  [FN] electrophysiology assay -> electrocardiogram assay
+  [FN] email address -> email address of specimen provider principal investigator
+  [FN] enzyme-linked immunospot assay -> elispot assay measuring epitope specific interleukin-23 production by t cells
+  [FN] epitope treatment experiment -> in vivo assay measuring t cell epitope specific treatment of disease
+  [FN] fluorescence quenching binding assay -> antibody binding detection by fluorescence quenching
+  [FN] immune epitope assay -> b cell epitope assay
+  [FN] immune epitope assay -> t cell epitope assay
+  [FN] in vivo assay measuring a t cell epitope specific response after adoptive transfer of epitope specific t cells -> in vivo assay measuring t cell epitope specific disease reduction resulting from the adoptive transfer of epitope specific t cells
+  [FN] in vivo assay measuring t cell epitope specific treatment of disease -> in vivo assay measuring t cell epitope specific disease reduction resulting from the adoptive transfer of epitope specific t cells
+  [FN] information content entity -> email address
+  [FN] iron assay -> iron concentration assay
+  [FN] low-density lipoprotein cholesterol assay -> lipid panel venous blood low density lipoprotein assay
+  [FN] material anatomical entity -> anatomical structure
+  [FN] material anatomical entity -> organism substance
+  [FN] material entity -> material anatomical entity
+  [FN] material entity -> molecule
+  [FN] material entity -> processed material entity
+  [FN] molecule -> n-ethyl-n-nitrosourea
+  [FN] molecule -> rhodium atom
+  [FN] molecule -> sodium phosphate
+  [FN] organism substance -> bodily fluid
+  [FN] physical object quality -> physical quality
+  [FN] physical quality -> pressure
+  [FN] planned process -> completely executed planned process
+  [FN] process -> planned process
+  [FN] processed material entity -> device
+  [FN] processed material entity -> ercc rna spike-in
+  [FN] quality -> physical object quality
+  [FN] realizable entity -> role
+  [FN] role -> participant under investigation role
+  [FN] role -> pathogen role
+  [FN] sequencing assay -> dna sequencing assay
+  [FN] single-nucleotide-resolution nucleic acid structure mapping assay -> single-nucleotide-resolution nucleic acid structure mapping assay using chemical probing
+  [FN] single-nucleotide-resolution nucleic acid structure mapping assay using chemical probing -> nic rna structure mapping assay
+  [FN] specimen collection process -> collecting specimen from organism
+  [FN] t cell epitope assay -> assay measuring biological activity resulting from t cell epitopemhctcr binding
+  [FN] tobramycin assay -> random venous blood tobramycin assay
+  [FN] transplantation -> allotransplantation

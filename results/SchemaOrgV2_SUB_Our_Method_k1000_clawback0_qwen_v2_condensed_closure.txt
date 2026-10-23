@@ -1,0 +1,425 @@
+==================================================
+=== Detailed Node Pair Analysis (Condensed Transitive Closure) ===
+Match Type Used: SET_OVERLAP
+==================================================
+Precision: 0.1391 | Recall: 0.1331 | F1: 0.1360
+
+CORRECT PREDICTIONS (True Positives: 16 Pred edges covering 37 GT edges):
+  [TP] PRED: (cafeorcoffeeshop (cafeorcoffeeshop, fastfoodrestaurant, foodestablishment, localbusiness, lodgingbusiness) -> automotivebusiness)
+        matches GT: (localbusiness -> automotivebusiness)
+  [TP] PRED: (cityhall (cityhall, educationalorganization, governmentbuilding, governmentorganization, organization, school, theatergroup) -> automotivebusiness)
+        matches GT: (organization -> automotivebusiness)
+  [TP] PRED: (cityhall (cityhall, educationalorganization, governmentbuilding, governmentorganization, organization, school, theatergroup) -> elementaryschool)
+        matches GT: (educationalorganization -> elementaryschool)
+  [TP] PRED: (cityhall (cityhall, educationalorganization, governmentbuilding, governmentorganization, organization, school, theatergroup) -> elementaryschool)
+        matches GT: (organization -> elementaryschool)
+  [TP] PRED: (civicstructure -> cityhall (cityhall, educationalorganization, governmentbuilding, governmentorganization, organization, school, theatergroup))
+        matches GT: (civicstructure -> cityhall)
+  [TP] PRED: (civicstructure -> cityhall (cityhall, educationalorganization, governmentbuilding, governmentorganization, organization, school, theatergroup))
+        matches GT: (civicstructure -> educationalorganization)
+  [TP] PRED: (civicstructure -> cityhall (cityhall, educationalorganization, governmentbuilding, governmentorganization, organization, school, theatergroup))
+        matches GT: (civicstructure -> governmentbuilding)
+  [TP] PRED: (civicstructure -> cityhall (cityhall, educationalorganization, governmentbuilding, governmentorganization, organization, school, theatergroup))
+        matches GT: (civicstructure -> school)
+  [TP] PRED: (civicstructure -> elementaryschool)
+        matches GT: (civicstructure -> elementaryschool)
+  [TP] PRED: (clip -> tvclip)
+        matches GT: (clip -> tvclip)
+  [TP] PRED: (performinggroup -> cityhall (cityhall, educationalorganization, governmentbuilding, governmentorganization, organization, school, theatergroup))
+        matches GT: (performinggroup -> theatergroup)
+  [TP] PRED: (place -> automotivebusiness)
+        matches GT: (place -> automotivebusiness)
+  [TP] PRED: (place -> cafeorcoffeeshop (cafeorcoffeeshop, fastfoodrestaurant, foodestablishment, localbusiness, lodgingbusiness))
+        matches GT: (place -> cafeorcoffeeshop)
+  [TP] PRED: (place -> cafeorcoffeeshop (cafeorcoffeeshop, fastfoodrestaurant, foodestablishment, localbusiness, lodgingbusiness))
+        matches GT: (place -> fastfoodrestaurant)
+  [TP] PRED: (place -> cafeorcoffeeshop (cafeorcoffeeshop, fastfoodrestaurant, foodestablishment, localbusiness, lodgingbusiness))
+        matches GT: (place -> foodestablishment)
+  [TP] PRED: (place -> cafeorcoffeeshop (cafeorcoffeeshop, fastfoodrestaurant, foodestablishment, localbusiness, lodgingbusiness))
+        matches GT: (place -> localbusiness)
+  [TP] PRED: (place -> cafeorcoffeeshop (cafeorcoffeeshop, fastfoodrestaurant, foodestablishment, localbusiness, lodgingbusiness))
+        matches GT: (place -> lodgingbusiness)
+  [TP] PRED: (place -> cityhall (cityhall, educationalorganization, governmentbuilding, governmentorganization, organization, school, theatergroup))
+        matches GT: (place -> cityhall)
+  [TP] PRED: (place -> cityhall (cityhall, educationalorganization, governmentbuilding, governmentorganization, organization, school, theatergroup))
+        matches GT: (place -> educationalorganization)
+  [TP] PRED: (place -> cityhall (cityhall, educationalorganization, governmentbuilding, governmentorganization, organization, school, theatergroup))
+        matches GT: (place -> governmentbuilding)
+  [TP] PRED: (place -> cityhall (cityhall, educationalorganization, governmentbuilding, governmentorganization, organization, school, theatergroup))
+        matches GT: (place -> school)
+  [TP] PRED: (place -> elementaryschool)
+        matches GT: (place -> elementaryschool)
+  [TP] PRED: (thing -> automotivebusiness)
+        matches GT: (thing -> automotivebusiness)
+  [TP] PRED: (thing -> cafeorcoffeeshop (cafeorcoffeeshop, fastfoodrestaurant, foodestablishment, localbusiness, lodgingbusiness))
+        matches GT: (thing -> cafeorcoffeeshop)
+  [TP] PRED: (thing -> cafeorcoffeeshop (cafeorcoffeeshop, fastfoodrestaurant, foodestablishment, localbusiness, lodgingbusiness))
+        matches GT: (thing -> fastfoodrestaurant)
+  [TP] PRED: (thing -> cafeorcoffeeshop (cafeorcoffeeshop, fastfoodrestaurant, foodestablishment, localbusiness, lodgingbusiness))
+        matches GT: (thing -> foodestablishment)
+  [TP] PRED: (thing -> cafeorcoffeeshop (cafeorcoffeeshop, fastfoodrestaurant, foodestablishment, localbusiness, lodgingbusiness))
+        matches GT: (thing -> localbusiness)
+  [TP] PRED: (thing -> cafeorcoffeeshop (cafeorcoffeeshop, fastfoodrestaurant, foodestablishment, localbusiness, lodgingbusiness))
+        matches GT: (thing -> lodgingbusiness)
+  [TP] PRED: (thing -> cityhall (cityhall, educationalorganization, governmentbuilding, governmentorganization, organization, school, theatergroup))
+        matches GT: (thing -> cityhall)
+  [TP] PRED: (thing -> cityhall (cityhall, educationalorganization, governmentbuilding, governmentorganization, organization, school, theatergroup))
+        matches GT: (thing -> educationalorganization)
+  [TP] PRED: (thing -> cityhall (cityhall, educationalorganization, governmentbuilding, governmentorganization, organization, school, theatergroup))
+        matches GT: (thing -> governmentbuilding)
+  [TP] PRED: (thing -> cityhall (cityhall, educationalorganization, governmentbuilding, governmentorganization, organization, school, theatergroup))
+        matches GT: (thing -> governmentorganization)
+  [TP] PRED: (thing -> cityhall (cityhall, educationalorganization, governmentbuilding, governmentorganization, organization, school, theatergroup))
+        matches GT: (thing -> organization)
+  [TP] PRED: (thing -> cityhall (cityhall, educationalorganization, governmentbuilding, governmentorganization, organization, school, theatergroup))
+        matches GT: (thing -> school)
+  [TP] PRED: (thing -> cityhall (cityhall, educationalorganization, governmentbuilding, governmentorganization, organization, school, theatergroup))
+        matches GT: (thing -> theatergroup)
+  [TP] PRED: (thing -> creativework)
+        matches GT: (thing -> creativework)
+  [TP] PRED: (thing -> elementaryschool)
+        matches GT: (thing -> elementaryschool)
+
+INCORRECT PREDICTIONS (False Positives: 99):
+  [FP] achieveaction -> creativework
+  [FP] article -> creativework
+  [FP] autobodyshop -> automotivebusiness
+  [FP] autobodyshop -> cafeorcoffeeshop (cafeorcoffeeshop, fastfoodrestaurant, foodestablishment, localbusiness, lodgingbusiness)
+  [FP] autobodyshop -> cityhall (cityhall, educationalorganization, governmentbuilding, governmentorganization, organization, school, theatergroup)
+  [FP] autobodyshop -> creativework
+  [FP] autobodyshop -> elementaryschool
+  [FP] barorpub -> automotivebusiness
+  [FP] barorpub -> cafeorcoffeeshop (cafeorcoffeeshop, fastfoodrestaurant, foodestablishment, localbusiness, lodgingbusiness)
+  [FP] barorpub -> cityhall (cityhall, educationalorganization, governmentbuilding, governmentorganization, organization, school, theatergroup)
+  [FP] barorpub -> creativework
+  [FP] barorpub -> elementaryschool
+  [FP] blogposting -> creativework
+  [FP] bowlingalley -> automotivebusiness
+  [FP] bowlingalley -> cafeorcoffeeshop (cafeorcoffeeshop, fastfoodrestaurant, foodestablishment, localbusiness, lodgingbusiness)
+  [FP] bowlingalley -> cityhall (cityhall, educationalorganization, governmentbuilding, governmentorganization, organization, school, theatergroup)
+  [FP] bowlingalley -> creativework
+  [FP] bowlingalley -> elementaryschool
+  [FP] cafeorcoffeeshop (cafeorcoffeeshop, fastfoodrestaurant, foodestablishment, localbusiness, lodgingbusiness) -> cityhall (cityhall, educationalorganization, governmentbuilding, governmentorganization, organization, school, theatergroup)
+  [FP] cafeorcoffeeshop (cafeorcoffeeshop, fastfoodrestaurant, foodestablishment, localbusiness, lodgingbusiness) -> creativework
+  [FP] cafeorcoffeeshop (cafeorcoffeeshop, fastfoodrestaurant, foodestablishment, localbusiness, lodgingbusiness) -> elementaryschool
+  [FP] car -> automotivebusiness
+  [FP] car -> cafeorcoffeeshop (cafeorcoffeeshop, fastfoodrestaurant, foodestablishment, localbusiness, lodgingbusiness)
+  [FP] car -> cityhall (cityhall, educationalorganization, governmentbuilding, governmentorganization, organization, school, theatergroup)
+  [FP] car -> creativework
+  [FP] car -> elementaryschool
+  [FP] cityhall (cityhall, educationalorganization, governmentbuilding, governmentorganization, organization, school, theatergroup) -> creativework
+  [FP] civicstructure -> automotivebusiness
+  [FP] civicstructure -> creativework
+  [FP] clip -> creativework
+  [FP] clip -> creativeworkseason
+  [FP] comment -> creativework
+  [FP] consortium -> automotivebusiness
+  [FP] consortium -> cityhall (cityhall, educationalorganization, governmentbuilding, governmentorganization, organization, school, theatergroup)
+  [FP] consortium -> creativework
+  [FP] consortium -> elementaryschool
+  [FP] controlaction -> creativework
+  [FP] creativeworkseries -> creativeworkseason
+  [FP] findaction -> creativework
+  [FP] hobbyshop -> automotivebusiness
+  [FP] hobbyshop -> cafeorcoffeeshop (cafeorcoffeeshop, fastfoodrestaurant, foodestablishment, localbusiness, lodgingbusiness)
+  [FP] hobbyshop -> cityhall (cityhall, educationalorganization, governmentbuilding, governmentorganization, organization, school, theatergroup)
+  [FP] hobbyshop -> creativework
+  [FP] hobbyshop -> elementaryschool
+  [FP] hotel -> automotivebusiness
+  [FP] hotel -> cafeorcoffeeshop (cafeorcoffeeshop, fastfoodrestaurant, foodestablishment, localbusiness, lodgingbusiness)
+  [FP] hotel -> cityhall (cityhall, educationalorganization, governmentbuilding, governmentorganization, organization, school, theatergroup)
+  [FP] hotel -> creativework
+  [FP] hotel -> elementaryschool
+  [FP] hotel -> place
+  [FP] hotel -> thing
+  [FP] howto -> creativework
+  [FP] landform -> creativework
+  [FP] landmarksorhistoricalbuildings -> automotivebusiness
+  [FP] landmarksorhistoricalbuildings -> barorpub
+  [FP] landmarksorhistoricalbuildings -> bowlingalley
+  [FP] landmarksorhistoricalbuildings -> cafeorcoffeeshop (cafeorcoffeeshop, fastfoodrestaurant, foodestablishment, localbusiness, lodgingbusiness)
+  [FP] landmarksorhistoricalbuildings -> cityhall (cityhall, educationalorganization, governmentbuilding, governmentorganization, organization, school, theatergroup)
+  [FP] landmarksorhistoricalbuildings -> civicstructure
+  [FP] landmarksorhistoricalbuildings -> creativework
+  [FP] landmarksorhistoricalbuildings -> elementaryschool
+  [FP] landmarksorhistoricalbuildings -> hotel
+  [FP] landmarksorhistoricalbuildings -> landform
+  [FP] landmarksorhistoricalbuildings -> place
+  [FP] landmarksorhistoricalbuildings -> store
+  [FP] landmarksorhistoricalbuildings -> thing
+  [FP] mediaobject -> creativework
+  [FP] mediaobject -> creativeworkseason
+  [FP] mediaobject -> tvclip
+  [FP] medicalindication -> medicalentity
+  [FP] medicalindication -> medicalprocedure
+  [FP] medicalindication -> therapeuticprocedure
+  [FP] medicalprocedure -> medicalentity
+  [FP] medicalstudy -> medicalentity
+  [FP] medicaltherapy -> medicalentity
+  [FP] medicaltherapy -> medicalprocedure
+  [FP] medicaltherapy -> therapeuticprocedure
+  [FP] musicvideoobject -> creativework
+  [FP] opinionnewsarticle -> creativework
+  [FP] organizeaction -> creativework
+  [FP] performinggroup -> automotivebusiness
+  [FP] performinggroup -> creativework
+  [FP] performinggroup -> elementaryschool
+  [FP] place -> creativework
+  [FP] planaction -> creativework
+  [FP] podcastseason -> creativework
+  [FP] recommendeddoseschedule -> therapeuticprocedure
+  [FP] store -> automotivebusiness
+  [FP] store -> cafeorcoffeeshop (cafeorcoffeeshop, fastfoodrestaurant, foodestablishment, localbusiness, lodgingbusiness)
+  [FP] store -> cityhall (cityhall, educationalorganization, governmentbuilding, governmentorganization, organization, school, theatergroup)
+  [FP] store -> creativework
+  [FP] store -> elementaryschool
+  [FP] treatmentindication -> medicalentity
+  [FP] treatmentindication -> medicalprocedure
+  [FP] tvclip -> creativework
+  [FP] tvclip -> creativeworkseason
+  [FP] useaction -> creativework
+  [FP] vehicle -> automotivebusiness
+  [FP] videogameclip -> creativework
+
+MISSED RELATIONS (False Negatives: 241):
+  [FN] achieveaction -> winaction
+  [FN] action -> achieveaction
+  [FN] action -> communicateaction
+  [FN] action -> confirmaction
+  [FN] action -> consumeaction
+  [FN] action -> controlaction
+  [FN] action -> discoveraction
+  [FN] action -> findaction
+  [FN] action -> followaction
+  [FN] action -> informaction
+  [FN] action -> interactaction
+  [FN] action -> inviteaction
+  [FN] action -> leaveaction
+  [FN] action -> organizeaction
+  [FN] action -> planaction
+  [FN] action -> playaction
+  [FN] action -> preorderaction
+  [FN] action -> scheduleaction
+  [FN] action -> solvemathaction
+  [FN] action -> suspendaction
+  [FN] action -> tradeaction
+  [FN] action -> useaction
+  [FN] action -> winaction
+  [FN] anatomicalstructure -> muscle
+  [FN] article -> blogposting
+  [FN] article -> newsarticle
+  [FN] article -> opinionnewsarticle
+  [FN] article -> socialmediaposting
+  [FN] article -> techarticle
+  [FN] automotivebusiness -> autobodyshop
+  [FN] bodyofwater -> seabodyofwater
+  [FN] clip -> videogameclip
+  [FN] comment -> answer
+  [FN] communicateaction -> confirmaction
+  [FN] communicateaction -> informaction
+  [FN] communicateaction -> inviteaction
+  [FN] consumeaction -> useaction
+  [FN] controlaction -> suspendaction
+  [FN] creativework -> answer
+  [FN] creativework -> article
+  [FN] creativework -> blogposting
+  [FN] creativework -> clip
+  [FN] creativework -> comment
+  [FN] creativework -> conversation
+  [FN] creativework -> creativeworkseason
+  [FN] creativework -> creativeworkseries
+  [FN] creativework -> howto
+  [FN] creativework -> mediaobject
+  [FN] creativework -> musicvideoobject
+  [FN] creativework -> newsarticle
+  [FN] creativework -> opinionnewsarticle
+  [FN] creativework -> periodical
+  [FN] creativework -> podcastseason
+  [FN] creativework -> recipe
+  [FN] creativework -> recommendation
+  [FN] creativework -> review
+  [FN] creativework -> socialmediaposting
+  [FN] creativework -> techarticle
+  [FN] creativework -> tvclip
+  [FN] creativework -> videogameclip
+  [FN] creativeworkseason -> podcastseason
+  [FN] creativeworkseries -> periodical
+  [FN] datatype -> mass
+  [FN] datatype -> number
+  [FN] datatype -> quantity
+  [FN] doseschedule -> recommendeddoseschedule
+  [FN] educationalorganization -> school
+  [FN] event -> educationevent
+  [FN] event -> hackathon
+  [FN] event -> socialevent
+  [FN] findaction -> discoveraction
+  [FN] foodestablishment -> barorpub
+  [FN] foodestablishment -> cafeorcoffeeshop
+  [FN] foodestablishment -> fastfoodrestaurant
+  [FN] governmentbuilding -> cityhall
+  [FN] howto -> recipe
+  [FN] informaction -> confirmaction
+  [FN] interactaction -> communicateaction
+  [FN] interactaction -> confirmaction
+  [FN] interactaction -> followaction
+  [FN] interactaction -> informaction
+  [FN] interactaction -> inviteaction
+  [FN] interactaction -> leaveaction
+  [FN] landform -> bodyofwater
+  [FN] landform -> seabodyofwater
+  [FN] localbusiness -> autobodyshop
+  [FN] localbusiness -> barorpub
+  [FN] localbusiness -> bowlingalley
+  [FN] localbusiness -> cafeorcoffeeshop
+  [FN] localbusiness -> fastfoodrestaurant
+  [FN] localbusiness -> foodestablishment
+  [FN] localbusiness -> hobbyshop
+  [FN] localbusiness -> hotel
+  [FN] localbusiness -> lodgingbusiness
+  [FN] localbusiness -> sportsactivitylocation
+  [FN] localbusiness -> store
+  [FN] lodgingbusiness -> hotel
+  [FN] mediaobject -> musicvideoobject
+  [FN] medicalentity -> anatomicalstructure
+  [FN] medicalentity -> doseschedule
+  [FN] medicalentity -> drugcost
+  [FN] medicalentity -> medicalcause
+  [FN] medicalentity -> medicalindication
+  [FN] medicalentity -> medicalintangible
+  [FN] medicalentity -> medicalprocedure
+  [FN] medicalentity -> medicalstudy
+  [FN] medicalentity -> medicaltherapy
+  [FN] medicalentity -> muscle
+  [FN] medicalentity -> recommendeddoseschedule
+  [FN] medicalentity -> therapeuticprocedure
+  [FN] medicalentity -> treatmentindication
+  [FN] medicalindication -> treatmentindication
+  [FN] medicalintangible -> doseschedule
+  [FN] medicalintangible -> recommendeddoseschedule
+  [FN] medicalprocedure -> medicaltherapy
+  [FN] medicalprocedure -> therapeuticprocedure
+  [FN] newsarticle -> opinionnewsarticle
+  [FN] organization -> autobodyshop
+  [FN] organization -> barorpub
+  [FN] organization -> bowlingalley
+  [FN] organization -> cafeorcoffeeshop
+  [FN] organization -> consortium
+  [FN] organization -> educationalorganization
+  [FN] organization -> fastfoodrestaurant
+  [FN] organization -> foodestablishment
+  [FN] organization -> governmentorganization
+  [FN] organization -> hobbyshop
+  [FN] organization -> hotel
+  [FN] organization -> localbusiness
+  [FN] organization -> lodgingbusiness
+  [FN] organization -> performinggroup
+  [FN] organization -> school
+  [FN] organization -> sportsactivitylocation
+  [FN] organization -> store
+  [FN] organization -> theatergroup
+  [FN] organizeaction -> planaction
+  [FN] organizeaction -> scheduleaction
+  [FN] place -> autobodyshop
+  [FN] place -> barorpub
+  [FN] place -> bodyofwater
+  [FN] place -> bowlingalley
+  [FN] place -> civicstructure
+  [FN] place -> hobbyshop
+  [FN] place -> hotel
+  [FN] place -> landform
+  [FN] place -> landmarksorhistoricalbuildings
+  [FN] place -> seabodyofwater
+  [FN] place -> sportsactivitylocation
+  [FN] place -> store
+  [FN] planaction -> scheduleaction
+  [FN] product -> car
+  [FN] product -> vehicle
+  [FN] quantity -> mass
+  [FN] review -> recommendation
+  [FN] socialmediaposting -> blogposting
+  [FN] sportsactivitylocation -> bowlingalley
+  [FN] store -> hobbyshop
+  [FN] therapeuticprocedure -> medicaltherapy
+  [FN] thing -> achieveaction
+  [FN] thing -> action
+  [FN] thing -> anatomicalstructure
+  [FN] thing -> answer
+  [FN] thing -> article
+  [FN] thing -> autobodyshop
+  [FN] thing -> barorpub
+  [FN] thing -> blogposting
+  [FN] thing -> bodyofwater
+  [FN] thing -> bowlingalley
+  [FN] thing -> car
+  [FN] thing -> civicstructure
+  [FN] thing -> clip
+  [FN] thing -> comment
+  [FN] thing -> communicateaction
+  [FN] thing -> confirmaction
+  [FN] thing -> consortium
+  [FN] thing -> consumeaction
+  [FN] thing -> controlaction
+  [FN] thing -> conversation
+  [FN] thing -> creativeworkseason
+  [FN] thing -> creativeworkseries
+  [FN] thing -> discoveraction
+  [FN] thing -> doseschedule
+  [FN] thing -> drugcost
+  [FN] thing -> educationevent
+  [FN] thing -> event
+  [FN] thing -> findaction
+  [FN] thing -> followaction
+  [FN] thing -> hackathon
+  [FN] thing -> hobbyshop
+  [FN] thing -> hotel
+  [FN] thing -> howto
+  [FN] thing -> informaction
+  [FN] thing -> interactaction
+  [FN] thing -> inviteaction
+  [FN] thing -> landform
+  [FN] thing -> landmarksorhistoricalbuildings
+  [FN] thing -> leaveaction
+  [FN] thing -> mediaobject
+  [FN] thing -> medicalcause
+  [FN] thing -> medicalentity
+  [FN] thing -> medicalindication
+  [FN] thing -> medicalintangible
+  [FN] thing -> medicalprocedure
+  [FN] thing -> medicalstudy
+  [FN] thing -> medicaltherapy
+  [FN] thing -> muscle
+  [FN] thing -> musicvideoobject
+  [FN] thing -> newsarticle
+  [FN] thing -> opinionnewsarticle
+  [FN] thing -> organizeaction
+  [FN] thing -> performinggroup
+  [FN] thing -> periodical
+  [FN] thing -> place
+  [FN] thing -> planaction
+  [FN] thing -> playaction
+  [FN] thing -> podcastseason
+  [FN] thing -> preorderaction
+  [FN] thing -> product
+  [FN] thing -> recipe
+  [FN] thing -> recommendation
+  [FN] thing -> recommendeddoseschedule
+  [FN] thing -> review
+  [FN] thing -> scheduleaction
+  [FN] thing -> seabodyofwater
+  [FN] thing -> socialevent
+  [FN] thing -> socialmediaposting
+  [FN] thing -> solvemathaction
+  [FN] thing -> sportsactivitylocation
+  [FN] thing -> store
+  [FN] thing -> suspendaction
+  [FN] thing -> techarticle
+  [FN] thing -> therapeuticprocedure
+  [FN] thing -> tradeaction
+  [FN] thing -> treatmentindication
+  [FN] thing -> tvclip
+  [FN] thing -> useaction
+  [FN] thing -> vehicle
+  [FN] thing -> videogameclip
+  [FN] thing -> winaction
+  [FN] tradeaction -> preorderaction
+  [FN] vehicle -> car

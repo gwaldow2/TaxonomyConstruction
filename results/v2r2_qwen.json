@@ -1,0 +1,134 @@
+[
+    {
+        "dataset": "SchemaOrgV2_SUB",
+        "use_synsets": false,
+        "explode_nodes": false,
+        "results": [
+            {
+                "method": "Single-Call Baseline",
+                "model": "Qwen/Qwen2.5-7B-Instruct",
+                "Cond_Red_F1": 0.13245033112582782,
+                "Cond_Red_Precision": 0.2,
+                "Cond_Red_Recall": 0.09900990099009901,
+                "Cond_Clos_F1": 0.138328530259366,
+                "Cond_Clos_Precision": 0.34782608695652173,
+                "Cond_Clos_Recall": 0.08633093525179857,
+                "Exp_Raw_F1": 0.1437908496732026,
+                "Exp_Clos_F1": 0.138328530259366,
+                "Runtime_sec": 94.44727730751038
+            },
+            {
+                "method": "Our Method (k=1000, clawback=0)",
+                "model": "Qwen/Qwen2.5-7B-Instruct",
+                "Cond_Red_F1": 0.07343941248470014,
+                "Cond_Red_Precision": 0.09615384615384616,
+                "Cond_Red_Recall": 0.0594059405940594,
+                "Cond_Clos_F1": 0.13604504193956105,
+                "Cond_Clos_Precision": 0.1391304347826087,
+                "Cond_Clos_Recall": 0.13309352517985612,
+                "Exp_Raw_F1": 0.08333333333333334,
+                "Exp_Clos_F1": 0.1510015408320493,
+                "Runtime_sec": 101.69018363952637
+            }
+        ]
+    },
+    {
+        "dataset": "POV2_SUB",
+        "use_synsets": false,
+        "explode_nodes": false,
+        "results": [
+            {
+                "method": "Single-Call Baseline",
+                "model": "Qwen/Qwen2.5-7B-Instruct",
+                "Cond_Red_F1": 0.013333333333333332,
+                "Cond_Red_Precision": 0.020833333333333332,
+                "Cond_Red_Recall": 0.00980392156862745,
+                "Cond_Clos_F1": 0.016293279022403257,
+                "Cond_Clos_Precision": 0.08333333333333333,
+                "Cond_Clos_Recall": 0.009029345372460496,
+                "Exp_Raw_F1": 0.013333333333333332,
+                "Exp_Clos_F1": 0.016293279022403257,
+                "Runtime_sec": 94.68927907943726
+            },
+            {
+                "method": "Our Method (k=1000, clawback=0)",
+                "model": "Qwen/Qwen2.5-7B-Instruct",
+                "Cond_Red_F1": 0.21610169491525422,
+                "Cond_Red_Precision": 0.2786885245901639,
+                "Cond_Red_Recall": 0.17647058823529413,
+                "Cond_Clos_F1": 0.11478519172679558,
+                "Cond_Clos_Precision": 0.07095709570957096,
+                "Cond_Clos_Recall": 0.3002257336343115,
+                "Exp_Raw_F1": 0.034015966678236725,
+                "Exp_Clos_F1": 0.11502875718929735,
+                "Runtime_sec": 217.50473427772522
+            }
+        ]
+    },
+    {
+        "dataset": "OBIV2_SUB",
+        "use_synsets": false,
+        "explode_nodes": false,
+        "results": [
+            {
+                "method": "Single-Call Baseline",
+                "model": "Qwen/Qwen2.5-7B-Instruct",
+                "Cond_Red_F1": 0.12871287128712872,
+                "Cond_Red_Precision": 0.13829787234042554,
+                "Cond_Red_Recall": 0.12037037037037036,
+                "Cond_Clos_F1": 0.21554770318021205,
+                "Cond_Clos_Precision": 0.5754716981132075,
+                "Cond_Clos_Recall": 0.13260869565217392,
+                "Exp_Raw_F1": 0.125,
+                "Exp_Clos_F1": 0.21554770318021205,
+                "Runtime_sec": 94.88800525665283
+            },
+            {
+                "method": "Our Method (k=1000, clawback=0)",
+                "model": "Qwen/Qwen2.5-7B-Instruct",
+                "Cond_Red_F1": 0.16697360343769183,
+                "Cond_Red_Precision": 0.17777777777777778,
+                "Cond_Red_Recall": 0.1574074074074074,
+                "Cond_Clos_F1": 0.08990764204485958,
+                "Cond_Clos_Precision": 0.06036446469248292,
+                "Cond_Clos_Recall": 0.17608695652173914,
+                "Exp_Raw_F1": 0.04511278195488722,
+                "Exp_Clos_F1": 0.07605344295991778,
+                "Runtime_sec": 1469.2764406204224
+            }
+        ]
+    },
+    {
+        "dataset": "MatOntoV2_SUB",
+        "use_synsets": false,
+        "explode_nodes": false,
+        "results": [
+            {
+                "method": "Single-Call Baseline",
+                "model": "Qwen/Qwen2.5-7B-Instruct",
+                "Cond_Red_F1": 0.014705882352941176,
+                "Cond_Red_Precision": 0.0625,
+                "Cond_Red_Recall": 0.008333333333333333,
+                "Cond_Clos_F1": 0.03508771929824562,
+                "Cond_Clos_Precision": 0.41935483870967744,
+                "Cond_Clos_Recall": 0.018309859154929577,
+                "Exp_Raw_F1": 0.09944751381215469,
+                "Exp_Clos_F1": 0.07237635705669482,
+                "Runtime_sec": 94.57251477241516
+            },
+            {
+                "method": "Our Method (k=1000, clawback=0)",
+                "model": "Qwen/Qwen2.5-7B-Instruct",
+                "Cond_Red_F1": 0.23389830508474577,
+                "Cond_Red_Precision": 0.3,
+                "Cond_Red_Recall": 0.19166666666666668,
+                "Cond_Clos_F1": 0.15680956636977222,
+                "Cond_Clos_Precision": 0.18661971830985916,
+                "Cond_Clos_Recall": 0.1352112676056338,
+                "Exp_Raw_F1": 0.05753542292829541,
+                "Exp_Clos_F1": 0.1228878648233487,
+                "Runtime_sec": 124.7379698753357
+            }
+        ]
+    }
+]
