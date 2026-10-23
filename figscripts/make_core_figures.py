@@ -23,6 +23,15 @@ STEPS = [
      "--run", f"single-call:{CC}/gemma4_singlecall.json",
      "--ref", "structured", "--out", f"{BASE}/paper_figures/sc_vs_ours_gemma4.png"],
     [sys.executable, f"{HERE}/khop_core.py"],
+    [sys.executable, f"{REPO}/base_comparison.py",
+     "--run", f"gemma4:{CC}/gemma4_structured.json",
+     "--run", f"gemini:{CC}/gemini_structured.json",
+     "--run", f"qwen:{CC}/qwen_structured.json",
+     "--run", f"gptoss:{CC}/gptoss_structured.json",
+     "--ref", "gemma4", "--out", f"{BASE}/paper_figures/base_comparison.png"],
+    [sys.executable, f"{HERE}/normalizer_vis.py"],
+    [sys.executable, f"{HERE}/selfpref_vis.py"],
+    [sys.executable, f"{HERE}/rescore_delta_vis.py"],
 ]
 
 for cmd in STEPS:

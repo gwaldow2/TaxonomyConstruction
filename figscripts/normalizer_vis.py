@@ -22,14 +22,15 @@ def load(p, tag):
     return out
 
 
-st = {"Gemini 3.1 Pro": load("results/results_json/control_gemini.json", "Our Method"),
-      "gpt-oss-120B": load("results/gptoss_20260910/control_gptoss.json", "Our Method"),
-      "Gemma-4-31B": load("results/results_json/control_gemma4N.json", "Our Method"),
-      "Qwen2.5-7B": load("results/results_json/control_qwenN.json", "Our Method")}
-sc = {"Gemini 3.1 Pro": load("results/results_json/sc_gemini_prim_merge.json", "Single-Call"),
-      "gpt-oss-120B": load("results/gptoss_retry_20260917/sc_gptoss_prim_merge.json", "Single-Call"),
-      "Gemma-4-31B": load("results/results_json/sc_gemma4_prim_merge.json", "Single-Call"),
-      "Qwen2.5-7B": load("results/results_json/sc_qwen_prim_merge.json", "Single-Call")}
+CC = "results/corrected_core"
+st = {"Gemini 3.1 Pro": load(f"{CC}/gemini_structured.json", "Our Method"),
+      "gpt-oss-120B": load(f"{CC}/gptoss_structured.json", "Our Method"),
+      "Gemma-4-31B": load(f"{CC}/gemma4_structured.json", "Our Method"),
+      "Qwen2.5-7B": load(f"{CC}/qwen_structured.json", "Our Method")}
+sc = {"Gemini 3.1 Pro": load(f"{CC}/gemini_singlecall.json", "Single-Call"),
+      "gpt-oss-120B": load(f"{CC}/gptoss_singlecall.json", "Single-Call"),
+      "Gemma-4-31B": load(f"{CC}/gemma4_singlecall.json", "Single-Call"),
+      "Qwen2.5-7B": load(f"{CC}/qwen_singlecall.json", "Single-Call")}
 COL = {"Gemini 3.1 Pro": "C3", "gpt-oss-120B": "C1", "Gemma-4-31B": "C0", "Qwen2.5-7B": "C2"}
 
 fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(11.5, 4.6),
@@ -69,8 +70,10 @@ ax2.annotate(f"mean {np.mean(sd_st):.3f}", (1, np.mean(sd_st)), textcoords="offs
 ax2.set_xlim(-0.5, 1.5)
 ax2.set_xticks([0, 1])
 ax2.set_xticklabels(["single-call", "structured"], fontsize=10, fontweight="bold")
+wins = sum(b < a for a, b in zip(sd_sc, sd_st))
 ax2.set_ylabel("between-model SD of F1, per dataset", fontweight="bold")
-ax2.set_title("Per-dataset spread among the three capable models:\nlower under structure on 6 of 7 datasets",
+ax2.set_title("Per-dataset spread among the three capable models:\n"
+              f"lower under structure on {wins} of {len(CORE)} datasets",
               fontsize=9.5, fontweight="bold")
 ax2.grid(axis="y", color="0.93")
 

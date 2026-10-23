@@ -90,6 +90,17 @@ merged_json("gemini_singlecall.json", f"{RJ}/sc_gemini_prim_merge.json",
             f"{CR}/v2r2_gemini.json", "Single-Call")
 merged_json("baselines.json", f"{BASE}/results/baselines_20261002/results/baselines_7core.json",
             f"{CR}/v2r2_baselines.json", None)
+for name, leg, v2 in [
+        ("gptoss_structured.json", f"{BASE}/results/gptoss_20260910/control_gptoss.json", "v2r2_gptoss.json"),
+        ("gptoss_singlecall.json", f"{BASE}/results/gptoss_retry_20260917/sc_gptoss_prim_merge.json", "v2r2_gptoss.json"),
+        ("qwen_structured.json", f"{RJ}/control_qwenN.json", "v2r2_qwen.json"),
+        ("qwen_singlecall.json", f"{RJ}/sc_qwen_prim_merge.json", "v2r2_qwen.json")]:
+    if os.path.exists(f"{CR}/{v2}"):
+        merged_json(name, leg, f"{CR}/{v2}",
+                    "Our Method" if "structured" in name else "Single-Call")
+    else:
+        print(f"[ ] {name} pending: {v2} not in campaign")
+        retire(f"{OUT}/{name}", "predates current references")
 
 # ---- GT eval graphs for all seven (corrected refs for the four) ----
 for ds in LEG3:
