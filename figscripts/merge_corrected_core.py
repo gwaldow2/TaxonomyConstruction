@@ -124,6 +124,18 @@ legs = {(j, p): f"{CR}/rt_{j}_v2r2_{p}.csv"
         for j in ("gemmaJ", "geminiJ") for p in ("gemma4P", "gemini31P")}
 missing = [os.path.basename(p) for p in legs.values() if not os.path.exists(p)]
 if not missing:
+    # per-leg 2x2 CSVs (judge x pred-set), for the self-preference figure
+    for (judge, pred), path in legs.items():
+        leg_path = f"{BASE}/results/x2_20260923/rt_{judge}_{pred}.csv"
+        rows = [r for r in csv.DictReader(open(leg_path, encoding="utf-8")) if r["dataset"] in LEG3]
+        for r in csv.DictReader(open(path, encoding="utf-8")):
+            r["dataset"] = REN.get(r["dataset"], r["dataset"])
+            rows.append(r)
+        with open(f"{OUT}/rt_{judge}_{pred}.csv", "w", newline="", encoding="utf-8") as f:
+            w = csv.DictWriter(f, fieldnames=list(rows[0]))
+            w.writeheader()
+            w.writerows(rows)
+        print(f"wrote rt_{judge}_{pred}.csv: {len(rows)} rows")
     for path in legs.values():
         n_pred = sum(1 for r in csv.DictReader(open(path, encoding="utf-8")) if r.get("source") == "pred")
         if n_pred == 0:
@@ -150,5 +162,7 @@ else:
     print(f"[ ] judge audits pending: {missing}")
     for judge in ("gemmaJ", "geminiJ"):
         retire(f"{OUT}/types_{judge}.csv", "predates current references")
+        for pred in ("gemma4P", "gemini31P"):
+            retire(f"{OUT}/rt_{judge}_{pred}.csv", "predates current references")
     for stale in ("judge_agreement.csv", "consensus_contamination.csv", "votes.csv"):
         retire(f"{OUT}/{stale}", "derived from stale audits")

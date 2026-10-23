@@ -1,4 +1,6 @@
-"""Two-panel judge self-preference figure from the 2x2 audit CSVs."""
+"""Two-panel judge self-preference figure from the 2x2 audit CSVs
+(corrected core by default: build with merge_corrected_core.py; override dir
+via $TAXO_RT, e.g. the legacy results/x2_20260923)."""
 import csv
 import math
 
@@ -6,10 +8,12 @@ import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import numpy as np
+from scipy import stats
 
 import os
-BASE = os.environ.get("TAXO_BASE", "C:/Users/Hoengager/Documents/Claude/TaxonomyConstruction") + "/results/x2_20260923"
-OUT = "C:/Users/Hoengager/Documents/Claude/TaxonomyConstruction/paper_figures/judge_selfpreference.png"
+_TB = os.environ.get("TAXO_BASE", "C:/Users/Hoengager/Documents/Claude/TaxonomyConstruction")
+BASE = os.environ.get("TAXO_RT", f"{_TB}/results/corrected_core")
+OUT = f"{_TB}/paper_figures/judge_selfpreference.png"
 
 
 def load(p):
@@ -41,7 +45,8 @@ fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12.5, 4.6),
                                gridspec_kw={"width_ratios": [1.5, 1]})
 
 # ---- Panel A: the 2x2 with both-judge bars ---------------------------------
-labels = ["Gemma-4 predictions\n(849 FPs)", "Gemini predictions\n(780 FPs)"]
+labels = [f"Gemma-4 predictions\n({cells['gemma4P']['n']} FPs)",
+          f"Gemini predictions\n({cells['gemini31P']['n']} FPs)"]
 x = np.arange(2)
 w = 0.26
 COL = {"gemmaJ": "C0", "geminiJ": "C1", "both": "0.25"}
@@ -72,7 +77,7 @@ ax1.set_xticklabels(labels, fontsize=9.5)
 ax1.set_ylabel("share of metric-FPs judged is-a", fontweight="bold")
 ax1.set_ylim(0, 1.02)
 ax1.legend(fontsize=8.5, loc="upper left")
-ax1.set_title("Each judge favors its own model's edges\n(identical edge sets per group; Wilson 95% CI)",
+ax1.set_title("Judged-true share of each model's metric-FPs\n(identical edge sets per group; Wilson 95% CI)",
               fontsize=10, fontweight="bold")
 
 # ---- Panel B: discordant verdicts (the McNemar evidence) -------------------
@@ -87,13 +92,18 @@ for yi, (a, b) in enumerate(zip(og, oi)):
                  xytext=(4, -3), fontsize=9)
     ax2.annotate(str(b), (b, yi - h / 2), textcoords="offset points",
                  xytext=(4, -3), fontsize=9)
+pvals = []
+for p in ["gemma4P", "gemini31P"]:
+    b, c = cells[p]["onlyGemma"], cells[p]["onlyGemini"]
+    pvals.append(stats.binomtest(min(b, c), b + c, 0.5).pvalue if b + c else 1.0)
 ax2.set_yticks(y)
 ax2.set_yticklabels(["Gemma-4\npredictions", "Gemini\npredictions"], fontsize=9.5)
 ax2.set_xlabel("disagreeing verdicts (count)", fontweight="bold")
-ax2.set_title("Disagreements are directional\n(McNemar $p<10^{-4}$ in both rows)",
+ax2.set_title("Direction of disagreements (exact McNemar:\n"
+              f"Gemma preds $p={pvals[0]:.2g}$, Gemini preds $p={pvals[1]:.2g}$)",
               fontsize=10, fontweight="bold")
 ax2.legend(fontsize=8.5, loc="lower right")
-ax2.set_xlim(0, 145)
+ax2.set_xlim(0, max(og + oi) * 1.3 + 5)
 
 fig.suptitle("Judge self-preference in the predicted-edge audit ($2\\times2$: both judges over both models' full edge sets)",
              fontsize=11, fontweight="bold", y=1.03)
