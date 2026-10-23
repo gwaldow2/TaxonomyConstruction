@@ -39,6 +39,7 @@ carried over). Run it after any new campaign data lands, then regenerate figures
 | `make_core_figures.py` | ONE COMMAND: runs merge + every core-run figure generator below | $TAXO_V2_CAMP campaign dir |
 | `merge_corrected_core.py` | (data) results/corrected_core/ | legacy campaign jsons/CSVs + v2phase1/v2phase2 campaign dirs |
 | `fp_list_core.py` | (data) corrected_core/fp_structured_core.csv: every structured-method FP edge, both models, with reference context + run provenance | $TAXO_V2_CAMP preds; x2_20260923 Gemma diags; battery_20260925 Gemini preds |
+| `fn_list_core.py` | (data) corrected_core/fn_structured_core.csv: every structured-method missed reference pair, both models, with hop depth, failure anatomy, and where the model filed the child | same sources as fp_list_core.py |
 | `method_comparison_vis.py` | method_comparison.png (+ prints tab:methods) | results/corrected_core/*.json |
 | `scaling_vis.py` | scaling_f1.png, scaling_cost.png | results/scaling_20261001/results/*.json + legacy control/sc jsons (N=100 points) |
 | `knee_scale_vis.py` | density_knee_scale.png | results/mech_20260909/density_gemma4.json + results/scaling_20261001/results/density_sub200.json |
