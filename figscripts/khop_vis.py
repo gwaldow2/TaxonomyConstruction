@@ -6,7 +6,9 @@ import matplotlib.pyplot as plt
 
 import os
 BASE = os.environ.get("TAXO_BASE", "C:/Users/Hoengager/Documents/Claude/TaxonomyConstruction")
-OUT = f"{BASE}/paper_figures/khop_recall.png"
+# historical pre-fix figure (frozen battery CSV); the corrected-core three-way
+# version is khop_core.py's paper_figures/khop_recall.png
+OUT = f"{BASE}/paper_figures/khop_recall_prefix_refs.png"
 
 data = {}
 for r in csv.DictReader(open(f"{BASE}/results/battery_20260925/khop_setoverlap.csv", encoding="utf-8")):

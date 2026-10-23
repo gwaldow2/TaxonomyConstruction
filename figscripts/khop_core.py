@@ -13,10 +13,11 @@ import networkx as nx
 
 BASE = os.environ.get("TAXO_BASE", "C:/Users/Hoengager/Documents/Claude/TaxonomyConstruction")
 BATT = f"{BASE}/results/battery_20260925/preds"
+MATCHED = f"{BASE}/results/matched_20260925"
 CAMP = os.environ.get("TAXO_V2_CAMP", f"{BASE}/results/v2r2_20261021")
 P1 = P2 = f"{CAMP}/results"
 OUT_CSV = f"{BASE}/results/corrected_core/khop_core.csv"
-OUT_PNG = f"{BASE}/paper_figures/khop_recall_core.png"
+OUT_PNG = f"{BASE}/paper_figures/khop_recall.png"
 
 LEG3 = ["WordNetFood", "CellOntology", "SemEvalFood"]
 V2_4 = ["SchemaOrgV2", "POV2", "OBIV2", "MatOntoV2"]
@@ -35,6 +36,12 @@ RUNS = [
     ("gemini31", "single-call",
      BATT + "/{ds}_SUB_SingleCall_gemini31b_pred.graphml",
      P2 + "/{ds}_SUB_SingleCall_gemini31_v2_pred.graphml"),
+    ("gemma4", "single-call-matched",
+     MATCHED + "/{ds}_SUB_SingleCall_matched_gemma4m_pred.graphml",
+     P1 + "/{ds}_SUB_SingleCall_matched_gemma4_v2_pred.graphml"),
+    ("gemini31", "single-call-matched",
+     MATCHED + "/{ds}_SUB_SingleCall_matched_gemini31m_pred.graphml",
+     P2 + "/{ds}_SUB_SingleCall_matched_gemini31_v2_pred.graphml"),
 ]
 
 
@@ -112,10 +119,11 @@ ns = {k: tot for (tag, meth, k), (tot, hit) in agg.items()
       if (tag, meth) == ("gemma4", "structured")}
 n_note = ", ".join(str(ns[k]) for k in sorted(ns) if ns[k] >= 10)
 
-fig, axes = plt.subplots(1, 2, figsize=(11.5, 4.5), sharey=True)
+fig, axes = plt.subplots(1, 2, figsize=(11.5, 4.7), sharey=True)
 PANELS = [("gemma4", "Gemma-4-31B"), ("gemini31", "Gemini 3.1 Pro")]
 STYLE = [("structured", "C0", "-", "o", "structured (ours)"),
-         ("single-call", "C1", "--", "s", "single-call")]
+         ("single-call", "C1", "--", "s", "single-call (direct-only prompt)"),
+         ("single-call-matched", "C2", ":", "^", "single-call (matched ancestor prompt)")]
 for ax, (tag, title) in zip(axes, PANELS):
     for meth, col, ls, mk, label in STYLE:
         pts = sorted((k, hit / tot) for (t, m, k), (tot, hit) in agg.items()
@@ -125,11 +133,14 @@ for ax, (tag, title) in zip(axes, PANELS):
     ax.set_xlabel("hop distance $k$ in ground-truth reduction", fontweight="bold")
     ax.set_title(title, fontsize=11, fontweight="bold")
     ax.grid(color="0.92")
-    ax.legend(fontsize=9, loc="lower left", framealpha=0.95)
 axes[0].set_ylabel("recall of $k$-hop closure pairs", fontweight="bold")
-fig.suptitle("Recall by ancestor distance at $N{=}100$: structured extraction stays high at every depth,\n"
-             f"single-call trails it (seven-dataset core, synonym-aware matching; $n$ per hop: {n_note})",
-             fontsize=10.5, fontweight="bold", y=1.08)
+handles, labels = axes[0].get_legend_handles_labels()
+fig.legend(handles, labels, loc="lower center", ncol=3, fontsize=9, frameon=False,
+           bbox_to_anchor=(0.5, -0.08))
+fig.suptitle("Recall by ancestor distance at $N{=}100$: the deep-ancestry gap is the one-call structure,\n"
+             "not the prompt content --- the matched call licenses ancestor edges yet trails like the direct-only call\n"
+             f"(seven-dataset core, synonym-aware matching; $n$ per hop: {n_note})",
+             fontsize=10, fontweight="bold", y=1.14)
 fig.tight_layout()
 fig.savefig(OUT_PNG, dpi=250, bbox_inches="tight")
 print("wrote", OUT_PNG)

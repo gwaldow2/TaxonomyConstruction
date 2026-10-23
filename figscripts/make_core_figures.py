@@ -32,6 +32,14 @@ STEPS = [
     [sys.executable, f"{HERE}/normalizer_vis.py"],
     [sys.executable, f"{HERE}/selfpref_vis.py"],
     [sys.executable, f"{HERE}/rescore_delta_vis.py"],
+    [sys.executable, f"{REPO}/base_comparison.py",
+     "--run", f"Gemma4-31B:{CC}/gemma4_singlecall.json",
+     "--run", f"gpt-oss-120B:{CC}/gptoss_singlecall.json",
+     "--run", f"Qwen2.5-7B:{CC}/qwen_singlecall.json",
+     "--run", f"Gemini 3.1 Pro:{CC}/gemini_singlecall.json",
+     "--ref", "Gemma4-31B", "--out", f"{BASE}/paper_figures/sc_all_models.png"],
+    [sys.executable, f"{HERE}/relation_types_core.py"],
+    [sys.executable, f"{HERE}/heuristic_vis.py"],
 ]
 
 for cmd in STEPS:
