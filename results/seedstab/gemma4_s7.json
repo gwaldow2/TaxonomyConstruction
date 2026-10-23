@@ -1,0 +1,233 @@
+[
+    {
+        "dataset": "WordNetFood_SUB100S7",
+        "use_synsets": false,
+        "explode_nodes": false,
+        "results": [
+            {
+                "method": "Single-Call Baseline",
+                "model": "google/gemma-4-31b-it",
+                "Cond_Red_F1": 0.6372549019607843,
+                "Cond_Red_Precision": 0.6565656565656566,
+                "Cond_Red_Recall": 0.6190476190476191,
+                "Cond_Clos_F1": 0.7630208333333333,
+                "Cond_Clos_Precision": 0.7199017199017199,
+                "Cond_Clos_Recall": 0.8116343490304709,
+                "Exp_Raw_F1": 0.625,
+                "Exp_Clos_F1": 0.7630208333333333,
+                "Runtime_sec": 23.570204734802246
+            },
+            {
+                "method": "Our Method (k=1000, clawback=0)",
+                "model": "google/gemma-4-31b-it",
+                "Cond_Red_F1": 0.6604651162790699,
+                "Cond_Red_Precision": 0.6454545454545455,
+                "Cond_Red_Recall": 0.6761904761904762,
+                "Cond_Clos_F1": 0.69873043692379,
+                "Cond_Clos_Precision": 0.5603112840466926,
+                "Cond_Clos_Recall": 0.9279778393351801,
+                "Exp_Raw_F1": 0.26170798898071623,
+                "Exp_Clos_F1": 0.6124661246612466,
+                "Runtime_sec": 153.67844462394714
+            }
+        ]
+    },
+    {
+        "dataset": "CellOntology_SUB100S7",
+        "use_synsets": false,
+        "explode_nodes": false,
+        "results": [
+            {
+                "method": "Single-Call Baseline",
+                "model": "google/gemma-4-31b-it",
+                "Cond_Red_F1": 0.49579831932773105,
+                "Cond_Red_Precision": 0.59,
+                "Cond_Red_Recall": 0.427536231884058,
+                "Cond_Clos_F1": 0.6616257088846882,
+                "Cond_Clos_Precision": 0.8495145631067961,
+                "Cond_Clos_Recall": 0.541795665634675,
+                "Exp_Raw_F1": 0.49579831932773105,
+                "Exp_Clos_F1": 0.6616257088846882,
+                "Runtime_sec": 34.883769273757935
+            },
+            {
+                "method": "Our Method (k=1000, clawback=0)",
+                "model": "google/gemma-4-31b-it",
+                "Cond_Red_F1": 0.616346289420501,
+                "Cond_Red_Precision": 0.632,
+                "Cond_Red_Recall": 0.6014492753623188,
+                "Cond_Clos_F1": 0.8229114557278638,
+                "Cond_Clos_Precision": 0.7436708860759493,
+                "Cond_Clos_Recall": 0.9210526315789473,
+                "Exp_Raw_F1": 0.24949290060851928,
+                "Exp_Clos_F1": 0.7626903553299492,
+                "Runtime_sec": 335.5154013633728
+            }
+        ]
+    },
+    {
+        "dataset": "SemEvalFood_SUB100S7",
+        "use_synsets": false,
+        "explode_nodes": false,
+        "results": [
+            {
+                "method": "Single-Call Baseline",
+                "model": "google/gemma-4-31b-it",
+                "Cond_Red_F1": 0.4479166666666667,
+                "Cond_Red_Precision": 0.4673913043478261,
+                "Cond_Red_Recall": 0.43,
+                "Cond_Clos_F1": 0.6090133982947625,
+                "Cond_Clos_Precision": 0.5707762557077626,
+                "Cond_Clos_Recall": 0.6527415143603134,
+                "Exp_Raw_F1": 0.4479166666666667,
+                "Exp_Clos_F1": 0.6090133982947625,
+                "Runtime_sec": 21.986284017562866
+            },
+            {
+                "method": "Our Method (k=1000, clawback=0)",
+                "model": "google/gemma-4-31b-it",
+                "Cond_Red_F1": 0.5015021616472485,
+                "Cond_Red_Precision": 0.43609022556390975,
+                "Cond_Red_Recall": 0.59,
+                "Cond_Clos_F1": 0.5318295631461513,
+                "Cond_Clos_Precision": 0.3856655290102389,
+                "Cond_Clos_Recall": 0.856396866840731,
+                "Exp_Raw_F1": 0.1941031941031941,
+                "Exp_Clos_F1": 0.4875912408759124,
+                "Runtime_sec": 139.21611881256104
+            }
+        ]
+    },
+    {
+        "dataset": "SchemaOrgV2_SUB100S7",
+        "use_synsets": false,
+        "explode_nodes": false,
+        "results": [
+            {
+                "method": "Single-Call Baseline",
+                "model": "google/gemma-4-31b-it",
+                "Cond_Red_F1": 0.5744680851063829,
+                "Cond_Red_Precision": 0.6352941176470588,
+                "Cond_Red_Recall": 0.5242718446601942,
+                "Cond_Clos_F1": 0.7234042553191489,
+                "Cond_Clos_Precision": 0.9444444444444444,
+                "Cond_Clos_Recall": 0.5862068965517241,
+                "Exp_Raw_F1": 0.5654450261780105,
+                "Exp_Clos_F1": 0.7234042553191489,
+                "Runtime_sec": 21.073428630828857
+            },
+            {
+                "method": "Our Method (k=1000, clawback=0)",
+                "model": "google/gemma-4-31b-it",
+                "Cond_Red_F1": 0.6666666666666667,
+                "Cond_Red_Precision": 0.6293103448275862,
+                "Cond_Red_Recall": 0.7087378640776699,
+                "Cond_Clos_F1": 0.8164967927275588,
+                "Cond_Clos_Precision": 0.7208672086720868,
+                "Cond_Clos_Recall": 0.9413793103448276,
+                "Exp_Raw_F1": 0.3982494529540482,
+                "Exp_Clos_F1": 0.7947976878612718,
+                "Runtime_sec": 98.7700707912445
+            }
+        ]
+    },
+    {
+        "dataset": "POV2_SUB100S7",
+        "use_synsets": false,
+        "explode_nodes": false,
+        "results": [
+            {
+                "method": "Single-Call Baseline",
+                "model": "google/gemma-4-31b-it",
+                "Cond_Red_F1": 0.5094339622641509,
+                "Cond_Red_Precision": 0.5454545454545454,
+                "Cond_Red_Recall": 0.4778761061946903,
+                "Cond_Clos_F1": 0.6145251396648045,
+                "Cond_Clos_Precision": 0.8764940239043825,
+                "Cond_Clos_Recall": 0.4731182795698925,
+                "Exp_Raw_F1": 0.5094339622641509,
+                "Exp_Clos_F1": 0.6145251396648045,
+                "Runtime_sec": 33.36177396774292
+            },
+            {
+                "method": "Our Method (k=1000, clawback=0)",
+                "model": "google/gemma-4-31b-it",
+                "Cond_Red_F1": 0.6324075115259192,
+                "Cond_Red_Precision": 0.5967741935483871,
+                "Cond_Red_Recall": 0.672566371681416,
+                "Cond_Clos_F1": 0.7500131933083541,
+                "Cond_Clos_Precision": 0.6434262948207171,
+                "Cond_Clos_Recall": 0.8989247311827957,
+                "Exp_Raw_F1": 0.28101644245142005,
+                "Exp_Clos_F1": 0.7233676975945017,
+                "Runtime_sec": 224.33877182006836
+            }
+        ]
+    },
+    {
+        "dataset": "OBIV2_SUB100S7",
+        "use_synsets": false,
+        "explode_nodes": false,
+        "results": [
+            {
+                "method": "Single-Call Baseline",
+                "model": "google/gemma-4-31b-it",
+                "Cond_Red_F1": 0.6224489795918368,
+                "Cond_Red_Precision": 0.6703296703296703,
+                "Cond_Red_Recall": 0.580952380952381,
+                "Cond_Clos_F1": 0.5390070921985817,
+                "Cond_Clos_Precision": 0.7196969696969697,
+                "Cond_Clos_Recall": 0.4308390022675737,
+                "Exp_Raw_F1": 0.6224489795918368,
+                "Exp_Clos_F1": 0.5390070921985817,
+                "Runtime_sec": 35.099016189575195
+            },
+            {
+                "method": "Our Method (k=1000, clawback=0)",
+                "model": "google/gemma-4-31b-it",
+                "Cond_Red_F1": 0.5070422535211268,
+                "Cond_Red_Precision": 0.5,
+                "Cond_Red_Recall": 0.5142857142857142,
+                "Cond_Clos_F1": 0.730972596471605,
+                "Cond_Clos_Precision": 0.6694214876033058,
+                "Cond_Clos_Recall": 0.8049886621315193,
+                "Exp_Raw_F1": 0.2643856920684292,
+                "Exp_Clos_F1": 0.6722846441947565,
+                "Runtime_sec": 251.73517751693726
+            }
+        ]
+    },
+    {
+        "dataset": "MatOntoV2_SUB100S7",
+        "use_synsets": false,
+        "explode_nodes": false,
+        "results": [
+            {
+                "method": "Single-Call Baseline",
+                "model": "google/gemma-4-31b-it",
+                "Cond_Red_F1": 0.6210045662100457,
+                "Cond_Red_Precision": 0.6666666666666666,
+                "Cond_Red_Recall": 0.5811965811965812,
+                "Cond_Clos_F1": 0.720949957591179,
+                "Cond_Clos_Precision": 0.8673469387755102,
+                "Cond_Clos_Recall": 0.6168359941944848,
+                "Exp_Raw_F1": 0.5900383141762452,
+                "Exp_Clos_F1": 0.7272727272727273,
+                "Runtime_sec": 29.125332593917847
+            },
+            {
+                "method": "Our Method (k=1000, clawback=0)",
+                "model": "google/gemma-4-31b-it",
+                "Cond_Red_F1": 0.4476534296028881,
+                "Cond_Red_Precision": 0.3875,
+                "Cond_Red_Recall": 0.5299145299145299,
+                "Cond_Clos_F1": 0.7253450596747317,
+                "Cond_Clos_Precision": 0.6291240045506257,
+                "Cond_Clos_Recall": 0.8563134978229318,
+                "Exp_Raw_F1": 0.2694541231126597,
+                "Exp_Clos_F1": 0.7307692307692307,
+                "Runtime_sec": 194.56958079338074
+            }
+        ]
+    }
+]
